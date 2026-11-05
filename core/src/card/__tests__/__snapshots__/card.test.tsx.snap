@@ -94,18 +94,14 @@ exports[`com.mgmtp.a12.widgets.card > rendering-card-action-area 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.card > rendering-card-content 1`] = `
-.c1 {
+.c0 {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   position: relative;
 }
 
-.c2 .c0:last-child {
-  padding-bottom: 4px;
-}
-
 <div
-  class="c0 c1 card__content test-class"
+  class="c0 card__content test-class"
   data-role="card-content"
   id="test-id"
   style="background-color: red;"

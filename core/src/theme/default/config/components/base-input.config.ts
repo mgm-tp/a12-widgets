@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { BaseThemeType } from "../../../schema/base-theme.js";
 import type { CustomBorder } from "../../../base/mixins/_borderEffects.js";
+import type { BaseThemeType } from "../../../schema/base-theme.js";
 
 export type BaseInputConfigType = {
 	boolean: {
@@ -79,6 +79,7 @@ export type BaseInputConfigType = {
 		labelMargin: string;
 		labelGap: string;
 		messageMargin: string;
+		messageMarginBelow?: string;
 		mobileContentboxPadding: string;
 		outlineOffset: number | string;
 		padding: string;
@@ -87,6 +88,7 @@ export type BaseInputConfigType = {
 		prefixMinWidth: string;
 		readonly: { background: string; boxShadow: string };
 		tooltipInNewLineMargin: string;
+		tooltipInNewLineMarginBelow?: string;
 		warning: {
 			activeBoxShadow: string;
 			boxShadow: string;
@@ -179,6 +181,7 @@ export const baseInputConfig = (theme: BaseThemeType): BaseInputConfigType => {
 			labelMargin: `0 0 ${spacing.verticalSpacing.vertWhiteSpacing2xs}px 0`,
 			labelGap: `${spacing.horizontalSpacing.horizWhiteSpacing2xs}px`,
 			messageMargin: `0 0 ${spacing.verticalSpacing.vertWhiteSpacing2xs}px 0`,
+			messageMarginBelow: `${spacing.verticalSpacing.vertWhiteSpacing2xs}px 0 0 0`,
 			mobileContentboxPadding: `${spacing.verticalSpacing.vertWhiteSpacingmd}px ${spacing.horizontalSpacing.horizWhiteSpacingmd}px 0`,
 			outlineOffset: 0,
 			padding: `0 ${spacing.horizontalSpacing.horizWhiteSpacingsm - 4}px`,
@@ -190,6 +193,7 @@ export const baseInputConfig = (theme: BaseThemeType): BaseInputConfigType => {
 				boxShadow: "none"
 			},
 			tooltipInNewLineMargin: `0 ${spacing.horizontalSpacing.horizWhiteSpacing2xs}px ${spacing.verticalSpacing.vertWhiteSpacing2xs}px 0`,
+			tooltipInNewLineMarginBelow: `${spacing.verticalSpacing.vertWhiteSpacing2xs}px ${spacing.horizontalSpacing.horizWhiteSpacing2xs}px 0 0`,
 			warning: {
 				activeBoxShadow: `${applicationStyles.input.hoverBorder} ${colors.interaction.active.colorTouch}`,
 				boxShadow: `${applicationStyles.input.defaultBorder} ${colors.variant.warningColorDark}`,

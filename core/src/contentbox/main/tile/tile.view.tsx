@@ -34,15 +34,14 @@ import type { ReactElement } from "react";
 import { styled, css } from "styled-components";
 
 import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
-
 import {
 	StyledContentBoxTitleWrapper,
 	StyledContentBoxHeading,
 	StyledHeadingIcon,
 	StyledContentBoxContent
 } from "../template/contentbox.tpl.styled.js";
-import { StyledHeadingElementsWrapper } from "../template/elements/heading.tpl.view.js";
 import { ContentBox, ContentBoxElements } from "../template/contentbox.tpl.view.js";
+import { StyledHeadingElementsWrapper } from "../template/elements/heading.tpl.view.js";
 
 import type { TileProps } from "./tile.api.js";
 

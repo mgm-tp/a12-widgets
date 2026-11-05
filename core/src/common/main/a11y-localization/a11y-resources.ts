@@ -34,6 +34,13 @@ import type { A11yResourceTypeDefinition } from "./a11y-key-definition.api.js";
 
 export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 	de: {
+		dragAndDropTitles: {
+			grabInstructions:
+				"Aufgenommen. Mit den Pfeiltasten verschieben, mit der Leertaste ablegen, mit Escape abbrechen.",
+			movedAnnouncement: "Auf Position {position} von {total} verschoben",
+			dropped: "Abgelegt.",
+			moveCancelled: "Verschieben abgebrochen."
+		},
 		accordionVariantTitles: {
 			open: "Offen",
 			info: "Information",
@@ -203,7 +210,11 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 			sortDescendingAnnouncement: "Absteigend sortiert",
 			sortClearedAnnouncement: "Sortierung aufgehoben",
 			emptyStateLabel: "Keine Daten",
-			actionColumnDefaultLabel: "Aktionen"
+			rowDisabledBadgeLabel: "Deaktiviert",
+			rowSuccessBadgeLabel: "Erfolg",
+			rowInfoBadgeLabel: "Info",
+			rowExpandedLabel: "Aufgeklappt",
+			rowCollapsedLabel: "Zugeklappt"
 		},
 		headerTriggerTitles: {
 			headerTriggerText: "Gewählt ",
@@ -258,6 +269,15 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 		progressIndicatorTitles: {
 			loadingLabel: "Ladeprozess"
 		},
+		columnVisibilityPanelTitles: {
+			title: "Spalten",
+			resetAction: "Auf Standard zurücksetzen",
+			closeButton: "Spaltenauswahl schließen",
+			showAllAction: "Alle anzeigen",
+			searchPlaceholder: "Spalten suchen",
+			clearSearchButton: "Suche löschen",
+			noResults: "Keine passenden Spalten"
+		},
 		contentboxTitles: {
 			backButtonTitle: "Zurück",
 			closeButtonTitle: "Schließen",
@@ -299,6 +319,90 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 			alignCenterButton: "Zentriert",
 			alignJustifyButton: "Blocksatz"
 		},
+		markdownEditorTitles: {
+			imageUpload: {
+				chooseFile: "Datei auswählen…",
+				uploading: "Bild wird hochgeladen…",
+				uploaded: "Bild hochgeladen.",
+				failed: "Bild-Upload fehlgeschlagen.",
+				retry: "Erneut versuchen",
+				tooLarge: "Das Bild ist zu groß.",
+				typeRejected: "Dieser Dateityp ist nicht erlaubt.",
+				urlRejected: "Die Bild-URL ist nicht erlaubt."
+			},
+			infoPanel: {
+				menu: "Infofeld",
+				remove: "Infofeld entfernen",
+				info: "Info",
+				note: "Notiz",
+				success: "Erfolg",
+				warning: "Warnung",
+				error: "Fehler"
+			},
+			toolbarLabel: "Formatierung",
+			undo: "Rückgängig",
+			redo: "Wiederherstellen",
+			bold: "Fett",
+			italic: "Kursiv",
+			strikethrough: "Durchgestrichen",
+			underline: "Unterstrichen",
+			highlight: "Hervorheben",
+			code: "Inline-Code",
+			subscript: "Tiefgestellt",
+			superscript: "Hochgestellt",
+			headingMenu: "Absatzformat",
+			paragraph: "Absatz",
+			heading1: "Überschrift 1",
+			heading2: "Überschrift 2",
+			heading3: "Überschrift 3",
+			heading4: "Überschrift 4",
+			heading5: "Überschrift 5",
+			heading6: "Überschrift 6",
+			bulletList: "Aufzählung",
+			orderedList: "Nummerierte Liste",
+			taskList: "Aufgabenliste",
+			indent: "Einzug vergrößern",
+			outdent: "Einzug verkleinern",
+			link: "Link",
+			image: "Bild",
+			codeBlockMenu: "Codeblock",
+			blockquote: "Zitat",
+			horizontalRule: "Trennlinie",
+			tableMenu: "Tabelle",
+			insertTable: "Tabelle einfügen",
+			addRowBefore: "Zeile davor einfügen",
+			addRowAfter: "Zeile danach einfügen",
+			addColumnBefore: "Spalte davor einfügen",
+			addColumnAfter: "Spalte danach einfügen",
+			deleteRow: "Zeile löschen",
+			deleteColumn: "Spalte löschen",
+			alignColumnLeft: "Spalte linksbündig ausrichten",
+			alignColumnCenter: "Spalte zentriert ausrichten",
+			alignColumnRight: "Spalte rechtsbündig ausrichten",
+			deleteTable: "Tabelle löschen",
+			editImage: "Eigenschaften bearbeiten",
+			deleteImage: "Bild löschen",
+			modeSwitcherLabel: "Ansicht",
+			modeEdit: "Bearbeiten",
+			modeSource: "Quelltext",
+			modeView: "Vorschau",
+			linkDialogTitle: "Link einfügen",
+			linkUrlLabel: "URL",
+			linkTextLabel: "Text",
+			linkSubmit: "Übernehmen",
+			linkRemove: "Link entfernen",
+			linkInvalid: "Ungültige oder nicht erlaubte URL.",
+			imageDialogTitle: "Bild einfügen",
+			imageEditDialogTitle: "Bild bearbeiten",
+			imageSrcLabel: "Bildquelle (URL)",
+			imageAltLabel: "Alternativtext",
+			imageTitleLabel: "Titel",
+			imageSubmit: "Einfügen",
+			imageUpdate: "Übernehmen",
+			imageInvalid: "Ungültige oder nicht erlaubte Bild-URL.",
+			directiveUnknown: "Unbekannte Direktive, bleibt beim Speichern erhalten.",
+			cancel: "Abbrechen"
+		},
 		treeTableTitles: {
 			treeTableLabel: "Zeilenfunktionen können mit der Eingabetaste in einer Zelle aktiviert werden."
 		},
@@ -320,6 +424,12 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 		}
 	},
 	en: {
+		dragAndDropTitles: {
+			grabInstructions: "Grabbed. Use the arrow keys to move, Space to drop, Escape to cancel.",
+			movedAnnouncement: "Moved to position {position} of {total}",
+			dropped: "Dropped.",
+			moveCancelled: "Move cancelled."
+		},
 		accordionVariantTitles: {
 			open: "Open",
 			info: "Info",
@@ -490,7 +600,11 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 			sortDescendingAnnouncement: "Sorted descending",
 			sortClearedAnnouncement: "Sort cleared",
 			emptyStateLabel: "No data",
-			actionColumnDefaultLabel: "Actions"
+			rowDisabledBadgeLabel: "Disabled",
+			rowSuccessBadgeLabel: "Success",
+			rowInfoBadgeLabel: "Info",
+			rowExpandedLabel: "Expanded",
+			rowCollapsedLabel: "Collapsed"
 		},
 		headerTriggerTitles: {
 			headerTriggerText: "Selected ",
@@ -545,6 +659,15 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 		progressIndicatorTitles: {
 			loadingLabel: "Loading"
 		},
+		columnVisibilityPanelTitles: {
+			title: "Columns",
+			resetAction: "Reset to default",
+			closeButton: "Close column selection",
+			showAllAction: "Show all",
+			searchPlaceholder: "Search columns",
+			clearSearchButton: "Clear the search",
+			noResults: "No matching columns"
+		},
 		contentboxTitles: {
 			backButtonTitle: "Back",
 			closeButtonTitle: "Close",
@@ -585,6 +708,90 @@ export const A11yResourceDefinitions: A11yResourceTypeDefinition = {
 			alignRightButton: "Right",
 			alignCenterButton: "Centered",
 			alignJustifyButton: "Justified"
+		},
+		markdownEditorTitles: {
+			imageUpload: {
+				chooseFile: "Choose file…",
+				uploading: "Uploading image…",
+				uploaded: "Image uploaded.",
+				failed: "Image upload failed.",
+				retry: "Retry",
+				tooLarge: "The image is too large.",
+				typeRejected: "That file type is not allowed.",
+				urlRejected: "That image URL is not allowed."
+			},
+			infoPanel: {
+				menu: "Info panel",
+				remove: "Remove panel",
+				info: "Info",
+				note: "Note",
+				success: "Success",
+				warning: "Warning",
+				error: "Error"
+			},
+			toolbarLabel: "Formatting",
+			undo: "Undo",
+			redo: "Redo",
+			bold: "Bold",
+			italic: "Italic",
+			strikethrough: "Strikethrough",
+			underline: "Underline",
+			highlight: "Highlight",
+			code: "Inline code",
+			subscript: "Subscript",
+			superscript: "Superscript",
+			headingMenu: "Paragraph style",
+			paragraph: "Paragraph",
+			heading1: "Heading 1",
+			heading2: "Heading 2",
+			heading3: "Heading 3",
+			heading4: "Heading 4",
+			heading5: "Heading 5",
+			heading6: "Heading 6",
+			bulletList: "Bullet list",
+			orderedList: "Numbered list",
+			taskList: "Task list",
+			indent: "Increase indent",
+			outdent: "Decrease indent",
+			link: "Link",
+			image: "Image",
+			codeBlockMenu: "Code block",
+			blockquote: "Blockquote",
+			horizontalRule: "Horizontal rule",
+			tableMenu: "Table",
+			insertTable: "Insert table",
+			addRowBefore: "Insert row above",
+			addRowAfter: "Insert row below",
+			addColumnBefore: "Insert column before",
+			addColumnAfter: "Insert column after",
+			deleteRow: "Delete row",
+			deleteColumn: "Delete column",
+			alignColumnLeft: "Align column to left",
+			alignColumnCenter: "Align column to center",
+			alignColumnRight: "Align column to right",
+			deleteTable: "Delete table",
+			editImage: "Edit properties",
+			deleteImage: "Delete image",
+			modeSwitcherLabel: "View",
+			modeEdit: "Edit",
+			modeSource: "Source",
+			modeView: "Preview",
+			linkDialogTitle: "Insert link",
+			linkUrlLabel: "URL",
+			linkTextLabel: "Text",
+			linkSubmit: "Apply",
+			linkRemove: "Remove link",
+			linkInvalid: "Invalid or disallowed URL.",
+			imageDialogTitle: "Insert image",
+			imageEditDialogTitle: "Edit image",
+			imageSrcLabel: "Image source (URL)",
+			imageAltLabel: "Alt text",
+			imageTitleLabel: "Title",
+			imageSubmit: "Insert",
+			imageUpdate: "Apply",
+			imageInvalid: "Invalid or disallowed image URL.",
+			directiveUnknown: "Unknown directive, kept as written when saving.",
+			cancel: "Cancel"
 		},
 		treeTableTitles: {
 			treeTableLabel: "You can trigger the row action with Enter on a cell."

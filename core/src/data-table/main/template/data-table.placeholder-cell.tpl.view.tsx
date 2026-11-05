@@ -34,7 +34,6 @@ import type { ReactElement, ReactNode } from "react";
 import { css, styled } from "styled-components";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
 import { cellBase, pinnedCell, StyledCellContent, useCellPinning } from "./data-table.styled-utils.js";
@@ -42,9 +41,15 @@ import { DataTableZIndex } from "./data-table.z-index.js";
 
 export const StyledDataTablePlaceholderCell = styled.td.withConfig({
 	displayName: "StyledDataTablePlaceholderCell-sc-"
-})<{ $pinned?: "left" | "right"; $pinnedEdge?: boolean }>(({ theme, $pinned, $pinnedEdge }) => {
+})<{
+	$pinned?: "left" | "right";
+	$pinnedEdge?: boolean;
+
+	/** Whether this cell sits in the table's first column, which earns the inset. */
+	$firstCell?: boolean;
+}>(({ theme, $pinned, $pinnedEdge, $firstCell }) => {
 	return css`
-		${cellBase(theme)}
+		${cellBase(theme, $firstCell)}
 		overflow: hidden;
 		position: relative;
 
@@ -69,15 +74,19 @@ export function DataTablePlaceholderCellTpl({
 	pinning,
 	children
 }: DataTablePlaceholderCellTplProps): ReactElement {
-	const cardView = useDataTableContext((ctx) => ctx.cardView);
+	const gridRole = useDataTableContext().gridRole;
+	// (tree)grid mode drops the native `<td>` gridcell mapping — restate it, matching
+	// the regular body cell.
+	const cellRole = gridRole ? "gridcell" : undefined;
 	const { pinStyle, isPinnedEdge } = useCellPinning(pinning, columnIndex);
 
 	return (
 		<StyledDataTablePlaceholderCell
 			data-role={DataRoles.Table.Body.Cell}
-			role={cardView ? "presentation" : undefined}
+			role={cellRole}
 			$pinned={pinning}
 			$pinnedEdge={isPinnedEdge}
+			$firstCell={columnIndex === 0}
 			style={pinStyle}
 		>
 			<StyledCellContent $verticalAlignment="middle">{children}</StyledCellContent>

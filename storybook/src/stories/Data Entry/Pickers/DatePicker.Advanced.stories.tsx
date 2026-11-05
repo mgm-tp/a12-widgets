@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useState, useEffect, useCallback, useMemo } from "react";
-import { de } from "date-fns/locale/de";
 import { TZDate } from "@date-fns/tz/date";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { isAfter } from "date-fns";
+import { de } from "date-fns/locale/de";
+import { useState, useEffect, useCallback, useMemo } from "react";
 
 import type { DateRange as DateRangeType } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DateInput, DateTimeUtils, DateTimeContext } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -58,8 +58,7 @@ function convertDate(value: string, timezone?: string): Date | undefined {
 const meta: Meta<typeof DateInput> = {
 	title: "Data Entry/Pickers/DatePicker/Advanced",
 	component: DateInput,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;
@@ -176,7 +175,7 @@ export const DateRange: Story = {
 			);
 
 			return (
-				<div style={{ width: 480 }}>
+				<div style={{ width: "100%", maxWidth: 480 }}>
 					<DateInput
 						id="date-range-picker"
 						label="Date Range Picker"

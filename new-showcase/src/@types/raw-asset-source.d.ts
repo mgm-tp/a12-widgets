@@ -34,3 +34,15 @@ declare module "*?raw" {
 	const rawFileContent: string;
 	export default rawFileContent;
 }
+
+// Rsbuild supports Vite-compatible import.meta.glob — declare it since vite is not a direct dependency.
+interface ImportMeta {
+	glob<T = Record<string, unknown>>(
+		pattern: string | string[],
+		options: { eager: true; query?: string }
+	): Record<string, T>;
+	glob<T = Record<string, unknown>>(
+		pattern: string | string[],
+		options?: { eager?: false; query?: string }
+	): Record<string, () => Promise<T>>;
+}

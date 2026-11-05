@@ -37,9 +37,38 @@ import { Button, ButtonGroup } from "@com.mgmtp.a12.widgets/widgets-core";
 import { TreeView } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import type { FileNode } from "./basic.js";
-import { FILE_TREE, fileIcon } from "./basic.js";
+import { fileIcon } from "./basic.js";
 
-const FOLDER_KEYS: Key[] = ["src", "components", "docs"];
+// Same shape as the basic example, with keys of its own — several trees share this page and node keys
+// must be unique document-wide (a node's DOM id is derived from its key).
+const FILE_TREE: FileNode[] = [
+	{
+		id: "controlled-expansion-src",
+		label: "src",
+		kind: "folder",
+		children: [
+			{
+				id: "controlled-expansion-components",
+				label: "components",
+				kind: "folder",
+				children: [
+					{ id: "controlled-expansion-button", label: "button.tsx", kind: "file" },
+					{ id: "controlled-expansion-input", label: "input.tsx", kind: "file" }
+				]
+			},
+			{ id: "controlled-expansion-index", label: "index.ts", kind: "file" }
+		]
+	},
+	{
+		id: "controlled-expansion-docs",
+		label: "docs",
+		kind: "folder",
+		children: [{ id: "controlled-expansion-readme", label: "README.md", kind: "file" }]
+	},
+	{ id: "controlled-expansion-package", label: "package.json", kind: "file" }
+];
+
+const FOLDER_KEYS: Key[] = ["controlled-expansion-src", "controlled-expansion-components", "controlled-expansion-docs"];
 
 /**
  * Expansion driven by the consumer via `expandedKeys` + `onExpandedChange` (rather than the uncontrolled
@@ -47,7 +76,8 @@ const FOLDER_KEYS: Key[] = ["src", "components", "docs"];
  * back — letting you persist expansion, sync it with external state, or wire up expand/collapse-all.
  */
 export function ControlledExpansionTreeView(): ReactElement {
-	const [expanded, setExpanded] = useState<ReadonlySet<Key>>(() => new Set(["src"]));
+	const [expanded, setExpanded] = useState<ReadonlySet<Key>>(() => new Set(["controlled-expansion-src"]));
+	const [selected, setSelected] = useState<ReadonlySet<Key>>(new Set());
 
 	return (
 		<div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -56,6 +86,7 @@ export function ControlledExpansionTreeView(): ReactElement {
 				<Button onClick={() => setExpanded(new Set())}>Collapse all</Button>
 			</ButtonGroup>
 			<TreeView<FileNode>
+				id="controlled-expansion-tree-view"
 				tree={FILE_TREE}
 				rowKey="id"
 				getChildren={(node) => node.children}
@@ -63,6 +94,9 @@ export function ControlledExpansionTreeView(): ReactElement {
 				getIcon={fileIcon}
 				expandedKeys={expanded}
 				onExpandedChange={setExpanded}
+				selectionMode="single"
+				selectedKeys={selected}
+				onSelectionChange={setSelected}
 			/>
 		</div>
 	);

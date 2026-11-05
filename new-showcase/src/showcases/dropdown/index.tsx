@@ -30,22 +30,28 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import DropdownAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/dropdown/main/template/dropdown.tpl.api.json" with { type: "json" };
+import basicCode from "!./basic.tsx?raw";
+import extendedDropdownShowcaseCode from "!./extended-dropdown.tsx?raw";
+import externalNavigationCode from "!./external-navigation.tsx?raw";
+import dropDownWithGraphicShowcaseCode from "!./items-with-graphic.tsx?raw";
+import itemsWithLabelRendererCode from "!./items-with-label-renderer.tsx?raw";
+import multipleSelectionModeCode from "!./multiple-selection-mode.tsx?raw";
+import windowedListCode from "!./windowed-list.tsx?raw";
+import withLinkItemsCode from "!./with-link-items.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import DropdownAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/dropdown/main/template/dropdown.tpl.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { DropDownWithGraphicShowcase } from "./items-with-graphic.js";
 import { Basic } from "./basic.js";
 import { ExtendedDropdownShowcase } from "./extended-dropdown.js";
-import { WithLinkItems } from "./with-link-items.js";
+import { ExternalNavigationShowcase } from "./external-navigation.js";
+import { DropDownWithGraphicShowcase } from "./items-with-graphic.js";
 import { DropDownWithLabelRendererShowcase } from "./items-with-label-renderer.js";
-
-import basicCode from "!./basic.tsx?raw";
-import dropDownWithGraphicShowcaseCode from "!./items-with-graphic.tsx?raw";
-import withLinkItemsCode from "!./with-link-items.tsx?raw";
-import extendedDropdownShowcaseCode from "!./extended-dropdown.tsx?raw";
-import itemsWithLabelRendererCode from "!./items-with-label-renderer.tsx?raw";
+import { MultipleSelectionModeShowcase } from "./multiple-selection-mode.js";
+import { WindowedListShowcase } from "./windowed-list.js";
+import { WithLinkItems } from "./with-link-items.js";
 
 const showcases: Showcase[] = [
 	{
@@ -105,6 +111,68 @@ const showcases: Showcase[] = [
 				content: <ExtendedDropdownShowcase />,
 				useConfiguration: true,
 				code: { name: "extended-dropdown.tsx", code: extendedDropdownShowcaseCode }
+			},
+			{
+				label: "Multiple Selection Mode",
+				description: (
+					<>
+						<p>
+							Set <code>selectionMode</code> to <code>&quot;multiple&quot;</code> to let the user select several
+							options. The list then puts a checkbox in front of every option, announces itself as multi-selectable, and
+							toggles an option on click, Space or Enter instead of replacing the selection. The selection is passed as{" "}
+							<code>selectedItems</code> and reported by <code>onSelectionChange</code>, together with the option that
+							was toggled.
+						</p>
+						<p>
+							Each option carries the value it stands for as <code>data</code>, which every callback hands back
+							untouched — so there is nothing to match back onto your own model. An option with{" "}
+							<code>indeterminate</code> shows the mixed state, which is what a &quot;select all&quot; entry needs.
+						</p>
+					</>
+				),
+				content: <MultipleSelectionModeShowcase />,
+				code: { name: "multiple-selection-mode.tsx", code: multipleSelectionModeCode }
+			},
+			{
+				label: "Long Lists",
+				description: (
+					<>
+						<p>
+							With <code>virtualize</code> the list renders only the options in view, so opening and filtering stay fast
+							no matter how many options there are. Option heights are measured as they appear, so options of differing
+							height still position correctly; <code>estimatedItemHeight</code> sets the height assumed before an option
+							has been measured.
+						</p>
+						<p>
+							Toggle it off below to compare: the same 10 000 options, every one of them rendered. Note that only the
+							options in view exist in the DOM while it is on, which is worth knowing when you assert on them in tests —
+							the real list size is still reported through <code>aria-setsize</code>.
+						</p>
+					</>
+				),
+				content: <WindowedListShowcase />,
+				useConfiguration: true,
+				code: { name: "windowed-list.tsx", code: windowedListCode }
+			},
+			{
+				label: "Navigation From Outside",
+				description: (
+					<>
+						<p>
+							A combobox is a field that keeps the focus plus a list that holds the options, so the two have to agree on
+							which option is active. <code>useDropdownNavigation</code> holds that active option outside the list, and
+							the list is handed the result through its <code>navigation</code> property.
+						</p>
+						<p>
+							The field forwards its arrow keys to <code>handleKeyDown</code> and reads the active option for{" "}
+							<code>aria-activedescendant</code>, without ever holding a reference to the rendered list. Moving the
+							active option also scrolls it into view and reports it through <code>onPreselectedItemChange</code>.
+						</p>
+					</>
+				),
+				content: <ExternalNavigationShowcase />,
+				useConfiguration: true,
+				code: { name: "external-navigation.tsx", code: externalNavigationCode }
 			},
 			{
 				label: "With Link Items",

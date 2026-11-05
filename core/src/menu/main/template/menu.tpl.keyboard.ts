@@ -35,7 +35,6 @@ import { Key } from "ts-key-enum";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
 import type { KeyboardNavigationMode } from "../../../keyboard-navigation/main/keyboard-navigation.api.js";
-
 import type { MenuItem } from "../menu.api.js";
 import { getNavigableMenuItems, updateMenuRovingTabIndex } from "../menu.utils.js";
 

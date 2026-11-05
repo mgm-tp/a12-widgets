@@ -48,7 +48,6 @@ const meta: Meta<typeof Link> = {
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		children: {
 			control: "text",
@@ -69,7 +68,14 @@ const meta: Meta<typeof Link> = {
 		},
 		useAsButton: {
 			control: "boolean",
-			description: "If set to true, a role='button' will be added"
+			description: "If set to true, a role='button' will be added and the link can be used as a button"
+		},
+		linkAttributes: {
+			control: "object",
+			description: "Additional native attributes placed on the underlying anchor element"
+		},
+		onClick: {
+			description: "Handle event when click on the link"
 		}
 	},
 	args: {
@@ -80,7 +86,7 @@ const meta: Meta<typeof Link> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		children: "Click here",
 		href: "#"
@@ -92,6 +98,14 @@ export const WithTitle: Story = {
 		children: "Hover for tooltip",
 		href: "#",
 		title: "This is a tooltip"
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `title` prop sets the native tooltip and is also used as the interaction hint text when hints are enabled."
+			}
+		}
 	}
 };
 
@@ -100,6 +114,13 @@ export const ExternalLink: Story = {
 		children: "Open in new tab",
 		href: "https://example.com",
 		target: "_blank"
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: 'Use `target="_blank"` to open the linked resource in a new tab.'
+			}
+		}
 	}
 };
 
@@ -107,6 +128,14 @@ export const UseAsButton: Story = {
 	args: {
 		children: "Click me (button behavior)",
 		useAsButton: true
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'`useAsButton` adds `role="button"` for links that trigger an interactive function instead of navigating to an `href`.'
+			}
+		}
 	}
 };
 
@@ -114,72 +143,17 @@ export const WithCustomContent: Story = {
 	args: {
 		children: <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>📧 Contact Us</span>,
 		href: "#"
-	}
-};
-
-export const AllVariants: Story = {
-	render: () => (
-		<div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-			<Link href="#">Default Link</Link>
-			<Link href="#" title="With tooltip">
-				Link with Title
-			</Link>
-			<Link href="https://example.com" target="_blank">
-				External Link (opens in new tab)
-			</Link>
-			<Link useAsButton onClick={() => alert("Clicked!")}>
-				Link as Button
-			</Link>
-		</div>
-	)
-};
-
-export const WithInteractionHint: Story = {
-	args: {
-		children: "Link with Hint",
-		title: "Click to navigate",
-		href: "#"
 	},
 	parameters: {
 		docs: {
 			description: {
-				story: "Interaction hints are enabled through InteractionHintConfigProvider using the new API."
+				story: "`children` accepts arbitrary React nodes, so the link content can combine icons and text."
 			}
 		}
 	}
 };
 
-export const WithInteractionHintFollowCursor: Story = {
-	decorators: [
-		(Story) => (
-			<InteractionHintConfigProvider componentConfigs={{ link: { enabled: true, followCursor: true } }}>
-				<Story />
-			</InteractionHintConfigProvider>
-		)
-	],
-	args: {
-		children: "Hint Follows Cursor",
-		title: "This hint follows the cursor",
-		href: "#"
-	}
-};
-
-export const WithInteractionHintNoArrow: Story = {
-	decorators: [
-		(Story) => (
-			<InteractionHintConfigProvider componentConfigs={{ link: { enabled: true, hideArrow: true } }}>
-				<Story />
-			</InteractionHintConfigProvider>
-		)
-	],
-	args: {
-		children: "Hint Without Arrow",
-		href: "#",
-		title: "Hint without arrow"
-	}
-};
-
-export const InteractionHintVariations: Story = {
+export const InteractionHints: Story = {
 	render: () => (
 		<div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
 			<div>
@@ -207,5 +181,13 @@ export const InteractionHintVariations: Story = {
 				</InteractionHintConfigProvider>
 			</div>
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Interaction hints are enabled through `InteractionHintConfigProvider`. The hint shows the link's `title` and supports `followCursor` and `hideArrow` options."
+			}
+		}
+	}
 };

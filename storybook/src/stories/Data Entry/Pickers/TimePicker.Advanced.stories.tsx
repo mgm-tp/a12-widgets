@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ReactNode } from "react";
 import { useCallback, useMemo } from "react";
 
 import {
@@ -48,8 +48,7 @@ import { useTimePickerProps } from "./hooks";
 const meta: Meta<typeof TimePicker> = {
 	title: "Data Entry/Pickers/TimePicker/Advanced",
 	component: TimePicker,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;

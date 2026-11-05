@@ -36,11 +36,11 @@ import type { TextProps } from "recharts";
 import { Text as RechartsText } from "recharts";
 import type { Margin, PolarViewBox } from "recharts/types/util/types.js";
 
-import { bindMethods, addPrefix, joinClassNames, noop } from "../../../../common/main/utils.js";
-import { DataRoles } from "../../../../common/main/data-roles.js";
-import { Button } from "../../../../button/main/button.view.js";
-import { Icon } from "../../../../icon/main/icon.view.js";
 import { AttachedPortal } from "../../../../attached-portal/main/attached-portal.view.js";
+import { Button } from "../../../../button/main/button.view.js";
+import { DataRoles } from "../../../../common/main/data-roles.js";
+import { bindMethods, addPrefix, joinClassNames, noop } from "../../../../common/main/utils.js";
+import { Icon } from "../../../../icon/main/icon.view.js";
 import { StyledPieChartLegendListItem, StyledRechartsPieChartLegend } from "../../../main/chart.styled.js";
 
 import type { PieChartElementsProps } from "./pie-chart.tpl.api.js";

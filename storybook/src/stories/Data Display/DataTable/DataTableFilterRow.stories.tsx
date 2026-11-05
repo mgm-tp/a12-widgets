@@ -30,15 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useMemo, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useMemo, useState } from "react";
 
-import type { DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { TextField } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
-import type { Employee } from "../Table/table.data.js";
-import { BASIC_COLUMNS, EMPLOYEES } from "../Table/table.data.js";
+import type { Employee } from "./data-table.data.js";
+import { BASIC_COLUMNS, EMPLOYEES } from "./data-table.data.js";
 
 const COLUMNS: DataTableColumn<Employee>[] = [...BASIC_COLUMNS, { label: "Status", dataKey: "status", width: 1 }];
 
@@ -90,9 +90,9 @@ function FilterRowDemo() {
 	return <DataTable<Employee> ariaLabel="Filter row demo" data={filteredData} columns={columns} rowKey="id" />;
 }
 
-const meta: Meta<typeof FilterRowDemo> = {
+const meta: Meta<typeof DataTable<Employee>> = {
 	title: "Data Display/DataTable/Filter Row",
-	component: FilterRowDemo,
+	component: DataTable,
 	parameters: { layout: "padded" },
 	tags: ["autodocs"]
 };
@@ -100,10 +100,38 @@ const meta: Meta<typeof FilterRowDemo> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const STATEFUL_DEMO = { controls: { disable: true } };
+
 export const Default: Story = {
 	render: () => <FilterRowDemo />,
 	parameters: {
+		...STATEFUL_DEMO,
 		docs: {
+			source: {
+				language: "tsx",
+				code: `const [filters, setFilters] = useState<Record<string, string>>({});
+
+const filteredData = employees.filter((row) =>
+	Object.entries(filters).every(([key, query]) =>
+		String(row[key as keyof Employee] ?? "").toLowerCase().includes(query.toLowerCase())
+	)
+);
+
+// Every column with a dataKey gets a text field in the filter row.
+const columns: DataTableColumn<Employee>[] = COLUMNS.map((column) => ({
+	...column,
+	renderFilter: () => (
+		<TextField
+			label={\`Filter \${column.label}\`}
+			hideLabel
+			value={filters[column.dataKey] ?? ""}
+			onChange={(ev) => setFilters((prev) => ({ ...prev, [column.dataKey]: ev.target.value }))}
+		/>
+	)
+}));
+
+<DataTable<Employee> ariaLabel="Filter row demo" data={filteredData} columns={columns} rowKey="id" />`
+			},
 			description: {
 				story:
 					"Provide `renderFilter` on a column (or any of the `filter*` slots) to render a sticky filter row between the header and body. The filter row only renders when at least one column has `renderFilter` or a filter slot is provided."

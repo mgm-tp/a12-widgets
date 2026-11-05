@@ -48,6 +48,10 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   display: inline-flex;
   outline: none;
@@ -75,7 +79,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -105,7 +109,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(5, 104, 174) currentcolor currentcolor rgb(5, 104, 174);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 8px;
   pointer-events: none;
@@ -142,6 +146,8 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -219,6 +225,10 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   display: inline-flex;
   outline: none;
@@ -251,7 +261,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -281,7 +291,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(41, 122, 36) currentcolor currentcolor rgb(41, 122, 36);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 8px;
   pointer-events: none;
@@ -318,6 +328,8 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         check_circle
       </span>
@@ -395,6 +407,10 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   display: inline-flex;
   outline: none;
@@ -432,7 +448,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -462,7 +478,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(249, 191, 48) currentcolor currentcolor rgb(249, 191, 48);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 8px;
   pointer-events: none;
@@ -499,6 +515,8 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         warning_amber
       </span>
@@ -576,6 +594,10 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   display: inline-flex;
   outline: none;
@@ -618,7 +640,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -648,7 +670,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(201, 29, 29) currentcolor currentcolor rgb(201, 29, 29);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 8px;
   pointer-events: none;
@@ -685,6 +707,8 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render class and icon 
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         
       </span>
@@ -762,6 +786,10 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render connected toast
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   display: inline-flex;
   outline: none;
@@ -789,7 +817,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render connected toast
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -819,7 +847,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render connected toast
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(5, 104, 174) currentcolor currentcolor rgb(5, 104, 174);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 8px;
   pointer-events: none;
@@ -858,6 +886,8 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render connected toast
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -935,6 +965,10 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render with the messag
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   display: inline-flex;
   outline: none;
@@ -956,28 +990,13 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render with the messag
   font-size: 1.5rem;
 }
 
-.c9 .c3 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
-.c10 .c3 {
-  color: rgb(22, 25, 29);
-  font-size: 1.5rem;
-}
-
-.c11 .c3 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
 .c5 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -1007,7 +1026,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render with the messag
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(5, 104, 174) currentcolor currentcolor rgb(5, 104, 174);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 8px;
   pointer-events: none;
@@ -1044,6 +1063,8 @@ exports[`com.mgmtp.a12.widgets.connected-toast.template > render with the messag
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>

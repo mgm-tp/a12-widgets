@@ -30,14 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import FilterAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter/filter.api.json" with { type: "json" };
+import basicFilterBarShowcaseCode from "!./basic.tsx?raw";
+
 import FilterBarAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-bar/filter-bar.api.json" with { type: "json" };
+import FilterAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter/filter.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { BasicFilterBarShowcase } from "./basic.js";
-
-import basicFilterBarShowcaseCode from "!./basic.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

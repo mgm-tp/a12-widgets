@@ -32,9 +32,11 @@
 
 import type { ReactElement } from "react";
 
-import type { DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { Icon } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { DataTreeTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+
+import { useRowSelection } from "./shared.js";
 
 /** A flat row carries its own parent reference instead of nesting its children. */
 interface FlatNode {
@@ -49,12 +51,33 @@ interface FlatNode {
 // The same hierarchy as the nested examples, expressed as a flat adjacency list. Order is irrelevant —
 // the wrapper rebuilds the tree from `getParentId`. Root rows simply omit `parentId`.
 const DATA: FlatNode[] = [
-	{ id: "src", name: "src", size: "—", modified: "2026-06-10", kind: "folder" },
-	{ id: "components", parentId: "src", name: "components", size: "—", modified: "2026-06-09", kind: "folder" },
-	{ id: "button", parentId: "components", name: "button.tsx", size: "4 KB", modified: "2026-06-09", kind: "file" },
-	{ id: "table", parentId: "components", name: "table.tsx", size: "18 KB", modified: "2026-06-09", kind: "file" },
-	{ id: "index", parentId: "src", name: "index.ts", size: "1 KB", modified: "2026-06-10", kind: "file" },
-	{ id: "readme", name: "README.md", size: "2 KB", modified: "2026-06-01", kind: "file" }
+	{ id: "flat-src", name: "src", size: "—", modified: "2026-06-10", kind: "folder" },
+	{
+		id: "flat-components",
+		parentId: "flat-src",
+		name: "components",
+		size: "—",
+		modified: "2026-06-09",
+		kind: "folder"
+	},
+	{
+		id: "flat-button",
+		parentId: "flat-components",
+		name: "button.tsx",
+		size: "4 KB",
+		modified: "2026-06-09",
+		kind: "file"
+	},
+	{
+		id: "flat-table",
+		parentId: "flat-components",
+		name: "table.tsx",
+		size: "18 KB",
+		modified: "2026-06-09",
+		kind: "file"
+	},
+	{ id: "flat-index", parentId: "flat-src", name: "index.ts", size: "1 KB", modified: "2026-06-10", kind: "file" },
+	{ id: "flat-readme", name: "README.md", size: "2 KB", modified: "2026-06-01", kind: "file" }
 ];
 
 const COLUMNS: DataTableColumn<FlatNode>[] = [
@@ -70,6 +93,8 @@ const COLUMNS: DataTableColumn<FlatNode>[] = [
  * Everything else — expansion, `getIcon`, columns — behaves exactly as in nested mode.
  */
 export function FlatDataTreeTable(): ReactElement {
+	const { rowStyling, rowEventHandlers } = useRowSelection<FlatNode>();
+
 	return (
 		<DataTreeTable<FlatNode>
 			ariaLabel="Files (flat data)"
@@ -78,8 +103,10 @@ export function FlatDataTreeTable(): ReactElement {
 			getIcon={(row) => <Icon>{row.kind === "folder" ? "folder" : "description"}</Icon>}
 			columns={COLUMNS}
 			rowKey="id"
+			rowStyling={rowStyling}
+			rowEventHandlers={rowEventHandlers}
 			maxHeight={360}
-			defaultExpandedKeys={["src"]}
+			defaultExpandedKeys={["flat-src"]}
 		/>
 	);
 }

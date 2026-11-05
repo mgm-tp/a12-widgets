@@ -34,13 +34,12 @@ import { render } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
 import { Range } from "../../common/main/utils.js";
-
 import type { RowLoadingStatus } from "../main/infinite-scroll.api.js";
-import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
-import { Body } from "../main/table.body.view.js";
-import { VirtualizedBody } from "../main/table.virtualized-body.view.js";
-import { InfiniteScrollBody } from "../main/table.infinite-scroll-body.view.js";
 import type { TableScrollToNodeHandler } from "../main/table-renderer.api.js";
+import { Body } from "../main/table.body.view.js";
+import { InfiniteScrollBody } from "../main/table.infinite-scroll-body.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { VirtualizedBody } from "../main/table.virtualized-body.view.js";
 
 describe("com.mgmtp.a12.widgets.table.scroll-to-node", () => {
 	const COLUMN_COUNT = 4;

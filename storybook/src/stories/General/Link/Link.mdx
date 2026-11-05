@@ -1,0 +1,58 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as LinkStories from "./Link.stories";
+
+<Meta of={LinkStories} />
+
+<Title />
+
+The `Link` widget renders a styled anchor element for navigating to documents, resources or
+locations via `href`. It supports `title` tooltips, a `target` to control where the destination
+opens, and an `onClick` handler.
+
+- Set `useAsButton` when the link triggers an interactive function instead of navigating — it adds `role="button"` for better semantics.
+- Pass extra native anchor attributes (e.g. `aria-disabled`) through `linkAttributes`.
+- When wrapped in an `InteractionHintConfigProvider`, hovering the link shows an interaction hint based on its `title`.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={LinkStories.Playground} />
+
+## Examples
+
+### With title
+
+<Canvas of={LinkStories.WithTitle} />
+
+### External link
+
+<Canvas of={LinkStories.ExternalLink} />
+
+### Use as button
+
+<Canvas of={LinkStories.UseAsButton} />
+
+### Custom content
+
+<Canvas of={LinkStories.WithCustomContent} />
+
+### Interaction hints
+
+<Canvas of={LinkStories.InteractionHints} />

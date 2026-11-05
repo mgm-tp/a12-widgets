@@ -32,23 +32,23 @@
 
 import { styled, css } from "styled-components";
 
-import { TagGroup } from "../../tag/main/tag-group.view.js";
-import { StyledTagContent, Tag } from "../../tag/main/tag/tag.view.js";
-import { active, inputDarkFocus, hover } from "../../theme/base/mixins/_interaction.js";
-import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
-import {
-	StyledTextAreaInput,
-	StyledTextAreaInputWrapper
-} from "../../input/text-area/main/template/text-area.tpl.styled.js";
-import { StyledDropdownItem, StyledDropdownWrapper } from "../../dropdown/main/template/dropdown.tpl.styled.js";
 import { ActionContentbox } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
 import {
 	StyledContentBoxContent,
 	StyledContentBoxFooter
 } from "../../contentbox/main/template/contentbox.tpl.styled.js";
 import { SubHeadingElements } from "../../contentbox/main/template/elements/sub-heading.tpl.view.js";
-import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
+import { StyledDropdownItem, StyledDropdownWrapper } from "../../dropdown/main/template/dropdown.tpl.styled.js";
+import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
+import {
+	StyledTextAreaInput,
+	StyledTextAreaInputWrapper
+} from "../../input/text-area/main/template/text-area.tpl.styled.js";
 import { TextAreaStateless } from "../../input/text-area/main/template/text-area.tpl.view.js";
+import { TagGroup } from "../../tag/main/tag-group.view.js";
+import { StyledTagContent, Tag } from "../../tag/main/tag/tag.view.js";
+import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
+import { active, inputDarkFocus, hover } from "../../theme/base/mixins/_interaction.js";
 
 import StyledBaseInputField = StyledBaseInput.StyledFieldInput;
 import StyledFieldInput = StyledBaseInput.StyledFieldInput;
@@ -95,10 +95,14 @@ export const StyledTagInputGroupWrapper = styled.div.withConfig({ displayName: "
 
 export const StyledTagInputTag = styled(Tag).withConfig({ displayName: "StyledTagInputTag-sc-" })<{
 	$focus?: boolean;
+
+	/**
+	 * @deprecated since 39.1.0 since clicking a tag does nothing on its own.
+	 */
 	$hover?: boolean;
 	$disabled?: boolean;
 	$readonly?: boolean;
-}>(({ theme, $focus, $disabled, $readonly, $hover }) => {
+}>(({ theme, $focus, $disabled, $hover, $readonly }) => {
 	const { tag, tagInput } = theme.components;
 
 	return css`
@@ -109,53 +113,61 @@ export const StyledTagInputTag = styled(Tag).withConfig({ displayName: "StyledTa
 			margin: ${tagInput.tag.margin};
 		}
 
-		${!$readonly &&
-		!$disabled &&
-		css`
-			${$hover &&
+		${
+			!$readonly &&
+			!$disabled &&
 			css`
-				${active(css`
-					${StyledTagContent} {
-						border-color: ${tagInput.tag.activeBorderColor};
-						box-shadow: none;
-					}
-				`)}
-				${hover(css`
-					${StyledTagContent} {
-						border-color: ${tagInput.tag.hoverBorderColor};
-						box-shadow: none;
-						cursor: pointer;
-					}
-				`)}
-			`}
-
-			${$focus &&
-			css`
-				${inputDarkFocus}
-				${StyledTagContent} {
-					border-color: ${tag.content.focusBorderColor};
+				${
+					$hover &&
+					css`
+						${active(css`
+							${StyledTagContent} {
+								border-color: ${tagInput.tag.activeBorderColor};
+								box-shadow: none;
+							}
+						`)}
+						${hover(css`
+							${StyledTagContent} {
+								border-color: ${tagInput.tag.hoverBorderColor};
+								box-shadow: none;
+							}
+						`)}
+					`
 				}
-			`}
-		`}
+				${
+					$focus &&
+					css`
+						${inputDarkFocus}
+						${StyledTagContent} {
+							border-color: ${tag.content.focusBorderColor};
+						}
+					`
+				}
+			`
+		}
 
-		${$readonly &&
-		css`
-			background-color: ${tagInput.tag.readonlyBG};
+		${
+			$readonly &&
+			css`
+				background-color: ${tagInput.tag.readonlyBG};
 
-			${StyledTagContent} {
-				border-color: transparent;
-			}
-		`}
-		
-		${$disabled &&
-		css`
-			background-color: ${tagInput.tag.disabled.background};
+				${StyledTagContent} {
+					border-color: transparent;
+				}
+			`
+		}
 
-			${StyledTagContent} {
-				border-color: transparent;
-				color: ${tagInput.tag.disabled.color};
-			}
-		`}
+		${
+			$disabled &&
+			css`
+				background-color: ${tagInput.tag.disabled.background};
+
+				${StyledTagContent} {
+					border-color: transparent;
+					color: ${tagInput.tag.disabled.color};
+				}
+			`
+		}
 	`;
 });
 
@@ -182,47 +194,57 @@ export const StyledTagInputTagGroup = styled(TagGroup).withConfig({ displayName:
 		padding: ${tagInput.tagGroup.padding};
 		width: ${tagInput.tagGroup.width};
 
-		${isInteractive &&
-		css`
-			background-color: ${tagInput.tagGroup.background};
-			box-shadow: ${variant ? tagInput[`${variant}BoxShadow`] : tagInput.tagGroup.boxShadow};
-
-			${!$noEffect &&
+		${
+			isInteractive &&
 			css`
-				${active(css`
-					box-shadow: ${variant ? baseInput.input[variant].activeBoxShadow : input.activeBoxShadow};
-				`)}
-				${hover(css`
-					box-shadow: ${variant ? baseInput.input[variant].hoverBoxShadow : input.hoverBoxShadow};
-				`)}
-            	${$focus &&
-				css`
-					${createBoxShadow(
-						variant
-							? (baseInput.input[variant].customDashedFocus ?? baseInput.input[variant].focusBoxShadow)
-							: (tagInput.input?.focus?.customBorder ?? input.focusCustomBoxShadow ?? input.focusBoxShadow)
-					)}
-					${inputDarkFocus}
-				`}
-			`}
+				background-color: ${tagInput.tagGroup.background};
+				box-shadow: ${variant ? tagInput[`${variant}BoxShadow`] : tagInput.tagGroup.boxShadow};
 
-			${StyledContentBoxFooter} &,
-			${SubHeadingElements.StyledSubHeading} & {
-				background-color: ${contentBox.subHeading.inputBackground};
-			}
-		`}
+				${
+					!$noEffect &&
+					css`
+						${active(css`
+							box-shadow: ${variant ? baseInput.input[variant].activeBoxShadow : input.activeBoxShadow};
+						`)}
+						${hover(css`
+							box-shadow: ${variant ? baseInput.input[variant].hoverBoxShadow : input.hoverBoxShadow};
+						`)}
+						${
+							$focus &&
+							css`
+								${createBoxShadow(
+									variant
+										? (baseInput.input[variant].customDashedFocus ?? baseInput.input[variant].focusBoxShadow)
+										: (tagInput.input?.focus?.customBorder ?? input.focusCustomBoxShadow ?? input.focusBoxShadow)
+								)}
+								${inputDarkFocus}
+							`
+						}
+					`
+				}
 
-		${$readonly &&
-		css`
-			background-color: ${tagInput.readonlyBG};
-			box-shadow: none;
-		`}
-		${$disabled &&
-		css`
-			background-color: ${tagInput.disabled.background};
-			box-shadow: ${tagInput.disabled.boxShadow};
-			color: ${tagInput.disabled.color};
-		`}
+				${StyledContentBoxFooter} &,
+				${SubHeadingElements.StyledSubHeading} & {
+					background-color: ${contentBox.subHeading.inputBackground};
+				}
+			`
+		}
+
+		${
+			$readonly &&
+			css`
+				background-color: ${tagInput.readonlyBG};
+				box-shadow: none;
+			`
+		}
+		${
+			$disabled &&
+			css`
+				background-color: ${tagInput.disabled.background};
+				box-shadow: ${tagInput.disabled.boxShadow};
+				color: ${tagInput.disabled.color};
+			`
+		}
 		> ${StyledBaseInput.StyledFieldWrapper} {
 			align-items: center;
 			flex: 1;
@@ -236,11 +258,13 @@ export const StyledTagInputTagGroup = styled(TagGroup).withConfig({ displayName:
 				outline: none;
 
 				${StyledTextAreaInput} {
-					${isInteractive &&
-					css`
-						border-radius: ${tag.borderRadius};
-						border: ${tagInput.textArea.border};
-					`};
+					${
+						isInteractive &&
+						css`
+							border-radius: ${tag.borderRadius};
+							border: ${tagInput.textArea.border};
+						`
+					};
 					height: ${tagInput.textArea.height}px;
 					line-height: ${tagInput.textArea.lineHeight};
 					min-height: ${tagInput.textArea.height}px;

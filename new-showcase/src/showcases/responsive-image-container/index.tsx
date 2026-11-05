@@ -30,6 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
 import type { JSONOutput } from "typedoc";
 
 import ResponsiveImageContainerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/responsive-image-container/main/responsive-image-container.api.json" with { type: "json" };
@@ -37,8 +38,6 @@ import ResponsiveImageContainerAPI from "@com.mgmtp.a12.widgets/widgets-json-api
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { ResponsiveImageContainerShowcase } from "./basic.js";
-
-import basicCode from "!./basic.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

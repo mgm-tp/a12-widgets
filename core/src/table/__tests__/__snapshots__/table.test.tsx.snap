@@ -159,7 +159,7 @@ exports[`com.mgmtp.a12.widgets.table > column group 1`] = `
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -1700,7 +1700,7 @@ exports[`com.mgmtp.a12.widgets.table > default 1`] = `
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -2484,7 +2484,7 @@ exports[`com.mgmtp.a12.widgets.table > default 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
-.c24 {
+.c23 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -2498,12 +2498,12 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   margin: -1px !important;
 }
 
-.c24 * {
+.c23 * {
   width: 1px;
   height: 1px;
 }
 
-.c23 {
+.c22 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -2523,12 +2523,16 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   font-feature-settings: "liga";
 }
 
-.c23 > span {
+.c22 > span {
   display: inline-block;
 }
 
-.c23.c23 {
+.c22.c22 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c22 {
+  color: inherit;
 }
 
 .c3 {
@@ -2576,23 +2580,19 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   overflow: hidden;
 }
 
-.c21 {
+.c20 {
   position: absolute;
   z-index: 1;
   left: 0px;
   top: 0px;
 }
 
-.c21::before {
+.c20::before {
   content: "";
   transform-origin: 0px 0px;
   border-right: 1px solid transparent;
   position: absolute;
   right: 0px;
-}
-
-.c35:focus .c20 .c22 {
-  color: rgb(234, 237, 241);
 }
 
 .c16 {
@@ -2622,54 +2622,16 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   display: block;
 }
 
-.c15:focus .c18:last-child > :last-child {
+.c15:focus .c17:last-child > :last-child {
   background-clip: unset;
 }
 
-.c15:focus .c18:last-child > :last-child::before {
+.c15:focus .c17:last-child > :last-child::before {
   border-right: 2px solid rgb(213, 0, 117);
   margin-right: 1px;
 }
 
-.c36 .c20 {
-  width: 26px;
-}
-
-.c36 .c20::before {
-  height: 50px;
-  transform: rotate(40deg);
-}
-
-.c36 .c20 .c22 {
-  font-size: 0.625rem;
-  color: rgb(255, 255, 255);
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-.c37 .c20 {
-  width: 26px;
-}
-
-.c37 .c20::before {
-  height: 50px;
-  transform: rotate(40deg);
-}
-
-.c37 .c20 .c22 {
-  font-size: 0.625rem;
-  color: rgb(255, 255, 255);
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-.c19 {
+.c18 {
   min-height: 32px;
   overflow: hidden;
   isolation: isolate;
@@ -2678,16 +2640,16 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   justify-content: flex-start;
 }
 
-.c19 .c20 {
+.c18 .c19 {
   width: 26px;
 }
 
-.c19 .c20::before {
+.c18 .c19::before {
   height: 50px;
   transform: rotate(40deg);
 }
 
-.c19 .c20 .c22 {
+.c18 .c19 .c21 {
   font-size: 0.625rem;
   color: rgb(241, 242, 244);
   position: absolute;
@@ -2697,19 +2659,19 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   user-select: none;
 }
 
-[data-role="tree"] .c19.c19 {
+[data-role="tree"] .c18.c18 {
   padding: 8px;
 }
 
-.c19.c19 > * {
+.c18.c18 > * {
   align-self: flex-start;
 }
 
-.c19 [class*="field--block"] {
+.c18 [class*="field--block"] {
   flex-grow: 0;
 }
 
-.c25 {
+.c24 {
   min-height: 32px;
   overflow: hidden;
   flex-direction: column;
@@ -2717,16 +2679,16 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   justify-content: flex-start;
 }
 
-.c25 .c20 {
+.c24 .c19 {
   width: 26px;
 }
 
-.c25 .c20::before {
+.c24 .c19::before {
   height: 50px;
   transform: rotate(40deg);
 }
 
-.c25 .c20 .c22 {
+.c24 .c19 .c21 {
   font-size: 0.625rem;
   color: rgb(241, 242, 244);
   position: absolute;
@@ -2736,34 +2698,23 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   user-select: none;
 }
 
-[data-role="tree"] .c25.c25 {
+[data-role="tree"] .c24.c24 {
   padding: 8px;
 }
 
-.c25.c25 > * {
+.c24.c24 > * {
   align-self: flex-start;
 }
 
-.c25 [class*="field--block"] {
+.c24 [class*="field--block"] {
   flex-grow: 0;
-}
-
-.c17 > .c39.c39::after {
-  content: "";
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  display: block;
-  left: unset;
-  border-right: 2px solid rgb(241, 242, 244);
 }
 
 .c14 {
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -2776,7 +2727,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   overflow-x: hidden;
 }
 
-.c29 {
+.c28 {
   font-weight: 600;
   min-height: 32px;
   overflow: hidden;
@@ -2784,13 +2735,13 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   align-items: flex-start;
 }
 
-.c29:empty {
+.c28:empty {
   min-height: 1px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
-.c27 {
+.c26 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   flex: 0 0 auto;
@@ -2798,22 +2749,22 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   z-index: 1;
 }
 
-.c27 > * {
+.c26 > * {
   position: relative;
 }
 
-.c27 > ::before {
+.c26 > ::before {
   content: "";
   inset: 0px;
   position: absolute;
   border-bottom: 1px solid rgb(211, 214, 220);
 }
 
-.c27 > :first-child {
+.c26 > :first-child {
   box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
 }
 
-.c27 > :first-child::before {
+.c26 > :first-child::before {
   border-bottom-width: medium;
   border-bottom-style: none;
   border-bottom-color: currentcolor;
@@ -2828,45 +2779,15 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   min-height: 22px;
 }
 
-.c12 > .c22:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
+.c12 > .c21:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c12 [data-role="status-icon"] .c22 {
+.c12 [data-role="status-icon"] .c21 {
   display: inherit;
 }
 
-.c12 .c22 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
-.c33 > .c22:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c33 [data-role="status-icon"] .c22 {
-  display: inherit;
-}
-
-.c33 .c22 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
-.c34 > .c22:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c34 [data-role="status-icon"] .c22 {
-  display: inherit;
-}
-
-.c34 .c22 {
+.c12 .c21 {
   align-items: center;
   display: inline-flex;
   font-size: 1.25rem;
@@ -2896,14 +2817,6 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   min-width: 100%;
 }
 
-.c11 .c32.c32 {
-  overflow: hidden;
-}
-
-.c6 > .c38.c38::after {
-  border-right: 2px solid rgb(255, 255, 255);
-}
-
 .c4 {
   border-bottom: 1px solid rgb(211, 214, 220);
   overflow: hidden;
@@ -2929,13 +2842,13 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   flex-grow: 0;
 }
 
-.c0 .c26 {
+.c0 .c25 {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
 }
 
-.c0 .c28:last-child {
+.c0 .c27:last-child {
   flex-grow: 1;
 }
 
@@ -2952,20 +2865,14 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
   user-select: none;
 }
 
-.c30 {
+.c29 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   margin-top: -1px;
 }
 
-.c31 {
+.c30 {
   overflow-x: auto;
-}
-
-@media (pointer: fine) {
-  .c35:hover .c20 .c22 {
-    color: rgb(234, 237, 241);
-  }
 }
 
 @media (pointer: coarse) {
@@ -2979,7 +2886,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
     border-width: medium medium 1px;
     border-style: none none solid;
     border-color: currentcolor currentcolor rgb(211, 214, 220);
-    border-image: initial;
+    border-image: none;
     box-sizing: border-box;
   }
 
@@ -2989,7 +2896,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
 }
 
 @media (pointer: fine) {
-  .c15:not(:focus):hover .c18:last-child > :last-child::before {
+  .c15:not(:focus):hover .c17:last-child > :last-child::before {
     border-right: 2px solid rgb(213, 0, 117);
   }
 }
@@ -3086,30 +2993,32 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
         role="row"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            class="c8 c9 c18 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <div
-              class="c20 c21"
+              class="c19 c20"
             >
               <i
-                class="c22 c23 plasma-icon"
+                class="c21 c22 plasma-icon"
                 data-role="plasma-icon"
                 title="Disable"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   block
                 </span>
                 <span
-                  class="c24 -u-unseenButRead"
+                  class="c23 -u-unseenButRead"
                   data-role="hidden-text"
                 >
                   Disable
@@ -3120,7 +3029,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3128,7 +3037,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3136,7 +3045,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3151,30 +3060,32 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
         role="row"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            class="c8 c9 c18 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <div
-              class="c20 c21"
+              class="c19 c20"
             >
               <i
-                class="c22 c23 plasma-icon"
+                class="c21 c22 plasma-icon"
                 data-role="plasma-icon"
                 title="Disable"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   block
                 </span>
                 <span
-                  class="c24 -u-unseenButRead"
+                  class="c23 -u-unseenButRead"
                   data-role="hidden-text"
                 >
                   Disable
@@ -3185,7 +3096,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3193,7 +3104,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3201,7 +3112,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3216,30 +3127,32 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
         role="row"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            class="c8 c9 c18 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <div
-              class="c20 c21"
+              class="c19 c20"
             >
               <i
-                class="c22 c23 plasma-icon"
+                class="c21 c22 plasma-icon"
                 data-role="plasma-icon"
                 title="Disable"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   block
                 </span>
                 <span
-                  class="c24 -u-unseenButRead"
+                  class="c23 -u-unseenButRead"
                   data-role="hidden-text"
                 >
                   Disable
@@ -3250,7 +3163,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3258,7 +3171,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3266,7 +3179,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3281,30 +3194,32 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
         role="row"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            class="c8 c9 c18 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <div
-              class="c20 c21"
+              class="c19 c20"
             >
               <i
-                class="c22 c23 plasma-icon"
+                class="c21 c22 plasma-icon"
                 data-role="plasma-icon"
                 title="Disable"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   block
                 </span>
                 <span
-                  class="c24 -u-unseenButRead"
+                  class="c23 -u-unseenButRead"
                   data-role="hidden-text"
                 >
                   Disable
@@ -3315,7 +3230,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3323,7 +3238,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3331,7 +3246,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3346,30 +3261,32 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
         role="row"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            class="c8 c9 c18 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <div
-              class="c20 c21"
+              class="c19 c20"
             >
               <i
-                class="c22 c23 plasma-icon"
+                class="c21 c22 plasma-icon"
                 data-role="plasma-icon"
                 title="Disable"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   block
                 </span>
                 <span
-                  class="c24 -u-unseenButRead"
+                  class="c23 -u-unseenButRead"
                   data-role="hidden-text"
                 >
                   Disable
@@ -3380,7 +3297,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3388,7 +3305,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3396,7 +3313,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3411,30 +3328,32 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
         role="row"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            class="c8 c9 c18 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <div
-              class="c20 c21"
+              class="c19 c20"
             >
               <i
-                class="c22 c23 plasma-icon"
+                class="c21 c22 plasma-icon"
                 data-role="plasma-icon"
                 title="Disable"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   block
                 </span>
                 <span
-                  class="c24 -u-unseenButRead"
+                  class="c23 -u-unseenButRead"
                   data-role="hidden-text"
                 >
                   Disable
@@ -3445,7 +3364,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3453,7 +3372,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3461,7 +3380,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3476,30 +3395,32 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
         role="row"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            class="c8 c9 c18 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <div
-              class="c20 c21"
+              class="c19 c20"
             >
               <i
-                class="c22 c23 plasma-icon"
+                class="c21 c22 plasma-icon"
                 data-role="plasma-icon"
                 title="Disable"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   block
                 </span>
                 <span
-                  class="c24 -u-unseenButRead"
+                  class="c23 -u-unseenButRead"
                   data-role="hidden-text"
                 >
                   Disable
@@ -3510,7 +3431,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3518,7 +3439,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3526,7 +3447,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3541,30 +3462,32 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
         role="row"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            class="c8 c9 c18 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <div
-              class="c20 c21"
+              class="c19 c20"
             >
               <i
-                class="c22 c23 plasma-icon"
+                class="c21 c22 plasma-icon"
                 data-role="plasma-icon"
                 title="Disable"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   block
                 </span>
                 <span
-                  class="c24 -u-unseenButRead"
+                  class="c23 -u-unseenButRead"
                   data-role="hidden-text"
                 >
                   Disable
@@ -3575,7 +3498,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3583,7 +3506,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3591,7 +3514,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3606,30 +3529,32 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
         role="row"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            class="c8 c9 c18 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <div
-              class="c20 c21"
+              class="c19 c20"
             >
               <i
-                class="c22 c23 plasma-icon"
+                class="c21 c22 plasma-icon"
                 data-role="plasma-icon"
                 title="Disable"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   block
                 </span>
                 <span
-                  class="c24 -u-unseenButRead"
+                  class="c23 -u-unseenButRead"
                   data-role="hidden-text"
                 >
                   Disable
@@ -3640,7 +3565,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3648,7 +3573,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3656,7 +3581,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3671,30 +3596,32 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
         role="row"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            class="c8 c9 c18 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <div
-              class="c20 c21"
+              class="c19 c20"
             >
               <i
-                class="c22 c23 plasma-icon"
+                class="c21 c22 plasma-icon"
                 data-role="plasma-icon"
                 title="Disable"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   block
                 </span>
                 <span
-                  class="c24 -u-unseenButRead"
+                  class="c23 -u-unseenButRead"
                   data-role="hidden-text"
                 >
                   Disable
@@ -3705,7 +3632,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3713,7 +3640,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3721,7 +3648,7 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c25 table__contentCell table__contentCell--10"
+            class="c8 c9 c24 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -3731,11 +3658,11 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
       </div>
     </div>
     <div
-      class="c26 c27 table__footer"
+      class="c25 c26 table__footer"
       data-role="table-footer"
     >
       <div
-        class="c28 c3 table__footerRow"
+        class="c27 c3 table__footerRow"
         data-role="table-footer-row"
       >
         <div
@@ -3743,19 +3670,19 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
           data-role="table-footer-row--scroll"
         >
           <div
-            class="c8 c9 c29 table__footerCell table__footerCell--10"
+            class="c8 c9 c28 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c29 table__footerCell table__footerCell--10"
+            class="c8 c9 c28 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c29 table__footerCell table__footerCell--10"
+            class="c8 c9 c28 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c29 table__footerCell table__footerCell--10"
+            class="c8 c9 c28 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
         </div>
@@ -3763,28 +3690,28 @@ exports[`com.mgmtp.a12.widgets.table > disabled table 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="c3 c30"
+      class="c3 c29"
       data-role="table-row-scroller"
     >
       <div
-        class="c5 c7 c31"
+        class="c5 c7 c30"
         data-role="table-row-scroller--scroll"
         tabindex="-1"
       >
         <div
-          class="c8 c9 c29"
+          class="c8 c9 c28"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c29"
+          class="c8 c9 c28"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c29"
+          class="c8 c9 c28"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c29"
+          class="c8 c9 c28"
           data-role="table-row-scroller-cell"
         />
       </div>
@@ -3878,16 +3805,35 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
   background-color: rgb(249, 250, 251);
 }
 
-.c16:focus .c19:last-child > :last-child {
+.c16:focus .c18:last-child > :last-child {
   background-clip: unset;
 }
 
-.c16:focus .c19:last-child > :last-child::before {
+.c16:focus .c18:last-child > :last-child::before {
   border-right: 2px solid rgb(213, 0, 117);
   margin-right: 1px;
 }
 
-.c22 {
+.c19 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c19.c19 {
+  padding: 8px;
+}
+
+.c19.c19 > * {
+  align-self: flex-start;
+}
+
+.c19 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c21 {
   min-height: 32px;
   overflow: hidden;
   isolation: isolate;
@@ -3895,53 +3841,23 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
   justify-content: flex-start;
 }
 
-[data-role="tree"] .c22.c22 {
+[data-role="tree"] .c21.c21 {
   padding: 8px;
 }
 
-.c22.c22 > * {
+.c21.c21 > * {
   align-self: flex-start;
 }
 
-.c22 [class*="field--block"] {
+.c21 [class*="field--block"] {
   flex-grow: 0;
-}
-
-.c20 {
-  min-height: 32px;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-[data-role="tree"] .c20.c20 {
-  padding: 8px;
-}
-
-.c20.c20 > * {
-  align-self: flex-start;
-}
-
-.c20 [class*="field--block"] {
-  flex-grow: 0;
-}
-
-.c18 > .c33.c33::after {
-  content: "";
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  display: block;
-  left: unset;
-  border-right: 2px solid rgb(241, 242, 244);
 }
 
 .c14 {
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -3954,7 +3870,7 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
   overflow-x: hidden;
 }
 
-.c26 {
+.c23 {
   font-weight: 600;
   min-height: 32px;
   overflow: hidden;
@@ -3962,13 +3878,13 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
   align-items: flex-start;
 }
 
-.c26:empty {
+.c23:empty {
   min-height: 1px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
-.c24 {
+.c22 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   flex: 0 0 auto;
@@ -3976,22 +3892,22 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
   z-index: 1;
 }
 
-.c24 > * {
+.c22 > * {
   position: relative;
 }
 
-.c24 > ::before {
+.c22 > ::before {
   content: "";
   inset: 0px;
   position: absolute;
   border-bottom: 1px solid rgb(211, 214, 220);
 }
 
-.c24 > :first-child {
+.c22 > :first-child {
   box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
 }
 
-.c24 > :first-child::before {
+.c22 > :first-child::before {
   border-bottom-width: medium;
   border-bottom-style: none;
   border-bottom-color: currentcolor;
@@ -4029,22 +3945,6 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
   min-width: 100%;
 }
 
-.c11 .c30.c30 {
-  overflow: hidden;
-}
-
-.c11 .c31.c31 {
-  overflow: hidden;
-}
-
-.c6:first-child .c31.c31.c31:first-child[data-role*="group-parent"] {
-  min-width: 100%;
-}
-
-.c6 > .c32.c32::after {
-  border-right: 2px solid rgb(255, 255, 255);
-}
-
 .c4 {
   border-bottom: 1px solid rgb(211, 214, 220);
   overflow: hidden;
@@ -4056,20 +3956,6 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   flex: 0 0 auto;
-}
-
-.c29 .c13:not(:empty) {
-  flex-grow: 0;
-}
-
-.c29 .c23 {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-}
-
-.c29 .c25:last-child {
-  flex-grow: 1;
 }
 
 .c0 {
@@ -4084,14 +3970,14 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0 .c13:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0 .c13:not(:empty) {
@@ -4120,7 +4006,7 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
   border: 1px dotted rgb(51, 51, 51);
 }
 
-.c21 {
+.c20 {
   background-image: linear-gradient(to right, rgba(226, 230, 233, 0.8) 20%, rgb(226, 230, 233) 50%, rgba(226, 230, 233, 0.8) 80%);
   background-size: 500px 100%;
   background-clip: content-box;
@@ -4134,13 +4020,13 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
   animation-duration: 0.5s;
 }
 
-.c27 {
+.c24 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   margin-top: -1px;
 }
 
-.c28 {
+.c25 {
   overflow-x: auto;
 }
 
@@ -4177,7 +4063,7 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
 }
 
 @media (pointer: fine) {
-  .c16:not(:focus):hover .c19:last-child > :last-child::before {
+  .c16:not(:focus):hover .c18:last-child > :last-child::before {
     border-right: 2px solid rgb(213, 0, 117);
   }
 }
@@ -4301,46 +4187,46 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
               tabindex="-1"
             >
               <div
-                class="c5 c18 c7 c19 table__contentRow--scroll"
+                class="c5 c7 c18 table__contentRow--scroll"
                 data-role="table-body-row--scroll"
               >
                 <div
-                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  class="c8 c9 c19 table__contentCell table__contentCell--10"
                   data-role="table-body-cell"
                   role="cell"
                 >
                   <div
-                    class="c21 table__bodyContent--placeHolder"
+                    class="c20 table__bodyContent--placeHolder"
                     data-role="table-body-content-placeholder"
                   />
                 </div>
                 <div
-                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  class="c8 c9 c19 table__contentCell table__contentCell--10"
                   data-role="table-body-cell"
                   role="cell"
                 >
                   <div
-                    class="c21 table__bodyContent--placeHolder"
+                    class="c20 table__bodyContent--placeHolder"
                     data-role="table-body-content-placeholder"
                   />
                 </div>
                 <div
-                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  class="c8 c9 c19 table__contentCell table__contentCell--10"
                   data-role="table-body-cell"
                   role="cell"
                 >
                   <div
-                    class="c21 table__bodyContent--placeHolder"
+                    class="c20 table__bodyContent--placeHolder"
                     data-role="table-body-content-placeholder"
                   />
                 </div>
                 <div
-                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  class="c8 c9 c19 table__contentCell table__contentCell--10"
                   data-role="table-body-cell"
                   role="cell"
                 >
                   <div
-                    class="c21 table__bodyContent--placeHolder"
+                    class="c20 table__bodyContent--placeHolder"
                     data-role="table-body-content-placeholder"
                   />
                 </div>
@@ -4355,12 +4241,12 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
               tabindex="-1"
             >
               <div
-                class="c5 c18 c7 c19 table__contentRow--scroll"
+                class="c5 c7 c18 table__contentRow--scroll"
                 data-role="table-body-row--scroll"
               >
                 <div
                   aria-colindex="1"
-                  class="c8 c9 c22 table__contentCell table__contentCell--10"
+                  class="c8 c9 c21 table__contentCell table__contentCell--10"
                   data-role="table-body-cell"
                   role="cell"
                 >
@@ -4368,7 +4254,7 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
                 </div>
                 <div
                   aria-colindex="2"
-                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  class="c8 c9 c19 table__contentCell table__contentCell--10"
                   data-role="table-body-cell"
                   role="cell"
                 >
@@ -4376,7 +4262,7 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
                 </div>
                 <div
                   aria-colindex="3"
-                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  class="c8 c9 c19 table__contentCell table__contentCell--10"
                   data-role="table-body-cell"
                   role="cell"
                 >
@@ -4384,7 +4270,7 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
                 </div>
                 <div
                   aria-colindex="4"
-                  class="c8 c9 c20 table__contentCell table__contentCell--10"
+                  class="c8 c9 c19 table__contentCell table__contentCell--10"
                   data-role="table-body-cell"
                   role="cell"
                 >
@@ -4411,11 +4297,11 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
       </div>
     </div>
     <div
-      class="c23 c24 table__footer"
+      class="c22 table__footer"
       data-role="table-footer"
     >
       <div
-        class="c25 c3 table__footerRow"
+        class="c3 table__footerRow"
         data-role="table-footer-row"
       >
         <div
@@ -4423,19 +4309,19 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
           data-role="table-footer-row--scroll"
         >
           <div
-            class="c8 c9 c26 table__footerCell table__footerCell--10"
+            class="c8 c9 c23 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c26 table__footerCell table__footerCell--10"
+            class="c8 c9 c23 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c26 table__footerCell table__footerCell--10"
+            class="c8 c9 c23 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c26 table__footerCell table__footerCell--10"
+            class="c8 c9 c23 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
         </div>
@@ -4443,28 +4329,28 @@ exports[`com.mgmtp.a12.widgets.table > infinite scroll table > rowLoadingStatus 
     </div>
     <div
       aria-hidden="true"
-      class="c3 c27"
+      class="c3 c24"
       data-role="table-row-scroller"
     >
       <div
-        class="c5 c7 c28"
+        class="c5 c7 c25"
         data-role="table-row-scroller--scroll"
         tabindex="-1"
       >
         <div
-          class="c8 c9 c26"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c26"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c26"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c26"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
       </div>
@@ -4554,19 +4440,38 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
   background-color: rgb(249, 250, 251);
 }
 
-.c16:focus .c19:last-child > :last-child {
+.c16:focus .c18:last-child > :last-child {
   background-clip: unset;
 }
 
-.c16:focus .c19:last-child > :last-child::before {
+.c16:focus .c18:last-child > :last-child::before {
   border-right: 2px solid rgb(213, 0, 117);
   margin-right: 1px;
+}
+
+.c19 {
+  min-height: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+[data-role="tree"] .c19.c19 {
+  padding: 8px;
+}
+
+.c19.c19 > * {
+  align-self: flex-start;
+}
+
+.c19 [class*="field--block"] {
+  flex-grow: 0;
 }
 
 .c20 {
   min-height: 32px;
   overflow: hidden;
-  isolation: isolate;
   flex-direction: column;
   justify-content: flex-start;
 }
@@ -4583,41 +4488,11 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
   flex-grow: 0;
 }
 
-.c21 {
-  min-height: 32px;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-[data-role="tree"] .c21.c21 {
-  padding: 8px;
-}
-
-.c21.c21 > * {
-  align-self: flex-start;
-}
-
-.c21 [class*="field--block"] {
-  flex-grow: 0;
-}
-
-.c18 > .c30.c30::after {
-  content: "";
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  display: block;
-  left: unset;
-  border-right: 2px solid rgb(241, 242, 244);
-}
-
 .c15 {
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -4630,7 +4505,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
   overflow-x: hidden;
 }
 
-.c25 {
+.c24 {
   font-weight: 600;
   min-height: 32px;
   overflow: hidden;
@@ -4638,13 +4513,13 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
   align-items: flex-start;
 }
 
-.c25:empty {
+.c24:empty {
   min-height: 1px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
-.c23 {
+.c22 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   flex: 0 0 auto;
@@ -4652,22 +4527,22 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
   z-index: 1;
 }
 
-.c23 > * {
+.c22 > * {
   position: relative;
 }
 
-.c23 > ::before {
+.c22 > ::before {
   content: "";
   inset: 0px;
   position: absolute;
   border-bottom: 1px solid rgb(211, 214, 220);
 }
 
-.c23 > :first-child {
+.c22 > :first-child {
   box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
 }
 
-.c23 > :first-child::before {
+.c22 > :first-child::before {
   border-bottom-width: medium;
   border-bottom-style: none;
   border-bottom-color: currentcolor;
@@ -4705,10 +4580,6 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
   min-width: 100%;
 }
 
-.c12 .c28.c28 {
-  overflow: hidden;
-}
-
 .c11 {
   cursor: pointer;
   position: relative;
@@ -4738,10 +4609,6 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
   border-left: 1px dotted rgb(51, 51, 51);
 }
 
-.c6 > .c29.c29::after {
-  border-right: 2px solid rgb(255, 255, 255);
-}
-
 .c4 {
   border-bottom: 1px solid rgb(211, 214, 220);
   overflow: hidden;
@@ -4767,13 +4634,13 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
   flex-grow: 0;
 }
 
-.c0 .c22 {
+.c0 .c21 {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
 }
 
-.c0 .c24:last-child {
+.c0 .c23:last-child {
   flex-grow: 1;
 }
 
@@ -4790,13 +4657,13 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
   user-select: none;
 }
 
-.c26 {
+.c25 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   margin-top: -1px;
 }
 
-.c27 {
+.c26 {
   overflow-x: auto;
 }
 
@@ -4833,7 +4700,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
 }
 
 @media (pointer: fine) {
-  .c16:not(:focus):hover .c19:last-child > :last-child::before {
+  .c16:not(:focus):hover .c18:last-child > :last-child::before {
     border-right: 2px solid rgb(213, 0, 117);
   }
 }
@@ -4955,12 +4822,12 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c18 c7 c19 table__contentRow--scroll"
+          class="c5 c7 c18 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            class="c8 c9 c19 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -4968,7 +4835,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -4976,7 +4843,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -4984,7 +4851,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5000,12 +4867,12 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c18 c7 c19 table__contentRow--scroll"
+          class="c5 c7 c18 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            class="c8 c9 c19 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5013,7 +4880,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5021,7 +4888,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5029,7 +4896,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5045,12 +4912,12 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c18 c7 c19 table__contentRow--scroll"
+          class="c5 c7 c18 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            class="c8 c9 c19 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5058,7 +4925,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5066,7 +4933,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5074,7 +4941,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5090,12 +4957,12 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c18 c7 c19 table__contentRow--scroll"
+          class="c5 c7 c18 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            class="c8 c9 c19 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5103,7 +4970,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5111,7 +4978,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5119,7 +4986,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5135,12 +5002,12 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c18 c7 c19 table__contentRow--scroll"
+          class="c5 c7 c18 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            class="c8 c9 c19 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5148,7 +5015,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5156,7 +5023,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5164,7 +5031,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5180,12 +5047,12 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c18 c7 c19 table__contentRow--scroll"
+          class="c5 c7 c18 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            class="c8 c9 c19 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5193,7 +5060,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5201,7 +5068,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5209,7 +5076,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5225,12 +5092,12 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c18 c7 c19 table__contentRow--scroll"
+          class="c5 c7 c18 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            class="c8 c9 c19 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5238,7 +5105,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5246,7 +5113,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5254,7 +5121,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5270,12 +5137,12 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c18 c7 c19 table__contentRow--scroll"
+          class="c5 c7 c18 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            class="c8 c9 c19 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5283,7 +5150,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5291,7 +5158,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5299,7 +5166,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5315,12 +5182,12 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c18 c7 c19 table__contentRow--scroll"
+          class="c5 c7 c18 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            class="c8 c9 c19 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5328,7 +5195,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5336,7 +5203,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5344,7 +5211,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5360,12 +5227,12 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c18 c7 c19 table__contentRow--scroll"
+          class="c5 c7 c18 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c20 table__contentCell table__contentCell--10"
+            class="c8 c9 c19 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5373,7 +5240,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5381,7 +5248,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5389,7 +5256,7 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5399,11 +5266,11 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
       </div>
     </div>
     <div
-      class="c22 c23 table__footer"
+      class="c21 c22 table__footer"
       data-role="table-footer"
     >
       <div
-        class="c24 c3 table__footerRow"
+        class="c23 c3 table__footerRow"
         data-role="table-footer-row"
       >
         <div
@@ -5411,19 +5278,19 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
           data-role="table-footer-row--scroll"
         >
           <div
-            class="c8 c9 c25 table__footerCell table__footerCell--10"
+            class="c8 c9 c24 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c25 table__footerCell table__footerCell--10"
+            class="c8 c9 c24 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c25 table__footerCell table__footerCell--10"
+            class="c8 c9 c24 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c25 table__footerCell table__footerCell--10"
+            class="c8 c9 c24 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
         </div>
@@ -5431,28 +5298,28 @@ exports[`com.mgmtp.a12.widgets.table > sorting 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="c3 c26"
+      class="c3 c25"
       data-role="table-row-scroller"
     >
       <div
-        class="c5 c7 c27"
+        class="c5 c7 c26"
         data-role="table-row-scroller--scroll"
         tabindex="-1"
       >
         <div
-          class="c8 c9 c25"
+          class="c8 c9 c24"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c25"
+          class="c8 c9 c24"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c25"
+          class="c8 c9 c24"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c25"
+          class="c8 c9 c24"
           data-role="table-row-scroller-cell"
         />
       </div>
@@ -5542,19 +5409,42 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
   background-color: rgb(249, 250, 251);
 }
 
-.c15:focus .c18:last-child > :last-child {
+.c15:focus .c17:last-child > :last-child {
   background-clip: unset;
 }
 
-.c15:focus .c18:last-child > :last-child::before {
+.c15:focus .c17:last-child > :last-child::before {
   border-right: 2px solid rgb(213, 0, 117);
   margin-right: 1px;
+}
+
+.c18 {
+  min-height: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[data-role="tree"] .c18.c18 {
+  padding: 8px;
+}
+
+.c18.c18 > * {
+  align-self: center;
+}
+
+.c18.c18 {
+  text-align: center;
+}
+
+.c18 [class*="field--block"] {
+  flex-grow: 0;
 }
 
 .c19 {
   min-height: 32px;
   overflow: hidden;
-  isolation: isolate;
   flex-direction: column;
   justify-content: center;
 }
@@ -5575,45 +5465,11 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
   flex-grow: 0;
 }
 
-.c20 {
-  min-height: 32px;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: center;
-}
-
-[data-role="tree"] .c20.c20 {
-  padding: 8px;
-}
-
-.c20.c20 > * {
-  align-self: center;
-}
-
-.c20.c20 {
-  text-align: center;
-}
-
-.c20 [class*="field--block"] {
-  flex-grow: 0;
-}
-
-.c17 > .c30.c30::after {
-  content: "";
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  display: block;
-  left: unset;
-  border-right: 2px solid rgb(241, 242, 244);
-}
-
 .c14 {
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -5626,7 +5482,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
   overflow-x: hidden;
 }
 
-.c24 {
+.c23 {
   font-weight: 600;
   min-height: 32px;
   overflow: hidden;
@@ -5635,13 +5491,13 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
   align-items: flex-start;
 }
 
-.c24:empty {
+.c23:empty {
   min-height: 1px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
-.c22 {
+.c21 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   flex: 0 0 auto;
@@ -5649,22 +5505,22 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
   z-index: 1;
 }
 
-.c22 > * {
+.c21 > * {
   position: relative;
 }
 
-.c22 > ::before {
+.c21 > ::before {
   content: "";
   inset: 0px;
   position: absolute;
   border-bottom: 1px solid rgb(211, 214, 220);
 }
 
-.c22 > :first-child {
+.c21 > :first-child {
   box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
 }
 
-.c22 > :first-child::before {
+.c21 > :first-child::before {
   border-bottom-width: medium;
   border-bottom-style: none;
   border-bottom-color: currentcolor;
@@ -5679,18 +5535,6 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
   min-height: 22px;
   justify-content: flex-end;
   text-align: right;
-}
-
-.c11 .c27.c27 {
-  overflow: hidden;
-}
-
-.c6:first-child .c27.c27.c27:first-child[data-role*="group-parent"] {
-  min-width: 100%;
-}
-
-.c11 .c28.c28 {
-  overflow: hidden;
 }
 
 .c10 {
@@ -5714,10 +5558,6 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
 
 .c6:first-child .c10.c10.c10:first-child[data-role*="group-parent"] {
   min-width: 100%;
-}
-
-.c6 > .c29.c29::after {
-  border-right: 2px solid rgb(255, 255, 255);
 }
 
 .c4 {
@@ -5745,13 +5585,13 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
   flex-grow: 0;
 }
 
-.c0 .c21 {
+.c0 .c20 {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
 }
 
-.c0 .c23:last-child {
+.c0 .c22:last-child {
   flex-grow: 1;
 }
 
@@ -5768,13 +5608,13 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
   user-select: none;
 }
 
-.c25 {
+.c24 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   margin-top: -1px;
 }
 
-.c26 {
+.c25 {
   overflow-x: auto;
 }
 
@@ -5811,7 +5651,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
 }
 
 @media (pointer: fine) {
-  .c15:not(:focus):hover .c18:last-child > :last-child::before {
+  .c15:not(:focus):hover .c17:last-child > :last-child::before {
     border-right: 2px solid rgb(213, 0, 117);
   }
 }
@@ -5909,12 +5749,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5922,7 +5762,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5930,7 +5770,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5938,7 +5778,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5954,12 +5794,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5967,7 +5807,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5975,7 +5815,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5983,7 +5823,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -5999,12 +5839,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6012,7 +5852,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6020,7 +5860,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6028,7 +5868,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6044,12 +5884,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6057,7 +5897,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6065,7 +5905,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6073,7 +5913,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6089,12 +5929,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6102,7 +5942,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6110,7 +5950,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6118,7 +5958,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6134,12 +5974,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6147,7 +5987,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6155,7 +5995,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6163,7 +6003,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6179,12 +6019,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6192,7 +6032,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6200,7 +6040,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6208,7 +6048,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6224,12 +6064,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6237,7 +6077,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6245,7 +6085,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6253,7 +6093,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6269,12 +6109,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6282,7 +6122,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6290,7 +6130,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6298,7 +6138,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6314,12 +6154,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6327,7 +6167,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6335,7 +6175,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6343,7 +6183,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-center table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6353,11 +6193,11 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
       </div>
     </div>
     <div
-      class="c21 c22 table__footer"
+      class="c20 c21 table__footer"
       data-role="table-footer"
     >
       <div
-        class="c23 c3 table__footerRow"
+        class="c22 c3 table__footerRow"
         data-role="table-footer-row"
       >
         <div
@@ -6365,19 +6205,19 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
           data-role="table-footer-row--scroll"
         >
           <div
-            class="c8 c9 c24 table__footerCell table__footerCell--10"
+            class="c8 c9 c23 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c24 table__footerCell table__footerCell--10"
+            class="c8 c9 c23 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c24 table__footerCell table__footerCell--10"
+            class="c8 c9 c23 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c24 table__footerCell table__footerCell--10"
+            class="c8 c9 c23 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
         </div>
@@ -6385,28 +6225,28 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="c3 c25"
+      class="c3 c24"
       data-role="table-row-scroller"
     >
       <div
-        class="c5 c7 c26"
+        class="c5 c7 c25"
         data-role="table-row-scroller--scroll"
         tabindex="-1"
       >
         <div
-          class="c8 c9 c24"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c24"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c24"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c24"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
       </div>
@@ -6496,19 +6336,42 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
   background-color: rgb(249, 250, 251);
 }
 
-.c15:focus .c18:last-child > :last-child {
+.c15:focus .c17:last-child > :last-child {
   background-clip: unset;
 }
 
-.c15:focus .c18:last-child > :last-child::before {
+.c15:focus .c17:last-child > :last-child::before {
   border-right: 2px solid rgb(213, 0, 117);
   margin-right: 1px;
+}
+
+.c18 {
+  min-height: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[data-role="tree"] .c18.c18 {
+  padding: 8px;
+}
+
+.c18.c18 > * {
+  align-self: flex-start;
+}
+
+.c18.c18 {
+  text-align: left;
+}
+
+.c18 [class*="field--block"] {
+  flex-grow: 0;
 }
 
 .c19 {
   min-height: 32px;
   overflow: hidden;
-  isolation: isolate;
   flex-direction: column;
   justify-content: center;
 }
@@ -6529,45 +6392,11 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
   flex-grow: 0;
 }
 
-.c20 {
-  min-height: 32px;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: center;
-}
-
-[data-role="tree"] .c20.c20 {
-  padding: 8px;
-}
-
-.c20.c20 > * {
-  align-self: flex-start;
-}
-
-.c20.c20 {
-  text-align: left;
-}
-
-.c20 [class*="field--block"] {
-  flex-grow: 0;
-}
-
-.c17 > .c30.c30::after {
-  content: "";
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  display: block;
-  left: unset;
-  border-right: 2px solid rgb(241, 242, 244);
-}
-
 .c14 {
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -6580,7 +6409,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
   overflow-x: hidden;
 }
 
-.c24 {
+.c23 {
   font-weight: 600;
   min-height: 32px;
   overflow: hidden;
@@ -6589,13 +6418,13 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
   align-items: flex-end;
 }
 
-.c24:empty {
+.c23:empty {
   min-height: 1px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
-.c22 {
+.c21 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   flex: 0 0 auto;
@@ -6603,22 +6432,22 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
   z-index: 1;
 }
 
-.c22 > * {
+.c21 > * {
   position: relative;
 }
 
-.c22 > ::before {
+.c21 > ::before {
   content: "";
   inset: 0px;
   position: absolute;
   border-bottom: 1px solid rgb(211, 214, 220);
 }
 
-.c22 > :first-child {
+.c21 > :first-child {
   box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
 }
 
-.c22 > :first-child::before {
+.c21 > :first-child::before {
   border-bottom-width: medium;
   border-bottom-style: none;
   border-bottom-color: currentcolor;
@@ -6658,22 +6487,6 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
   min-width: 100%;
 }
 
-.c11 .c27.c27 {
-  overflow: hidden;
-}
-
-.c11 .c28.c28 {
-  overflow: hidden;
-}
-
-.c6:first-child .c28.c28.c28:first-child[data-role*="group-parent"] {
-  min-width: 100%;
-}
-
-.c6 > .c29.c29::after {
-  border-right: 2px solid rgb(255, 255, 255);
-}
-
 .c4 {
   border-bottom: 1px solid rgb(211, 214, 220);
   overflow: hidden;
@@ -6699,13 +6512,13 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
   flex-grow: 0;
 }
 
-.c0 .c21 {
+.c0 .c20 {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
 }
 
-.c0 .c23:last-child {
+.c0 .c22:last-child {
   flex-grow: 1;
 }
 
@@ -6722,13 +6535,13 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
   user-select: none;
 }
 
-.c25 {
+.c24 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   margin-top: -1px;
 }
 
-.c26 {
+.c25 {
   overflow-x: auto;
 }
 
@@ -6765,7 +6578,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
 }
 
 @media (pointer: fine) {
-  .c15:not(:focus):hover .c18:last-child > :last-child::before {
+  .c15:not(:focus):hover .c17:last-child > :last-child::before {
     border-right: 2px solid rgb(213, 0, 117);
   }
 }
@@ -6863,12 +6676,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6876,7 +6689,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6884,7 +6697,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6892,7 +6705,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6908,12 +6721,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6921,7 +6734,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6929,7 +6742,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6937,7 +6750,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6953,12 +6766,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6966,7 +6779,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6974,7 +6787,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6982,7 +6795,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -6998,12 +6811,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7011,7 +6824,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7019,7 +6832,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7027,7 +6840,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7043,12 +6856,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7056,7 +6869,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7064,7 +6877,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7072,7 +6885,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7088,12 +6901,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7101,7 +6914,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7109,7 +6922,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7117,7 +6930,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7133,12 +6946,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7146,7 +6959,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7154,7 +6967,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7162,7 +6975,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7178,12 +6991,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7191,7 +7004,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7199,7 +7012,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7207,7 +7020,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7223,12 +7036,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7236,7 +7049,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7244,7 +7057,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7252,7 +7065,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7268,12 +7081,12 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c18 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7281,7 +7094,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7289,7 +7102,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7297,7 +7110,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c20 table__contentCell table__contentCell--10 table__contentCell--align-middle"
+            class="c8 c9 c19 table__contentCell table__contentCell--10 table__contentCell--align-middle"
             data-role="table-body-cell"
             role="cell"
           >
@@ -7307,11 +7120,11 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
       </div>
     </div>
     <div
-      class="c21 c22 table__footer"
+      class="c20 c21 table__footer"
       data-role="table-footer"
     >
       <div
-        class="c23 c3 table__footerRow"
+        class="c22 c3 table__footerRow"
         data-role="table-footer-row"
       >
         <div
@@ -7319,19 +7132,19 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
           data-role="table-footer-row--scroll"
         >
           <div
-            class="c8 c9 c24 table__footerCell table__footerCell--10 table__footerCell--align-bottom"
+            class="c8 c9 c23 table__footerCell table__footerCell--10 table__footerCell--align-bottom"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c24 table__footerCell table__footerCell--10 table__footerCell--align-bottom"
+            class="c8 c9 c23 table__footerCell table__footerCell--10 table__footerCell--align-bottom"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c24 table__footerCell table__footerCell--10 table__footerCell--align-bottom"
+            class="c8 c9 c23 table__footerCell table__footerCell--10 table__footerCell--align-bottom"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c24 table__footerCell table__footerCell--10 table__footerCell--align-bottom"
+            class="c8 c9 c23 table__footerCell table__footerCell--10 table__footerCell--align-bottom"
             data-role="table-footer-cell"
           />
         </div>
@@ -7339,28 +7152,28 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
     </div>
     <div
       aria-hidden="true"
-      class="c3 c25"
+      class="c3 c24"
       data-role="table-row-scroller"
     >
       <div
-        class="c5 c7 c26"
+        class="c5 c7 c25"
         data-role="table-row-scroller--scroll"
         tabindex="-1"
       >
         <div
-          class="c8 c9 c24"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c24"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c24"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c24"
+          class="c8 c9 c23"
           data-role="table-row-scroller-cell"
         />
       </div>
@@ -7370,7 +7183,7 @@ exports[`com.mgmtp.a12.widgets.table > specific alignment combines common alignm
 `;
 
 exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
-.c20 {
+.c19 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -7384,12 +7197,12 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   margin: -1px !important;
 }
 
-.c20 * {
+.c19 * {
   width: 1px;
   height: 1px;
 }
 
-.c27 {
+.c26 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -7409,12 +7222,16 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   font-feature-settings: "liga";
 }
 
-.c27 > span {
+.c26 > span {
   display: inline-block;
 }
 
-.c27.c27 {
+.c26.c26 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c26 {
+  color: inherit;
 }
 
 .c3 {
@@ -7462,58 +7279,19 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   overflow: hidden;
 }
 
-.c25 {
+.c24 {
   position: absolute;
   z-index: 1;
   left: 0px;
   top: 0px;
 }
 
-.c25::before {
+.c24::before {
   content: "";
   transform-origin: 0px 0px;
   border-right: 1px solid transparent;
   position: absolute;
   right: 0px;
-}
-
-.c29 {
-  line-height: 1.45;
-  outline: none;
-  overflow: hidden;
-  position: relative;
-  background-color: rgb(255, 255, 255);
-}
-
-.c29::before,
-.c29::after {
-  bottom: 0px;
-  left: 0px;
-  position: absolute;
-  top: 0px;
-  content: "";
-  pointer-events: none;
-}
-
-.c29::before {
-  right: 0px;
-}
-
-.c29::after {
-  display: block;
-}
-
-.c29:focus .c24 .c26 {
-  color: rgb(234, 237, 241);
-}
-
-.c29:focus {
-  background-color: rgb(249, 250, 251);
-}
-
-.c29:active,
-.c29:focus-within {
-  background-color: rgb(249, 250, 251);
 }
 
 .c16 {
@@ -7542,7 +7320,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   display: block;
 }
 
-.c16:focus .c24 .c26 {
+.c16:focus .c23 .c25 {
   color: rgb(234, 237, 241);
 }
 
@@ -7560,7 +7338,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   background-color: rgb(249, 250, 251);
 }
 
-.c22 {
+.c21 {
   line-height: 1.45;
   outline: none;
   overflow: hidden;
@@ -7568,8 +7346,8 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   background-color: rgb(236, 249, 235);
 }
 
-.c22::before,
-.c22::after {
+.c21::before,
+.c21::after {
   bottom: 0px;
   left: 0px;
   position: absolute;
@@ -7578,37 +7356,76 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   pointer-events: none;
 }
 
-.c22::before {
+.c21::before {
   right: 0px;
 }
 
-.c22::after {
+.c21::after {
   display: block;
 }
 
-.c22:focus .c24 .c26 {
+.c21:focus .c23 .c25 {
   color: rgb(234, 237, 241);
 }
 
-.c22:focus {
+.c21:focus {
   background-color: rgb(249, 250, 251);
 }
 
-.c22:active,
-.c22:focus-within {
+.c21:active,
+.c21:focus-within {
   background-color: rgb(249, 250, 251);
 }
 
-.c15:focus .c18:last-child > :last-child {
+.c28 {
+  line-height: 1.45;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+}
+
+.c28::before,
+.c28::after {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  content: "";
+  pointer-events: none;
+}
+
+.c28::before {
+  right: 0px;
+}
+
+.c28::after {
+  display: block;
+}
+
+.c28:focus .c23 .c25 {
+  color: rgb(234, 237, 241);
+}
+
+.c28:focus {
+  background-color: rgb(249, 250, 251);
+}
+
+.c28:active,
+.c28:focus-within {
+  background-color: rgb(249, 250, 251);
+}
+
+.c15:focus .c17:last-child > :last-child {
   background-clip: unset;
 }
 
-.c15:focus .c18:last-child > :last-child::before {
+.c15:focus .c17:last-child > :last-child::before {
   border-right: 2px solid rgb(213, 0, 117);
   margin-right: 1px;
 }
 
-.c30 {
+.c18 {
   min-height: 32px;
   overflow: hidden;
   isolation: isolate;
@@ -7616,16 +7433,208 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   justify-content: flex-start;
 }
 
-.c30 .c24 {
+.c18 .c23 {
   width: 26px;
 }
 
-.c30 .c24::before {
+.c18 .c23::before {
   height: 50px;
   transform: rotate(40deg);
 }
 
-.c30 .c24 .c26 {
+.c18 .c23 .c25 {
+  font-size: 0.625rem;
+  color: rgb(245, 251, 255);
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+[data-role="tree"] .c18.c18 {
+  padding: 8px;
+}
+
+.c18.c18 > * {
+  align-self: flex-start;
+}
+
+.c18 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c20 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.c20 .c23 {
+  width: 26px;
+}
+
+.c20 .c23::before {
+  height: 50px;
+  transform: rotate(40deg);
+}
+
+.c20 .c23 .c25 {
+  font-size: 0.625rem;
+  color: rgb(245, 251, 255);
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+[data-role="tree"] .c20.c20 {
+  padding: 8px;
+}
+
+.c20.c20 > * {
+  align-self: flex-start;
+}
+
+.c20 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c22 {
+  min-height: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.c22 .c23 {
+  width: 26px;
+}
+
+.c22 .c23::before {
+  height: 50px;
+  transform: rotate(40deg);
+}
+
+.c22 .c23 .c25 {
+  font-size: 0.625rem;
+  color: rgb(236, 249, 235);
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+[data-role="tree"] .c22.c22 {
+  padding: 8px;
+}
+
+.c22.c22 > * {
+  align-self: flex-start;
+}
+
+.c22 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c27 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.c27 .c23 {
+  width: 26px;
+}
+
+.c27 .c23::before {
+  height: 50px;
+  transform: rotate(40deg);
+}
+
+.c27 .c23 .c25 {
+  font-size: 0.625rem;
+  color: rgb(236, 249, 235);
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+[data-role="tree"] .c27.c27 {
+  padding: 8px;
+}
+
+.c27.c27 > * {
+  align-self: flex-start;
+}
+
+.c27 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c29 {
+  min-height: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.c29 .c23 {
+  width: 26px;
+}
+
+.c29 .c23::before {
+  height: 50px;
+  transform: rotate(40deg);
+}
+
+.c29 .c23 .c25 {
+  font-size: 0.625rem;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+[data-role="tree"] .c29.c29 {
+  padding: 8px;
+}
+
+.c29.c29 > * {
+  align-self: flex-start;
+}
+
+.c29 [class*="field--block"] {
+  flex-grow: 0;
+}
+
+.c30 {
+  min-height: 32px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.c30 .c23 {
+  width: 26px;
+}
+
+.c30 .c23::before {
+  height: 50px;
+  transform: rotate(40deg);
+}
+
+.c30 .c23 .c25 {
   font-size: 0.625rem;
   color: rgb(255, 255, 255);
   position: absolute;
@@ -7651,19 +7660,20 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   min-height: 32px;
   overflow: hidden;
   flex-direction: column;
+  color: rgb(97, 111, 124);
   justify-content: flex-start;
 }
 
-.c31 .c24 {
+.c31 .c23 {
   width: 26px;
 }
 
-.c31 .c24::before {
+.c31 .c23::before {
   height: 50px;
   transform: rotate(40deg);
 }
 
-.c31 .c24 .c26 {
+.c31 .c23 .c25 {
   font-size: 0.625rem;
   color: rgb(255, 255, 255);
   position: absolute;
@@ -7685,253 +7695,11 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   flex-grow: 0;
 }
 
-.c42 .c24 {
-  width: 26px;
-}
-
-.c42 .c24::before {
-  height: 50px;
-  transform: rotate(40deg);
-}
-
-.c42 .c24 .c26 {
-  font-size: 0.625rem;
-  color: rgb(241, 242, 244);
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-.c43 .c24 {
-  width: 26px;
-}
-
-.c43 .c24::before {
-  height: 50px;
-  transform: rotate(40deg);
-}
-
-.c43 .c24 .c26 {
-  font-size: 0.625rem;
-  color: rgb(241, 242, 244);
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-.c19 {
-  min-height: 32px;
-  overflow: hidden;
-  isolation: isolate;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.c19 .c24 {
-  width: 26px;
-}
-
-.c19 .c24::before {
-  height: 50px;
-  transform: rotate(40deg);
-}
-
-.c19 .c24 .c26 {
-  font-size: 0.625rem;
-  color: rgb(245, 251, 255);
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-[data-role="tree"] .c19.c19 {
-  padding: 8px;
-}
-
-.c19.c19 > * {
-  align-self: flex-start;
-}
-
-.c19 [class*="field--block"] {
-  flex-grow: 0;
-}
-
-.c21 {
-  min-height: 32px;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.c21 .c24 {
-  width: 26px;
-}
-
-.c21 .c24::before {
-  height: 50px;
-  transform: rotate(40deg);
-}
-
-.c21 .c24 .c26 {
-  font-size: 0.625rem;
-  color: rgb(245, 251, 255);
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-[data-role="tree"] .c21.c21 {
-  padding: 8px;
-}
-
-.c21.c21 > * {
-  align-self: flex-start;
-}
-
-.c21 [class*="field--block"] {
-  flex-grow: 0;
-}
-
-.c23 {
-  min-height: 32px;
-  overflow: hidden;
-  isolation: isolate;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.c23 .c24 {
-  width: 26px;
-}
-
-.c23 .c24::before {
-  height: 50px;
-  transform: rotate(40deg);
-}
-
-.c23 .c24 .c26 {
-  font-size: 0.625rem;
-  color: rgb(236, 249, 235);
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-[data-role="tree"] .c23.c23 {
-  padding: 8px;
-}
-
-.c23.c23 > * {
-  align-self: flex-start;
-}
-
-.c23 [class*="field--block"] {
-  flex-grow: 0;
-}
-
-.c28 {
-  min-height: 32px;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.c28 .c24 {
-  width: 26px;
-}
-
-.c28 .c24::before {
-  height: 50px;
-  transform: rotate(40deg);
-}
-
-.c28 .c24 .c26 {
-  font-size: 0.625rem;
-  color: rgb(236, 249, 235);
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-[data-role="tree"] .c28.c28 {
-  padding: 8px;
-}
-
-.c28.c28 > * {
-  align-self: flex-start;
-}
-
-.c28 [class*="field--block"] {
-  flex-grow: 0;
-}
-
-.c32 {
-  min-height: 32px;
-  overflow: hidden;
-  flex-direction: column;
-  color: rgb(97, 111, 124);
-  justify-content: flex-start;
-}
-
-.c32 .c24 {
-  width: 26px;
-}
-
-.c32 .c24::before {
-  height: 50px;
-  transform: rotate(40deg);
-}
-
-.c32 .c24 .c26 {
-  font-size: 0.625rem;
-  color: rgb(255, 255, 255);
-  position: absolute;
-  top: 3px;
-  left: 4px;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-[data-role="tree"] .c32.c32 {
-  padding: 8px;
-}
-
-.c32.c32 > * {
-  align-self: flex-start;
-}
-
-.c32 [class*="field--block"] {
-  flex-grow: 0;
-}
-
-.c17 > .c45.c45::after {
-  content: "";
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  display: block;
-  left: unset;
-  border-right: 2px solid rgb(241, 242, 244);
-}
-
 .c14 {
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -7944,7 +7712,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   overflow-x: hidden;
 }
 
-.c36 {
+.c35 {
   font-weight: 600;
   min-height: 32px;
   overflow: hidden;
@@ -7952,13 +7720,13 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   align-items: flex-start;
 }
 
-.c36:empty {
+.c35:empty {
   min-height: 1px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
-.c34 {
+.c33 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   flex: 0 0 auto;
@@ -7966,22 +7734,22 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   z-index: 1;
 }
 
-.c34 > * {
+.c33 > * {
   position: relative;
 }
 
-.c34 > ::before {
+.c33 > ::before {
   content: "";
   inset: 0px;
   position: absolute;
   border-bottom: 1px solid rgb(211, 214, 220);
 }
 
-.c34 > :first-child {
+.c33 > :first-child {
   box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
 }
 
-.c34 > :first-child::before {
+.c33 > :first-child::before {
   border-bottom-width: medium;
   border-bottom-style: none;
   border-bottom-color: currentcolor;
@@ -7996,45 +7764,15 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   min-height: 22px;
 }
 
-.c12 > .c26:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
+.c12 > .c25:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c12 [data-role="status-icon"] .c26 {
+.c12 [data-role="status-icon"] .c25 {
   display: inherit;
 }
 
-.c12 .c26 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
-.c40 > .c26:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c40 [data-role="status-icon"] .c26 {
-  display: inherit;
-}
-
-.c40 .c26 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
-.c41 > .c26:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c41 [data-role="status-icon"] .c26 {
-  display: inherit;
-}
-
-.c41 .c26 {
+.c12 .c25 {
   align-items: center;
   display: inline-flex;
   font-size: 1.25rem;
@@ -8064,14 +7802,6 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   min-width: 100%;
 }
 
-.c11 .c39.c39 {
-  overflow: hidden;
-}
-
-.c6 > .c44.c44::after {
-  border-right: 2px solid rgb(255, 255, 255);
-}
-
 .c4 {
   border-bottom: 1px solid rgb(211, 214, 220);
   overflow: hidden;
@@ -8097,13 +7827,13 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   flex-grow: 0;
 }
 
-.c0 .c33 {
+.c0 .c32 {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
 }
 
-.c0 .c35:last-child {
+.c0 .c34:last-child {
   flex-grow: 1;
 }
 
@@ -8120,55 +7850,17 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
   user-select: none;
 }
 
-.c37 {
+.c36 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   margin-top: -1px;
 }
 
-.c38 {
+.c37 {
   overflow-x: auto;
 }
 
 @media (pointer: fine) {
-  .c29:hover {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: coarse) {
-  .c29:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: fine) {
-  .c29:hover .c24 .c26 {
-    color: rgb(234, 237, 241);
-  }
-}
-
-@media (pointer: coarse) {
-  .c29:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    box-shadow: none;
-  }
-}
-
-@media (pointer: fine) {
-  .c29:hover {
-    box-shadow: none;
-  }
-}
-
-@media (pointer: coarse) {
-  .c29:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-}
-
-@media (pointer: fine) {
   .c16:hover {
     background-color: rgb(249, 250, 251);
   }
@@ -8182,7 +7874,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
 }
 
 @media (pointer: fine) {
-  .c16:hover .c24 .c26 {
+  .c16:hover .c23 .c25 {
     color: rgb(234, 237, 241);
   }
 }
@@ -8207,45 +7899,83 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
 }
 
 @media (pointer: fine) {
-  .c22:hover {
+  .c21:hover {
     background-color: rgb(249, 250, 251);
   }
 }
 
 @media (pointer: coarse) {
-  .c22:active {
+  .c21:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(249, 250, 251);
   }
 }
 
 @media (pointer: fine) {
-  .c22:hover .c24 .c26 {
+  .c21:hover .c23 .c25 {
     color: rgb(234, 237, 241);
   }
 }
 
 @media (pointer: coarse) {
-  .c22:active {
+  .c21:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: none;
   }
 }
 
 @media (pointer: fine) {
-  .c22:hover {
+  .c21:hover {
     box-shadow: none;
   }
 }
 
 @media (pointer: coarse) {
-  .c22:active {
+  .c21:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 }
 
 @media (pointer: fine) {
-  .c15:not(:focus):hover .c18:last-child > :last-child::before {
+  .c28:hover {
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: coarse) {
+  .c28:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(249, 250, 251);
+  }
+}
+
+@media (pointer: fine) {
+  .c28:hover .c23 .c25 {
+    color: rgb(234, 237, 241);
+  }
+}
+
+@media (pointer: coarse) {
+  .c28:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+  }
+}
+
+@media (pointer: fine) {
+  .c28:hover {
+    box-shadow: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .c28:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@media (pointer: fine) {
+  .c15:not(:focus):hover .c17:last-child > :last-child::before {
     border-right: 2px solid rgb(213, 0, 117);
   }
 }
@@ -8343,17 +8073,17 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c19 table__contentCell table__contentCell--10"
+            class="c8 c9 c18 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <span
-              class="c20 -u-unseenButRead"
+              class="c19 -u-unseenButRead"
               data-role="hidden-text"
             >
               Selected row, 
@@ -8362,7 +8092,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8370,7 +8100,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8378,7 +8108,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c21 table__contentCell table__contentCell--10"
+            class="c8 c9 c20 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8388,42 +8118,44 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
       </div>
       <div
         aria-selected="false"
-        class="c15 c3 c22 table__contentRow table__contentRow--success"
+        class="c15 c3 c21 table__contentRow table__contentRow--success"
         data-role="table-body-row"
         role="row"
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c23 table__contentCell table__contentCell--10"
+            class="c8 c9 c22 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
             <span
-              class="c20 -u-unseenButRead"
+              class="c19 -u-unseenButRead"
               data-role="hidden-text"
             >
               Success, 
             </span>
             <div
-              class="c24 c25"
+              class="c23 c24"
             >
               <i
-                class="c26 c27 plasma-icon"
+                class="c25 c26 plasma-icon"
                 data-role="plasma-icon"
                 title="Success"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   check
                 </span>
                 <span
-                  class="c20 -u-unseenButRead"
+                  class="c19 -u-unseenButRead"
                   data-role="hidden-text"
                 >
                   Success
@@ -8434,7 +8166,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c28 table__contentCell table__contentCell--10"
+            class="c8 c9 c27 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8442,7 +8174,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c28 table__contentCell table__contentCell--10"
+            class="c8 c9 c27 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8450,7 +8182,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c28 table__contentCell table__contentCell--10"
+            class="c8 c9 c27 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8460,18 +8192,18 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
       </div>
       <div
         aria-selected="false"
-        class="c15 c3 c29 table__contentRow"
+        class="c15 c3 c28 table__contentRow"
         data-role="table-body-row"
         role="row"
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c30 table__contentCell table__contentCell--10"
+            class="c8 c9 c29 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8479,7 +8211,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8487,7 +8219,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8495,7 +8227,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8505,18 +8237,18 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
       </div>
       <div
         aria-selected="false"
-        class="c15 c3 c29 table__contentRow"
+        class="c15 c3 c28 table__contentRow"
         data-role="table-body-row"
         role="row"
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c30 table__contentCell table__contentCell--10"
+            class="c8 c9 c29 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8524,7 +8256,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c32 table__contentCell table__contentCell--secondary table__contentCell--10"
+            class="c8 c9 c31 table__contentCell table__contentCell--secondary table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8532,7 +8264,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8540,7 +8272,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8550,18 +8282,18 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
       </div>
       <div
         aria-selected="false"
-        class="c15 c3 c29 table__contentRow"
+        class="c15 c3 c28 table__contentRow"
         data-role="table-body-row"
         role="row"
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c30 table__contentCell table__contentCell--10"
+            class="c8 c9 c29 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8569,7 +8301,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8577,7 +8309,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8585,7 +8317,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8595,18 +8327,18 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
       </div>
       <div
         aria-selected="false"
-        class="c15 c3 c29 table__contentRow"
+        class="c15 c3 c28 table__contentRow"
         data-role="table-body-row"
         role="row"
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c30 table__contentCell table__contentCell--10"
+            class="c8 c9 c29 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8614,7 +8346,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8622,7 +8354,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8630,7 +8362,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8640,18 +8372,18 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
       </div>
       <div
         aria-selected="false"
-        class="c15 c3 c29 table__contentRow"
+        class="c15 c3 c28 table__contentRow"
         data-role="table-body-row"
         role="row"
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c30 table__contentCell table__contentCell--10"
+            class="c8 c9 c29 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8659,7 +8391,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8667,7 +8399,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8675,7 +8407,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8685,18 +8417,18 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
       </div>
       <div
         aria-selected="false"
-        class="c15 c3 c29 table__contentRow"
+        class="c15 c3 c28 table__contentRow"
         data-role="table-body-row"
         role="row"
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c30 table__contentCell table__contentCell--10"
+            class="c8 c9 c29 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8704,7 +8436,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8712,7 +8444,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8720,7 +8452,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8730,18 +8462,18 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
       </div>
       <div
         aria-selected="false"
-        class="c15 c3 c29 table__contentRow"
+        class="c15 c3 c28 table__contentRow"
         data-role="table-body-row"
         role="row"
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c30 table__contentCell table__contentCell--10"
+            class="c8 c9 c29 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8749,7 +8481,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8757,7 +8489,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8765,7 +8497,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8775,18 +8507,18 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
       </div>
       <div
         aria-selected="false"
-        class="c15 c3 c29 table__contentRow"
+        class="c15 c3 c28 table__contentRow"
         data-role="table-body-row"
         role="row"
         tabindex="-1"
       >
         <div
-          class="c5 c17 c7 c18 table__contentRow--scroll"
+          class="c5 c7 c17 table__contentRow--scroll"
           data-role="table-body-row--scroll"
         >
           <div
             aria-colindex="1"
-            class="c8 c9 c30 table__contentCell table__contentCell--10"
+            class="c8 c9 c29 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8794,7 +8526,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="2"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8802,7 +8534,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="3"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8810,7 +8542,7 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           </div>
           <div
             aria-colindex="4"
-            class="c8 c9 c31 table__contentCell table__contentCell--10"
+            class="c8 c9 c30 table__contentCell table__contentCell--10"
             data-role="table-body-cell"
             role="cell"
           >
@@ -8820,11 +8552,11 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
       </div>
     </div>
     <div
-      class="c33 c34 table__footer"
+      class="c32 c33 table__footer"
       data-role="table-footer"
     >
       <div
-        class="c35 c3 table__footerRow"
+        class="c34 c3 table__footerRow"
         data-role="table-footer-row"
       >
         <div
@@ -8832,19 +8564,19 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
           data-role="table-footer-row--scroll"
         >
           <div
-            class="c8 c9 c36 table__footerCell table__footerCell--10"
+            class="c8 c9 c35 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c36 table__footerCell table__footerCell--10"
+            class="c8 c9 c35 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c36 table__footerCell table__footerCell--10"
+            class="c8 c9 c35 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c36 table__footerCell table__footerCell--10"
+            class="c8 c9 c35 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
         </div>
@@ -8852,28 +8584,28 @@ exports[`com.mgmtp.a12.widgets.table > table row styling 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="c3 c37"
+      class="c3 c36"
       data-role="table-row-scroller"
     >
       <div
-        class="c5 c7 c38"
+        class="c5 c7 c37"
         data-role="table-row-scroller--scroll"
         tabindex="-1"
       >
         <div
-          class="c8 c9 c36"
+          class="c8 c9 c35"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c36"
+          class="c8 c9 c35"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c36"
+          class="c8 c9 c35"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c36"
+          class="c8 c9 c35"
           data-role="table-row-scroller-cell"
         />
       </div>

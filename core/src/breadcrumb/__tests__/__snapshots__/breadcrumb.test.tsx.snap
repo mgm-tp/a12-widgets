@@ -74,6 +74,10 @@ exports[`com.mgmtp.a12.widgets.breadcrumb > render basic breadcrumb 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
+}
+
 .c3 .c5 {
   font-size: 0.75rem;
   line-height: 1px;
@@ -111,6 +115,8 @@ exports[`com.mgmtp.a12.widgets.breadcrumb > render basic breadcrumb 1`] = `
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             chevron_right
           </span>
@@ -137,6 +143,8 @@ exports[`com.mgmtp.a12.widgets.breadcrumb > render basic breadcrumb 1`] = `
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             chevron_right
           </span>
@@ -166,7 +174,7 @@ exports[`com.mgmtp.a12.widgets.breadcrumb > render basic breadcrumb 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.breadcrumb > render custom separator breadcrumb 1`] = `
-.c5 {
+.c4 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -180,7 +188,7 @@ exports[`com.mgmtp.a12.widgets.breadcrumb > render custom separator breadcrumb 1
   margin: -1px !important;
 }
 
-.c5 * {
+.c4 * {
   width: 1px;
   height: 1px;
 }
@@ -204,18 +212,11 @@ exports[`com.mgmtp.a12.widgets.breadcrumb > render custom separator breadcrumb 1
   margin: 0px 8px 0px 0px;
 }
 
-.c4 {
+.c3 {
   color: rgb(226, 230, 233);
   font-size: 0.75rem;
   line-height: 1px;
   margin: 0px 8px 0px 0px;
-}
-
-.c3 .c6 {
-  font-size: 0.75rem;
-  line-height: 1px;
-  margin: -4px;
-  vertical-align: middle;
 }
 
 <div
@@ -239,7 +240,7 @@ exports[`com.mgmtp.a12.widgets.breadcrumb > render custom separator breadcrumb 1
         Home
       </div>
       <span
-        class="c3 c4 breadcrumb__separator"
+        class="c3 breadcrumb__separator"
         data-role="breadcrumb-separator"
       >
         /
@@ -256,7 +257,7 @@ exports[`com.mgmtp.a12.widgets.breadcrumb > render custom separator breadcrumb 1
         Room
       </div>
       <span
-        class="c3 c4 breadcrumb__separator"
+        class="c3 breadcrumb__separator"
         data-role="breadcrumb-separator"
       >
         /
@@ -267,7 +268,7 @@ exports[`com.mgmtp.a12.widgets.breadcrumb > render custom separator breadcrumb 1
       data-role="breadcrumb-item"
     >
       <span
-        class="c5 -u-unseenButRead"
+        class="c4 -u-unseenButRead"
         data-role="hidden-text"
       >
         You are here: 

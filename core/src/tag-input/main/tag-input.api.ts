@@ -41,9 +41,7 @@ import type { ReactNode } from "react";
 import type { BaseInputProps, InputDOMProps } from "../../input/base/template/base.tpl.api.js";
 
 export interface TagInputProps
-	extends
-		Omit<BaseInputProps, "breakTooltipsToNewLine" | "fitToParent" | "ariaDescribedby">,
-		InputDOMProps<HTMLTextAreaElement> {
+	extends Omit<BaseInputProps, "fitToParent" | "ariaDescribedby">, InputDOMProps<HTMLTextAreaElement> {
 	/**
 	 * Placeholder for the input area.
 	 */
@@ -115,6 +113,16 @@ export interface TagInputProps
 	 * @default true
 	 */
 	openOnFocus?: boolean;
+
+	/**
+	 * On desktop, whether each tag's remove ("close") button is part of the native Tab order,
+	 * so the user can Tab/Shift+Tab through the remove buttons of every tag.
+	 *
+	 * Has no effect on touch devices, where the remove buttons are already reachable this way.
+	 *
+	 * @default false
+	 */
+	focusableRemoveButtons?: boolean;
 
 	/**
 	 * This message will be shown when user tries to create the duplicated tag.

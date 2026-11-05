@@ -34,13 +34,13 @@ import type { ReactNode, ReactElement } from "react";
 import { useContext, isValidElement } from "react";
 
 import { ButtonGroup } from "../../../button-group/main/button-group.view.js";
-import type { Identifiable, Styleable } from "../../../common/main/base-props.js";
-import { PopUpMenu } from "../../../pop-up-menu/main/pop-up-menu.view.js";
-import { Icon } from "../../../icon/main/icon.view.js";
-import { LayoutGrid } from "../../../layout/layout-grid/main/layout-grid.view.js";
-import { ButtonGroupContainer } from "../../../layout/button-group-container/main/button-group-container.view.js";
-import { ContentBoxElements } from "../../main/template/contentbox.tpl.view.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
+import type { Identifiable, Styleable } from "../../../common/main/base-props.js";
+import { Icon } from "../../../icon/main/icon.view.js";
+import { ButtonGroupContainer } from "../../../layout/button-group-container/main/button-group-container.view.js";
+import { LayoutGrid } from "../../../layout/layout-grid/main/layout-grid.view.js";
+import { PopUpMenu } from "../../../pop-up-menu/main/pop-up-menu.view.js";
+import { ContentBoxElements } from "../../main/template/contentbox.tpl.view.js";
 
 import type { ActionContentboxProps } from "./action-contentbox.api.js";
 

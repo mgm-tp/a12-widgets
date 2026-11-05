@@ -1,0 +1,47 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as CalendarWeekViewStories from "./CalendarWeekView.stories";
+
+<Meta of={CalendarWeekViewStories} />
+
+<Title />
+
+The `Calendar` widget with `view="week"` displays a single week as columns of days, giving each
+day's items more vertical space than the month grid. Use it when users need to see the details of
+events within one week — the larger day cells suit richer item content rendered via
+`componentRenderers.dayItemContentRenderer`.
+
+- Day and item selection are controlled via `selectedDate`/`onDayClick` and `selectedItem`/`onItemClick`.
+- The day header labels can be customized with `weekDayFormatter` and `dateFormatter`.
+- Weekends and `publicHolidays` can be highlighted, and individual days can be disabled with `isDisabledDay`.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={CalendarWeekViewStories.Playground} />
+
+## Examples
+
+### Week starts on Sunday
+
+<Canvas of={CalendarWeekViewStories.WeekStartsOnSunday} />
+
+### Custom weekday format
+
+<Canvas of={CalendarWeekViewStories.CustomWeekdayFormat} />

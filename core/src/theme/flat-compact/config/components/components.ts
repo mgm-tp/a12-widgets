@@ -36,25 +36,25 @@ import { accordionFlatCompactConfig } from "./accordion.config.js";
 import { applicationFrameFlatCompactConfig } from "./application-frame.config.js";
 import { baseInputFlatCompactConfig } from "./base-input.config.js";
 import { buttonFlatCompactConfig } from "./buttons.config.js";
+import { CalendarFlatCompactConfig } from "./calendar.config.js";
 import { contentBoxFlatCompactConfig } from "./contentbox.config.js";
-import { tooltipFlatCompactConfig } from "./tooltip.config.js";
 import { datePickerFlatCompactConfig } from "./date-picker.config.js";
 import { iconFlatCompactConfig } from "./icon.config.js";
 import { interactionHintFlatCompactConfig } from "./interaction-hint.config.js";
 import { listFlatCompactConfig } from "./list.config.js";
 import { masterDetailLayoutFlatCompactConfig } from "./master-detail-layout.config.js";
 import { menuFlatCompactConfig } from "./menu.config.js";
-import { popupMenuFlatCompactConfig } from "./popup-menu.config.js";
-import { tableFlatCompactConfig } from "./table.config.js";
-import { tagFlatCompactConfig } from "./tag.config.js";
-import { tagInputFlatCompactConfig } from "./tag-input.config.js";
-import { toggleFlatCompactConfig } from "./toggle.config.js";
-import { typographyFlatCompactConfig } from "./typography.config.js";
 import { modalOverlayFlatCompactConfig } from "./modal-overlay.config.js";
+import { popupMenuFlatCompactConfig } from "./popup-menu.config.js";
 import { quickAccessButtonFlatCompactConfig } from "./quick-access-button.config.js";
 import { supportingPanesLayoutFlatCompactConfig } from "./supporting-panes-layout.config.js";
-import { CalendarFlatCompactConfig } from "./calendar.config.js";
 import { tabPanelFlatCompactConfig } from "./tab-panel.config.js";
+import { tableFlatCompactConfig } from "./table.config.js";
+import { tagInputFlatCompactConfig } from "./tag-input.config.js";
+import { tagFlatCompactConfig } from "./tag.config.js";
+import { toggleFlatCompactConfig } from "./toggle.config.js";
+import { tooltipFlatCompactConfig } from "./tooltip.config.js";
+import { typographyFlatCompactConfig } from "./typography.config.js";
 
 export const FlatCompactComponentsConfigs = (theme: FlatCompactThemeType) => {
 	return {

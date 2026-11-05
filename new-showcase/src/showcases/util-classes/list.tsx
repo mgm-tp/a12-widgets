@@ -44,6 +44,7 @@ export function ListUtilClassShowcase(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<Checkbox
+					id="util-classes-list-checkbox"
 					checked={applyClass}
 					label={
 						<span>

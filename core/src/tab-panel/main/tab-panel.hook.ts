@@ -32,15 +32,15 @@
 
 import type { RefObject } from "react";
 import { useCallback, useEffect, useState } from "react";
-import { useResizeDetector } from "react-resize-detector";
 import { Key } from "ts-key-enum";
 
 import { DataRoles } from "../../common/main/data-roles.js";
 import { useUpdateEffect } from "../../common/main/hooks.js";
+import { useResizeObserver } from "../../common/main/resize-observer/use-resize-observer.js";
 import { type KeyboardNavigationComponentKey, useKeyboardNavigationMode } from "../../keyboard-navigation/index.js";
 
-import type { TabPanelTemplateProps } from "./template/tab-panel.tpl.api.js";
 import type { TabPanelOrientation } from "./tab-panel.api.js";
+import type { TabPanelTemplateProps } from "./template/tab-panel.tpl.api.js";
 
 /** @internal */
 export const useAdaptTabPanelResponsive = ({
@@ -163,9 +163,7 @@ export const useAdaptTabPanelResponsive = ({
 		setTabItemCounting(true);
 	}, [tabListKey]);
 
-	useResizeDetector({
-		handleHeight: true,
-		handleWidth: true,
+	useResizeObserver({
 		targetRef: tabRef,
 		onResize: handleOnResizeChange
 	});

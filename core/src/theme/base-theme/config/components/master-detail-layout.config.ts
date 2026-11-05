@@ -40,7 +40,15 @@ export type MasterDetailLayoutConfigType = {
 	borderRadius: number;
 	contentBoxHeaderPadding: string;
 	header: { padding: string };
-	pane: { animationDuration: string; secondChildLeftBorder: string; nonFirstChildLeftBorder?: string };
+	pane: {
+		animationDuration: string;
+		secondChildLeftBorder: string;
+		nonFirstChildLeftBorder?: string;
+		content?: {
+			background: string;
+			borderRadius: number;
+		};
+	};
 	spacingBetweenPanes: string;
 	spacingForBoxShadow: string;
 	title: {
@@ -57,6 +65,7 @@ export type MasterDetailLayoutConfigType = {
 const defaultMasterDetailLayoutConfig = (theme: BaseThemeCore): MasterDetailLayoutConfigType => {
 	const spacing = theme.spacing;
 	const typography = theme.typography;
+	const colors = theme.colors;
 
 	return {
 		background: "none",
@@ -82,7 +91,11 @@ const defaultMasterDetailLayoutConfig = (theme: BaseThemeCore): MasterDetailLayo
 		pane: {
 			animationDuration: "0.35s",
 			secondChildLeftBorder: "none",
-			nonFirstChildLeftBorder: "none"
+			nonFirstChildLeftBorder: "none",
+			content: {
+				background: colors.background.primaryBackground,
+				borderRadius: theme.spacing.spacing.spacingXs
+			}
 		}
 	};
 };

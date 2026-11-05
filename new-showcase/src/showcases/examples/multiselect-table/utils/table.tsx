@@ -101,6 +101,7 @@ const CustomCheckBox = (props: {
 	return useMemo(() => {
 		return (
 			<Checkbox
+				id={`multiselect-select-${row.username}`}
 				label="Select"
 				hideLabel
 				checked={checked}
@@ -175,6 +176,7 @@ export const MultiselectTable: FC<MultiselectTableProps> = (props) => {
 			if (props.column.label === "") {
 				return (
 					<Checkbox.Indeterminate
+						id="multiselect-table-select-all"
 						checked={checked}
 						onChange={(value) => onHeaderCheckboxChange?.(value)}
 						label="De/Select all"

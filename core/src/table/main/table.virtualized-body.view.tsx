@@ -32,18 +32,18 @@
 
 import type { FC, ReactNode } from "react";
 import { useContext, useRef, useCallback, useEffect } from "react";
-import { styled, css } from "styled-components";
 import { AutoSizer, CellMeasurer, CellMeasurerCache, List } from "react-virtualized";
+import { styled, css } from "styled-components";
 
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import { TableTemplate } from "./template/index.js";
-import { StyledTableBodyRow } from "./template/table.body-row.tpl.view.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
-import { getRowKey } from "./table.utils.js";
 import { useTableContext } from "./table.context.js";
 import { StyledTableDnDBody, StyledTableDnDBodyHint } from "./table.dnd.view.js";
+import { getRowKey } from "./table.utils.js";
+import { TableTemplate } from "./template/index.js";
+import { StyledTableBodyRow } from "./template/table.body-row.tpl.view.js";
 
 export const StyledTableVirtualizedBody = styled(TableTemplate.Body).withConfig({
 	displayName: "StyledTableVirtualizedBody-sc-"
@@ -57,8 +57,9 @@ export const StyledTableVirtualizedBody = styled(TableTemplate.Body).withConfig(
 			&:focus {
 				border: ${body.focusBorder};
 			}
-			${StyledTableDnDBody} > div:not(${StyledTableDnDBodyHint}):not([data-role="${DataRoles.TreeTable.Dnd
-				.Target}"]), ${StyledTableBodyRow} {
+			${StyledTableDnDBody} > div:not(${StyledTableDnDBodyHint}):not([data-role="${
+				DataRoles.TreeTable.Dnd.Target
+			}"]), ${StyledTableBodyRow} {
 				height: 100%;
 			}
 		}

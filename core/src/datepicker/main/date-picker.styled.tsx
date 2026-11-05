@@ -34,16 +34,21 @@ import type { DayButtonProps } from "react-day-picker";
 import { DayButton, DayPicker } from "react-day-picker";
 import { styled, css } from "styled-components";
 
-import { addPrefix, getHorizontalSpace, getVerticalSpace } from "../../common/main/utils.js";
+import { getBaseButtonVariantStyles } from "../../button/main/button.styled.js";
+import { Button } from "../../button/main/button.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix, getHorizontalSpace, getVerticalSpace } from "../../common/main/utils.js";
+import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
 import { BufferedInput, HTMLInputAdapter } from "../../input/buffered/main/buffered.view.js";
-import { YearMonthSelector } from "../../input/year-month-selector/year-month-selector.view.js";
 import { StyledNativeSelect, StyledSelectTemplate } from "../../input/select/main/select.styled.js";
+import { TextField } from "../../input/text-field/text-field.view.js";
 import {
 	StyledMonthSelector,
 	StyledYearMonthSelectorInner,
 	StyledYearSelector
 } from "../../input/year-month-selector/year-month-selector.styled.js";
+import { YearMonthSelector } from "../../input/year-month-selector/year-month-selector.view.js";
+import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
 import {
 	active,
 	activeAndHover,
@@ -52,11 +57,6 @@ import {
 	inputBrightFocus,
 	inputDarkFocus
 } from "../../theme/base/mixins/_interaction.js";
-import { Button } from "../../button/main/button.view.js";
-import { getBaseButtonVariantStyles } from "../../button/main/button.styled.js";
-import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
-import { TextField } from "../../input/text-field/text-field.view.js";
-import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
 
 import type { DatePickerProps } from "./date-picker.api.js";
 
@@ -68,12 +68,14 @@ export const StyledBufferedStringDatePickerInput = styled(BufferedStringInput)((
 	const { input } = theme.components.datePicker;
 
 	return css`
-		${input?.focus?.customBorder &&
-		css`
-			[data-isfocused="true"] {
-				${createBoxShadow(input.focus.customBorder)}
-			}
-		`}
+		${
+			input?.focus?.customBorder &&
+			css`
+				[data-isfocused="true"] {
+					${createBoxShadow(input.focus.customBorder)}
+				}
+			`
+		}
 	`;
 });
 
@@ -82,12 +84,14 @@ export const StyledPickerHeaderButton = styled(Button).withConfig({ displayName:
 		const { headerActionButton } = theme.components.dateTimePicker;
 
 		return css`
-			${invert &&
-			css`
-				&& {
-					${getBaseButtonVariantStyles(headerActionButton)}
-				}
-			`}
+			${
+				invert &&
+				css`
+					&& {
+						${getBaseButtonVariantStyles(headerActionButton)}
+					}
+				`
+			}
 		`;
 	}
 );
@@ -110,17 +114,21 @@ export const StyledDayButton = styled(DayButton).withConfig({
 	const interactiveDayStyles = (state: "active" | "hover" | "focus") => css`
 		border: ${day[state].border};
 
-		${selected &&
-		css`
-			background-color: ${day.selected.interaction[state].background};
-			border: ${day.selected.interaction[state].border};
-			color: ${day.selected.interaction[state].color};
-		`}
+		${
+			selected &&
+			css`
+				background-color: ${day.selected.interaction[state].background};
+				border: ${day.selected.interaction[state].border};
+				color: ${day.selected.interaction[state].color};
+			`
+		}
 
-		${!today &&
-		css`
-			background-color: ${day[state].background};
-		`}
+		${
+			!today &&
+			css`
+				background-color: ${day[state].background};
+			`
+		}
 	`;
 
 	return css`
@@ -139,85 +147,107 @@ export const StyledDayButton = styled(DayButton).withConfig({
 		background-color: ${month.background};
 		color: ${body.color};
 
-		${!outside &&
-		!disabled &&
-		css`
-			&:focus {
-				${darkFocus}
-				${interactiveDayStyles("focus")}
-			}
-			${active(css`
-				${interactiveDayStyles("active")}
-			`)}
-			${hover(css`
-				${interactiveDayStyles("hover")}
-			`)}
-		`}
-
-		${today &&
-		css`
-			background-color: ${day.today.background};
-			border-radius: ${day.today.borderRadius};
-			font-weight: ${day.today.fontWeight};
-		`}
-		
-		${outside &&
-		css`
-			color: ${day.outside.color};
-			${activeAndHover(css`
-				background-color: transparent !important;
-				cursor: auto;
-			`)}
-		`}
-		
-		${selected &&
-		css`
-			background-color: ${day.selected.background};
-			border-radius: 100%;
-			color: ${day.selected.color};
-		`}
-
-		${rangeStart &&
-		css`
-			border-radius: 50% 0 0 50%;
-		`}
-		
-		${rangeStart &&
-		rangeEnd &&
-		css`
-			border-radius: 100%;
-		`}
-
-		${!rangeStart &&
-		rangeEnd &&
-		css`
-			border-radius: 0 50% 50% 0;
-		`}
-
-		${rangeMiddle &&
-		css`
-			background-color: ${day.selected.range.background};
-			border-radius: 0;
-			color: ${day.selected.range.color};
-
-			${disabled &&
+		${
+			!outside &&
+			!disabled &&
 			css`
-				background-color: ${day.selected.range.disabled.background};
-				color: ${day.selected.range.disabled.color};
-			`}
-		`}
-		
-		${disabled &&
-		css`
-			color: ${day.disabled.color};
-			cursor: default;
-		`}
-		
-		${$mobile &&
-		css`
-			height: ${mobile.day.size};
-			width: ${mobile.day.size};
-		`}
+				&:focus {
+					${darkFocus}
+					${interactiveDayStyles("focus")}
+				}
+				${active(css`
+					${interactiveDayStyles("active")}
+				`)}
+				${hover(css`
+					${interactiveDayStyles("hover")}
+				`)}
+			`
+		}
+
+		${
+			today &&
+			css`
+				background-color: ${day.today.background};
+				border-radius: ${day.today.borderRadius};
+				font-weight: ${day.today.fontWeight};
+			`
+		}
+
+		${
+			outside &&
+			css`
+				color: ${day.outside.color};
+				${activeAndHover(css`
+					background-color: transparent !important;
+					cursor: auto;
+				`)}
+			`
+		}
+
+		${
+			selected &&
+			css`
+				background-color: ${day.selected.background};
+				border-radius: 100%;
+				color: ${day.selected.color};
+			`
+		}
+
+		${
+			rangeStart &&
+			css`
+				border-radius: 50% 0 0 50%;
+			`
+		}
+
+		${
+			rangeStart &&
+			rangeEnd &&
+			css`
+				border-radius: 100%;
+			`
+		}
+
+		${
+			!rangeStart &&
+			rangeEnd &&
+			css`
+				border-radius: 0 50% 50% 0;
+			`
+		}
+
+		${
+			rangeMiddle &&
+			css`
+				background-color: ${day.selected.range.background};
+				border-radius: 0;
+				color: ${day.selected.range.color};
+
+				${
+					disabled &&
+					css`
+						background-color: ${day.selected.range.disabled.background};
+						color: ${day.selected.range.disabled.color};
+					`
+				}
+			`
+		}
+
+		${
+			disabled &&
+			css`
+				color: ${day.disabled.color};
+				cursor: default;
+			`
+		}
+
+		${
+			$mobile &&
+			css`
+				height: ${mobile.day.size};
+				width: ${mobile.day.size};
+			`
+		}
 	`;
 });
 
@@ -283,16 +313,18 @@ export namespace StyledDatePicker {
 			justify-content: center;
 			user-select: none;
 
-			${$mobile &&
-			css`
-				margin: 0 auto;
+			${
+				$mobile &&
+				css`
+					margin: 0 auto;
 
-				${StyledYearMonthSelectorInner} {
-					display: flex;
-					justify-content: space-around;
-					width: 100%;
-				}
-			`}
+					${StyledYearMonthSelectorInner} {
+						display: flex;
+						justify-content: space-around;
+						width: 100%;
+					}
+				`
+			}
 			* {
 				outline: none;
 			}
@@ -396,43 +428,45 @@ export namespace StyledDatePicker {
 				height: ${caption.selectInput.height};
 				padding: ${caption.selectInput.padding};
 
-				${$mobile
-					? css`
-							background-color: ${mobile.fieldSelect.background};
-							border: none;
-							color: ${mobile.fieldSelect.color};
-							font-size: ${mobile.fieldSelect.fontSize};
+				${
+					$mobile
+						? css`
+								background-color: ${mobile.fieldSelect.background};
+								border: none;
+								color: ${mobile.fieldSelect.color};
+								font-size: ${mobile.fieldSelect.fontSize};
 
-							&:focus {
-								box-shadow: ${mobile.fieldSelect.focusBoxShadow};
-							}
-						`
-					: css`
-							box-shadow: none;
-							border-radius: ${caption.selectInput.borderRadius};
+								&:focus {
+									box-shadow: ${mobile.fieldSelect.focusBoxShadow};
+								}
+							`
+						: css`
+								box-shadow: none;
+								border-radius: ${caption.selectInput.borderRadius};
 
-							${active(css`
-								background-color: ${caption.selectInput.active.background};
-								border: ${caption.selectInput.active.border};
-							`)}
+								${active(css`
+									background-color: ${caption.selectInput.active.background};
+									border: ${caption.selectInput.active.border};
+								`)}
 
-							${hover(css`
-								background-color: ${caption.selectInput.hover.background};
-								border: ${caption.selectInput.hover.border};
-							`)} 
-							
-							&:focus {
-								background-color: ${caption.selectInput.focus.background};
-								border: ${caption.selectInput.focus.border};
-							}
+								${hover(css`
+									background-color: ${caption.selectInput.hover.background};
+									border: ${caption.selectInput.hover.border};
+								`)}
 
-							// Fix bug dotted border on select in FF
+								&:focus {
+									background-color: ${caption.selectInput.focus.background};
+									border: ${caption.selectInput.focus.border};
+								}
 
-							&:-moz-focusring {
-								color: transparent;
-								text-shadow: 0 0 0 ${caption.selectInput.focus.color};
-							}
-						`}
+								// Fix bug dotted border on select in FF
+
+								&:-moz-focusring {
+									color: transparent;
+									text-shadow: 0 0 0 ${caption.selectInput.focus.color};
+								}
+							`
+				}
 			}
 
 			${StyledSelectTemplate.StyledFieldSelectControl} {
@@ -448,13 +482,15 @@ export namespace StyledDatePicker {
 
 			${StyledSelectTemplate.StyledFieldSelectWrapper} {
 				background-color: transparent;
-				${!$mobile &&
-				css`
-					box-shadow: none;
-					&:before {
-						display: none;
-					}
-				`}
+				${
+					!$mobile &&
+					css`
+						box-shadow: none;
+						&:before {
+							display: none;
+						}
+					`
+				}
 				outline-offset: unset;
 
 				&:focus-within {

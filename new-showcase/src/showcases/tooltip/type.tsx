@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
 import { loremIpsum } from "lorem-ipsum";
+import type { ReactElement } from "react";
 
 import {
 	ErrorTooltip,

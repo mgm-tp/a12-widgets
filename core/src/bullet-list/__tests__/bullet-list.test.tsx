@@ -33,8 +33,8 @@
 import { render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import { BulletList } from "../main/bullet-list.view.js";
 import type { BulletListProps } from "../main/bullet-list.api.js";
+import { BulletList } from "../main/bullet-list.view.js";
 
 const { Ordered, Item, Unordered } = BulletList;
 

@@ -35,11 +35,10 @@ import { render, waitFor } from "test-utils";
 import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { ActionContentbox } from "../../../contentbox/main/action-contentbox/action-contentbox.view.js";
 import { ContentBoxElements } from "../../../contentbox/main/template/contentbox.tpl.view.js";
 import { Icon } from "../../../icon/main/icon.view.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-
 import type { SplitViewProps } from "../main/split-view.api.js";
 import { SplitView } from "../main/split-view.view.js";
 

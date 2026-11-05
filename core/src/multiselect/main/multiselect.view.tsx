@@ -35,6 +35,8 @@ import { Component } from "react";
 import { Key } from "ts-key-enum";
 
 import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { provider as DeviceDetector } from "../../common/main/device-detector.js";
 import {
 	addPrefix,
 	bindMethods,
@@ -43,14 +45,11 @@ import {
 	resolveRef,
 	StringUtils
 } from "../../common/main/utils.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { provider as DeviceDetector } from "../../common/main/device-detector.js";
 import { ActionContentbox } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
 import { ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
 import type { DropDown } from "../../dropdown/main/template/dropdown.tpl.view.js";
 
 import type { MultiselectProps } from "./multiselect.api.js";
-import { MultiselectTemplate } from "./multiselect.tpl.view.js";
 import {
 	cloneItems,
 	getFlattenItems,
@@ -61,6 +60,7 @@ import {
 	defaultJoiningHandler
 } from "./multiselect.internal.js";
 import { StyledMultiselectModal } from "./multiselect.styled.js";
+import { MultiselectTemplate } from "./multiselect.tpl.view.js";
 
 const baseClassName = addPrefix("multiselect");
 

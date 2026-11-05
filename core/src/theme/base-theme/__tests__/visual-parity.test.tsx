@@ -34,10 +34,10 @@ import type { ReactElement } from "react";
 import type { DefaultTheme } from "styled-components";
 import { describe, expect, test } from "vitest";
 
-import { render } from "../../../common/test/test-utils.js";
 import { Accordion } from "../../../accordion/index.js";
 import { Button } from "../../../button/index.js";
 import { Card } from "../../../card/index.js";
+import { render } from "../../../common/test/test-utils.js";
 import { ContentBox } from "../../../contentbox/index.js";
 import { DatePicker } from "../../../datepicker/index.js";
 import { DropDown } from "../../../dropdown/index.js";
@@ -46,12 +46,11 @@ import { Link } from "../../../link/index.js";
 import { List } from "../../../list/index.js";
 import { ModalOverlay } from "../../../modal-overlay/index.js";
 import { TabPanel } from "../../../tab-panel/index.js";
-import { Tag } from "../../../tag/index.js";
 import { TagInput } from "../../../tag-input/index.js";
+import { Tag } from "../../../tag/index.js";
 import { Toggle } from "../../../toggle/index.js";
 import { Tooltip } from "../../../tooltip/index.js";
 import { getFlatCompactTheme } from "../../flat-compact/flat-compact-theme.js";
-
 import { getBaseTheme } from "../base-theme.js";
 
 const KEYS = [

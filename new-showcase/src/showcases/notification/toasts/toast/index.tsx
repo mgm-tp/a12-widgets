@@ -30,15 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import accessibilityToastCode from "!./accessibility.tsx?raw";
+import basicToastCode from "!./basic.tsx?raw";
+import combinationToastCode from "!./collapsible.tsx?raw";
+
+import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
 import ToastAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/toast/main/toast/toast.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../../helpers/definitions.js";
 
+import { AccessibilityToastShowcase } from "./accessibility.js";
 import { BasicToastShowcase } from "./basic.js";
 import { CombinationToastShowcase } from "./collapsible.js";
-
-import basicToastCode from "!./basic.tsx?raw";
-import combinationToastCode from "!./collapsible.tsx?raw";
 
 const showcases: Showcase[] = [
 	{
@@ -56,9 +59,8 @@ const showcases: Showcase[] = [
 				description: (
 					<p>
 						To display elements like <strong>header, footer and message</strong>, you can use the <code>header</code>,{" "}
-						<code>footer</code> and
-						<code>message</code> properties. In addition, there are four Toast variants: info (default), success,
-						warning, and error. You can change it by setting the <code>variant</code> property.
+						<code>footer</code> and <code>message</code> properties. In addition, there are four Toast variants: info
+						(default), success, warning, and error. You can change it by setting the <code>variant</code> property.
 					</p>
 				),
 				code: { name: "basic.tsx", code: basicToastCode },
@@ -76,6 +78,23 @@ const showcases: Showcase[] = [
 						<p>
 							You can add a collapse button by using the <code>collapse</code> property to handle the content being
 							passed.
+						</p>
+					</>
+				)
+			},
+			{
+				label: "Accessibility",
+				content: <AccessibilityToastShowcase />,
+				code: { name: "accessibility.tsx", code: accessibilityToastCode },
+				description: (
+					<>
+						<p>
+							By default, the action element (the close button) is displayed within the <code>header</code> element, as
+							shown in the <Link href="#/widgets/feedback/toasts/toast#basic">Basic</Link> showcase.
+						</p>
+						<p>
+							When the <code>header</code> is not provided, the Toast automatically arranges the <code>message</code>{" "}
+							and action element on a same row to improve the semantic reading order for screen readers.
 						</p>
 					</>
 				)

@@ -34,19 +34,18 @@ import type { ReactElement } from "react";
 import { useMemo } from "react";
 import { styled, css } from "styled-components";
 
+import { joinClassNames, getRole } from "../../../common/main/utils.js";
 import { StyledIconWrapper, StyledVariantIconWrapper } from "../../../icon/main/icon.view.js";
 import { StyledTextOutputText } from "../../../text-output/main/text-output.view.js";
-import { joinClassNames, getRole } from "../../../common/main/utils.js";
-
-import { useTableContext } from "../table.context.js";
 import type { Column } from "../column.api.js";
-import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
+import { useTableContext } from "../table.context.js";
 import { TableDataAttributes } from "../table.data-attributes.js";
+import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
-import type { TableTemplateProps } from "./table.tpl.api.js";
-import { StyledBaseTable } from "./table.styled.js";
 import { useStyledTableContext } from "./table.context.styled.js";
 import { StyledTableFootRowSegment } from "./table.foot-row-segment.tpl.view.js";
+import { StyledBaseTable } from "./table.styled.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 import { resetBoxShadowForSubInfoCell } from "./table.tpl.utils.js";
 
 export const StyledTableFootCell = styled(StyledBaseTable.Cell).withConfig({ displayName: "StyledTableFootCell-sc-" })<{
@@ -60,11 +59,13 @@ export const StyledTableFootCell = styled(StyledBaseTable.Cell).withConfig({ dis
 		font-weight: ${footCell.fontWeight};
 		min-height: ${footCell.minHeight};
 		overflow: hidden;
-		${subInfo &&
-		css`
-			align-items: center;
-			${resetBoxShadowForSubInfoCell(StyledTableFootRowSegment)}
-		`}
+		${
+			subInfo &&
+			css`
+				align-items: center;
+				${resetBoxShadowForSubInfoCell(StyledTableFootRowSegment)}
+			`
+		}
 		&:empty {
 			min-height: 1px;
 			padding-top: 0;

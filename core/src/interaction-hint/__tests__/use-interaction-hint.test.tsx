@@ -40,8 +40,8 @@ import {
 	type InteractionHintConfigContextProps,
 	InteractionHintConfigProvider
 } from "../main/interaction-hint-context.js";
-import { useInteractionHint, resolveHintConfig } from "../main/use-interaction-hint.js";
 import type { InteractionHintComponentConfigMap } from "../main/interaction-hint.api.js";
+import { useInteractionHint, resolveHintConfig } from "../main/use-interaction-hint.js";
 
 type DeepRequired<T> = {
 	[K in keyof T]-?: T[K];
@@ -94,6 +94,23 @@ describe("resolveHintConfig", () => {
 			expect(config.enabled).toBe(true);
 			expect(config.hideArrow).toBe(true);
 			expect(config.followCursor).toBe(false);
+		});
+
+		test("respects global showDelay setting", () => {
+			const config = resolveHintConfig(
+				createTestConfig({
+					enableInteractionHint: true,
+					showDelay: 0
+				})
+			);
+
+			expect(config.showDelay).toBe(0);
+		});
+
+		test("omits showDelay when the context does not configure one, so instance props keep priority", () => {
+			const config = resolveHintConfig(createTestConfig({ enableInteractionHint: true }));
+
+			expect("showDelay" in config).toBe(false);
 		});
 
 		test("combines all global settings", () => {
@@ -382,6 +399,30 @@ describe("useInteractionHint hook", () => {
 
 			expect(result.current.hintRenderer).toBeNull();
 			expect(result.current.title).toBe("Test Title");
+		});
+
+		test("nested provider inherits options it does not set from the surrounding provider", () => {
+			const referenceElementRef = createRef<HTMLDivElement>();
+			const wrapper = ({ children }: { children: ReactNode }) => (
+				<InteractionHintConfigProvider enableInteractionHint showDelay={0}>
+					<InteractionHintConfigProvider componentConfigs={{ button: true }}>{children}</InteractionHintConfigProvider>
+				</InteractionHintConfigProvider>
+			);
+
+			const { result } = renderHook(
+				() =>
+					useInteractionHint({
+						title: "Test Title",
+						componentKey: "button",
+						referenceElementRef
+					}),
+				{ wrapper }
+			);
+
+			// The inner provider only sets `componentConfigs`, so `enableInteractionHint` must still come from
+			// the outer one instead of being reset to its default.
+			expect(result.current.hintRenderer).not.toBeNull();
+			expect(result.current.title).toBe(undefined);
 		});
 
 		test("component config object overrides global settings", () => {

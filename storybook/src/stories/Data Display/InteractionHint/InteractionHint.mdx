@@ -1,0 +1,56 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as InteractionHintStories from "./InteractionHint.stories";
+
+<Meta of={InteractionHintStories} />
+
+<Title />
+
+The `InteractionHint` widget is a tooltip-like overlay that shows the `title` of a reference
+element on hover or focus. It is anchored to the trigger element via `referenceElementRef` and
+rendered in a portal, so it is not clipped by overflowing containers.
+
+- The `variant` prop colors the hint as `hint`, `success`, `warning` or `error`.
+- `position`, `followCursor` and `hideArrow` control where and how the hint is shown.
+- `showDelay` controls how long the hint waits before appearing on hover, in milliseconds (default `500`).
+- `InteractionHintConfigProvider` enables and configures the hints built into other widgets
+  (buttons, links, menus, …) globally via `enableInteractionHint` and `componentConfigs`.
+
+## Playground
+
+Use the controls below to explore all props interactively. Hover or focus the button to show the hint.
+
+<Primary />
+
+<Controls of={InteractionHintStories.Playground} />
+
+## Examples
+
+### Variants
+
+<Canvas of={InteractionHintStories.Variants} />
+
+### Position
+
+<Canvas of={InteractionHintStories.Position} />
+
+### Follow cursor
+
+<Canvas of={InteractionHintStories.FollowCursor} />
+
+### Hiding the arrow
+
+<Canvas of={InteractionHintStories.HideArrow} />

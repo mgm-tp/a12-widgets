@@ -30,18 +30,27 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { getByLabelText } from "@testing-library/dom";
 import { add } from "date-fns";
 import { de } from "date-fns/locale";
-import { fireEvent, getAllByDataRole, getByDataRole, getByRole, getByText, render, screen } from "test-utils";
-import { getByLabelText } from "@testing-library/dom";
-import { describe, test, expect, vi, beforeAll, afterAll } from "vitest";
+import {
+	fireEvent,
+	getAllByDataRole,
+	getByDataRole,
+	getByRole,
+	getByText,
+	queryByDataRole,
+	queryByRole,
+	render,
+	screen
+} from "test-utils";
+import { describe, test, expect, vi, beforeAll, afterAll, beforeEach, afterEach } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
-import { DatePicker } from "../main/date-picker.view.js";
+import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { DateInput } from "../main/date-input.view.js";
+import { DatePicker } from "../main/date-picker.view.js";
 
 const baseClassName = "DayPicker";
 
@@ -458,7 +467,7 @@ describe("com.mgmtp.a12.widgets.date-picker — year selector variants", () => {
 	test("yearErrorMessage is displayed when provided", () => {
 		const { container } = render(<DatePicker yearSelectorVariant="textbox" yearErrorMessage="Invalid year" />);
 
-		expect(container).toHaveTextContent("Invalid year");
+		expect(container).toMatchTextContent("Invalid year");
 	});
 
 	test("yearErrorMessage is NOT rendered when not provided", () => {
@@ -497,5 +506,477 @@ describe("com.mgmtp.a12.widgets.date-picker — year selector snapshots", () => 
 			<DatePicker id="test-id" className="test-class" yearRange={{ start: 2000, end: 2030 }} />
 		);
 		expect(container.firstChild).toMatchSnapshot();
+	});
+});
+
+describe("com.mgmtp.a12.widgets.date-picker — behavior", () => {
+	const utc = (year: number, month: number, day: number): Date => new Date(Date.UTC(year, month, day));
+	const monthSelectOf = (container: HTMLElement): HTMLSelectElement =>
+		getByDataRole(container, DataRoles.Month.Selector.Input) as HTMLSelectElement;
+	const yearInputOf = (container: HTMLElement): HTMLInputElement | HTMLSelectElement =>
+		getByDataRole(container, DataRoles.Year.Selector.Input) as HTMLInputElement | HTMLSelectElement;
+	// Days 10–28 are unique within the rendered grid (outside days only repeat 1–9 and 27–28 of the neighbours).
+	const dayButtonOf = (container: HTMLElement, day: number): HTMLButtonElement =>
+		getByText(container, String(day)) as HTMLButtonElement;
+
+	beforeEach(() => {
+		vi.useFakeTimers();
+		vi.setSystemTime(utc(2022, 2, 2));
+	});
+
+	afterEach(() => {
+		vi.useRealTimers();
+	});
+
+	describe("rendering", () => {
+		test("applies the date-picker data-role to the calendar root", () => {
+			const { container } = render(<DatePicker />);
+
+			const picker = getByDataRole(container, DataRoles.DatePicker);
+			expect(picker).toHaveClass(baseClassName);
+			expect(queryByDataRole(container, DataRoles.DatePicker.Root)).toBeNull();
+		});
+
+		test("wraps the calendar in a focusable root with a footer in range mode", () => {
+			const { container } = render(<DatePicker mode="range" footer={{ acceptLabel: "OK", clearLabel: "Clear" }} />);
+
+			const root = getByDataRole(container, DataRoles.DatePicker.Root);
+			expect(root).toHaveAttribute("tabindex", "-1");
+			expect(getByDataRole(root, DataRoles.DatePicker)).toBeInTheDocument();
+			expect(getByDataRole(root, DataRoles.DatePicker.Footer)).toBeInTheDocument();
+			expect(getByRole(root, "button", { name: "OK" })).toBeInTheDocument();
+		});
+
+		test("shows six fixed weeks with empty outside cells by default", () => {
+			const { container } = render(<DatePicker />);
+
+			expect(getAllByDataRole(container, DataRoles.DatePicker.Week)).toHaveLength(6);
+			expect(getAllByDataRole(container, DataRoles.DatePicker.DayButton)).toHaveLength(31);
+		});
+
+		test("showOutsideDays renders the outside days as buttons", () => {
+			const { container } = render(<DatePicker showOutsideDays />);
+
+			expect(getAllByDataRole(container, DataRoles.DatePicker.Week)).toHaveLength(6);
+			expect(getAllByDataRole(container, DataRoles.DatePicker.DayButton)).toHaveLength(42);
+		});
+
+		test("fixedWeeks={false} renders only the weeks of the month without outside day buttons", () => {
+			const { container } = render(<DatePicker fixedWeeks={false} />);
+
+			expect(getAllByDataRole(container, DataRoles.DatePicker.Week)).toHaveLength(5);
+			expect(getAllByDataRole(container, DataRoles.DatePicker.DayButton)).toHaveLength(31);
+		});
+
+		test("opens the month of defaultMonth", () => {
+			const { container } = render(<DatePicker defaultMonth={utc(2021, 10, 1)} />);
+
+			expect(monthSelectOf(container).value).toBe("10");
+			expect(yearInputOf(container).value).toBe("2021");
+		});
+
+		test("opens the month of the selected range start when neither value nor month is given", () => {
+			const { container } = render(<DatePicker selected={{ from: utc(2021, 5, 10), to: utc(2021, 5, 12) }} />);
+
+			expect(monthSelectOf(container).value).toBe("5");
+			expect(yearInputOf(container).value).toBe("2021");
+			expect(dayButtonOf(container, 10).parentElement).toHaveClass(`${baseClassName}-Day--start`);
+			expect(dayButtonOf(container, 12).parentElement).toHaveClass(`${baseClassName}-Day--end`);
+		});
+
+		test("clamps the initial month into yearRange when no value is given", () => {
+			const { container } = render(<DatePicker yearRange={{ start: 2000, end: 2010 }} yearSelectorVariant="select" />);
+
+			expect(yearInputOf(container).value).toBe("2000");
+			expect(monthSelectOf(container).value).toBe("2");
+		});
+
+		test("marks the value as selected with aria-selected on the day cell", () => {
+			const { container } = render(<DatePicker value={utc(2022, 2, 12)} />);
+
+			expect(dayButtonOf(container, 12).parentElement).toHaveAttribute("aria-selected", "true");
+			expect(dayButtonOf(container, 13).parentElement).not.toHaveAttribute("aria-selected", "true");
+		});
+
+		test("disables matching days", () => {
+			const { container } = render(<DatePicker disabled={new Date(2022, 2, 15)} />);
+
+			expect(dayButtonOf(container, 15)).toBeDisabled();
+			expect(dayButtonOf(container, 15).parentElement).toHaveClass(`${baseClassName}-Day--disabled`);
+			expect(dayButtonOf(container, 16)).toBeEnabled();
+		});
+	});
+
+	describe("selection callbacks", () => {
+		test("onChange receives the clicked day as a UTC midnight date", async () => {
+			const onChange = vi.fn();
+			const onDayClick = vi.fn();
+			const { container } = render(<DatePicker onChange={onChange} onDayClick={onDayClick} />);
+
+			await userEvent.click(dayButtonOf(container, 15));
+
+			expect(onChange).toHaveBeenCalledTimes(1);
+			expect(onChange).toHaveBeenCalledWith(utc(2022, 2, 15));
+			expect(onDayClick).toHaveBeenCalledTimes(1);
+			expect((onDayClick.mock.calls[0][0] as Date).getDate()).toBe(15);
+			expect(onDayClick.mock.calls[0][1]).toEqual(expect.objectContaining({ disabled: false }));
+		});
+
+		test("clicking a day does not change the selection until the value prop follows", async () => {
+			const onChange = vi.fn();
+			const { container, rerender } = render(<DatePicker value={utc(2022, 2, 12)} onChange={onChange} />);
+
+			await userEvent.click(dayButtonOf(container, 15));
+
+			expect(onChange).toHaveBeenCalledWith(utc(2022, 2, 15));
+			expect(dayButtonOf(container, 12).parentElement).toHaveAttribute("aria-selected", "true");
+			expect(dayButtonOf(container, 15).parentElement).not.toHaveAttribute("aria-selected", "true");
+
+			rerender(<DatePicker value={utc(2022, 2, 15)} onChange={onChange} />);
+
+			expect(dayButtonOf(container, 12).parentElement).not.toHaveAttribute("aria-selected", "true");
+			expect(dayButtonOf(container, 15).parentElement).toHaveAttribute("aria-selected", "true");
+		});
+
+		test("calls the latest onChange after a rerender", async () => {
+			const first = vi.fn();
+			const second = vi.fn();
+			const { container, rerender } = render(<DatePicker onChange={first} />);
+
+			rerender(<DatePicker onChange={second} />);
+			await userEvent.click(dayButtonOf(container, 15));
+
+			expect(first).not.toHaveBeenCalled();
+			expect(second).toHaveBeenCalledWith(utc(2022, 2, 15));
+		});
+
+		test("onMonthChange receives the first day of the new month as a UTC date", async () => {
+			const onMonthChange = vi.fn();
+			const { container } = render(<DatePicker onMonthChange={onMonthChange} />);
+
+			await userEvent.click(getByDataRole(container, DataRoles.DatePicker.NavBar.Next));
+
+			expect(onMonthChange).toHaveBeenCalledTimes(1);
+			expect(onMonthChange).toHaveBeenCalledWith(utc(2022, 3, 1));
+			expect(monthSelectOf(container).value).toBe("3");
+
+			await userEvent.click(getByDataRole(container, `${DataRoles.DatePicker.NavBar}-prev`));
+
+			expect(onMonthChange).toHaveBeenCalledTimes(2);
+			expect(onMonthChange).toHaveBeenLastCalledWith(utc(2022, 2, 1));
+			expect(monthSelectOf(container).value).toBe("2");
+		});
+
+		test("choosing a month in the header navigates and fires onMonthChange", async () => {
+			const onMonthChange = vi.fn();
+			const { container } = render(<DatePicker onMonthChange={onMonthChange} />);
+
+			await userEvent.selectOptions(monthSelectOf(container), "4");
+
+			expect(monthSelectOf(container).value).toBe("4");
+			expect(onMonthChange).toHaveBeenCalledTimes(1);
+			expect(onMonthChange).toHaveBeenCalledWith(utc(2022, 4, 1));
+		});
+
+		test("does not fire onChange for a disabled day", () => {
+			const onChange = vi.fn();
+			const onDayClick = vi.fn();
+			const { container } = render(
+				<DatePicker disabled={new Date(2022, 2, 15)} onChange={onChange} onDayClick={onDayClick} />
+			);
+
+			fireEvent.click(dayButtonOf(container, 15));
+
+			expect(onChange).not.toHaveBeenCalled();
+			expect(onDayClick).not.toHaveBeenCalled();
+		});
+	});
+
+	describe("keyboard", () => {
+		test("Enter on a focused day selects it without a native click", async () => {
+			const onChange = vi.fn();
+			const onDayClick = vi.fn();
+			const onDayKeyDown = vi.fn();
+			const { container } = render(
+				<DatePicker onChange={onChange} onDayClick={onDayClick} onDayKeyDown={onDayKeyDown} />
+			);
+
+			dayButtonOf(container, 15).focus();
+			await userEvent.keyboard("{Enter}");
+
+			expect(onChange).toHaveBeenCalledTimes(1);
+			expect(onChange).toHaveBeenCalledWith(utc(2022, 2, 15));
+			expect(onDayClick).not.toHaveBeenCalled();
+			expect(onDayKeyDown).toHaveBeenCalledTimes(1);
+			expect((onDayKeyDown.mock.calls[0][2] as KeyboardEvent).key).toBe("Enter");
+		});
+
+		test("arrow keys move the focus between days and are forwarded to onDayKeyDown", async () => {
+			const onChange = vi.fn();
+			const onDayKeyDown = vi.fn();
+			const { container } = render(<DatePicker onChange={onChange} onDayKeyDown={onDayKeyDown} />);
+
+			dayButtonOf(container, 15).focus();
+			await userEvent.keyboard("{ArrowRight}");
+			expect(dayButtonOf(container, 16)).toHaveFocus();
+
+			await userEvent.keyboard("{ArrowDown}");
+			expect(dayButtonOf(container, 23)).toHaveFocus();
+
+			await userEvent.keyboard("{ArrowLeft}");
+			expect(dayButtonOf(container, 22)).toHaveFocus();
+
+			expect(onDayKeyDown).toHaveBeenCalledTimes(3);
+			expect(onChange).not.toHaveBeenCalled();
+		});
+
+		test("Enter on a disabled day does nothing", async () => {
+			const onChange = vi.fn();
+			const { container } = render(<DatePicker disabled={new Date(2022, 2, 16)} onChange={onChange} />);
+
+			dayButtonOf(container, 15).focus();
+			await userEvent.keyboard("{ArrowRight}");
+
+			// Focus skips the disabled day; the disabled button itself never receives Enter
+			expect(dayButtonOf(container, 16)).not.toHaveFocus();
+			await userEvent.keyboard("{Enter}");
+			expect(onChange).not.toHaveBeenCalledWith(utc(2022, 2, 16));
+		});
+	});
+
+	describe("prop updates", () => {
+		test("rerender with a new value moves the selection", () => {
+			const { container, rerender } = render(<DatePicker value={utc(2022, 2, 12)} />);
+			expect(dayButtonOf(container, 12).parentElement).toHaveAttribute("aria-selected", "true");
+
+			rerender(<DatePicker value={utc(2022, 2, 20)} />);
+
+			expect(dayButtonOf(container, 12).parentElement).not.toHaveAttribute("aria-selected", "true");
+			expect(dayButtonOf(container, 20).parentElement).toHaveAttribute("aria-selected", "true");
+			expect(dayButtonOf(container, 20)).toHaveAttribute("aria-label", expect.stringContaining("selected"));
+		});
+
+		test("rerender with a value in another month keeps the displayed month", () => {
+			const { container, rerender } = render(<DatePicker value={utc(2022, 2, 12)} />);
+
+			rerender(<DatePicker value={utc(2022, 5, 12)} />);
+
+			expect(monthSelectOf(container).value).toBe("2");
+			expect(dayButtonOf(container, 12).parentElement).not.toHaveAttribute("aria-selected", "true");
+		});
+
+		test("rerender with a new month prop navigates the calendar", async () => {
+			const { container, rerender } = render(<DatePicker month={utc(2022, 2, 1)} />);
+			expect(monthSelectOf(container).value).toBe("2");
+
+			rerender(<DatePicker month={utc(2022, 5, 1)} />);
+
+			expect(monthSelectOf(container).value).toBe("5");
+			expect(yearInputOf(container).value).toBe("2022");
+		});
+
+		test("rerender with a defined month prop re-applies it after the user navigated", async () => {
+			const { container, rerender } = render(<DatePicker month={utc(2022, 2, 1)} />);
+
+			await userEvent.click(getByDataRole(container, DataRoles.DatePicker.NavBar.Next));
+			expect(monthSelectOf(container).value).toBe("3");
+
+			rerender(<DatePicker month={utc(2022, 2, 1)} />);
+
+			expect(monthSelectOf(container).value).toBe("2");
+		});
+
+		test("rerender without a month prop keeps the month the user navigated to", async () => {
+			const { container, rerender } = render(<DatePicker onChange={vi.fn()} />);
+
+			await userEvent.click(getByDataRole(container, DataRoles.DatePicker.NavBar.Next));
+			expect(monthSelectOf(container).value).toBe("3");
+
+			rerender(<DatePicker onChange={vi.fn()} />);
+
+			expect(monthSelectOf(container).value).toBe("3");
+		});
+
+		test("rerender with a new selected range updates the highlight and the accepted range", async () => {
+			const onAccept = vi.fn();
+			const footer = { acceptLabel: "OK", onAccept };
+			const { container, rerender } = render(
+				<DatePicker selected={{ from: utc(2022, 2, 10), to: utc(2022, 2, 12) }} footer={footer} />
+			);
+			expect(dayButtonOf(container, 10).parentElement).toHaveClass(`${baseClassName}-Day--start`);
+
+			rerender(<DatePicker selected={{ from: utc(2022, 2, 20), to: utc(2022, 2, 22) }} footer={footer} />);
+
+			expect(dayButtonOf(container, 10).parentElement).not.toHaveClass(`${baseClassName}-Day--start`);
+			expect(dayButtonOf(container, 20).parentElement).toHaveClass(`${baseClassName}-Day--start`);
+			expect(dayButtonOf(container, 22).parentElement).toHaveClass(`${baseClassName}-Day--end`);
+
+			await userEvent.click(getByRole(container, "button", { name: "OK" }));
+
+			expect(onAccept).toHaveBeenCalledTimes(1);
+			expect(onAccept).toHaveBeenCalledWith({ from: utc(2022, 2, 20), to: utc(2022, 2, 22) });
+		});
+
+		test("rerender with an equal selected range keeps the highlight", () => {
+			const { container, rerender } = render(
+				<DatePicker selected={{ from: utc(2022, 2, 10), to: utc(2022, 2, 12) }} footer={{ acceptLabel: "OK" }} />
+			);
+
+			rerender(
+				<DatePicker selected={{ from: utc(2022, 2, 10), to: utc(2022, 2, 12) }} footer={{ acceptLabel: "OK" }} />
+			);
+
+			expect(dayButtonOf(container, 10).parentElement).toHaveClass(`${baseClassName}-Day--start`);
+			expect(dayButtonOf(container, 12).parentElement).toHaveClass(`${baseClassName}-Day--end`);
+			expect(getByRole(container, "button", { name: "OK" })).toBeEnabled();
+		});
+
+		test("accept button is disabled while the selected range is incomplete", () => {
+			const { container, rerender } = render(
+				<DatePicker selected={{ from: utc(2022, 2, 10), to: undefined }} footer={{ acceptLabel: "OK" }} />
+			);
+			expect(getByRole(container, "button", { name: "OK" })).toBeDisabled();
+
+			rerender(
+				<DatePicker selected={{ from: utc(2022, 2, 10), to: utc(2022, 2, 14) }} footer={{ acceptLabel: "OK" }} />
+			);
+
+			expect(getByRole(container, "button", { name: "OK" })).toBeEnabled();
+		});
+
+		test("rerender with another locale re-labels the months", () => {
+			const { container, rerender } = render(
+				<DateTimeContext.Provider value={{}}>
+					<DatePicker />
+				</DateTimeContext.Provider>
+			);
+			expect(getByRole(container, "option", { name: "March" })).toBeInTheDocument();
+
+			rerender(
+				<DateTimeContext.Provider value={{ locale: de }}>
+					<DatePicker />
+				</DateTimeContext.Provider>
+			);
+
+			expect(getByRole(container, "option", { name: "März" })).toBeInTheDocument();
+		});
+
+		test("unmounting removes the calendar", () => {
+			const { container, unmount } = render(<DatePicker mode="range" footer={{ acceptLabel: "OK" }} />);
+			expect(getByDataRole(container, DataRoles.DatePicker.Root)).toBeInTheDocument();
+
+			unmount();
+
+			expect(queryByDataRole(document.body, DataRoles.DatePicker.Root)).toBeNull();
+			expect(queryByDataRole(document.body, DataRoles.DatePicker)).toBeNull();
+		});
+	});
+
+	describe("range mode", () => {
+		test("selecting two days reports the UTC range and accepts it", async () => {
+			const onDateRangeChange = vi.fn();
+			const onAccept = vi.fn();
+			const { container } = render(
+				<DatePicker mode="range" onDateRangeChange={onDateRangeChange} footer={{ acceptLabel: "OK", onAccept }} />
+			);
+			const accept = getByRole(container, "button", { name: "OK" });
+
+			await userEvent.click(dayButtonOf(container, 10));
+
+			expect(onDateRangeChange).toHaveBeenCalledTimes(1);
+			expect(onDateRangeChange).toHaveBeenLastCalledWith({ from: utc(2022, 2, 10), to: utc(2022, 2, 10) });
+			expect(accept).toBeEnabled();
+
+			await userEvent.click(dayButtonOf(container, 12));
+
+			expect(onDateRangeChange).toHaveBeenCalledTimes(2);
+			expect(onDateRangeChange).toHaveBeenLastCalledWith({ from: utc(2022, 2, 10), to: utc(2022, 2, 12) });
+			expect(accept).toBeEnabled();
+
+			await userEvent.click(accept);
+
+			expect(onAccept).toHaveBeenCalledTimes(1);
+			expect(onAccept).toHaveBeenCalledWith({ from: utc(2022, 2, 10), to: utc(2022, 2, 12) });
+		});
+
+		test("Enter on a focused day extends the range", async () => {
+			const onDateRangeChange = vi.fn();
+			const { container } = render(<DatePicker mode="range" onDateRangeChange={onDateRangeChange} />);
+
+			dayButtonOf(container, 10).focus();
+			await userEvent.keyboard("{Enter}");
+			await userEvent.keyboard("{ArrowRight}{ArrowRight}{Enter}");
+
+			expect(onDateRangeChange).toHaveBeenCalledTimes(2);
+			expect(onDateRangeChange).toHaveBeenLastCalledWith({ from: utc(2022, 2, 10), to: utc(2022, 2, 12) });
+		});
+
+		test("clear button appears with a range start and resets the range", async () => {
+			const onClear = vi.fn();
+			const onMonthChange = vi.fn();
+			const { container } = render(
+				<DatePicker
+					mode="range"
+					footer={{ acceptLabel: "OK", clearLabel: "Clear", onClear }}
+					onMonthChange={onMonthChange}
+				/>
+			);
+			expect(queryByRole(container, "button", { name: "Clear" })).toBeNull();
+
+			await userEvent.click(dayButtonOf(container, 10));
+
+			await userEvent.click(getByRole(container, "button", { name: "Clear" }));
+
+			expect(onClear).toHaveBeenCalledTimes(1);
+			expect(onMonthChange).toHaveBeenCalledTimes(1);
+			expect(onMonthChange).toHaveBeenCalledWith(utc(2022, 2, 2));
+			expect(queryByRole(container, "button", { name: "Clear" })).toBeNull();
+			expect(monthSelectOf(container).value).toBe("2");
+		});
+
+		test("clear button appears after navigating away from defaultMonth and returns to it", async () => {
+			const onMonthChange = vi.fn();
+			const { container } = render(
+				<DatePicker
+					mode="range"
+					defaultMonth={utc(2022, 0, 1)}
+					footer={{ acceptLabel: "OK", clearLabel: "Clear" }}
+					onMonthChange={onMonthChange}
+				/>
+			);
+			expect(monthSelectOf(container).value).toBe("0");
+			expect(queryByRole(container, "button", { name: "Clear" })).toBeNull();
+
+			await userEvent.click(getByDataRole(container, DataRoles.DatePicker.NavBar.Next));
+			expect(monthSelectOf(container).value).toBe("1");
+			expect(getByRole(container, "button", { name: "Clear" })).toBeInTheDocument();
+
+			await userEvent.click(getByRole(container, "button", { name: "Clear" }));
+
+			expect(monthSelectOf(container).value).toBe("0");
+			expect(onMonthChange).toHaveBeenLastCalledWith(utc(2022, 0, 1));
+			expect(queryByRole(container, "button", { name: "Clear" })).toBeNull();
+		});
+
+		test("custom footer replaces the default footer and its callbacks", async () => {
+			const onAccept = vi.fn();
+			const { container } = render(
+				<DatePicker
+					mode="range"
+					footer={{ acceptLabel: "OK", onAccept, customFooter: <p data-role="custom-footer">Custom</p> }}
+				/>
+			);
+
+			expect(getByDataRole(container, "custom-footer")).toHaveTextContent("Custom");
+			expect(queryByRole(container, "button", { name: "OK" })).toBeNull();
+			expect(queryByDataRole(container, DataRoles.DatePicker.Footer)).toBeNull();
+		});
+
+		test("wrapperRef receives the range root element", () => {
+			const wrapperRef = vi.fn();
+			const { container } = render(<DatePicker mode="range" wrapperRef={wrapperRef} />);
+
+			expect(wrapperRef).toHaveBeenCalledWith(getByDataRole(container, DataRoles.DatePicker.Root));
+		});
 	});
 });

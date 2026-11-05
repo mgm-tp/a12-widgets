@@ -32,8 +32,8 @@
 
 import { rgba } from "polished";
 
-import type { BaseThemeType } from "../../../schema/base-theme.js";
 import type { CustomBorder } from "../../../base/mixins/_borderEffects.js";
+import type { BaseThemeType } from "../../../schema/base-theme.js";
 
 export type ButtonConfigType = {
 	border: string;

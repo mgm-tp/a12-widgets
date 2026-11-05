@@ -32,6 +32,8 @@
 
 import type { ReactNode } from "react";
 
+import type { BaseColumnType } from "../../table/main/column.api.js";
+import type { TableComponentRenderers, TableRenderPropsType } from "../../table/main/table-renderer.api.js";
 import type {
 	RowEventHandlers,
 	RowStyles,
@@ -40,8 +42,6 @@ import type {
 	VirtualScrollOptions,
 	BaseTableProps
 } from "../../table/main/table.api.js";
-import type { TableComponentRenderers, TableRenderPropsType } from "../../table/main/table-renderer.api.js";
-import type { BaseColumnType } from "../../table/main/column.api.js";
 
 export interface BaseTreeTableNode<NodeData = unknown> {
 	/** The identifier for a tree table node */

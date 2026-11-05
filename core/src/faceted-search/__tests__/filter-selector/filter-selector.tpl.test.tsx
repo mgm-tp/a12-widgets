@@ -34,11 +34,11 @@ import type { CSSProperties } from "react";
 import { render, fireEvent } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import { provider } from "../../../common/main/device-detector.js";
-import { FilterSelectorTemplate } from "../../main/filter-selector/tpl/filter-selector.tpl.view.js";
 import { Button } from "../../../button/main/button.view.js";
+import { provider } from "../../../common/main/device-detector.js";
 import { Icon } from "../../../icon/main/icon.view.js";
 import type { FilterSelectorTemplateProps } from "../../main/filter-selector/tpl/filter-selector.tpl.api.js";
+import { FilterSelectorTemplate } from "../../main/filter-selector/tpl/filter-selector.tpl.view.js";
 
 describe("com.mgmtp.a12.widgets.filter-selector", () => {
 	const testStyle: CSSProperties = { backgroundColor: "red" };

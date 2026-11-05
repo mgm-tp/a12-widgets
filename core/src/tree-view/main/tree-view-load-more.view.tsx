@@ -44,9 +44,9 @@ import { css, styled } from "styled-components";
 
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { addPrefix } from "../../common/main/utils.js";
 import { PseudoLink } from "../../link/main/pseudo-link/pseudo-link.view.js";
 import { ProgressIndicator } from "../../progress-indicator/main/progress-indicator.view.js";
-import { addPrefix } from "../../common/main/utils.js";
 
 /** Lays out the load-more links in a row, separated by a standalone {@link StyledLoadMoreDivider}. */
 export const StyledLoadMoreActions = styled.span(

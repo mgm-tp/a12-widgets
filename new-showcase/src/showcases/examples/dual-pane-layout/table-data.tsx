@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { faker as Faker } from "@faker-js/faker/locale/en";
 import type { ReactNode, ReactElement } from "react";
 import { useMemo, useState } from "react";
-import { faker as Faker } from "@faker-js/faker/locale/en";
 
 import type { BaseColumnType } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Table, Range, Icon, Button } from "@com.mgmtp.a12.widgets/widgets-core";

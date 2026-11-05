@@ -32,10 +32,10 @@
 
 import { styled, css } from "styled-components";
 
-import { StyledFieldLabel, StyledFieldLabelWrapper } from "../../base/template/base.tpl.view.js";
-import { StyledBaseBoolean } from "../../base-input-styled/base-boolean.styled.js";
 import { active, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
+import { StyledBaseBoolean } from "../../base-input-styled/base-boolean.styled.js";
 import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
+import { StyledFieldLabel, StyledFieldLabelWrapper } from "../../base/template/base.tpl.view.js";
 
 export namespace StyledRadio {
 	const radioStates = (border: string, background: string, checkedBG: string, checked?: boolean) => css`
@@ -43,13 +43,15 @@ export namespace StyledRadio {
 			&:before {
 				border: ${border};
 			}
-			${checked &&
-			css`
-				background-color: ${background};
-				&:after {
-					background-color: ${checkedBG};
-				}
-			`}
+			${
+				checked &&
+				css`
+					background-color: ${background};
+					&:after {
+						background-color: ${checkedBG};
+					}
+				`
+			}
 		}
 	`;
 
@@ -115,62 +117,74 @@ export namespace StyledRadio {
 				}
 			}
 
-			${$checked &&
-			css`
-				& + label > span {
-					border-color: ${radio.checked.background};
-					position: relative;
-					&:after {
-						background: ${radio.checked.background};
-						border: ${radio.checked.border};
-						border-radius: inherit;
-						box-sizing: border-box;
-						content: "";
-						display: block;
-						height: ${radio.checked.size};
-						margin: 2px 0 0 2px;
-						width: ${radio.checked.size};
+			${
+				$checked &&
+				css`
+					& + label > span {
+						border-color: ${radio.checked.background};
+						position: relative;
+						&:after {
+							background: ${radio.checked.background};
+							border: ${radio.checked.border};
+							border-radius: inherit;
+							box-sizing: border-box;
+							content: "";
+							display: block;
+							height: ${radio.checked.size};
+							margin: 2px 0 0 2px;
+							width: ${radio.checked.size};
+						}
 					}
-				}
-			`}
+				`
+			}
 
-			${!$disabled &&
-			!$readonly &&
-			css`
-				${$info && radioStates(radio.info.border, radio.info.checkedBG, radio.info.checkedBG, $checked)}
-				${$warning && radioStates(radio.warning.border, radio.warning.checkedBG, radio.warning.checkedBG, $checked)}
-				${$error && radioStates(radio.error.border, radio.error.checkedBG, radio.error.checkedBG, $checked)}
-			  	${active(radioStates(radio.active.border, radio.active.background, radio.active.checkedBG, $checked))}
-			  	${hover(radioStates(radio.hover.border, radio.hover.background, radio.hover.checkedBG, $checked))}
-			  	&:focus {
-					${radioStates(radio.focus.border, radio.focus.checkedBG, radio.focus.checkedBG, $checked)}
-					& + label > span:before {
-						${darkFocus}
-					}
-				}
-			`}
-			
-			${$readonly &&
-			css`
-				${radioStates(radio.readOnly.border, radio.readOnly.checkedBG, radio.readOnly.checkedBG, $checked)}
-				${$checked &&
+			${
+				!$disabled &&
+				!$readonly &&
 				css`
-					& + label > span:after {
-						border-color: ${radio.readOnly.background};
+					${$info && radioStates(radio.info.border, radio.info.checkedBG, radio.info.checkedBG, $checked)}
+					${$warning && radioStates(radio.warning.border, radio.warning.checkedBG, radio.warning.checkedBG, $checked)}
+					${$error && radioStates(radio.error.border, radio.error.checkedBG, radio.error.checkedBG, $checked)}
+					${active(radioStates(radio.active.border, radio.active.background, radio.active.checkedBG, $checked))}
+					${hover(radioStates(radio.hover.border, radio.hover.background, radio.hover.checkedBG, $checked))}
+					&:focus {
+						${radioStates(radio.focus.border, radio.focus.checkedBG, radio.focus.checkedBG, $checked)}
+						& + label > span:before {
+							${darkFocus}
+						}
 					}
-				`}
-			`}
-			
-			${$disabled &&
-			css`
-				${radioStates(radio.disabled.border, radio.disabled.checkedBG, radio.disabled.checkedBG, $checked)}
-				${$checked &&
+				`
+			}
+
+			${
+				$readonly &&
 				css`
-					& + label > span:after {
-						border-color: ${radio.disabled.background};
+					${radioStates(radio.readOnly.border, radio.readOnly.checkedBG, radio.readOnly.checkedBG, $checked)}
+					${
+						$checked &&
+						css`
+							& + label > span:after {
+								border-color: ${radio.readOnly.background};
+							}
+						`
 					}
-				`}
-			`}
+				`
+			}
+
+			${
+				$disabled &&
+				css`
+					${radioStates(radio.disabled.border, radio.disabled.checkedBG, radio.disabled.checkedBG, $checked)}
+					${
+						$checked &&
+						css`
+							& + label > span:after {
+								border-color: ${radio.disabled.background};
+							}
+						`
+					}
+				`
+			}
 		`;
 	});
 }

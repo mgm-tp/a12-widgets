@@ -34,6 +34,7 @@ import type { KeyboardEvent, FocusEvent, MouseEvent, ElementType, ReactNode, Rea
 import {
 	createContext,
 	useContext,
+	useId,
 	useRef,
 	useState,
 	useCallback,
@@ -45,8 +46,11 @@ import {
 } from "react";
 import { Key } from "ts-key-enum";
 
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { provider } from "../../common/main/device-detector.js";
+import { HiddenText, StyledHiddenTextWrapper } from "../../common/main/hidden-text/hidden-text.view.js";
 import {
-	generateUid,
 	addPrefix,
 	joinClassNames,
 	Key as KeyUtils,
@@ -57,12 +61,8 @@ import {
 	StringUtils,
 	inputWithSuffixName
 } from "../../common/main/utils.js";
-import { HiddenText, StyledHiddenTextWrapper } from "../../common/main/hidden-text/hidden-text.view.js";
-import { provider } from "../../common/main/device-detector.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
 import { Label } from "../../input/base/template/base.tpl.view.js";
 import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
 import type { ToggleProps, ToggleItemProps } from "./toggle.api.js";
 import { StyledToggle } from "./toggle.styled.js";
@@ -304,6 +304,7 @@ export function Toggle(props: ToggleProps): ReactElement<ToggleProps> {
 		const Component = (showOverlay ? StyledToggle.StyledSelectedItemOverlay : StyledHiddenTextWrapper) as ElementType;
 
 		return (
+			// oxlint-disable-next-line jsx-a11y/interactive-supports-focus -- custom component; tabIndex is provided via the conditional props object above
 			<Component
 				data-role={DataRoles.Toggle.SelectedItemOverlay}
 				ref={selectedItemOverlayRef}
@@ -458,6 +459,8 @@ export namespace Toggle {
 		const { disabled, readOnly, selected, className, id, onClick, children, title, variant, wrapperRef, ...rest } =
 			props;
 
+		const generatedId = useId();
+		const buttonId = id || generatedId;
 		const { setSelectedItem, showOnlySelectedOption, toggleOverlay } = useContext(ToggleContext);
 		const selectedTitle = useContext(A11YLanguageContext).toggleButtonTitles?.selected;
 
@@ -476,7 +479,6 @@ export namespace Toggle {
 			{ [`${baseClassName}__item--selected`]: selected },
 			className
 		);
-		const buttonId = id || generateUid();
 
 		const handleKeyDown = useCallback(
 			(event: KeyboardEvent) => {

@@ -30,7 +30,6 @@ import type { ContextType } from 'react';
 import { css } from 'styled-components';
 import type { CSSObject } from 'styled-components';
 import type { CSSProperties } from 'react';
-import type { CSSTransitionProps } from 'react-transition-group/CSSTransition.js';
 import type { DataKey } from 'recharts/types/util/types.js';
 import { DateRange } from 'react-day-picker';
 import type { Day } from 'date-fns';
@@ -69,7 +68,7 @@ import type { InputEventHandler } from 'react';
 import { InputHTMLAttributes } from 'react';
 import { IntrinsicTransitionGroupProps } from 'react-transition-group/TransitionGroup.js';
 import { IStyledComponentBase } from 'styled-components/dist/types.js';
-import { JSX } from 'react/jsx-runtime';
+import { JSX } from 'react';
 import { Key as Key_2 } from 'ts-key-enum';
 import type { Key as Key_3 } from 'react';
 import type { KeyboardEvent as KeyboardEvent_2 } from 'react';
@@ -141,7 +140,6 @@ import { TransitionProps } from 'react-transition-group/Transition.js';
 import { TZDate } from '@date-fns/tz';
 import type { UIEvent as UIEvent_2 } from 'react';
 import { useEffect } from 'react';
-import type { useResizeDetectorProps } from 'react-resize-detector';
 import type { Variants } from 'motion/react';
 import { WebTarget } from 'styled-components';
 import type { XYCoord } from 'react-dnd';
@@ -213,7 +211,7 @@ export const $stopOutdentCommand: (selection: BaseSelection | null) => boolean;
 // @public
 export const $updateTextSelection: (selection: RangeSelection, callback: (node: LexicalNode | undefined, isCollapse?: boolean) => void) => void;
 
-// @public
+// @public (undocumented)
 export interface A11yDefinition {
     // (undocumented)
     accordionTitles?: AccordionTitles;
@@ -236,11 +234,15 @@ export interface A11yDefinition {
     // (undocumented)
     collapsiblePanelTitles?: CollapsiblePanelTitles;
     // (undocumented)
+    columnVisibilityPanelTitles?: ColumnVisibilityPanelTitles;
+    // (undocumented)
     connectedToastTitles?: ConnectedToastTitles;
     // (undocumented)
     contentboxTitles?: ContentboxTitles;
     // (undocumented)
     counterTitles?: CounterTitles;
+    // (undocumented)
+    dragAndDropTitles?: DragAndDropTitles;
     // (undocumented)
     fileUploadTitles?: FileUploadTitles;
     // (undocumented)
@@ -259,6 +261,8 @@ export interface A11yDefinition {
     linkTitles?: LinkTitles;
     // (undocumented)
     listTitles?: ListTitles;
+    // (undocumented)
+    markdownEditorTitles?: MarkdownEditorTitles;
     // (undocumented)
     menuTitles?: MenuTitles;
     // (undocumented)
@@ -610,7 +614,7 @@ export const AlignLeftButton: ButtonType;
 // @public (undocumented)
 export const AlignRightButton: ButtonType;
 
-// @public
+// @public @deprecated
 export const AndroidScrollInputIntoViewIfNeeded: Promise<void>;
 
 // @public
@@ -943,10 +947,18 @@ export const ApplicationStyles: (params: {
 }) => ApplicationStyle;
 
 // @public (undocumented)
-export const APPLY_TEXT_FORMAT_COMMAND: LexicalCommand<unknown>;
+export const APPLY_TEXT_FORMAT_COMMAND: LexicalCommand<ApplyTextFormatPayload>;
 
 // @public
 export function applyId<T extends TreeNodeModel>(root: T): void;
+
+// @public
+export interface ApplyTextFormatPayload {
+    allowCollapseStyle: boolean;
+    isActive: Interactable["isActive"];
+    isolateStyle: boolean;
+    styleName: string;
+}
 
 // @public (undocumented)
 export function areRowsEqual<NodeType extends BaseTreeTableNode = BaseTreeTableNode>(row1: FlattenTreeTableNode<NodeType>, row2: FlattenTreeTableNode<NodeType>): boolean;
@@ -1077,6 +1089,8 @@ export interface AutocompleteProps extends Omit<BaseInputProps, "fitToParent">, 
     links?: ReactNode[];
     loading?: boolean;
     loadingLabel?: ReactNode;
+    mobileModal?: boolean;
+    // @deprecated
     mobileTriggerElement?: ReactNode;
     onDropdownClose?(): void;
     onSearch?(value: string): void;
@@ -1087,6 +1101,7 @@ export interface AutocompleteProps extends Omit<BaseInputProps, "fitToParent">, 
     selectedItemPosition?: SelectedItemPosition;
     suffixes?: ReactNode;
     value?: string | DropDownItem;
+    virtualize?: boolean;
 }
 
 // @public (undocumented)
@@ -1445,6 +1460,7 @@ export type BaseInputConfigType = {
         labelMargin: string;
         labelGap: string;
         messageMargin: string;
+        messageMarginBelow?: string;
         mobileContentboxPadding: string;
         outlineOffset: number | string;
         padding: string;
@@ -1456,6 +1472,7 @@ export type BaseInputConfigType = {
             boxShadow: string;
         };
         tooltipInNewLineMargin: string;
+        tooltipInNewLineMarginBelow?: string;
         warning: {
             activeBoxShadow: string;
             boxShadow: string;
@@ -1536,7 +1553,7 @@ export const baseInputFlatConfig: (theme: FlatThemeType) => {
 // @public (undocumented)
 export interface BaseInputProps extends Identifiable, Styleable {
     ariaDescribedby?: string;
-    breakTooltipsToNewLine?: boolean;
+    breakTooltipsToNewLine?: TooltipLineBreak;
     disabled?: boolean;
     error?: boolean;
     errorMessage?: ReactNode;
@@ -1547,6 +1564,7 @@ export interface BaseInputProps extends Identifiable, Styleable {
     infoMessage?: ReactNode;
     label?: ReactNode;
     labelGraphic?: ReactNode;
+    messagePosition?: MessagePosition;
     readonly?: boolean;
     tooltips?: ReactNode;
     warning?: boolean;
@@ -1912,7 +1930,7 @@ export interface BaseToolbarButtonProps<LanguageContext = A11yDefinition> extend
 }
 
 // @public (undocumented)
-export interface BaseTooltipProps extends Styleable, Identifiable, DataRole {
+export interface BaseTooltipProps extends Styleable, Identifiable, DataRole, TooltipBehavior {
     disabled?: boolean;
     invert?: boolean;
     text: ReactNode;
@@ -2111,6 +2129,9 @@ export interface BufferedInputProps<ValueType> extends Styleable, Identifiable {
     initialValue?: ValueType;
     onValueSubmit(value?: ValueType): void;
 }
+
+// @public
+export function buildNavigationModel<T>(items: DropDownItem<T>[], rows?: number[][]): NavigationModel<T>;
 
 // @public
 export const buildQuickThemeOptions: (input: QuickThemeOptions) => BaseThemeOptions;
@@ -3573,10 +3594,8 @@ export type CalendarWeekViewProps<T extends CalendarDay<E>, E> = Omit<CalendarBa
     componentRenderers?: ComponentRenderer<E>;
 };
 
-// Warning: (ae-forgotten-export) The symbol "CalloutState" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export class Callout extends Component<CalloutProps, CalloutState> {
+// @public
+export class Callout extends Component<CalloutProps> {
     constructor(props: CalloutProps);
     // (undocumented)
     static defaultProps: {
@@ -4234,13 +4253,13 @@ export namespace CloseButtonTpl {
 // @public @deprecated
 export function Collapsible<InProps extends TreeProps, OutProps extends InProps & CollapsibleTreeProps>(Target: ComponentType<InProps>): ComponentType<OutProps>;
 
-// Warning: (ae-forgotten-export) The symbol "CollapsiblePanelState" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export class CollapsiblePanel extends Component<CollapsiblePanelProps, CollapsiblePanelState> {
+// @public
+export class CollapsiblePanel extends Component<CollapsiblePanelProps> {
     constructor(props: CollapsiblePanelProps);
     // (undocumented)
     context: ContextType<typeof A11YLanguageContext>;
+    // (undocumented)
+    static contextType: Context<A11yDefinition>;
     // (undocumented)
     static displayName: string;
     // (undocumented)
@@ -4389,6 +4408,97 @@ export interface ColumnResizingOptions<ColumnType> {
     onBeginResize?: ColumnResizeEventHandler<ColumnType>;
     onEndResize?: ColumnResizeEventHandler<ColumnType>;
     onResize?: ColumnResizeEventHandler<ColumnType>;
+}
+
+// @public
+export interface ColumnVisibilityChange {
+    id: string;
+    visible: boolean;
+}
+
+// @public
+export interface ColumnVisibilityItem {
+    defaultVisible?: boolean;
+    disabled?: boolean;
+    icon?: ReactNode;
+    id: string;
+    label?: ReactNode;
+    title?: string;
+    visible: boolean;
+}
+
+// @public
+export type ColumnVisibilityMap = Record<string, boolean>;
+
+// @public
+export const ColumnVisibilityPanel: FC<ColumnVisibilityPanelProps>;
+
+// @public
+export type ColumnVisibilityPanelCloseReason = "onEscape" | "onOutsideClick" | "onCloseButton" | "onTab";
+
+// @public (undocumented)
+export const columnVisibilityPanelConfig: (theme: BaseThemeType) => ColumnVisibilityPanelConfigType;
+
+// @public (undocumented)
+export type ColumnVisibilityPanelConfigType = {
+    minWidth: string;
+    maxWidth: string;
+    modalMaxWidth: string;
+    horizontalPadding: string;
+    header: {
+        borderBottom: string;
+    };
+    list: {
+        maxHeight: string;
+    };
+    noResults: {
+        color: string;
+        paddingVertical: string;
+    };
+};
+
+// @public
+export type ColumnVisibilityPanelPresentation = "auto" | "attached" | "modal";
+
+// @public (undocumented)
+export interface ColumnVisibilityPanelProps extends Styleable, Identifiable, DataRole, Ref<HTMLDivElement> {
+    ariaLabel?: string;
+    ariaLevel?: number;
+    closeButtonTitle?: string;
+    closeOnEsc?: boolean;
+    closeOnOutsideClick?: boolean;
+    closeOnTabOut?: boolean;
+    disabled?: boolean;
+    focusOnOpen?: boolean;
+    hideReset?: boolean;
+    items: ColumnVisibilityItem[];
+    noResultsText?: ReactNode;
+    onClose?(reason: ColumnVisibilityPanelCloseReason): void;
+    onReset?(defaultVisibility: ColumnVisibilityMap): void;
+    onSearchChange?(searchTerm: string): void;
+    onVisibilityChange(visibility: ColumnVisibilityMap, change?: ColumnVisibilityChange): void;
+    open?: boolean;
+    orientationList?: Orientation[];
+    presentation?: ColumnVisibilityPanelPresentation;
+    resetDisabled?: boolean;
+    resetLabel?: ReactNode;
+    searchable?: boolean;
+    searchPlaceholder?: string;
+    showAll?: boolean;
+    showAllLabel?: ReactNode;
+    title?: ReactNode;
+    triggerElement?: HTMLElement | null | RefObject<HTMLElement | null>;
+}
+
+// @public (undocumented)
+export interface ColumnVisibilityPanelTitles {
+    clearSearchButton?: string;
+    closeButton?: string;
+    noResults?: string;
+    resetAction?: string;
+    searchPlaceholder?: string;
+    showAllAction?: string;
+    title?: string;
 }
 
 // @public (undocumented)
@@ -5235,6 +5345,7 @@ export const compactTheme: {
         comment: CommentConfigType;
         commentList: CommentListConfigType;
         collapsiblePanel: CollapsiblePanelConfigType;
+        columnVisibilityPanel: ColumnVisibilityPanelConfigType;
         commonInputStyles: CommonInputConfigType;
         connectedToast: ConnectedToastConfigType;
         contentBox: ContentboxConfigType;
@@ -5259,6 +5370,7 @@ export const compactTheme: {
         loginLayout: LoginLayoutConfigType;
         link: LinkConfigType;
         list: ListConfigType;
+        markdownEditor: MarkdownEditorConfigType;
         masterDetailLayout: MasterDetailLayoutConfigType;
         menu: MenuConfigType;
         message: MessageConfigType;
@@ -7343,7 +7455,7 @@ export interface DateTimePickerHeaderProps extends Styleable, Identifiable, Cont
 export function DateTimePickerInput<T extends DateTimePickerProps>(Picker: ComponentType<T>): FC<DateTimePickerInputProps<T>>;
 
 // @public (undocumented)
-export interface DateTimePickerInputProps<T extends DateTimePickerProps> extends Omit<BaseInputProps, "breakTooltipsToNewLine" | "fitToParent" | "label" | "errorMessage" | "warningMessage" | "tooltips"> {
+export interface DateTimePickerInputProps<T extends DateTimePickerProps> extends Omit<BaseInputProps, "fitToParent" | "label" | "errorMessage" | "warningMessage" | "tooltips"> {
     buttonIcon?: ReactNode;
     clearHandler?(handler: () => void): void;
     dateTimeConverter?: DateTimePickerProps.DateTimeConverter;
@@ -7513,27 +7625,13 @@ export type DeepPartial<T> = T extends object ? {
     [P in keyof T]?: DeepPartial<T[P]>;
 } : T;
 
-// Warning: (ae-forgotten-export) The symbol "DefaultAutocompleteState" needs to be exported by the entry point index.d.ts
-//
+// @public @deprecated
+export function DefaultAutocomplete(props: AutocompleteProps): ReactElement<AutocompleteProps>;
+
 // @public (undocumented)
-export class DefaultAutocomplete extends Component<AutocompleteProps, DefaultAutocompleteState> {
-    constructor(props: AutocompleteProps);
-    // (undocumented)
-    componentDidMount(): void;
-    // (undocumented)
-    componentDidUpdate(prevProps: AutocompleteProps, prevState: DefaultAutocompleteState): void;
-    // (undocumented)
-    componentWillUnmount(): void;
-    // (undocumented)
-    context: ContextType<typeof A11YLanguageContext>;
-    // (undocumented)
-    static defaultProps: {
-        enableClearButton: boolean;
-    };
-    // (undocumented)
-    static displayName: string;
-    // (undocumented)
-    render(): ReactNode;
+export namespace DefaultAutocomplete {
+    var // (undocumented)
+    displayName: string;
 }
 
 // Warning: (ae-forgotten-export) The symbol "ResponsiveBehaviour" needs to be exported by the entry point index.d.ts
@@ -7596,6 +7694,7 @@ export type DefaultComponentsType = {
     comment: CommentConfigType;
     commentList: CommentListConfigType;
     collapsiblePanel: CollapsiblePanelConfigType;
+    columnVisibilityPanel: ColumnVisibilityPanelConfigType;
     commonInputStyles: CommonInputConfigType;
     connectedToast: ConnectedToastConfigType;
     contentBox: ContentboxConfigType;
@@ -7620,6 +7719,7 @@ export type DefaultComponentsType = {
     loginLayout: LoginLayoutConfigType;
     link: LinkConfigType;
     list: ListConfigType;
+    markdownEditor: MarkdownEditorConfigType;
     masterDetailLayout: MasterDetailLayoutConfigType;
     menu: MenuConfigType;
     message: MessageConfigType;
@@ -7676,7 +7776,6 @@ export namespace DefaultFileUpload {
 
 // @public (undocumented)
 export interface DefaultFileUploadProps extends FileUploadProps {
-    breakTooltipsToNewLine?: boolean;
     buttonText?: string;
     descriptionText?: string;
     fileOptions?: DefaultFileUploadProps.FileOptions;
@@ -8001,6 +8100,14 @@ export namespace DOMUtils {
     export function getSiblings(element: HTMLElement | null): HTMLElement[];
 }
 
+// @public
+export interface DragAndDropTitles {
+    dropped?: string;
+    grabInstructions?: string;
+    moveCancelled?: string;
+    movedAnnouncement?: string;
+}
+
 // @public (undocumented)
 export interface DragAndDropTreeProps extends TreeProps {
     canDrag?(dragSource: DragItem): boolean;
@@ -8060,28 +8167,31 @@ export interface DragSource {
 // Warning: (ae-forgotten-export) The symbol "DropDownState" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export class DropDown extends Component<DropDownProps, DropDownState> {
-    constructor(props: DropDownProps);
+export class DropDown<T = unknown> extends Component<DropDownProps<T>, DropDownState> {
+    constructor(props: DropDownProps<T>);
     // (undocumented)
     componentDidMount(): void;
     // (undocumented)
-    componentDidUpdate(prevProps: DropDownProps): void;
+    componentDidUpdate(prevProps: DropDownProps<T>): void;
+    // (undocumented)
+    componentWillUnmount(): void;
     // (undocumented)
     static defaultProps: {
         selectItemKeys: Key_2[];
-        keysToSelectItem: Key_2[];
     };
     // (undocumented)
     static displayName: string;
-    // (undocumented)
+    // @deprecated
     handleForwardedKeyboardEvent(event: KeyboardEvent_2<HTMLElement>): void;
     // (undocumented)
     render(): ReactNode;
-    // (undocumented)
+    // @deprecated
     resetPreselectedPosition(): void;
+    // @deprecated
+    setPreselectedIndex(index: number | undefined): void;
     // Warning: (ae-forgotten-export) The symbol "Position_2" needs to be exported by the entry point index.d.ts
     //
-    // (undocumented)
+    // @deprecated (undocumented)
     setPreselectedPosition(position: Position_2 | undefined): void;
 }
 
@@ -8250,12 +8360,20 @@ export type DropdownConfigType = {
 };
 
 // @public (undocumented)
-export const DropdownContextProvider: Provider<    {
-horizontal: boolean;
-touch: boolean;
-lightBackground: boolean;
-extended: boolean;
-}>;
+export const DropdownContextProvider: Provider<DropdownContextValue>;
+
+// @public
+export interface DropdownContextValue {
+    // (undocumented)
+    extended: boolean;
+    // (undocumented)
+    horizontal: boolean;
+    // (undocumented)
+    lightBackground: boolean;
+    multiple?: boolean;
+    // (undocumented)
+    touch: boolean;
+}
 
 // @public (undocumented)
 export const dropdownFlatConfig: (theme: FlatThemeType) => {
@@ -8274,12 +8392,14 @@ export const dropdownFlatConfig: (theme: FlatThemeType) => {
 };
 
 // @public
-export interface DropDownItem extends Styleable, Identifiable {
+export interface DropDownItem<T = unknown> extends Styleable, Identifiable {
     ariaChecked?: "true" | "false" | "mixed";
-    children?: DropDownItem[];
+    children?: DropDownItem<T>[];
+    data?: T;
     disabled?: boolean;
     graphic?: ReactNode;
     hideLabel?: boolean;
+    indeterminate?: boolean;
     isEmptyValue?: boolean;
     label: string;
     secondaryText?: ReactNode;
@@ -8290,35 +8410,65 @@ export interface DropDownItem extends Styleable, Identifiable {
 }
 
 // @public
-export interface DropDownProps extends Styleable, Identifiable, Ref<HTMLDivElement> {
+export interface DropdownNavigationHandle<T = unknown> {
+    activeIndex: number | undefined;
+    activeItem: DropDownItem<T> | undefined;
+    activeLinkIndex: number | undefined;
+    handleKeyDown(event: KeyboardEvent_2<HTMLElement>): void;
+    moveToFirst(): void;
+    moveToLast(): void;
+    reset(): void;
+    setActiveIndex(index: number | undefined): void;
+    setActiveItem(item: DropDownItem<T> | undefined): void;
+}
+
+// @public
+export interface DropdownNavigationOptions<T = unknown> {
+    getItemKey?(item: DropDownItem<T>): string;
+    items: DropDownItem<T>[];
+}
+
+// @public
+export interface DropDownProps<T = unknown> extends Styleable, Identifiable, Ref<HTMLDivElement> {
     ariaLabelledby?: string;
+    estimatedItemHeight?: number;
+    estimatedSectionHeight?: number;
     footer?: ReactNode;
+    getItemKey?(item: DropDownItem<T>): string;
     hint?: string;
     horizontal?: boolean;
-    items: DropDownItem[];
+    items: DropDownItem<T>[];
     keysToSelectItem?: string[];
-    labelRenderer?(item: DropDownItem): ReactNode;
+    labelRenderer?(item: DropDownItem<T>): ReactNode;
     lightBackground?: boolean;
     links?: ReactNode[];
+    navigation?: DropdownNavigationHandle<T>;
     onBlur?(event: FocusEvent_2<HTMLElement>): void;
     // @deprecated
-    onClick?(item: DropDownItem, event: MouseEvent_2<HTMLElement>): void;
+    onClick?(item: DropDownItem<T>, event: MouseEvent_2<HTMLElement>): void;
     onKeyDown?(event: KeyboardEvent_2<HTMLElement>): void;
     onKeyPress?(event: KeyboardEvent_2<HTMLElement>): void;
-    onMouseDown?(item: DropDownItem, event: MouseEvent_2<HTMLElement>): void;
-    onPreselectedItemChange?(preselectedItem: DropDownItem | undefined): void;
+    onMouseDown?(item: DropDownItem<T>, event: MouseEvent_2<HTMLElement>): void;
+    onPreselectedItemChange?(preselectedItem: DropDownItem<T> | undefined): void;
     onPreselectedLinkChange?(preselectedLinkPosition: number | undefined): void;
     onScroll?(event: UIEvent_2<HTMLElement>): void;
-    onSelectedItemChange?(selectedItem: DropDownItem | undefined): void;
+    onSelectedItemChange?(selectedItem: DropDownItem<T> | undefined): void;
+    onSelectionChange?(selectedItems: DropDownItem<T>[], toggledItem: DropDownItem<T>, event: MouseEvent_2<HTMLElement> | KeyboardEvent_2<HTMLElement>): void;
     onWrapperMouseDown?(event: MouseEvent_2<HTMLElement>): void;
-    selectedItem?: DropDownItem;
+    selectedItem?: DropDownItem<T>;
     selectedItemPosition?: SelectedItemPosition;
+    selectedItems?: DropDownItem<T>[];
+    selectionMode?: DropDownSelectionMode;
     // @deprecated
     selectItemKeys?: number[];
     tabIndex?: number;
     // @deprecated
     touch?: boolean;
+    virtualize?: boolean;
 }
+
+// @public
+export type DropDownSelectionMode = "single" | "multiple";
 
 // @public (undocumented)
 export interface DropItem {
@@ -8521,6 +8671,7 @@ export { Error_2 as Error }
 export interface ErrorProps extends Identifiable, Styleable, DataRole, Ref<HTMLDivElement> {
     // (undocumented)
     errorMessage?: ReactNode;
+    position?: MessagePosition;
 }
 
 // @public
@@ -8578,6 +8729,21 @@ export const fadeIn: (opacity?: number) => Keyframes;
 
 // @public (undocumented)
 export const fadeOut: (opacity?: number) => Keyframes;
+
+// @public (undocumented)
+export const FieldDefaultConfigContext: Context<FieldDefaultConfigProps>;
+
+// @public (undocumented)
+export interface FieldDefaultConfigProps {
+    messagePosition?: MessagePosition;
+    tooltipPosition?: TooltipPosition;
+}
+
+// @public
+export const FieldDefaultConfigProvider: {
+    (props: FieldDefaultConfigProps & Container): ReactNode;
+    displayName: string;
+};
 
 // Warning: (ae-forgotten-export) The symbol "FileUploadInternalProps" needs to be exported by the entry point index.d.ts
 //
@@ -8702,7 +8868,7 @@ export const FileUploadIcon: {
 };
 
 // @public (undocumented)
-export interface FileUploadProps extends Omit<BaseInputProps, "breakTooltipsToNewLine" | "ariaDescribedby" | "error" | "warning" | "info" | "fitToParent" | "readonly">, Container, InputDOMProps {
+export interface FileUploadProps extends Omit<BaseInputProps, "ariaDescribedby" | "fitToParent" | "readonly">, Container, InputDOMProps {
     accept?: string;
     actionItem?: ReactNode;
     // @deprecated
@@ -12173,6 +12339,7 @@ export const flatCompactTheme: {
                 fontSize: string;
             };
         };
+        columnVisibilityPanel: ColumnVisibilityPanelConfigType;
         commonInputStyles: CommonInputConfigType;
         connectedToast: ConnectedToastConfigType;
         contentBox: ContentboxConfigType & {
@@ -12665,12 +12832,18 @@ export const flatCompactTheme: {
                 fontWeight: number;
             };
         };
+        markdownEditor: MarkdownEditorConfigType;
         masterDetailLayout: MasterDetailLayoutConfigType & {
             contentBoxHeaderPadding: string;
             spacingForBoxShadow: string;
             spacingBetweenPanes: string;
             header: {
                 padding: string;
+            };
+            pane: {
+                content: {
+                    borderRadius: number;
+                };
             };
         };
         menu: MenuConfigType & {
@@ -12756,6 +12929,18 @@ export const flatCompactTheme: {
                 vertical: {
                     selected: {
                         background: string;
+                    };
+                    icon: {
+                        status: {
+                            variant: {
+                                open: string;
+                                info: string;
+                                error: string;
+                                warning: string;
+                                inProgress: string;
+                                done: string;
+                            };
+                        };
                     };
                 };
             };
@@ -16920,6 +17105,11 @@ export const FlatComponentsConfigs: (theme: FlatThemeType) => {
         header: {
             padding: string;
         };
+        pane: {
+            content: {
+                borderRadius: number;
+            };
+        };
     };
     menu: {
         header: {
@@ -17004,6 +17194,18 @@ export const FlatComponentsConfigs: (theme: FlatThemeType) => {
             vertical: {
                 selected: {
                     background: string;
+                };
+                icon: {
+                    status: {
+                        variant: {
+                            open: string;
+                            info: string;
+                            error: string;
+                            warning: string;
+                            inProgress: string;
+                            done: string;
+                        };
+                    };
                 };
             };
         };
@@ -17616,7 +17818,7 @@ export interface FlattenedMenuItemType extends Omit<MenuItem, "children" | "item
     items?: MenuItem[];
 }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export function flattenItems(items: DropDownItem[], result: DropDownItem[]): void;
 
 // @public
@@ -17716,6 +17918,7 @@ export const flatTheme: {
         comment: CommentConfigType;
         commentList: CommentListConfigType;
         collapsiblePanel: CollapsiblePanelConfigType;
+        columnVisibilityPanel: ColumnVisibilityPanelConfigType;
         commonInputStyles: CommonInputConfigType;
         connectedToast: ConnectedToastConfigType;
         contentBox: ContentboxConfigType;
@@ -17740,6 +17943,7 @@ export const flatTheme: {
         loginLayout: LoginLayoutConfigType;
         link: LinkConfigType;
         list: ListConfigType;
+        markdownEditor: MarkdownEditorConfigType;
         masterDetailLayout: MasterDetailLayoutConfigType;
         menu: MenuConfigType;
         message: MessageConfigType;
@@ -19454,6 +19658,11 @@ export const flatTheme: {
             header: {
                 padding: string;
             };
+            pane: {
+                content: {
+                    borderRadius: number;
+                };
+            };
         };
         menu: {
             header: {
@@ -19538,6 +19747,18 @@ export const flatTheme: {
                 vertical: {
                     selected: {
                         background: string;
+                    };
+                    icon: {
+                        status: {
+                            variant: {
+                                open: string;
+                                info: string;
+                                error: string;
+                                warning: string;
+                                inProgress: string;
+                                done: string;
+                            };
+                        };
                     };
                 };
             };
@@ -20621,7 +20842,7 @@ export const generalPalette: {
     };
 };
 
-// @public
+// @public @deprecated
 export function generateUid(): string;
 
 // @public (undocumented)
@@ -20717,6 +20938,7 @@ export const getCompactTheme: () => {
         comment: CommentConfigType;
         commentList: CommentListConfigType;
         collapsiblePanel: CollapsiblePanelConfigType;
+        columnVisibilityPanel: ColumnVisibilityPanelConfigType;
         commonInputStyles: CommonInputConfigType;
         connectedToast: ConnectedToastConfigType;
         contentBox: ContentboxConfigType;
@@ -20741,6 +20963,7 @@ export const getCompactTheme: () => {
         loginLayout: LoginLayoutConfigType;
         link: LinkConfigType;
         list: ListConfigType;
+        markdownEditor: MarkdownEditorConfigType;
         masterDetailLayout: MasterDetailLayoutConfigType;
         menu: MenuConfigType;
         message: MessageConfigType;
@@ -21350,7 +21573,7 @@ export const getDefaultMonths: (locale?: Locale_2) => string[];
 // @public @deprecated (undocumented)
 export const getDefaultTheme: () => DefaultThemeType;
 
-// @public (undocumented)
+// @public
 export function getDropDownItemsLength(data: DropDownItem[]): number;
 
 // @public
@@ -22620,6 +22843,7 @@ export const getFlatCompactTheme: () => {
                 fontSize: string;
             };
         };
+        columnVisibilityPanel: ColumnVisibilityPanelConfigType;
         commonInputStyles: CommonInputConfigType;
         connectedToast: ConnectedToastConfigType;
         contentBox: ContentboxConfigType & {
@@ -23112,12 +23336,18 @@ export const getFlatCompactTheme: () => {
                 fontWeight: number;
             };
         };
+        markdownEditor: MarkdownEditorConfigType;
         masterDetailLayout: MasterDetailLayoutConfigType & {
             contentBoxHeaderPadding: string;
             spacingForBoxShadow: string;
             spacingBetweenPanes: string;
             header: {
                 padding: string;
+            };
+            pane: {
+                content: {
+                    borderRadius: number;
+                };
             };
         };
         menu: MenuConfigType & {
@@ -23203,6 +23433,18 @@ export const getFlatCompactTheme: () => {
                 vertical: {
                     selected: {
                         background: string;
+                    };
+                    icon: {
+                        status: {
+                            variant: {
+                                open: string;
+                                info: string;
+                                error: string;
+                                warning: string;
+                                inProgress: string;
+                                done: string;
+                            };
+                        };
                     };
                 };
             };
@@ -25775,6 +26017,7 @@ export const getFlatTheme: () => {
         comment: CommentConfigType;
         commentList: CommentListConfigType;
         collapsiblePanel: CollapsiblePanelConfigType;
+        columnVisibilityPanel: ColumnVisibilityPanelConfigType;
         commonInputStyles: CommonInputConfigType;
         connectedToast: ConnectedToastConfigType;
         contentBox: ContentboxConfigType;
@@ -25799,6 +26042,7 @@ export const getFlatTheme: () => {
         loginLayout: LoginLayoutConfigType;
         link: LinkConfigType;
         list: ListConfigType;
+        markdownEditor: MarkdownEditorConfigType;
         masterDetailLayout: MasterDetailLayoutConfigType;
         menu: MenuConfigType;
         message: MessageConfigType;
@@ -27513,6 +27757,11 @@ export const getFlatTheme: () => {
             header: {
                 padding: string;
             };
+            pane: {
+                content: {
+                    borderRadius: number;
+                };
+            };
         };
         menu: {
             header: {
@@ -27597,6 +27846,18 @@ export const getFlatTheme: () => {
                 vertical: {
                     selected: {
                         background: string;
+                    };
+                    icon: {
+                        status: {
+                            variant: {
+                                open: string;
+                                info: string;
+                                error: string;
+                                warning: string;
+                                inProgress: string;
+                                done: string;
+                            };
+                        };
                     };
                 };
             };
@@ -28263,13 +28524,15 @@ export function getVerticalSpacing(element: Element | undefined | null, cssAttri
 // @public (undocumented)
 export function getVerticalWindowScrollWidth(): number;
 
-// @public (undocumented)
+// @public
 export class GlobalMessageBox extends PureComponent<GlobalMessageBoxProps> {
     constructor(props: GlobalMessageBoxProps);
-    // (undocumented)
+    // @deprecated (undocumented)
     componentDidMount(): void;
     // (undocumented)
     context: ContextType<typeof A11YLanguageContext>;
+    // (undocumented)
+    static contextType: Context<A11yDefinition>;
     // (undocumented)
     static defaultProps: {
         ellipsis: boolean;
@@ -28400,6 +28663,9 @@ export interface Handler<E extends Event_2> {
 
 // @public
 export function hasColumnGroup<RowType>(columns: BaseColumnType<RowType>[]): boolean;
+
+// @public
+export function hasColumnVisibilityDeviation(items: ColumnVisibilityItem[]): boolean;
 
 // @public (undocumented)
 export function hasGotFocus(container: HTMLElement | null): boolean;
@@ -28999,6 +29265,7 @@ export namespace Info {
 export interface InfoProps extends Identifiable, Styleable, DataRole, Ref<HTMLDivElement> {
     // (undocumented)
     infoMessage?: ReactNode;
+    position?: MessagePosition;
 }
 
 // @public (undocumented)
@@ -29042,7 +29309,6 @@ export class InlineStyleTextNode extends TextNode {
     static getType(): string;
     // (undocumented)
     hasClass(className: string): boolean;
-    // (undocumented)
     static importDOM(): DOMConversionMap | null;
     // (undocumented)
     static importJSON(serializedNode: SerializedInlineStyleTextNode): InlineStyleTextNode;
@@ -29102,7 +29368,7 @@ export type InputStyle = {
 
 // @public (undocumented)
 export interface InputTooltipsProps {
-    breakLine?: boolean;
+    breakLine?: TooltipLineBreak;
     // (undocumented)
     tooltips: ReactNode;
 }
@@ -29230,6 +29496,7 @@ export interface InteractionHintBaseConfig extends InteractionHintBehavior {
 export interface InteractionHintBehavior {
     followCursor?: boolean;
     hideArrow?: boolean;
+    showDelay?: number;
 }
 
 // @public
@@ -29637,6 +29904,12 @@ export interface InteractiveTileProps extends Styleable, Identifiable, Container
     title?: string;
 }
 
+// @public (undocumented)
+export type InternalManagedMasterDetailView = ManagedMasterDetailView & {
+    openedByElementId?: string;
+    fullscreenButtonId?: string;
+};
+
 // @public
 export class IntersectionObserverHelper {
     // (undocumented)
@@ -29720,6 +29993,9 @@ export function isPreviousNodeValid(node: LexicalNode): boolean;
 
 // @public (undocumented)
 export function isRowGroup<RowType>(row: RowType | RowsGroup<RowType>): row is RowsGroup<RowType>;
+
+// @public
+export function isSameDropdownItem<T>(one: DropDownItem<T> | undefined, other: DropDownItem<T> | undefined, getItemKey?: (item: DropDownItem<T>) => string): boolean;
 
 // @public (undocumented)
 export function isSeparator(char: string): boolean;
@@ -30453,6 +30729,20 @@ export interface ListTitles {
     selected?: string;
 }
 
+// @public
+export const LiveRegion: ForwardRefExoticComponent<LiveRegionProps & RefAttributes<LiveRegionHandle>>;
+
+// @public
+export interface LiveRegionHandle {
+    announce(message: string): void;
+}
+
+// @public (undocumented)
+export interface LiveRegionProps {
+    ariaLive?: "polite" | "assertive";
+    dataRole?: string;
+}
+
 // @public (undocumented)
 export interface LoginContainerProps extends Identifiable, Styleable, Container {
     secondary?: boolean;
@@ -30678,14 +30968,12 @@ export const MainMenuTpl: FC<MainMenuProps & MainMenuInternalProps>;
 export type MakeRequired<T, U extends keyof T> = Required<Pick<T, U>> & Omit<T, U>;
 
 // @public (undocumented)
-export class ManagedMasterDetail extends Component<ManagedMasterDetailType, ManagedMasterDetailState> {
-    constructor(props: ManagedMasterDetailType);
-    // (undocumented)
-    componentDidMount(): void;
-    // (undocumented)
-    static displayName: string;
-    // (undocumented)
-    render(): ReactNode;
+export function ManagedMasterDetail(props: ManagedMasterDetailType): ReactElement;
+
+// @public (undocumented)
+export namespace ManagedMasterDetail {
+    var // (undocumented)
+    displayName: string;
 }
 
 // @public
@@ -30699,29 +30987,12 @@ export interface ManagedMasterDetailProps extends Styleable, Identifiable {
     viewTabIndex?: number;
 }
 
-// @public (undocumented)
-export interface ManagedMasterDetailState {
-    // (undocumented)
-    addedViews: InternalManagedMasterDetailView[];
-    // (undocumented)
-    fullScreen?: boolean;
-    // (undocumented)
-    fullScreenToggled?: boolean;
-    // (undocumented)
-    index: number;
-    // (undocumented)
-    lastVisibleView?: ManagedMasterDetailView;
-    // Warning: (ae-forgotten-export) The symbol "InternalManagedMasterDetailView" needs to be exported by the entry point index.d.ts
-    //
-    // (undocumented)
-    latestAddedView?: InternalManagedMasterDetailView;
-    // (undocumented)
-    latestClosedView?: InternalManagedMasterDetailView;
-    // (undocumented)
-    prevIndex?: number;
-    // (undocumented)
+// Warning: (ae-forgotten-export) The symbol "PaneState" needs to be exported by the entry point index.d.ts
+//
+// @public @deprecated (undocumented)
+export type ManagedMasterDetailState = PaneState & {
     smallView?: boolean;
-}
+};
 
 // @public (undocumented)
 export type ManagedMasterDetailType = ManagedMasterDetailProps & Partial<MasterDetailProps>;
@@ -30775,6 +31046,124 @@ export const margin: RuleSet<object>[];
 // @public (undocumented)
 export const marginHelper: RuleSet<object>;
 
+// @public
+export interface MarkdownEditorTitles {
+    // (undocumented)
+    addColumnAfter?: string;
+    // (undocumented)
+    addColumnBefore?: string;
+    // (undocumented)
+    addRowAfter?: string;
+    // (undocumented)
+    addRowBefore?: string;
+    // (undocumented)
+    alignColumnCenter?: string;
+    // (undocumented)
+    alignColumnLeft?: string;
+    // (undocumented)
+    alignColumnRight?: string;
+    // (undocumented)
+    blockquote?: string;
+    bold?: string;
+    bulletList?: string;
+    cancel?: string;
+    // (undocumented)
+    code?: string;
+    // (undocumented)
+    codeBlockMenu?: string;
+    // (undocumented)
+    deleteColumn?: string;
+    // (undocumented)
+    deleteImage?: string;
+    // (undocumented)
+    deleteRow?: string;
+    // (undocumented)
+    deleteTable?: string;
+    // (undocumented)
+    directiveUnknown?: string;
+    editImage?: string;
+    // (undocumented)
+    heading1?: string;
+    // (undocumented)
+    heading2?: string;
+    // (undocumented)
+    heading3?: string;
+    // (undocumented)
+    heading4?: string;
+    // (undocumented)
+    heading5?: string;
+    // (undocumented)
+    heading6?: string;
+    headingMenu?: string;
+    // (undocumented)
+    highlight?: string;
+    // (undocumented)
+    horizontalRule?: string;
+    // (undocumented)
+    image?: string;
+    // (undocumented)
+    imageAltLabel?: string;
+    imageDialogTitle?: string;
+    // (undocumented)
+    imageEditDialogTitle?: string;
+    // (undocumented)
+    imageInvalid?: string;
+    // (undocumented)
+    imageSrcLabel?: string;
+    // (undocumented)
+    imageSubmit?: string;
+    // (undocumented)
+    imageTitleLabel?: string;
+    // (undocumented)
+    imageUpdate?: string;
+    // (undocumented)
+    indent?: string;
+    // (undocumented)
+    insertTable?: string;
+    // (undocumented)
+    italic?: string;
+    link?: string;
+    linkDialogTitle?: string;
+    // (undocumented)
+    linkInvalid?: string;
+    // (undocumented)
+    linkRemove?: string;
+    // (undocumented)
+    linkSubmit?: string;
+    // (undocumented)
+    linkTextLabel?: string;
+    // (undocumented)
+    linkUrlLabel?: string;
+    // (undocumented)
+    modeEdit?: string;
+    // (undocumented)
+    modeSource?: string;
+    modeSwitcherLabel?: string;
+    // (undocumented)
+    modeView?: string;
+    // (undocumented)
+    orderedList?: string;
+    // (undocumented)
+    outdent?: string;
+    // (undocumented)
+    paragraph?: string;
+    // (undocumented)
+    redo?: string;
+    // (undocumented)
+    strikethrough?: string;
+    // (undocumented)
+    subscript?: string;
+    // (undocumented)
+    superscript?: string;
+    tableMenu?: string;
+    // (undocumented)
+    taskList?: string;
+    toolbarLabel?: string;
+    // (undocumented)
+    underline?: string;
+    undo?: string;
+}
+
 // @public (undocumented)
 export const MasterDetail: FC<MasterDetailProps>;
 
@@ -30819,6 +31208,10 @@ export type MasterDetailLayoutConfigType = {
         animationDuration: string;
         secondChildLeftBorder: string;
         nonFirstChildLeftBorder?: string;
+        content?: {
+            background: string;
+            borderRadius: number;
+        };
     };
     spacingBetweenPanes: string;
     spacingForBoxShadow: string;
@@ -30860,6 +31253,11 @@ export const masterDetailLayoutFlatConfig: (theme: {
     spacingBetweenPanes: string;
     header: {
         padding: string;
+    };
+    pane: {
+        content: {
+            borderRadius: number;
+        };
     };
 };
 
@@ -31484,6 +31882,18 @@ export const menuFlatConfig: (theme: FlatThemeType) => {
             selected: {
                 background: string;
             };
+            icon: {
+                status: {
+                    variant: {
+                        open: string;
+                        info: string;
+                        error: string;
+                        warning: string;
+                        inProgress: string;
+                        done: string;
+                    };
+                };
+            };
         };
     };
     label: {
@@ -31752,6 +32162,9 @@ export type MessageConfigType = {
     padding: string;
 };
 
+// @public
+export type MessagePosition = "above" | "below";
+
 // @public (undocumented)
 export interface MessageProps extends Styleable, Identifiable, Container {
 }
@@ -31762,27 +32175,13 @@ export const minHeight: RuleSet<object>;
 // @public (undocumented)
 export const minWidth: RuleSet<object>;
 
-// Warning: (ae-forgotten-export) The symbol "MobileAutocompleteState" needs to be exported by the entry point index.d.ts
-//
+// @public @deprecated
+export function MobileAutocomplete(props: AutocompleteProps): ReactElement<AutocompleteProps>;
+
 // @public (undocumented)
-export class MobileAutocomplete extends Component<AutocompleteProps, MobileAutocompleteState> {
-    constructor(props: AutocompleteProps);
-    // (undocumented)
-    componentDidMount(): void;
-    // (undocumented)
-    componentDidUpdate(prevProps: AutocompleteProps, prevState: MobileAutocompleteState): void;
-    // (undocumented)
-    componentWillUnmount(): void;
-    // (undocumented)
-    context: ContextType<typeof A11YLanguageContext>;
-    // (undocumented)
-    static defaultProps: {
-        enableClearButton: boolean;
-    };
-    // (undocumented)
-    static displayName: string;
-    // (undocumented)
-    render(): ReactNode;
+export namespace MobileAutocomplete {
+    var // (undocumented)
+    displayName: string;
 }
 
 // @public
@@ -32123,21 +32522,24 @@ export type MultiselectConfigType = {
 // @public (undocumented)
 export interface MultiselectProps extends Styleable, Identifiable, InputDOMProps {
     ariaDescribedby?: string;
-    breakTooltipsToNewLine?: boolean;
+    breakTooltipsToNewLine?: TooltipLineBreak;
     disabled?: boolean;
     enableSelectAllOption?: boolean;
+    error?: boolean;
     errorMessage?: ReactNode;
     filteringHandler?: MultiselectProps.FilteringHandler;
     groupingHandler?: MultiselectProps.GroupingHandler;
     helperText?: ReactNode;
     hideLabel?: boolean;
     hintTemplate?: string;
+    info?: boolean;
     infoMessage?: ReactNode;
     inputRef?: RefCallback<HTMLInputElement> | RefObject<HTMLInputElement>;
     items: MultiselectProps.Items;
     joiningHandler?: MultiselectProps.JoiningHandler;
     label?: ReactNode;
     labelGraphic?: ReactNode;
+    messagePosition?: MessagePosition;
     mobile?: boolean;
     mobileHeadingTitle?: ReactNode;
     onChange?(selectedItems: MultiselectProps.Item[]): void;
@@ -32149,6 +32551,7 @@ export interface MultiselectProps extends Styleable, Identifiable, InputDOMProps
     selectAllText?: string;
     sortingHandler?: MultiselectProps.SortingHandler;
     tooltips?: ReactNode;
+    warning?: boolean;
     warningMessage?: ReactNode;
 }
 
@@ -32261,6 +32664,27 @@ export const NavigationContentboxContext: Context<NavigationContentboxContextTyp
 export interface NavigationContentboxContextType {
     onBackButtonClicked?(): void;
     onCloseButtonClicked?(): void;
+}
+
+// @public
+export interface NavigationEntry<T = unknown> {
+    // (undocumented)
+    disabled: boolean;
+    flatIndex: number;
+    // (undocumented)
+    item: DropDownItem<T>;
+    sectionId?: string;
+}
+
+// @public (undocumented)
+export interface NavigationModel<T = unknown> {
+    // (undocumented)
+    allDisabled: boolean;
+    columnOf: number[];
+    // (undocumented)
+    entries: NavigationEntry<T>[];
+    rowOf: number[];
+    rows: number[][];
 }
 
 // @public (undocumented)
@@ -32409,6 +32833,9 @@ export namespace NotificationAreaTpl {
 
 // @public (undocumented)
 export const NumberListButton: ButtonType;
+
+// @public
+export type OnResizeCallback = (payload: ResizePayload) => void;
 
 // @public (undocumented)
 export type OpacityConfig = {
@@ -33114,6 +33541,15 @@ export interface Position {
 // @public (undocumented)
 export const position: RuleSet<object>;
 
+// @public
+export const POST_MOVE_FLASH_DURATION = 700;
+
+// @public (undocumented)
+export interface PostMoveFlashOptions {
+    color: string;
+    durationMs?: number;
+}
+
 // @public (undocumented)
 export function prepopulatedRichText(text: string): () => void;
 
@@ -33666,6 +34102,16 @@ export interface ResizeOptions {
     onResize?: ResizeEventHandler;
     onResizeStart?: ResizeEventHandler;
     onResizeStop?: ResizeEventHandler;
+}
+
+// @public
+export interface ResizePayload {
+    // (undocumented)
+    entry: ResizeObserverEntry | null;
+    // (undocumented)
+    height: number | null;
+    // (undocumented)
+    width: number | null;
 }
 
 // @public (undocumented)
@@ -34711,14 +35157,19 @@ slotPosition: "left" | "right" | "center";
 export const StyledApplicationHeaderWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledAutocompleteDropdownWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isLoading"> & {
+export const StyledAutocompleteDropdownWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$attached" | "isLoading"> & {
 isLoading?: boolean;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "isLoading"> & {
+$attached?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$attached" | "isLoading"> & {
 isLoading?: boolean;
+$attached?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
 export const StyledAutocompleteModal: IStyledComponentBase<"web", FastOmit<ModalOverlayProps, never> & Partial<Pick<ModalOverlayProps, never>>> & string & Omit<FC<ModalOverlayProps>, keyof Component<any, {}, any>>;
+
+// @public
+export const StyledAutocompleteModalContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
 export const StyledAutocompleteWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled"> & {
@@ -34844,28 +35295,32 @@ export namespace StyledBaseInput {
     $hasFocus?: boolean;
     }, never>>> & string;
     const // (undocumented)
-    StyledFieldWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+    StyledFieldWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone" | "$tooltipPosition"> & {
     $block?: boolean;
     $phone?: boolean;
     $disabled?: boolean;
-    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+    $tooltipPosition?: TooltipLineBreak;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone" | "$tooltipPosition"> & {
     $block?: boolean;
     $phone?: boolean;
     $disabled?: boolean;
+    $tooltipPosition?: TooltipLineBreak;
     }, never>>> & string;
     const // (undocumented)
     elementWithTooltipStyles: (numberOfTooltips: number) => RuleSet<object>;
     const // (undocumented)
-    StyledField: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    StyledField: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
-    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $tooltipPosition?: TooltipLineBreak;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
+    $tooltipPosition?: TooltipLineBreak;
     }, never>>> & string;
     const // (undocumented)
     StyledFieldMain: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
@@ -35186,29 +35641,33 @@ export namespace StyledCheckbox {
     isInteractive?: boolean;
     }, never>>> & string;
     const // (undocumented)
-    StyledField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    StyledField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
-    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $tooltipPosition?: TooltipLineBreak;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
+    $tooltipPosition?: TooltipLineBreak;
     }, never>> & {
     as?: WebTarget | undefined;
     forwardedAs?: WebTarget | undefined;
-    }, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    }, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
-    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $tooltipPosition?: TooltipLineBreak;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
+    $tooltipPosition?: TooltipLineBreak;
     }, never>> & {
     as?: WebTarget | undefined;
     forwardedAs?: WebTarget | undefined;
@@ -35346,31 +35805,35 @@ export namespace StyledCheckbox {
 }
 
 // @public (undocumented)
-export const StyledCheckboxGroupField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+export const StyledCheckboxGroupField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
 $block?: boolean;
 $hasTooltips?: boolean;
 $disabled?: boolean;
 $numberOfTooltips?: number;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+$tooltipPosition?: TooltipLineBreak;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
 $block?: boolean;
 $hasTooltips?: boolean;
 $disabled?: boolean;
 $numberOfTooltips?: number;
+$tooltipPosition?: TooltipLineBreak;
 }, never>> & {
 as?: WebTarget | undefined;
 forwardedAs?: WebTarget | undefined;
 }, "$touch"> & {
 $touch?: boolean;
-}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
 $block?: boolean;
 $hasTooltips?: boolean;
 $disabled?: boolean;
 $numberOfTooltips?: number;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+$tooltipPosition?: TooltipLineBreak;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
 $block?: boolean;
 $hasTooltips?: boolean;
 $disabled?: boolean;
 $numberOfTooltips?: number;
+$tooltipPosition?: TooltipLineBreak;
 }, never>> & {
 as?: WebTarget | undefined;
 forwardedAs?: WebTarget | undefined;
@@ -35518,10 +35981,12 @@ export const StyledContainerInner: IStyledComponentBase<"web", FastOmit<Detailed
 export const StyledContainerWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledContentBox: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$boxShadow"> & {
+export const StyledContentBox: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$boxShadow" | "$embedded"> & {
 $boxShadow?: "always" | "none" | "default";
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$boxShadow"> & {
+$embedded?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$boxShadow" | "$embedded"> & {
 $boxShadow?: "always" | "none" | "default";
+$embedded?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
@@ -35576,7 +36041,11 @@ forwardedAs?: WebTarget | undefined;
 }, "$noGrow">>> & string;
 
 // @public (undocumented)
-export const StyledContentBoxFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+export const StyledContentBoxFooter: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$embedded"> & {
+$embedded?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$embedded"> & {
+$embedded?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
 export const StyledContentBoxHeader: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noGrow"> & {
@@ -35586,10 +36055,12 @@ $noGrow?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
-export const StyledContentBoxHeading: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variantColor"> & {
+export const StyledContentBoxHeading: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$embedded" | "variantColor"> & {
 variantColor?: string;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "variantColor"> & {
+$embedded?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$embedded" | "variantColor"> & {
 variantColor?: string;
+$embedded?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
@@ -35600,10 +36071,18 @@ $mode?: ContentBoxSidePanelMode;
 }, never>>> & string & Omit<SPLSecondaryPane, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledContentBoxSubtitle: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+export const StyledContentBoxSubtitle: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$embedded"> & {
+$embedded?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$embedded"> & {
+$embedded?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledContentBoxTitleWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+export const StyledContentBoxTitleWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$embedded"> & {
+$embedded?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$embedded"> & {
+$embedded?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
 export const StyledContentBoxWizardBar: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "collapsed"> & {
@@ -35816,12 +36295,14 @@ $readOnly?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$horizontal" | "$touch"> & {
+export const StyledDropdownContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$horizontal" | "$touch" | "$virtualized"> & {
 $touch?: boolean;
 $horizontal?: boolean;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$horizontal" | "$touch"> & {
+$virtualized?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$horizontal" | "$touch" | "$virtualized"> & {
 $touch?: boolean;
 $horizontal?: boolean;
+$virtualized?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
@@ -35840,20 +36321,22 @@ $preselected?: boolean;
 export const StyledDropdownHint: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledDropdownItem: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$divider" | "$extended" | "$focusPreselected" | "$hasLabelRenderer" | "$horizontal" | "$isEmptyValue" | "$preselected" | "$touch"> & {
+export const StyledDropdownItem: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$divider" | "$extended" | "$extendedSelection" | "$focusPreselected" | "$hasLabelRenderer" | "$horizontal" | "$isEmptyValue" | "$preselected" | "$touch"> & {
 $disabled?: boolean;
 $focusPreselected?: boolean;
 $extended?: boolean;
+$extendedSelection?: boolean;
 $touch?: boolean;
 $horizontal?: boolean;
 $divider?: boolean;
 $preselected?: boolean;
 $isEmptyValue?: boolean;
 $hasLabelRenderer?: boolean;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$divider" | "$extended" | "$focusPreselected" | "$hasLabelRenderer" | "$horizontal" | "$isEmptyValue" | "$preselected" | "$touch"> & {
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$divider" | "$extended" | "$extendedSelection" | "$focusPreselected" | "$hasLabelRenderer" | "$horizontal" | "$isEmptyValue" | "$preselected" | "$touch"> & {
 $disabled?: boolean;
 $focusPreselected?: boolean;
 $extended?: boolean;
+$extendedSelection?: boolean;
 $touch?: boolean;
 $horizontal?: boolean;
 $divider?: boolean;
@@ -35902,6 +36385,12 @@ $horizontal?: boolean;
 $extended?: boolean;
 $horizontal?: boolean;
 }, never>>> & string;
+
+// @public
+export const StyledDropdownTextWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public
+export const StyledDropdownVirtualSpacer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
 export const StyledDropdownWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$horizontal" | "$lightBackground" | "$touch"> & {
@@ -36088,14 +36577,16 @@ $hidden?: boolean;
 export const StyledFieldMessageTextWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledFieldMessageWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$error" | "$info" | "$warning"> & {
+export const StyledFieldMessageWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$error" | "$info" | "$position" | "$warning"> & {
 $error?: boolean;
 $warning?: boolean;
 $info?: boolean;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$error" | "$info" | "$warning"> & {
+$position?: MessagePosition;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$error" | "$info" | "$position" | "$warning"> & {
 $error?: boolean;
 $warning?: boolean;
 $info?: boolean;
+$position?: MessagePosition;
 }, never>>> & string;
 
 // @public (undocumented)
@@ -36205,16 +36696,18 @@ export namespace StyledFileUpload {
     $uploaded?: boolean;
     }, never>>> & string;
     const // (undocumented)
-    StyledFieldUploadWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    StyledFieldUploadWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
-    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $tooltipPosition?: TooltipLineBreak;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
+    $tooltipPosition?: TooltipLineBreak;
     }, never>> & {
     as?: WebTarget | undefined;
     forwardedAs?: WebTarget | undefined;
@@ -36226,16 +36719,18 @@ export namespace StyledFileUpload {
     width: string;
     height: string;
     };
-    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
-    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $tooltipPosition?: TooltipLineBreak;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
+    $tooltipPosition?: TooltipLineBreak;
     }, never>> & {
     as?: WebTarget | undefined;
     forwardedAs?: WebTarget | undefined;
@@ -36467,26 +36962,42 @@ ellipsis?: boolean;
 export const StyledGrid: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cellBorder" | "fitToParent" | "noGutter" | "size"> & Pick<LayoutGridProps.LayoutGridTemplateProps, "cellBorder" | "fitToParent" | "noGutter" | "size">, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "cellBorder" | "fitToParent" | "noGutter" | "size"> & Pick<LayoutGridProps.LayoutGridTemplateProps, "cellBorder" | "fitToParent" | "noGutter" | "size">, never>>> & string;
 
 // @public (undocumented)
-export const StyledGridColumn: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "customHeight" | "isUsingSpanOffset" | "maxColumns" | "size" | "spacerColumn" | "verticalAlignment"> & Pick<LayoutGridProps.ColumnProps, "size" | "spacerColumn" | "verticalAlignment"> & {
+export const StyledGridColumn: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$cellBorder" | "$currentBreakPoint" | "$fitToParent" | "$noGutter" | "customHeight" | "isUsingSpanOffset" | "maxColumns" | "size" | "spacerColumn" | "verticalAlignment"> & Pick<LayoutGridProps.ColumnProps, "size" | "spacerColumn" | "verticalAlignment"> & {
 maxColumns: number;
 isUsingSpanOffset?: boolean;
 customHeight?: LayoutGridProps.ColumnHeight;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "customHeight" | "isUsingSpanOffset" | "maxColumns" | "size" | "spacerColumn" | "verticalAlignment"> & Pick<LayoutGridProps.ColumnProps, "size" | "spacerColumn" | "verticalAlignment"> & {
+$fitToParent?: boolean;
+$cellBorder?: boolean;
+$currentBreakPoint?: LayoutGridProps.GridContextType["currentBreakPoint"];
+$noGutter?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$cellBorder" | "$currentBreakPoint" | "$fitToParent" | "$noGutter" | "customHeight" | "isUsingSpanOffset" | "maxColumns" | "size" | "spacerColumn" | "verticalAlignment"> & Pick<LayoutGridProps.ColumnProps, "size" | "spacerColumn" | "verticalAlignment"> & {
 maxColumns: number;
 isUsingSpanOffset?: boolean;
 customHeight?: LayoutGridProps.ColumnHeight;
+$fitToParent?: boolean;
+$cellBorder?: boolean;
+$currentBreakPoint?: LayoutGridProps.GridContextType["currentBreakPoint"];
+$noGutter?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
 export const StyledGridContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "fitToParent" | "size"> & Pick<LayoutGridProps.LayoutGridTemplateProps, "fitToParent" | "size">, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "fitToParent" | "size"> & Pick<LayoutGridProps.LayoutGridTemplateProps, "fitToParent" | "size">, never>>> & string;
 
 // @public (undocumented)
-export const StyledGridRow: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "customHeight" | "fitToContent" | "layoutConfig" | "rowCount" | "verticalAlignment"> & Pick<LayoutGridProps.RowProps, "fitToContent" | "layoutConfig" | "verticalAlignment"> & {
+export const StyledGridRow: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$currentBreakPoint" | "$fitToParent" | "$gridVerticalAlignment" | "$noGutter" | "customHeight" | "fitToContent" | "layoutConfig" | "rowCount" | "verticalAlignment"> & Pick<LayoutGridProps.RowProps, "fitToContent" | "layoutConfig" | "verticalAlignment"> & {
 customHeight?: string | number;
 rowCount?: number;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "customHeight" | "fitToContent" | "layoutConfig" | "rowCount" | "verticalAlignment"> & Pick<LayoutGridProps.RowProps, "fitToContent" | "layoutConfig" | "verticalAlignment"> & {
+$fitToParent?: boolean;
+$currentBreakPoint?: LayoutGridProps.GridContextType["currentBreakPoint"];
+$gridVerticalAlignment?: LayoutGridProps.RowProps["verticalAlignment"];
+$noGutter?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$currentBreakPoint" | "$fitToParent" | "$gridVerticalAlignment" | "$noGutter" | "customHeight" | "fitToContent" | "layoutConfig" | "rowCount" | "verticalAlignment"> & Pick<LayoutGridProps.RowProps, "fitToContent" | "layoutConfig" | "verticalAlignment"> & {
 customHeight?: string | number;
 rowCount?: number;
+$fitToParent?: boolean;
+$currentBreakPoint?: LayoutGridProps.GridContextType["currentBreakPoint"];
+$gridVerticalAlignment?: LayoutGridProps.RowProps["verticalAlignment"];
+$noGutter?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
@@ -36561,9 +37072,9 @@ $showHiddenText?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
-export const StyledIconPickerDropdown: IStyledComponentBase<"web", FastOmit<FastOmit<DropDownProps & RefAttributes<DropDown>, "$saveSpace"> & {
+export const StyledIconPickerDropdown: IStyledComponentBase<"web", FastOmit<FastOmit<DropDownProps<unknown> & RefAttributes<DropDown<unknown>>, "$saveSpace"> & {
 $saveSpace?: boolean;
-}, never> & Partial<Pick<FastOmit<DropDownProps & RefAttributes<DropDown>, "$saveSpace"> & {
+}, never> & Partial<Pick<FastOmit<DropDownProps<unknown> & RefAttributes<DropDown<unknown>>, "$saveSpace"> & {
 $saveSpace?: boolean;
 }, never>>> & string & Omit<typeof DropDown, keyof Component<any, {}, any>>;
 
@@ -36883,45 +37394,57 @@ export const StyledLoginLogo: IStyledComponentBase<"web", FastOmit<DetailedHTMLP
 export const StyledMasterDetailHeader: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledMasterDetailLayoutBody: IStyledComponentBase<"web", FastOmit<FastOmit<any, "$animation" | "$isAnimateRtl" | "$smallView"> & {
+export const StyledMasterDetailLayoutBody: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$animation" | "$isAnimateRtl" | "$isSingleView" | "$smallView"> & {
 $smallView: boolean;
-$isAnimateRtl: boolean;
-$animation: boolean;
-}, never> & Partial<Pick<FastOmit<any, "$animation" | "$isAnimateRtl" | "$smallView"> & {
+$isSingleView?: boolean;
+$isAnimateRtl?: boolean;
+$animation?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$animation" | "$isAnimateRtl" | "$isSingleView" | "$smallView"> & {
 $smallView: boolean;
-$isAnimateRtl: boolean;
-$animation: boolean;
-}, never>>> & string & Omit<(input: any) => JSX.Element, keyof Component<any, {}, any>>;
+$isSingleView?: boolean;
+$isAnimateRtl?: boolean;
+$animation?: boolean;
+}, never>>> & string;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const StyledMasterDetailLayoutBodyWithoutAnimation: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$animation" | "$isAnimateRtl" | "$smallView"> & {
 $smallView: boolean;
-$isAnimateRtl: boolean;
-$animation: boolean;
+$isAnimateRtl?: boolean;
+$animation?: boolean;
 }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$animation" | "$isAnimateRtl" | "$smallView"> & {
 $smallView: boolean;
-$isAnimateRtl: boolean;
-$animation: boolean;
+$isAnimateRtl?: boolean;
+$animation?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
-export const StyledMasterDetailLayoutPane: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, string | number> & ({
-$smallView?: boolean;
-$isRtl: boolean;
-$numOfColumns: number;
-$columnsCount: number;
+export const StyledMasterDetailLayoutPane: IStyledComponentBase<"web", FastOmit<FastOmit<Omit<HTMLMotionProps<"div">, "ref"> & RefAttributes<HTMLDivElement>, "$columnsCount" | "$flexGrow" | "$isResizable" | "$isRtl" | "$isTransitioning" | "$maxWidth" | "$numOfColumns" | "$smallView" | "$width"> & {
 $width?: number | string;
-$maxWidth?: number | string;
+$flexGrow?: number;
 $isResizable: boolean;
-} & Partial<CSSTransitionProps>), never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, string | number> & ({
+$isTransitioning?: boolean;
 $smallView?: boolean;
-$isRtl: boolean;
-$numOfColumns: number;
-$columnsCount: number;
-$width?: number | string;
+$isRtl?: boolean;
+$numOfColumns?: number;
+$columnsCount?: number;
 $maxWidth?: number | string;
+}, never> & Partial<Pick<FastOmit<Omit<HTMLMotionProps<"div">, "ref"> & RefAttributes<HTMLDivElement>, "$columnsCount" | "$flexGrow" | "$isResizable" | "$isRtl" | "$isTransitioning" | "$maxWidth" | "$numOfColumns" | "$smallView" | "$width"> & {
+$width?: number | string;
+$flexGrow?: number;
 $isResizable: boolean;
-} & Partial<CSSTransitionProps>), never>>> & string;
+$isTransitioning?: boolean;
+$smallView?: boolean;
+$isRtl?: boolean;
+$numOfColumns?: number;
+$columnsCount?: number;
+$maxWidth?: number | string;
+}, never>>> & string & Omit<ForwardRefComponent<HTMLDivElement, HTMLMotionProps<"div">>, keyof Component<any, {}, any>>;
+
+// @public (undocumented)
+export const StyledMasterDetailLayoutPaneContent: IStyledComponentBase<"web", FastOmit<Omit<HTMLMotionProps<"div">, "ref"> & RefAttributes<HTMLDivElement>, never> & Partial<Pick<Omit<HTMLMotionProps<"div">, "ref"> & RefAttributes<HTMLDivElement>, never>>> & string & Omit<ForwardRefComponent<HTMLDivElement, HTMLMotionProps<"div">>, keyof Component<any, {}, any>>;
+
+// @public (undocumented)
+export const StyledMasterDetailLayoutPaneContentWrapper: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
 export const StyledMasterDetailLayoutView: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "smallView"> & {
@@ -36930,7 +37453,7 @@ smallView?: boolean;
 smallView?: boolean;
 }, never>>> & string;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const StyledMasterDetailPlaceholder: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
@@ -37285,7 +37808,7 @@ fitToParent?: boolean;
 export const StyledMonthSelector: IStyledComponentBase<"web", FastOmit<NativeSelectProps, never> & Partial<Pick<NativeSelectProps, never>>> & string & Omit<typeof NativeSelect, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledMultiselectDropdown: IStyledComponentBase<"web", FastOmit<DropDownProps & RefAttributes<DropDown>, never> & Partial<Pick<DropDownProps & RefAttributes<DropDown>, never>>> & string & Omit<typeof DropDown, keyof Component<any, {}, any>>;
+export const StyledMultiselectDropdown: IStyledComponentBase<"web", FastOmit<DropDownProps<unknown> & RefAttributes<DropDown<unknown>>, never> & Partial<Pick<DropDownProps<unknown> & RefAttributes<DropDown<unknown>>, never>>> & string & Omit<typeof DropDown, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
 export const StyledMultiselectInput: IStyledComponentBase<"web", FastOmit<TextFieldProps & {
@@ -37534,31 +38057,35 @@ $isMobile?: boolean;
 // @public (undocumented)
 export namespace StyledRadio {
     const // (undocumented)
-    StyledField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    StyledField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
-    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $tooltipPosition?: TooltipLineBreak;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
+    $tooltipPosition?: TooltipLineBreak;
     }, never>> & {
     as?: WebTarget | undefined;
     forwardedAs?: WebTarget | undefined;
     }, "$touch"> & {
     $touch?: boolean;
-    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    }, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
-    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+    $tooltipPosition?: TooltipLineBreak;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
     $block?: boolean;
     $hasTooltips?: boolean;
     $disabled?: boolean;
     $numberOfTooltips?: number;
+    $tooltipPosition?: TooltipLineBreak;
     }, never>> & {
     as?: WebTarget | undefined;
     forwardedAs?: WebTarget | undefined;
@@ -37898,29 +38425,33 @@ export const StyledSupportingPanesLayoutWrapper: IStyledComponentBase<"web", Fas
 export const StyledSwitchControl: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledSwitchField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+export const StyledSwitchField: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
 $block?: boolean;
 $hasTooltips?: boolean;
 $disabled?: boolean;
 $numberOfTooltips?: number;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+$tooltipPosition?: TooltipLineBreak;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
 $block?: boolean;
 $hasTooltips?: boolean;
 $disabled?: boolean;
 $numberOfTooltips?: number;
+$tooltipPosition?: TooltipLineBreak;
 }, never>> & {
 as?: WebTarget | undefined;
 forwardedAs?: WebTarget | undefined;
-}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
 $block?: boolean;
 $hasTooltips?: boolean;
 $disabled?: boolean;
 $numberOfTooltips?: number;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips"> & {
+$tooltipPosition?: TooltipLineBreak;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$hasTooltips" | "$numberOfTooltips" | "$tooltipPosition"> & {
 $block?: boolean;
 $hasTooltips?: boolean;
 $disabled?: boolean;
 $numberOfTooltips?: number;
+$tooltipPosition?: TooltipLineBreak;
 }, never>> & {
 as?: WebTarget | undefined;
 forwardedAs?: WebTarget | undefined;
@@ -39370,25 +39901,29 @@ forwardedAs?: WebTarget | undefined;
 }, never>>> & string;
 
 // @public (undocumented)
-export const StyledTagInputFieldWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+export const StyledTagInputFieldWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone" | "$tooltipPosition"> & {
 $block?: boolean;
 $phone?: boolean;
 $disabled?: boolean;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+$tooltipPosition?: TooltipLineBreak;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone" | "$tooltipPosition"> & {
 $block?: boolean;
 $phone?: boolean;
 $disabled?: boolean;
+$tooltipPosition?: TooltipLineBreak;
 }, never>> & {
 as?: WebTarget | undefined;
 forwardedAs?: WebTarget | undefined;
-}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+}, never> & Partial<Pick<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone" | "$tooltipPosition"> & {
 $block?: boolean;
 $phone?: boolean;
 $disabled?: boolean;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+$tooltipPosition?: TooltipLineBreak;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone" | "$tooltipPosition"> & {
 $block?: boolean;
 $phone?: boolean;
 $disabled?: boolean;
+$tooltipPosition?: TooltipLineBreak;
 }, never>> & {
 as?: WebTarget | undefined;
 forwardedAs?: WebTarget | undefined;
@@ -39531,12 +40066,14 @@ forwardedAs?: WebTarget | undefined;
 export const StyledTextAreaStateless: IStyledComponentBase<"web", FastOmit<TextAreaStatelessProps, never> & Partial<Pick<TextAreaStatelessProps, never>>> & string & Omit<typeof TextAreaStateless, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTextOutput: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasTooltip" | "numberAddons"> & {
+export const StyledTextOutput: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$tooltipPosition" | "hasTooltip" | "numberAddons"> & {
 numberAddons?: number;
 hasTooltip: boolean;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "hasTooltip" | "numberAddons"> & {
+$tooltipPosition?: TooltipPosition;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$tooltipPosition" | "hasTooltip" | "numberAddons"> & {
 numberAddons?: number;
 hasTooltip: boolean;
+$tooltipPosition?: TooltipPosition;
 }, never>>> & string;
 
 // @public (undocumented)
@@ -39577,27 +40114,31 @@ $noData?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
-export const StyledTextOutputWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+export const StyledTextOutputWrapper: IStyledComponentBase<"web", FastOmit<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone" | "$tooltipPosition"> & {
 $block?: boolean;
 $phone?: boolean;
 $disabled?: boolean;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+$tooltipPosition?: TooltipLineBreak;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone" | "$tooltipPosition"> & {
 $block?: boolean;
 $phone?: boolean;
 $disabled?: boolean;
+$tooltipPosition?: TooltipLineBreak;
 }, never>> & {
 as?: WebTarget | undefined;
 forwardedAs?: WebTarget | undefined;
 }, "alignment"> & {
 alignment: TextOutputProps["alignment"];
-}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+}, never> & Partial<Pick<FastOmit<FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone" | "$tooltipPosition"> & {
 $block?: boolean;
 $phone?: boolean;
 $disabled?: boolean;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone"> & {
+$tooltipPosition?: TooltipLineBreak;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$block" | "$disabled" | "$phone" | "$tooltipPosition"> & {
 $block?: boolean;
 $phone?: boolean;
 $disabled?: boolean;
+$tooltipPosition?: TooltipLineBreak;
 }, never>> & {
 as?: WebTarget | undefined;
 forwardedAs?: WebTarget | undefined;
@@ -39711,13 +40252,20 @@ variant: Variant;
 }, never>>> & string;
 
 // @public (undocumented)
+export const StyledToastBodyContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+
+// @public (undocumented)
 export const StyledToastButton: IStyledComponentBase<"web", FastOmit<ButtonProps, never> & Partial<Pick<ButtonProps, never>>> & string & Omit<FunctionComponent<ButtonProps>, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
 export const StyledToastCollapse: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
 
 // @public (undocumented)
-export const StyledToastContent: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+export const StyledToastContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noToastHeader"> & {
+$noToastHeader?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$noToastHeader"> & {
+$noToastHeader?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
 export const StyledToastFooter: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
@@ -39947,21 +40495,39 @@ $active?: boolean;
 export const StyledTreeNodeArrowIcon: IStyledComponentBase<"web", FastOmit<IconProps, never> & Partial<Pick<IconProps, never>>> & string & Omit<typeof Icon, keyof Component<any, {}, any>>;
 
 // @public (undocumented)
-export const StyledTreeNodeContainer: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+export const StyledTreeNodeContainer: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$dragging"> & {
+$dragging?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$dragging"> & {
+$dragging?: boolean;
+}, never>>> & string;
 
 // @public (undocumented)
-export const StyledTreeNodeContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$interactive" | "$level" | "$noEffect" | "$selected"> & {
+export const StyledTreeNodeContent: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$dragOver" | "$draggable" | "$dragging" | "$dropForbidden" | "$focusNoBorder" | "$highlightVariant" | "$highlighted" | "$interactive" | "$level" | "$noEffect" | "$selected"> & {
 $level?: number;
 $noEffect?: boolean;
 $disabled?: boolean;
 $interactive?: boolean;
 $selected?: boolean;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$interactive" | "$level" | "$noEffect" | "$selected"> & {
+$highlighted?: boolean;
+$highlightVariant?: TreeHighlightVariant;
+$focusNoBorder?: boolean;
+$draggable?: boolean;
+$dragging?: boolean;
+$dragOver?: boolean;
+$dropForbidden?: boolean;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$disabled" | "$dragOver" | "$draggable" | "$dragging" | "$dropForbidden" | "$focusNoBorder" | "$highlightVariant" | "$highlighted" | "$interactive" | "$level" | "$noEffect" | "$selected"> & {
 $level?: number;
 $noEffect?: boolean;
 $disabled?: boolean;
 $interactive?: boolean;
 $selected?: boolean;
+$highlighted?: boolean;
+$highlightVariant?: TreeHighlightVariant;
+$focusNoBorder?: boolean;
+$draggable?: boolean;
+$dragging?: boolean;
+$dragOver?: boolean;
+$dropForbidden?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
@@ -40260,10 +40826,14 @@ $responsive?: boolean;
 }, never>>> & string;
 
 // @public (undocumented)
-export const StyledYearMonthSelector: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$numberOfTooltips"> & {
+export const StyledYearMonthSelector: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$messagePosition" | "$numberOfTooltips" | "$tooltipPosition"> & {
 $numberOfTooltips?: number;
-}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$numberOfTooltips"> & {
+$messagePosition?: MessagePosition;
+$tooltipPosition?: TooltipLineBreak;
+}, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$messagePosition" | "$numberOfTooltips" | "$tooltipPosition"> & {
 $numberOfTooltips?: number;
+$messagePosition?: MessagePosition;
+$tooltipPosition?: TooltipLineBreak;
 }, never>>> & string;
 
 // @public (undocumented)
@@ -40299,7 +40869,11 @@ export interface SubActionBarTplProps extends Styleable, Container, Identifiable
 // @public (undocumented)
 export namespace SubHeadingElements {
     const // (undocumented)
-    StyledSubHeading: IStyledComponentBase<"web", FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never> & Partial<Pick<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, never>>> & string;
+    StyledSubHeading: IStyledComponentBase<"web", FastOmit<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$embedded"> & {
+    $embedded?: boolean;
+    }, never> & Partial<Pick<FastOmit<DetailedHTMLProps<HTMLAttributes_2<HTMLDivElement>, HTMLDivElement>, "$embedded"> & {
+    $embedded?: boolean;
+    }, never>>> & string;
     // (undocumented)
     export function ActionBar(props: ContentBoxProps.BaseProps): ReactElement<ContentBoxProps.BaseProps>;
     // (undocumented)
@@ -40532,7 +41106,7 @@ export type SwitchConfigType = {
 export type SwitchLabelPosition = "top" | "left" | "right" | "bottom";
 
 // @public (undocumented)
-export interface SwitchProps extends Omit<BaseInputProps, "breakTooltipsToNewLine">, Omit<BaseInputEventHandler<HTMLInputElement>, "onChange">, InputDOMProps, Container {
+export interface SwitchProps extends BaseInputProps, Omit<BaseInputEventHandler<HTMLInputElement>, "onChange">, InputDOMProps, Container {
     addonAfter?: ReactNode | ReactNode[];
     checked?: boolean;
     checkedIcon?: ReactNode;
@@ -40693,6 +41267,10 @@ export type TableConfigType = {
             boxShadow: string;
             opacity: string;
         };
+        slot: {
+            border: string;
+            offset: string;
+        };
     };
     cardView: {
         bodyCell: {
@@ -40703,6 +41281,17 @@ export type TableConfigType = {
             borderRadius: string | number;
             boxShadow: string;
             width: string;
+        };
+        list: {
+            gap: string;
+            blockPadding: string;
+        };
+        card: {
+            padding: string;
+            fieldGap: string;
+        };
+        field: {
+            labelGap: string;
         };
     };
     color: string;
@@ -41448,13 +42037,17 @@ export namespace TableTemplateProps {
 
 // @public (undocumented)
 export interface TableTitles {
-    actionColumnDefaultLabel?: string;
     actionTitle?: string;
     ascendingIcon?: string;
     descendingIcon?: string;
     emptyStateLabel?: string;
     footerLabel?: string;
     interactiveTableLabel?: string;
+    rowCollapsedLabel?: string;
+    rowDisabledBadgeLabel?: string;
+    rowExpandedLabel?: string;
+    rowInfoBadgeLabel?: string;
+    rowSuccessBadgeLabel?: string;
     secondaryCellTitles?: string;
     selectedRowTitles?: string;
     sortableTitle?: string;
@@ -41890,12 +42483,12 @@ export type TagInputConfigType = {
     infoBoxShadow: string;
     readonlyBG: string;
     tag: {
-        activeBorderColor: string;
+        activeBorderColor?: string;
         disabled: {
             background: string;
             color: string;
         };
-        hoverBorderColor: string;
+        hoverBorderColor?: string;
         margin: string;
         readonlyBG: string;
     };
@@ -41939,7 +42532,7 @@ export const tagInputFlatConfig: (theme: FlatThemeType) => {
 };
 
 // @public (undocumented)
-export interface TagInputProps extends Omit<BaseInputProps, "breakTooltipsToNewLine" | "fitToParent" | "ariaDescribedby">, InputDOMProps<HTMLTextAreaElement> {
+export interface TagInputProps extends Omit<BaseInputProps, "fitToParent" | "ariaDescribedby">, InputDOMProps<HTMLTextAreaElement> {
     addonAfter?: ReactNode | ReactNode[];
     addonBefore?: ReactNode | ReactNode[];
     // @deprecated
@@ -41948,6 +42541,7 @@ export interface TagInputProps extends Omit<BaseInputProps, "breakTooltipsToNewL
     autoFocus?: boolean;
     comparator?(firstTag: string, secondTag: string): number;
     duplicatedTagMessage?: ReactNode;
+    focusableRemoveButtons?: boolean;
     initialTags?: string[];
     keys?: string[];
     mobileModalProps?: {
@@ -42085,7 +42679,7 @@ export namespace TextAreaStateless {
 }
 
 // @public (undocumented)
-export interface TextAreaStatelessProps extends Omit<BaseInputProps, "breakTooltipsToNewLine">, BaseInputEventHandler<HTMLTextAreaElement>, InputDOMProps<HTMLTextAreaElement> {
+export interface TextAreaStatelessProps extends BaseInputProps, BaseInputEventHandler<HTMLTextAreaElement>, InputDOMProps<HTMLTextAreaElement> {
     addonAfter?: ReactNode | ReactNode[];
     addonBefore?: ReactNode | ReactNode[];
     ariaActivedescendant?: string;
@@ -42145,7 +42739,7 @@ export type TextFieldConfigType = {
 };
 
 // @public (undocumented)
-export interface TextFieldProps extends Omit<BaseInputProps, "breakTooltipsToNewLine">, BaseInputEventHandler<HTMLInputElement>, InputDOMProps {
+export interface TextFieldProps extends BaseInputProps, BaseInputEventHandler<HTMLInputElement>, InputDOMProps {
     addonAfter?: ReactNode | ReactNode[];
     addonBefore?: ReactNode | ReactNode[];
     autoComplete?: string;
@@ -42218,7 +42812,9 @@ export interface TextOutputProps extends Container, Styleable, Identifiable {
     errorMessage?: ReactNode;
     infoMessage?: ReactNode;
     label?: ReactNode;
+    messagePosition?: MessagePosition;
     noData?: boolean;
+    tooltipPosition?: TooltipPosition;
     tooltips?: ReactNode;
     warningMessage?: ReactNode;
 }
@@ -42276,7 +42872,7 @@ export interface TileProps extends ContentBoxProps.BaseProps {
 export type TimeFormat = "12h" | "24h";
 
 // @public (undocumented)
-export interface TimeInputBaseProps extends InputDOMProps, Omit<BaseInputProps, "breakTooltipsToNewLine" | "fitToParent"> {
+export interface TimeInputBaseProps extends InputDOMProps, Omit<BaseInputProps, "fitToParent"> {
     addonAfter?: ReactNode | ReactNode[];
     addonBefore?: ReactNode | ReactNode[];
     focusOnInputAfterPicking?: boolean;
@@ -42634,6 +43230,9 @@ export type ToastConfigType = {
     };
     content: {
         padding: string;
+        noHeader?: {
+            padding: string;
+        };
     };
     footer: {
         minHeight: string;
@@ -43016,8 +43615,27 @@ export namespace Tooltip {
     displayName: string;
 }
 
+// @public
+export interface TooltipBehavior {
+    hideDelay?: number;
+    showDelay?: number;
+}
+
 // @public (undocumented)
 export const tooltipConfig: (theme: BaseThemeType) => TooltipConfigType;
+
+// @public (undocumented)
+export const TooltipConfigContext: Context<TooltipConfigContextProps>;
+
+// @public (undocumented)
+export interface TooltipConfigContextProps extends TooltipBehavior {
+}
+
+// @public
+export const TooltipConfigProvider: {
+    (props: TooltipConfigContextProps & Container): ReactNode;
+    displayName: string;
+};
 
 // @public (undocumented)
 export type TooltipConfigType = {
@@ -43081,6 +43699,9 @@ export const tooltipFlatConfig: (theme: FlatThemeType) => {
     color: string;
 };
 
+// @public
+export type TooltipLineBreak = boolean | "above" | "below";
+
 // @public (undocumented)
 export const TooltipPlugin: FC<TooltipPluginProps>;
 
@@ -43129,7 +43750,7 @@ export namespace TooltipPortal {
 }
 
 // @public
-export interface TooltipPortalProps {
+export interface TooltipPortalProps extends TooltipBehavior {
     children: ReactNode;
     className?: string;
     dataRole?: string;
@@ -43138,6 +43759,9 @@ export interface TooltipPortalProps {
     tooltipContentDataRole?: string;
     variant?: "success" | "hint" | "error" | "warning";
 }
+
+// @public
+export type TooltipPosition = "beside" | "above" | "below";
 
 // @public
 export interface TooltipProps extends BaseTooltipProps {
@@ -43751,6 +44375,9 @@ export interface TreeVisitor<T extends TreeNodeModel = TreeNodeModel> {
     (node: T): boolean | void;
 }
 
+// @public
+export function triggerPostMoveFlash(element: HTMLElement, input: PostMoveFlashOptions): void;
+
 // @public (undocumented)
 export namespace Typography {
     // (undocumented)
@@ -44027,6 +44654,9 @@ export function useContextSelector<Value, SelectedValue>(context: Context<Value>
 // @public
 export const useDeferredMount: (deferredTime?: number) => boolean;
 
+// @public
+export function useDropdownNavigation<T = unknown>(options: DropdownNavigationOptions<T>): DropdownNavigationHandle<T>;
+
 // @public (undocumented)
 export const useEditorUpdateChange: ($updateChange: (isSelectionChange?: boolean) => void) => void;
 
@@ -44046,6 +44676,9 @@ export function useElementDimensions(params: {
 export const useElementSizeDetector: (params: ElementSizeDetectorProps) => {
     breakPoint: SizeDetectorProps.BreakPoint;
 };
+
+// @public
+export function useFieldDefaultConfig(): FieldDefaultConfigProps;
 
 // @public
 export function useFilterFocusManagement(input: UseFilterFocusManagementOptions): UseFilterFocusManagementResult;
@@ -44068,6 +44701,9 @@ export const useIsMount: () => boolean;
 // @public
 export const useKeepEditableCursorInDraggable: (draggableElement: RefObject<HTMLElement | null>) => void;
 
+// @public
+export function useLatest<T>(value: T): RefObject<T>;
+
 // @public (undocumented)
 export function useLayoutWidth(params: {
     paneRef: RefObject<HTMLElement | null>;
@@ -44084,10 +44720,37 @@ export function useLayoutWidth(params: {
 };
 
 // @public
+export function useLiveRegion(): {
+    ref: Ref_2<LiveRegionHandle>;
+    announce: (message: string) => void;
+};
+
+// @public
 export function usePrevious<T>(value: T): T | null;
 
 // @public (undocumented)
 export function usePreviousProps<T>(value: T): T | undefined;
+
+// @public
+export const useResizeObserver: <T extends HTMLElement = HTMLElement>(options?: UseResizeObserverOptions<T>) => UseResizeObserverResult<T>;
+
+// @public (undocumented)
+export interface UseResizeObserverOptions<T extends HTMLElement = HTMLElement> {
+    handleHeight?: boolean;
+    handleWidth?: boolean;
+    observerOptions?: ResizeObserverOptions;
+    onResize?: OnResizeCallback;
+    refreshRate?: number;
+    skipOnMount?: boolean;
+    targetRef?: RefObject<T | null>;
+}
+
+// @public (undocumented)
+export interface UseResizeObserverResult<T extends HTMLElement = HTMLElement> {
+    height?: number;
+    ref: RefCallback<T>;
+    width?: number;
+}
 
 // @public (undocumented)
 export const useRichTextEditorCache: () => RichTextEditorSelectionCacheContextValue;
@@ -44121,6 +44784,9 @@ export function useTableContext<RowType = unknown, ColumnType extends BaseColumn
 
 // @public (undocumented)
 export function useTreeTableContext<NodeType extends BaseTreeTableNode = BaseTreeTableNode, ColumnType extends BaseTreeTableColumnType<NodeType> = BaseTreeTableColumnType<NodeType>, DragDropOptions = TreeTableDragDropOptions<NodeType>, Selector extends (context: TreeTableContextType<NodeType, ColumnType, DragDropOptions>) => any = (context: TreeTableContextType<NodeType, ColumnType, DragDropOptions>) => any>(selector: Selector): ReturnType<Selector>;
+
+// @public
+export function useUnmount(callback: () => void): void;
 
 // @public
 export const useUpdateEffect: typeof useEffect;
@@ -44361,6 +45027,7 @@ export namespace Warning {
 
 // @public (undocumented)
 export interface WarningProps extends Identifiable, Styleable, DataRole, Ref<HTMLDivElement> {
+    position?: MessagePosition;
     // (undocumented)
     warningMessage?: ReactNode;
 }
@@ -44386,7 +45053,15 @@ export interface WeekCalendarView {
 export const WidgetsResizeDetector: FunctionComponent<WidgetsResizeDetectorProps>;
 
 // @public (undocumented)
-export type WidgetsResizeDetectorProps<T extends HTMLElement = HTMLElement> = useResizeDetectorProps<T> & Container;
+export interface WidgetsResizeDetectorProps<T extends HTMLElement = HTMLElement> extends UseResizeObserverOptions<T>, Container {
+    // @deprecated (undocumented)
+    refreshMode?: "throttle" | "debounce";
+    // @deprecated (undocumented)
+    refreshOptions?: {
+        leading?: boolean;
+        trailing?: boolean;
+    };
+}
 
 // @public
 export const WidgetsRoot: FC<Container>;
@@ -44613,6 +45288,7 @@ export const yearMonthSelectorConfig: (theme: BaseThemeType) => YearMonthSelecto
 export type YearMonthSelectorConfigType = {
     labelMargin: string;
     messageMargin: string;
+    messageMarginBelow?: string;
     month: {
         minWidth: string;
     };
@@ -44681,11 +45357,12 @@ export type YearSelectorVariant = "autocomplete" | "select" | "textbox";
 
 // Warnings were encountered during analysis:
 //
-// src/file-upload/main/default/default-file-upload.view.tsx:475:28 - (ae-forgotten-export) The symbol "FileUploadIconProps" needs to be exported by the entry point index.d.ts
+// src/file-upload/main/default/default-file-upload.view.tsx:477:28 - (ae-forgotten-export) The symbol "FileUploadIconProps" needs to be exported by the entry point index.d.ts
 // src/multiselect/main/multiselect.view.tsx:81:6 - (ae-forgotten-export) The symbol "defaultJoiningHandler" needs to be exported by the entry point index.d.ts
 // src/theme/base-theme/config/base/colors.config.ts:133:2 - (ae-forgotten-export) The symbol "shared" needs to be exported by the entry point index.d.ts
 // src/theme/base-theme/config/base/colors.config.ts:134:2 - (ae-forgotten-export) The symbol "extended" needs to be exported by the entry point index.d.ts
 // src/theme/base/mixins/_portal-arrow.ts:63:2 - (ae-forgotten-export) The symbol "ElementDefaultSelector" needs to be exported by the entry point index.d.ts
+// src/theme/compact/compact-theme.ts:79:26 - (ae-forgotten-export) The symbol "MarkdownEditorConfigType" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

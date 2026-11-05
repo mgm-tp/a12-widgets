@@ -51,7 +51,6 @@ import {
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Transaction } from "../../../helpers/definitions.js";
-
 import { Utils } from "../utils.js";
 
 type RowType = Transaction;

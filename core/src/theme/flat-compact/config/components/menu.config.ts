@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FlatCompactThemeType } from "../../../schema.js";
 import { GeneralFlatColorsConfig } from "../../../flat/config/base/colors.config.js";
+import type { FlatCompactThemeType } from "../../../schema.js";
 
 export const menuFlatCompactConfig = (theme: FlatCompactThemeType) => {
 	const { spacing, typography, colors } = theme;

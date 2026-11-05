@@ -44,5 +44,10 @@ export const masterDetailLayoutFlatConfig = (theme: {
 	spacingBetweenPanes: `${theme.spacing.verticalSpacing.vertWhiteSpacing3xs}px ${theme.spacing.horizontalSpacing.horizWhiteSpacing3xs}px`,
 	header: {
 		padding: `${theme.spacing.verticalSpacing.vertWhiteSpacingsm}px ${theme.spacing.horizontalSpacing.horizWhiteSpacingxl}px`
+	},
+	pane: {
+		content: {
+			borderRadius: theme.spacing.spacing.spacingXs
+		}
 	}
 });

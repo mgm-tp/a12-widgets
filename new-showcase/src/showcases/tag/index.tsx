@@ -30,17 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import extendedTagCode from "!./extended-tag.tsx?raw";
+import removableTagCode from "!./removable-tag.tsx?raw";
+import defaultTagCode from "!./tag.tsx?raw";
+
 import TagAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tag/main/tag/tag.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { DefaultTagShowcase } from "./tag.js";
-import { RemovableTagShowcase } from "./removable-tag.js";
 import { ExtendedTagShowcase } from "./extended-tag.js";
-
-import defaultTagCode from "!./tag.tsx?raw";
-import removableTagCode from "!./removable-tag.tsx?raw";
-import extendedTagCode from "!./extended-tag.tsx?raw";
+import { RemovableTagShowcase } from "./removable-tag.js";
+import { DefaultTagShowcase } from "./tag.js";
 
 const showcases: Showcase[] = [
 	{

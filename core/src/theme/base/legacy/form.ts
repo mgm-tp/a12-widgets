@@ -32,21 +32,20 @@
 
 import { css } from "styled-components";
 
-import { addPrefix } from "../../../common/main/utils.js";
-import {
-	StyledMessageBoxIcon,
-	StyledMessageBoxLabel,
-	StyledMessageBoxWrapper
-} from "../../../message-box/main/message-box.styled.js";
-import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import {
 	StyledCollapsiblePanelContent,
 	StyledCollapsiblePanelTitle,
 	StyledCollapsiblePanelWrapper
 } from "../../../collapsible-panel/main/collapsible-panel.view.js";
-import { StyledGridRow } from "../../../layout/layout-grid/main/layout-grid.styled.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
+import { addPrefix } from "../../../common/main/utils.js";
+import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
+import { StyledGridRow } from "../../../layout/layout-grid/main/layout-grid.styled.js";
+import {
+	StyledMessageBoxIcon,
+	StyledMessageBoxLabel,
+	StyledMessageBoxWrapper
+} from "../../../message-box/main/message-box.styled.js";
 import { activeAndHover } from "../mixins/_interaction.js";
 
 const baseClassName = addPrefix("form");
@@ -178,12 +177,7 @@ export const formLegacyStyles = css(({ theme }) => {
 				display: block;
 				margin-bottom: 0;
 				width: 100%;
-				> .${baseClassName}__controlgrid,
-					> .${baseClassName}__repeat,
-					> .${baseClassName}__detachedrepeat,
-					> .${baseClassName}__embeddedrepeat,
-					> .${baseClassName}__inlinerepeat,
-					> .${baseClassName}__section {
+				> .${baseClassName}__controlgrid, > .${baseClassName}__repeat, > .${baseClassName}__detachedrepeat, > .${baseClassName}__embeddedrepeat, > .${baseClassName}__inlinerepeat, > .${baseClassName}__section {
 					display: inline-block;
 				}
 			}
@@ -240,13 +234,7 @@ export const formLegacyStyles = css(({ theme }) => {
 
 			&__screen,
 			&__detachedrepeat--detailscreen {
-				> .${baseClassName}__controlgrid,
-					> .${baseClassName}__repeat,
-					> .${baseClassName}__detachedrepeat,
-					> .${baseClassName}__embeddedrepeat,
-					> .${baseClassName}__inlinerepeat,
-					> .${baseClassName}__section,
-					> .${baseClassName}__multicolumnsection {
+				> .${baseClassName}__controlgrid, > .${baseClassName}__repeat, > .${baseClassName}__detachedrepeat, > .${baseClassName}__embeddedrepeat, > .${baseClassName}__inlinerepeat, > .${baseClassName}__section, > .${baseClassName}__multicolumnsection {
 					&:first-child {
 						> .${baseClassName}__sectionTitle:first-child {
 							margin-top: ${screen.marginTop};
@@ -265,12 +253,7 @@ export const formLegacyStyles = css(({ theme }) => {
 					+ .${baseClassName}__sectionTitle {
 						margin-top: -36px;
 					}
-					+ .${baseClassName}__controlgrid,
-						+ .${baseClassName}__repeat,
-						+ .${baseClassName}__detachedrepeat,
-						+ .${baseClassName}__embeddedrepeat,
-						+ .${baseClassName}__inlinerepeat,
-						+ .${baseClassName}__section {
+					+ .${baseClassName}__controlgrid, + .${baseClassName}__repeat, + .${baseClassName}__detachedrepeat, + .${baseClassName}__embeddedrepeat, + .${baseClassName}__inlinerepeat, + .${baseClassName}__section {
 						> .${baseClassName}__sectionTitle {
 							margin-top: -24px;
 						}
@@ -391,10 +374,7 @@ export const formLegacyStylesForFormEngine = css(({ theme }) => {
 				}
 			}
 
-			.${baseClassName}__multicolumnsection
-				.${baseClassName}__multicolumnsection,
-				.${baseClassName}__sectionContent
-				.${baseClassName}__multicolumnsection {
+			.${baseClassName}__multicolumnsection .${baseClassName}__multicolumnsection, .${baseClassName}__sectionContent .${baseClassName}__multicolumnsection {
 				> .${baseClassName}__sectionTitle {
 					margin: ${collapsiblePanel.h4.margin};
 					padding: ${collapsiblePanel.h4.padding.formSection};

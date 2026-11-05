@@ -29,6 +29,10 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-default-simple-toggle 1
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5 {
   display: flex;
   gap: 2px;
@@ -140,7 +144,7 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-default-simple-toggle 1
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   cursor: default;
 }
 
@@ -315,6 +319,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-default-simple-toggle 1
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           close
         </span>
@@ -349,6 +355,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-default-simple-toggle 1
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 close
               </span>
@@ -380,790 +388,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-default-simple-toggle 1
             >
               <span
                 aria-hidden="true"
-              >
-                check
-              </span>
-            </i>
-          </span>
-        </button>
-      </li>
-    </ul>
-  </div>
-</div>
-`;
-
-exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-default-simple-toggle 2`] = `
-.c4 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c4 > span {
-  display: inline-block;
-}
-
-.c4.c4 {
-  max-width: unset;
-}
-
-.c5 {
-  display: flex;
-  gap: 2px;
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c5 .c8 {
-  outline: none;
-  z-index: 0;
-}
-
-.c6 {
-  display: flex;
-}
-
-.c6:first-of-type {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.c6:first-of-type .c11 {
-  padding-left: 8px;
-}
-
-.c6:last-child {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.c6:last-child .c11 {
-  padding-right: 8px;
-}
-
-.c12 {
-  align-items: center;
-  border-radius: inherit;
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-  min-height: 30px;
-  padding: 0px 8px;
-  position: relative;
-}
-
-.c2 {
-  align-items: center;
-  background: rgb(241, 242, 244);
-  border: 2px solid transparent;
-  border-radius: 3px;
-  box-sizing: border-box;
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  justify-content: center;
-  min-height: 32px;
-  pointer-events: none;
-  position: absolute;
-  width: 100%;
-  z-index: 1;
-}
-
-.c2 .c3 {
-  color: rgb(5, 104, 174);
-  user-select: none;
-}
-
-.c2:focus {
-  border-color: rgb(213, 0, 117);
-  cursor: pointer;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c9 {
-  position: relative;
-  background-color: rgb(241, 242, 244);
-  color: rgb(5, 104, 174);
-  cursor: pointer;
-  display: inline-flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin: 0px;
-  padding: 0px;
-  min-height: 32px;
-  line-height: 1.45;
-  border: 1px solid transparent;
-  border-radius: inherit;
-}
-
-.c9::before {
-  inset: -1px;
-  content: "";
-  position: absolute;
-  border-radius: inherit;
-}
-
-.c9 .c3 {
-  text-decoration: none;
-  color: inherit;
-  user-select: none;
-}
-
-.c9[disabled] {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  cursor: default;
-}
-
-.c9:not(:disabled):focus {
-  outline: none;
-  text-decoration: underline;
-}
-
-.c10 {
-  outline: transparent solid 2px;
-  z-index: 1;
-  background-color: rgb(5, 104, 174);
-  color: rgb(255, 255, 255);
-  box-shadow: none;
-  border-right: 1px solid rgb(5, 104, 174);
-  border-top-color: rgb(5, 104, 174);
-  border-bottom-color: rgb(5, 104, 174);
-  border-left-color: rgb(5, 104, 174);
-}
-
-.c10 + .c7 {
-  border-left: 0px;
-}
-
-.c10:not(:disabled):focus {
-  background-color: rgb(213, 0, 117);
-  color: rgb(255, 255, 255);
-  box-shadow: none;
-  border-right: 1px solid rgb(213, 0, 117);
-  border-top-color: rgb(213, 0, 117);
-  border-bottom-color: rgb(213, 0, 117);
-  border-left-color: rgb(213, 0, 117);
-}
-
-.c10:not(:disabled):focus::before {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c10:not(:disabled):focus + .c7 {
-  border-left: 0px;
-}
-
-.c10:last-child {
-  border-color: rgb(5, 104, 174);
-}
-
-.c13:not(:disabled):focus {
-  color: rgb(213, 0, 117);
-}
-
-.c13:not(:disabled):focus::before {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c13:not(:disabled):focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  z-index: 1;
-}
-
-.c0 {
-  display: inline-block;
-}
-
-.c1 {
-  box-sizing: border-box;
-  display: flex;
-  isolation: isolate;
-  position: relative;
-  outline: none;
-  width: fit-content;
-}
-
-.c1.c1 .c8 {
-  background: transparent;
-  border-color: transparent;
-}
-
-.c1.c1 .c8::before {
-  border-color: transparent;
-}
-
-@media (pointer: coarse) {
-  .c9:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    text-decoration: underline;
-  }
-}
-
-@media (pointer: fine) {
-  .c9:not(:disabled):hover {
-    text-decoration: underline;
-  }
-}
-
-@media (pointer: coarse) {
-  .c10:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-    box-shadow: none;
-    border-right: 1px solid rgb(213, 0, 117);
-    border-top-color: rgb(213, 0, 117);
-    border-bottom-color: rgb(213, 0, 117);
-    border-left-color: rgb(213, 0, 117);
-  }
-
-  .c10:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c10:not(:disabled):hover {
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-    box-shadow: none;
-    border-right: 1px solid rgb(213, 0, 117);
-    border-top-color: rgb(213, 0, 117);
-    border-bottom-color: rgb(213, 0, 117);
-    border-left-color: rgb(213, 0, 117);
-  }
-
-  .c10:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c13:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: rgb(213, 0, 117);
-  }
-
-  .c13:not(:disabled):active::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-@media (pointer: fine) {
-  .c13:not(:disabled):hover {
-    color: rgb(213, 0, 117);
-  }
-
-  .c13:not(:disabled):hover::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-<div
-  class="c0 field toggle"
-  data-role="toggle"
->
-  <div
-    class="c1 toggle__wrapper"
-    data-role="toggle-wrapper"
-    tabindex="-1"
-  >
-    <span
-      aria-expanded="false"
-      aria-label="Hidden , expand to see options"
-      class="c2"
-      data-role="toggle-selected-item-overlay"
-      role="button"
-      tabindex="0"
-      title="Hidden , expand to see options"
-    >
-      <i
-        class="c3 c4 plasma-icon plasma-icon--big"
-        data-role="plasma-icon"
-      >
-        <span
-          aria-hidden="true"
-        >
-          close
-        </span>
-      </i>
-    </span>
-    <ul
-      aria-hidden="true"
-      class="c5"
-      data-role="toggle-option-buttons"
-    >
-      <li
-        class="c6"
-        data-role="toggle-option-button"
-      >
-        <button
-          aria-pressed="true"
-          class="c7 c8 c9 c10 toggle__item toggle__item--selected"
-          data-role="toggle-item"
-          id="toggle-item-test-1"
-          tabindex="-1"
-          title="Hidden"
-          type="button"
-          value="hidden"
-        >
-          <span
-            class="c11 c12 toggle__content"
-            data-role="toggle-item-content"
-          >
-            <i
-              class="c3 c4 plasma-icon plasma-icon--big"
-              data-role="plasma-icon"
-            >
-              <span
-                aria-hidden="true"
-              >
-                close
-              </span>
-            </i>
-          </span>
-        </button>
-      </li>
-      <li
-        class="c6"
-        data-role="toggle-option-button"
-      >
-        <button
-          aria-pressed="false"
-          class="c7 c8 c9 c13 toggle__item"
-          data-role="toggle-item"
-          id="toggle-item-test-2"
-          tabindex="-1"
-          title="Visible"
-          type="button"
-          value="visible"
-        >
-          <span
-            class="c11 c12 toggle__content"
-            data-role="toggle-item-content"
-          >
-            <i
-              class="c3 c4 plasma-icon plasma-icon--big"
-              data-role="plasma-icon"
-            >
-              <span
-                aria-hidden="true"
-              >
-                check
-              </span>
-            </i>
-          </span>
-        </button>
-      </li>
-    </ul>
-  </div>
-</div>
-`;
-
-exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-default-simple-toggle 3`] = `
-.c4 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c4 > span {
-  display: inline-block;
-}
-
-.c4.c4 {
-  max-width: unset;
-}
-
-.c5 {
-  display: flex;
-  gap: 2px;
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c5 .c8 {
-  outline: none;
-  z-index: 0;
-}
-
-.c6 {
-  display: flex;
-}
-
-.c6:first-of-type {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.c6:first-of-type .c11 {
-  padding-left: 8px;
-}
-
-.c6:last-child {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.c6:last-child .c11 {
-  padding-right: 8px;
-}
-
-.c12 {
-  align-items: center;
-  border-radius: inherit;
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-  min-height: 30px;
-  padding: 0px 8px;
-  position: relative;
-}
-
-.c2 {
-  align-items: center;
-  background: rgb(241, 242, 244);
-  border: 2px solid transparent;
-  border-radius: 3px;
-  box-sizing: border-box;
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  justify-content: center;
-  min-height: 32px;
-  pointer-events: none;
-  position: absolute;
-  width: 100%;
-  z-index: 1;
-}
-
-.c2 .c3 {
-  color: rgb(5, 104, 174);
-  user-select: none;
-}
-
-.c2:focus {
-  border-color: rgb(213, 0, 117);
-  cursor: pointer;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c9 {
-  position: relative;
-  background-color: rgb(241, 242, 244);
-  color: rgb(5, 104, 174);
-  cursor: pointer;
-  display: inline-flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin: 0px;
-  padding: 0px;
-  min-height: 32px;
-  line-height: 1.45;
-  border: 1px solid transparent;
-  border-radius: inherit;
-}
-
-.c9::before {
-  inset: -1px;
-  content: "";
-  position: absolute;
-  border-radius: inherit;
-}
-
-.c9 .c3 {
-  text-decoration: none;
-  color: inherit;
-  user-select: none;
-}
-
-.c9[disabled] {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  cursor: default;
-}
-
-.c9:not(:disabled):focus {
-  outline: none;
-  text-decoration: underline;
-}
-
-.c10 {
-  outline: transparent solid 2px;
-  z-index: 1;
-  background-color: rgb(5, 104, 174);
-  color: rgb(255, 255, 255);
-  box-shadow: none;
-  border-right: 1px solid rgb(5, 104, 174);
-  border-top-color: rgb(5, 104, 174);
-  border-bottom-color: rgb(5, 104, 174);
-  border-left-color: rgb(5, 104, 174);
-}
-
-.c10 + .c7 {
-  border-left: 0px;
-}
-
-.c10:not(:disabled):focus {
-  background-color: rgb(213, 0, 117);
-  color: rgb(255, 255, 255);
-  box-shadow: none;
-  border-right: 1px solid rgb(213, 0, 117);
-  border-top-color: rgb(213, 0, 117);
-  border-bottom-color: rgb(213, 0, 117);
-  border-left-color: rgb(213, 0, 117);
-}
-
-.c10:not(:disabled):focus::before {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c10:not(:disabled):focus + .c7 {
-  border-left: 0px;
-}
-
-.c10:last-child {
-  border-color: rgb(5, 104, 174);
-}
-
-.c13:not(:disabled):focus {
-  color: rgb(213, 0, 117);
-}
-
-.c13:not(:disabled):focus::before {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c13:not(:disabled):focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  z-index: 1;
-}
-
-.c0 {
-  display: inline-block;
-}
-
-.c1 {
-  box-sizing: border-box;
-  display: flex;
-  isolation: isolate;
-  position: relative;
-  outline: none;
-  width: fit-content;
-}
-
-.c1.c1 .c8 {
-  background: transparent;
-  border-color: transparent;
-}
-
-.c1.c1 .c8::before {
-  border-color: transparent;
-}
-
-@media (pointer: coarse) {
-  .c9:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    text-decoration: underline;
-  }
-}
-
-@media (pointer: fine) {
-  .c9:not(:disabled):hover {
-    text-decoration: underline;
-  }
-}
-
-@media (pointer: coarse) {
-  .c10:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-    box-shadow: none;
-    border-right: 1px solid rgb(213, 0, 117);
-    border-top-color: rgb(213, 0, 117);
-    border-bottom-color: rgb(213, 0, 117);
-    border-left-color: rgb(213, 0, 117);
-  }
-
-  .c10:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c10:not(:disabled):hover {
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-    box-shadow: none;
-    border-right: 1px solid rgb(213, 0, 117);
-    border-top-color: rgb(213, 0, 117);
-    border-bottom-color: rgb(213, 0, 117);
-    border-left-color: rgb(213, 0, 117);
-  }
-
-  .c10:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c13:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: rgb(213, 0, 117);
-  }
-
-  .c13:not(:disabled):active::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-@media (pointer: fine) {
-  .c13:not(:disabled):hover {
-    color: rgb(213, 0, 117);
-  }
-
-  .c13:not(:disabled):hover::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-<div
-  class="c0 field toggle"
-  data-role="toggle"
->
-  <div
-    class="c1 toggle__wrapper"
-    data-role="toggle-wrapper"
-    tabindex="-1"
-  >
-    <span
-      aria-expanded="false"
-      aria-label="Hidden , expand to see options"
-      class="c2"
-      data-role="toggle-selected-item-overlay"
-      role="button"
-      tabindex="0"
-      title="Hidden , expand to see options"
-    >
-      <i
-        class="c3 c4 plasma-icon plasma-icon--big"
-        data-role="plasma-icon"
-      >
-        <span
-          aria-hidden="true"
-        >
-          close
-        </span>
-      </i>
-    </span>
-    <ul
-      aria-hidden="true"
-      class="c5"
-      data-role="toggle-option-buttons"
-    >
-      <li
-        class="c6"
-        data-role="toggle-option-button"
-      >
-        <button
-          aria-pressed="true"
-          class="c7 c8 c9 c10 toggle__item toggle__item--selected"
-          data-role="toggle-item"
-          id="toggle-item-test-1"
-          tabindex="-1"
-          title="Hidden"
-          type="button"
-          value="hidden"
-        >
-          <span
-            class="c11 c12 toggle__content"
-            data-role="toggle-item-content"
-          >
-            <i
-              class="c3 c4 plasma-icon plasma-icon--big"
-              data-role="plasma-icon"
-            >
-              <span
-                aria-hidden="true"
-              >
-                close
-              </span>
-            </i>
-          </span>
-        </button>
-      </li>
-      <li
-        class="c6"
-        data-role="toggle-option-button"
-      >
-        <button
-          aria-pressed="false"
-          class="c7 c8 c9 c13 toggle__item"
-          data-role="toggle-item"
-          id="toggle-item-test-2"
-          tabindex="-1"
-          title="Visible"
-          type="button"
-          value="visible"
-        >
-          <span
-            class="c11 c12 toggle__content"
-            data-role="toggle-item-content"
-          >
-            <i
-              class="c3 c4 plasma-icon plasma-icon--big"
-              data-role="plasma-icon"
-            >
-              <span
-                aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 check
               </span>
@@ -1205,6 +431,10 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5 {
   display: flex;
   gap: 2px;
@@ -1216,28 +446,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
 .c5 .c8 {
   outline: none;
   z-index: 0;
-}
-
-.c13 {
-  display: flex;
-}
-
-.c13:first-of-type {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.c13:first-of-type .c11 {
-  padding-left: 8px;
-}
-
-.c13:last-child {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.c13:last-child .c11 {
-  padding-right: 8px;
 }
 
 .c6 {
@@ -1260,6 +468,28 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
 }
 
 .c6:last-child .c11 {
+  padding-right: 8px;
+}
+
+.c13 {
+  display: flex;
+}
+
+.c13:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.c13:first-of-type .c11 {
+  padding-left: 8px;
+}
+
+.c13:last-child {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.c13:last-child .c11 {
   padding-right: 8px;
 }
 
@@ -1303,11 +533,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c15 .c3 {
-  color: rgb(169, 179, 188);
-  user-select: none;
-}
-
 .c9 {
   position: relative;
   background-color: rgb(241, 242, 244);
@@ -1344,34 +569,13 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   cursor: default;
 }
 
 .c9:not(:disabled):focus {
   outline: none;
   text-decoration: underline;
-}
-
-.c16 + .c7 {
-  border-left: 0px;
-}
-
-.c16:not(:disabled):focus + .c7 {
-  border-left: 0px;
-}
-
-.c14:not(:disabled):focus {
-  color: rgb(213, 0, 117);
-}
-
-.c14:not(:disabled):focus::before {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c14:not(:disabled):focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  z-index: 1;
 }
 
 .c10 {
@@ -1414,6 +618,19 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
   box-shadow: none;
 }
 
+.c14:not(:disabled):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c14:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c14:not(:disabled):focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  z-index: 1;
+}
+
 .c0 {
   display: inline-block;
 }
@@ -1450,41 +667,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
 }
 
 @media (pointer: coarse) {
-  .c16:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c16:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c14:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: rgb(213, 0, 117);
-  }
-
-  .c14:not(:disabled):active::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-@media (pointer: fine) {
-  .c14:not(:disabled):hover {
-    color: rgb(213, 0, 117);
-  }
-
-  .c14:not(:disabled):hover::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-@media (pointer: coarse) {
   .c10:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
@@ -1517,6 +699,29 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
   }
 }
 
+@media (pointer: coarse) {
+  .c14:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:not(:disabled):active::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:not(:disabled):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
 <div
   class="c0 field toggle"
   data-role="toggle"
@@ -1541,6 +746,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           close
         </span>
@@ -1576,6 +783,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 close
               </span>
@@ -1607,6 +816,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 check
               </span>
@@ -1648,6 +859,10 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5 {
   display: flex;
   gap: 2px;
@@ -1659,28 +874,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
 .c5 .c8 {
   outline: none;
   z-index: 0;
-}
-
-.c13 {
-  display: flex;
-}
-
-.c13:first-of-type {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.c13:first-of-type .c11 {
-  padding-left: 8px;
-}
-
-.c13:last-child {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.c13:last-child .c11 {
-  padding-right: 8px;
 }
 
 .c6 {
@@ -1703,6 +896,28 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
 }
 
 .c6:last-child .c11 {
+  padding-right: 8px;
+}
+
+.c13 {
+  display: flex;
+}
+
+.c13:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.c13:first-of-type .c11 {
+  padding-left: 8px;
+}
+
+.c13:last-child {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.c13:last-child .c11 {
   padding-right: 8px;
 }
 
@@ -1746,11 +961,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c15 .c3 {
-  color: rgb(169, 179, 188);
-  user-select: none;
-}
-
 .c9 {
   position: relative;
   background-color: rgb(241, 242, 244);
@@ -1787,34 +997,13 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   cursor: default;
 }
 
 .c9:not(:disabled):focus {
   outline: none;
   text-decoration: underline;
-}
-
-.c16 + .c7 {
-  border-left: 0px;
-}
-
-.c16:not(:disabled):focus + .c7 {
-  border-left: 0px;
-}
-
-.c14:not(:disabled):focus {
-  color: rgb(213, 0, 117);
-}
-
-.c14:not(:disabled):focus::before {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c14:not(:disabled):focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  z-index: 1;
 }
 
 .c10 {
@@ -1857,6 +1046,19 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
   box-shadow: none;
 }
 
+.c14:not(:disabled):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c14:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c14:not(:disabled):focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  z-index: 1;
+}
+
 .c0 {
   display: inline-block;
 }
@@ -1893,41 +1095,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
 }
 
 @media (pointer: coarse) {
-  .c16:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c16:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c14:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: rgb(213, 0, 117);
-  }
-
-  .c14:not(:disabled):active::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-@media (pointer: fine) {
-  .c14:not(:disabled):hover {
-    color: rgb(213, 0, 117);
-  }
-
-  .c14:not(:disabled):hover::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-@media (pointer: coarse) {
   .c10:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
@@ -1960,6 +1127,29 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
   }
 }
 
+@media (pointer: coarse) {
+  .c14:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:not(:disabled):active::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:not(:disabled):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
 <div
   class="c0 field toggle"
   data-role="toggle"
@@ -1984,6 +1174,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           close
         </span>
@@ -2019,6 +1211,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 close
               </span>
@@ -2050,6 +1244,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-item-simple-to
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 check
               </span>
@@ -2091,6 +1287,10 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-simple-toggle 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5 {
   display: flex;
   gap: 2px;
@@ -2102,14 +1302,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-simple-toggle 
 .c5 .c8 {
   outline: none;
   z-index: 0;
-}
-
-.c15:first-of-type .c11 {
-  padding-left: 8px;
-}
-
-.c15:last-child .c11 {
-  padding-right: 8px;
 }
 
 .c6 {
@@ -2144,11 +1336,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-simple-toggle 
   min-height: 30px;
   padding: 0px 8px;
   position: relative;
-}
-
-.c14 .c3 {
-  color: rgb(5, 104, 174);
-  user-select: none;
 }
 
 .c2 {
@@ -2216,21 +1403,13 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-simple-toggle 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   cursor: default;
 }
 
 .c9:not(:disabled):focus {
   outline: none;
   text-decoration: underline;
-}
-
-.c16 + .c7 {
-  border-left: 0px;
-}
-
-.c16:not(:disabled):focus + .c7 {
-  border-left: 0px;
 }
 
 .c10 {
@@ -2328,18 +1507,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-simple-toggle 
 }
 
 @media (pointer: coarse) {
-  .c16:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c16:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
   .c10:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
@@ -2419,6 +1586,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-simple-toggle 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           close
         </span>
@@ -2454,6 +1623,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-simple-toggle 
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 close
               </span>
@@ -2486,6 +1657,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-disabled-simple-toggle 
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 check
               </span>
@@ -2527,6 +1700,10 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5 {
   display: flex;
   gap: 2px;
@@ -2538,28 +1715,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
 .c5 .c8 {
   outline: none;
   z-index: 0;
-}
-
-.c13 {
-  display: flex;
-}
-
-.c13:first-of-type {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.c13:first-of-type .c11 {
-  padding-left: 8px;
-}
-
-.c13:last-child {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.c13:last-child .c11 {
-  padding-right: 8px;
 }
 
 .c6 {
@@ -2582,6 +1737,28 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
 }
 
 .c6:last-child .c11 {
+  padding-right: 8px;
+}
+
+.c13 {
+  display: flex;
+}
+
+.c13:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.c13:first-of-type .c11 {
+  padding-left: 8px;
+}
+
+.c13:last-child {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.c13:last-child .c11 {
   padding-right: 8px;
 }
 
@@ -2625,16 +1802,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c15 .c3 {
-  color: rgb(169, 179, 188);
-  user-select: none;
-}
-
-.c16 .c3 {
-  color: rgb(77, 77, 77);
-  user-select: none;
-}
-
 .c9 {
   position: relative;
   background-color: rgb(241, 242, 244);
@@ -2671,42 +1838,13 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   cursor: default;
 }
 
 .c9:not(:disabled):focus {
   outline: none;
   text-decoration: underline;
-}
-
-.c17 + .c7 {
-  border-left: 0px;
-}
-
-.c17:not(:disabled):focus + .c7 {
-  border-left: 0px;
-}
-
-.c14:not(:disabled):focus {
-  color: rgb(213, 0, 117);
-}
-
-.c14:not(:disabled):focus::before {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c14:not(:disabled):focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  z-index: 1;
-}
-
-.c18 + .c7 {
-  border-left: 0px;
-}
-
-.c18:not(:disabled):focus + .c7 {
-  border-left: 0px;
 }
 
 .c10 {
@@ -2749,6 +1887,19 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
   box-shadow: none;
 }
 
+.c14:not(:disabled):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c14:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c14:not(:disabled):focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  z-index: 1;
+}
+
 .c0 {
   display: inline-block;
 }
@@ -2785,53 +1936,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
 }
 
 @media (pointer: coarse) {
-  .c17:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c17:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c14:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: rgb(213, 0, 117);
-  }
-
-  .c14:not(:disabled):active::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-@media (pointer: fine) {
-  .c14:not(:disabled):hover {
-    color: rgb(213, 0, 117);
-  }
-
-  .c14:not(:disabled):hover::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-@media (pointer: coarse) {
-  .c18:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c18:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
   .c10:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
@@ -2864,6 +1968,29 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
   }
 }
 
+@media (pointer: coarse) {
+  .c14:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:not(:disabled):active::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:not(:disabled):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
 <div
   class="c0 field toggle"
   data-role="toggle"
@@ -2888,6 +2015,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           close
         </span>
@@ -2923,6 +2052,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 close
               </span>
@@ -2954,6 +2085,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 check
               </span>
@@ -2995,6 +2128,10 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5 {
   display: flex;
   gap: 2px;
@@ -3006,28 +2143,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
 .c5 .c8 {
   outline: none;
   z-index: 0;
-}
-
-.c13 {
-  display: flex;
-}
-
-.c13:first-of-type {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.c13:first-of-type .c11 {
-  padding-left: 8px;
-}
-
-.c13:last-child {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-
-.c13:last-child .c11 {
-  padding-right: 8px;
 }
 
 .c6 {
@@ -3050,6 +2165,28 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
 }
 
 .c6:last-child .c11 {
+  padding-right: 8px;
+}
+
+.c13 {
+  display: flex;
+}
+
+.c13:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.c13:first-of-type .c11 {
+  padding-left: 8px;
+}
+
+.c13:last-child {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.c13:last-child .c11 {
   padding-right: 8px;
 }
 
@@ -3093,16 +2230,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c15 .c3 {
-  color: rgb(169, 179, 188);
-  user-select: none;
-}
-
-.c16 .c3 {
-  color: rgb(77, 77, 77);
-  user-select: none;
-}
-
 .c9 {
   position: relative;
   background-color: rgb(241, 242, 244);
@@ -3139,42 +2266,13 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   cursor: default;
 }
 
 .c9:not(:disabled):focus {
   outline: none;
   text-decoration: underline;
-}
-
-.c17 + .c7 {
-  border-left: 0px;
-}
-
-.c17:not(:disabled):focus + .c7 {
-  border-left: 0px;
-}
-
-.c14:not(:disabled):focus {
-  color: rgb(213, 0, 117);
-}
-
-.c14:not(:disabled):focus::before {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c14:not(:disabled):focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  z-index: 1;
-}
-
-.c18 + .c7 {
-  border-left: 0px;
-}
-
-.c18:not(:disabled):focus + .c7 {
-  border-left: 0px;
 }
 
 .c10 {
@@ -3217,6 +2315,19 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
   box-shadow: none;
 }
 
+.c14:not(:disabled):focus {
+  color: rgb(213, 0, 117);
+}
+
+.c14:not(:disabled):focus::before {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c14:not(:disabled):focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  z-index: 1;
+}
+
 .c0 {
   display: inline-block;
 }
@@ -3253,53 +2364,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
 }
 
 @media (pointer: coarse) {
-  .c17:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c17:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c14:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: rgb(213, 0, 117);
-  }
-
-  .c14:not(:disabled):active::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-@media (pointer: fine) {
-  .c14:not(:disabled):hover {
-    color: rgb(213, 0, 117);
-  }
-
-  .c14:not(:disabled):hover::before {
-    border: 2px solid rgb(213, 0, 117);
-    z-index: 1;
-  }
-}
-
-@media (pointer: coarse) {
-  .c18:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c18:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
   .c10:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
@@ -3332,6 +2396,29 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
   }
 }
 
+@media (pointer: coarse) {
+  .c14:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:not(:disabled):active::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
+@media (pointer: fine) {
+  .c14:not(:disabled):hover {
+    color: rgb(213, 0, 117);
+  }
+
+  .c14:not(:disabled):hover::before {
+    border: 2px solid rgb(213, 0, 117);
+    z-index: 1;
+  }
+}
+
 <div
   class="c0 field toggle"
   data-role="toggle"
@@ -3356,6 +2443,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           close
         </span>
@@ -3391,6 +2480,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 close
               </span>
@@ -3422,6 +2513,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-item-simple-to
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 check
               </span>
@@ -3463,6 +2556,10 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-simple-toggle 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5 {
   display: flex;
   gap: 2px;
@@ -3474,14 +2571,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-simple-toggle 
 .c5 .c8 {
   outline: none;
   z-index: 0;
-}
-
-.c16:first-of-type .c11 {
-  padding-left: 8px;
-}
-
-.c16:last-child .c11 {
-  padding-right: 8px;
 }
 
 .c6 {
@@ -3516,16 +2605,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-simple-toggle 
   min-height: 30px;
   padding: 0px 8px;
   position: relative;
-}
-
-.c14 .c3 {
-  color: rgb(5, 104, 174);
-  user-select: none;
-}
-
-.c15 .c3 {
-  color: rgb(169, 179, 188);
-  user-select: none;
 }
 
 .c2 {
@@ -3593,29 +2672,13 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-simple-toggle 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   cursor: default;
 }
 
 .c9:not(:disabled):focus {
   outline: none;
   text-decoration: underline;
-}
-
-.c17 + .c7 {
-  border-left: 0px;
-}
-
-.c17:not(:disabled):focus + .c7 {
-  border-left: 0px;
-}
-
-.c18 + .c7 {
-  border-left: 0px;
-}
-
-.c18:not(:disabled):focus + .c7 {
-  border-left: 0px;
 }
 
 .c10 {
@@ -3713,30 +2776,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-simple-toggle 
 }
 
 @media (pointer: coarse) {
-  .c17:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c17:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c18:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c18:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
   .c10:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
@@ -3816,6 +2855,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-simple-toggle 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           close
         </span>
@@ -3851,6 +2892,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-simple-toggle 
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 close
               </span>
@@ -3883,6 +2926,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-readonly-simple-toggle 
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 check
               </span>
@@ -3924,6 +2969,10 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5 {
   display: flex;
   gap: 2px;
@@ -3959,14 +3008,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   padding-right: 8px;
 }
 
-.c17:first-of-type .c11 {
-  padding-left: 8px;
-}
-
-.c17:last-child .c11 {
-  padding-right: 8px;
-}
-
 .c12 {
   align-items: center;
   border-radius: inherit;
@@ -3980,16 +3021,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
 
 .c14 .c3 {
   color: rgb(5, 104, 174);
-  user-select: none;
-}
-
-.c15 .c3 {
-  color: rgb(169, 179, 188);
-  user-select: none;
-}
-
-.c16 .c3 {
-  color: rgb(77, 77, 77);
   user-select: none;
 }
 
@@ -4058,7 +3089,7 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   cursor: default;
 }
 
@@ -4116,22 +3147,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
 .c13:not(:disabled):focus::before {
   border: 2px solid rgb(213, 0, 117);
   z-index: 1;
-}
-
-.c18 + .c7 {
-  border-left: 0px;
-}
-
-.c18:not(:disabled):focus + .c7 {
-  border-left: 0px;
-}
-
-.c19 + .c7 {
-  border-left: 0px;
-}
-
-.c19:not(:disabled):focus + .c7 {
-  border-left: 0px;
 }
 
 .c0 {
@@ -4225,30 +3240,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   }
 }
 
-@media (pointer: coarse) {
-  .c18:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c18:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c19:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c19:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
 <div
   class="c0 field toggle"
   data-role="toggle"
@@ -4273,6 +3264,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           close
         </span>
@@ -4307,6 +3300,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 close
               </span>
@@ -4338,6 +3333,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 check
               </span>
@@ -4379,6 +3376,10 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5 {
   display: flex;
   gap: 2px;
@@ -4414,14 +3415,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   padding-right: 8px;
 }
 
-.c18:first-of-type .c11 {
-  padding-left: 8px;
-}
-
-.c18:last-child .c11 {
-  padding-right: 8px;
-}
-
 .c12 {
   align-items: center;
   border-radius: inherit;
@@ -4435,21 +3428,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
 
 .c14 .c3 {
   color: rgb(5, 104, 174);
-  user-select: none;
-}
-
-.c15 .c3 {
-  color: rgb(169, 179, 188);
-  user-select: none;
-}
-
-.c16 .c3 {
-  color: rgb(77, 77, 77);
-  user-select: none;
-}
-
-.c17 .c3 {
-  color: rgb(235, 245, 253);
   user-select: none;
 }
 
@@ -4518,7 +3496,7 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   cursor: default;
 }
 
@@ -4576,22 +3554,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
 .c13:not(:disabled):focus::before {
   border: 2px solid rgb(213, 0, 117);
   z-index: 1;
-}
-
-.c19 + .c7 {
-  border-left: 0px;
-}
-
-.c19:not(:disabled):focus + .c7 {
-  border-left: 0px;
-}
-
-.c20 + .c7 {
-  border-left: 0px;
-}
-
-.c20:not(:disabled):focus + .c7 {
-  border-left: 0px;
 }
 
 .c0 {
@@ -4685,30 +3647,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   }
 }
 
-@media (pointer: coarse) {
-  .c19:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c19:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c20:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c20:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
 <div
   class="c0 field toggle"
   data-role="toggle"
@@ -4733,6 +3671,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           close
         </span>
@@ -4767,6 +3707,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 close
               </span>
@@ -4798,6 +3740,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 check
               </span>
@@ -4839,6 +3783,10 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5 {
   display: flex;
   gap: 2px;
@@ -4874,14 +3822,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   padding-right: 8px;
 }
 
-.c19:first-of-type .c11 {
-  padding-left: 8px;
-}
-
-.c19:last-child .c11 {
-  padding-right: 8px;
-}
-
 .c12 {
   align-items: center;
   border-radius: inherit;
@@ -4895,26 +3835,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
 
 .c14 .c3 {
   color: rgb(5, 104, 174);
-  user-select: none;
-}
-
-.c15 .c3 {
-  color: rgb(169, 179, 188);
-  user-select: none;
-}
-
-.c16 .c3 {
-  color: rgb(77, 77, 77);
-  user-select: none;
-}
-
-.c17 .c3 {
-  color: rgb(235, 245, 253);
-  user-select: none;
-}
-
-.c18 .c3 {
-  color: rgb(63, 87, 47);
   user-select: none;
 }
 
@@ -4983,7 +3903,7 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   cursor: default;
 }
 
@@ -5041,22 +3961,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
 .c13:not(:disabled):focus::before {
   border: 2px solid rgb(213, 0, 117);
   z-index: 1;
-}
-
-.c20 + .c7 {
-  border-left: 0px;
-}
-
-.c20:not(:disabled):focus + .c7 {
-  border-left: 0px;
-}
-
-.c21 + .c7 {
-  border-left: 0px;
-}
-
-.c21:not(:disabled):focus + .c7 {
-  border-left: 0px;
 }
 
 .c0 {
@@ -5150,30 +4054,6 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
   }
 }
 
-@media (pointer: coarse) {
-  .c20:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c20:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c21:not(:disabled):active + .c7 {
-    border-left: 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c21:not(:disabled):hover + .c7 {
-    border-left: 0px;
-  }
-}
-
 <div
   class="c0 field toggle"
   data-role="toggle"
@@ -5198,6 +4078,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           close
         </span>
@@ -5232,6 +4114,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 close
               </span>
@@ -5263,6 +4147,8 @@ exports[`com.mgmtp.a12.widgets.simple.toggle > rendering-simple-toggle-with-togg
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 check
               </span>

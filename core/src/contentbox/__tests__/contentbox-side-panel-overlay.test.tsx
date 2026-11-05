@@ -36,9 +36,8 @@ import { render, fireEvent, waitFor } from "test-utils";
 import { describe, test, expect } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { DataRoles } from "../../common/main/data-roles.js";
 import { Button } from "../../button/index.js";
-
+import { DataRoles } from "../../common/main/data-roles.js";
 import { ContentBox } from "../main/template/contentbox.tpl.view.js";
 
 const ContentBoxWithSidePane = ({ mode }: { mode: "overlay" | "docked" }): ReactElement => {

@@ -25,16 +25,10 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-a-comment-reply-item 
   width: 16px;
 }
 
-.c6 {
+.c5 {
   display: inline;
   font-weight: 600;
   margin: 0px 4px 0px 0px;
-}
-
-.c12 .c5,
-.c12 .c7,
-.c12 .c9 {
-  color: rgb(97, 111, 124);
 }
 
 .c1 {
@@ -56,18 +50,18 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-a-comment-reply-item 
   margin: 0px 24px 8px;
 }
 
-.c8 {
+.c6 {
   color: rgb(97, 111, 124);
   display: inline-block;
   margin: 0px 4px 0px 0px;
 }
 
-.c10 {
+.c7 {
   color: rgb(97, 111, 124);
   display: inline-block;
 }
 
-.c11 {
+.c8 {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
@@ -75,7 +69,7 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-a-comment-reply-item 
   padding: 0px 24px;
 }
 
-.c11 > :not(:last-child) {
+.c8 > :not(:last-child) {
   margin: 0px 0px 8px;
 }
 
@@ -96,24 +90,24 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-a-comment-reply-item 
         avatar
       </div>
       <div
-        class="c5 c6 comment__meta-author"
+        class="c5 comment__meta-author"
       >
         Matt
       </div>
       <div
-        class="c7 c8 comment__meta-action"
+        class="c6 comment__meta-action"
       >
         wrote
       </div>
       <div
-        class="c9 c10 comment__meta-date"
+        class="c7 comment__meta-date"
       >
         Fri, 16 Dec 2022 20:24:00 GMT
       </div>
     </div>
   </div>
   <div
-    class="c11 comment__content"
+    class="c8 comment__content"
   />
 </div>
 `;
@@ -477,7 +471,7 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-action-buttons 1`] = `
-.c16 {
+.c12 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -497,27 +491,19 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
   font-feature-settings: "liga";
 }
 
-.c16 > span {
+.c12 > span {
   display: inline-block;
 }
 
-.c16.c16 {
+.c12.c12 {
   max-width: unset;
 }
 
-.c20 .c15 {
-  user-select: none;
-}
-
-.c20 .c15 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c12 {
   color: inherit;
 }
 
-.h_inlineBlock.h_middleAlign .c20.c20 > .c15 {
-  display: block;
-}
-
-.c14 {
+.c10 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -541,19 +527,19 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
   color: rgb(5, 104, 174);
 }
 
-.c14 .c15 {
+.c10 .c11 {
   user-select: none;
 }
 
-.c14 .c15 {
+.c10 .c11 {
   color: inherit;
 }
 
-.c14 .c15 {
+.c10 .c11 {
   font-size: inherit;
 }
 
-.c14:not(:disabled):focus {
+.c10:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -561,36 +547,40 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c14.c14 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c10.c10 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c14.c14 > .c15 {
+.h_inlineBlock.h_middleAlign .c10.c10 > .c11 {
   display: block;
 }
 
-.c13 {
+.c9 {
   display: inline-block;
   font-size: 0px;
   -webkit-tap-highlight-color: transparent;
 }
 
-.c13 .c15 {
+.c9 .c11 {
   position: relative;
 }
 
-.c13 .c15::before {
+.c9 .c11::before {
   inset: 0px;
   position: absolute;
 }
 
-.c13 .c15:focus {
+.c9 .c11:focus {
   outline: none;
 }
 
-.c13 .c15:focus::before {
+.c9 .c11:focus::before {
   content: "";
   outline: rgb(51, 51, 51) dotted 1px;
 }
@@ -610,7 +600,7 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
   margin-right: 0px;
 }
 
-.c5 {
+.c4 {
   display: inline-flex;
   font-size: 1rem;
   height: 16px;
@@ -619,7 +609,7 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
   width: 16px;
 }
 
-.c7 {
+.c5 {
   display: inline;
   font-weight: 600;
   margin: 0px 4px 0px 0px;
@@ -633,16 +623,6 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
   text-size-adjust: none;
 }
 
-.c19 .c4 .c15 {
-  color: rgb(169, 179, 188);
-}
-
-.c19 .c6,
-.c19 .c8,
-.c19 .c10 {
-  color: rgb(97, 111, 124);
-}
-
 .c1 {
   align-items: center;
   display: flex;
@@ -653,23 +633,23 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
   flex-grow: 1;
 }
 
-.c12 {
+.c8 {
   display: flex;
   margin: 4px 0px 0px 24px;
 }
 
-.c9 {
+.c6 {
   color: rgb(97, 111, 124);
   display: inline-block;
   margin: 0px 4px 0px 0px;
 }
 
-.c11 {
+.c7 {
   color: rgb(97, 111, 124);
   display: inline-block;
 }
 
-.c17 {
+.c13 {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
@@ -677,17 +657,17 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
   padding: 4px 24px;
 }
 
-.c17 > :not(:last-child) {
+.c13 > :not(:last-child) {
   margin: 0px 0px 8px;
 }
 
-.c18 {
+.c14 {
   color: rgb(77, 77, 77);
   white-space: pre-wrap;
 }
 
 @media (pointer: coarse) {
-  .c14:not(:disabled):active {
+  .c10:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -697,7 +677,7 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
 }
 
 @media (pointer: fine) {
-  .c14:not(:disabled):hover {
+  .c10:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -706,7 +686,7 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
 }
 
 @media (pointer: fine) {
-  .c14:hover {
+  .c10:hover {
     outline: transparent solid 1px;
   }
 }
@@ -727,51 +707,53 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
         data-role="comment-meta"
       >
         <div
-          class="c4 c5 comment__meta-avatar"
+          class="c4 comment__meta-avatar"
         >
           avatar
         </div>
         <div
-          class="c6 c7 comment__meta-author"
+          class="c5 comment__meta-author"
         >
           Matt
         </div>
         <div
-          class="c8 c9 comment__meta-action"
+          class="c6 comment__meta-action"
         >
           wrote
         </div>
         <div
-          class="c10 c11 comment__meta-date"
+          class="c7 comment__meta-date"
         >
           Fri, 16 Dec 2022 20:24:00 GMT
         </div>
       </div>
     </div>
     <div
-      class="c12 comment__actions-combine"
+      class="c8 comment__actions-combine"
       data-role="comment-actions-combine"
     >
       <div
-        class="c13 popup"
+        class="c9 popup"
         data-role="popup"
       >
         <button
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="Open menu"
-          class="c14 button button--icon"
+          class="c10 button button--icon"
           data-role="popup-trigger-element"
           data-type="icon"
           title="Open menu"
           type="button"
         >
           <i
-            class="c15 c16 plasma-icon"
+            class="c11 c12 plasma-icon"
             data-role="plasma-icon"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               more_vert
             </span>
@@ -781,10 +763,10 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-triggered-act
     </div>
   </div>
   <div
-    class="c17 comment__content"
+    class="c13 comment__content"
   >
     <div
-      class="c18 comment__text"
+      class="c14 comment__text"
       data-role="comment-text"
     >
       Some random string
@@ -876,7 +858,7 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-with-provided
 `;
 
 exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-with-replies-comment 1`] = `
-.c3 {
+.c2 {
   color: rgb(77, 77, 77);
   cursor: default;
   display: inline-block;
@@ -887,11 +869,11 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-with-replies-
   position: relative;
 }
 
-.c3 > :last-child {
+.c2 > :last-child {
   margin-right: 0px;
 }
 
-.c4 {
+.c3 {
   display: inline-flex;
   font-size: 1rem;
   height: 16px;
@@ -900,13 +882,13 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-with-replies-
   width: 16px;
 }
 
-.c6 {
+.c4 {
   display: inline;
   font-weight: 600;
   margin: 0px 4px 0px 0px;
 }
 
-.c1 {
+.c0 {
   display: flex;
   flex-direction: column;
   padding: 16px 8px 16px 16px;
@@ -914,34 +896,24 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-with-replies-
   text-size-adjust: none;
 }
 
-.c13 .c5,
-.c13 .c7,
-.c13 .c9 {
-  color: rgb(97, 111, 124);
-}
-
-.c0 .c0 .c0 {
-  padding-right: 0px;
-}
-
-.c2 {
+.c1 {
   align-items: center;
   display: flex;
   margin: 0px 24px 8px;
 }
 
-.c8 {
+.c5 {
   color: rgb(97, 111, 124);
   display: inline-block;
   margin: 0px 4px 0px 0px;
 }
 
-.c10 {
+.c6 {
   color: rgb(97, 111, 124);
   display: inline-block;
 }
 
-.c11 {
+.c7 {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
@@ -949,56 +921,56 @@ exports[`com.mgmtp.a12.widgets.comment.comment > rendering-comment-with-replies-
   padding: 4px 24px;
 }
 
-.c11 > :not(:last-child) {
+.c7 > :not(:last-child) {
   margin: 0px 0px 8px;
 }
 
-.c12 {
+.c8 {
   margin: 16px 0px 4px 24px;
 }
 
-.c12:empty {
+.c8:empty {
   margin: 0px;
 }
 
 <div
-  class="c0 c1 comment"
+  class="c0 comment"
   data-role="comment"
 >
   <div
-    class="c2 comment__meta-container"
+    class="c1 comment__meta-container"
   >
     <div
-      class="c3 comment__meta"
+      class="c2 comment__meta"
       data-role="comment-meta"
     >
       <div
-        class="c4 comment__meta-avatar"
+        class="c3 comment__meta-avatar"
       >
         avatar
       </div>
       <div
-        class="c5 c6 comment__meta-author"
+        class="c4 comment__meta-author"
       >
         Matt
       </div>
       <div
-        class="c7 c8 comment__meta-action"
+        class="c5 comment__meta-action"
       >
         wrote
       </div>
       <div
-        class="c9 c10 comment__meta-date"
+        class="c6 comment__meta-date"
       >
         Fri, 16 Dec 2022 20:24:00 GMT
       </div>
     </div>
   </div>
   <div
-    class="c11 comment__content"
+    class="c7 comment__content"
   />
   <div
-    class="c12 comment__replies"
+    class="c8 comment__replies"
     data-role="comment-replies"
   >
     <p>

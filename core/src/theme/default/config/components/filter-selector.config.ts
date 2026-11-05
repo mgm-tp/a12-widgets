@@ -32,8 +32,8 @@
 
 import { rgba, setLightness } from "polished";
 
-import type { BaseThemeType } from "../../../schema/base-theme.js";
 import { GeneralFlatColorsConfig } from "../../../flat/config/base/colors.config.js";
+import type { BaseThemeType } from "../../../schema/base-theme.js";
 
 import { contentBoxConfig } from "./contentbox.config.js";
 

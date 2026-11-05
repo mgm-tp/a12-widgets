@@ -25,7 +25,7 @@ The following tools are required in order to build this repository:
 | Tool                        | Version |
 | --------------------------- | ------: |
 | [Node](https://nodejs.org/) |  `24.x` |
-| [pnpm](https://pnpm.io/)    |  `10.x` |
+| [pnpm](https://pnpm.io/)    |  `11.x` |
 
 ### Scripts
 

@@ -268,6 +268,30 @@ export function usePrevious<T>(value: T): T | null {
 }
 
 /**
+ * Ref that always holds the latest value, updated after every commit.
+ *
+ * For callbacks registered once against a native API — drag-and-drop adapters,
+ * event listeners, observers — that must read fresh props without the
+ * registration being torn down and re-bound on every render. Reading
+ * `ref.current` inside such a callback always yields the newest value while the
+ * callback itself keeps a stable identity.
+ *
+ * Do not read the ref during render: it is synced in an effect, so during a
+ * render it still holds the *previous* committed value.
+ *
+ * @internal
+ */
+export function useLatestRef<T>(value: T): RefObject<T> {
+	const ref = useRef(value);
+
+	useEffect(() => {
+		ref.current = value;
+	});
+
+	return ref;
+}
+
+/**
  * Custom hook to trigger a click event when the Enter or Space key is pressed on a specified element.
  *
  * @internal
@@ -370,3 +394,35 @@ export const useEffectWithDebounce = (effect: () => void | (() => void), deps: u
 		};
 	}, [deps, delay]);
 };
+
+/**
+ * Returns a ref that always holds the latest `value`
+ * read `ref.current` at call time to avoid stale closures.
+ *
+ * - Use `useLatest` when the closure is called outside effects: event handlers,
+ *   imperative handles, callbacks handed to non-React code.
+ * - Use `useEffectEvent` when the closure is only ever called from effects —
+ *   React restricts effect events to effects and the lint rule enforces it.
+ *
+ * Note: `react/exhaustive-deps` still requires the returned ref in dependency array
+ * it only trusts literal `useRef()` calls.
+ * Harmless: the ref identity never changes, so it never re-triggers anything.
+ */
+export function useLatest<T>(value: T): RefObject<T> {
+	const ref = useRef(value);
+	ref.current = value;
+
+	return ref;
+}
+
+/**
+ * Runs `callback` when the component unmounts. The latest callback is invoked,
+ * so it can safely close over current props/state.
+ */
+export function useUnmount(callback: () => void): void {
+	const latestCallback = useLatest(callback);
+
+	// The latestCallback ref is identity-stable — listed only to satisfy the lint rule;
+	// the effect still runs only on unmount.
+	useEffect(() => (): void => latestCallback.current(), [latestCallback]);
+}

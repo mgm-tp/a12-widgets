@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, test, expect } from "vitest";
 import { render } from "test-utils";
+import { describe, test, expect } from "vitest";
 
 import {
 	DEFAULT_KEYBOARD_NAV_CONTEXT_VALUE,

@@ -30,24 +30,24 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import accessibilityCode from "!./accessibility.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import commonCode from "!./common.tsx?raw";
+import dragAndDropNodeCode from "!./drag-and-drop.tsx?raw";
+import insertableCode from "!./insertable.tsx?raw";
+
 import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
-import TreeTemplateAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tree/main/tpl/tree.tpl.api.json" with { type: "json" };
 import TreeBehaviorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tree/main/behavior/tree.behavior.api.json" with { type: "json" };
 import DnDTreeAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tree/main/dnd/dnd-tree.api.json" with { type: "json" };
 import InsertableTreeAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tree/main/insertable/insertable-tree.api.json" with { type: "json" };
+import TreeTemplateAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tree/main/tpl/tree.tpl.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
+import { Accessibility } from "./accessibility.js";
+import { BasicTree } from "./basic.js";
 import { DragAndDropNode } from "./drag-and-drop.js";
 import { InsertableTreeShowcase } from "./insertable.js";
-import { BasicTree } from "./basic.js";
-import { Accessibility } from "./accessibility.js";
-
-import dragAndDropNodeCode from "!./drag-and-drop.tsx?raw";
-import insertableCode from "!./insertable.tsx?raw";
-import basicCode from "!./basic.tsx?raw";
-import commonCode from "!./common.tsx?raw";
-import accessibilityCode from "!./accessibility.tsx?raw";
 
 const { Item, Unordered } = BulletList;
 
@@ -72,6 +72,14 @@ const showcases: Showcase[] = [
 				<p>
 					Or use the <code>Tree</code> component and pass an object structure of nodes to the <code>root</code>{" "}
 					property.
+				</p>
+				<p>
+					<strong>Deprecated since 39.0.0:</strong> the <code>Tree</code> component and its behavior HOCs (
+					<code>TreeAdapter</code>, <code>Collapsible</code>, <code>Selectable</code>, <code>DragDrop</code>,{" "}
+					<code>Insertable</code>) keep working but will be removed in a future release. New trees should use the{" "}
+					<Link href="#/experimental/treeview">TreeView</Link>; see the{" "}
+					<Link href="#/get-started/migration-instructions/new-table-and-tree-components">migration notes</Link>. The{" "}
+					<code>TreeContainer</code> / <code>TreeNode</code> templates are not deprecated.
 				</p>
 			</>
 		),
@@ -225,19 +233,45 @@ const showcases: Showcase[] = [
 				],
 				fitToSection: true,
 				fullSize: true,
-				description: (
-					<>
+				description: {
+					info: (
+						<>
+							<p>
+								<code>tplTreeNode</code> property lets you customize the content of a tree node. When providing custom
+								components, ensure accessibility is preserved by including the appropriate ARIA attributes and roles.
+							</p>
+							<p>
+								A generic control that sits in a node - here the <strong>Edit</strong> Button of the action area -
+								carries no data of its own, so it has to be named after its node. The Tree already renders an element
+								you can point at, so no extra hidden text is needed. Each node below shows one way to do it:
+							</p>
+							<Unordered>
+								<Item>
+									<strong>Documents</strong> links the Button via <code>aria-labelledby</code> to{" "}
+									<code>tree-node-name-&#123;id&#125;</code>, the element that wraps the label. Its label is markup
+									rather than plain text, and referencing the element handles that without a special case.
+								</Item>
+								<Item>
+									<strong>Invoices</strong> puts the name of the node in the Button's <code>title</code>. This works
+									only where the name is available as plain text.
+								</Item>
+								<Item>
+									<strong>Contracts</strong> renders its label as a <strong>TextField</strong> and links the Button to
+									that input. A referenced input contributes its value, so the name of the Button follows every
+									keystroke - and the hidden label of the field stays out of it.
+								</Item>
+							</Unordered>
+						</>
+					),
+					note: (
 						<p>
-							<code>tplTreeNode</code> property lets you customize the content of a tree node. When providing custom
-							components, ensure accessibility is preserved by including the appropriate ARIA attributes and roles.
+							The <code>aria-labelledby</code> of a Button points to the Button itself as well as to the node. That self
+							reference pulls in the Button's own name (<em>Edit</em>). The arrow button of a node is named this way out
+							of the box. Do not point at <code>tree-node-title-&#123;id&#125;</code> here: in a Tree that element wraps
+							the action buttons as well, so a Button would fold itself into its own name.
 						</p>
-						<p>
-							To expose node data to the screen reader (e.g. reading the node ID when an action button is focused),
-							include it in the button's <code>title</code> or use a <code>HiddenText</code> linked via button's{" "}
-							<code>aria-describedby</code>/<code>aria-labelledby</code>. See the Action Button in the example below.
-						</p>
-					</>
-				)
+					)
+				}
 			}
 		]
 	}

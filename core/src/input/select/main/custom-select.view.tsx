@@ -33,19 +33,21 @@
 import type { KeyboardEvent, ReactElement, FocusEvent, MouseEvent } from "react";
 import { useRef, useCallback, useEffect, useState, useMemo } from "react";
 import { Key } from "ts-key-enum";
-import { useResizeDetector, type OnResizeCallback } from "react-resize-detector";
 
-import { inputWithSuffixName, joinClassNames, noop, Key as CustomKey } from "../../../common/main/utils.js";
+import { AttachedPortal } from "../../../attached-portal/main/attached-portal.view.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { provider, provider as DeviceDetector } from "../../../common/main/device-detector.js";
 import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
-import type { DropDownItem } from "../../../dropdown/main/template/dropdown.tpl.api.js";
-import { DropDown } from "../../../dropdown/main/template/dropdown.tpl.view.js";
-import { AttachedPortal } from "../../../attached-portal/main/attached-portal.view.js";
+import type { OnResizeCallback } from "../../../common/main/resize-observer/resize-observer.api.js";
+import { useResizeObserver } from "../../../common/main/resize-observer/use-resize-observer.js";
+import { inputWithSuffixName, joinClassNames, noop, Key as CustomKey } from "../../../common/main/utils.js";
 import { ActionContentbox } from "../../../contentbox/main/action-contentbox/action-contentbox.view.js";
 import { ContentBoxElements } from "../../../contentbox/main/template/contentbox.tpl.view.js";
-import { SelectionSuffix } from "../../base/template/base.tpl.view.js";
+import type { DropDownItem } from "../../../dropdown/main/template/dropdown.tpl.api.js";
+import { DropDown } from "../../../dropdown/main/template/dropdown.tpl.view.js";
 import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
+import { SelectionSuffix } from "../../base/template/base.tpl.view.js";
+import { useFieldDefaultsConfig } from "../../field-default-config/main/field-default-config.utils.js";
 
 import type { CustomSelectProps, SelectItem } from "./select.api.js";
 import { StyledCustomSelect, StyledSelectTemplate } from "./select.styled.js";
@@ -93,7 +95,6 @@ export function CustomSelect({
 		placeholder,
 		labelGraphic,
 		ariaDescribedby,
-		breakTooltipsToNewLine,
 		tooltips,
 		errorMessage,
 		warningMessage,
@@ -106,6 +107,7 @@ export function CustomSelect({
 		selectWrapperId,
 		labelRenderer
 	} = props;
+	const { breakTooltipsToNewLine, messagePosition } = useFieldDefaultsConfig(props, false);
 
 	const dropdownInstanceRef = useRef<DropDown | null>(null);
 	const selectWrapperRef = useRef<HTMLElement | null>(null);
@@ -224,7 +226,7 @@ export function CustomSelect({
 		[calculateAndSetRichLabelHeight]
 	);
 
-	useResizeDetector({
+	useResizeObserver({
 		targetRef: richLabelWrapperRef,
 		onResize: handleRichLabelResizeChange
 	});
@@ -235,7 +237,7 @@ export function CustomSelect({
 		}
 	}, []);
 
-	useResizeDetector({
+	useResizeObserver({
 		targetRef: !isMobileRef.current ? selectWrapperRef : inputWrapperMobileRef,
 		onResize: handleResizeChange
 	});
@@ -567,6 +569,8 @@ export function CustomSelect({
 				hideLabel={hideLabel}
 				tooltips={breakTooltipsToNewLine && tooltips}
 				addonAfter={!breakTooltipsToNewLine && tooltips}
+				breakTooltipsToNewLine={breakTooltipsToNewLine}
+				messagePosition={messagePosition}
 				errorMessage={errorMessage}
 				warningMessage={warningMessage}
 				infoMessage={infoMessage}
@@ -597,11 +601,12 @@ export function CustomSelect({
 				</StyledSelectRichLabelWrapper>
 			</StyledSelectMobileWrapper>
 		) : (
-			mobileTextField
+			<>{mobileTextField}</>
 		);
 	}, [
 		ariaDescribedby,
 		breakTooltipsToNewLine,
+		messagePosition,
 		disabled,
 		error,
 		errorMessage,
@@ -690,6 +695,7 @@ export function CustomSelect({
 						{ [`${id}-error`]: id && errorMessage },
 						ariaDescribedby
 					)}
+					aria-invalid={error || errorMessage ? true : undefined}
 					placeholder={placeholder}
 					onKeyDown={handleKeyDown}
 					onKeyPress={handlePressKey}
@@ -713,6 +719,7 @@ export function CustomSelect({
 			ariaDescribedby,
 			dataRole,
 			disabled,
+			error,
 			errorMessage,
 			expanded,
 			handleInputBlur,
@@ -762,6 +769,7 @@ export function CustomSelect({
 								{ [`${id}-error`]: id && errorMessage },
 								ariaDescribedby
 							),
+							[`aria-invalid`]: error || errorMessage ? true : undefined,
 							tabIndex: 0,
 							onKeyDown: handleKeyDown,
 							onFocus: handleWrapperFocus

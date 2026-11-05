@@ -34,7 +34,6 @@ import { render, queryByAttribute, waitFor, getByDataRole } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
 import { DataRoles } from "../../common/main/data-roles.js";
-
 import { ProgressIndicator } from "../main/progress-indicator.view.js";
 
 describe("com.mgmtp.a12.widgets.progress-indicator", () => {

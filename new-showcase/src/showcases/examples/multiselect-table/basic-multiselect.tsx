@@ -42,10 +42,10 @@ import {
 	ModalNotification
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { getCurrentPageData, MultiselectTable } from "./utils/table.js";
-import { Elements } from "./utils/elements.js";
 import type { RowObject } from "./utils/data.js";
 import { TABLE_DATA } from "./utils/data.js";
+import { Elements } from "./utils/elements.js";
+import { getCurrentPageData, MultiselectTable } from "./utils/table.js";
 
 const { ActionBarGroup, ActionBarGroupDivider } = ContentBoxElements;
 

@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { MarkdownViewer } from "../../helpers/markdown-viewer.js";
-import type { Showcase } from "../../helpers/definitions.js";
-
 import CodemodInstructionMD from "!../../docs/migration/codemod-instruction.md?raw";
+
+import type { Showcase } from "../../helpers/definitions.js";
+import { MarkdownViewer } from "../../helpers/markdown-viewer.js";
 
 const showcases: Showcase[] = [
 	{ label: "Codemod Instruction", description: <MarkdownViewer source={CodemodInstructionMD} />, sections: [] }

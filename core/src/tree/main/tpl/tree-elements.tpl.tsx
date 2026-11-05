@@ -39,37 +39,17 @@
  * All other components are used internally by TreeNode.
  */
 import type { KeyboardEvent, ReactElement, FC, MouseEvent, FocusEvent } from "react";
-import { useRef, useCallback, useEffect, memo, useContext, Children, useState, useMemo } from "react";
+import { useRef, useCallback, useEffect, memo, useContext, Children, useId, useState, useMemo } from "react";
 import { Key } from "ts-key-enum";
 
-import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
-import { useSelectedText } from "../../../common/main/hooks.js";
-import {
-	generateUid,
-	getParentElement,
-	joinClassNames,
-	addPrefix,
-	isVisibleOnScreen,
-	getRole
-} from "../../../common/main/utils.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { useSelectedText } from "../../../common/main/hooks.js";
+import { getParentElement, joinClassNames, addPrefix, isVisibleOnScreen, getRole } from "../../../common/main/utils.js";
 import { useKeyboardNavigationMode } from "../../../keyboard-navigation/main/keyboard-navigation-context.js";
 
-import { useTreeKeyboardNavigation } from "./use-tree-keyboard.js";
-import type {
-	TreeContainerProps,
-	TreeNodeProps,
-	TreeNodeContainerProps,
-	SubNodesContainerProps,
-	NodeContentProps,
-	ArrowButtonProps,
-	NodeIconProps,
-	NodeTitleProps,
-	NodeNameProps
-} from "./tree.tpl.api.js";
-import { StyledTreeContext } from "./tree.tpl.api.js";
 import {
 	StyledTreeContainer,
 	StyledTreeNodeActions,
@@ -83,6 +63,19 @@ import {
 	StyledTreeNodesContainer,
 	StyledTreeNodeTitle
 } from "./tree-elements.styled.js";
+import type {
+	TreeContainerProps,
+	TreeNodeProps,
+	TreeNodeContainerProps,
+	SubNodesContainerProps,
+	NodeContentProps,
+	ArrowButtonProps,
+	NodeIconProps,
+	NodeTitleProps,
+	NodeNameProps
+} from "./tree.tpl.api.js";
+import { StyledTreeContext } from "./tree.tpl.api.js";
+import { useTreeKeyboardNavigation } from "./use-tree-keyboard.js";
 
 const baseClassName = addPrefix("treeWidget");
 const baseTableClassName = addPrefix("table");
@@ -90,7 +83,8 @@ const baseTableClassName = addPrefix("table");
 export function TreeContainer(props: TreeContainerProps): ReactElement<TreeContainerProps> {
 	const { wrapperRef, className, fitToParent, style, children, scrollToNode, dnd, dataRole, ariaHidden, role } = props;
 	const classNames = joinClassNames(baseClassName, { [`${baseClassName}--fit`]: fitToParent }, className);
-	const id = props.id || `tree-wrapper-${generateUid()}`;
+	const generatedId = useId();
+	const id = props.id || `tree-wrapper-${generatedId}`;
 	const rootRef = useRef<HTMLDivElement>(null);
 
 	const scrollToNodeHandler = useCallback((nodeId: string | number): void => {
@@ -175,7 +169,8 @@ export const TreeNode: FC<TreeNodeProps> = memo(function TreeNode({
 	const treeContext = useContext(StyledTreeContext);
 	const keyboardNavMode = useKeyboardNavigationMode("tree");
 	const hasChildren = Children.count(children) > 0 && Children.toArray(children).some(Boolean);
-	const id = idProp || generateUid();
+	const generatedId = useId();
+	const id = idProp || generatedId;
 	const interactive = !!interactiveProp || !!onTitleClick;
 	const isArrowButtonDisabled = !onArrowClick;
 	const expanderTabIndex = keyboardNavMode === "arrow-only" ? -1 : undefined;
@@ -353,6 +348,7 @@ export const TreeNode: FC<TreeNodeProps> = memo(function TreeNode({
 export const TreeNodeContainer = memo(function TreeNodeContainer(
 	props: TreeNodeContainerProps
 ): ReactElement<TreeNodeContainerProps> {
+	const { dragging } = useContext(StyledTreeContext);
 	const className = joinClassNames(
 		`${baseClassName}__node`,
 		`${baseClassName}__node--level-${props.level}`,
@@ -367,6 +363,7 @@ export const TreeNodeContainer = memo(function TreeNodeContainer(
 			data-role={DataRoles.Tree.Node}
 			data-tree-level={props.level}
 			role={getRole(props.role, "listitem")}
+			$dragging={dragging}
 		>
 			{props.children}
 		</StyledTreeNodeContainer>
@@ -392,6 +389,8 @@ export const SubNodesContainer = memo(function SubNodesContainer(
 });
 
 export const NodeContent = memo(function NodeContent(props: NodeContentProps): ReactElement<NodeContentProps> {
+	const { highlighted, highlightVariant, focusNoBorder, draggable, dragging, dragOver, dropForbidden } =
+		useContext(StyledTreeContext);
 	const nodeContentRef = useRef<HTMLElement | null>(null);
 	const { isSelectedText } = useSelectedText(nodeContentRef);
 	const context = useContext(A11YLanguageContext);
@@ -472,6 +471,13 @@ export const NodeContent = memo(function NodeContent(props: NodeContentProps): R
 			$disabled={props.disabled}
 			$selected={!props.disabled && props.selected}
 			$interactive={isInteractive}
+			$highlighted={highlighted}
+			$highlightVariant={highlightVariant}
+			$focusNoBorder={focusNoBorder}
+			$draggable={draggable}
+			$dragging={dragging}
+			$dragOver={dragOver}
+			$dropForbidden={dropForbidden}
 			title={isInteractive ? (props.selected ? a11yTitles?.selectedTitle : a11yTitles?.selectableTitle) : undefined}
 		>
 			{hiddenText}

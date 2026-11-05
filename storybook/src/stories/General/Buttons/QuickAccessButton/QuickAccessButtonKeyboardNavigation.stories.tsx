@@ -43,8 +43,7 @@ import {
 const meta: Meta<typeof QuickAccessButton> = {
 	title: "General/Buttons/QuickAccessButton/KeyboardNavigation",
 	component: QuickAccessButton,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;
@@ -70,7 +69,7 @@ const NavContext = ({ children }: { children: React.ReactNode }) => (
 export const DefaultMode: Story = {
 	render: () => (
 		<NavContext>
-			<div style={{ width: "400px" }}>
+			<div style={{ width: "100%", maxWidth: 400 }}>
 				<QuickAccessButton primary mainAction={mainAction} actionItems={actionItems} />
 			</div>
 		</NavContext>
@@ -92,7 +91,7 @@ export const ArrowOnlyMode: Story = {
 	render: () => (
 		<KeyboardNavigationConfigProvider componentConfigs={{ quickAccessButton: "arrow-only" }}>
 			<NavContext>
-				<div style={{ width: "400px" }}>
+				<div style={{ width: "100%", maxWidth: 400 }}>
 					<QuickAccessButton primary mainAction={mainAction} actionItems={actionItems} />
 				</div>
 			</NavContext>

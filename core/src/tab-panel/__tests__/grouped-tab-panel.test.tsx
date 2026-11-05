@@ -30,15 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { ReactNode } from "react";
+import { useCallback, useState } from "react";
 import { getAllByDataRole, getByDataRole, render } from "test-utils";
 import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
-import type { ReactNode } from "react";
-import { useCallback, useState } from "react";
 
-import { Icon } from "../../icon/main/icon.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
+import { Icon } from "../../icon/main/icon.view.js";
 import { TabPanel } from "../main/tab-panel.view.js";
 import type { TabPanelTemplateProps } from "../main/template/tab-panel.tpl.api.js";
 

@@ -33,9 +33,9 @@
 import { styled, css } from "styled-components";
 
 import { Button } from "../../../button/main/button.view.js";
+import { DataRoles } from "../../../common/index.js";
 import { Icon } from "../../../icon/main/icon.view.js";
 import { active as activeFn, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
-import { DataRoles } from "../../../common/index.js";
 
 export const StyledFilterWrapper = styled.div.withConfig({ displayName: "StyledFilterWrapper-sc-" })<{
 	$active?: boolean;
@@ -52,15 +52,19 @@ export const StyledFilterWrapper = styled.div.withConfig({ displayName: "StyledF
 		max-width: ${filter.maxWidth};
 		width: auto;
 
-		${$active &&
-		css`
-			position: relative;
-		`}
+		${
+			$active &&
+			css`
+				position: relative;
+			`
+		}
 
-		${!$disabled &&
-		css`
-			cursor: pointer;
-		`}
+		${
+			!$disabled &&
+			css`
+				cursor: pointer;
+			`
+		}
 	`;
 });
 
@@ -100,21 +104,27 @@ export const StyledFilterOptions = styled.span.withConfig({ displayName: "Styled
 		white-space: nowrap;
 		width: 100%;
 
-		${$compact &&
-		css`
-			flex: 1;
-			min-width: 0;
-		`}
+		${
+			$compact &&
+			css`
+				flex: 1;
+				min-width: 0;
+			`
+		}
 
-		${$active &&
-		css`
-			font-style: normal;
-		`}
+		${
+			$active &&
+			css`
+				font-style: normal;
+			`
+		}
 
-		${$disabled &&
-		css`
-			color: ${options.disabledColor};
-		`}
+		${
+			$disabled &&
+			css`
+				color: ${options.disabledColor};
+			`
+		}
 	`;
 });
 
@@ -126,11 +136,13 @@ export const StyledFilterContent = styled.button.withConfig({ displayName: "Styl
 	const { filter } = theme.components;
 
 	return css`
-		${$hasPrefix &&
-		css`
-			display: flex;
-			align-items: center;
-		`}
+		${
+			$hasPrefix &&
+			css`
+				display: flex;
+				align-items: center;
+			`
+		}
 		background-color: transparent;
 		border: none;
 		margin: 0;
@@ -163,91 +175,97 @@ export const StyledFilterContent = styled.button.withConfig({ displayName: "Styl
 			cursor: pointer;
 		}
 
-		${!$disabled &&
-		css`
-			${activeFn(css`
-				${StyledFilterNameText}, ${StyledFilterOptions} {
-					color: ${filter.content.active.color};
-				}
-				${StyledFilterNameArrow} {
-					border-bottom-color: ${filter.name.arrow.borderBottomColor.active};
-				}
-				&:before {
-					border: ${filter.content.active.border};
-				}
-			`)}
+		${
+			!$disabled &&
+			css`
+				${activeFn(css`
+					${StyledFilterNameText}, ${StyledFilterOptions} {
+						color: ${filter.content.active.color};
+					}
+					${StyledFilterNameArrow} {
+						border-bottom-color: ${filter.name.arrow.borderBottomColor.active};
+					}
+					&:before {
+						border: ${filter.content.active.border};
+					}
+				`)}
 
-			${hover(css`
-				${StyledFilterNameText}, ${StyledFilterOptions} {
-					color: ${filter.content.hover.color};
-				}
-				${StyledFilterNameArrow} {
-					border-bottom-color: ${filter.name.arrow.borderBottomColor.hover};
-				}
-				&:before {
-					border: ${filter.content.hover.border};
-				}
-			`)}
+				${hover(css`
+					${StyledFilterNameText}, ${StyledFilterOptions} {
+						color: ${filter.content.hover.color};
+					}
+					${StyledFilterNameArrow} {
+						border-bottom-color: ${filter.name.arrow.borderBottomColor.hover};
+					}
+					&:before {
+						border: ${filter.content.hover.border};
+					}
+				`)}
 
-			&:focus {
-				color: ${filter.content.focus.color};
-				${darkFocus}
-				${StyledFilterNameText}, ${StyledFilterOptions} {
+				&:focus {
 					color: ${filter.content.focus.color};
+					${darkFocus}
+					${StyledFilterNameText}, ${StyledFilterOptions} {
+						color: ${filter.content.focus.color};
+					}
+
+					${StyledFilterNameArrow} {
+						border-bottom-color: ${filter.name.arrow.borderBottomColor.focus};
+					}
+
+					&:before {
+						border: ${filter.content.focus.border};
+					}
+				}
+			`
+		}
+
+		${
+			$active &&
+			!$hasPrefix &&
+			css`
+				&:after {
+					content: "";
+					display: block;
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					width: ${filter.indicator.active.width};
+					background-color: ${filter.indicator.active.background};
+					border-top-left-radius: ${filter.borderRadius};
+					border-bottom-left-radius: ${filter.borderRadius};
 				}
 
-				${StyledFilterNameArrow} {
-					border-bottom-color: ${filter.name.arrow.borderBottomColor.focus};
+				${
+					$disabled
+						? css`
+								&:after {
+									background-color: ${filter.indicator.active.disabledBackground};
+								}
+							`
+						: css`
+								${activeFn(css`
+									&:after {
+										background-color: ${filter.indicator.active.activeBackground};
+									}
+								`)}
+
+								${hover(css`
+									&:after {
+										background-color: ${filter.indicator.active.hoverBackground};
+									}
+								`)}
+
+								&:focus {
+									&:after {
+										background-color: ${filter.indicator.active.focusBackground};
+									}
+								}
+							`
 				}
-
-				&:before {
-					border: ${filter.content.focus.border};
-				}
-			}
-		`}
-
-		${$active &&
-		!$hasPrefix &&
-		css`
-			&:after {
-				content: "";
-				display: block;
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				width: ${filter.indicator.active.width};
-				background-color: ${filter.indicator.active.background};
-				border-top-left-radius: ${filter.borderRadius};
-				border-bottom-left-radius: ${filter.borderRadius};
-			}
-
-			${$disabled
-				? css`
-						&:after {
-							background-color: ${filter.indicator.active.disabledBackground};
-						}
-					`
-				: css`
-						${activeFn(css`
-							&:after {
-								background-color: ${filter.indicator.active.activeBackground};
-							}
-						`)}
-
-						${hover(css`
-							&:after {
-								background-color: ${filter.indicator.active.hoverBackground};
-							}
-						`)}
-
-						&:focus {
-							&:after {
-								background-color: ${filter.indicator.active.focusBackground};
-							}
-						}
-					`}
-		`}
+			`
+		}
 	`;
 });
 
@@ -267,10 +285,12 @@ export const StyledFilterName = styled.span.withConfig({ displayName: "StyledFil
 		overflow: hidden;
 		width: 100%;
 
-		${$disabled &&
-		css`
-			color: ${options.disabledColor};
-		`}
+		${
+			$disabled &&
+			css`
+				color: ${options.disabledColor};
+			`
+		}
 	`;
 });
 
@@ -302,10 +322,12 @@ export const StyledFilterNameArrow = styled(Icon).withConfig({ displayName: "Sty
 		transform: ${$compact ? "rotate(0deg)" : "rotate(180deg)"};
 		width: ${name.arrow.size};
 
-		${$disabled &&
-		css`
-			color: ${options.disabledColor};
-		`}
+		${
+			$disabled &&
+			css`
+				color: ${options.disabledColor};
+			`
+		}
 	`;
 });
 

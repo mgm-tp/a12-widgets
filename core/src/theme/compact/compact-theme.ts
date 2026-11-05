@@ -32,15 +32,15 @@
 
 import merge from "deepmerge";
 
-import { getDefaultTheme } from "../default/default-theme.js";
-import type { BaseThemeSpacingType } from "../schema/spacing.api.js";
+import { ApplicationStyles } from "../default/config/application/application_styles.config.js";
 import {
 	HorizontalSpacingConfig,
 	SpacingConfig,
 	VerticalSpacingConfig
 } from "../default/config/application/spacing.config.js";
-import { ApplicationStyles } from "../default/config/application/application_styles.config.js";
 import { DefaultComponentsConfigs } from "../default/config/components/components.js";
+import { getDefaultTheme } from "../default/default-theme.js";
+import type { BaseThemeSpacingType } from "../schema/spacing.api.js";
 
 import { CompactSpacing } from "./config/base/spacing.config.js";
 import { CompactComponentsConfigs } from "./config/components/components.js";

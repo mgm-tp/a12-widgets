@@ -33,7 +33,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 
-import { TagInput } from "@com.mgmtp.a12.widgets/widgets-core";
+import { HintTooltip, TagInput } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const meta: Meta<typeof TagInput> = {
 	title: "Data Entry/TagInput",
@@ -41,8 +41,11 @@ const meta: Meta<typeof TagInput> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
+		label: {
+			control: "text",
+			description: "Label rendered above the tag input"
+		},
 		placeholder: {
 			control: "text",
 			description: "Placeholder text shown inside the tag input area"
@@ -71,6 +74,14 @@ const meta: Meta<typeof TagInput> = {
 			control: "object",
 			description: "Characters that trigger tag creation (defaults to comma)"
 		},
+		openOnFocus: {
+			control: "boolean",
+			description: "Whether the popular tags dropdown opens when the input receives focus"
+		},
+		focusableRemoveButtons: {
+			control: "boolean",
+			description: "On desktop, whether each tag's remove button joins the native Tab order"
+		},
 		disabled: {
 			control: "boolean",
 			description: "Whether the tag input is disabled"
@@ -79,9 +90,29 @@ const meta: Meta<typeof TagInput> = {
 			control: "boolean",
 			description: "Whether the tag input is read-only"
 		},
+		helperText: {
+			control: "text",
+			description: "Helper text rendered below the input"
+		},
+		errorMessage: {
+			control: "text",
+			description: "Error message rendered below the input"
+		},
 		duplicatedTagMessage: {
 			control: "text",
 			description: "Message shown when the user tries to add a duplicate tag"
+		},
+		messagePosition: {
+			control: "select",
+			options: ["above", "below"],
+			description:
+				'Where the error, warning and info message boxes render: `"above"` (default) between the label and the control, `"below"` directly under the control'
+		},
+		breakTooltipsToNewLine: {
+			control: "select",
+			options: [false, true, "above", "below"],
+			description:
+				'Where tooltips render: `true` / `"above"` (default for this widget) on a new line above the control, `false` inline beside the control, `"below"` on a new line below'
 		}
 	},
 	args: {
@@ -97,12 +128,17 @@ const KEYS = ["\n", ",", ";"];
 const POPULAR_TAGS = ["Android", "iOS", "Windows", "macOS", "Linux", "A12", "mgm"];
 const SUGGESTIONS = ["React", "TypeScript", "Storybook", "Vitest", "Playwright", "styled-components"];
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
-		id: "default-tag-input",
+		id: "playground-tag-input",
 		label: "Tag Input",
-		placeholder: "Add tags with comma or Enter...",
-		keys: KEYS
+		placeholder: "Add tags with comma, semicolon or Enter...",
+		keys: KEYS,
+		initialTags: ["React", "TypeScript"],
+		popularLabel: "Popular tags",
+		popularTags: POPULAR_TAGS,
+		suggestionLabel: "Suggestions",
+		suggestionTags: SUGGESTIONS
 	}
 };
 
@@ -113,6 +149,14 @@ export const WithInitialTags: Story = {
 		placeholder: "Add more tags...",
 		keys: KEYS,
 		initialTags: ["React", "TypeScript", "A12"]
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`initialTags` renders a set of tags as soon as the component mounts. The user can remove them or add further tags."
+			}
+		}
 	}
 };
 
@@ -127,6 +171,14 @@ export const WithPopularAndSuggestions: Story = {
 		popularTags: POPULAR_TAGS,
 		suggestionLabel: "Suggestions",
 		suggestionTags: SUGGESTIONS
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`popularTags` are offered in a dropdown when the input is focused, while `suggestionTags` are filtered against the text the user is typing. `popularLabel` and `suggestionLabel` caption the two dropdown sections."
+			}
+		}
 	}
 };
 
@@ -138,6 +190,13 @@ export const Disabled: Story = {
 		keys: KEYS,
 		initialTags: ["React", "TypeScript"],
 		disabled: true
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`disabled` prevents any interaction — existing tags cannot be removed and no new tags can be added."
+			}
+		}
 	}
 };
 
@@ -149,6 +208,14 @@ export const Readonly: Story = {
 		keys: KEYS,
 		initialTags: ["React", "TypeScript", "Storybook"],
 		readonly: true
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`readonly` shows the current tags without allowing edits, but unlike `disabled` the widget stays focusable and readable for assistive technology."
+			}
+		}
 	}
 };
 
@@ -160,6 +227,33 @@ export const WithHelperText: Story = {
 		keys: KEYS,
 		helperText: "Press comma, semicolon, or Enter to create a new tag.",
 		duplicatedTagMessage: "This tag has already been added."
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`helperText` renders guidance below the input. `duplicatedTagMessage` replaces the default localized message shown when the user tries to add the same tag twice."
+			}
+		}
+	}
+};
+
+export const WithFocusableRemoveButtons: Story = {
+	args: {
+		id: "focusable-remove-buttons-tag-input",
+		label: "Tag Input with Focusable Remove Buttons",
+		placeholder: "Add tags...",
+		keys: KEYS,
+		initialTags: ["React", "TypeScript", "Storybook"],
+		focusableRemoveButtons: true
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`focusableRemoveButtons` adds each tag's remove button to the native Tab order on desktop (default `false`), so the user can Tab/Shift+Tab through them instead of only reaching them with the mouse."
+			}
+		}
 	}
 };
 
@@ -170,5 +264,55 @@ export const WithError: Story = {
 		placeholder: "Add tags...",
 		keys: KEYS,
 		errorMessage: "At least one tag is required."
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`errorMessage` puts the input into its error state and renders the message below the field."
+			}
+		}
+	}
+};
+
+export const MessagePosition: Story = {
+	args: {
+		id: "tag-input-message-position",
+		label: "Tag Input",
+		placeholder: "Add tags...",
+		keys: KEYS,
+		helperText: "Helper text explaining the field",
+		errorMessage: "At least one tag is required.",
+		messagePosition: "below"
+	},
+	parameters: {
+		controls: { include: ["messagePosition"] },
+		docs: {
+			description: {
+				story:
+					'`messagePosition` places the message box relative to the control. This story starts at `"below"`, which renders it directly under the control — switch the control to `"above"` for the default placement between the label and the control.'
+			}
+		}
+	}
+};
+
+export const TooltipPosition: Story = {
+	args: {
+		id: "tag-input-tooltip-position",
+		label: "Tag Input",
+		placeholder: "Add tags...",
+		keys: KEYS,
+		initialTags: ["React", "TypeScript"],
+		helperText: "Helper text explaining the field",
+		tooltips: <HintTooltip text="This is a hint" id="tag-input-tooltip-position-hint" />,
+		breakTooltipsToNewLine: "below"
+	},
+	parameters: {
+		controls: { include: ["breakTooltipsToNewLine"] },
+		docs: {
+			description: {
+				story:
+					'`breakTooltipsToNewLine` places the tooltips relative to the control. This story starts at `"below"`, which puts them on their own line under the control — switch the control to `false` to place them inline beside it, or to `"above"` / `true` for a line above, which is the default for this widget.'
+			}
+		}
 	}
 };

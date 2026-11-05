@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import messageCode from "!./message.tsx?raw";
+
 import MessageAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/message/main/message.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { MessageShowcase } from "./message.js";
-
-import messageCode from "!./message.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

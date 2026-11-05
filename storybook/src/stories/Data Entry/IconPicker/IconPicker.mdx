@@ -1,0 +1,60 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as IconPickerStories from "./IconPicker.stories";
+
+<Meta of={IconPickerStories} />
+
+<Title />
+
+The `IconPicker` widget is a text-field-based input for selecting a Material icon. Typing in the
+input filters the icon list by name; the matching icons are shown in a dropdown together with a
+hint line driven by `hintTemplate` (e.g. `"{count} of {total} icons shown"`). Use it wherever
+users need to attach an icon to an entity, such as configuring menu entries or categories.
+
+- Selection is reported through the required `onChange` callback, which receives `undefined` when the clear button is clicked; `onIconClick` fires for clicks on individual icons.
+- The dropdown opens on focus by default (`openOnFocus`).
+- `saveSpaceMode` hides the icon labels in the list; the picker also enables this automatically when it is narrower than 208px.
+- As a text-field-based input, it supports `label`, `placeholder`, `helperText`, `disabled` and `readonly`.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={IconPickerStories.Playground} />
+
+## Examples
+
+### Pre-selected icon
+
+<Canvas of={IconPickerStories.WithPreselectedIcon} />
+
+### Save space mode
+
+<Canvas of={IconPickerStories.SaveSpaceMode} />
+
+### Disabled and readonly
+
+<Canvas of={IconPickerStories.DisabledAndReadonly} />
+
+### Helper text
+
+<Canvas of={IconPickerStories.WithHelperText} />
+
+### Controlled
+
+<Canvas of={IconPickerStories.Controlled} />

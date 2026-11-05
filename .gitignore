@@ -13,6 +13,9 @@ npm-debug.log*
 .settings
 .metadata
 .gradle
+gradle/wrapper/
+gradlew
+gradlew.bat
 .swc
 .project
 *.iml
@@ -42,11 +45,16 @@ sbom.json
 core/pnpm-lock.yaml
 **/generated
 tsconfig.tsbuildinfo
+core/temp
 
 # Test artifact
+**/coverage/
 **/test-results/
 **/playwright-report/
 **/playwright/.cache/
 __screenshots__
+.vitest/
 .worktrees
+.claude/worktrees/
 .vitest-attachments
+.playwright-mcp/

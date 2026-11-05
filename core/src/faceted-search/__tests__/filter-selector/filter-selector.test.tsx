@@ -34,10 +34,10 @@ import { render, getByDataRole, fireEvent, waitFor, getAllByDataRole } from "tes
 import { describe, vi, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { FilterSelector } from "../../main/filter-selector/filter-selector.view.js";
-import { ContentBoxElements } from "../../../contentbox/main/template/contentbox.tpl.view.js";
-import { filterData, filterSectionData } from "../../test/setup.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { ContentBoxElements } from "../../../contentbox/main/template/contentbox.tpl.view.js";
+import { FilterSelector } from "../../main/filter-selector/filter-selector.view.js";
+import { filterData, filterSectionData } from "../../test/setup.js";
 
 const headingElement = <ContentBoxElements.Title text="Filter Selector" id="header-filter-test" />;
 

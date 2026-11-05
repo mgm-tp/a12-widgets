@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement, ReactNode } from "react";
-import { Fragment, useCallback, useContext, useEffect, useRef, useState } from "react";
+import type { VirtualItem, Virtualizer } from "@tanstack/react-virtual";
+import { useVirtualizer } from "@tanstack/react-virtual";
 import type { Day } from "date-fns";
 import {
 	addDays,
@@ -44,24 +44,23 @@ import {
 	parseISO,
 	startOfWeek
 } from "date-fns";
-import type { VirtualItem, Virtualizer } from "@tanstack/react-virtual";
-import { useVirtualizer } from "@tanstack/react-virtual";
+import type { ReactElement, ReactNode } from "react";
+import { Fragment, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { useTheme } from "styled-components";
 
+import { DataRoles } from "../../../../../../common/main/data-roles.js";
+import { DateTimeContext } from "../../../../../../common/main/date-time/date-time-context.js";
+import { useEffectWithDebounce } from "../../../../../../common/main/hooks.js";
+import { getVerticalGap } from "../../../../../../common/main/utils/css-utils.js";
 import type {
 	CalendarDay,
 	CalendarInfiniteScrollOptions,
 	CalendarMonthViewProps,
 	DayDisplay
 } from "../../../calendar.api.js";
-import { DateTimeContext } from "../../../../../../common/main/date-time/date-time-context.js";
-import { DataRoles } from "../../../../../../common/main/data-roles.js";
-import { getWeekDates } from "../../utils.internal.js";
-import { useMonthViewNavigateByKey, WEEK_DAYS_NUM } from "../../calendar-hook.internal.js";
 import { CalendarDayCell, PlaceHolderCalendarDayCell } from "../../calendar-day.js";
-import { useEffectWithDebounce } from "../../../../../../common/main/hooks.js";
-import { getVerticalGap } from "../../../../../../common/main/utils/css-utils.js";
-
+import { useMonthViewNavigateByKey, WEEK_DAYS_NUM } from "../../calendar-hook.internal.js";
+import { getWeekDates } from "../../utils.internal.js";
 import { CalendarMonthViewHeader } from "../calendar-month-view-header.js";
 
 import {

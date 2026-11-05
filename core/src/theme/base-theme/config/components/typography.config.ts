@@ -34,7 +34,6 @@ import { lighten } from "polished";
 
 import type { BaseThemeCore } from "../../schema.js";
 import { mergeConfig } from "../../utils/merge-config.js";
-
 import { FontConfig } from "../base/fonts.config.js";
 
 export type TypographyConfigType = {

@@ -39,7 +39,7 @@ export type ToastConfigType = {
 	body: { background: string; border: string; boxShadow: string; maxWidth: string; minWidth: string };
 	collapse: { padding: string };
 	color: { error: string; info: string; success: string; warning: string };
-	content: { padding: string };
+	content: { padding: string; noHeader?: { padding: string } };
 	footer: { minHeight: string; padding: string };
 	graphic: { boxShadow: string; minHeight: string; padding: string; width: string };
 	message: { color: string; fontFamily: string; fontSize: string; lineHeight: number };
@@ -94,7 +94,10 @@ export const toastConfig = (theme: BaseThemeType): ToastConfigType => {
 			warning: colors.variant.warningColor
 		},
 		content: {
-			padding: `0 ${horizontalSpacing.horizWhiteSpacingsm}px ${verticalSpacing.vertWhiteSpacingsm}px`
+			padding: `0 ${horizontalSpacing.horizWhiteSpacingsm}px ${verticalSpacing.vertWhiteSpacingsm}px`,
+			noHeader: {
+				padding: `${verticalSpacing.vertWhiteSpacingsm}px ${horizontalSpacing.horizWhiteSpacingsm}px`
+			}
 		},
 		footer: {
 			minHeight: `${2 * spacing.spacingMd}px`,

@@ -30,20 +30,27 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
+import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
+import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
+import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import type { FC, ReactNode } from "react";
 import { Children, cloneElement, isValidElement, useCallback, useMemo, useRef, useState } from "react";
-import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
-import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
-import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
-import type { OnResizeCallback, ResizePayload } from "react-resize-detector";
-import { useResizeDetector } from "react-resize-detector";
 
-import { InputElements } from "../../input/base/template/base.tpl.view.js";
-import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
 import type { Identifiable } from "../../common/main/base-props.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import type { OnResizeCallback, ResizePayload } from "../../common/main/resize-observer/resize-observer.api.js";
+import { useResizeObserver } from "../../common/main/resize-observer/use-resize-observer.js";
 import { joinClassNames } from "../../common/main/utils.js";
+import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
+import { InputElements } from "../../input/base/template/base.tpl.view.js";
+import { useFieldDefaultsConfig } from "../../input/field-default-config/main/field-default-config.utils.js";
 
+import TabFocusPluginInternal from "./internal-plugins/tab-focus-plugin/tab-focus-plugin.internal.js";
+import SelectAllPlugin from "./plugins/select-all-plugin/select-all-plugin.js";
+import { ToolbarPlugin } from "./plugins/static-toolbar-plugin/static-toolbar.view.js";
+import { TextFormatPlugin } from "./plugins/text-format-plugin/text-format-plugin.view.js";
+import type { RichTextEditorProps } from "./rich-text-editor.api.js";
 import {
 	StyledEditorAddon,
 	StyledEditorContentWrapper,
@@ -51,8 +58,6 @@ import {
 	StyledEditorMain,
 	StyledEditorPlaceholder
 } from "./rich-text-editor.styled.js";
-import type { RichTextEditorProps } from "./rich-text-editor.api.js";
-import { ToolbarPlugin } from "./plugins/static-toolbar-plugin/static-toolbar.view.js";
 import {
 	RichTextEditorComposer,
 	RichTextEditorContentEditable,
@@ -60,9 +65,6 @@ import {
 	RichTextEditorLabel,
 	RichTextEditorSelectionCacheProvider
 } from "./template/rich-text-editor.tpl.view.js";
-import { TextFormatPlugin } from "./plugins/text-format-plugin/text-format-plugin.view.js";
-import TabFocusPluginInternal from "./internal-plugins/tab-focus-plugin/tab-focus-plugin.internal.js";
-import SelectAllPlugin from "./plugins/select-all-plugin/select-all-plugin.js";
 
 export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 	const {
@@ -94,8 +96,14 @@ export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 		children,
 		useComposer = true,
 		enableHistory = true,
+		breakTooltipsToNewLine: breakTooltipsToNewLineProp,
+		messagePosition: messagePositionProp,
 		...rest
 	} = props;
+	const { breakTooltipsToNewLine, messagePosition } = useFieldDefaultsConfig(
+		{ messagePosition: messagePositionProp, breakTooltipsToNewLine: breakTooltipsToNewLineProp },
+		"above"
+	);
 	const [focused, setFocused] = useState(false);
 	const addonAfterRefs = useRef<Record<string, HTMLElement | null>>({});
 
@@ -150,10 +158,8 @@ export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 		}
 	}, []);
 
-	const { ref: resizeRef } = useResizeDetector<HTMLDivElement>({
-		onResize: setHeightForAddonAfter,
-		refreshMode: "debounce",
-		refreshRate: 0
+	const { ref: resizeRef } = useResizeObserver<HTMLDivElement>({
+		onResize: setHeightForAddonAfter
 	});
 
 	const renderAddonAfter = useCallback(
@@ -182,10 +188,40 @@ export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 		[addonAfter, singleLine, staticToolbarButtons]
 	);
 
+	const messagesElement = (
+		<>
+			{errorMessage && (
+				<InputElements.Error
+					id={id}
+					errorMessage={errorMessage}
+					dataRole={DataRoles.RichTextEditor.ErrorMessage}
+					position={messagePosition}
+				/>
+			)}
+			{warningMessage && (
+				<InputElements.Warning
+					id={id}
+					warningMessage={warningMessage}
+					dataRole={DataRoles.RichTextEditor.WarningMessage}
+					position={messagePosition}
+				/>
+			)}
+			{infoMessage && (
+				<InputElements.Info
+					id={id}
+					infoMessage={infoMessage}
+					dataRole={DataRoles.RichTextEditor.InfoMessage}
+					position={messagePosition}
+				/>
+			)}
+		</>
+	);
+
 	const renderContent = (
 		<RichTextEditorSelectionCacheProvider>
 			<StyledBaseInput.StyledFieldWrapper
 				$block
+				$tooltipPosition={breakTooltipsToNewLine}
 				id={id && `${id}-wrapper`}
 				style={style}
 				data-role={DataRoles.RichTextEditor.Wrapper}
@@ -199,24 +235,8 @@ export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 						{label && (
 							<RichTextEditorLabel label={label} id={id} hide={hideLabel} graphic={labelGraphic} disabled={disabled} />
 						)}
-						{tooltips}
-						{errorMessage && (
-							<InputElements.Error
-								id={id}
-								errorMessage={errorMessage}
-								dataRole={DataRoles.RichTextEditor.ErrorMessage}
-							/>
-						)}
-						{warningMessage && (
-							<InputElements.Warning
-								id={id}
-								warningMessage={warningMessage}
-								dataRole={DataRoles.RichTextEditor.WarningMessage}
-							/>
-						)}
-						{infoMessage && (
-							<InputElements.Info id={id} infoMessage={infoMessage} dataRole={DataRoles.RichTextEditor.InfoMessage} />
-						)}
+						{(breakTooltipsToNewLine === true || breakTooltipsToNewLine === "above") && tooltips}
+						{messagePosition !== "below" && messagesElement}
 						<div ref={resizeRef}>
 							{staticToolbarButtons && (
 								<ToolbarPlugin
@@ -257,6 +277,7 @@ export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 												aria-multiline={!singleLine}
 												aria-readonly={readonly}
 												aria-disabled={disabled}
+												aria-invalid={error || errorMessage ? true : undefined}
 											/>
 										</StyledEditorContentWrapper>
 									}
@@ -276,12 +297,20 @@ export const RichTextEditor: FC<RichTextEditorProps> = (props) => {
 								<TabFocusPluginInternal />
 								{readonly && <SelectAllPlugin />}
 								<TextFormatPlugin />
+								{onChange && <OnChangePlugin onChange={onChange} />}
 								{children}
 							</StyledEditorInputWrapper>
 						</div>
+						{messagePosition === "below" && messagesElement}
 					</StyledBaseInput.StyledField>
 					{renderAddonAfter()}
+					{!breakTooltipsToNewLine && tooltips && (
+						<StyledBaseInput.StyledFieldAddon $position="after" data-role={DataRoles.RichTextEditor.TooltipAddon}>
+							{tooltips}
+						</StyledBaseInput.StyledFieldAddon>
+					)}
 				</StyledEditorMain>
+				{breakTooltipsToNewLine === "below" && tooltips}
 				{helperText && (
 					<StyledBaseInput.StyledFieldHelperWrapper data-role={DataRoles.RichTextEditor.HelperText.Wrapper}>
 						<RichTextEditorHelperText id={id}>{helperText}</RichTextEditorHelperText>

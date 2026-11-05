@@ -37,5 +37,7 @@ import { FlyoutMenu } from "@com.mgmtp.a12.widgets/widgets-core";
 import { itemWithMixGroups } from "../menu.setup.js";
 
 export function HorizontalMenuWithGroup(): ReactElement {
-	return <FlyoutMenu type="horizontal" items={itemWithMixGroups} className="-u-width-full" />;
+	return (
+		<FlyoutMenu id="horizontal-menu-with-group" type="horizontal" items={itemWithMixGroups} className="-u-width-full" />
+	);
 }

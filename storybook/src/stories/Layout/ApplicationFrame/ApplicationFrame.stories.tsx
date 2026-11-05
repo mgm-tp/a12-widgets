@@ -56,11 +56,15 @@ const meta: Meta<typeof ApplicationFrame> = {
 	parameters: {
 		layout: "fullscreen"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		subExpanded: {
 			control: "boolean",
 			description: "Specifies whether the sub (sidebar) area is expanded or collapsed"
+		},
+		subExpandedState: {
+			control: "select",
+			options: ["minimized", "maximized"],
+			description: "Controls the expanded state of the sub area (minimized or maximized)"
 		},
 		disableCollapsingSub: {
 			control: "boolean",
@@ -72,12 +76,15 @@ const meta: Meta<typeof ApplicationFrame> = {
 		},
 		useToggleButton: {
 			control: "boolean",
-			description: "Show a toggle button on small screens to open/close the sidebar"
+			description: "Show a toggle button on small screens (<= 767px) to open/close the sidebar"
 		},
-		subExpandedState: {
-			control: "select",
-			options: ["minimized", "maximized"],
-			description: "Controls the expanded state of the sub area (minimized or maximized)"
+		closeSubOnClickOutside: {
+			control: "boolean",
+			description: "Close the sidebar when clicking or tabbing outside of it"
+		},
+		subResizableOptions: {
+			control: false,
+			description: "Enables resizing the boundary between sidebar and content (`true` or a `ResizeOptions` object)"
 		}
 	}
 };
@@ -118,6 +125,19 @@ const footerStyle = {
 
 const AppHeader = () => (
 	<ApplicationHeader leftSlots={<span style={{ cursor: "pointer", marginLeft: "8px" }}>Dev App</span>} />
+);
+
+const NavigationSidebar = () => (
+	<div style={sidebarStyle}>
+		<Typography.Body style={{ fontWeight: 600 }}>Navigation</Typography.Body>
+		<nav>
+			<BulletList.Unordered type="none" style={{ margin: 0, padding: 0 }}>
+				{["Dashboard", "Users", "Settings", "Reports"].map((item) => (
+					<BulletList.Item key={item}>{item}</BulletList.Item>
+				))}
+			</BulletList.Unordered>
+		</nav>
+	</div>
 );
 
 const SidebarContent = () => (
@@ -181,6 +201,32 @@ const MasterDetailContent = () => (
 	/>
 );
 
+export const Playground: Story = {
+	args: {
+		subExpanded: true,
+		subExpandedState: "minimized",
+		disableCollapsingSub: false,
+		stickyFooter: true,
+		useToggleButton: false
+	},
+	render: (args) => (
+		<ApplicationFrame
+			{...args}
+			main={<div style={headerStyle}>Application Header</div>}
+			sub={<NavigationSidebar />}
+			content={
+				<div style={contentStyle}>
+					<Typography.Headline level={2}>Main Content Area</Typography.Headline>
+					<Typography.Body>This is the primary content area of the ApplicationFrame.</Typography.Body>
+					<Typography.Body>Use the controls to toggle the sidebar, the footer style and more.</Typography.Body>
+				</div>
+			}
+			footer={<div style={footerStyle}>Copyright &copy; 2026 mgm technology partners GmbH</div>}
+			style={{ height: "100vh" }}
+		/>
+	)
+};
+
 export const Default: Story = {
 	render: () => (
 		<ApplicationFrame
@@ -194,16 +240,66 @@ export const Default: Story = {
 			}
 			style={{ height: "100vh" }}
 		/>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The minimal frame only needs the `main` (header) and `content` slots. The layout adapts to desktop, tablet and smartphone screen sizes."
+			}
+		}
+	}
 };
 
 export const WithSidebar: Story = {
+	render: function WithSidebarExample() {
+		const [subExpanded, setSubExpanded] = useState(true);
+
+		return (
+			<ApplicationFrame
+				main={
+					<div style={headerStyle}>
+						<span style={{ flex: 1 }}>Application with Sidebar</span>
+						<Button icon={<Icon>menu</Icon>} title="Toggle Sidebar" onClick={() => setSubExpanded((prev) => !prev)} />
+					</div>
+				}
+				sub={<NavigationSidebar />}
+				subExpanded={subExpanded}
+				onExpansionChange={(nextExpanded) => setSubExpanded(nextExpanded ?? false)}
+				content={
+					<div style={contentStyle}>
+						<Typography.Headline level={2}>Content Area</Typography.Headline>
+						<Typography.Body>The sidebar is {subExpanded ? "expanded" : "collapsed"}.</Typography.Body>
+						<Typography.Body>Use the menu icon in the header to toggle the sidebar.</Typography.Body>
+					</div>
+				}
+				style={{ height: "100vh" }}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `sub` slot renders a collapsible sidebar. Control its expansion with `subExpanded` and react to user toggles via `onExpansionChange`."
+			}
+		}
+	}
+};
+
+export const MobileToggleButton: Story = {
 	parameters: {
 		viewport: {
 			defaultViewport: "mobile1"
+		},
+		docs: {
+			description: {
+				story:
+					"With `useToggleButton`, a floating button is shown on small screens (<= 767px) to open and close the sidebar. Switch the viewport to a phone to see it."
+			}
 		}
 	},
-	render: () => {
+	render: function MobileToggleButtonExample() {
 		const [subExpanded, setSubExpanded] = useState(true);
 
 		return (
@@ -234,50 +330,64 @@ export const WithSidebar: Story = {
 	}
 };
 
-export const WithSidebarBasic: Story = {
-	render: () => {
-		const [subExpanded, setSubExpanded] = useState(true);
-
-		return (
-			<ApplicationFrame
-				main={
-					<div style={headerStyle}>
-						<span style={{ flex: 1 }}>Application with Sidebar</span>
-						<Button icon={<Icon>menu</Icon>} title="Toggle Sidebar" onClick={() => setSubExpanded((prev) => !prev)} />
-					</div>
-				}
-				sub={
-					<div style={sidebarStyle}>
-						<nav>
-							<BulletList.Unordered type="none" style={{ margin: 0, padding: 0 }}>
-								{["Dashboard", "Users", "Settings", "Reports"].map((item) => (
-									<BulletList.Item key={item}>{item}</BulletList.Item>
-								))}
-							</BulletList.Unordered>
-						</nav>
-					</div>
-				}
-				subExpanded={subExpanded}
-				onExpansionChange={(nextExpanded) => setSubExpanded(nextExpanded ?? false)}
-				content={
-					<div style={contentStyle}>
-						<Typography.Headline level={2}>Content Area</Typography.Headline>
-						<Typography.Body>The sidebar is {subExpanded ? "expanded" : "collapsed"}.</Typography.Body>
-						<Typography.Body>Use the menu icon in the header to toggle the sidebar.</Typography.Body>
-					</div>
-				}
-				style={{ height: "100vh" }}
-			/>
-		);
+export const Toolbars: Story = {
+	render: () => (
+		<ApplicationFrame
+			main={<div style={headerStyle}>Application with Toolbars</div>}
+			sub={<NavigationSidebar />}
+			subExpanded
+			subToolbar={
+				<div style={{ padding: "4px 8px", background: "#e8e8e8", borderBottom: "1px solid #ccc" }}>
+					<small>Sidebar toolbar</small>
+				</div>
+			}
+			contentToolbar={
+				<div
+					style={{
+						padding: "4px 16px",
+						background: "#e3f2fd",
+						borderBottom: "1px solid #90caf9",
+						display: "flex",
+						gap: "8px",
+						alignItems: "center"
+					}}
+				>
+					<Button secondary icon={<Icon>filter_list</Icon>} title="Filter" />
+					<Button secondary icon={<Icon>sort</Icon>} title="Sort" />
+					<span style={{ flex: 1 }} />
+					<Button secondary icon={<Icon>search</Icon>} title="Search" />
+				</div>
+			}
+			content={
+				<div style={contentStyle}>
+					<Typography.Headline level={2}>Content with Toolbars</Typography.Headline>
+					<Typography.Body>Both the sidebar and the content area have dedicated toolbar slots.</Typography.Body>
+				</div>
+			}
+			style={{ height: "100vh" }}
+		/>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`subToolbar` and `contentToolbar` place toolbars on top of the sidebar and the content area."
+			}
+		}
 	}
 };
 
 export const WithMasterDetailLayout: Story = {
+	render: () => <ApplicationFrame main={<AppHeader />} content={<MasterDetailContent />} />,
 	parameters: {
-		layout: "fullscreen"
-	},
-	render: () => <ApplicationFrame main={<AppHeader />} content={<MasterDetailContent />} />
+		docs: {
+			description: {
+				story:
+					"The `content` slot accepts any layout component — here a `MasterDetail` layout fills the content area of the frame."
+			}
+		}
+	}
 };
+
 export const WithFooter: Story = {
 	render: () => (
 		<ApplicationFrame
@@ -291,5 +401,79 @@ export const WithFooter: Story = {
 			footer={<div style={footerStyle}>Copyright &copy; 2026 mgm technology partners GmbH</div>}
 			style={{ height: "100vh" }}
 		/>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `footer` slot renders below the content. Use `stickyFooter` (default `true`) to keep it visible — not recommended on small viewports."
+			}
+		}
+	}
+};
+
+export const FullLayout: Story = {
+	render: function FullLayoutExample() {
+		const [subExpanded, setSubExpanded] = useState(true);
+
+		return (
+			<ApplicationFrame
+				main={
+					<div style={headerStyle}>
+						<Button icon={<Icon>menu</Icon>} title="Toggle Sidebar" onClick={() => setSubExpanded((prev) => !prev)} />
+						<span style={{ marginLeft: "16px" }}>Full Application Layout</span>
+					</div>
+				}
+				sub={
+					<div style={sidebarStyle}>
+						<Typography.Body style={{ fontWeight: 600, marginTop: 0 }}>Navigation</Typography.Body>
+						<BulletList.Unordered type="none" style={{ margin: 0, padding: 0 }}>
+							{["Dashboard", "Projects", "Team", "Analytics", "Settings"].map((item) => (
+								<BulletList.Item key={item} style={{ borderBottom: "1px solid #e0e0e0" }}>
+									{item}
+								</BulletList.Item>
+							))}
+						</BulletList.Unordered>
+					</div>
+				}
+				subExpanded={subExpanded}
+				onExpansionChange={(nextExpanded) => setSubExpanded(nextExpanded ?? false)}
+				contentToolbar={
+					<div
+						style={{
+							padding: "4px 16px",
+							background: "#f5f5f5",
+							borderBottom: "1px solid #e0e0e0",
+							display: "flex",
+							gap: "8px"
+						}}
+					>
+						<Button secondary icon={<Icon>add</Icon>} title="New" />
+						<Button secondary icon={<Icon>edit</Icon>} title="Edit" />
+						<Button secondary icon={<Icon>delete</Icon>} title="Delete" />
+					</div>
+				}
+				content={
+					<div style={contentStyle}>
+						<Typography.Headline level={2}>Dashboard</Typography.Headline>
+						<Typography.Body>Welcome to the full application layout example.</Typography.Body>
+						<Typography.Body>
+							This demonstrates the complete ApplicationFrame with header, sidebar, content toolbar, main content and
+							footer.
+						</Typography.Body>
+					</div>
+				}
+				footer={<div style={footerStyle}>Version 1.0.0 &mdash; Copyright &copy; 2026 mgm technology partners GmbH</div>}
+				style={{ height: "100vh" }}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"A realistic composition using every slot: `main` header, collapsible `sub` sidebar, `contentToolbar`, `content` and `footer`."
+			}
+		}
+	}
 };

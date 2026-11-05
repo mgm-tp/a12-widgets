@@ -32,10 +32,10 @@
 
 import { memo, useCallback } from "react";
 
-import { TableTemplate } from "./template/index.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
 import { useTableContext } from "./table.context.js";
 import { RowSegments } from "./table.row-segments.view.js";
+import { TableTemplate } from "./template/index.js";
 
 /** @internal */
 export const PlaceHolderBodyRow = memo(function PlaceHolderBodyRow(

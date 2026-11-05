@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { MouseEvent } from "react";
 import { $isListNode, INSERT_ORDERED_LIST_COMMAND, INSERT_UNORDERED_LIST_COMMAND, ListNode } from "@lexical/list";
 import type { LexicalEditor, BaseSelection } from "lexical";
 import { $isRangeSelection, INDENT_CONTENT_COMMAND, OUTDENT_CONTENT_COMMAND } from "lexical";
+import type { MouseEvent } from "react";
 
 import { Icon } from "../../../../icon/main/icon.view.js";
 import {
@@ -41,7 +41,6 @@ import {
 	$getNearestNodeOfTypeFromAnchor,
 	$isSelectionMatchCondition
 } from "../../utils/selection.js";
-
 import { createBlockButton } from "../static-toolbar-plugin/block-button/block-button.view.js";
 
 import { $getNodeListType, $stopIndentCommand, $stopOutdentCommand } from "./list-plugin.js";

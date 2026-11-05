@@ -34,7 +34,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { fn } from "storybook/test";
 
-import { Select, CustomSelect, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
+import { Select, CustomSelect, HintTooltip, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 import type { SelectItem } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const FRUIT_ITEMS: SelectItem[] = [
@@ -78,7 +78,6 @@ const meta: Meta<typeof Select> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		label: {
 			control: "text",
@@ -87,6 +86,14 @@ const meta: Meta<typeof Select> = {
 		placeholder: {
 			control: "text",
 			description: "Placeholder text shown when no value is selected"
+		},
+		value: {
+			control: "text",
+			description: "The currently selected value"
+		},
+		items: {
+			control: "object",
+			description: "Options to render; entries with `children` are rendered as option groups"
 		},
 		disabled: {
 			control: "boolean",
@@ -127,6 +134,21 @@ const meta: Meta<typeof Select> = {
 		helperText: {
 			control: "text",
 			description: "Helper text displayed below the input"
+		},
+		onValueChanged: {
+			description: "Callback fired with the new value when the selection changes"
+		},
+		messagePosition: {
+			control: "select",
+			options: ["above", "below"],
+			description:
+				'Where the error, warning and info message boxes render: `"above"` (default) between the label and the control, `"below"` directly under the control'
+		},
+		breakTooltipsToNewLine: {
+			control: "select",
+			options: [false, true, "above", "below"],
+			description:
+				'Where tooltips render: `false` (default) inline beside the control, `true` / `"above"` on a new line above the control, `"below"` on a new line below'
 		}
 	},
 	args: {
@@ -137,74 +159,82 @@ const meta: Meta<typeof Select> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => {
-		const DefaultSelect = () => {
-			const [value, setValue] = useState<string | undefined>(undefined);
+export const Playground: Story = {
+	args: {
+		id: "select-playground",
+		label: "Fruit",
+		placeholder: "Please choose...",
+		items: FRUIT_ITEMS
+	},
+	render: function PlaygroundExample(args) {
+		const [value, setValue] = useState<string | undefined>(undefined);
 
-			return (
-				<div style={{ width: 320 }}>
-					<Select
-						id="select-default"
-						label="Fruit"
-						placeholder="Please choose..."
-						items={FRUIT_ITEMS}
-						value={value}
-						onValueChanged={setValue}
-					/>
-				</div>
-			);
-		};
-
-		return <DefaultSelect />;
+		return (
+			<div style={{ width: 320 }}>
+				<Select
+					{...args}
+					value={value ?? args.value}
+					onValueChanged={(newValue) => {
+						setValue(newValue);
+						args.onValueChanged?.(newValue);
+					}}
+				/>
+			</div>
+		);
 	}
 };
 
 export const WithLabelGraphic: Story = {
-	render: () => {
-		const SelectWithGraphic = () => {
-			const [value, setValue] = useState<string | undefined>(undefined);
+	render: function WithLabelGraphicExample() {
+		const [value, setValue] = useState<string | undefined>(undefined);
 
-			return (
-				<div style={{ width: 320 }}>
-					<Select
-						id="select-label-graphic"
-						label="Fruit"
-						labelGraphic={<Icon>info</Icon>}
-						placeholder="Please choose..."
-						items={FRUIT_ITEMS}
-						value={value}
-						onValueChanged={setValue}
-					/>
-				</div>
-			);
-		};
-
-		return <SelectWithGraphic />;
+		return (
+			<div style={{ width: 320 }}>
+				<Select
+					id="select-label-graphic"
+					label="Fruit"
+					labelGraphic={<Icon>info</Icon>}
+					placeholder="Please choose..."
+					items={FRUIT_ITEMS}
+					value={value}
+					onValueChanged={setValue}
+				/>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`labelGraphic` renders an additional element (typically an `Icon`) next to the `label`."
+			}
+		}
 	}
 };
 
 export const WithGroupedOptions: Story = {
-	render: () => {
-		const SelectWithGroups = () => {
-			const [value, setValue] = useState<string>("Java");
+	render: function WithGroupedOptionsExample() {
+		const [value, setValue] = useState<string>("Java");
 
-			return (
-				<div style={{ width: 320 }}>
-					<Select
-						id="select-grouped"
-						label="Technology"
-						placeholder="Please choose..."
-						items={GROUPED_ITEMS}
-						value={value}
-						onValueChanged={setValue}
-						helperText="Items are grouped by category"
-					/>
-				</div>
-			);
-		};
-
-		return <SelectWithGroups />;
+		return (
+			<div style={{ width: 320 }}>
+				<Select
+					id="select-grouped"
+					label="Technology"
+					placeholder="Please choose..."
+					items={GROUPED_ITEMS}
+					value={value}
+					onValueChanged={setValue}
+					helperText="Items are grouped by category"
+				/>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`items` entries with a `label` and `children` render as option groups instead of plain options."
+			}
+		}
 	}
 };
 
@@ -219,7 +249,14 @@ export const Disabled: Story = {
 				disabled
 			/>
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`disabled` greys out the input and prevents any interaction."
+			}
+		}
+	}
 };
 
 export const Readonly: Story = {
@@ -227,74 +264,143 @@ export const Readonly: Story = {
 		<div style={{ width: 320 }}>
 			<Select id="select-readonly" label="Fruit (readonly)" items={FRUIT_ITEMS} value="Apple" readonly />
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`readonly` shows the current `value` but does not allow changing it."
+			}
+		}
+	}
 };
 
 export const ValidationStates: Story = {
-	render: () => {
-		const ValidationSelect = () => {
-			const [value, setValue] = useState<string | undefined>(undefined);
+	render: function ValidationStatesExample() {
+		const [value, setValue] = useState<string | undefined>(undefined);
 
-			return (
-				<div style={{ width: 320, display: "flex", flexDirection: "column", gap: 16 }}>
-					<Select
-						id="select-error"
-						label="Error state"
-						placeholder="Please choose..."
-						items={FRUIT_ITEMS}
-						value={value}
-						onValueChanged={setValue}
-						error
-						errorMessage="A selection is required"
-					/>
-					<Select
-						id="select-warning"
-						label="Warning state"
-						placeholder="Please choose..."
-						items={FRUIT_ITEMS}
-						value={value}
-						onValueChanged={setValue}
-						warning
-						warningMessage="Consider reviewing your selection"
-					/>
-					<Select
-						id="select-info"
-						label="Info state"
-						placeholder="Please choose..."
-						items={FRUIT_ITEMS}
-						value={value}
-						onValueChanged={setValue}
-						info
-						infoMessage="You can update this later"
-					/>
-				</div>
-			);
-		};
-
-		return <ValidationSelect />;
+		return (
+			<div style={{ width: 320, display: "flex", flexDirection: "column", gap: 16 }}>
+				<Select
+					id="select-error"
+					label="Error state"
+					placeholder="Please choose..."
+					items={FRUIT_ITEMS}
+					value={value}
+					onValueChanged={setValue}
+					error
+					errorMessage="A selection is required"
+				/>
+				<Select
+					id="select-warning"
+					label="Warning state"
+					placeholder="Please choose..."
+					items={FRUIT_ITEMS}
+					value={value}
+					onValueChanged={setValue}
+					warning
+					warningMessage="Consider reviewing your selection"
+				/>
+				<Select
+					id="select-info"
+					label="Info state"
+					placeholder="Please choose..."
+					items={FRUIT_ITEMS}
+					value={value}
+					onValueChanged={setValue}
+					info
+					infoMessage="You can update this later"
+				/>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`error`, `warning` and `info` apply validation styling; `errorMessage`, `warningMessage` and `infoMessage` show the matching text below the input."
+			}
+		}
 	}
 };
 
 export const CustomView: Story = {
-	render: () => {
-		const CustomSelectExample = () => {
-			const [value, setValue] = useState<string>("Apple");
+	render: function CustomViewExample() {
+		const [value, setValue] = useState<string>("Apple");
 
-			return (
-				<div style={{ width: 320 }}>
-					<CustomSelect
-						id="custom-select"
-						label="Custom Select"
-						placeholder="Please choose..."
-						items={FRUIT_ITEMS}
-						value={value}
-						onValueChanged={setValue}
-						helperText="Uses a custom dropdown instead of the native browser select"
-					/>
-				</div>
-			);
-		};
+		return (
+			<div style={{ width: 320 }}>
+				<CustomSelect
+					id="custom-select"
+					label="Custom Select"
+					placeholder="Please choose..."
+					items={FRUIT_ITEMS}
+					value={value}
+					onValueChanged={setValue}
+					helperText="Uses a custom dropdown instead of the native browser select"
+				/>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`CustomSelect` (equivalent to `useCustomView`) replaces the native browser select with a custom dropdown built from widgets, enabling rich item rendering and a modal-based picker on mobile."
+			}
+		}
+	}
+};
 
-		return <CustomSelectExample />;
+export const MessagePosition: Story = {
+	args: {
+		id: "select-message-position",
+		label: "Fruit",
+		helperText: "Helper text explaining the field",
+		placeholder: "Please choose...",
+		items: FRUIT_ITEMS,
+		error: true,
+		errorMessage: "Please choose a fruit",
+		messagePosition: "below"
+	},
+	render: (args) => (
+		<div style={{ width: 320 }}>
+			<Select {...args} />
+		</div>
+	),
+	parameters: {
+		controls: { include: ["messagePosition"] },
+		docs: {
+			description: {
+				story:
+					'`messagePosition` places the message box relative to the control. This story starts at `"below"`, which renders it directly under the control — switch the control to `"above"` for the default placement between the label and the control.'
+			}
+		}
+	}
+};
+
+export const TooltipPosition: Story = {
+	args: {
+		id: "select-tooltip-position",
+		label: "Fruit",
+		helperText: "Helper text explaining the field",
+		placeholder: "Please choose...",
+		items: FRUIT_ITEMS,
+		tooltips: <HintTooltip text="This is a hint" id="select-tooltip-position-hint" />,
+		ariaDescribedby: "select-tooltip-position-hint",
+		breakTooltipsToNewLine: "below"
+	},
+	render: (args) => (
+		<div style={{ width: 320 }}>
+			<Select {...args} />
+		</div>
+	),
+	parameters: {
+		controls: { include: ["breakTooltipsToNewLine"] },
+		docs: {
+			description: {
+				story:
+					'`breakTooltipsToNewLine` places the tooltips relative to the control. This story starts at `"below"`, which puts them on their own line under the control — switch the control to `false` for the default inline placement beside it, or to `"above"` / `true` for a line above.'
+			}
+		}
 	}
 };

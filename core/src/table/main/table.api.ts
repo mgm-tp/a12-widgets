@@ -36,10 +36,10 @@ import type { ListProps as ReactVirtualizedProps, List as ReactVirtualizedList }
 
 import type { Styleable, Ref } from "../../common/main/base-props.js";
 
-import type { TableTemplateProps } from "./template/table.tpl.api.js";
 import type { BaseColumnType, Column, SortOrder } from "./column.api.js";
-import type { TableRenderPropsType, TableComponentRenderers, TableScrollToNodeHandler } from "./table-renderer.api.js";
 import type { InfiniteScrollOptions } from "./infinite-scroll.api.js";
+import type { TableRenderPropsType, TableComponentRenderers, TableScrollToNodeHandler } from "./table-renderer.api.js";
+import type { TableTemplateProps } from "./template/table.tpl.api.js";
 
 export type TableProps<RowType = unknown, ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>> =
 	| BaseTableProps<RowType, ColumnType>

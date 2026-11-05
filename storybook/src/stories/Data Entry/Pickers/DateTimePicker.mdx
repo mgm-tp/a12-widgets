@@ -1,0 +1,81 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as DateTimePickerStories from "./DateTimePicker.stories";
+import * as DateTimePickerInputStories from "./DateTimePicker.Input.stories";
+import * as DateTimePickerAdvancedStories from "./DateTimePickerInput.Advanced.stories";
+
+<Meta of={DateTimePickerStories} />
+
+<Title />
+
+The `DateTimePicker` widget combines the `DatePicker` calendar with a time screen, letting users
+pick a date and a time in a single flow. It extends `DatePickerProps` (react-day-picker), so
+`disabled` matchers, `modifiers`, `yearRange` and the `yearSelectorVariant` header all apply here too.
+
+- A value is confirmed via `onAccept`; `onChange` reports every intermediate date/time change.
+- `timeMode` switches the clock between `12h` and `24h`; `timeRequired` makes picking a time mandatory.
+- `initialScreen` (`date`, `time`, `hour`, `minute`) controls which screen opens first; headers,
+  footers and the time-edit element can be replaced via `customHeaderElement`, `customFooterElement`
+  and `customTimeEditElement`.
+
+For a picker attached to a text input, wrap it with the `DateTimePickerInput` higher-order
+component (see the [Input integration](#input-integration) section below).
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={DateTimePickerStories.Playground} />
+
+## Examples
+
+### Year selector as textbox
+
+<Canvas of={DateTimePickerStories.YearSelectorTextbox} />
+
+### Year selector as select and autocomplete
+
+<Canvas of={DateTimePickerStories.YearSelectorVariants} />
+
+### 24-hour time mode
+
+<Canvas of={DateTimePickerStories.With24hTimeMode} />
+
+### Disabled dates
+
+<Canvas of={DateTimePickerStories.WithDisabledDates} />
+
+### Time required
+
+<Canvas of={DateTimePickerStories.TimeRequired} />
+
+## Input integration
+
+The `DateTimePicker/Input` sidebar entry shows the picker attached to a text input via the
+`DateTimePickerInput` higher-order component — including disabled/readonly states, year selector
+variants and a fully custom dialog triggered from a button.
+
+<Canvas of={DateTimePickerInputStories.Basic} />
+
+## Advanced
+
+The `DateTimePicker/Advanced` sidebar entry covers the time mode from `DateTimeContext`, custom
+formats with `dateTimeFormatter`/`dateTimeConverter`, timezone handling and accessibility
+attributes for the desktop and mobile picker.
+
+<Canvas of={DateTimePickerAdvancedStories.ContextTimeMode} />

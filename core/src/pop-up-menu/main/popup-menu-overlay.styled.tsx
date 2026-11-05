@@ -43,14 +43,16 @@ export const StyledPopupMenuModalOverlay = styled(ModalOverlay).withConfig({
 	$showModalOverlay?: boolean;
 }>(({ $transitionTime, $hasOverlay, $showModalOverlay }) => {
 	return css`
-		${!$hasOverlay &&
-		css`
-			background: unset;
+		${
+			!$hasOverlay &&
+			css`
+				background: unset;
 
-			${StyledModalOverlayContainer} {
-				height: fit-content;
-			}
-		`}
+				${StyledModalOverlayContainer} {
+					height: fit-content;
+				}
+			`
+		}
 
 		animation-name: ${$showModalOverlay ? fadeIn() : fadeOut()};
 		animation-duration: ${$transitionTime}ms;

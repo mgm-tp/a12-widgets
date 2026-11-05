@@ -1,0 +1,51 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as LinesEllipsisStories from "./LinesEllipsis.stories";
+
+<Meta of={LinesEllipsisStories} />
+
+<Title />
+
+The `LinesEllipsis` widget clamps multi-line text to a maximum number of lines and renders an
+ellipsis at the truncation point. Unlike pure CSS line clamping, it measures the text with
+JavaScript, which allows a custom `ellipsis` node, precise truncation `basedOn` letters or words,
+and an `onReflow` callback reporting whether the text was actually clamped.
+
+- `maxLine` controls how many lines are allowed (default `1`).
+- `responsive` (default `true`) re-computes the truncation whenever the container is resized.
+- `htmlSupport` enables experimental truncation of HTML content.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={LinesEllipsisStories.Playground} />
+
+## Examples
+
+### Max lines
+
+<Canvas of={LinesEllipsisStories.MaxLines} />
+
+### Truncate by words
+
+<Canvas of={LinesEllipsisStories.TruncateByWords} />
+
+### Custom ellipsis
+
+<Canvas of={LinesEllipsisStories.CustomEllipsis} />

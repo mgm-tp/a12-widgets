@@ -40,19 +40,47 @@ const meta: Meta<typeof Counter> = {
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		value: {
 			control: { type: "number", min: 0, max: 10000 },
-			description: "The counter value"
+			description: "The value to show in the counter (string or number)"
+		},
+		placeholder: {
+			control: "text",
+			description: "Placeholder text shown when `value` is undefined"
 		},
 		overflowCount: {
 			control: { type: "number", min: 1, max: 9999 },
-			description: "Max count to show before displaying overflow indicator"
+			description: "Max count to show before displaying the overflow indicator"
 		},
 		title: {
 			control: "text",
-			description: "Title attribute for the counter"
+			description: "Hint text shown on mouse over"
+		},
+		type: {
+			control: "select",
+			options: ["default", "constructive", "destructive"],
+			description: "Variant of the counter"
+		},
+		secondary: {
+			control: "boolean",
+			description: "Renders the counter in a muted, secondary style"
+		},
+		interactive: {
+			control: "boolean",
+			description: "Marks the counter as interactive (required for interaction hints)"
+		},
+		hiddenDescription: {
+			control: "text",
+			description: "Hidden text read by screen readers before the counter value"
+		},
+		addonBefore: {
+			control: false,
+			description: "Addon element placed before the value, e.g. an Icon"
+		},
+		addonAfter: {
+			control: false,
+			description: "Addon element placed after the value, e.g. an Icon"
 		}
 	}
 };
@@ -60,34 +88,27 @@ const meta: Meta<typeof Counter> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		value: 5
 	}
 };
 
-export const WithHighCount: Story = {
-	args: {
-		value: 42
-	}
-};
-
-export const WithOverflow: Story = {
+export const Overflow: Story = {
 	args: {
 		value: 150,
 		overflowCount: 99
-	}
-};
-
-export const WithTitle: Story = {
-	args: {
-		value: 10,
-		title: "10 unread messages"
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "Values above `overflowCount` are rendered as `{overflowCount}+`."
+			}
+		}
 	}
 };
 
 export const TypeVariants: Story = {
-	name: "Type Variants",
 	render: () => (
 		<div style={{ display: "flex", gap: 24, alignItems: "center" }}>
 			<Counter value={8} />
@@ -100,14 +121,13 @@ export const TypeVariants: Story = {
 		docs: {
 			description: {
 				story:
-					"Counter supports three type variants: default (neutral), `constructive` (positive/green), and `destructive` (negative/red). A `secondary` Counter uses a muted style."
+					"The `type` prop supports three variants: `default` (neutral), `constructive` (positive/green) and `destructive` (negative/red). A `secondary` counter uses a muted style."
 			}
 		}
 	}
 };
 
 export const WithAddons: Story = {
-	name: "With Addons",
 	render: () => (
 		<div style={{ display: "flex", gap: 24, alignItems: "center" }}>
 			<Counter value={10} addonBefore={<Icon>mail</Icon>} />
@@ -118,7 +138,35 @@ export const WithAddons: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Use addonBefore or addonAfter to place an icon or element adjacent to the counter value."
+				story: "Use `addonBefore` or `addonAfter` to place an icon or element adjacent to the counter value."
+			}
+		}
+	}
+};
+
+export const WithTitle: Story = {
+	args: {
+		value: 10,
+		title: "10 unread messages"
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "The `title` prop provides a hint text that is shown on mouse over."
+			}
+		}
+	}
+};
+
+export const Placeholder: Story = {
+	args: {
+		value: undefined,
+		placeholder: "–"
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "When `value` is undefined, the `placeholder` text is shown instead."
 			}
 		}
 	}

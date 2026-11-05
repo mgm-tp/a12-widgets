@@ -34,8 +34,8 @@ import { darken, lighten } from "polished";
 
 import { getBaseTheme } from "./base-theme.js";
 import type { BaseThemeOptions } from "./base-theme.js";
-import type { BaseThemeConfig } from "./schema.js";
 import { createFontSizeConfig } from "./config/application/font-size.config.js";
+import type { BaseThemeConfig } from "./schema.js";
 
 /**
  * Intent-named, flat palette that maps to the most common semantic color tokens.

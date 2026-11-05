@@ -32,23 +32,22 @@
 
 import type { FC, ReactElement, ReactNode } from "react";
 import { useState } from "react";
-import { Key } from "ts-key-enum";
 import { fireEvent, getAllByDataRole, getByDataRole, queryByDataRole, render, setupDevice, waitFor } from "test-utils";
-import { describe, test, expect, vi, beforeAll } from "vitest";
+import { Key } from "ts-key-enum";
+import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { Icon } from "../../icon/main/icon.view.js";
 import { Button } from "../../button/main/button.view.js";
 import { HeaderTrigger } from "../../button/main/header-trigger/header-trigger.view.js";
-import { List } from "../../list/main/list.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-import { ModalNotification } from "../../modal-notification/main/modal-notification.view.js";
-import { ApplicationFrame } from "../../layout/application-frame/main/application-frame.view.js";
-import { ModalOverlay } from "../../modal-overlay/main/modal-overlay.view.js";
 import { ActionContentbox } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
 import { ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
-
+import { Icon } from "../../icon/main/icon.view.js";
+import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
+import { ApplicationFrame } from "../../layout/application-frame/main/application-frame.view.js";
+import { List } from "../../list/main/list.view.js";
+import { ModalNotification } from "../../modal-notification/main/modal-notification.view.js";
+import { ModalOverlay } from "../../modal-overlay/main/modal-overlay.view.js";
 import { PopUpMenu } from "../main/pop-up-menu.view.js";
 import { PopupMenuConfigContext } from "../main/popup-menu-context.js";
 
@@ -917,8 +916,11 @@ describe("com.mgmtp.a12.widgets.popup-menu", () => {
 	});
 
 	describe("mobile", () => {
-		beforeAll(() => {
+		beforeEach(() => {
 			setupDevice();
+		});
+		afterEach(() => {
+			vi.restoreAllMocks();
 		});
 
 		test("Should display header for popup menu on mobile", () => {
@@ -1442,10 +1444,12 @@ describe("Popup Menu desktop behavior", () => {
 });
 
 describe("Popup Menu mobile behavior", () => {
-	beforeAll(() => {
+	beforeEach(() => {
 		setupDevice();
 	});
-
+	afterEach(() => {
+		vi.restoreAllMocks();
+	});
 	describe("without A11YMobileDesign", () => {
 		test("Should close popup menu when click outside and the focus is set back to the trigger element", async () => {
 			render(<ExamplePopUpMenu enableA11YMobileDesign={false} />);
@@ -1664,10 +1668,6 @@ describe("Popup Menu mobile behavior", () => {
 
 describe("com.mgmtp.a12.widgets.popup-menu", () => {
 	describe("arrow key navigation", () => {
-		beforeAll(() => {
-			setupDevice("desktop");
-		});
-
 		const items = (
 			<List>
 				<List.Item text="Action 1" onClick={() => undefined} />
@@ -1750,10 +1750,6 @@ describe("com.mgmtp.a12.widgets.popup-menu", () => {
 	}); // arrow key navigation
 
 	describe("arrow key navigation — mixed list with readonly items and embedded button", () => {
-		beforeAll(() => {
-			setupDevice("desktop");
-		});
-
 		// Mirrors the with-header-trigger showcase structure:
 		//   [0] readonly  "Peter Parker"        — has NO tabIndex → not focusable
 		//   [1] SubHeader "Language"            — non-interactive

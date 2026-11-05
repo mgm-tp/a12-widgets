@@ -30,18 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FunctionComponent, MouseEvent, ReactNode } from "react";
-import { useCallback, useContext, useRef, useState } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { $getSelection, $isRangeSelection } from "lexical";
+import type { FunctionComponent, MouseEvent, ReactNode } from "react";
+import { useCallback, useContext, useRef, useState } from "react";
 
-import { List } from "../../../../../list/main/list.view.js";
 import { A11YLanguageContext } from "../../../../../common/main/a11y-localization/language-context.js";
-import { StyledEditorButtonGroup, StyledEditorButtonGroupTrigger } from "../../../rich-text-editor.styled.js";
-import { useEditorUpdateChange } from "../../../utils/hooks.js";
-import { useRichTextEditorCache } from "../../../template/rich-text-editor.tpl.view.js";
 import { DataRoles } from "../../../../../common/main/data-roles.js";
-
+import { List } from "../../../../../list/main/list.view.js";
+import { StyledEditorButtonGroup, StyledEditorButtonGroupTrigger } from "../../../rich-text-editor.styled.js";
+import { useRichTextEditorCache } from "../../../template/rich-text-editor.tpl.view.js";
+import { useEditorUpdateChange } from "../../../utils/hooks.js";
 import type { BaseToolbarButtonProps } from "../toolbar-button/toolbar-button.api.js";
 
 import type { ToolbarButtonGroupProps } from "./group-button.api.js";

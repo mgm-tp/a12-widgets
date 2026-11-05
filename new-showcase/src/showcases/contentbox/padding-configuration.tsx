@@ -30,18 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 // start code removal
 import { useState } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import { Radio, ActionContentbox, ContentBoxElements } from "@com.mgmtp.a12.widgets/widgets-core";
 
 // end code removal
 // start code removal
 import { ConfigurationView } from "../../helpers/configuration-view.js";
-import { fixedRandomNumber } from "../../helpers/utils.js";
 import { CodeSnippetGenerationWrapper } from "../../helpers/showcase-example.js";
+import { fixedRandomNumber } from "../../helpers/utils.js";
 // end code removal
 
 export function PaddingConfiguration(): ReactElement {
@@ -59,7 +59,13 @@ export function PaddingConfiguration(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<div className="-u-flex -u-flex-row -u-justify-end -u-items-center">
-					<Radio name="padding-config" onValueChanged={onValueChanged} value={value} label="Padding Configuration">
+					<Radio
+						id="contentbox-padding-configuration-padding-configuration"
+						name="padding-config"
+						onValueChanged={onValueChanged}
+						value={value}
+						label="Padding Configuration"
+					>
 						<Radio.Item value="default" label="Default" />
 						<Radio.Item value="no-padding" label="No Padding" />
 						<Radio.Item value="custom" label="Custom Padding (12px 24px)" />

@@ -30,17 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { waitFor } from "@testing-library/dom";
 import type { ReactNode } from "react";
 import { useRef, useState } from "react";
 import { render, getByDataRole } from "test-utils";
 import { describe, expect, test, afterEach } from "vitest";
 import { page, userEvent } from "vitest/browser";
-import { waitFor } from "@testing-library/dom";
 
-import { DataRoles } from "../../common/main/data-roles.js";
 import { Button } from "../../button/main/button.view.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-
 import { AttachedPortal } from "../main/attached-portal.view.js";
 
 function ScrollableAttachedPortal({

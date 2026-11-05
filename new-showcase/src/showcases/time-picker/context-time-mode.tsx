@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
 import { enUS } from "date-fns/locale";
+import type { ReactElement } from "react";
 
 import { DateTimeContext, TimePicker } from "@com.mgmtp.a12.widgets/widgets-core";
 

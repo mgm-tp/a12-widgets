@@ -31,22 +31,24 @@
  */
 
 import type { ReactNode, ReactElement } from "react";
-import { Children, isValidElement, cloneElement } from "react";
+import { Children } from "react";
 import { styled, css } from "styled-components";
 
-import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
-import { addPrefix, joinClassNames } from "../../common/main/utils.js";
+import { StyledBulletList } from "../../bullet-list/main/bullet-list.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { renderTooltips } from "../../common/main/tooltip-utils.js";
+import { addPrefix, joinClassNames } from "../../common/main/utils.js";
+import { StyledIconWrapper } from "../../icon/main/icon.view.js";
+import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
 import {
 	InputElements,
 	StyledFieldLabel,
 	StyledFieldLabelWrapper,
 	StyledFieldMessageWrapper
 } from "../../input/base/template/base.tpl.view.js";
-import type { TooltipProps } from "../../tooltip/main/tooltip.api.js";
-import { StyledBulletList } from "../../bullet-list/main/bullet-list.view.js";
+import type { TooltipPosition } from "../../input/field-default-config/main/field-default-config.api.js";
+import { useFieldPositions } from "../../input/field-default-config/main/field-default-config.utils.js";
 import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
-import { StyledIconWrapper } from "../../icon/main/icon.view.js";
 
 import type { TextOutputProps } from "./text-output.api.js";
 
@@ -130,8 +132,10 @@ export const StyledTextOutputParagraph = styled.p.withConfig({ displayName: "Sty
 export const StyledTextOutput = styled.div.withConfig({ displayName: "StyledTextOutput-sc-" })<{
 	numberAddons?: number;
 	hasTooltip: boolean;
-}>(({ theme, numberAddons, hasTooltip }) => {
+	$tooltipPosition?: TooltipPosition;
+}>(({ theme, numberAddons, hasTooltip, $tooltipPosition }) => {
 	const { baseInput } = theme.components;
+	const tooltipsBeside = $tooltipPosition !== "above" && $tooltipPosition !== "below";
 	const marginRight = `calc(${baseInput.field.tooltipWidth} * ${numberAddons})`;
 
 	return css`
@@ -166,41 +170,72 @@ export const StyledTextOutput = styled.div.withConfig({ displayName: "StyledText
 				}
 			}
 		}
-		> ${StyledTooltipTriggerWrapper} {
-			margin: 0 0 4px 4px;
+		${
+			tooltipsBeside &&
+			css`
+				> ${StyledTooltipTriggerWrapper} {
+					margin: 0 0 4px 4px;
+				}
+			`
 		}
 
-		${numberAddons &&
-		css`
-			${!hasTooltip &&
+		${
+			$tooltipPosition === "above" &&
 			css`
 				> ${StyledFieldLabelWrapper}, > ${StyledFieldLabel} {
-					margin-right: ${marginRight};
+					display: block;
 				}
-			`}
 
-			> ${StyledTooltipTriggerWrapper}:last-of-type,
-				> ${StyledFieldMessageWrapper} {
-				margin-right: ${marginRight};
-			}
-		`}
+				> ${StyledTooltipTriggerWrapper} {
+					margin: 0 0 4px 0;
+				}
+			`
+		}
+
+		${
+			$tooltipPosition === "below" &&
+			css`
+				> ${StyledTooltipTriggerWrapper} {
+					margin: ${baseInput.input.tooltipInNewLineMarginBelow};
+				}
+			`
+		}
+
+		${
+			numberAddons &&
+			css`
+				${
+					!(tooltipsBeside && hasTooltip) &&
+					css`
+						> ${StyledFieldLabelWrapper}, > ${StyledFieldLabel} {
+							margin-right: ${marginRight};
+						}
+					`
+				}
+
+				${
+					tooltipsBeside
+						? css`
+								> ${StyledTooltipTriggerWrapper}:last-of-type, > ${StyledFieldMessageWrapper} {
+									margin-right: ${marginRight};
+								}
+							`
+						: css`
+								> ${StyledFieldMessageWrapper} {
+									margin-right: ${marginRight};
+								}
+							`
+				}
+			`
+		}
 	`;
 });
 
 export function TextOutput(props: TextOutputProps): ReactElement<TextOutputProps> {
 	const addonAfterRefs: (HTMLElement | null)[] = [];
+	const { messagePosition, tooltipPosition } = useFieldPositions(props, "beside");
 
-	const tooltips =
-		props.tooltips &&
-		Children.map(props.tooltips, (element, index) => {
-			return (
-				isValidElement<TooltipProps>(element) &&
-				cloneElement(element, {
-					key: "tooltip-" + index,
-					className: joinClassNames(element.props.className, `${baseClassName}__tooltip`)
-				})
-			);
-		});
+	const tooltips = renderTooltips(props.tooltips, `${baseClassName}__tooltip`);
 
 	const addonAfters =
 		props.addonAfter &&
@@ -236,6 +271,35 @@ export function TextOutput(props: TextOutputProps): ReactElement<TextOutputProps
 		);
 	};
 
+	const messages = (
+		<>
+			{props.errorMessage && (
+				<InputElements.Error
+					className={`${baseFieldClassName}__message`}
+					id={props.id}
+					errorMessage={props.errorMessage}
+					position={messagePosition}
+				/>
+			)}
+			{props.warningMessage && (
+				<InputElements.Warning
+					className={`${baseFieldClassName}__message`}
+					id={props.id}
+					warningMessage={props.warningMessage}
+					position={messagePosition}
+				/>
+			)}
+			{props.infoMessage && (
+				<InputElements.Info
+					className={`${baseFieldClassName}__message`}
+					id={props.id}
+					infoMessage={props.infoMessage}
+					position={messagePosition}
+				/>
+			)}
+		</>
+	);
+
 	return (
 		<StyledTextOutputWrapper
 			className={className}
@@ -249,30 +313,11 @@ export function TextOutput(props: TextOutputProps): ReactElement<TextOutputProps
 				className={baseClassName}
 				hasTooltip={!!tooltips}
 				numberAddons={Object.keys(addonAfters ?? {}).length}
+				$tooltipPosition={tooltipPosition}
 			>
 				{props.label && <InputElements.Label label={props.label} id={props.id} />}
-				{tooltips}
-				{props.errorMessage && (
-					<InputElements.Error
-						className={`${baseFieldClassName}__message`}
-						id={props.id}
-						errorMessage={props.errorMessage}
-					/>
-				)}
-				{props.warningMessage && (
-					<InputElements.Warning
-						className={`${baseFieldClassName}__message`}
-						id={props.id}
-						warningMessage={props.warningMessage}
-					/>
-				)}
-				{props.infoMessage && (
-					<InputElements.Info
-						className={`${baseFieldClassName}__message`}
-						id={props.id}
-						infoMessage={props.infoMessage}
-					/>
-				)}
+				{tooltipPosition !== "below" && tooltips}
+				{messagePosition !== "below" && messages}
 				<StyledTextOutputContent
 					className={joinClassNames(`${baseClassName}__content`, {
 						[`${baseClassName}__content--no-data`]: props.noData
@@ -295,6 +340,8 @@ export function TextOutput(props: TextOutputProps): ReactElement<TextOutputProps
 						</StyledTextOutputAddons>
 					)}
 				</StyledTextOutputContent>
+				{messagePosition === "below" && messages}
+				{tooltipPosition === "below" && tooltips}
 			</StyledTextOutput>
 		</StyledTextOutputWrapper>
 	);

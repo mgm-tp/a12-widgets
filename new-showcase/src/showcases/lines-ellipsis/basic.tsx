@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
 import { loremIpsum } from "lorem-ipsum";
+import type { ReactElement } from "react";
 
 import { LinesEllipsis } from "@com.mgmtp.a12.widgets/widgets-core";
 

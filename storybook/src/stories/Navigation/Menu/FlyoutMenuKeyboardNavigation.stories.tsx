@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ReactNode } from "react";
 
 import type { MenuItem } from "@com.mgmtp.a12.widgets/widgets-core";
 import { FlyoutMenu, Icon, Typography, KeyboardNavigationConfigProvider } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -39,8 +39,7 @@ import { FlyoutMenu, Icon, Typography, KeyboardNavigationConfigProvider } from "
 const meta: Meta<typeof FlyoutMenu> = {
 	title: "Navigation/Menu/FlyoutMenu/KeyboardNavigation",
 	component: FlyoutMenu,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;
@@ -82,7 +81,7 @@ const NavContext = ({ children }: { children: ReactNode }) => (
 export const HorizontalDefaultMode: Story = {
 	render: () => (
 		<NavContext>
-			<FlyoutMenu type="horizontal" items={items} />
+			<FlyoutMenu id="flyout-menu-keyboard-horizontal-default" type="horizontal" items={items} />
 		</NavContext>
 	),
 	parameters: {
@@ -102,7 +101,7 @@ export const HorizontalArrowOnlyMode: Story = {
 	render: () => (
 		<KeyboardNavigationConfigProvider componentConfigs={{ horizontalFlyoutMenu: "arrow-only" }}>
 			<NavContext>
-				<FlyoutMenu type="horizontal" items={items} />
+				<FlyoutMenu id="flyout-menu-keyboard-horizontal-arrow-only" type="horizontal" items={items} />
 			</NavContext>
 		</KeyboardNavigationConfigProvider>
 	),
@@ -123,7 +122,7 @@ export const VerticalDefaultMode: Story = {
 	render: () => (
 		<NavContext>
 			<div style={{ width: "250px" }}>
-				<FlyoutMenu type="vertical" items={items} />
+				<FlyoutMenu id="flyout-menu-keyboard-vertical-default" type="vertical" items={items} />
 			</div>
 		</NavContext>
 	),
@@ -145,7 +144,7 @@ export const VerticalArrowOnlyMode: Story = {
 		<KeyboardNavigationConfigProvider componentConfigs={{ verticalFlyoutMenu: "arrow-only" }}>
 			<NavContext>
 				<div style={{ width: "250px" }}>
-					<FlyoutMenu type="vertical" items={items} />
+					<FlyoutMenu id="flyout-menu-keyboard-vertical-arrow-only" type="vertical" items={items} />
 				</div>
 			</NavContext>
 		</KeyboardNavigationConfigProvider>

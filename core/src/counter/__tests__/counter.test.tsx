@@ -34,10 +34,9 @@ import { getAllByDataRole, getByDataRole, render, fireEvent } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { Icon } from "../../icon/main/icon.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-
 import type { CounterProps } from "../main/counter.api.js";
 import { Counter } from "../main/counter.view.js";
 

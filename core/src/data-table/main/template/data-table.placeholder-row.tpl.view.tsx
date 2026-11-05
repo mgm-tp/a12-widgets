@@ -31,11 +31,19 @@
  */
 
 import type { CSSProperties, ReactElement, ReactNode } from "react";
-import { css, styled } from "styled-components";
+import { css, keyframes, styled } from "styled-components";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { useDataTableContext } from "../data-table.context.js";
+
+const shimmer = keyframes`
+	0% {
+		background-position: 100% 0;
+	}
+	100% {
+		background-position: -100% 0;
+	}
+`;
 
 /**
  * Placeholder body row rendered while infinite-scroll data is loading.
@@ -53,23 +61,9 @@ export const StyledDataTablePlaceholderRow = styled.tr.withConfig({ displayName:
 				${table.bodyRow.background} 100%
 			);
 			background-size: 200% 100%;
-			animation: a12DataTableShimmer 1.4s ease-in-out infinite;
+			animation: ${shimmer} 1.4s ease-in-out infinite;
 			border-bottom: ${table.bodyRow.borderBottom};
 			pointer-events: none;
-
-			@keyframes a12DataTableShimmer {
-				0% {
-					background-position: 100% 0;
-				}
-				100% {
-					background-position: -100% 0;
-				}
-			}
-
-			@media (prefers-reduced-motion: reduce) {
-				animation: none;
-				background: ${table.header.background};
-			}
 		`;
 	}
 );
@@ -116,7 +110,7 @@ export function DataTablePlaceholderRowTpl({
 }: DataTablePlaceholderRowTplProps): ReactElement {
 	// (tree)grid mode overrides the table role, dropping the native row/cell
 	// mappings, so restate them on the placeholder row and its cell.
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
+	const gridRole = useDataTableContext().gridRole;
 
 	if (columnCount === undefined) {
 		return (

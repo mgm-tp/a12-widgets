@@ -35,9 +35,8 @@ import { Key } from "ts-key-enum";
 import { describe, vi, expect, test } from "vitest";
 
 import { Icon } from "../../icon/main/icon.view.js";
-
-import { Typography } from "../main/typography.view.js";
 import type { BodyProps, HeadlineProps } from "../main/typography.api.js";
+import { Typography } from "../main/typography.view.js";
 
 const { Headline, Body, Section } = Typography;
 

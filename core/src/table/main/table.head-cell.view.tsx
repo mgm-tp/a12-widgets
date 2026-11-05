@@ -30,18 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { isEqual } from "lodash-es";
 import type { KeyboardEvent } from "react";
 import { memo, useMemo, useRef, useCallback } from "react";
 import { Key } from "ts-key-enum";
-import { isEqual } from "lodash-es";
 
-import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
-import { TableTemplate } from "./template/index.js";
-import type { TableRenderPropsType } from "./table-renderer.api.js";
 import type { BaseColumnType } from "./column.api.js";
-import { getNextSorting, isColumnGroup, TableInternalUtils as Utils } from "./table.utils.js";
-import { ColumnResizeHandler } from "./table.resize-handler.view.js";
+import type { TableRenderPropsType } from "./table-renderer.api.js";
 import { useCellHighlightingTableContext, useTableContext } from "./table.context.js";
+import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
+import { ColumnResizeHandler } from "./table.resize-handler.view.js";
+import { getNextSorting, isColumnGroup, TableInternalUtils as Utils } from "./table.utils.js";
+import { TableTemplate } from "./template/index.js";
 
 /** @internal */
 export const HeadCell = memo(function HeadCell(props: TableRenderPropsType.HeadCellProps<BaseColumnType>) {

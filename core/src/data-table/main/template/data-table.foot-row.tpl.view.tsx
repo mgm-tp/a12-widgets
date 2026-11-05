@@ -35,7 +35,6 @@ import { css, styled } from "styled-components";
 
 import type { Container, DataRole, Identifiable, Styleable } from "../../../common/main/base-props.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
 export const StyledDataTableFootRow = styled.tr.withConfig({ displayName: "StyledDataTableFootRow-sc-" })<{
@@ -44,10 +43,12 @@ export const StyledDataTableFootRow = styled.tr.withConfig({ displayName: "Style
 	const { table } = theme.components;
 
 	return css`
-		${$useHighlightColor &&
-		css`
-			background: ${table.footRow.highlightBG};
-		`}
+		${
+			$useHighlightColor &&
+			css`
+				background: ${table.footRow.highlightBG};
+			`
+		}
 	`;
 });
 
@@ -77,11 +78,9 @@ export function DataTableFootRowTpl({
 	ariaRowIndex,
 	children
 }: DataTableFootRowTplProps): ReactElement {
-	// Card view renders the footer as a block, so neutralize the row with
-	// `role="presentation"`. (tree)grid mode restates the suppressed native row
-	// role; default view uses the implicit `row` role.
-	const cardView = useDataTableContext((ctx) => ctx.cardView);
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
+	// (tree)grid mode overrides the table role, dropping the native `<tr>` mapping, so
+	// restate it. Default view uses the implicit `row` role.
+	const gridRole = useDataTableContext().gridRole;
 
 	return (
 		<StyledDataTableFootRow
@@ -89,7 +88,7 @@ export function DataTableFootRowTpl({
 			style={style}
 			id={id}
 			data-role={dataRole ?? DataRoles.Table.Footer.Row}
-			role={cardView ? "presentation" : gridRole ? "row" : undefined}
+			role={gridRole ? "row" : undefined}
 			aria-rowindex={ariaRowIndex}
 			$useHighlightColor={useHighlightColor ?? true}
 		>

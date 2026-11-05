@@ -1,0 +1,7 @@
+{
+	"extends": "./api-extractor.json",
+	"dtsRollup": {
+		"enabled": true,
+		"untrimmedFilePath": "<projectFolder>/temp/widgets-core.rollup.d.ts"
+	}
+}

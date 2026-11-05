@@ -1,0 +1,53 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as TabPanelStories from "./TabPanel.stories";
+
+<Meta of={TabPanelStories} />
+
+<Title />
+
+The `TabPanel` widget renders an icon-based tab list next to a content panel and is typically used
+as a main navigation area, e.g. inside an application frame sidebar. Selection is controlled: pass
+the active tab via `value` and update it in the `onSelect` callback.
+
+- `tabs` accepts a flat `TabProps[]` list or a grouped `GroupTabProps[]` list; individual tabs can
+  be `disabled`, `highlighted` or carry extra content such as a `Badge` (link it via `ariaLabelledby`).
+- `orientation` switches between the default vertical sidebar layout and a horizontal tab bar.
+- An optional `header` (e.g. `TabPanelTemplate.PanelHeader`) is rendered above the tab content.
+- Accessibility: the tab list exposes a localized `aria-label` (overridable via `tabListAriaLabel`),
+  and `focusOnPanelAfterSelect` moves focus to the panel after a tab is selected.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={TabPanelStories.Playground} />
+
+## Examples
+
+### With header
+
+<Canvas of={TabPanelStories.WithHeader} />
+
+### Horizontal orientation
+
+<Canvas of={TabPanelStories.Horizontal} />
+
+### Interaction hints
+
+<Canvas of={TabPanelStories.InteractionHints} />

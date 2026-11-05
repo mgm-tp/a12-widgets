@@ -32,8 +32,8 @@
 
 import type { MouseEvent, KeyboardEvent } from "react";
 
-import type { Container, Styleable, Identifiable, Ref, HTMLAttributes } from "../../common/main/base-props.js";
 import type { Orientation } from "../../common/main/alignment.js";
+import type { Container, Styleable, Identifiable, Ref, HTMLAttributes } from "../../common/main/base-props.js";
 
 /**
  * Positions a given element relative to a reference element, so that the

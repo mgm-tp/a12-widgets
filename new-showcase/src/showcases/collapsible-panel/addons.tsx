@@ -42,9 +42,9 @@ import {
 	Checkbox
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { ThemeContext } from "../../helpers/theme-selector.js";
-import { Text } from "../../helpers/text-generator.js";
 import { ConfigurationView } from "../../helpers/configuration-view.js";
+import { Text } from "../../helpers/text-generator.js";
+import { ThemeContext } from "../../helpers/theme-selector.js";
 
 export const Addons: FC = () => {
 	const { theme } = useContext(ThemeContext);
@@ -75,6 +75,7 @@ export const Addons: FC = () => {
 		<ConfigurationView
 			configuration={
 				<Checkbox
+					id="collapsible-panel-addons-swap-icon-and-addons-positions"
 					checked={swapAddonsPosition}
 					onChange={setSwapAddonsPosition}
 					label="Swap icon and addons positions"

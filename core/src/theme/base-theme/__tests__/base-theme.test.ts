@@ -33,7 +33,6 @@
 import { describe, test, expect, expectTypeOf } from "vitest";
 
 import type { DefaultThemeType } from "../../schema.js";
-
 import { getBaseTheme } from "../base-theme.js";
 import type { BaseThemeConfig } from "../schema.js";
 

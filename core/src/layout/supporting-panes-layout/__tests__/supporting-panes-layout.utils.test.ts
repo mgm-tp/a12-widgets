@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, expect, test } from "vitest";
 import { renderHook } from "@testing-library/react";
+import { describe, expect, test } from "vitest";
 
 import { convertToPixel, useLayoutWidth } from "../main/supporting-panes-layout.utils.js";
 

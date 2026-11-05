@@ -33,13 +33,13 @@
 import type { ContextType, ReactElement, ReactNode } from "react";
 import { Component } from "react";
 
-import { provider } from "../../common/main/device-detector.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { bindMethods, addPrefix, joinClassNames } from "../../common/main/utils.js";
 import { Button } from "../../button/main/button.view.js";
+import { DataRoles } from "../../common/index.js";
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { provider } from "../../common/main/device-detector.js";
+import { bindMethods, addPrefix, joinClassNames } from "../../common/main/utils.js";
 import { Icon } from "../../icon/main/icon.view.js";
 import { PopUpMenu } from "../../pop-up-menu/main/pop-up-menu.view.js";
-import { DataRoles } from "../../common/index.js";
 
 import type { QuickAccessMenuProps } from "./quick-access-menu.api.js";
 

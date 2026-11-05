@@ -53,18 +53,22 @@ export const StyledMessageBoxWrapper = styled.div.withConfig({ displayName: "Sty
 		border: ${messageBox.border[variant]};
 		background-color: ${messageBox.background[variant]};
 		color: ${messageBox.color[variant]};
-		${variant === "warning" &&
-		css`
-			${StyledBulletListItem},
-			${StyledBulletListContent} {
-				color: inherit;
-			}
-		`}
+		${
+			variant === "warning" &&
+			css`
+				${StyledBulletListItem},
+				${StyledBulletListContent} {
+					color: inherit;
+				}
+			`
+		}
 
-		${messageBox.borderWidth &&
-		css`
-			border-width: ${messageBox.borderWidth};
-		`}
+		${
+			messageBox.borderWidth &&
+			css`
+				border-width: ${messageBox.borderWidth};
+			`
+		}
 	`;
 });
 
@@ -145,10 +149,12 @@ export const StyledMessageBoxLabel = styled.div.withConfig({ displayName: "Style
 		line-height: ${label.lineHeight};
 		${breakWord}
 
-		${$hasAction &&
-		css`
-			max-width: ${label.maxWidth};
-		`}
+		${
+			$hasAction &&
+			css`
+				max-width: ${label.maxWidth};
+			`
+		}
 	`;
 });
 

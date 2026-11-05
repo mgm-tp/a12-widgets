@@ -43,7 +43,6 @@ import {
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { ThemeContext } from "../../../helpers/theme-selector.js";
-
 import { MasterDetailExample } from "../master-detail/master-detail.js";
 
 import { tabPanelData } from "./data.js";

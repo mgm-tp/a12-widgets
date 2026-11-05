@@ -34,7 +34,6 @@ import type { ReactElement } from "react";
 import { styled, css } from "styled-components";
 
 import { joinClassNames, getRole } from "../../../common/main/utils.js";
-
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
 import type { TableTemplateProps } from "./table.tpl.api.js";

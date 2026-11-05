@@ -30,28 +30,28 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import ButtonAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/button/main/button.api.json" with { type: "json" };
+import PrimaryButtonCode from "!!./primary-button.tsx?raw";
+import IconButtonCode from "!./icon-button.tsx?raw";
+import InvertButtonCode from "!./invert-button.tsx?raw";
+import InvertIconButtonCode from "!./invert-icon-button.tsx?raw";
+import SecondaryButtonCode from "!./secondary-button.tsx?raw";
+import VerticalButtonCode from "!./vertical-button.tsx?raw";
+import WithLoadingCode from "!./with-loading.tsx?raw";
+import WithProgressBarCode from "!./with-progress-bar.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import ButtonAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/button/main/button.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { PrimaryButtonShowcase } from "./primary-button.js";
-import { SecondaryButtonShowcase } from "./secondary-button.js";
 import { IconButtonShowcase } from "./icon-button.js";
-import { VerticalButtonShowcase } from "./vertical-button.js";
-import { WithProgressBarShowcase } from "./with-progress-bar.js";
-import { WithLoadingShowcase } from "./with-loading.js";
 import { InvertButtonShowcase } from "./invert-button.js";
 import { InvertIconButtonShowcase } from "./invert-icon-button.js";
-
-import SecondaryButtonCode from "!./secondary-button.tsx?raw";
-import IconButtonCode from "!./icon-button.tsx?raw";
-import VerticalButtonCode from "!./vertical-button.tsx?raw";
-import WithProgressBarCode from "!./with-progress-bar.tsx?raw";
-import WithLoadingCode from "!./with-loading.tsx?raw";
-import InvertButtonCode from "!./invert-button.tsx?raw";
-import InvertIconButtonCode from "!./invert-icon-button.tsx?raw";
-import PrimaryButtonCode from "!!./primary-button.tsx?raw";
+import { PrimaryButtonShowcase } from "./primary-button.js";
+import { SecondaryButtonShowcase } from "./secondary-button.js";
+import { VerticalButtonShowcase } from "./vertical-button.js";
+import { WithLoadingShowcase } from "./with-loading.js";
+import { WithProgressBarShowcase } from "./with-progress-bar.js";
 
 const showcases: Showcase[] = [
 	{

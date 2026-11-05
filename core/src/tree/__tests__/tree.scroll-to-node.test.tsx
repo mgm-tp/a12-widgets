@@ -33,8 +33,8 @@
 import { render } from "test-utils";
 import { describe, expect, test, vi } from "vitest";
 
-import { Tree } from "../main/tpl/tree.tpl.view.js";
 import type { TreeNodeTemplateModel } from "../main/tpl/tree.tpl.api.js";
+import { Tree } from "../main/tpl/tree.tpl.view.js";
 
 const TREE_ROOT: TreeNodeTemplateModel = {
 	id: "1",
@@ -100,8 +100,6 @@ describe("com.mgmtp.a12.widgets.tree.scroll-to-node", () => {
 			scrollHandler = handler;
 		});
 
-		vi.useFakeTimers();
-
 		const scrollIntoViewMock = vi.fn();
 		const focusMock = vi.fn();
 
@@ -124,8 +122,6 @@ describe("com.mgmtp.a12.widgets.tree.scroll-to-node", () => {
 		}
 
 		scrollHandler?.(2);
-
-		vi.runAllTimers();
 
 		expect(scrollIntoViewMock).not.toHaveBeenCalled();
 		expect(focusMock).not.toHaveBeenCalled();

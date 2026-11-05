@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement, FC } from "react";
-import { useMemo } from "react";
 import type { LinkMatcher } from "@lexical/react/LexicalAutoLinkPlugin";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import type { ReactElement, FC } from "react";
+import { useMemo } from "react";
 
 import type { AutoLinkPluginProps } from "./auto-link.api.js";
 import type { ChangeHandler } from "./auto-link.internal.api.js";

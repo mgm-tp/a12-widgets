@@ -30,36 +30,35 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { darken } from "polished";
 import type { MouseEvent, TouchEvent, ReactElement, KeyboardEvent } from "react";
 import { memo, useRef, useMemo, useState, useContext, useCallback } from "react";
 import { styled, css } from "styled-components";
-import { darken } from "polished";
 
-import { getNearestFocusableParent, joinClassNames, getRole } from "../../../common/main/utils.js";
-import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
-import { provider } from "../../../common/main/device-detector.js";
+import { StyledButton } from "../../../button/main/button.styled.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
-import { active, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
+import { provider } from "../../../common/main/device-detector.js";
+import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { getNearestFocusableParent, joinClassNames, getRole } from "../../../common/main/utils.js";
 import { Icon, StyledIconWrapper, StyledVariantIconWrapper } from "../../../icon/main/icon.view.js";
 import { StyledBaseBoolean } from "../../../input/base-input-styled/base-boolean.styled.js";
 import { StyledCheckbox } from "../../../input/checkbox/main/checkbox.styled.js";
+import { active, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
 import { StyledTooltipTriggerWrapper } from "../../../tooltip/main/tooltip.styled.js";
-import { StyledButton } from "../../../button/main/button.styled.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-
 import type { Column } from "../column.api.js";
 import { useTableContext } from "../table.context.js";
-import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 import { TableDataAttributes } from "../table.data-attributes.js";
+import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
+import { useStyledTableContext } from "./table.context.styled.js";
+import { StyledTableHeadCellGroup } from "./table.head-cell-group.tpl.view.js";
+import { StyledTableHeadRowSegment } from "./table.head-row-segment.tpl.view.js";
 import { StyledTableMixins, StyledBaseTable } from "./table.styled.js";
 import type { TableTemplateProps } from "./table.tpl.api.js";
 import { handleContextMenu } from "./table.tpl.utils.js";
-import { StyledTableHeadRowSegment } from "./table.head-row-segment.tpl.view.js";
-import { StyledTableHeadCellGroup } from "./table.head-cell-group.tpl.view.js";
-import { useStyledTableContext } from "./table.context.styled.js";
 
 const StyledTableHeadCellSortingIcon = styled(Icon).withConfig({ displayName: "StyledTableHeadCellSortingIcon-sc-" })``;
 
@@ -99,21 +98,25 @@ const StyledTableHeadCellContent = styled.div.withConfig({ displayName: "StyledT
 			width: ${headCell.buttonIconSize};
 		}
 
-		${$hasColumnGroup &&
-		css`
-			line-height: ${headCellGroup.lineHeight};
-		`}
-		${$horizAlignment !== "left" &&
-		css`
-			justify-content: ${$horizAlignment === "right" ? "flex-end" : $horizAlignment};
-			text-align: ${$horizAlignment};
-			${StyledBaseBoolean.StyledFieldControl} {
+		${
+			$hasColumnGroup &&
+			css`
+				line-height: ${headCellGroup.lineHeight};
+			`
+		}
+		${
+			$horizAlignment !== "left" &&
+			css`
 				justify-content: ${$horizAlignment === "right" ? "flex-end" : $horizAlignment};
-			}
-			${StyledBaseBoolean.StyledFieldGroup} ${StyledBaseBoolean.StyledFieldControl} {
-				justify-content: unset;
-			}
-		`}
+				text-align: ${$horizAlignment};
+				${StyledBaseBoolean.StyledFieldControl} {
+					justify-content: ${$horizAlignment === "right" ? "flex-end" : $horizAlignment};
+				}
+				${StyledBaseBoolean.StyledFieldGroup} ${StyledBaseBoolean.StyledFieldControl} {
+					justify-content: unset;
+				}
+			`
+		}
 	`;
 });
 
@@ -151,10 +154,12 @@ export const StyledTableHeadCell = styled(StyledBaseTable.Cell).withConfig({ dis
 		const { header, headCell, bodyCell, bodyRow } = theme.components.table;
 
 		return css`
-			${isHovering &&
-			css`
-				${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
-			`}
+			${
+				isHovering &&
+				css`
+					${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
+				`
+			}
 			align-items: center;
 			color: ${headCell.color};
 			cursor: default;
@@ -166,60 +171,72 @@ export const StyledTableHeadCell = styled(StyledBaseTable.Cell).withConfig({ dis
 			${StyledCheckbox.StyledField} {
 				min-height: auto;
 			}
-			${!subInfo &&
-			!actionCell &&
-			css`
-				padding: ${filterRow ? bodyCell.padding : headCell.padding};
-			`}
+			${
+				!subInfo &&
+				!actionCell &&
+				css`
+					padding: ${filterRow ? bodyCell.padding : headCell.padding};
+				`
+			}
 			&:focus {
 				outline: none;
 			}
 
-			${filterRow &&
-			css`
-				overflow: hidden;
-				&:empty {
-					display: ${cardView && "none"};
-				}
-			`}
-
-			${!filterRow &&
-			!actionCell &&
-			css`
-				${StyledTableHeadCellContent} && {
+			${
+				filterRow &&
+				css`
 					overflow: hidden;
-				}
-			`}
- 
-		 ${subInfo &&
-			css`
-				// Reset separator of pinned column
-				&&&&:last-of-type {
-					box-shadow: none;
-				}
-				${StyledTableMixins.setRowBG({
-					background: isHovering ? darken(bodyRow.subBGRatio, header.background) : header.background,
-					theme,
-					darken: true
-				})}
-			`}
-		   ${(verAlignment === "bottom" || verAlignment === "top") &&
-			css`
-				align-items: ${verAlignment === "bottom" ? "flex-end" : "flex-start"};
-			`}
- 
-		 ${!cardView &&
-			(rowSegmentType === "left" || rowSegmentType === "scroll") &&
-			css`
-				${StyledTableHeadRowSegment}:first-child &&&:first-child[data-role*="group-parent"] {
-					min-width: 100%;
-				}
-				${StyledTableHeadCellGroup}:not(:first-child) &&&:first-child[data-role*="group-parent"] {
-					min-width: 100%;
-				}
-			`}
+					&:empty {
+						display: ${cardView && "none"};
+					}
+				`
+			}
 
-		${StyledTooltipTriggerWrapper} {
+			${
+				!filterRow &&
+				!actionCell &&
+				css`
+					${StyledTableHeadCellContent} && {
+						overflow: hidden;
+					}
+				`
+			}
+
+			${
+				subInfo &&
+				css`
+					// Reset separator of pinned column
+					&&&&:last-of-type {
+						box-shadow: none;
+					}
+					${StyledTableMixins.setRowBG({
+						background: isHovering ? darken(bodyRow.subBGRatio, header.background) : header.background,
+						theme,
+						darken: true
+					})}
+				`
+			}
+			${
+				(verAlignment === "bottom" || verAlignment === "top") &&
+				css`
+					align-items: ${verAlignment === "bottom" ? "flex-end" : "flex-start"};
+				`
+			}
+
+			${
+				!cardView &&
+				(rowSegmentType === "left" || rowSegmentType === "scroll") &&
+				css`
+					${StyledTableHeadRowSegment}:first-child &&&:first-child[data-role*="group-parent"] {
+						min-width: 100%;
+					}
+					${StyledTableHeadCellGroup}:not(:first-child) &&&:first-child[data-role*="group-parent"] {
+						min-width: 100%;
+					}
+				`
+			}
+
+			${StyledTooltipTriggerWrapper} {
 				align-items: center;
 				display: inline-flex;
 				margin: ${headCell.tooltipMargin};
@@ -243,8 +260,9 @@ export const StyledTableHeadSortableCell = styled(StyledTableHeadCell).withConfi
 		color: ${headCell.sortable.color};
 		${createPseudoElement(":before")};
 
-		${!noEffect &&
-		css`
+		${
+			!noEffect &&
+			css`
 			&:not([data-headCell-no-effect="true"]) {
 				${active(headCellStates(headCell.sortable.activeColor, headCell.sortable.activeBorder))}
 				${hover(headCellStates(headCell.sortable.hoverColor, headCell.sortable.hoverBorder))}
@@ -259,13 +277,16 @@ export const StyledTableHeadSortableCell = styled(StyledTableHeadCell).withConfi
 					border-left: ${theme.focusStyles.focusedBoundaryDark};
 				}
 			}
-		`}
-		${resizable &&
-		css`
-			&:before {
-				right: ${resizeHandler.width};
-			}
-		`}
+		`
+		}
+		${
+			resizable &&
+			css`
+				&:before {
+					right: ${resizeHandler.width};
+				}
+			`
+		}
 	`;
 });
 
@@ -284,38 +305,44 @@ const StyledTableHeadCellGroupTpl = styled(StyledTableHeadSortableCell).withConf
 		const isCellHighlightingForRegularTable = !crossTabulation && cellHighlighting;
 
 		return css`
-			${isHovering &&
-			isCellHighlightingForRegularTable &&
-			css`
-				${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
-			`}
-			${!resizable &&
-			css`
-				${createPseudoElement(
-					":after",
-					css`
-						display: block;
-						left: unset;
-						border-right: ${headCellGroup.gapForSingle};
-					`
-				)}
-				&&:focus:after {
-					border-color: transparent;
-				}
-
-				${StyledTableHeadRowSegment} > && {
-					&:after {
-						border-right: ${headCellGroup.gapForGroup};
-					}
-				}
-				${crossTabulation &&
-				rowSegmentType === "left" &&
+			${
+				isHovering &&
+				isCellHighlightingForRegularTable &&
 				css`
-					&&:last-child:after {
-						border-right-color: transparent;
+					${StyledTableMixins.setRowBG({ background: header.background, theme, darken: true })}
+				`
+			}
+			${
+				!resizable &&
+				css`
+					${createPseudoElement(
+						":after",
+						css`
+							display: block;
+							left: unset;
+							border-right: ${headCellGroup.gapForSingle};
+						`
+					)}
+					&&:focus:after {
+						border-color: transparent;
 					}
-				`}
-			`}
+
+					${StyledTableHeadRowSegment} > && {
+						&:after {
+							border-right: ${headCellGroup.gapForGroup};
+						}
+					}
+					${
+						crossTabulation &&
+						rowSegmentType === "left" &&
+						css`
+							&&:last-child:after {
+								border-right-color: transparent;
+							}
+						`
+					}
+				`
+			}
 		`;
 	}
 );

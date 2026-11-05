@@ -31,35 +31,36 @@
  */
 
 import type { FC, SyntheticEvent } from "react";
-import { useRef, useContext, useState, useCallback, useLayoutEffect, useEffect } from "react";
-import type { OnResizeCallback, ResizePayload } from "react-resize-detector";
+import { useRef, useContext, useState, useCallback, useLayoutEffect, useEffect, useId } from "react";
 
-import { provider } from "../../common/main/device-detector.js";
-import { generateUid, usePreviousProps } from "../../common/main/utils.js";
-import { ElementSizeMeasurer, getHorizontalSpacing, ResponsiveHandler } from "../../common/main/responsive-handler.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { Icon } from "../../icon/main/icon.view.js";
-import { WidgetsResizeDetector } from "../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { provider } from "../../common/main/device-detector.js";
+import type { OnResizeCallback, ResizePayload } from "../../common/main/resize-observer/resize-observer.api.js";
+import { ElementSizeMeasurer, getHorizontalSpacing, ResponsiveHandler } from "../../common/main/responsive-handler.js";
+import { usePreviousProps } from "../../common/main/utils.js";
+import { WidgetsResizeDetector } from "../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
+import { Icon } from "../../icon/main/icon.view.js";
 
-import { MainMenuTpl, MenuContainer } from "./template/menu.tpl.view.js";
-import type { MenuItem } from "./menu.api.js";
 import type { FlyoutMenuProps } from "./flyout-menu.api.js";
+import type { MenuItem } from "./menu.api.js";
 import { MenuUtils } from "./menu.internal.js";
-import { MenuTplUtils } from "./template/menu.tpl.internal.js";
 import type { FlattenedMenuItemType } from "./template/menu.tpl.api.js";
+import { MenuTplUtils } from "./template/menu.tpl.internal.js";
+import { MainMenuTpl, MenuContainer } from "./template/menu.tpl.view.js";
 import { useFlyoutMenuKeyboard } from "./use-flyout-menu-keyboard.js";
 
 const { flattenToMenuItems } = MenuTplUtils;
 
 export const FlyoutMenu: FC<FlyoutMenuProps> = ({ hoverDelay = 100, onCondensed, ...props }) => {
 	const menuItemsContainerRef = useRef<HTMLDivElement | null>(null);
-	const id = useRef<string>(props.id ? `${props.id}_mainmenu` : generateUid());
+	const generatedId = useId();
+	const id = useRef<string>(`${props.id || generatedId}_mainmenu`);
 	const menuItemsRef = useRef(flattenToMenuItems(props.items));
 	const context = useContext(A11YLanguageContext);
 
 	const itemsWithIds = useRef(MenuUtils.fillIds(menuItemsRef.current, id.current));
-	const condensedId = useRef<string>(props.id ? `${props.id}_condensed-item` : generateUid());
+	const condensedId = useRef<string>(`${props.id || generatedId}_condensed-item`);
 
 	const menuContainer = useRef<HTMLElement | null>(null);
 	const timeoutId = useRef<number | null>(null);

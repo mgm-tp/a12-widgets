@@ -1,0 +1,50 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as StatusStories from "./Status.stories";
+
+<Meta of={StatusStories} />
+
+<Title />
+
+The `Status` widget displays a short, color-coded status message, optionally preceded by an icon.
+Use it to communicate the state of a record or process inline — for example "under review",
+"completed" or "failed".
+
+- The `variant` prop (`info`, `success`, `warning`, `error`) controls the color scheme; `info` is the default.
+- Pass any element as `icon` — typically an `Icon` matching the variant's meaning.
+- When the message wraps onto multiple lines, the icon aligns to the top of the text automatically.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={StatusStories.Playground} />
+
+## Examples
+
+### Variants
+
+<Canvas of={StatusStories.Variants} />
+
+### Without an icon
+
+<Canvas of={StatusStories.NoIcon} />
+
+### Long text
+
+<Canvas of={StatusStories.LongText} />

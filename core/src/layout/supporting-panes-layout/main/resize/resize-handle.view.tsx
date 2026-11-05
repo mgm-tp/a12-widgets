@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useTheme } from "styled-components";
 import type { FunctionComponent, RefObject, MouseEvent as ReactMouseEvent } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useTheme } from "styled-components";
 
 import { DataRoles } from "../../../../common/main/data-roles.js";
 

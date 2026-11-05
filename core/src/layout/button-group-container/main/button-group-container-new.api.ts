@@ -39,9 +39,9 @@
 
 import type { HTMLAttributes, ReactNode } from "react";
 
-import type { Container, Identifiable, Styleable } from "../../../common/main/base-props.js";
 import type { ButtonGroupProps } from "../../../button-group/main/button-group.api.js";
 import type { ButtonProps as OriginalButtonProps } from "../../../button/main/button.api.js";
+import type { Container, Identifiable, Styleable } from "../../../common/main/base-props.js";
 import type { QuickAccessButtonProps } from "../../../quick-access-button/main/quick-access-button.api.js";
 
 /**

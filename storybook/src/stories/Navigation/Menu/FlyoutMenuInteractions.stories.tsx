@@ -47,8 +47,7 @@ const meta: Meta<typeof FlyoutMenu> = {
 	component: FlyoutMenu,
 	parameters: {
 		layout: "padded"
-	},
-	tags: ["autodocs"]
+	}
 };
 
 export default meta;
@@ -107,24 +106,6 @@ const variantItems: MenuItem[] = [
 	{ label: "Done", variant: "done", title: "Successfully completed" }
 ];
 
-export const Default: Story = {
-	render: () => {
-		return (
-			<div style={{ padding: "20px" }}>
-				<Typography.Headline level={3} style={{ marginBottom: "20px" }}>
-					Horizontal Menu with Interaction Hints
-				</Typography.Headline>
-				<Typography.Body style={{ color: "#666", marginBottom: "10px" }}>
-					Hover or focus on menu items to see interaction hints
-				</Typography.Body>
-				<InteractionHintConfigProvider componentConfigs={{ horizontalFlyoutMenu: true }}>
-					<FlyoutMenu type="horizontal" items={itemsWithSubmenus} />
-				</InteractionHintConfigProvider>
-			</div>
-		);
-	}
-};
-
 export const WithInteractionHint: Story = {
 	render: () => {
 		return (
@@ -136,7 +117,7 @@ export const WithInteractionHint: Story = {
 					Hover or focus on menu items to see interaction hints
 				</Typography.Body>
 				<InteractionHintConfigProvider componentConfigs={{ horizontalFlyoutMenu: true }}>
-					<FlyoutMenu type="horizontal" items={itemsWithSubmenus} />
+					<FlyoutMenu id="flyout-menu-hint-horizontal" type="horizontal" items={itemsWithSubmenus} />
 				</InteractionHintConfigProvider>
 
 				<Typography.Headline level={3} style={{ marginTop: "40px", marginBottom: "20px" }}>
@@ -144,7 +125,7 @@ export const WithInteractionHint: Story = {
 				</Typography.Headline>
 				<InteractionHintConfigProvider componentConfigs={{ verticalFlyoutMenu: true }}>
 					<div style={{ width: "250px" }}>
-						<FlyoutMenu type="vertical" items={itemsWithSubmenus} />
+						<FlyoutMenu id="flyout-menu-hint-vertical" type="vertical" items={itemsWithSubmenus} />
 					</div>
 				</InteractionHintConfigProvider>
 			</div>
@@ -165,7 +146,7 @@ export const WithInteractionHintFollowCursor: Story = {
 				<InteractionHintConfigProvider
 					componentConfigs={{ horizontalFlyoutMenu: { enabled: true, followCursor: true } }}
 				>
-					<FlyoutMenu type="horizontal" items={itemsWithSubmenus} />
+					<FlyoutMenu id="flyout-menu-hint-follow-cursor-horizontal" type="horizontal" items={itemsWithSubmenus} />
 				</InteractionHintConfigProvider>
 
 				<Typography.Headline level={3} style={{ marginTop: "40px", marginBottom: "20px" }}>
@@ -173,7 +154,7 @@ export const WithInteractionHintFollowCursor: Story = {
 				</Typography.Headline>
 				<InteractionHintConfigProvider componentConfigs={{ verticalFlyoutMenu: { enabled: true, followCursor: true } }}>
 					<div style={{ width: "250px" }}>
-						<FlyoutMenu type="vertical" items={itemsWithSubmenus} />
+						<FlyoutMenu id="flyout-menu-hint-follow-cursor-vertical" type="vertical" items={itemsWithSubmenus} />
 					</div>
 				</InteractionHintConfigProvider>
 			</div>
@@ -192,7 +173,7 @@ export const WithInteractionHintNoArrow: Story = {
 					Hints displayed without arrow pointers
 				</Typography.Body>
 				<InteractionHintConfigProvider hideArrow componentConfigs={{ horizontalFlyoutMenu: true }}>
-					<FlyoutMenu type="horizontal" items={itemsWithSubmenus} />
+					<FlyoutMenu id="flyout-menu-hint-no-arrow-horizontal" type="horizontal" items={itemsWithSubmenus} />
 				</InteractionHintConfigProvider>
 
 				<Typography.Headline level={3} style={{ marginTop: "40px", marginBottom: "20px" }}>
@@ -200,7 +181,7 @@ export const WithInteractionHintNoArrow: Story = {
 				</Typography.Headline>
 				<InteractionHintConfigProvider hideArrow componentConfigs={{ verticalFlyoutMenu: true }}>
 					<div style={{ width: "250px" }}>
-						<FlyoutMenu type="vertical" items={itemsWithSubmenus} />
+						<FlyoutMenu id="flyout-menu-hint-no-arrow-vertical" type="vertical" items={itemsWithSubmenus} />
 					</div>
 				</InteractionHintConfigProvider>
 			</div>
@@ -216,7 +197,7 @@ export const WithBadgesAndInteractionHint: Story = {
 					Horizontal Menu with Badges and Hints
 				</Typography.Headline>
 				<InteractionHintConfigProvider componentConfigs={{ horizontalFlyoutMenu: true }}>
-					<FlyoutMenu type="horizontal" items={itemsWithBadges} />
+					<FlyoutMenu id="flyout-menu-hint-badges-horizontal" type="horizontal" items={itemsWithBadges} />
 				</InteractionHintConfigProvider>
 
 				<Typography.Headline level={3} style={{ marginTop: "40px", marginBottom: "20px" }}>
@@ -224,7 +205,7 @@ export const WithBadgesAndInteractionHint: Story = {
 				</Typography.Headline>
 				<InteractionHintConfigProvider componentConfigs={{ verticalFlyoutMenu: true }}>
 					<div style={{ width: "250px" }}>
-						<FlyoutMenu type="vertical" items={itemsWithBadges} />
+						<FlyoutMenu id="flyout-menu-hint-badges-vertical" type="vertical" items={itemsWithBadges} />
 					</div>
 				</InteractionHintConfigProvider>
 			</div>
@@ -240,7 +221,7 @@ export const WithVariantsAndInteractionHint: Story = {
 					Horizontal Menu with Status Variants and Hints
 				</Typography.Headline>
 				<InteractionHintConfigProvider componentConfigs={{ horizontalFlyoutMenu: true }}>
-					<FlyoutMenu type="horizontal" items={variantItems} />
+					<FlyoutMenu id="flyout-menu-hint-variants-horizontal" type="horizontal" items={variantItems} />
 				</InteractionHintConfigProvider>
 
 				<Typography.Headline level={3} style={{ marginTop: "40px", marginBottom: "20px" }}>
@@ -248,7 +229,7 @@ export const WithVariantsAndInteractionHint: Story = {
 				</Typography.Headline>
 				<InteractionHintConfigProvider componentConfigs={{ verticalFlyoutMenu: true }}>
 					<div style={{ width: "250px" }}>
-						<FlyoutMenu type="vertical" items={variantItems} />
+						<FlyoutMenu id="flyout-menu-hint-variants-vertical" type="vertical" items={variantItems} />
 					</div>
 				</InteractionHintConfigProvider>
 			</div>

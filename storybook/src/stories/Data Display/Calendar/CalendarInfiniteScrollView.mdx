@@ -1,0 +1,47 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as CalendarInfiniteScrollViewStories from "./CalendarInfiniteScrollView.stories";
+
+<Meta of={CalendarInfiniteScrollViewStories} />
+
+<Title />
+
+The `Calendar` month view supports continuous scrolling through weeks via `infiniteScrollOptions`,
+turning the month grid into a virtualized, endlessly scrollable calendar between `minDate` and
+`maxDate`. Use it when users need to browse events across many months without page-by-page
+navigation.
+
+- Data is loaded on demand: `dateLoadingStatus` reports per-day loading state and `loadData` fetches
+  new ranges as the user scrolls (`threshold` controls how many extra weeks to prefetch).
+- `displayWeeksCount` sets how many weeks fit in the viewport; `onVisibleRangeChange` reports the
+  currently visible date range.
+- `scrollToDate` provides a handler for programmatic navigation (e.g. "Today" buttons), and
+  `weekScrollSnapType: "mandatory"` snaps scrolling to week boundaries.
+
+## Playground
+
+Use the controls below to explore all props interactively. Scroll inside the calendar to load more
+weeks — the example simulates asynchronous data loading with randomly generated events.
+
+<Primary />
+
+<Controls of={CalendarInfiniteScrollViewStories.Playground} />
+
+## Examples
+
+### Scroll snapping
+
+<Canvas of={CalendarInfiniteScrollViewStories.ScrollSnap} />

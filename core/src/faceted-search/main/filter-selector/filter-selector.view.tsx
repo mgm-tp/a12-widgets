@@ -33,9 +33,9 @@
 import type { ReactNode } from "react";
 
 import type { FilterSelectorProps } from "./filter-selector.api.js";
+import { LegacyFilterSelector } from "./filter-selector.legacy.view.js";
 import type { FilterSelectorListModeProps } from "./filter-selector.list-mode.api.js";
 import { FilterSelectorListMode } from "./filter-selector.list-mode.view.js";
-import { LegacyFilterSelector } from "./filter-selector.legacy.view.js";
 
 export function FilterSelector(props: FilterSelectorProps | FilterSelectorListModeProps): ReactNode {
 	if ("listMode" in props) {

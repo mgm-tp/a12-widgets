@@ -37,7 +37,6 @@ import { getBaseTheme, getQuickTheme, Checkbox } from "@com.mgmtp.a12.widgets/wi
 import type { QuickThemePalette } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { ConfigurationView } from "../../helpers/configuration-view.js";
-
 import { MasterDetailExample } from "../examples/master-detail/master-detail.js";
 
 const FONT = "Inter, sans-serif";
@@ -79,6 +78,7 @@ export function ThemePreviewDemo() {
 		<ConfigurationView
 			configuration={
 				<Checkbox
+					id="base-theme-theme-preview-demo-dark-theme"
 					label="Dark theme"
 					title="Toggle dark theme"
 					checked={isDark}

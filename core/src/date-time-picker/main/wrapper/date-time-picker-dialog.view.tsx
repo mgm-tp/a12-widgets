@@ -33,12 +33,11 @@
 import type { ComponentType, ReactNode, ComponentClass, ContextType } from "react";
 import { Component } from "react";
 
-import { provider } from "../../../common/main/device-detector.js";
-import { ModalOverlay } from "../../../modal-overlay/main/modal-overlay.view.js";
 import { AttachedPortal } from "../../../attached-portal/main/attached-portal.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { DateTimeContext } from "../../../common/main/date-time/date-time-context.js";
-
+import { provider } from "../../../common/main/device-detector.js";
+import { ModalOverlay } from "../../../modal-overlay/main/modal-overlay.view.js";
 import type { DateTimePickerProps } from "../date-time-picker.api.js";
 
 import type { DateTimePickerDialogProps } from "./date-time-picker-dialog.api.js";

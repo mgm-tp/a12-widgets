@@ -32,9 +32,9 @@
 
 import type { ReactNode } from "react";
 
+import type { DataTableSortOrder } from "./data-table.sort.js";
 import type { BaseColumnType } from "./foundation/column.api.js";
 import { flattenAllColumns, isColumnGroup, getMaxColumnDepth } from "./foundation/utils.js";
-import type { DataTableSortOrder } from "./data-table.sort.js";
 
 /**
  * Context passed to a column's {@link DataTableColumn.renderCell}.

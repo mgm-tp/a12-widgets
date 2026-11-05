@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 import { useState, useRef, useCallback, useEffect } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import type { ToastGroupProps, ToastProps, ToastType, Variant } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
@@ -251,7 +251,13 @@ export function ApplicationLevelToastGroupShowcase(): ReactElement {
 						<Row>
 							<Column size={{ sm: 12, md: 12, lg: 12 }}>
 								{!isMobile && (
-									<Radio inline label="ToastGroup position:" value={position} onValueChanged={onPositionChange}>
+									<Radio
+										id="toast-group-app-level-toastgroup-position"
+										inline
+										label="ToastGroup position:"
+										value={position}
+										onValueChanged={onPositionChange}
+									>
 										<Radio.Item label="Left top" value="top-left" />
 										<Radio.Item label="Right top" value="top-right" />
 										<Radio.Item label="Left bottom" value="bottom-left" />
@@ -262,7 +268,13 @@ export function ApplicationLevelToastGroupShowcase(): ReactElement {
 						</Row>
 						<Row>
 							<Column size={{ sm: 12, md: 12, lg: 12 }}>
-								<Radio inline label="Toast type:" value={type} onValueChanged={onTypeChange}>
+								<Radio
+									id="toast-group-app-level-toast-type"
+									inline
+									label="Toast type:"
+									value={type}
+									onValueChanged={onTypeChange}
+								>
 									<Radio.Item label="Permanent" value="permanent" />
 									<Radio.Item label="Temporary" value="temporary" />
 								</Radio>
@@ -284,6 +296,7 @@ export function ApplicationLevelToastGroupShowcase(): ReactElement {
 							{!isMobile && (
 								<Column size={{ sm: 12, md: 12, lg: 12 }}>
 									<Checkbox
+										id="toast-group-app-level-focus-on-mount"
 										checked={!stackable && focusOnMount}
 										onChange={setFocusOnMount}
 										disabled={stackable}

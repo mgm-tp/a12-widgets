@@ -45,7 +45,6 @@
 import type { RefCallback, ReactNode } from "react";
 
 import type { Identifiable, Styleable } from "../../../common/main/base-props.js";
-
 import type { TreeHighlightVariant, TreeNodeTemplateModel } from "../tpl/tree.tpl.api.js";
 
 export interface MapTreeNode<TplType extends TreeNodeTemplateModel = TreeNodeTemplateModel> {

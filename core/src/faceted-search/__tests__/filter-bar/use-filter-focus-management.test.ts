@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, expect, test } from "vitest";
 import { renderHook } from "@testing-library/react";
+import { describe, expect, test } from "vitest";
 
 import { useFilterFocusManagement } from "../../main/filter-bar/use-filter-focus-management.js";
 import type { UseFilterFocusManagementOptions } from "../../main/filter-bar/use-filter-focus-management.js";

@@ -33,11 +33,12 @@
 import "@com.mgmtp.a12.widgets/widgets-core/styles/basic.css";
 import "./roboto.css";
 
+import type { ReactElement } from "react";
 import { useState, StrictMode, Suspense } from "react";
 import { DndProvider } from "react-dnd";
 import type { RouteObject } from "react-router";
 import { createHashRouter, Navigate, RouterProvider, useLocation } from "react-router";
-import { StyleSheetManager, ThemeProvider as ShowcaseThemeProvider } from "styled-components";
+import { css, styled, StyleSheetManager, ThemeProvider as ShowcaseThemeProvider } from "styled-components";
 
 import {
 	DragAndDropUtils,
@@ -49,18 +50,18 @@ import {
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { App } from "./app.js";
-import { Home } from "./showcases/home-page/home.js";
-import type { ThemeType } from "./helpers/theme-selector.js";
-import { CustomThemeContext, getCurrentTheme, ThemeContext, ThemeSelector } from "./helpers/theme-selector.js";
-import { ShowcaseStyles } from "./helpers/showcase-styles.js";
 import type { WidgetInfo } from "./helpers/definitions.js";
-import { LayoutShowcaseContentBox } from "./helpers/view.js";
 import { NotFound } from "./helpers/not-found.js";
 import { ShowcaseErrorBoundary } from "./helpers/showcase-error-boundary.js";
+import { ShowcaseStyles } from "./helpers/showcase-styles.js";
+import { showcaseTheme } from "./helpers/showcase-theme.js";
+import type { ThemeType } from "./helpers/theme-selector.js";
+import { CustomThemeContext, getCurrentTheme, ThemeContext, ThemeSelector } from "./helpers/theme-selector.js";
+import { getLocalStorage, setLocalStorage } from "./helpers/utils.js";
+import { LayoutShowcaseContentBox } from "./helpers/view.js";
 import type { IndexMenuItem, SiteMapMenuItem } from "./routes.js";
 import { SiteMap, Utils } from "./routes.js";
-import { getLocalStorage, setLocalStorage } from "./helpers/utils.js";
-import { showcaseTheme } from "./helpers/showcase-theme.js";
+import { Home } from "./showcases/home-page/home.js";
 
 function renderShowcase(module: IndexMenuItem.ShowcaseModule, basePath: string) {
 	return (
@@ -78,6 +79,7 @@ function renderShowcase(module: IndexMenuItem.ShowcaseModule, basePath: string) 
 			useFullPageLayout={module.useFullPageLayout}
 			useLargeView={module.useLargeView ?? false}
 			useFullLayoutWithoutRightNav={module.useFullLayoutWithoutRightNav ?? false}
+			fitToContentArea={module.fitToContentArea ?? false}
 		/>
 	);
 }
@@ -99,11 +101,20 @@ function buildRouteObjects(items: SiteMapMenuItem[]): RouteObject[] {
 		} else {
 			const basePath = item.path;
 
-			routes.push({
-				path: `${basePath}/*`,
-				element: renderShowcase(item.component, basePath),
-				ErrorBoundary: ShowcaseErrorBoundary
-			});
+			// Canvas surfaces (e.g. the Playground) render chrome-free: bounce the in-app route to the
+			// shell-less `/fullscreen` route so there is no header/sidebar and no per-route layout special-casing.
+			if (item.component.fitToContentArea) {
+				routes.push({
+					path: `${basePath}/*`,
+					element: <FullscreenRedirect path={basePath} />
+				});
+			} else {
+				routes.push({
+					path: `${basePath}/*`,
+					element: renderShowcase(item.component, basePath),
+					ErrorBoundary: ShowcaseErrorBoundary
+				});
+			}
 		}
 	}
 
@@ -129,6 +140,23 @@ function collectLeavesByPath(items: SiteMapMenuItem[]): Map<string, SiteMapMenuI
 
 const leafByPath = collectLeavesByPath(SiteMap);
 
+// Fills the viewport so canvas showcases (fitToContentArea, height: 100%) have a definite height to
+// resolve against — the shell-less `/fullscreen` route has no sidebar/frame to anchor it otherwise.
+// Non-canvas showcases keep their natural height and just get a viewport minimum.
+const StyledFullscreen = styled.div<{ $fill?: boolean }>(
+	({ $fill }) => css`
+		${
+			$fill
+				? css`
+						height: 100dvh;
+					`
+				: css`
+						min-height: 100dvh;
+					`
+		}
+	`
+);
+
 function Fullscreen() {
 	const { pathname } = useLocation();
 	const rest = pathname.replace(/^\/fullscreen/, "");
@@ -138,7 +166,19 @@ function Fullscreen() {
 		return <NotFound />;
 	}
 
-	return renderShowcase(leaf.component, leaf.path);
+	return (
+		<StyledFullscreen $fill={leaf.component.fitToContentArea}>
+			{renderShowcase(leaf.component, leaf.path)}
+		</StyledFullscreen>
+	);
+}
+
+// Redirects an in-app canvas route (e.g. /playground/playground) to its shell-less /fullscreen twin,
+// preserving the query string so shared `?code=` playground links keep working through the bounce.
+function FullscreenRedirect({ path }: { path: string }): ReactElement {
+	const { search } = useLocation();
+
+	return <Navigate to={{ pathname: `/fullscreen${path}`, search }} replace />;
 }
 
 function ComponentWidgetsRedirect() {

@@ -38,8 +38,7 @@ import { SlidingMenu, Icon, Typography, KeyboardNavigationConfigProvider } from 
 const meta: Meta<typeof SlidingMenu> = {
 	title: "Navigation/Menu/SlidingMenu/KeyboardNavigation",
 	component: SlidingMenu,
-	parameters: { layout: "fullscreen" },
-	tags: ["autodocs"]
+	parameters: { layout: "fullscreen" }
 };
 
 export default meta;

@@ -31,7 +31,6 @@
  */
 
 import type { Identifiable, Styleable } from "../../../common/main/base-props.js";
-
 import { StyledFileUpload } from "../file-upload.styled.js";
 
 export type IconProps = Identifiable &

@@ -32,9 +32,8 @@
 
 import type { ReactNode } from "react";
 
-import type { DataRole, Identifiable, Styleable } from "../../../../../common/main/base-props.js";
 import type { A11yDefinition } from "../../../../../common/main/a11y-localization/a11y-key-definition.api.js";
-
+import type { DataRole, Identifiable, Styleable } from "../../../../../common/main/base-props.js";
 import type { ButtonType } from "../toolbar-button/toolbar-button.api.js";
 
 export interface ToolbarButtonGroupProps<LanguageContext = A11yDefinition> extends Styleable, Identifiable, DataRole {

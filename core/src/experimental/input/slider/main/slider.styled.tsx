@@ -66,21 +66,25 @@ export const StyledSlider = styled.div.withConfig({ displayName: "StyledSlider-s
 		outline: none;
 		width: 100%;
 
-		${!$disabled && !$readonly
-			? css`
-					${active(variantState(fill.leftActiveBackground, tick.leftActiveBackground, thumb.activeBackground))}
-					${hover(variantState(fill.hoverBackground, tick.hoverBackground, thumb.hoverBackground))}
+		${
+			!$disabled && !$readonly
+				? css`
+						${active(variantState(fill.leftActiveBackground, tick.leftActiveBackground, thumb.activeBackground))}
+						${hover(variantState(fill.hoverBackground, tick.hoverBackground, thumb.hoverBackground))}
 						&:focus {
-						${variantState(fill.leftFocusBackground, tick.leftFocusBackground, thumb.focusBackground)}
-					}
-				`
-			: css`
-					cursor: default;
-				`}
-		${$invalid &&
-		css`
-			margin-bottom: ${container.invalidMarginBottom};
-		`}
+							${variantState(fill.leftFocusBackground, tick.leftFocusBackground, thumb.focusBackground)}
+						}
+					`
+				: css`
+						cursor: default;
+					`
+		}
+		${
+			$invalid &&
+			css`
+				margin-bottom: ${container.invalidMarginBottom};
+			`
+		}
 	`;
 });
 
@@ -115,18 +119,24 @@ export const StyledSliderThumb = styled.div.withConfig({ displayName: "StyledSli
 		transform: rotate(${thumb.transformRotate});
 		width: ${thumb.size};
 		left: ${$thumbPosition}%;
-		${$disabled &&
-		css`
-			background-color: ${thumb.disabledBackground};
-		`}
-		${$invalid &&
-		css`
-			background-color: ${thumb.invalidBackground};
-		`}
-		${$readonly &&
-		css`
-			background-color: ${thumb.readonlyBackground};
-		`}
+		${
+			$disabled &&
+			css`
+				background-color: ${thumb.disabledBackground};
+			`
+		}
+		${
+			$invalid &&
+			css`
+				background-color: ${thumb.invalidBackground};
+			`
+		}
+		${
+			$readonly &&
+			css`
+				background-color: ${thumb.readonlyBackground};
+			`
+		}
 	`;
 });
 
@@ -145,11 +155,13 @@ export const StyledSliderLabel = styled.div.withConfig({ displayName: "StyledSli
 		top: ${label.top};
 		transform: translate(-50%, 0);
 		left: ${$position}%;
-		${$disabled &&
-		css`
-			color: ${label.disabledColor};
-			cursor: not-allowed;
-		`}
+		${
+			$disabled &&
+			css`
+				color: ${label.disabledColor};
+				cursor: not-allowed;
+			`
+		}
 	`;
 });
 
@@ -168,10 +180,12 @@ export const StyledSliderTick = styled.div.withConfig({ displayName: "StyledSlid
 		transform: translate(-50%, 0);
 		width: ${tick.width};
 		left: ${$tickPosition}%;
-		${$disabled &&
-		css`
-			background-color: ${tick.leftDisabledBackground};
-		`}
+		${
+			$disabled &&
+			css`
+				background-color: ${tick.leftDisabledBackground};
+			`
+		}
 	`;
 });
 
@@ -198,10 +212,12 @@ export const StyledSliderBarFill = styled.div.withConfig({ displayName: "StyledS
 		top: 0;
 		left: ${$thumbPosition}%;
 		width: ${100 - $thumbPosition}%;
-		${$disabled &&
-		css`
-			background-color: ${fill.leftDisabledBackground};
-		`}
+		${
+			$disabled &&
+			css`
+				background-color: ${fill.leftDisabledBackground};
+			`
+		}
 	`;
 });
 

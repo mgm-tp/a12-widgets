@@ -32,6 +32,15 @@
 
 import { styled, css } from "styled-components";
 
+import { StyledButton, variantButtonStyles } from "../../button/main/button.styled.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import {
+	StyledContentBoxHeading,
+	StyledContentBoxHeader,
+	StyledContentBoxTitleWrapper,
+	StyledContentBoxFooter
+} from "../../contentbox/main/template/contentbox.tpl.styled.js";
+import { StyledIconWrapper } from "../../icon/main/icon.view.js";
 import {
 	StyledListItemContent,
 	StyledListItemWrapper,
@@ -40,23 +49,14 @@ import {
 	StyledListItemText
 } from "../../list/main/list.styled.js";
 import { List } from "../../list/main/list.view.js";
-import { StyledIconWrapper } from "../../icon/main/icon.view.js";
-import {
-	StyledContentBoxHeading,
-	StyledContentBoxHeader,
-	StyledContentBoxTitleWrapper,
-	StyledContentBoxFooter
-} from "../../contentbox/main/template/contentbox.tpl.styled.js";
-import type { DefaultThemeType } from "../../theme/schema.js";
-import { activeAndHover, brightFocus } from "../../theme/base/mixins/_interaction.js";
-import { StyledQuickAccessButton } from "../../quick-access-button/main/quick-access-button.styled.js";
-import { StyledButton, variantButtonStyles } from "../../button/main/button.styled.js";
 import {
 	StyledPaginationWrapper,
 	StyledSimplePaginationAction,
 	StyledSimplePaginationLabel
 } from "../../pagination/main/pagination.styled.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { StyledQuickAccessButton } from "../../quick-access-button/main/quick-access-button.styled.js";
+import { activeAndHover, brightFocus } from "../../theme/base/mixins/_interaction.js";
+import type { DefaultThemeType } from "../../theme/schema.js";
 
 import type { ValidationBarVariant } from "./validation-bar.api.js";
 
@@ -340,23 +340,26 @@ export namespace StyledValidationBar {
 			display: flex;
 			padding: ${header.padding};
 			min-height: ${header.minHeight};
+			overflow: hidden;
 
-			${$variant === "warning" &&
-			css`
-				${variantButtonStyles({ theme, isWarning: true, roundedIconButton: false })}
+			${
+				$variant === "warning" &&
+				css`
+					${variantButtonStyles({ theme, isWarning: true, roundedIconButton: false })}
 
-				${StyledPaginationWrapper} {
-					border-color: ${warningColor};
+					${StyledPaginationWrapper} {
+						border-color: ${warningColor};
 
-					${StyledSimplePaginationAction}[aria-disabled="true"] {
-						border: none;
+						${StyledSimplePaginationAction}[aria-disabled="true"] {
+							border: none;
+						}
+
+						${StyledSimplePaginationLabel} {
+							color: ${warningColor};
+						}
 					}
-
-					${StyledSimplePaginationLabel} {
-						color: ${warningColor};
-					}
-				}
-			`}
+				`
+			}
 		`;
 	});
 

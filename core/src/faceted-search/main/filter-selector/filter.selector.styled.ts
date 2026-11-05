@@ -32,30 +32,30 @@
 
 import { styled, css } from "styled-components";
 
-import { addPrefix } from "../../../common/main/utils.js";
 import { Button } from "../../../button/main/button.view.js";
-import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
+import { addPrefix } from "../../../common/main/utils.js";
 import { ActionContentbox } from "../../../contentbox/main/action-contentbox/action-contentbox.view.js";
-import { StyledModalOverlayWrapper } from "../../../modal-overlay/main/modal-overlay.view.js";
 import {
 	StyledContentBoxTitleWrapper,
 	StyledContentBoxHeading,
 	StyledContentBoxContent,
 	StyledContentBoxFooter
 } from "../../../contentbox/main/template/contentbox.tpl.styled.js";
-import { StyledSubActionBarTpl } from "../../../contentbox/main/template/sub-action-bar.tpl.view.js";
 import { SubHeadingElements } from "../../../contentbox/main/template/elements/sub-heading.tpl.view.js";
+import { StyledSubActionBarTpl } from "../../../contentbox/main/template/sub-action-bar.tpl.view.js";
+import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { StyledCheckbox } from "../../../input/checkbox/main/checkbox.styled.js";
+import { Checkbox } from "../../../input/checkbox/main/checkbox.view.js";
+import { StyledGridRow, StyledGridColumn } from "../../../layout/layout-grid/main/layout-grid.styled.js";
 import {
 	StyledListItemWrapper,
 	StyledListItemContent,
 	StyledListItemGraphic,
 	StyledListItemText
 } from "../../../list/main/list.styled.js";
-import { StyledGridRow, StyledGridColumn } from "../../../layout/layout-grid/main/layout-grid.styled.js";
-import { active as activeFn, hover } from "../../../theme/base/mixins/_interaction.js";
 import { List as ListTemplate } from "../../../list/main/list.view.js";
-import { Checkbox } from "../../../input/checkbox/main/checkbox.view.js";
+import { StyledModalOverlayWrapper } from "../../../modal-overlay/main/modal-overlay.view.js";
+import { active as activeFn, hover } from "../../../theme/base/mixins/_interaction.js";
 import { checkboxStates } from "../../../theme/base/mixins/components/_input.js";
 
 const baseClassName = addPrefix("filter-selector");
@@ -201,65 +201,71 @@ export const StyledFilterSelectorContent = styled.div.withConfig({ displayName: 
 			margin: 0;
 		}
 
-		${!isMobileSecondary &&
-		css`
-			color: ${filterSelector.content.color};
-			max-height: ${filterSelector.content.maxHeight};
-			outline: 0;
-		`}
+		${
+			!isMobileSecondary &&
+			css`
+				color: ${filterSelector.content.color};
+				max-height: ${filterSelector.content.maxHeight};
+				outline: 0;
+			`
+		}
 
-		${contentType === "primary" &&
-		css`
-			max-width: ${filterSelector.content.primary.width};
-			min-width: ${filterSelector.content.primary.width};
+		${
+			contentType === "primary" &&
+			css`
+				max-width: ${filterSelector.content.primary.width};
+				min-width: ${filterSelector.content.primary.width};
 
-			${StyledContentBoxHeading} {
-				border-right: ${filterSelector.content.primary.headerBorderRight};
-			}
-
-			${StyledListItemContent} {
-				padding: ${filterSelector.listItem.padding};
-			}
-
-			${StyledFilterSelectorSectionTitle} {
-				padding: ${filterSelector.list.sectionPadding};
-			}
-		`}
-
-		${contentType !== "primary" &&
-		css`
-			min-width: ${filterSelector.content.secondary.width};
-			width: ${filterSelector.content.secondary.width};
-
-			&:not(:first-child) {
-				${StyledContentBoxHeading},
-				${SubHeadingElements.StyledSubHeading},
-						${StyledContentBoxContent} {
-					border-left: ${filterSelector.content.secondary.borderLeft};
+				${StyledContentBoxHeading} {
+					border-right: ${filterSelector.content.primary.headerBorderRight};
 				}
-			}
 
-			${StyledListItemWrapper} {
-				background: ${filterSelector.list.optionItem.background.default};
 				${StyledListItemContent} {
-					padding: ${filterSelector.content.secondary.listItemPadding};
+					padding: ${filterSelector.listItem.padding};
 				}
-			}
 
-			${StyledFilterSelectorSectionTitle}${StyledFilterSelectorSectionTitle} {
-				margin: ${filterSelector.content.secondary.subHeaderMargin};
-				padding: ${filterSelector.list.sectionPadding};
-			}
+				${StyledFilterSelectorSectionTitle} {
+					padding: ${filterSelector.list.sectionPadding};
+				}
+			`
+		}
 
-			${StyledContentBoxContent} {
-				min-height: ${filterSelector.content.secondary.contentBoxContent.minHeight};
-			}
+		${
+			contentType !== "primary" &&
+			css`
+				min-width: ${filterSelector.content.secondary.width};
+				width: ${filterSelector.content.secondary.width};
 
-			${StyledListItemGraphic} {
-				position: static;
-				margin-left: -${filterSelector.actionBarHorizontalPadding};
-			}
-		`}
+				&:not(:first-child) {
+					${StyledContentBoxHeading},
+					${SubHeadingElements.StyledSubHeading},
+					${StyledContentBoxContent} {
+						border-left: ${filterSelector.content.secondary.borderLeft};
+					}
+				}
+
+				${StyledListItemWrapper} {
+					background: ${filterSelector.list.optionItem.background.default};
+					${StyledListItemContent} {
+						padding: ${filterSelector.content.secondary.listItemPadding};
+					}
+				}
+
+				${StyledFilterSelectorSectionTitle}${StyledFilterSelectorSectionTitle} {
+					margin: ${filterSelector.content.secondary.subHeaderMargin};
+					padding: ${filterSelector.list.sectionPadding};
+				}
+
+				${StyledContentBoxContent} {
+					min-height: ${filterSelector.content.secondary.contentBoxContent.minHeight};
+				}
+
+				${StyledListItemGraphic} {
+					position: static;
+					margin-left: -${filterSelector.actionBarHorizontalPadding};
+				}
+			`
+		}
 	`;
 });
 
@@ -400,17 +406,19 @@ export const StyledFilterSelectorItemCheckbox = styled(Checkbox).withConfig({
 	const { checkbox } = theme.components;
 
 	return css`
-		${graphicHovered &&
-		css`
-			@media (pointer: fine) {
-				${StyledCheckbox.StyledCheckboxInput} {
-					${checkboxStates(checked ? checkbox.hover.checkedBG : undefined, checkbox.hover.border)};
-					+ label > span:before {
-						inset: -1px;
+		${
+			graphicHovered &&
+			css`
+				@media (pointer: fine) {
+					${StyledCheckbox.StyledCheckboxInput} {
+						${checkboxStates(checked ? checkbox.hover.checkedBG : undefined, checkbox.hover.border)};
+						+ label > span:before {
+							inset: -1px;
+						}
 					}
 				}
-			}
-		`}
+			`
+		}
 	`;
 });
 
@@ -429,40 +437,46 @@ export const StyledFilterSelectorItem = styled(ListTemplate.Item).withConfig({
 
 		${StyledListItemContent} {
 			background: ${selected ? "none" : "transparent"};
-			${active &&
-			css`
-				&:before {
-					border-left: ${filterSelector.listItem.activeBorderLeft.default};
-				}
-			`}
-			${active &&
-			!disabled &&
-			!readonly &&
-			css`
-				${activeFn(css`
+			${
+				active &&
+				css`
 					&:before {
-						border-left: ${filterSelector.listItem.activeBorderLeft.active};
+						border-left: ${filterSelector.listItem.activeBorderLeft.default};
 					}
-				`)};
+				`
+			}
+			${
+				active &&
+				!disabled &&
+				!readonly &&
+				css`
+					${activeFn(css`
+						&:before {
+							border-left: ${filterSelector.listItem.activeBorderLeft.active};
+						}
+					`)};
 
-				${hover(css`
-					&:before {
-						border-left: ${filterSelector.listItem.activeBorderLeft.hover};
+					${hover(css`
+						&:before {
+							border-left: ${filterSelector.listItem.activeBorderLeft.hover};
+						}
+					`)};
+
+					&:focus:before {
+						border-left: ${filterSelector.listItem.activeBorderLeft.focus};
 					}
-				`)};
-
-				&:focus:before {
-					border-left: ${filterSelector.listItem.activeBorderLeft.focus};
-				}
-			`}
+				`
+			}
 		}
 
-		${lastSelectedDivider &&
-		css`
-			&:before {
-				border-bottom: ${list.dividerBorder};
-			}
-		`}
+		${
+			lastSelectedDivider &&
+			css`
+				&:before {
+					border-bottom: ${list.dividerBorder};
+				}
+			`
+		}
 	`;
 });
 

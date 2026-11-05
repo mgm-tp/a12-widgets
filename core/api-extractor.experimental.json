@@ -1,0 +1,20 @@
+{
+	"$schema": "./node_modules/@microsoft/api-extractor/lib-esm/schemas/api-extractor.schema.json",
+
+	// API surface of the `@com.mgmtp.a12.widgets/widgets-core/experimental` entry point
+	// (see `package.json` → `exports["./experimental"]`). Kept as a separate report from
+	// `index.api.md`: the experimental entry re-declares types that also exist at the
+	// package root — most notably `BaseColumnType`, which `data-table/main/foundation/`
+	// deliberately forks from `table/main/` — and a single rolled-up report would hide
+	// one behind the other.
+	"extends": "./api-extractor.json",
+
+	"mainEntryPointFilePath": "./lib/experimental-entry.d.ts",
+
+	"apiReport": {
+		"enabled": true,
+		"reportFolder": ".",
+		"reportFileName": "experimental",
+		"reportTempFolder": "./target/api"
+	}
+}

@@ -1,0 +1,74 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as TypographyStories from "./Typography.stories";
+import * as TypographyKeyboardNavigationStories from "./TypographyKeyboardNavigation.stories";
+
+<Meta of={TypographyStories} />
+
+<Title />
+
+The `Typography` widget provides structured heading and body text building blocks for page layouts.
+`Typography.Headline` renders a heading at a styling `level` (1–5) and supports dividers, collapsible
+sections, info indicators, addons and header action buttons. `Typography.Body` renders paragraph-level
+text, and `Typography.Section` groups headlines and body text into a structured section.
+
+- `level` controls styling only — use `ariaLevel` or `htmlTag` to set the semantic heading level.
+- `collapsible` together with `collapsed` / `onCollapsingChange` turns a headline into a section toggle.
+- `info`, `addons` and `headerActions` place supplementary content and actions in the headline row.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={TypographyStories.Playground} />
+
+## Examples
+
+### Headline levels
+
+<Canvas of={TypographyStories.HeadlineLevels} />
+
+### With divider
+
+<Canvas of={TypographyStories.WithDivider} />
+
+### Collapsible section
+
+<Canvas of={TypographyStories.CollapsibleSection} />
+
+### Info and addons
+
+<Canvas of={TypographyStories.InfoAndAddons} />
+
+### Header actions
+
+<Canvas of={TypographyStories.HeaderActions} />
+
+### Body text
+
+<Canvas of={TypographyStories.BodyText} />
+
+## Keyboard navigation
+
+Collapsible headlines are keyboard accessible: **Tab** reaches the headline, **Enter** / **Space**
+toggles the section and **Tab** continues to any header action buttons. With
+`KeyboardNavigationConfigProvider` set to `arrow-only`, **↑ / ↓** move between the headline and its
+header actions while **Tab** skips the whole section. See the `KeyboardNavigation` sidebar entries
+for both modes.
+
+<Canvas of={TypographyKeyboardNavigationStories.DefaultMode} />

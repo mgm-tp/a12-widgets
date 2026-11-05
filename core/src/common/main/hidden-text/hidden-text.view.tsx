@@ -33,8 +33,8 @@
 import type { ReactElement } from "react";
 import { styled, css } from "styled-components";
 
-import { addPrefix } from "../utils.js";
 import { DataRoles } from "../data-roles.js";
+import { addPrefix } from "../utils.js";
 
 import type { HiddenTextProps } from "./hidden-text.api.js";
 
@@ -58,10 +58,12 @@ export const StyledHiddenTextWrapper = styled.span.withConfig({ displayName: "St
 			width: 1px;
 			height: 1px;
 		}
-		${!$showHiddenText &&
-		css`
-			display: none;
-		`}
+		${
+			!$showHiddenText &&
+			css`
+				display: none;
+			`
+		}
 	`
 );
 

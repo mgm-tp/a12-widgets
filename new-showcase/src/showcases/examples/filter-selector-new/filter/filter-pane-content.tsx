@@ -48,14 +48,14 @@ import type { FilterItemData, FilterSectionData } from "@com.mgmtp.a12.widgets/w
 
 import { StyledFilterHeader } from "../../../faceted-search/filter-selector-new/filter-selector-showcase-template.js";
 
-import { LanguageFilterSection, PriceFilterSection, GenericStringFilterSection } from "./shared-filter-sections.js";
-import type { FilterData } from "./type.js";
-import { useFilterContext } from "./filter-context.js";
-import { StyledResetButton, StyledSearchWrapper } from "./filter.styled.js";
 import { StyledToggleShowcaseWrapper } from "./filter-configuration.js";
-import { FilterOptions } from "./filter-options.js";
+import { useFilterContext } from "./filter-context.js";
 import { FilterItemActions } from "./filter-item-actions.js";
 import type { FilterConfigItem } from "./filter-item-actions.js";
+import { FilterOptions } from "./filter-options.js";
+import { StyledResetButton, StyledSearchWrapper } from "./filter.styled.js";
+import { LanguageFilterSection, PriceFilterSection, GenericStringFilterSection } from "./shared-filter-sections.js";
+import type { FilterData } from "./type.js";
 
 export interface FilterPaneContentProps {
 	activeFilters: FilterData[];

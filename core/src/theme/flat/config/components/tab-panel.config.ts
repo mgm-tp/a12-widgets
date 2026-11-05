@@ -31,7 +31,6 @@
  */
 
 import type { FlatThemeType } from "../../../schema.js";
-
 import { GeneralFlatColorsConfig } from "../base/colors.config.js";
 
 import { contentBoxFlatConfig } from "./contentbox.config.js";

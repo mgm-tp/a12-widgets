@@ -33,8 +33,8 @@
 import { render, getByDataRole, fireEvent } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import { Filter } from "../../main/filter/filter.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { Filter } from "../../main/filter/filter.view.js";
 
 describe("com.mgmtp.a12.widgets.filter", () => {
 	const properties = {

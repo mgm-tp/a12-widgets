@@ -45,8 +45,8 @@
 
 import type { ReactNode, RefCallback } from "react";
 
-import type { DropDownItem, SelectedItemPosition } from "../../../dropdown/main/template/dropdown.tpl.api.js";
 import type { Ref } from "../../../common/main/base-props.js";
+import type { DropDownItem, SelectedItemPosition } from "../../../dropdown/main/template/dropdown.tpl.api.js";
 import type { BaseInputProps, InputDOMProps } from "../../base/template/base.tpl.api.js";
 
 export interface AutocompleteProps extends Omit<BaseInputProps, "fitToParent">, InputDOMProps, Ref<HTMLDivElement> {
@@ -70,7 +70,12 @@ export interface AutocompleteProps extends Omit<BaseInputProps, "fitToParent">, 
 	inputPlaceHolder?: string;
 
 	/**
-	 * An array of strings to use as the source of autocompletion.
+	 * The options to complete from, as plain strings or as items. An item holding `children` is a
+	 * group of options rather than one itself.
+	 *
+	 * Filtering these as they are typed is what {@link onSearch} is for, and a grouped list needs it:
+	 * the built-in filter matches an item's own label, which for a group is its heading, so it can
+	 * only ever keep or drop a whole group.
 	 */
 	items: string[] | DropDownItem[];
 
@@ -90,6 +95,23 @@ export interface AutocompleteProps extends Omit<BaseInputProps, "fitToParent">, 
 	 * @default "bottom"
 	 */
 	selectedItemPosition?: SelectedItemPosition;
+
+	/**
+	 * Presents the options in a fullscreen dialog instead of a dropdown attached to the field.
+	 *
+	 * Defaults to `true` on phones — where a dropdown attached to the field competes with the
+	 * on-screen keyboard — and to `false` everywhere else. Pass an explicit value to pin the
+	 * presentation regardless of the device.
+	 * @default DeviceDetector.isPhone()
+	 */
+	mobileModal?: boolean;
+
+	/**
+	 * Renders only the matches in view instead of all of them, which keeps long lists responsive. By
+	 * default this switches itself on once there are more matches than are worth rendering at once;
+	 * pass `false` to always render every match.
+	 */
+	virtualize?: boolean;
 
 	/**
 	 * The selected item of the autocomplete from outside.
@@ -150,6 +172,10 @@ export interface AutocompleteProps extends Omit<BaseInputProps, "fitToParent">, 
 	/**
 	 * The element to override the TextField which triggers open the autocomplete on mobile.
 	 * @default TextField
+	 * @deprecated since 39.1.0 — the fullscreen dialog on phones is opened by the field itself now, so
+	 * there is no separate trigger to override and this prop has no effect. It will be removed in a
+	 * future major version. Use {@link AutocompleteProps.mobileModal} to pin which presentation the
+	 * options get.
 	 */
 	mobileTriggerElement?: ReactNode;
 

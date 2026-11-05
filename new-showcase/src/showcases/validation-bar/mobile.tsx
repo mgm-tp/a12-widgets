@@ -35,9 +35,9 @@ import { useRef, useState, useEffect, useCallback, useMemo } from "react";
 
 import { MobileValidation, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 
+import { DetailView } from "./detail-view.js";
 import type { FieldName, Issue, ValidationResult } from "./showcase-validation-bar.api.js";
 import { SummaryView } from "./summary-view.js";
-import { DetailView } from "./detail-view.js";
 
 const { Overview, Graphic } = MobileValidation;
 

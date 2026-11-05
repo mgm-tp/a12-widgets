@@ -32,8 +32,8 @@
 
 import type { FunctionComponent } from "react";
 
-import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import { StyledReplyItemAction } from "../../comment.styled.js";
 
 import type { ReplyActionContainerProps } from "./reply-action.tpl.api.js";

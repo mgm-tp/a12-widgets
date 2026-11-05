@@ -32,6 +32,11 @@
 
 import { styled, css } from "styled-components";
 
+import { StyledButton } from "../../button/main/button.styled.js";
+import { StyledTableDnDBody } from "../../table/main/table.dnd.view.js";
+import { StyledTableTemplate, TableTemplate } from "../../table/main/template/index.js";
+import type { TableTemplateProps } from "../../table/main/template/table.tpl.api.js";
+import { activeAndHover, hover } from "../../theme/base/mixins/_interaction.js";
 import {
 	StyledTreeNodeArrow,
 	StyledTreeNodeContent,
@@ -39,11 +44,6 @@ import {
 	StyledTreeNodeName
 } from "../../tree/main/tpl/tree-elements.styled.js";
 import { TreeContainer } from "../../tree/main/tpl/tree-elements.tpl.js";
-import { StyledButton } from "../../button/main/button.styled.js";
-import type { TableTemplateProps } from "../../table/main/template/table.tpl.api.js";
-import { StyledTableTemplate, TableTemplate } from "../../table/main/template/index.js";
-import { activeAndHover, hover } from "../../theme/base/mixins/_interaction.js";
-import { StyledTableDnDBody } from "../../table/main/table.dnd.view.js";
 
 export namespace StyledTreeTable {
 	export const StyledTreeContainer = styled(TreeContainer).withConfig({ displayName: "StyledTreeContainer-sc-" })(
@@ -96,53 +96,55 @@ export namespace StyledTreeTable {
 						`)}
 					}
 				}
-				${(droppable || forbidden) &&
-				css`
-					${StyledTableTemplate.StyledHead}:after {
-						border-bottom: ${borderStyle};
-						left: 0;
-					}
-					${StyledTableTemplate.StyledBody} {
-						&:after {
-							border-right: ${borderStyle};
-							top: 0;
-						}
-						&:before {
-							content: "";
-							position: absolute;
-							top: 0;
-							bottom: 0;
+				${
+					(droppable || forbidden) &&
+					css`
+						${StyledTableTemplate.StyledHead}:after {
+							border-bottom: ${borderStyle};
 							left: 0;
-							z-index: 1;
-							border-right: ${borderStyle};
 						}
-					}
-					${StyledTableTemplate.StyledFoot}:after {
-						border: ${borderStyle};
-						border-top: none;
-						left: 0;
-						top: 0;
-					}
-					& ~ ${StyledTableTemplate.StyledBody} ${StyledTableDnDBody} ${StyledTableTemplate.StyledBodyRow} {
-						background-color: transparent;
-						&:before {
-							left: 2px;
-							right: 2px;
+						${StyledTableTemplate.StyledBody} {
+							&:after {
+								border-right: ${borderStyle};
+								top: 0;
+							}
+							&:before {
+								content: "";
+								position: absolute;
+								top: 0;
+								bottom: 0;
+								left: 0;
+								z-index: 1;
+								border-right: ${borderStyle};
+							}
 						}
-					}
-					${StyledTableTemplate.StyledHead}, ${StyledTableTemplate.StyledBody}, ${StyledTableTemplate.StyledFoot} {
-						position: relative;
-						&:after {
-							bottom: 0;
-							content: "";
-							position: absolute;
-							right: 0;
+						${StyledTableTemplate.StyledFoot}:after {
+							border: ${borderStyle};
+							border-top: none;
+							left: 0;
+							top: 0;
 						}
-					}
-					[class*="virtual-scroll"] ${StyledTableTemplate.StyledBody}:after {
-						right: 1px;
-					}
-				`}
+						& ~ ${StyledTableTemplate.StyledBody} ${StyledTableDnDBody} ${StyledTableTemplate.StyledBodyRow} {
+							background-color: transparent;
+							&:before {
+								left: 2px;
+								right: 2px;
+							}
+						}
+						${StyledTableTemplate.StyledHead}, ${StyledTableTemplate.StyledBody}, ${StyledTableTemplate.StyledFoot} {
+							position: relative;
+							&:after {
+								bottom: 0;
+								content: "";
+								position: absolute;
+								right: 0;
+							}
+						}
+						[class*="virtual-scroll"] ${StyledTableTemplate.StyledBody}:after {
+							right: 1px;
+						}
+					`
+				}
 
 				${StyledTableTemplate.StyledBody} {
 					&[tabindex="0"] {
@@ -183,65 +185,75 @@ export namespace StyledTreeTable {
 				user-select: none;
 				width: 100%;
 				opacity: ${dragging ? treeTable.node.draggingOpacity : 1};
-				${(droppable || forbidden) &&
-				css`
-					&:after {
-						border-left: ${treeTable.node.borderLeft};
-						content: "";
-					}
-				`}
-				${droppable &&
-				css`
-					background-color: ${treeTable.node.droppableBG};
-					&:after {
-						border-left-color: ${treeTable.node.droppableBorderColor};
-					}
-					${activeAndHover(css`
+				${
+					(droppable || forbidden) &&
+					css`
+						&:after {
+							border-left: ${treeTable.node.borderLeft};
+							content: "";
+						}
+					`
+				}
+				${
+					droppable &&
+					css`
 						background-color: ${treeTable.node.droppableBG};
 						&:after {
 							border-left-color: ${treeTable.node.droppableBorderColor};
 						}
-					`)}
-				`}
-				${forbidden &&
-				css`
-					background-color: ${treeTable.node.forbiddenBG};
-					&:after {
-						border-left-color: ${treeTable.node.forbiddenBorderColor};
-					}
-					${activeAndHover(css`
+						${activeAndHover(css`
+							background-color: ${treeTable.node.droppableBG};
+							&:after {
+								border-left-color: ${treeTable.node.droppableBorderColor};
+							}
+						`)}
+					`
+				}
+				${
+					forbidden &&
+					css`
 						background-color: ${treeTable.node.forbiddenBG};
 						&:after {
 							border-left-color: ${treeTable.node.forbiddenBorderColor};
 						}
-					`)}
-					${StyledTreeNodeContent} {
 						${activeAndHover(css`
 							background-color: ${treeTable.node.forbiddenBG};
+							&:after {
+								border-left-color: ${treeTable.node.forbiddenBorderColor};
+							}
 						`)}
-					}
-					${StyledTableDnDBody} && {
-						opacity: ${treeTable.node.forbiddenOpacity};
-					}
-				`}
+						${StyledTreeNodeContent} {
+							${activeAndHover(css`
+								background-color: ${treeTable.node.forbiddenBG};
+							`)}
+						}
+						${StyledTableDnDBody} && {
+							opacity: ${treeTable.node.forbiddenOpacity};
+						}
+					`
+				}
 			}
 
-			${!draggable &&
-			css`
-				${StyledTableTemplate.StyledBodyRow} {
-					${hover(css`
-						cursor: default;
-					`)}
-				}
-			`}
-			${draggable &&
-			css`
-				[class*="contentRow--interactive"] {
-					${hover(css`
-						cursor: move;
-					`)}
-				}
-			`}
+			${
+				!draggable &&
+				css`
+					${StyledTableTemplate.StyledBodyRow} {
+						${hover(css`
+							cursor: default;
+						`)}
+					}
+				`
+			}
+			${
+				draggable &&
+				css`
+					[class*="contentRow--interactive"] {
+						${hover(css`
+							cursor: move;
+						`)}
+					}
+				`
+			}
 		`;
 	});
 
@@ -262,15 +274,17 @@ export namespace StyledTreeTable {
 			position: absolute;
 			width: 100%;
 			top: ${top && 0};
-			${(droppable || forbidden) &&
-			css`
-				background: linear-gradient(
-					to right,
-					transparent ${spacingLevel},
-					${droppable ? treeTable.target.droppableBG : treeTable.target.forbiddenBG} ${spacingLevel}
-				);
-				border: ${droppable ? treeTable.target.droppableBorder : treeTable.target.forbiddenBorder};
-			`}
+			${
+				(droppable || forbidden) &&
+				css`
+					background: linear-gradient(
+						to right,
+						transparent ${spacingLevel},
+						${droppable ? treeTable.target.droppableBG : treeTable.target.forbiddenBG} ${spacingLevel}
+					);
+					border: ${droppable ? treeTable.target.droppableBorder : treeTable.target.forbiddenBorder};
+				`
+			}
 		`;
 	});
 

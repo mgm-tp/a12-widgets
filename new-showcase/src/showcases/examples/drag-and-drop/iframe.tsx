@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useDrop, useDrag, DndContext } from "react-dnd";
 import type { ReactElement, Ref } from "react";
 import { useState, useEffect, useContext, createRef, useRef } from "react";
+import { useDrop, useDrag, DndContext } from "react-dnd";
 import { createPortal } from "react-dom";
 
 import { provider } from "@com.mgmtp.a12.widgets/widgets-core";

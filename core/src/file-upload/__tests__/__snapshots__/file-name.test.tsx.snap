@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled file name 1`] = `
-.c13 {
+.c12 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -15,12 +15,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
   margin: -1px !important;
 }
 
-.c13 * {
+.c12 * {
   width: 1px;
   height: 1px;
 }
 
-.c12 {
+.c11 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -40,28 +40,16 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
   font-feature-settings: "liga";
 }
 
-.c12 > span {
+.c11 > span {
   display: inline-block;
 }
 
-.c12.c12 {
+.c11.c11 {
   max-width: unset;
 }
 
-.c18 .c11 {
-  user-select: none;
-}
-
-.c18 .c11 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
   color: inherit;
-}
-
-.c18 .c11 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c11 {
-  display: block;
 }
 
 .c3 {
@@ -80,10 +68,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
   display: none;
 }
 
-.c19 .c11 {
-  font-size: 1.25rem;
-}
-
 .c0 {
   box-sizing: border-box;
   display: inline-block;
@@ -92,33 +76,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
 .c0 .c2 {
   display: block;
   width: fit-content;
-}
-
-.c15[data-role="checkbox-group"] .c2,
-.c15[data-role="radio-group"] .c2,
-.c15[data-role="file-upload"] .c2 {
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-.c20 > .c11,
-.c20 > span:first-child > .c11 {
-  vertical-align: middle;
-  transform: translateY(-5%);
-}
-
-.c21 > .c11,
-.c21 > span:first-child > .c11 {
-  vertical-align: middle;
-  transform: translateY(-5%);
-}
-
-.c16 .c11 {
-  color: inherit;
-  display: inline;
-  font-size: 0.75rem;
-  margin: 0px 1px;
-  vertical-align: -2px;
 }
 
 .c8 {
@@ -133,7 +90,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
   text-decoration: none;
 }
 
-.c8 .c11 {
+.c8 .c10 {
   color: inherit;
   display: inline;
   font-size: 0.75rem;
@@ -152,7 +109,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
   height: 32px;
 }
 
-.c14 {
+.c13 {
   display: none;
 }
 
@@ -206,66 +163,17 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
   flex: 0 1 0%;
 }
 
-.c10 {
+.c9 {
   background-size: calc(100% - 1px) calc(0.08rem);
   font-weight: 600;
 }
 
-.c10 .c11 {
+.c9 .c10 {
   font-size: 1rem;
 }
 
-.c17 .c4 {
-  flex: 1 1 0%;
-}
-
-@media (pointer: fine) {
-  .dqlCZy:hover .c9 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .cYJlnM:hover .c9 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .yRQxo:hover .c9 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .fjonAo:hover .c9 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .kegfCX:hover .c9 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
 @media (pointer: coarse) {
-  .c10:active {
+  .c9:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
     color: rgb(5, 104, 174);
@@ -273,7 +181,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
 }
 
 @media (pointer: fine) {
-  .c10:hover {
+  .c9:hover {
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
     color: rgb(5, 104, 174);
   }
@@ -307,23 +215,25 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
     >
       <a
         aria-disabled="true"
-        class="c7 c8 link c9 c10 -u-truncate"
+        class="c7 c8 link c9 -u-truncate"
         data-role="link"
         href="#"
         tabindex="0"
       >
         <i
-          class="c11 c12 plasma-icon plasma-icon--custom"
+          class="c10 c11 plasma-icon plasma-icon--custom"
           data-role="plasma-icon"
           title="Datatype PDF"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             
           </span>
           <span
-            class="c13 -u-unseenButRead"
+            class="c12 -u-unseenButRead"
             data-role="hidden-text"
           >
             Datatype PDF
@@ -337,14 +247,14 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render disabled 
         </span>
       </a>
       <span
-        class="c13 -u-unseenButRead"
+        class="c12 -u-unseenButRead"
         data-role="hidden-text"
         id="test-id-upload-button-title"
       >
         Upload file
       </span>
       <input
-        class="c14 field__upload-input"
+        class="c13 field__upload-input"
         data-role="file-upload-input"
         disabled=""
         id="test-id"
@@ -402,6 +312,10 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
 
 .c11.c11 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
+  color: inherit;
 }
 
 .c3 {
@@ -683,6 +597,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             
           </span>
@@ -765,6 +681,10 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
 
 .c7.c7 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
 }
 
 .c3 {
@@ -952,6 +872,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           file_upload
         </span>
@@ -1002,38 +924,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
   color: rgb(5, 104, 174);
 }
 
-.c18 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c18 > span {
-  display: inline-block;
-}
-
-.c18.c18 {
-  max-width: unset;
-}
-
-.c15 .c18 {
-  color: inherit;
-}
-
 .c12 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -1062,7 +952,39 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
   max-width: unset;
 }
 
-.c15 .c12 {
+:where(.c15) .c12 {
+  color: inherit;
+}
+
+.c18 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c18 > span {
+  display: inline-block;
+}
+
+.c18.c18 {
+  max-width: unset;
+}
+
+:where(.c15) .c18 {
   color: inherit;
 }
 
@@ -1118,15 +1040,11 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
   width: fit-content;
 }
 
-.c15 .c17.c17:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c15 .c17.c17:not(:active):not(:hover):not(:focus) .c11:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
 .c15 .c17.c17:focus .c11 {
+  color: inherit;
+}
+
+:where(.c15) .c17:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -1154,15 +1072,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
 
 .c3:empty {
   display: none;
-}
-
-.c19 > .c15 {
-  margin: 0px 4px 4px 0px;
-}
-
-.c19 .c2 {
-  display: block;
-  width: fit-content;
 }
 
 .c0 {
@@ -1504,6 +1413,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               
             </span>
@@ -1557,6 +1468,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render file name
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             info
           </span>
@@ -1621,20 +1534,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render readonly 
   max-width: unset;
 }
 
-.c16 .c10 {
-  user-select: none;
-}
-
-.c16 .c10 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
   color: inherit;
-}
-
-.c16 .c10 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c10 {
-  display: block;
 }
 
 .c3 {
@@ -1653,10 +1554,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render readonly 
   display: none;
 }
 
-.c17 .c10 {
-  font-size: 1.25rem;
-}
-
 .c0 {
   box-sizing: border-box;
   display: inline-block;
@@ -1665,13 +1562,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render readonly 
 .c0 .c2 {
   display: block;
   width: fit-content;
-}
-
-.c14[data-role="checkbox-group"] .c2,
-.c14[data-role="radio-group"] .c2,
-.c14[data-role="file-upload"] .c2 {
-  max-width: 100%;
-  vertical-align: middle;
 }
 
 .c7 {
@@ -1778,10 +1668,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render readonly 
   font-size: 1rem;
 }
 
-.c15 .c4 {
-  flex: 1 1 0%;
-}
-
 @media (pointer: coarse) {
   .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -1812,33 +1698,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render readonly 
     color: rgb(213, 0, 117);
     cursor: pointer;
     text-decoration: none;
-  }
-}
-
-@media (pointer: fine) {
-  .dqlCZy:hover .c8 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .cYJlnM:hover .c8 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .yRQxo:hover .c8 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
   }
 }
 
@@ -1905,6 +1764,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render readonly 
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             
           </span>
@@ -1990,24 +1851,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with erro
   max-width: unset;
 }
 
-.c8.c8 {
-  color: rgb(201, 29, 29);
-}
-
-.c20 .c6 {
-  user-select: none;
-}
-
-.c20 .c6 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
   color: inherit;
 }
 
-.c20 .c6 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c6 {
-  display: block;
+.c8.c8 {
+  color: rgb(201, 29, 29);
 }
 
 .c3 {
@@ -2059,13 +1908,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with erro
 .c0 .c2 {
   display: block;
   width: fit-content;
-}
-
-.c18[data-role="checkbox-group"] .c2,
-.c18[data-role="radio-group"] .c2,
-.c18[data-role="file-upload"] .c2 {
-  max-width: 100%;
-  vertical-align: middle;
 }
 
 .c14 {
@@ -2184,10 +2026,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with erro
   font-size: 1rem;
 }
 
-.c19 .c11 {
-  flex: 1 1 0%;
-}
-
 @media (pointer: coarse) {
   .c14:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -2218,15 +2056,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with erro
     color: rgb(213, 0, 117);
     cursor: pointer;
     text-decoration: none;
-  }
-}
-
-@media (pointer: fine) {
-  .dqlCZy:hover .c15 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
   }
 }
 
@@ -2322,6 +2151,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with erro
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             
           </span>
@@ -2367,6 +2198,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with erro
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             
           </span>
@@ -2392,6 +2225,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with erro
         Upload file
       </span>
       <input
+        aria-invalid="true"
         class="c17 field__upload-input"
         data-role="file-upload-input"
         id="test-id"
@@ -2451,20 +2285,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with info
   max-width: unset;
 }
 
-.c16 .c10 {
-  user-select: none;
-}
-
-.c16 .c10 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
   color: inherit;
-}
-
-.c16 .c10 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c10 {
-  display: block;
 }
 
 .c3 {
@@ -2483,10 +2305,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with info
   display: none;
 }
 
-.c17 .c10 {
-  font-size: 1.25rem;
-}
-
 .c0 {
   box-sizing: border-box;
   display: inline-block;
@@ -2495,13 +2313,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with info
 .c0 .c2 {
   display: block;
   width: fit-content;
-}
-
-.c14[data-role="checkbox-group"] .c2,
-.c14[data-role="radio-group"] .c2,
-.c14[data-role="file-upload"] .c2 {
-  max-width: 100%;
-  vertical-align: middle;
 }
 
 .c7 {
@@ -2620,10 +2431,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with info
   font-size: 1rem;
 }
 
-.c15 .c4 {
-  flex: 1 1 0%;
-}
-
 @media (pointer: coarse) {
   .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -2706,24 +2513,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with info
   }
 }
 
-@media (pointer: fine) {
-  .cYJlnM:hover .c8 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .yRQxo:hover .c8 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
 @media (pointer: coarse) {
   .c9:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -2779,6 +2568,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with info
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             
           </span>
@@ -2876,13 +2667,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with load
   width: fit-content;
 }
 
-.c10[data-role="checkbox-group"] .c2,
-.c10[data-role="radio-group"] .c2,
-.c10[data-role="file-upload"] .c2 {
-  max-width: 100%;
-  vertical-align: middle;
-}
-
 .c5 {
   display: flex;
   min-width: 48px;
@@ -2956,10 +2740,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with load
 
 .c1 > .c4 {
   flex: 0 1 0%;
-}
-
-.c11 .c4 {
-  flex: 1 1 0%;
 }
 
 @media (pointer: coarse) {
@@ -3113,6 +2893,10 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warn
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c17 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -3141,24 +2925,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warn
   max-width: unset;
 }
 
-.c8.c8 {
-  color: rgb(175, 121, 2);
-}
-
-.c21 .c6 {
-  user-select: none;
-}
-
-.c21 .c6 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c17 {
   color: inherit;
 }
 
-.c21 .c6 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 > .c6 {
-  display: block;
+.c8.c8 {
+  color: rgb(175, 121, 2);
 }
 
 .c3 {
@@ -3210,13 +2982,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warn
 .c0 .c2 {
   display: block;
   width: fit-content;
-}
-
-.c19[data-role="checkbox-group"] .c2,
-.c19[data-role="radio-group"] .c2,
-.c19[data-role="file-upload"] .c2 {
-  max-width: 100%;
-  vertical-align: middle;
 }
 
 .c14 {
@@ -3335,10 +3100,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warn
   font-size: 1rem;
 }
 
-.c20 .c11 {
-  flex: 1 1 0%;
-}
-
 @media (pointer: coarse) {
   .c14:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -3369,24 +3130,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warn
     color: rgb(213, 0, 117);
     cursor: pointer;
     text-decoration: none;
-  }
-}
-
-@media (pointer: fine) {
-  .dqlCZy:hover .c15 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .cYJlnM:hover .c15 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
   }
 }
 
@@ -3482,6 +3225,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warn
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             warning
           </span>
@@ -3527,6 +3272,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload.simplified > render with warn
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             
           </span>

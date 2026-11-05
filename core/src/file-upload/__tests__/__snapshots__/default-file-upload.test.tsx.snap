@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`com.mgmtp.a12.widgets.default-file-upload > Interaction hint > Should display content follow fileOptions when fileOptions is provided with buttonText and descriptionText. 1`] = `
-.c1 {
+.c0 {
   background-position: -10000% bottom;
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) calc(0.1rem);
@@ -13,11 +13,11 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > Interaction hint > Should d
   text-decoration: none;
 }
 
-.c1:visited {
+.c0:visited {
   color: rgb(5, 104, 174);
 }
 
-.c1:focus {
+.c0:focus {
   background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
   background-position: left bottom;
   color: rgb(213, 0, 117);
@@ -25,17 +25,13 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > Interaction hint > Should d
   text-decoration: none;
 }
 
-.c4 .c0 {
-  pointer-events: none;
-}
-
-.c3 {
+.c1 {
   background-size: calc(100% - 1px) calc(0.08rem);
   font-weight: 600;
 }
 
 @media (pointer: coarse) {
-  .c1:active {
+  .c0:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-position: left bottom;
     transition: background-position 0.3s;
@@ -43,14 +39,14 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > Interaction hint > Should d
 }
 
 @media (pointer: fine) {
-  .c1:hover {
+  .c0:hover {
     background-position: left bottom;
     transition: background-position 0.3s;
   }
 }
 
 @media (pointer: coarse) {
-  .c1:active {
+  .c0:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
     color: rgb(213, 0, 117);
@@ -59,7 +55,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > Interaction hint > Should d
 }
 
 @media (pointer: fine) {
-  .c1:hover {
+  .c0:hover {
     background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
     color: rgb(213, 0, 117);
     cursor: pointer;
@@ -67,26 +63,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > Interaction hint > Should d
   }
 }
 
-@media (pointer: fine) {
-  .dqlCZy:hover .c2 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .kSiMjb:hover .c2 {
-    background-position: left bottom;
-    transition: background-position 0.3s;
-    background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
-    color: rgb(5, 104, 174);
-  }
-}
-
 @media (pointer: coarse) {
-  .c3:active {
+  .c1:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
     color: rgb(5, 104, 174);
@@ -94,14 +72,14 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > Interaction hint > Should d
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c1:hover {
     background-image: linear-gradient(rgb(5, 104, 174), rgb(5, 104, 174));
     color: rgb(5, 104, 174);
   }
 }
 
 <a
-  class="c0 c1 link c2 c3 -u-truncate"
+  class="c0 link c1 -u-truncate"
   data-role="link"
   href="#"
   tabindex="-1"
@@ -116,7 +94,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > Interaction hint > Should d
 `;
 
 exports[`com.mgmtp.a12.widgets.default-file-upload > default-file-upload onUploadAreaClick event in readOnly mode 1`] = `
-.c6 {
+.c4 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -130,12 +108,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > default-file-upload onUploa
   margin: -1px !important;
 }
 
-.c6 * {
+.c4 * {
   width: 1px;
   height: 1px;
 }
 
-.c2 {
+.c1 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -155,55 +133,23 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > default-file-upload onUploa
   font-feature-settings: "liga";
 }
 
-.c2 > span {
+.c1 > span {
   display: inline-block;
 }
 
-.c2.c2 {
+.c1.c1 {
   max-width: unset;
 }
 
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c1 {
   color: inherit;
 }
 
-.c9 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.c10 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  font-size: 1.25rem;
-}
-
-.c5 {
+.c3 {
   max-height: inherit;
 }
 
-.c4 {
+.c2 {
   color: rgb(5, 104, 174);
   font-size: 1.5rem;
   position: absolute;
@@ -213,18 +159,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > default-file-upload onUploa
   pointer-events: none;
 }
 
-.c7 {
+.c5 {
   display: none;
-}
-
-.c8 > div .c3 {
-  animation: 1.1s ease 0s infinite normal none running loader;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  height: 4px;
-  text-indent: -9999px;
-  transform: translateZ(0px);
-  width: 4px;
 }
 
 .c0 {
@@ -330,18 +266,20 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > default-file-upload onUploa
     role="button"
   >
     <i
-      class="c1 c2 plasma-icon c3 c4 field__upload-icon field__upload-icon--withPlaceholder"
+      class="c1 plasma-icon c2 field__upload-icon field__upload-icon--withPlaceholder"
       data-role="plasma-icon"
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         file_upload
       </span>
     </i>
     <svg
       aria-hidden="true"
-      class="c5"
+      class="c3"
       data-role=""
       fill="#FFF"
       focusable="false"
@@ -359,7 +297,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > default-file-upload onUploa
       />
     </svg>
     <span
-      class="c6 -u-unseenButRead"
+      class="c4 -u-unseenButRead"
       data-role="hidden-text"
       id="test-id-upload-button-title"
     >
@@ -367,7 +305,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > default-file-upload onUploa
     </span>
   </div>
   <input
-    class="c7 field__upload-input"
+    class="c5 field__upload-input"
     data-role="file-upload-input"
     disabled=""
     id="test-id"
@@ -423,6 +361,10 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render basic default-file-u
 
 .c7.c7 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
 }
 
 .c3 {
@@ -610,6 +552,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render basic default-file-u
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
@@ -654,7 +598,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render basic default-file-u
 `;
 
 exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload with custom upload area size 1`] = `
-.c8 {
+.c6 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -668,12 +612,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   margin: -1px !important;
 }
 
-.c8 * {
+.c6 * {
   width: 1px;
   height: 1px;
 }
 
-.c5 {
+.c3 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -693,28 +637,16 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   font-feature-settings: "liga";
 }
 
-.c5 > span {
+.c3 > span {
   display: inline-block;
 }
 
-.c5.c5 {
+.c3.c3 {
   max-width: unset;
 }
 
-.c11 .c4 {
-  user-select: none;
-}
-
-.c11 .c4 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
   color: inherit;
-}
-
-.c11 .c4 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c4 {
-  display: block;
 }
 
 .c0 {
@@ -722,7 +654,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   display: inline-block;
 }
 
-.c2 {
+.c1 {
   display: flex;
   min-height: 48px;
   min-width: 48px;
@@ -733,11 +665,11 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   width: 100px;
 }
 
-.c7 {
+.c5 {
   max-height: inherit;
 }
 
-.c6 {
+.c4 {
   color: rgb(5, 104, 174);
   font-size: 1.5rem;
   position: absolute;
@@ -747,11 +679,11 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   pointer-events: none;
 }
 
-.c9 {
+.c7 {
   display: none;
 }
 
-.c3 {
+.c2 {
   box-sizing: border-box;
   background: rgb(241, 242, 244);
   border: 1px dashed rgb(5, 104, 174);
@@ -762,8 +694,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   padding: 16px;
 }
 
-.c3,
-.c3 [data-role="file-upload-content-inner"] {
+.c2,
+.c2 [data-role="file-upload-content-inner"] {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -772,19 +704,19 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   width: 100%;
 }
 
-.c3 {
+.c2 {
   width: 100%;
 }
 
-.c3 [data-role="file-upload-content-inner"] {
+.c2 [data-role="file-upload-content-inner"] {
   pointer-events: none;
 }
 
-.c3 svg {
+.c2 svg {
   pointer-events: none;
 }
 
-.c3:focus::before {
+.c2:focus::before {
   content: "";
   inset: 0px;
   position: absolute;
@@ -792,20 +724,16 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   border-radius: inherit;
 }
 
-.c3:focus::before {
+.c2:focus::before {
   border: 2px solid rgb(213, 0, 117);
 }
 
-.c10 > .c1 {
-  flex: 1 1 0%;
-}
-
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c3:active::before {
+  .c2:active::before {
     content: "";
     inset: 0px;
     position: absolute;
@@ -815,7 +743,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
 }
 
 @media (pointer: fine) {
-  .c3:hover::before {
+  .c2:hover::before {
     content: "";
     inset: 0px;
     position: absolute;
@@ -825,17 +753,17 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c3:active::before {
+  .c2:active::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover::before {
+  .c2:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
@@ -848,12 +776,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
     style="width: 100px;"
   />
   <div
-    class="c1 c2 field__upload field__upload--placeholder"
+    class="c1 field__upload field__upload--placeholder"
     data-role="file-upload-control"
   >
     <div
       aria-disabled="false"
-      class="c3 field__upload-content"
+      class="c2 field__upload-content"
       data-role="file-upload-content"
       id="test-id-content"
       tabindex="0"
@@ -865,18 +793,20 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         role="button"
       >
         <i
-          class="c4 c5 plasma-icon c6 field__upload-icon field__upload-icon--withPlaceholder"
+          class="c3 plasma-icon c4 field__upload-icon field__upload-icon--withPlaceholder"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
         </i>
         <svg
           aria-hidden="true"
-          class="c7"
+          class="c5"
           data-role=""
           fill="#FFF"
           focusable="false"
@@ -894,7 +824,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
           />
         </svg>
         <span
-          class="c8 -u-unseenButRead"
+          class="c6 -u-unseenButRead"
           data-role="hidden-text"
           id="test-id-upload-button-title"
         >
@@ -902,7 +832,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         </span>
       </div>
       <input
-        class="c9 field__upload-input"
+        class="c7 field__upload-input"
         data-role="file-upload-input"
         id="test-id"
         tabindex="-1"
@@ -933,34 +863,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   height: 1px;
 }
 
-.c12 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c12 > span {
-  display: inline-block;
-}
-
-.c12.c12 {
-  max-width: unset;
-}
-
 .c5 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -989,24 +891,44 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   max-width: unset;
 }
 
-.c6.c6 {
-  color: rgb(201, 29, 29);
-}
-
-.c16 .c4 {
-  user-select: none;
-}
-
-.c16 .c4 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
   color: inherit;
 }
 
-.c16 .c4 {
-  font-size: inherit;
+.c12 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
 }
 
-.h_inlineBlock.h_middleAlign .c16.c16 > .c4 {
-  display: block;
+.c12 > span {
+  display: inline-block;
+}
+
+.c12.c12 {
+  max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c12 {
+  color: inherit;
+}
+
+.c6.c6 {
+  color: rgb(201, 29, 29);
 }
 
 .c2 {
@@ -1182,6 +1104,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             
           </span>
@@ -1224,6 +1148,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
@@ -1256,6 +1182,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         </span>
       </div>
       <input
+        aria-invalid="true"
         class="c15 field__upload-input"
         data-role="file-upload-input"
         id="test-id"
@@ -1498,24 +1425,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   max-width: unset;
 }
 
-.c6.c6 {
-  color: rgb(5, 104, 174);
-}
-
-.c15 .c4 {
-  user-select: none;
-}
-
-.c15 .c4 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
   color: inherit;
 }
 
-.c15 .c4 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c4 {
-  display: block;
+.c6.c6 {
+  color: rgb(5, 104, 174);
 }
 
 .c2 {
@@ -1691,6 +1606,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             info
           </span>
@@ -1733,6 +1650,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
@@ -1777,7 +1696,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
 `;
 
 exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload with loading state 1`] = `
-.c9 {
+.c8 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -1791,12 +1710,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   margin: -1px !important;
 }
 
-.c9 * {
+.c8 * {
   width: 1px;
   height: 1px;
 }
 
-.c6 {
+.c5 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -1816,32 +1735,16 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   font-feature-settings: "liga";
 }
 
-.c6 > span {
+.c5 > span {
   display: inline-block;
 }
 
-.c6.c6 {
+.c5.c5 {
   max-width: unset;
 }
 
-.c11 .c5 {
-  user-select: none;
-}
-
-.c11 .c5 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
   color: inherit;
-}
-
-.c11 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c5 {
-  display: block;
-}
-
-.c12 .c5 {
-  font-size: 1.25rem;
 }
 
 .c0 {
@@ -1858,12 +1761,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   height: 100%;
 }
 
-.c8 {
+.c7 {
   color: rgb(5, 104, 174);
   font-size: 1.5rem;
 }
 
-.c10 {
+.c9 {
   display: none;
 }
 
@@ -1896,7 +1799,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   pointer-events: none;
 }
 
-.c4 > div .c7 {
+.c4 > div .c6 {
   animation: 1.1s ease 0s infinite normal none running loader;
   border-radius: 50%;
   font-size: 1.5rem;
@@ -1940,17 +1843,19 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         role="button"
       >
         <i
-          class="c5 c6 plasma-icon c7 c8 field__upload-icon"
+          class="c5 plasma-icon c6 c7 field__upload-icon"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
         </i>
         <span
-          class="c9 -u-unseenButRead"
+          class="c8 -u-unseenButRead"
           data-role="hidden-text"
           id="test-id-loading"
         >
@@ -1958,7 +1863,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         </span>
       </div>
       <input
-        class="c10 field__upload-input"
+        class="c9 field__upload-input"
         data-role="file-upload-input"
         disabled=""
         id="test-id"
@@ -3617,7 +3522,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   max-width: unset;
 }
 
-.c2 .c6 {
+:where(.c2) .c6 {
   color: inherit;
 }
 
@@ -3673,15 +3578,11 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   width: fit-content;
 }
 
-.c2 .c4.c4:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c2 .c4.c4:not(:active):not(:hover):not(:focus) .c5:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
 .c2 .c4.c4:focus .c5 {
+  color: inherit;
+}
+
+:where(.c2) .c4:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -3693,10 +3594,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
 
 .h_inlineBlock.h_middleAlign .c4.c4 > .c5 {
   display: block;
-}
-
-.c14 > .c2 {
-  margin: 0px 4px 4px 0px;
 }
 
 .c0 {
@@ -3903,6 +3800,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             info
           </span>
@@ -3939,6 +3838,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
@@ -4037,7 +3938,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   max-width: unset;
 }
 
-.c2 .c6 {
+:where(.c2) .c6 {
   color: inherit;
 }
 
@@ -4093,15 +3994,11 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   width: fit-content;
 }
 
-.c2 .c4.c4:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c2 .c4.c4:not(:active):not(:hover):not(:focus) .c5:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
 .c2 .c4.c4:focus .c5 {
+  color: inherit;
+}
+
+:where(.c2) .c4:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -4122,13 +4019,6 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
 
 .c0 > .c2 {
   margin: 0px 4px 4px 0px;
-}
-
-.c14 .c2 {
-  align-self: center;
-  flex-shrink: 0;
-  text-align: right;
-  width: 28px;
 }
 
 .c9 {
@@ -4323,6 +4213,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             info
           </span>
@@ -4359,6 +4251,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
@@ -4450,24 +4344,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
   max-width: unset;
 }
 
-.c6.c6 {
-  color: rgb(175, 121, 2);
-}
-
-.c15 .c4 {
-  user-select: none;
-}
-
-.c15 .c4 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
   color: inherit;
 }
 
-.c15 .c4 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c4 {
-  display: block;
+.c6.c6 {
+  color: rgb(175, 121, 2);
 }
 
 .c2 {
@@ -4643,6 +4525,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             warning
           </span>
@@ -4685,6 +4569,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
@@ -4729,7 +4615,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render default-file-upload 
 `;
 
 exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-file-upload with placeholder icon 1`] = `
-.c9 {
+.c8 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -4743,12 +4629,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
   margin: -1px !important;
 }
 
-.c9 * {
+.c8 * {
   width: 1px;
   height: 1px;
 }
 
-.c6 {
+.c5 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -4768,32 +4654,16 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
   font-feature-settings: "liga";
 }
 
-.c6 > span {
+.c5 > span {
   display: inline-block;
 }
 
-.c6.c6 {
+.c5.c5 {
   max-width: unset;
 }
 
-.c11 .c5 {
-  user-select: none;
-}
-
-.c11 .c5 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
   color: inherit;
-}
-
-.c11 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c5 {
-  display: block;
-}
-
-.c12 .c5 {
-  font-size: 1.25rem;
 }
 
 .c0 {
@@ -4810,12 +4680,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
   height: 100%;
 }
 
-.c8 {
+.c7 {
   max-height: inherit;
   fill: rgb(241, 242, 244);
 }
 
-.c7 {
+.c6 {
   color: rgb(5, 104, 174);
   font-size: 1.5rem;
   position: absolute;
@@ -4825,7 +4695,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
   pointer-events: none;
 }
 
-.c10 {
+.c9 {
   display: none;
 }
 
@@ -4892,18 +4762,20 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
         role="button"
       >
         <i
-          class="c5 c6 plasma-icon c7 field__upload-icon field__upload-icon--withPlaceholder"
+          class="c5 plasma-icon c6 field__upload-icon field__upload-icon--withPlaceholder"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
         </i>
         <svg
           aria-hidden="true"
-          class="c8"
+          class="c7"
           data-role=""
           fill="#FFF"
           focusable="false"
@@ -4921,7 +4793,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
           />
         </svg>
         <span
-          class="c9 -u-unseenButRead"
+          class="c8 -u-unseenButRead"
           data-role="hidden-text"
           id="test-id-upload-button-title"
         >
@@ -4929,7 +4801,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
         </span>
       </div>
       <input
-        class="c10 field__upload-input"
+        class="c9 field__upload-input"
         data-role="file-upload-input"
         disabled=""
         id="test-id"
@@ -4942,7 +4814,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
 `;
 
 exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-file-upload with placeholder none-icon 1`] = `
-.c8 {
+.c7 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -4956,12 +4828,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
   margin: -1px !important;
 }
 
-.c8 * {
+.c7 * {
   width: 1px;
   height: 1px;
 }
 
-.c6 {
+.c5 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -4981,32 +4853,16 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
   font-feature-settings: "liga";
 }
 
-.c6 > span {
+.c5 > span {
   display: inline-block;
 }
 
-.c6.c6 {
+.c5.c5 {
   max-width: unset;
 }
 
-.c10 .c5 {
-  user-select: none;
-}
-
-.c10 .c5 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
   color: inherit;
-}
-
-.c10 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c5 {
-  display: block;
-}
-
-.c11 .c5 {
-  font-size: 1.25rem;
 }
 
 .c0 {
@@ -5023,7 +4879,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
   height: 100%;
 }
 
-.c7 {
+.c6 {
   color: rgb(5, 104, 174);
   font-size: 1.5rem;
   position: absolute;
@@ -5033,7 +4889,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
   pointer-events: none;
 }
 
-.c9 {
+.c8 {
   display: none;
 }
 
@@ -5100,17 +4956,19 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
         role="button"
       >
         <i
-          class="c5 c6 plasma-icon c7 field__upload-icon field__upload-icon--withPlaceholder"
+          class="c5 plasma-icon c6 field__upload-icon field__upload-icon--withPlaceholder"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
         </i>
         <span
-          class="c8 -u-unseenButRead"
+          class="c7 -u-unseenButRead"
           data-role="hidden-text"
           id="test-id-upload-button-title"
         >
@@ -5118,7 +4976,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render disabled default-fil
         </span>
       </div>
       <input
-        class="c9 field__upload-input"
+        class="c8 field__upload-input"
         data-role="file-upload-input"
         disabled=""
         id="test-id"
@@ -5299,6 +5157,10 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render hidden label, hidden
 
 .c8.c8 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
 }
 
 .c3 {
@@ -5558,6 +5420,8 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render hidden label, hidden
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
@@ -5589,7 +5453,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render hidden label, hidden
 `;
 
 exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-file-upload with placeholder icon 1`] = `
-.c9 {
+.c8 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -5603,12 +5467,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
   margin: -1px !important;
 }
 
-.c9 * {
+.c8 * {
   width: 1px;
   height: 1px;
 }
 
-.c6 {
+.c5 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -5628,32 +5492,16 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
   font-feature-settings: "liga";
 }
 
-.c6 > span {
+.c5 > span {
   display: inline-block;
 }
 
-.c6.c6 {
+.c5.c5 {
   max-width: unset;
 }
 
-.c11 .c5 {
-  user-select: none;
-}
-
-.c11 .c5 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
   color: inherit;
-}
-
-.c11 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c5 {
-  display: block;
-}
-
-.c12 .c5 {
-  font-size: 1.25rem;
 }
 
 .c0 {
@@ -5670,11 +5518,11 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
   height: 100%;
 }
 
-.c8 {
+.c7 {
   max-height: inherit;
 }
 
-.c7 {
+.c6 {
   color: rgb(5, 104, 174);
   font-size: 1.5rem;
   position: absolute;
@@ -5684,7 +5532,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
   pointer-events: none;
 }
 
-.c10 {
+.c9 {
   display: none;
 }
 
@@ -5755,18 +5603,20 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
         role="button"
       >
         <i
-          class="c5 c6 plasma-icon c7 field__upload-icon field__upload-icon--withPlaceholder"
+          class="c5 plasma-icon c6 field__upload-icon field__upload-icon--withPlaceholder"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
         </i>
         <svg
           aria-hidden="true"
-          class="c8"
+          class="c7"
           data-role=""
           fill="#FFF"
           focusable="false"
@@ -5784,7 +5634,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
           />
         </svg>
         <span
-          class="c9 -u-unseenButRead"
+          class="c8 -u-unseenButRead"
           data-role="hidden-text"
           id="test-id-upload-button-title"
         >
@@ -5792,7 +5642,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
         </span>
       </div>
       <input
-        class="c10 field__upload-input"
+        class="c9 field__upload-input"
         data-role="file-upload-input"
         disabled=""
         id="test-id"
@@ -5805,7 +5655,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
 `;
 
 exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-file-upload with placeholder none-icon 1`] = `
-.c8 {
+.c7 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -5819,12 +5669,12 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
   margin: -1px !important;
 }
 
-.c8 * {
+.c7 * {
   width: 1px;
   height: 1px;
 }
 
-.c6 {
+.c5 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -5844,32 +5694,16 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
   font-feature-settings: "liga";
 }
 
-.c6 > span {
+.c5 > span {
   display: inline-block;
 }
 
-.c6.c6 {
+.c5.c5 {
   max-width: unset;
 }
 
-.c10 .c5 {
-  user-select: none;
-}
-
-.c10 .c5 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
   color: inherit;
-}
-
-.c10 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c5 {
-  display: block;
-}
-
-.c11 .c5 {
-  font-size: 1.25rem;
 }
 
 .c0 {
@@ -5886,7 +5720,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
   height: 100%;
 }
 
-.c7 {
+.c6 {
   color: rgb(5, 104, 174);
   font-size: 1.5rem;
   position: absolute;
@@ -5896,7 +5730,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
   pointer-events: none;
 }
 
-.c9 {
+.c8 {
   display: none;
 }
 
@@ -5967,17 +5801,19 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
         role="button"
       >
         <i
-          class="c5 c6 plasma-icon c7 field__upload-icon field__upload-icon--withPlaceholder"
+          class="c5 plasma-icon c6 field__upload-icon field__upload-icon--withPlaceholder"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             file_upload
           </span>
         </i>
         <span
-          class="c8 -u-unseenButRead"
+          class="c7 -u-unseenButRead"
           data-role="hidden-text"
           id="test-id-upload-button-title"
         >
@@ -5985,7 +5821,7 @@ exports[`com.mgmtp.a12.widgets.default-file-upload > render readOnly default-fil
         </span>
       </div>
       <input
-        class="c9 field__upload-input"
+        class="c8 field__upload-input"
         data-role="file-upload-input"
         disabled=""
         id="test-id"

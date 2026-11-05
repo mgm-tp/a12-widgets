@@ -34,8 +34,8 @@ import { render, fireEvent, getByDataRole } from "test-utils";
 import { Key } from "ts-key-enum";
 import { describe, test, expect, vi } from "vitest";
 
-import { ModalNotification } from "../../main/modal-notification.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { ModalNotification } from "../../main/modal-notification.view.js";
 
 describe("com.mgmtp.a12.widgets.modal-notification", () => {
 	test("test rendering default modal notification", () => {

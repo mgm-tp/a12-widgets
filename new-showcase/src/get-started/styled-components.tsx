@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { MarkdownViewer } from "../helpers/markdown-viewer.js";
-import type { Showcase } from "../helpers/definitions.js";
-
 import StyledComponentsMD from "!../docs/styled-components.md?raw";
+
+import type { Showcase } from "../helpers/definitions.js";
+import { MarkdownViewer } from "../helpers/markdown-viewer.js";
 
 const showcases: Showcase[] = [
 	{ label: "Styled Components", description: <MarkdownViewer source={StyledComponentsMD} />, sections: [] }

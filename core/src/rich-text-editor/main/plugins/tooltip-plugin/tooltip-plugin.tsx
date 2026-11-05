@@ -30,8 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ComponentType, ReactElement } from "react";
-import { useEffect, useMemo } from "react";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { NodeEventPlugin } from "@lexical/react/LexicalNodeEventPlugin";
 import type { LexicalEditor, LexicalNode } from "lexical";
 import {
@@ -39,25 +38,26 @@ import {
 	$getSelection,
 	$isRangeSelection,
 	COMMAND_PRIORITY_LOW,
+	registerEventListener,
 	SELECTION_CHANGE_COMMAND,
 	TextNode
 } from "lexical";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import type { ComponentType, ReactElement } from "react";
+import { useEffect, useMemo } from "react";
 
-import { decorateComponentWithProps } from "../../utils/decorate-component-with-props.js";
-import { editorThemeClasses } from "../../themes/themes.js";
-import { textSearchByRegex } from "../../utils/common.js";
-import { useAddClassToTextMatchers } from "../../utils/hooks.js";
+import type { Container } from "../../../../common/main/base-props.js";
+import { provider } from "../../../../common/main/device-detector.js";
 import type { InlineStyleTextNode } from "../../nodes/inline-style-text-node.js";
 import { $isInlineStyleTextNode } from "../../nodes/inline-style-text-node.js";
-import { provider } from "../../../../common/main/device-detector.js";
-import type { Container } from "../../../../common/main/base-props.js";
-
+import { editorThemeClasses } from "../../themes/themes.js";
+import { textSearchByRegex } from "../../utils/common.js";
+import { decorateComponentWithProps } from "../../utils/decorate-component-with-props.js";
+import { useAddClassToTextMatchers } from "../../utils/hooks.js";
 import type { TextMatcher } from "../plugin.internal.api.js";
 
 import type { TooltipPluginConfig } from "./tooltip-plugin.api.js";
-import { TooltipPlugin as Tooltip } from "./view/tooltip.view.js";
 import type { TooltipPluginProps } from "./view/tooltip.api.js";
+import { TooltipPlugin as Tooltip } from "./view/tooltip.view.js";
 
 export function createTooltipPlugin(config?: TooltipPluginConfig): {
 	TooltipPlugin: ComponentType<Container>;
@@ -112,19 +112,17 @@ export function createTooltipPlugin(config?: TooltipPluginConfig): {
 		};
 
 		useEffect(() => {
+			if (!isDesktop) {
+				return undefined;
+			}
+
 			const scrollHandle = (): void => {
 				changeVisibilityOfTooltip?.(false);
 			};
 
-			if (isDesktop) {
-				document.addEventListener("scroll", scrollHandle, true);
-			}
-
-			return (): void => {
-				if (isDesktop) {
-					document.removeEventListener("scroll", scrollHandle);
-				}
-			};
+			// `registerEventListener` forwards the same options to both add and
+			// remove, so the capture flag cannot drift apart and leak the listener.
+			return registerEventListener(document, "scroll", scrollHandle, true);
 		}, [isDesktop]);
 
 		useEffect(() => {

@@ -34,7 +34,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { fn } from "storybook/test";
 
-import { Radio } from "@com.mgmtp.a12.widgets/widgets-core";
+import { HintTooltip, Radio } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const meta: Meta<typeof Radio> = {
 	title: "Data Entry/Radio",
@@ -42,7 +42,6 @@ const meta: Meta<typeof Radio> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		value: {
 			control: "text",
@@ -68,9 +67,17 @@ const meta: Meta<typeof Radio> = {
 			control: "boolean",
 			description: "Show the radio group in a warning state"
 		},
+		info: {
+			control: "boolean",
+			description: "Show the radio group in an info state"
+		},
 		label: {
 			control: "text",
 			description: "Label for the radio group"
+		},
+		hideLabel: {
+			control: "boolean",
+			description: "Visually hide the label while keeping it accessible to screen readers"
 		},
 		errorMessage: {
 			control: "text",
@@ -83,6 +90,26 @@ const meta: Meta<typeof Radio> = {
 		infoMessage: {
 			control: "text",
 			description: "Info message shown below the group"
+		},
+		helperText: {
+			control: "text",
+			description: "Additional content displayed below the group"
+		},
+		name: {
+			control: "text",
+			description: "HTML name attribute shared by all items; falls back to the `id` when omitted"
+		},
+		messagePosition: {
+			control: "select",
+			options: ["above", "below"],
+			description:
+				'Where the error, warning and info message boxes render: `"above"` (default) between the label and the control, `"below"` directly under the control'
+		},
+		breakTooltipsToNewLine: {
+			control: "select",
+			options: [false, true, "above", "below"],
+			description:
+				'Where tooltips render: `false` (default) inline beside the control, `true` / `"above"` on a new line above the control, `"below"` on a new line below'
 		}
 	},
 	args: {
@@ -93,31 +120,16 @@ const meta: Meta<typeof Radio> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
-		id: "default-radio",
+		id: "playground-radio",
 		label: "Preferred contact method",
-		value: undefined,
+		value: "email",
 		children: (
 			<>
 				<Radio.Item label="Email" value="email" />
 				<Radio.Item label="Phone" value="phone" />
 				<Radio.Item label="Post" value="post" />
-			</>
-		)
-	}
-};
-
-export const WithSelection: Story = {
-	args: {
-		id: "selected-radio",
-		label: "Shipping speed",
-		value: "standard",
-		children: (
-			<>
-				<Radio.Item label="Standard (3–5 days)" value="standard" />
-				<Radio.Item label="Express (1–2 days)" value="express" />
-				<Radio.Item label="Overnight" value="overnight" />
 			</>
 		)
 	}
@@ -137,6 +149,13 @@ export const Inline: Story = {
 				<Radio.Item label="XL" value="xl" />
 			</>
 		)
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`inline` lays the radio items out in a single row instead of stacking them vertically."
+			}
+		}
 	}
 };
 
@@ -152,6 +171,14 @@ export const WithDisabledItem: Story = {
 				<Radio.Item label="Enterprise (contact sales)" value="enterprise" disabled />
 			</>
 		)
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Individual options can be disabled via the `disabled` prop on a single `Radio.Item` while the rest of the group stays interactive."
+			}
+		}
 	}
 };
 
@@ -168,16 +195,89 @@ export const Disabled: Story = {
 				<Radio.Item label="Option 3" value="option3" />
 			</>
 		)
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "Setting `disabled` on the group disables every radio item; value changes are no longer possible."
+			}
+		}
 	}
 };
 
-export const WithErrorMessage: Story = {
+export const Readonly: Story = {
 	args: {
-		id: "error-radio",
+		id: "readonly-radio",
+		label: "Contract type",
+		value: "permanent",
+		readonly: true,
+		children: (
+			<>
+				<Radio.Item label="Permanent" value="permanent" />
+				<Radio.Item label="Fixed-term" value="fixed" />
+				<Radio.Item label="Freelance" value="freelance" />
+			</>
+		)
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`readonly` presents the current selection without allowing changes — useful for review screens."
+			}
+		}
+	}
+};
+
+export const ValidationStates: Story = {
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+			<Radio id="error-radio" label="Payment method" error errorMessage="Please select a payment method to continue">
+				<Radio.Item label="Credit card" value="credit" />
+				<Radio.Item label="Bank transfer" value="bank" />
+				<Radio.Item label="PayPal" value="paypal" />
+			</Radio>
+			<Radio
+				id="warning-radio"
+				label="Data retention"
+				value="90days"
+				warning
+				warningMessage="Shorter retention periods may limit audit capabilities"
+			>
+				<Radio.Item label="30 days" value="30days" />
+				<Radio.Item label="90 days" value="90days" />
+				<Radio.Item label="1 year" value="1year" />
+			</Radio>
+			<Radio
+				id="info-radio"
+				label="Newsletter frequency"
+				value="weekly"
+				info
+				infoMessage="You can change this at any time in your profile"
+			>
+				<Radio.Item label="Daily" value="daily" />
+				<Radio.Item label="Weekly" value="weekly" />
+				<Radio.Item label="Monthly" value="monthly" />
+			</Radio>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `error`, `warning` and `info` flags style the group, while `errorMessage`, `warningMessage` and `infoMessage` show a matching message below it."
+			}
+		}
+	}
+};
+
+export const MessagePosition: Story = {
+	args: {
+		id: "radio-message-position",
 		label: "Payment method",
-		value: undefined,
+		helperText: "Helper text explaining the field",
 		error: true,
 		errorMessage: "Please select a payment method to continue",
+		messagePosition: "below",
 		children: (
 			<>
 				<Radio.Item label="Credit card" value="credit" />
@@ -185,41 +285,65 @@ export const WithErrorMessage: Story = {
 				<Radio.Item label="PayPal" value="paypal" />
 			</>
 		)
+	},
+	parameters: {
+		controls: { include: ["messagePosition"] },
+		docs: {
+			description: {
+				story:
+					'`messagePosition` places the message box relative to the control. This story starts at `"below"`, which renders it directly under the control — switch the control to `"above"` for the default placement between the label and the control.'
+			}
+		}
 	}
 };
 
-export const WithWarningMessage: Story = {
+export const TooltipPosition: Story = {
 	args: {
-		id: "warning-radio",
-		label: "Data retention",
-		value: "90days",
-		warning: true,
-		warningMessage: "Shorter retention periods may limit audit capabilities",
+		id: "radio-tooltip-position",
+		label: "Payment method",
+		helperText: "Helper text explaining the field",
+		value: "credit",
+		tooltips: <HintTooltip text="This is a hint" id="radio-tooltip-position-hint" />,
+		ariaDescribedby: "radio-tooltip-position-hint",
+		breakTooltipsToNewLine: "below",
 		children: (
 			<>
-				<Radio.Item label="30 days" value="30days" />
-				<Radio.Item label="90 days" value="90days" />
-				<Radio.Item label="1 year" value="1year" />
+				<Radio.Item label="Credit card" value="credit" />
+				<Radio.Item label="Bank transfer" value="bank" />
+				<Radio.Item label="PayPal" value="paypal" />
 			</>
 		)
+	},
+	parameters: {
+		controls: { include: ["breakTooltipsToNewLine"] },
+		docs: {
+			description: {
+				story:
+					'`breakTooltipsToNewLine` places the tooltips relative to the control. This story starts at `"below"`, which puts them on their own line under the control — switch the control to `false` for the default inline placement beside it, or to `"above"` / `true` for a line above.'
+			}
+		}
 	}
 };
 
-export const Interactive: Story = {
-	render: () => {
-		const InteractiveRadio = () => {
-			const [value, setValue] = useState<string | undefined>(undefined);
+export const Controlled: Story = {
+	render: function ControlledExample() {
+		const [value, setValue] = useState<string | undefined>(undefined);
 
-			return (
-				<Radio id="interactive-radio" label="Favourite framework" value={value} onValueChanged={setValue}>
-					<Radio.Item label="React" value="react" />
-					<Radio.Item label="Vue" value="vue" />
-					<Radio.Item label="Angular" value="angular" />
-					<Radio.Item label="Svelte" value="svelte" />
-				</Radio>
-			);
-		};
-
-		return <InteractiveRadio />;
+		return (
+			<Radio id="controlled-radio" label="Favourite framework" value={value} onValueChanged={setValue}>
+				<Radio.Item label="React" value="react" />
+				<Radio.Item label="Vue" value="vue" />
+				<Radio.Item label="Angular" value="angular" />
+				<Radio.Item label="Svelte" value="svelte" />
+			</Radio>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Radio is a controlled component: pass the selected item via `value` and update it in the `onValueChanged` callback."
+			}
+		}
 	}
 };

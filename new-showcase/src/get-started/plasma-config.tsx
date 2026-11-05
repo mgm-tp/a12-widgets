@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { MarkdownViewer } from "../helpers/markdown-viewer.js";
-import type { Showcase } from "../helpers/definitions.js";
-
 import configPlasmaText from "!../docs/plasma-config.md?raw";
+
+import type { Showcase } from "../helpers/definitions.js";
+import { MarkdownViewer } from "../helpers/markdown-viewer.js";
 
 const showcases: Showcase[] = [
 	{ label: "Use And Configure Widgets Style", description: <MarkdownViewer source={configPlasmaText} />, sections: [] }

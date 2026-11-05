@@ -70,12 +70,14 @@ export type {
 	DataTableInfiniteScrollBodyProps,
 	DataTableInfiniteScrollSlot
 } from "./data-table.infinite-scroll-body.view.js";
-export type { DataTableResizeHandleProps, DataTableContextType } from "./data-table.context.js";
+export type { DataTableContextType } from "./data-table.context.js";
 export { useDataTableContext } from "./data-table.context.js";
-export {
-	DataTableDnDBodyRow,
-	DataTableDnDDragPreview,
-	DataTableDnDDropTarget,
-	DataTableDragSource
-} from "./data-table.dnd.js";
+export { DataTableDnDBodyRow, DataTableDnDDragPreview, DataTableDragSource } from "./dnd/index.js";
 export * from "./template/index.js";
+
+/**
+ * The card-view layout's primitives, exported alongside the table layout's so a
+ * consumer overriding a structural slot can compose either one. `cardView` picks the
+ * whole set; the two are never mixed.
+ */
+export * from "./card-view/index.js";

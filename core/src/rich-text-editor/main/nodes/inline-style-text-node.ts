@@ -44,7 +44,6 @@ import type {
 import { $applyNodeReplacement, TextNode } from "lexical";
 
 import { StringUtils } from "../../../common/main/utils.js";
-
 import { editorThemeClasses } from "../themes/themes.js";
 
 export type SerializedInlineStyleTextNode = Spread<
@@ -162,8 +161,14 @@ export class InlineStyleTextNode extends TextNode {
 		return isUpdated;
 	}
 
+	/**
+	 * Lexical's built-in nodes declare their DOM conversions through the `$config()` protocol since
+	 * 0.49 and no longer expose a static `importDOM()`, so this reads the base text conversions from
+	 * there instead. The editor itself does not consult this static any more — it is kept because
+	 * `InlineStyleTextNode` is public API and a consumer may still call it.
+	 */
 	static importDOM(): DOMConversionMap | null {
-		return TextNode.importDOM();
+		return TextNode.prototype.$config().text?.importDOM ?? null;
 	}
 
 	exportDOM(editor: LexicalEditor): DOMExportOutput {

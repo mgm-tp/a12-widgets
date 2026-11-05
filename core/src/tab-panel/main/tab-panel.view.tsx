@@ -34,20 +34,18 @@ import type { FC, KeyboardEvent, MouseEvent, ReactElement, SyntheticEvent } from
 import { Fragment, useCallback, useContext, useEffect, useMemo, useRef } from "react";
 import { Key } from "ts-key-enum";
 
-import { joinClassNames } from "../../common/main/utils.js";
-import { useArrowKeyNavigation, useStateWithCallback } from "../../common/main/hooks.js";
-import { provider as DeviceDetector } from "../../common/main/device-detector.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { Icon } from "../../icon/main/icon.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-import { PopupMenuConfigContext } from "../../pop-up-menu/main/popup-menu-context.js";
+import { provider as DeviceDetector } from "../../common/main/device-detector.js";
+import { useArrowKeyNavigation, useStateWithCallback } from "../../common/main/hooks.js";
+import { joinClassNames } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
+import { PopupMenuConfigContext } from "../../pop-up-menu/main/popup-menu-context.js";
 
-import { TAB_PANEL_CLASS_NAME, TabPanelTemplate } from "./template/tab-panel.tpl.view.js";
 import type { TabPanelProps } from "./tab-panel.api.js";
-import type { TabPanelTemplateProps } from "./template/tab-panel.tpl.api.js";
-import { BaseTabPanelContent } from "./template/tab-panel.tpl.styled.js";
+import { useAdaptTabPanelResponsive, useSubMenuKeyPressHandle } from "./tab-panel.hook.js";
 import {
 	StyledCondensedTab,
 	StyledGroupDivider,
@@ -61,8 +59,10 @@ import {
 	StyledTabPanelTabs,
 	StyledTabPanelWrapper
 } from "./tab-panel.styled.js";
-import { useAdaptTabPanelResponsive, useSubMenuKeyPressHandle } from "./tab-panel.hook.js";
 import { filterGroupedTabs, flattenTabs, isGroupedTabList } from "./tab-panel.utils.js";
+import type { TabPanelTemplateProps } from "./template/tab-panel.tpl.api.js";
+import { BaseTabPanelContent } from "./template/tab-panel.tpl.styled.js";
+import { TAB_PANEL_CLASS_NAME, TabPanelTemplate } from "./template/tab-panel.tpl.view.js";
 
 const tabSelector = `[data-role="${DataRoles.TabPanel.Tab}"]`;
 

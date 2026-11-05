@@ -33,8 +33,8 @@
 import type { ReactElement } from "react";
 import { createContext, useContext, useRef, useCallback, useEffect } from "react";
 
-import { useElementSizeDetector, useWindowSize } from "../../../layout/size-detector/main/size-detector.view.js";
 import { SizeDetectorUtils } from "../../../layout/size-detector/main/size-detector.utils.js";
+import { useElementSizeDetector, useWindowSize } from "../../../layout/size-detector/main/size-detector.view.js";
 import { ContentBox, ContentBoxElements } from "../../main/template/contentbox.tpl.view.js";
 
 import type { ActionContentboxProps, NavigationContentboxContextType } from "./action-contentbox.api.js";

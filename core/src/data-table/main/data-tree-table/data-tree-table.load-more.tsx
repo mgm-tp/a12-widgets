@@ -48,7 +48,6 @@ import { DataRoles } from "../../../common/main/data-roles.js";
 import type { FlatTreeRow } from "../../../tree-view/main/model/index.js";
 import type { TreeLoadMoreRenderParams } from "../../../tree-view/main/tree-view-load-more.view.js";
 import { TreeLoadMoreContent } from "../../../tree-view/main/tree-view-load-more.view.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
 import {
@@ -153,7 +152,7 @@ export function TreeLoadMoreRow<RowType>(props: TreeLoadMoreRowProps<RowType>): 
 		forwardedRef
 	} = props;
 	const theme = useTheme();
-	const leafCount = useDataTableContext((ctx) => ctx.leafPinning.length) || 1;
+	const leafCount = useDataTableContext().leafPinning.length || 1;
 	// Add the toggle slot width so the affordance lines up with the node *labels* of the children it
 	// trails — the tree cell reserves `toggleSize` for the chevron before the label, but this spanning
 	// cell has no chevron, so without it the links would sit a toggle-width to the left under the chevrons.

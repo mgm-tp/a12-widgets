@@ -35,7 +35,9 @@ import type { ReactNode } from "react";
 import type { BaseTreeTableColumnType, BaseTreeTableNode } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Icon, TextOutput } from "@com.mgmtp.a12.widgets/widgets-core";
 
-export default {};
+const noStories = {};
+
+export default noStories;
 export const TREE_TABLE_ICONS = {
 	COMPUTER: <Icon>computer</Icon>,
 	DRIVE: <Icon>storage</Icon>,

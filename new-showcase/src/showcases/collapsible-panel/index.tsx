@@ -30,18 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import accessibilityCollapsiblePanelCode from "!./accessibility-collapsible-panel.tsx?raw";
+import addonsCode from "!./addons.tsx?raw";
+import closedCollapsiblePanelCode from "!./closed-collapsible-panel.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
 import CollapsiblePanelAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/collapsible-panel/main/collapsible-panel.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { ClosedCollapsiblePanel } from "./closed-collapsible-panel.js";
-import { Addons } from "./addons.js";
 import { AccessibilityCollapsiblePanel } from "./accessibility-collapsible-panel.js";
-
-import closedCollapsiblePanelCode from "!./closed-collapsible-panel.tsx?raw";
-import addonsCode from "!./addons.tsx?raw";
-import accessibilityCollapsiblePanelCode from "!./accessibility-collapsible-panel.tsx?raw";
+import { Addons } from "./addons.js";
+import { ClosedCollapsiblePanel } from "./closed-collapsible-panel.js";
 
 const showcases: Showcase[] = [
 	{

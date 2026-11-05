@@ -34,9 +34,9 @@ import type { ReactNode, ReactElement } from "react";
 import { Component } from "react";
 
 import { ButtonGroup } from "../../../button-group/main/button-group.view.js";
-import { TextAreaStateless } from "../../../input/text-area/main/template/text-area.tpl.view.js";
-import { bindMethods, addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { bindMethods, addPrefix, joinClassNames } from "../../../common/main/utils.js";
+import { TextAreaStateless } from "../../../input/text-area/main/template/text-area.tpl.view.js";
 import {
 	StyledNewCommentMeta,
 	StyledCommentMetaAvatar,

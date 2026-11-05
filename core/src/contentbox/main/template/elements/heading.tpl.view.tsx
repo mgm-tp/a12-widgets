@@ -31,12 +31,13 @@
  */
 
 import type { ReactElement } from "react";
+import { useContext } from "react";
 import { styled, css } from "styled-components";
 
+import { DataRoles } from "../../../../common/main/data-roles.js";
 import { addPrefix, joinClassNames } from "../../../../common/main/utils.js";
 import { StyledMasterDetailLayoutPane } from "../../../../layout/master-detail/main/master-detail.styled.js";
-import { DataRoles } from "../../../../common/main/data-roles.js";
-
+import { StyledContentBoxContext } from "../contentbox.context.js";
 import type { ContentBoxProps } from "../contentbox.tpl.api.js";
 import { StyledContentBoxHeading, StyledHeadingIcon, StyledContentBoxAddOn } from "../contentbox.tpl.styled.js";
 
@@ -71,6 +72,7 @@ export const StyledHeadingElementsWrapper = styled.div.withConfig({
 export function HeadingTpl(props: ContentBoxProps.HeadingProps): ReactElement<ContentBoxProps.HeadingProps> {
 	const { childrenOnly, prefixes, icon, suffixes, color, style, id, onClick, onKeyDown, children, className, ...rest } =
 		props;
+	const { embedded } = useContext(StyledContentBoxContext);
 
 	return childrenOnly ? (
 		<>{children}</>
@@ -83,6 +85,7 @@ export function HeadingTpl(props: ContentBoxProps.HeadingProps): ReactElement<Co
 			onKeyDown={onKeyDown}
 			data-role={DataRoles.Contentbox.Heading}
 			variantColor={color}
+			$embedded={embedded}
 			{...rest}
 		>
 			{(prefixes || icon) && (

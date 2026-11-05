@@ -32,11 +32,14 @@
 
 import type { ReactNode, CSSProperties, ContextType, MouseEvent as ReactMouseEvent, RefObject } from "react";
 import { Component, createRef, isValidElement } from "react";
-import { Key } from "ts-key-enum";
 import { styled } from "styled-components";
+import { Key } from "ts-key-enum";
 
 import type { BoundaryAlignmentArgument, Position } from "../../common/main/alignment.js";
 import { getBoundaryAlignment, Orientation, getPositionBoundingClientRect } from "../../common/main/alignment.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { provider } from "../../common/main/device-detector.js";
+import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
 import {
 	bindMethods,
 	getVerticalWindowScrollWidth,
@@ -53,12 +56,9 @@ import {
 	getElementWindow,
 	getIframeOffset
 } from "../../common/main/utils.js";
-import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
-import { Portal } from "../../portal/main/portal.view.js";
-import { provider } from "../../common/main/device-detector.js";
-import { PortalContext } from "../../common/main/widgets-root.view.js";
 import { WidgetsResizeDetector } from "../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { PortalContext } from "../../common/main/widgets-root.view.js";
+import { Portal } from "../../portal/main/portal.view.js";
 
 import type { AttachedPortalProps } from "./attached-portal.api.js";
 import { computeMaxSize, findClosestAttachedPortal, hasRectChanged } from "./attached-portal.internal.js";
@@ -151,7 +151,13 @@ export class AttachedPortal extends Component<AttachedPortalProps, AttachedPorta
 
 		while (currentWindow.parent !== currentWindow) {
 			currentWindow = currentWindow.parent;
-			docs.push(currentWindow.document);
+
+			try {
+				docs.push(currentWindow.document);
+			} catch {
+				// cross-origin parent window (e.g. sandboxed iframe) — stop traversing
+				break;
+			}
 		}
 
 		return docs;
@@ -572,19 +578,6 @@ export class AttachedPortal extends Component<AttachedPortalProps, AttachedPorta
 			doc.addEventListener("scroll", this.ancestorScrollHandler, true);
 		});
 
-		// Fix A12W-10732: Prevent JAWS from reading the table structure when using the up arrow key to navigate to the top of the attached portal. For example, JAWS will read "table with 2 columns and 16 rows".
-		this.document.querySelectorAll(`[data-role=${DataRoles.Table}]`)?.forEach((item) => {
-			const interactionHint = this.attachedPortalElement.current?.querySelector(
-				`[data-role=${DataRoles.InteractionHint}]`
-			);
-
-			if (this.attachedPortalElement.current?.contains(item) || interactionHint) {
-				return;
-			}
-
-			return item.setAttribute("role", "presentation");
-		});
-
 		setTimeout(() => {
 			this.window.addEventListener("click", this.handleWindowClick);
 		});
@@ -687,10 +680,6 @@ export class AttachedPortal extends Component<AttachedPortalProps, AttachedPorta
 		this.ancestorDocuments.forEach((doc) => {
 			doc.removeEventListener("scroll", this.ancestorScrollHandler, true);
 		});
-		this.document
-			.querySelectorAll(`[data-role=${DataRoles.Table}]`)
-			?.forEach((item) => item.setAttribute("role", "table"));
-
 		this.mutationObserver?.disconnect();
 		this.intersectionObserver.disconnectObserver();
 	}

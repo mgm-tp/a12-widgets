@@ -31,7 +31,7 @@
  */
 
 import type { FC, ReactNode, ReactElement } from "react";
-import { useState, useMemo, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 
 import type {
 	Layoutable,
@@ -48,13 +48,13 @@ import {
 	ContentBoxElements
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import type { Data, FilterInFilterBarData } from "./filter-selector/data.js";
-import * as Utils from "./filter-selector/common.js";
-import { NavBar, NotificationArea } from "./master-detail-template.js";
-import { Overview } from "./overview.js";
 import { DetailView } from "./detail-view.js";
+import * as Utils from "./filter-selector/common.js";
+import type { Data, FilterInFilterBarData } from "./filter-selector/data.js";
+import { NavBar, NotificationArea } from "./master-detail-template.js";
 import type { StringRow } from "./master-view.js";
 import { MasterView, TABLE_DATA } from "./master-view.js";
+import { Overview } from "./overview.js";
 import { DATA } from "./setup.js";
 
 export type LayoutIdentifier = "OverView" | "Detail";
@@ -111,11 +111,11 @@ export const MasterDetailExample: FC = () => {
 					const filterOptions = customerProjectOptions.split(", ");
 
 					if (operation === "and") {
-						matchedCustomerProject = filterOptions.every((project: any) => {
+						matchedCustomerProject = filterOptions.every((project: string) => {
 							return customerProjects.indexOf(project) !== -1;
 						});
 					} else {
-						matchedCustomerProject = filterOptions.find((project: any) => {
+						matchedCustomerProject = filterOptions.find((project: string) => {
 							return customerProjects.indexOf(project) !== -1;
 						});
 					}

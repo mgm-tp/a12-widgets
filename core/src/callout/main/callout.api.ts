@@ -35,8 +35,8 @@
  * @module
  */
 
-import type { ResizeAndDragContainerProps } from "../../resize-and-drag-container/main/resize-and-drag-container.api.js";
 import type { Orientation } from "../../common/main/alignment.js";
+import type { ResizeAndDragContainerProps } from "../../resize-and-drag-container/main/resize-and-drag-container.api.js";
 
 import type { CalloutTplProps } from "./template/callout.tpl.api.js";
 

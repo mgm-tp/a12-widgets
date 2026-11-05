@@ -30,22 +30,22 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { AutoLinkNode, LinkNode } from "@lexical/link";
+import type { InitialConfigType } from "@lexical/react/LexicalComposer";
+import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
+import merge from "deepmerge";
 import type { FC } from "react";
 import { useMemo } from "react";
-import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
-import type { InitialConfigType } from "@lexical/react/LexicalComposer";
-import { AutoLinkNode, LinkNode } from "@lexical/link";
-import merge from "deepmerge";
 
-import { RichTextEditor } from "../rich-text-editor.view.js";
-import { ListPlugin } from "../plugins/list-plugin/list-plugin.js";
-import { MentionPlugin } from "../plugins/mentions-plugin/mention-plugin.js";
+import { MentionNode } from "../nodes/mention-node.js";
 import { AutoLinkPlugin } from "../plugins/auto-link-plugin/auto-link-plugin.js";
 import { createFollowLinkPopupPlugin } from "../plugins/follow-link-popup-plugin/follow-link-plugin.js";
+import { ListPlugin } from "../plugins/list-plugin/list-plugin.js";
+import { MentionPlugin } from "../plugins/mentions-plugin/mention-plugin.js";
+import { OutputPlugin } from "../plugins/output-plugin/output-plugin.view.js";
 import { createSpellCheckPlugin } from "../plugins/spell-check-plugin/spell-check-plugin.js";
 import { createTooltipPlugin } from "../plugins/tooltip-plugin/tooltip-plugin.js";
-import { OutputPlugin } from "../plugins/output-plugin/output-plugin.view.js";
-import { MentionNode } from "../nodes/mention-node.js";
+import { RichTextEditor } from "../rich-text-editor.view.js";
 
 import type { DefaultRichTextEditorProps } from "./default-rich-text-editor.api.js";
 

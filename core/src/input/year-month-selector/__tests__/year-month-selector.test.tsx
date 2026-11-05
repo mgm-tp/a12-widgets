@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { fireEvent, getAllByDataRole, getByDataRole, render } from "test-utils";
+import { fireEvent, getAllByDataRole, getByDataRole, isAfter, render } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
+import type { MessagePosition, TooltipLineBreak } from "../../base/template/base.tpl.api.js";
 import type { YearMonthSelectorProps } from "../year-month-selector.api.js";
 import { YearMonthSelector } from "../year-month-selector.view.js";
 
@@ -264,5 +264,152 @@ describe("com.mgmtp.a12.widgets.input.year-month-selector", () => {
 		const yearInput = getByDataRole(container, DataRoles.Year.Selector.Input);
 		fireEvent.blur(yearInput);
 		expect(onBlurFn).toHaveBeenCalledTimes(1);
+	});
+
+	describe("message position", () => {
+		const messageRoles = [
+			DataRoles.Year.Month.Selector.ErrorMessage,
+			DataRoles.Year.Month.Selector.WarningMessage,
+			DataRoles.Year.Month.Selector.InfoMessage
+		];
+
+		const renderWithMessages = (messagePosition: MessagePosition) =>
+			render(
+				<YearMonthSelector
+					year={properties.year}
+					month={properties.month}
+					label={properties.label}
+					helperText="Test Helper Text"
+					errorMessage="Test error message"
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					messagePosition={messagePosition}
+				/>
+			);
+
+		test("renders the messages above the control for above", () => {
+			const { getByDataRole } = renderWithMessages("above");
+			const control = getByDataRole(DataRoles.Year.Month.Selector.Control);
+			const label = getByDataRole(DataRoles.Year.Month.Selector.Label);
+			const helperText = getByDataRole(DataRoles.Year.Month.Selector.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(false);
+				// label → message → control → helper text
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, control)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the control for below", () => {
+			const { getByDataRole } = renderWithMessages("below");
+			const control = getByDataRole(DataRoles.Year.Month.Selector.Control);
+			const label = getByDataRole(DataRoles.Year.Month.Selector.Label);
+			const helperText = getByDataRole(DataRoles.Year.Month.Selector.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(false);
+				// label → control → message → helper text
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(control, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const renderWithTooltips = (breakTooltipsToNewLine: TooltipLineBreak, helperText?: string) =>
+			render(
+				<YearMonthSelector
+					year={properties.year}
+					month={properties.month}
+					label={properties.label}
+					helperText={helperText}
+					tooltips={<div>Test tooltip</div>}
+					breakTooltipsToNewLine={breakTooltipsToNewLine}
+				/>
+			);
+
+		/**
+		 * Inline tooltips are not rendered by the year-month-selector itself: they are delegated into the
+		 * inner year selector, which hands them to its text-field and so lands them in that field's
+		 * tooltip addon, inside the control row.
+		 */
+		test("renders the tooltips inside the year selector for false", () => {
+			const { getByDataRole, getByText } = renderWithTooltips(false);
+			const control = getByDataRole(DataRoles.Year.Month.Selector.Control);
+			const yearSelector = getByDataRole(DataRoles.Year.Selector);
+			const tooltipAddon = getByDataRole(DataRoles.TextField.TooltipAddon);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(true);
+			expect(yearSelector.contains(tooltip)).toBe(true);
+			expect(tooltipAddon.contains(tooltip)).toBe(true);
+		});
+
+		test("renders the tooltips above the control for above", () => {
+			const { getByDataRole, getByText, queryByDataRole } = renderWithTooltips("above");
+			const control = getByDataRole(DataRoles.Year.Month.Selector.Control);
+			const tooltip = getByText("Test tooltip");
+
+			expect(queryByDataRole(DataRoles.TextField.TooltipAddon)).toBeNull();
+			expect(control.contains(tooltip)).toBe(false);
+			expect(isAfter(tooltip, control)).toBe(true);
+		});
+
+		test("renders the tooltips below the control for below", () => {
+			const { getByDataRole, getByText, queryByDataRole } = renderWithTooltips("below", "Test Helper Text");
+			const control = getByDataRole(DataRoles.Year.Month.Selector.Control);
+			const helperText = getByDataRole(DataRoles.Year.Month.Selector.HelperText);
+			const tooltip = getByText("Test tooltip");
+
+			expect(queryByDataRole(DataRoles.TextField.TooltipAddon)).toBeNull();
+			expect(control.contains(tooltip)).toBe(false);
+			expect(isAfter(control, tooltip)).toBe(true);
+			expect(isAfter(tooltip, helperText)).toBe(true);
+		});
+	});
+
+	/**
+	 * The year-month-selector sets no `aria-invalid` itself: both selectors inherit it from the error
+	 * state it forwards to them.
+	 */
+	describe("aria-invalid", () => {
+		test("marks both selectors as invalid for error", () => {
+			const { getByDataRole } = render(<YearMonthSelector year={properties.year} month={properties.month} error />);
+
+			expect(getByDataRole(DataRoles.Month.Selector.Input)).toHaveAttribute("aria-invalid", "true");
+			expect(getByDataRole(DataRoles.Year.Selector.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("marks both selectors as invalid for errorMessage", () => {
+			const { getByDataRole } = render(
+				<YearMonthSelector year={properties.year} month={properties.month} errorMessage="Test error message" />
+			);
+
+			expect(getByDataRole(DataRoles.Month.Selector.Input)).toHaveAttribute("aria-invalid", "true");
+			expect(getByDataRole(DataRoles.Year.Selector.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("does not mark the selectors as invalid for a warning or an info", () => {
+			const { getByDataRole } = render(
+				<YearMonthSelector
+					year={properties.year}
+					month={properties.month}
+					warning
+					info
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+				/>
+			);
+
+			expect(getByDataRole(DataRoles.Month.Selector.Input)).not.toHaveAttribute("aria-invalid");
+			expect(getByDataRole(DataRoles.Year.Selector.Input)).not.toHaveAttribute("aria-invalid");
+		});
 	});
 });

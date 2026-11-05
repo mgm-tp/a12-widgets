@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { FC, ChangeEvent } from "react";
 import { useState } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import { ModalOverlay, Button, ContentBoxElements, ActionContentbox } from "@com.mgmtp.a12.widgets/widgets-core";
 

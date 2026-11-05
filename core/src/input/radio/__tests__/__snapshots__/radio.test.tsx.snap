@@ -17,13 +17,6 @@ exports[`com.mgmtp.a12.widgets.input.radio > inline-radio 1`] = `
   display: none;
 }
 
-.c10[data-role="checkbox-group"] .c8,
-.c10[data-role="radio-group"] .c8,
-.c10[data-role="file-upload"] .c8 {
-  max-width: 100%;
-  vertical-align: middle;
-}
-
 .c0 {
   box-sizing: border-box;
   flex-grow: 1;
@@ -323,6 +316,10 @@ exports[`com.mgmtp.a12.widgets.input.radio > radio-group-with-base-properties 1`
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c12 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -349,6 +346,10 @@ exports[`com.mgmtp.a12.widgets.input.radio > radio-group-with-base-properties 1`
 
 .c12.c12 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c12 {
+  color: inherit;
 }
 
 .c8.c8 {
@@ -649,6 +650,8 @@ exports[`com.mgmtp.a12.widgets.input.radio > radio-group-with-base-properties 1`
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           
         </span>
@@ -682,6 +685,8 @@ exports[`com.mgmtp.a12.widgets.input.radio > radio-group-with-base-properties 1`
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           warning
         </span>
@@ -715,6 +720,8 @@ exports[`com.mgmtp.a12.widgets.input.radio > radio-group-with-base-properties 1`
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
@@ -750,6 +757,7 @@ exports[`com.mgmtp.a12.widgets.input.radio > radio-group-with-base-properties 1`
         <input
           aria-checked="false"
           aria-describedby="test-id-label test-id-info test-id-warning test-id-error test-id-helperText test-aria-describedby"
+          aria-invalid="true"
           class="c20 c21 field__radio field__radio--error field__radio--warning"
           data-role="radio-input"
           id="test-id-input1"
@@ -785,6 +793,7 @@ exports[`com.mgmtp.a12.widgets.input.radio > radio-group-with-base-properties 1`
         <input
           aria-checked="false"
           aria-describedby="test-id-label test-id-info test-id-warning test-id-error test-id-helperText test-aria-describedby"
+          aria-invalid="true"
           class="c20 c21 field__radio field__radio--error field__radio--warning"
           data-role="radio-input"
           id="test-id-input2"
@@ -819,6 +828,7 @@ exports[`com.mgmtp.a12.widgets.input.radio > radio-group-with-base-properties 1`
         <input
           aria-checked="false"
           aria-describedby="test-id-label test-id-info test-id-warning test-id-error test-id-helperText test-aria-describedby"
+          aria-invalid="true"
           class="c20 c21 field__radio field__radio--error field__radio--warning"
           data-role="radio-input"
           id="test-id-input3"
@@ -872,13 +882,6 @@ exports[`com.mgmtp.a12.widgets.input.radio > rendering-a-disabled-radio-group 1`
 
 .c3:empty {
   display: none;
-}
-
-.c9[data-role="checkbox-group"] .c2,
-.c9[data-role="radio-group"] .c2,
-.c9[data-role="file-upload"] .c2 {
-  max-width: 100%;
-  vertical-align: middle;
 }
 
 .c0 {
@@ -1154,13 +1157,6 @@ exports[`com.mgmtp.a12.widgets.input.radio > rendering-a-radio-disabled-readonly
   display: none;
 }
 
-.c15[data-role="checkbox-group"] .c2,
-.c15[data-role="radio-group"] .c2,
-.c15[data-role="file-upload"] .c2 {
-  max-width: 100%;
-  vertical-align: middle;
-}
-
 .c0 {
   box-sizing: border-box;
   flex-grow: 1;
@@ -1170,48 +1166,6 @@ exports[`com.mgmtp.a12.widgets.input.radio > rendering-a-radio-disabled-readonly
 .c0 .c2 {
   display: block;
   width: fit-content;
-}
-
-.c13 {
-  margin: 0px;
-  opacity: 0;
-  vertical-align: top;
-  position: absolute;
-  width: 14px;
-  z-index: 1;
-  cursor: pointer;
-}
-
-.c13 + label {
-  align-items: center;
-  cursor: pointer;
-  display: inline-flex;
-  position: relative;
-  text-align: left;
-  vertical-align: top;
-}
-
-.c13 + label > span {
-  display: inline-block;
-  height: 14px;
-  margin-top: 0px;
-  position: relative;
-  vertical-align: top;
-  width: 14px;
-}
-
-.c13 + label > span::before {
-  content: "";
-  inset: 0px;
-  position: absolute;
-  display: block;
-  border: 1px solid rgb(89, 102, 115);
-}
-
-.c13:focus + label > span::before,
-.c13:focus-within + label > span::before {
-  inset: -1px;
-  outline: rgb(51, 51, 51) dotted 1px;
 }
 
 .c7 {
@@ -1297,14 +1251,56 @@ exports[`com.mgmtp.a12.widgets.input.radio > rendering-a-radio-disabled-readonly
   cursor: default;
 }
 
-.c12 {
+.c13 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c13 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c13 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c13 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c13:focus + label > span::before,
+.c13:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c5 {
   align-items: center;
   cursor: default;
   display: flex;
   width: 100%;
 }
 
-.c5 {
+.c12 {
   align-items: center;
   cursor: default;
   display: flex;
@@ -1396,6 +1392,19 @@ exports[`com.mgmtp.a12.widgets.input.radio > rendering-a-radio-disabled-readonly
 }
 
 @media (pointer: coarse) {
+  .c7 + label > span:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+@media (pointer: fine) {
+  .c7 + label > span:hover {
+    border-color: rgb(169, 179, 188);
+  }
+}
+
+@media (pointer: coarse) {
   .c13:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
@@ -1408,19 +1417,6 @@ exports[`com.mgmtp.a12.widgets.input.radio > rendering-a-radio-disabled-readonly
 @media (pointer: fine) {
   .c13:hover + label > span::before {
     inset: -1px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c7 + label > span:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    border-color: rgb(169, 179, 188);
-  }
-}
-
-@media (pointer: fine) {
-  .c7 + label > span:hover {
-    border-color: rgb(169, 179, 188);
   }
 }
 

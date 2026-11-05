@@ -41,7 +41,6 @@ const meta: Meta<typeof ResizeHandler> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		resizable: {
 			control: "boolean",
@@ -59,6 +58,26 @@ const meta: Meta<typeof ResizeHandler> = {
 			control: "select",
 			options: ["left", "right"],
 			description: "Position of the resize handle relative to the target element"
+		},
+		targetRef: {
+			control: false,
+			description: "React ref of the element to resize"
+		},
+		wrapperRef: {
+			control: false,
+			description: "Optional ref to access the resize handle DOM element"
+		},
+		onResizeStart: {
+			control: false,
+			description: "Callback fired when the user starts dragging the handle"
+		},
+		onResize: {
+			control: false,
+			description: "Callback fired continuously while dragging"
+		},
+		onResizeStop: {
+			control: false,
+			description: "Callback fired when the user stops dragging the handle"
 		}
 	}
 };
@@ -81,107 +100,112 @@ const wrapperStyle: React.CSSProperties = {
 	height: "200px"
 };
 
-export const Default: Story = {
-	render: () => {
-		const DefaultResizeHandler = () => {
-			const leftRef = useRef<HTMLDivElement>(null);
-			const [leftWidth, setLeftWidth] = useState(300);
+export const Playground: Story = {
+	args: {
+		resizable: true,
+		minWidth: 150,
+		maxWidth: 600,
+		position: "right"
+	},
+	render: function PlaygroundExample(args) {
+		const leftRef = useRef<HTMLDivElement>(null);
+		const [leftWidth, setLeftWidth] = useState(300);
 
-			return (
-				<div style={wrapperStyle}>
-					<ResizeHandler
-						targetRef={leftRef}
-						minWidth={150}
-						maxWidth={600}
-						onResizeStop={(_event, data) => setLeftWidth(data.width)}
-					>
-						<div ref={leftRef} style={{ ...panelStyle, width: leftWidth }}>
-							<strong>Left Panel</strong>
-							<p>Drag the right edge to resize this panel.</p>
-						</div>
-					</ResizeHandler>
-					<div style={{ ...panelStyle, flex: 1, minWidth: 0 }}>
-						<strong>Right Panel</strong>
-						<p>This panel fills the remaining space.</p>
+		return (
+			<div style={wrapperStyle}>
+				<ResizeHandler {...args} targetRef={leftRef} onResizeStop={(_event, data) => setLeftWidth(data.width)}>
+					<div ref={leftRef} style={{ ...panelStyle, width: leftWidth }}>
+						<strong>Left Panel</strong>
+						<p>Drag the right edge to resize this panel.</p>
 					</div>
+				</ResizeHandler>
+				<div style={{ ...panelStyle, flex: 1, minWidth: 0 }}>
+					<strong>Right Panel</strong>
+					<p>This panel fills the remaining space.</p>
 				</div>
-			);
-		};
-
-		return <DefaultResizeHandler />;
+			</div>
+		);
 	}
 };
 
 export const WithMinMaxConstraints: Story = {
-	render: () => {
-		const ConstrainedResizeHandler = () => {
-			const leftRef = useRef<HTMLDivElement>(null);
-			const [leftWidth, setLeftWidth] = useState(250);
+	render: function ConstrainedExample() {
+		const leftRef = useRef<HTMLDivElement>(null);
+		const [leftWidth, setLeftWidth] = useState(250);
 
-			return (
-				<div>
-					<p style={{ marginBottom: "8px", fontSize: "14px", color: "#666" }}>
-						Min: 150px | Max: 500px | Current: {leftWidth}px
-					</p>
-					<div style={wrapperStyle}>
-						<ResizeHandler
-							targetRef={leftRef}
-							minWidth={150}
-							maxWidth={500}
-							onResizeStop={(_event, data) => setLeftWidth(data.width)}
-							onResize={(_event, data) => setLeftWidth(data.width)}
-						>
-							<div ref={leftRef} style={{ ...panelStyle, width: leftWidth }}>
-								<strong>Constrained Panel</strong>
-								<p>Resize is limited between 150px and 500px.</p>
-							</div>
-						</ResizeHandler>
-						<div style={{ ...panelStyle, flex: 1, minWidth: 0 }}>
-							<strong>Sibling Panel</strong>
+		return (
+			<div>
+				<p style={{ marginBottom: "8px", fontSize: "14px", color: "#666" }}>
+					Min: 150px | Max: 500px | Current: {leftWidth}px
+				</p>
+				<div style={wrapperStyle}>
+					<ResizeHandler
+						targetRef={leftRef}
+						minWidth={150}
+						maxWidth={500}
+						onResizeStop={(_event, data) => setLeftWidth(data.width)}
+						onResize={(_event, data) => setLeftWidth(data.width)}
+					>
+						<div ref={leftRef} style={{ ...panelStyle, width: leftWidth }}>
+							<strong>Constrained Panel</strong>
+							<p>Resize is limited between 150px and 500px.</p>
 						</div>
+					</ResizeHandler>
+					<div style={{ ...panelStyle, flex: 1, minWidth: 0 }}>
+						<strong>Sibling Panel</strong>
 					</div>
 				</div>
-			);
-		};
-
-		return <ConstrainedResizeHandler />;
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`minWidth` and `maxWidth` clamp how far the user can drag — here the panel stays between 150px and 500px, with the live width shown above."
+			}
+		}
 	}
 };
 
 export const LeftPosition: Story = {
-	render: () => {
-		const LeftPositionResizeHandler = () => {
-			const rightRef = useRef<HTMLDivElement>(null);
-			const [rightWidth, setRightWidth] = useState(300);
+	render: function LeftPositionExample() {
+		const rightRef = useRef<HTMLDivElement>(null);
+		const [rightWidth, setRightWidth] = useState(300);
 
-			return (
-				<div style={wrapperStyle}>
-					<div style={{ ...panelStyle, flex: 1, minWidth: 0 }}>
-						<strong>Left Panel</strong>
-						<p>This panel fills the remaining space.</p>
-					</div>
-					<ResizeHandler
-						targetRef={rightRef}
-						position="left"
-						minWidth={150}
-						maxWidth={500}
-						onResizeStop={(_event, data) => setRightWidth(data.width)}
-					>
-						<div ref={rightRef} style={{ ...panelStyle, width: rightWidth }}>
-							<strong>Right Panel</strong>
-							<p>The resize handle is placed on the left side.</p>
-						</div>
-					</ResizeHandler>
+		return (
+			<div style={wrapperStyle}>
+				<div style={{ ...panelStyle, flex: 1, minWidth: 0 }}>
+					<strong>Left Panel</strong>
+					<p>This panel fills the remaining space.</p>
 				</div>
-			);
-		};
-
-		return <LeftPositionResizeHandler />;
+				<ResizeHandler
+					targetRef={rightRef}
+					position="left"
+					minWidth={150}
+					maxWidth={500}
+					onResizeStop={(_event, data) => setRightWidth(data.width)}
+				>
+					<div ref={rightRef} style={{ ...panelStyle, width: rightWidth }}>
+						<strong>Right Panel</strong>
+						<p>The resize handle is placed on the left side.</p>
+					</div>
+				</ResizeHandler>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'`position="left"` places the handle on the left edge of the target — use it when the resizable panel sits on the right side of the layout.'
+			}
+		}
 	}
 };
 
 export const NotResizable: Story = {
-	render: () => {
+	render: function NotResizableExample() {
 		const leftRef = useRef<HTMLDivElement>(null);
 
 		return (
@@ -197,49 +221,61 @@ export const NotResizable: Story = {
 				</div>
 			</div>
 		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`resizable={false}` keeps the handle in the layout but disables dragging — useful for temporarily locking a panel's size."
+			}
+		}
 	}
 };
 
 export const WithResizeCallbacks: Story = {
-	render: () => {
-		const CallbackResizeHandler = () => {
-			const leftRef = useRef<HTMLDivElement>(null);
-			const [leftWidth, setLeftWidth] = useState(300);
-			const [status, setStatus] = useState("Idle");
+	render: function CallbacksExample() {
+		const leftRef = useRef<HTMLDivElement>(null);
+		const [leftWidth, setLeftWidth] = useState(300);
+		const [status, setStatus] = useState("Idle");
 
-			return (
-				<div>
-					<p style={{ marginBottom: "8px", fontSize: "14px", color: "#666" }}>
-						Status: <strong>{status}</strong> | Width: {leftWidth}px
-					</p>
-					<div style={wrapperStyle}>
-						<ResizeHandler
-							targetRef={leftRef}
-							minWidth={150}
-							maxWidth={550}
-							onResizeStart={() => setStatus("Resizing...")}
-							onResize={(_event, data) => {
-								setLeftWidth(data.width);
-								setStatus(`Resizing: ${data.width}px`);
-							}}
-							onResizeStop={(_event, data) => {
-								setLeftWidth(data.width);
-								setStatus(`Stopped at ${data.width}px`);
-							}}
-						>
-							<div ref={leftRef} style={{ ...panelStyle, width: leftWidth }}>
-								<strong>Resizable Panel</strong>
-								<p>All resize callbacks are active.</p>
-							</div>
-						</ResizeHandler>
-						<div style={{ ...panelStyle, flex: 1, minWidth: 0 }}>
-							<strong>Sibling Panel</strong>
+		return (
+			<div>
+				<p style={{ marginBottom: "8px", fontSize: "14px", color: "#666" }}>
+					Status: <strong>{status}</strong> | Width: {leftWidth}px
+				</p>
+				<div style={wrapperStyle}>
+					<ResizeHandler
+						targetRef={leftRef}
+						minWidth={150}
+						maxWidth={550}
+						onResizeStart={() => setStatus("Resizing...")}
+						onResize={(_event, data) => {
+							setLeftWidth(data.width);
+							setStatus(`Resizing: ${data.width}px`);
+						}}
+						onResizeStop={(_event, data) => {
+							setLeftWidth(data.width);
+							setStatus(`Stopped at ${data.width}px`);
+						}}
+					>
+						<div ref={leftRef} style={{ ...panelStyle, width: leftWidth }}>
+							<strong>Resizable Panel</strong>
+							<p>All resize callbacks are active.</p>
 						</div>
+					</ResizeHandler>
+					<div style={{ ...panelStyle, flex: 1, minWidth: 0 }}>
+						<strong>Sibling Panel</strong>
 					</div>
 				</div>
-			);
-		};
-
-		return <CallbackResizeHandler />;
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`onResizeStart`, `onResize` and `onResizeStop` report the drag lifecycle; each callback receives the mouse event and a data object with the element's current `width` and `height`."
+			}
+		}
 	}
 };

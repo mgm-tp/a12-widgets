@@ -1,0 +1,61 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as CollapsiblePanelStories from "./CollapsiblePanel.stories";
+
+<Meta of={CollapsiblePanelStories} />
+
+<Title />
+
+The `CollapsiblePanel` widget renders a panel with a clickable header that expands or collapses
+to show or hide its content. Use it to group secondary or optional content that users can reveal
+on demand, e.g. in forms or settings pages.
+
+- The panel is **controlled**: it is expanded while `children` are rendered and collapsed otherwise.
+  `onClick` fires when the header is clicked or Enter is pressed — toggle your own state there.
+- `info` appends plain text next to the title; `addons` places interactive elements in the header
+  (optionally swapped with the indicator icon via `swapAddonsPosition`).
+- `role` and `ariaLevel` allow tuning the header semantics for accessibility, and an open/close
+  interaction hint can be enabled via `InteractionHintConfigProvider`.
+
+## Playground
+
+Use the controls below to explore all props interactively. Click the header to toggle the panel.
+
+<Primary />
+
+<Controls of={CollapsiblePanelStories.Playground} />
+
+## Examples
+
+### Collapsed
+
+<Canvas of={CollapsiblePanelStories.Collapsed} />
+
+### Controlled
+
+<Canvas of={CollapsiblePanelStories.Controlled} />
+
+### With info
+
+<Canvas of={CollapsiblePanelStories.WithInfo} />
+
+### With addons
+
+<Canvas of={CollapsiblePanelStories.WithAddons} />
+
+### Interaction hints
+
+<Canvas of={CollapsiblePanelStories.InteractionHints} />

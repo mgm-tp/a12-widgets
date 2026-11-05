@@ -31,165 +31,177 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { CSSProperties } from "react";
 import { useState, useRef } from "react";
 
 import { Portal, AttachedPortal, Button } from "@com.mgmtp.a12.widgets/widgets-core";
+
+const overlayStyle: CSSProperties = {
+	background: "#fff",
+	border: "1px solid #ccc",
+	borderRadius: "4px",
+	padding: "12px",
+	boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+	minWidth: "180px"
+};
 
 const meta: Meta<typeof Portal> = {
 	title: "Utils/Portals",
 	component: Portal,
 	parameters: {
-		layout: "padded",
-		docs: {
-			description: {
-				component:
-					"Portal renders its children into document.body, outside the current DOM tree — useful for modals and overlays. AttachedPortal additionally positions itself relative to a referenceElement and supports smart orientation."
-			}
-		}
+		layout: "padded"
 	},
-	tags: ["autodocs"]
+	argTypes: {
+		closeOnEsc: {
+			control: "boolean",
+			description: "Should the portal close when the ESC key is hit (default: true)"
+		},
+		closeOnOutsideClick: {
+			control: "boolean",
+			description: "Should the portal close when you click outside it"
+		},
+		onClose: {
+			control: false,
+			description: "Callback when the portal is closed"
+		},
+		onClickOutside: {
+			control: false,
+			description: "Callback when clicking outside the portal"
+		},
+		children: {
+			control: false,
+			description: "Content rendered inside the portal"
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => {
-		const PortalExample = () => {
-			const [open, setOpen] = useState(false);
+export const Playground: Story = {
+	args: {
+		closeOnEsc: true,
+		closeOnOutsideClick: true
+	},
+	render: function PlaygroundExample(args) {
+		const [open, setOpen] = useState(false);
 
-			return (
-				<div>
-					<Button onClick={() => setOpen(true)} primary>
-						Open Portal
-					</Button>
-					{open && (
-						<Portal closeOnOutsideClick closeOnEsc onClose={() => setOpen(false)}>
-							<div
-								style={{
-									position: "fixed",
-									top: "50%",
-									left: "50%",
-									transform: "translate(-50%, -50%)",
-									background: "#fff",
-									border: "1px solid #ccc",
-									borderRadius: "4px",
-									padding: "24px",
-									boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
-									zIndex: 1000,
-									minWidth: "200px"
-								}}
-							>
-								<p>Content rendered in document.body via Portal.</p>
-								<Button onClick={() => setOpen(false)} secondary>
-									Close
-								</Button>
-							</div>
-						</Portal>
-					)}
-				</div>
-			);
-		};
-
-		return <PortalExample />;
-	}
-};
-
-export const BasicPortal: Story = {
-	render: () => {
-		const PortalExample = () => {
-			const [open, setOpen] = useState(false);
-
-			return (
-				<div>
-					<Button onClick={() => setOpen(true)} primary>
-						Open Portal
-					</Button>
-					{open && (
-						<Portal closeOnOutsideClick closeOnEsc onClose={() => setOpen(false)}>
-							<div
-								style={{
-									position: "fixed",
-									top: "50%",
-									left: "50%",
-									transform: "translate(-50%, -50%)",
-									background: "#fff",
-									border: "1px solid #ccc",
-									borderRadius: "4px",
-									padding: "24px",
-									boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
-									zIndex: 1000,
-									minWidth: "200px"
-								}}
-							>
-								<p>Content rendered in document.body via Portal.</p>
-								<Button onClick={() => setOpen(false)} secondary>
-									Close
-								</Button>
-							</div>
-						</Portal>
-					)}
-				</div>
-			);
-		};
-
-		return <PortalExample />;
+		return (
+			<div>
+				<Button onClick={() => setOpen(true)} primary>
+					Open Portal
+				</Button>
+				{open && (
+					<Portal
+						{...args}
+						onClose={(event) => {
+							setOpen(false);
+							args.onClose?.(event);
+						}}
+					>
+						<div
+							style={{
+								...overlayStyle,
+								position: "fixed",
+								top: "50%",
+								left: "50%",
+								transform: "translate(-50%, -50%)",
+								padding: "24px",
+								zIndex: 1000,
+								minWidth: "200px"
+							}}
+						>
+							<p>Content rendered in document.body via Portal.</p>
+							<Button onClick={() => setOpen(false)} secondary>
+								Close
+							</Button>
+						</div>
+					</Portal>
+				)}
+			</div>
+		);
 	},
 	parameters: {
 		docs: {
 			description: {
 				story:
-					"Portal renders its children into document.body. closeOnOutsideClick and closeOnEsc are handled by Portal itself via the onClose callback."
+					"`Portal` renders its children into `document.body`. `closeOnOutsideClick` and `closeOnEsc` are handled by the portal itself via the `onClose` callback."
 			}
 		}
 	}
 };
 
-export const AttachedPortalExample: Story = {
-	render: () => {
-		const AttachedPortalExampleComponent = () => {
-			const [open, setOpen] = useState(false);
-			const wrapperRef = useRef<HTMLDivElement>(null);
+export const Attached: Story = {
+	render: function AttachedExample() {
+		const [open, setOpen] = useState(false);
+		const wrapperRef = useRef<HTMLDivElement>(null);
 
-			return (
-				<div style={{ paddingTop: "60px" }}>
-					<div ref={wrapperRef} style={{ display: "inline-block" }}>
-						<Button onClick={() => setOpen((prev) => !prev)} primary>
-							Toggle Attached Portal
-						</Button>
-					</div>
-					{open && wrapperRef.current && (
-						<AttachedPortal
-							referenceElement={wrapperRef.current}
-							closeOnOutsideClick
-							closeOnEsc
-							onVisibilityChange={(visible) => !visible && setOpen(false)}
-						>
-							<div
-								style={{
-									background: "#fff",
-									border: "1px solid #ccc",
-									borderRadius: "4px",
-									padding: "12px",
-									boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-									minWidth: "180px"
-								}}
-							>
-								<p style={{ margin: 0 }}>Positioned near the button.</p>
-							</div>
-						</AttachedPortal>
-					)}
+		return (
+			<div style={{ paddingTop: "60px" }}>
+				<div ref={wrapperRef} style={{ display: "inline-block" }}>
+					<Button onClick={() => setOpen((prev) => !prev)} primary>
+						Toggle Attached Portal
+					</Button>
 				</div>
-			);
-		};
-
-		return <AttachedPortalExampleComponent />;
+				{open && wrapperRef.current && (
+					<AttachedPortal
+						referenceElement={wrapperRef.current}
+						closeOnOutsideClick
+						closeOnEsc
+						onVisibilityChange={(visible) => !visible && setOpen(false)}
+					>
+						<div style={overlayStyle}>
+							<p style={{ margin: 0 }}>Positioned near the button.</p>
+						</div>
+					</AttachedPortal>
+				)}
+			</div>
+		);
 	},
 	parameters: {
 		docs: {
 			description: {
 				story:
-					"AttachedPortal positions content relative to a referenceElement (here: the button wrapper div). It automatically picks orientation to stay on screen."
+					"`AttachedPortal` positions its content relative to a `referenceElement` (here: the button wrapper). It automatically picks an `orientation` so the content stays fully visible on screen."
+			}
+		}
+	}
+};
+
+export const AttachedOrientation: Story = {
+	render: function AttachedOrientationExample() {
+		const [open, setOpen] = useState(false);
+		const wrapperRef = useRef<HTMLDivElement>(null);
+
+		return (
+			<div style={{ padding: "120px 0 0 120px" }}>
+				<div ref={wrapperRef} style={{ display: "inline-block" }}>
+					<Button onClick={() => setOpen((prev) => !prev)} primary>
+						Open at top-start
+					</Button>
+				</div>
+				{open && wrapperRef.current && (
+					<AttachedPortal
+						referenceElement={wrapperRef.current}
+						orientation="top-start"
+						fixedOrientation
+						closeOnOutsideClick
+						closeOnEsc
+						onVisibilityChange={(visible) => !visible && setOpen(false)}
+					>
+						<div style={overlayStyle}>
+							<p style={{ margin: 0 }}>Fixed at the top-start orientation.</p>
+						</div>
+					</AttachedPortal>
+				)}
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`orientation` aligns the attached portal to the reference element (default `bottom-start`). With `fixedOrientation` the portal keeps the preferred orientation instead of repositioning automatically; `orientationList` can define prioritized fallbacks."
 			}
 		}
 	}

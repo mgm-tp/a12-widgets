@@ -62,5 +62,5 @@ const items: MenuItem[] = [
 ];
 
 export function OverflowedCountBadgeShowcase(): ReactNode {
-	return <FlyoutMenu type="horizontal" items={items} className="-u-width-full" />;
+	return <FlyoutMenu id="overflowed-count-badge-menu" type="horizontal" items={items} className="-u-width-full" />;
 }

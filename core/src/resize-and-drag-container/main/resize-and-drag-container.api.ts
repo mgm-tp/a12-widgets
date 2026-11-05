@@ -33,8 +33,8 @@
 import type { KeyboardEvent, MouseEvent, RefCallback } from "react";
 import type { Props, Rnd } from "react-rnd";
 
-import type { HTMLAttributes, Identifiable, Ref } from "../../common/main/base-props.js";
 import type { Orientation } from "../../common/main/alignment.js";
+import type { HTMLAttributes, Identifiable, Ref } from "../../common/main/base-props.js";
 
 type RemoveIndex<T> = {
 	[K in keyof T as {} extends Record<K, 1> ? never : K]: T[K];

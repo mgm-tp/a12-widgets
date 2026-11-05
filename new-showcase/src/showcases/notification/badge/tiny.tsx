@@ -105,11 +105,17 @@ export function TinyBadgeShowcase(): ReactNode {
 		<div className="-u-width-full">
 			<div>
 				<p>With Flyout Vertical Menu:</p>
-				<FlyoutMenu type="vertical" items={verticalItems} collapsed style={{ width: "fit-content" }} />
+				<FlyoutMenu
+					id="tiny-badge-vertical-menu"
+					type="vertical"
+					items={verticalItems}
+					collapsed
+					style={{ width: "fit-content" }}
+				/>
 			</div>
 			<div>
 				<p>With Horizontal Menu:</p>
-				<FlyoutMenu type="horizontal" items={horizontalItems} />
+				<FlyoutMenu id="tiny-badge-horizontal-menu" type="horizontal" items={horizontalItems} />
 			</div>
 			<div>
 				<p>With Buttons:</p>

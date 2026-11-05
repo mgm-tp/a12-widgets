@@ -34,14 +34,13 @@ import type { MouseEvent, ReactElement } from "react";
 import { useContext, useRef, useState, useEffect } from "react";
 import { styled, css, keyframes } from "styled-components";
 
+import { Button } from "../../../button/main/button.view.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
-import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
-import { Button } from "../../../button/main/button.view.js";
-import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
-import { active, hover } from "../../../theme/base/mixins/_interaction.js";
-import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
+import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
+import { active, hover } from "../../../theme/base/mixins/_interaction.js";
 
 import type { TagProps } from "./tag.api.js";
 
@@ -69,12 +68,14 @@ export const StyledTagWrapper = styled.div.withConfig({ displayName: "StyledTagW
 		overflow: hidden;
 		position: relative;
 
-		${removable &&
-		css`
-			> ${StyledTagContent} {
-				padding-right: ${tag.removable.contentPaddingRight};
-			}
-		`}
+		${
+			removable &&
+			css`
+				> ${StyledTagContent} {
+					padding-right: ${tag.removable.contentPaddingRight};
+				}
+			`
+		}
 		&--focus ${StyledTagContent} {
 			border-color: ${tag.content.focusBorderColor};
 		}
@@ -163,7 +164,7 @@ export const StyledTagContent = styled.div.withConfig({ displayName: "StyledTagC
 			${hover(css`
 				color: ${tag.content.color.hover};
 			`)}
-        	&:focus {
+			&:focus {
 				color: ${tag.content.color.focus};
 			}
 		}
@@ -188,12 +189,15 @@ const StyledRemovableButton = styled(Button).withConfig({ displayName: "StyledRe
 		width: ${tag.removable.closeButton.size};
 		padding: ${tag.removable.closeButton.padding};
 
-		&:hover {
+		&:hover,
+		&:focus {
 			border-top-right-radius: inherit;
-			${isSingleLine &&
-			css`
-				border-bottom-right-radius: inherit;
-			`}
+			${
+				isSingleLine &&
+				css`
+					border-bottom-right-radius: inherit;
+				`
+			}
 		}
 	`;
 });
@@ -213,6 +217,7 @@ export function Tag(props: TagProps): ReactElement<TagProps> {
 		children,
 		disabledRemoveButton,
 		tabIndex,
+		removeButtonTabIndex,
 		noWaiAria,
 		wrapperRef,
 		onRemove,
@@ -263,12 +268,16 @@ export function Tag(props: TagProps): ReactElement<TagProps> {
 
 	const ids = id
 		? {
-				content: `${id}-content`,
-				buttonTitleHiddenText: `${id}-button-title-hidden-text`
+				content: `${id}-content`
 			}
 		: undefined;
 
-	const removeButtonLabelledBy = ids && `${ids.buttonTitleHiddenText} ${ids.content}`;
+	const removeButtonContentText =
+		typeof children === "string" || typeof children === "number" ? `${children}`.trim() : undefined;
+	const removeButtonFullLabel =
+		a11yTitles?.deleteTagButton && removeButtonContentText
+			? `${a11yTitles.deleteTagButton} ${removeButtonContentText}`
+			: a11yTitles?.deleteTagButton;
 
 	return (
 		<StyledTagWrapper
@@ -299,9 +308,9 @@ export function Tag(props: TagProps): ReactElement<TagProps> {
 			</StyledTagContent>
 			{removable && (
 				<StyledRemovableButton
-					tabIndex={tabIndex}
+					tabIndex={removeButtonTabIndex ?? tabIndex}
 					icon={<Icon>close</Icon>}
-					title={a11yTitles && a11yTitles.deleteTagButton}
+					title={removeButtonFullLabel}
 					disabled={disabledRemoveButton}
 					isSingleLine={isSingleLine}
 					buttonRef={handleRemovableButtonRef}
@@ -310,14 +319,7 @@ export function Tag(props: TagProps): ReactElement<TagProps> {
 						onRemove?.();
 					}}
 					onMouseDown={(event) => event.stopPropagation()}
-					buttonAttributes={{
-						"aria-labelledby": removeButtonLabelledBy
-					}}
-				>
-					{ids?.buttonTitleHiddenText && a11yTitles?.deleteTagButton && (
-						<HiddenText id={ids.buttonTitleHiddenText}>{a11yTitles.deleteTagButton}</HiddenText>
-					)}
-				</StyledRemovableButton>
+				/>
 			)}
 		</StyledTagWrapper>
 	);

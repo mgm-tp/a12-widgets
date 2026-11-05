@@ -202,6 +202,7 @@ export function BasicTableShowcase(): ReactElement {
 			if (props.column.label === "selection") {
 				return (
 					<Checkbox.Indeterminate
+						id="basic-table-select-all"
 						label="Select all/ Deselect all"
 						hideLabel
 						checked={checkedRows.length === data.length ? true : checkedRows.length > 0 ? "mixed" : false}
@@ -230,6 +231,7 @@ export function BasicTableShowcase(): ReactElement {
 
 				return columns.indexOf(column) === 0 ? (
 					<Checkbox
+						id={`table-select-${row.id}`}
 						label={`Select ${row.id}`}
 						hideLabel
 						checked={isRowChecked}

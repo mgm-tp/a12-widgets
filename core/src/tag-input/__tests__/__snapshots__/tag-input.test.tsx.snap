@@ -62,11 +62,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   max-width: unset;
 }
 
-.c9 .c14 {
+:where(.c9) .c14 {
   color: inherit;
 }
 
-.c19 {
+.c18 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -86,23 +86,23 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   font-feature-settings: "liga";
 }
 
-.c19 > span {
+.c18 > span {
   display: inline-block;
 }
 
-.c19.c19 {
+.c18.c18 {
   max-width: unset;
 }
 
-.c9 .c19 {
+:where(.c9) .c18 {
   color: inherit;
 }
 
-.c20.c20 {
+.c19.c19 {
   color: rgb(201, 29, 29);
 }
 
-.c25.c25 {
+.c24.c24 {
   color: rgb(175, 121, 2);
 }
 
@@ -158,15 +158,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   width: fit-content;
 }
 
-.c9 .c12.c12:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c9 .c12.c12:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
-  color: inherit;
-}
-
 .c9 .c12.c12:focus .c13 {
+  color: inherit;
+}
+
+:where(.c9) .c12:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -232,15 +228,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   width: fit-content;
 }
 
-.c9 .c17.c17:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c9 .c17.c17:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
-  color: inherit;
-}
-
 .c9 .c17.c17:focus .c13 {
+  color: inherit;
+}
+
+:where(.c9) .c17:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -270,7 +262,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   display: none;
 }
 
-.c21 {
+.c20 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -281,7 +273,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   color: rgb(201, 29, 29);
 }
 
-.c24 {
+.c23 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -292,21 +284,21 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   color: rgb(22, 25, 29);
 }
 
-.c22 {
+.c21 {
   display: flex;
   margin-right: 4px;
 }
 
-.c22 .c13 {
+.c21 .c13 {
   font-size: 1.25rem;
 }
 
-.c23 {
+.c22 {
   align-self: center;
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c45 {
+.c44 {
   align-items: center;
   align-self: flex-end;
   display: flex;
@@ -316,7 +308,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   justify-content: center;
 }
 
-.c48 {
+.c47 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -326,21 +318,21 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   width: fit-content;
 }
 
-.c47 {
+.c46 {
   display: flex;
 }
 
-.c47 .c44 {
+.c46 .c43 {
   height: auto;
   visibility: hidden;
 }
 
-.c42 {
+.c41 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -358,21 +350,17 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   width: 100%;
 }
 
-.c42::placeholder {
+.c41::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c52 .c11 {
-  border-radius: 0px;
-}
-
-.c39 {
+.c38 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   display: flex;
   font-family: "Open Sans", sans-serif;
@@ -385,7 +373,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   color: rgb(169, 179, 188);
 }
 
-.c39 .c11 {
+.c38 .c11 {
   border-radius: 0px;
 }
 
@@ -406,7 +394,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   max-width: 100%;
 }
 
-.c34 {
+.c33 {
   overflow-wrap: break-word;
   word-break: break-word;
   flex-direction: column;
@@ -414,21 +402,21 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   width: 100%;
 }
 
-.c34 .c3 {
+.c33 .c3 {
   display: flex;
   width: 100%;
 }
 
-.c34 * {
+.c33 * {
   max-width: 100%;
 }
 
-.c34[class*="h_"] .c37 {
+.c33[class*="h_"] .c36 {
   background-color: rgb(226, 230, 233) !important;
   color: rgb(169, 179, 188) !important;
 }
 
-.c34[class*="h_"] .c7 {
+.c33[class*="h_"] .c7 {
   color: rgb(169, 179, 188) !important;
 }
 
@@ -446,17 +434,17 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   width: fit-content;
 }
 
-.c36 {
+.c35 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c36 > .c9 {
+.c35 > .c9 {
   margin: 0px 4px 4px 0px;
 }
 
-.c36 .c7 {
+.c35 .c7 {
   display: block;
   width: fit-content;
 }
@@ -470,15 +458,20 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   max-width: 100%;
 }
 
-.c51 > .c32 {
-  padding-right: 28px;
+.c39 {
+  height: auto;
 }
 
-.c51--focus .c32 {
-  border-color: rgb(213, 0, 117);
+.c42 {
+  height: 32px;
+  overflow-y: hidden;
+  padding: calc(16px - 0.54375rem) 12px;
+  resize: none;
+  min-height: 32px;
+  min-width: 0px;
 }
 
-.c30 {
+.c29 {
   background-color: rgb(255, 255, 255);
   border-radius: 0.75rem;
   display: inline-block;
@@ -487,22 +480,22 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   position: relative;
 }
 
-.c30--focus .c32 {
+.c29--focus .c31 {
   border-color: rgb(213, 0, 117);
 }
 
-.c30.tag--exit {
+.c29.tag--exit {
   border-color: transparent;
   margin: 0px 0px 8px 2px;
   transition: border-color 0.2s cubic-bezier(0.96, 0.01, 0.95, 0.01);
   vertical-align: bottom;
 }
 
-.c30.tag--exit-animation {
+.c29.tag--exit-animation {
   animation: 0.2s ease 0s 1 normal both running k0;
 }
 
-.c33 {
+.c32 {
   border: 1px solid rgb(169, 179, 188);
   border-radius: inherit;
   color: rgb(77, 77, 77);
@@ -517,42 +510,29 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   vertical-align: middle;
 }
 
-.c33 a {
+.c32 a {
   color: rgb(5, 104, 174);
   text-decoration: none;
 }
 
-.c33 a:focus {
+.c32 a:focus {
   color: rgb(213, 0, 117);
 }
 
-.c33 > .c13 {
+.c32 > .c13 {
   vertical-align: top;
 }
 
-.c27 {
+.c26 {
   box-sizing: border-box;
 }
 
-.c27 .c29 {
+.c26 .c28 {
   margin: 0px 8px 8px 0px;
   vertical-align: middle;
 }
 
-.c40 {
-  height: auto;
-}
-
-.c43 {
-  height: 32px;
-  overflow-y: hidden;
-  padding: calc(16px - 0.54375rem) 12px;
-  resize: none;
-  min-height: 32px;
-  min-width: 0px;
-}
-
-.c35 .c37[data-isfocused="true"]::before {
+.c34 .c36[data-isfocused="true"]::before {
   display: none;
 }
 
@@ -565,61 +545,38 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   min-width: 24px;
 }
 
-.c46 {
+.c45 {
   align-self: flex-start;
   height: 40px;
 }
 
-.c26 {
+.c25 {
   display: flex;
 }
 
-.c26 .c37 {
+.c25 .c36 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
-.c31 {
+.c30 {
   outline-color: transparent;
   max-width: 100%;
   background-color: rgb(241, 242, 244);
 }
 
-.c31.c31 {
+.c30.c30 {
   margin: 4px 8px 4px 0px;
 }
 
-.c31 .c32 {
+.c30 .c31 {
   border-color: transparent;
   color: rgb(169, 179, 188);
 }
 
-.c50 > .c0 {
-  align-items: center;
-  flex: 1 1 0px;
-  min-width: 24px;
-  outline: none;
-  position: relative;
-}
-
-.c50 > .c0 .c38 {
-  box-shadow: none;
-  outline: none;
-}
-
-.c50 > .c0 .c38 .c41 {
-  border-radius: 0.75rem;
-  border: 1px dashed rgb(89, 102, 115);
-  height: 24px;
-  line-height: 1rem;
-  min-height: 24px;
-  padding: 4px 8px;
-  min-width: 24px;
-}
-
-.c28 {
+.c27 {
   align-items: center;
   border-radius: 0px;
   display: flex;
@@ -634,7 +591,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   color: rgb(169, 179, 188);
 }
 
-.c28 > .c0 {
+.c27 > .c0 {
   align-items: center;
   flex: 1 1 0px;
   min-width: 24px;
@@ -642,12 +599,12 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   position: relative;
 }
 
-.c28 > .c0 .c38 {
+.c27 > .c0 .c37 {
   box-shadow: none;
   outline: none;
 }
 
-.c28 > .c0 .c38 .c41 {
+.c27 > .c0 .c37 .c40 {
   height: 24px;
   line-height: 1rem;
   min-height: 24px;
@@ -655,7 +612,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   min-width: 24px;
 }
 
-.c49 {
+.c48 {
   width: auto;
   position: absolute;
   visibility: hidden;
@@ -744,14 +701,14 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
 }
 
 @media (pointer: coarse) {
-  .c33 a:active {
+  .c32 a:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c33 a:hover {
+  .c32 a:hover {
     color: rgb(213, 0, 117);
   }
 }
@@ -810,6 +767,8 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               info
             </span>
@@ -836,11 +795,13 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
           type="button"
         >
           <i
-            class="c13 c18 c19 c20 plasma-icon plasma-icon--error plasma-icon--custom"
+            class="c13 c18 c19 plasma-icon plasma-icon--error plasma-icon--custom"
             data-role="plasma-icon"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               
             </span>
@@ -854,21 +815,23 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
         </button>
       </span>
       <div
-        class="c21 message message--error field__message"
+        class="c20 message message--error field__message"
         data-role="tag-input-error-message"
         id="test-id-error"
         style="width: 1108.53px;"
       >
         <div
-          class="c22 messageIcon"
+          class="c21 messageIcon"
         >
           <i
-            class="c13 c18 c19 c20 plasma-icon plasma-icon--error plasma-icon--custom"
+            class="c13 c18 c19 plasma-icon plasma-icon--error plasma-icon--custom"
             data-role="plasma-icon"
             title="Error"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               
             </span>
@@ -881,28 +844,30 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
           </i>
         </div>
         <div
-          class="c23 messageText"
+          class="c22 messageText"
           data-role="error-text"
         >
           errorMessage
         </div>
       </div>
       <div
-        class="c24 message message--warning field__message"
+        class="c23 message message--warning field__message"
         data-role="tag-input-warning-message"
         id="test-id-warning"
         style="width: 1108.53px;"
       >
         <div
-          class="c22 messageIcon"
+          class="c21 messageIcon"
         >
           <i
-            class="c13 c18 c14 c25 plasma-icon plasma-icon--warning"
+            class="c13 c14 c24 plasma-icon plasma-icon--warning"
             data-role="plasma-icon"
             title="Warning"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               warning
             </span>
@@ -915,32 +880,32 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
           </i>
         </div>
         <div
-          class="c23 messageText"
+          class="c22 messageText"
           data-role="warning-text"
         >
           warningMessage
         </div>
       </div>
       <div
-        class="c26 tag-input__group-wrapper"
+        class="c25 tag-input__group-wrapper"
         data-role="tag-input-group"
       >
         <div
           aria-label="Tags"
-          class="c27 tag-group c28"
+          class="c26 tag-group c27"
           data-role="tag-group"
           role="list"
           tabindex="-1"
         >
           <div
-            class="c29 c30 tag c31 tag--disabled"
+            class="c28 c29 tag c30 tag--disabled"
             data-role="tag"
             id="widgets"
             role="listitem"
             tabindex="-1"
           >
             <div
-              class="c32 c33 tag__content"
+              class="c31 c32 tag__content"
               data-role="tag-content"
               id="widgets-content"
             >
@@ -948,14 +913,14 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
             </div>
           </div>
           <div
-            class="c29 c30 tag c31 tag--disabled"
+            class="c28 c29 tag c30 tag--disabled"
             data-role="tag"
             id="a12"
             role="listitem"
             tabindex="-1"
           >
             <div
-              class="c32 c33 tag__content"
+              class="c31 c32 tag__content"
               data-role="tag-content"
               id="a12-content"
             >
@@ -963,14 +928,14 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
             </div>
           </div>
           <div
-            class="c29 c30 tag c31 tag--disabled"
+            class="c28 c29 tag c30 tag--disabled"
             data-role="tag"
             id="mgm"
             role="listitem"
             tabindex="-1"
           >
             <div
-              class="c32 c33 tag__content"
+              class="c31 c32 tag__content"
               data-role="tag-content"
               id="mgm-content"
             >
@@ -978,7 +943,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
             </div>
           </div>
           <div
-            class="c0 c34 field-wrapper field-wrapper--block c35"
+            class="c0 c33 field-wrapper field-wrapper--block c34"
             data-role="textarea"
             role="listitem"
           >
@@ -986,22 +951,24 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
               class="c3 c4 field__main"
             >
               <div
-                class="c5 c36 field"
+                class="c5 c35 field"
                 data-role="textarea-control"
               >
                 <div
+                  aria-invalid="true"
                   aria-labelledby="test-id-label"
-                  class="c37 c38 c39 c40 field__input field__input--textarea field__input--disabled"
+                  class="c36 c37 c38 c39 field__input field__input--textarea field__input--disabled"
                   data-disabled="true"
                   data-isfocused="false"
                 >
                   <textarea
                     aria-activedescendant="Android-phone-popular"
                     aria-haspopup="false"
+                    aria-invalid="true"
                     aria-owns="test-id-popular-dropdown"
                     aria-required="true"
                     autocomplete="off"
-                    class="c41 c42 c43 field__text field__text--autoExpand"
+                    class="c40 c41 c42 field__text field__text--autoExpand"
                     data-role="textarea-input"
                     disabled=""
                     id="test-id-textarea"
@@ -1013,13 +980,13 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
           </div>
         </div>
         <div
-          class="c44 c45 c46 field-addon field-addon--after"
+          class="c43 c44 c45 field-addon field-addon--after"
           data-role="tag-input--addon-after-0"
         >
           addon-after1
         </div>
         <div
-          class="c44 c45 c46 field-addon field-addon--after"
+          class="c43 c44 c45 field-addon field-addon--after"
           data-role="tag-input--addon-after-1"
         >
           addon-after2
@@ -1028,11 +995,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
     </div>
   </div>
   <div
-    class="c47 field__helper"
+    class="c46 field__helper"
     style="width: 1108.53px;"
   >
     <label
-      class="c48 field__helper-text"
+      class="c47 field__helper-text"
       data-role="tag-helper-text"
       for="test-id-textarea"
       id="test-id-helper-text"
@@ -1042,7 +1009,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-disabled-tag-input 1
   </div>
   <span
     aria-hidden="true"
-    class="c49"
+    class="c48"
   />
 </div>
 `;
@@ -1109,11 +1076,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   max-width: unset;
 }
 
-.c9 .c14 {
+:where(.c9) .c14 {
   color: inherit;
 }
 
-.c19 {
+.c18 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -1133,23 +1100,23 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   font-feature-settings: "liga";
 }
 
-.c19 > span {
+.c18 > span {
   display: inline-block;
 }
 
-.c19.c19 {
+.c18.c18 {
   max-width: unset;
 }
 
-.c9 .c19 {
+:where(.c9) .c18 {
   color: inherit;
 }
 
-.c20.c20 {
+.c19.c19 {
   color: rgb(201, 29, 29);
 }
 
-.c25.c25 {
+.c24.c24 {
   color: rgb(175, 121, 2);
 }
 
@@ -1205,15 +1172,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   width: fit-content;
 }
 
-.c9 .c12.c12:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c9 .c12.c12:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
-  color: inherit;
-}
-
 .c9 .c12.c12:focus .c13 {
+  color: inherit;
+}
+
+:where(.c9) .c12:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -1279,15 +1242,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   width: fit-content;
 }
 
-.c9 .c17.c17:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c9 .c17.c17:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
-  color: inherit;
-}
-
 .c9 .c17.c17:focus .c13 {
+  color: inherit;
+}
+
+:where(.c9) .c17:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -1317,7 +1276,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   display: none;
 }
 
-.c21 {
+.c20 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -1328,7 +1287,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   color: rgb(201, 29, 29);
 }
 
-.c24 {
+.c23 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -1339,21 +1298,21 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   color: rgb(22, 25, 29);
 }
 
-.c22 {
+.c21 {
   display: flex;
   margin-right: 4px;
 }
 
-.c22 .c13 {
+.c21 .c13 {
   font-size: 1.25rem;
 }
 
-.c23 {
+.c22 {
   align-self: center;
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c44 {
+.c43 {
   align-items: center;
   align-self: flex-end;
   display: flex;
@@ -1363,7 +1322,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   justify-content: center;
 }
 
-.c47 {
+.c46 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -1373,21 +1332,21 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   width: fit-content;
 }
 
-.c46 {
+.c45 {
   display: flex;
 }
 
-.c46 .c43 {
+.c45 .c42 {
   height: auto;
   visibility: hidden;
 }
 
-.c41 {
+.c40 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1405,25 +1364,17 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   width: 100%;
 }
 
-.c41::placeholder {
+.c40::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c54 .c11 {
-  border-radius: 0px;
-}
-
-.c55 .c11 {
-  border-radius: 0px;
-}
-
-.c38 {
+.c37 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1436,7 +1387,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   box-shadow: none;
 }
 
-.c38 .c11 {
+.c37 .c11 {
   border-radius: 0px;
 }
 
@@ -1457,20 +1408,6 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   max-width: 100%;
 }
 
-.c49 .c3 {
-  display: flex;
-  width: 100%;
-}
-
-.c49[class*="h_"] .c36 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c49[class*="h_"] .c7 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c6 {
   box-sizing: border-box;
   display: inline-block;
@@ -1485,17 +1422,17 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   width: fit-content;
 }
 
-.c35 {
+.c34 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c35 > .c9 {
+.c34 > .c9 {
   margin: 0px 4px 4px 0px;
 }
 
-.c35 .c7 {
+.c34 .c7 {
   display: block;
   width: fit-content;
 }
@@ -1509,15 +1446,20 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   max-width: 100%;
 }
 
-.c53 > .c32 {
-  padding-right: 28px;
+.c38 {
+  height: auto;
 }
 
-.c53--focus .c32 {
-  border-color: rgb(213, 0, 117);
+.c41 {
+  height: 32px;
+  overflow-y: hidden;
+  padding: calc(16px - 0.54375rem) 12px;
+  resize: none;
+  min-height: 32px;
+  min-width: 0px;
 }
 
-.c30 {
+.c29 {
   background-color: rgb(255, 255, 255);
   border-radius: 0.75rem;
   display: inline-block;
@@ -1526,22 +1468,22 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   position: relative;
 }
 
-.c30--focus .c32 {
+.c29--focus .c31 {
   border-color: rgb(213, 0, 117);
 }
 
-.c30.tag--exit {
+.c29.tag--exit {
   border-color: transparent;
   margin: 0px 0px 8px 2px;
   transition: border-color 0.2s cubic-bezier(0.96, 0.01, 0.95, 0.01);
   vertical-align: bottom;
 }
 
-.c30.tag--exit-animation {
+.c29.tag--exit-animation {
   animation: 0.2s ease 0s 1 normal both running k0;
 }
 
-.c33 {
+.c32 {
   border: 1px solid rgb(169, 179, 188);
   border-radius: inherit;
   color: rgb(77, 77, 77);
@@ -1556,42 +1498,29 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   vertical-align: middle;
 }
 
-.c33 a {
+.c32 a {
   color: rgb(5, 104, 174);
   text-decoration: none;
 }
 
-.c33 a:focus {
+.c32 a:focus {
   color: rgb(213, 0, 117);
 }
 
-.c33 > .c13 {
+.c32 > .c13 {
   vertical-align: top;
 }
 
-.c27 {
+.c26 {
   box-sizing: border-box;
 }
 
-.c27 .c29 {
+.c26 .c28 {
   margin: 0px 8px 8px 0px;
   vertical-align: middle;
 }
 
-.c39 {
-  height: auto;
-}
-
-.c42 {
-  height: 32px;
-  overflow-y: hidden;
-  padding: calc(16px - 0.54375rem) 12px;
-  resize: none;
-  min-height: 32px;
-  min-width: 0px;
-}
-
-.c34 .c36[data-isfocused="true"]::before {
+.c33 .c35[data-isfocused="true"]::before {
   display: none;
 }
 
@@ -1604,86 +1533,37 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   min-width: 24px;
 }
 
-.c45 {
+.c44 {
   align-self: flex-start;
   height: 40px;
 }
 
-.c26 {
+.c25 {
   display: flex;
 }
 
-.c26 .c36 {
+.c25 .c35 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
-.c52 .c32 {
-  border-color: transparent;
-  color: rgb(169, 179, 188);
-}
-
-.c31 {
+.c30 {
   outline-color: transparent;
   max-width: 100%;
   background-color: rgb(226, 230, 233);
 }
 
-.c31.c31 {
+.c30.c30 {
   margin: 4px 8px 4px 0px;
 }
 
-.c31 .c32 {
+.c30 .c31 {
   border-color: transparent;
 }
 
-.c50 > .c0 {
-  align-items: center;
-  flex: 1 1 0px;
-  min-width: 24px;
-  outline: none;
-  position: relative;
-}
-
-.c50 > .c0 .c37 {
-  box-shadow: none;
-  outline: none;
-}
-
-.c50 > .c0 .c37 .c40 {
-  border-radius: 0.75rem;
-  border: 1px dashed rgb(89, 102, 115);
-  height: 24px;
-  line-height: 1rem;
-  min-height: 24px;
-  padding: 4px 8px;
-  min-width: 24px;
-}
-
-.c51 > .c0 {
-  align-items: center;
-  flex: 1 1 0px;
-  min-width: 24px;
-  outline: none;
-  position: relative;
-}
-
-.c51 > .c0 .c37 {
-  box-shadow: none;
-  outline: none;
-}
-
-.c51 > .c0 .c37 .c40 {
-  height: 24px;
-  line-height: 1rem;
-  min-height: 24px;
-  padding: 4px 8px;
-  min-width: 24px;
-}
-
-.c28 {
+.c27 {
   align-items: center;
   border-radius: 0px;
   display: flex;
@@ -1697,7 +1577,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   box-shadow: none;
 }
 
-.c28 > .c0 {
+.c27 > .c0 {
   align-items: center;
   flex: 1 1 0px;
   min-width: 24px;
@@ -1705,12 +1585,12 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   position: relative;
 }
 
-.c28 > .c0 .c37 {
+.c27 > .c0 .c36 {
   box-shadow: none;
   outline: none;
 }
 
-.c28 > .c0 .c37 .c40 {
+.c27 > .c0 .c36 .c39 {
   height: 24px;
   line-height: 1rem;
   min-height: 24px;
@@ -1718,7 +1598,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   min-width: 24px;
 }
 
-.c48 {
+.c47 {
   width: auto;
   position: absolute;
   visibility: hidden;
@@ -1807,14 +1687,14 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
 }
 
 @media (pointer: coarse) {
-  .c33 a:active {
+  .c32 a:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c33 a:hover {
+  .c32 a:hover {
     color: rgb(213, 0, 117);
   }
 }
@@ -1872,6 +1752,8 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               info
             </span>
@@ -1898,11 +1780,13 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
           type="button"
         >
           <i
-            class="c13 c18 c19 c20 plasma-icon plasma-icon--error plasma-icon--custom"
+            class="c13 c18 c19 plasma-icon plasma-icon--error plasma-icon--custom"
             data-role="plasma-icon"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               
             </span>
@@ -1916,21 +1800,23 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
         </button>
       </span>
       <div
-        class="c21 message message--error field__message"
+        class="c20 message message--error field__message"
         data-role="tag-input-error-message"
         id="test-id-error"
         style="width: 1108.53px;"
       >
         <div
-          class="c22 messageIcon"
+          class="c21 messageIcon"
         >
           <i
-            class="c13 c18 c19 c20 plasma-icon plasma-icon--error plasma-icon--custom"
+            class="c13 c18 c19 plasma-icon plasma-icon--error plasma-icon--custom"
             data-role="plasma-icon"
             title="Error"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               
             </span>
@@ -1943,28 +1829,30 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
           </i>
         </div>
         <div
-          class="c23 messageText"
+          class="c22 messageText"
           data-role="error-text"
         >
           errorMessage
         </div>
       </div>
       <div
-        class="c24 message message--warning field__message"
+        class="c23 message message--warning field__message"
         data-role="tag-input-warning-message"
         id="test-id-warning"
         style="width: 1108.53px;"
       >
         <div
-          class="c22 messageIcon"
+          class="c21 messageIcon"
         >
           <i
-            class="c13 c18 c14 c25 plasma-icon plasma-icon--warning"
+            class="c13 c14 c24 plasma-icon plasma-icon--warning"
             data-role="plasma-icon"
             title="Warning"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               warning
             </span>
@@ -1977,32 +1865,32 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
           </i>
         </div>
         <div
-          class="c23 messageText"
+          class="c22 messageText"
           data-role="warning-text"
         >
           warningMessage
         </div>
       </div>
       <div
-        class="c26 tag-input__group-wrapper"
+        class="c25 tag-input__group-wrapper"
         data-role="tag-input-group"
       >
         <div
           aria-label="Tags"
-          class="c27 tag-group c28"
+          class="c26 tag-group c27"
           data-role="tag-group"
           role="list"
           tabindex="-1"
         >
           <div
-            class="c29 c30 tag c31 tag--readonly"
+            class="c28 c29 tag c30 tag--readonly"
             data-role="tag"
             id="widgets"
             role="listitem"
             tabindex="-1"
           >
             <div
-              class="c32 c33 tag__content"
+              class="c31 c32 tag__content"
               data-role="tag-content"
               id="widgets-content"
             >
@@ -2010,14 +1898,14 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
             </div>
           </div>
           <div
-            class="c29 c30 tag c31 tag--readonly"
+            class="c28 c29 tag c30 tag--readonly"
             data-role="tag"
             id="a12"
             role="listitem"
             tabindex="-1"
           >
             <div
-              class="c32 c33 tag__content"
+              class="c31 c32 tag__content"
               data-role="tag-content"
               id="a12-content"
             >
@@ -2025,14 +1913,14 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
             </div>
           </div>
           <div
-            class="c29 c30 tag c31 tag--readonly"
+            class="c28 c29 tag c30 tag--readonly"
             data-role="tag"
             id="mgm"
             role="listitem"
             tabindex="-1"
           >
             <div
-              class="c32 c33 tag__content"
+              class="c31 c32 tag__content"
               data-role="tag-content"
               id="mgm-content"
             >
@@ -2040,7 +1928,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
             </div>
           </div>
           <div
-            class="c0 c1 field-wrapper field-wrapper--block c34"
+            class="c0 c1 field-wrapper field-wrapper--block c33"
             data-role="textarea"
             role="listitem"
           >
@@ -2048,22 +1936,24 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
               class="c3 c4 field__main"
             >
               <div
-                class="c5 c35 field"
+                class="c5 c34 field"
                 data-role="textarea-control"
               >
                 <div
+                  aria-invalid="true"
                   aria-labelledby="test-id-label"
-                  class="c36 c37 c38 c39 field__input field__input--textarea field__input--readonly"
+                  class="c35 c36 c37 c38 field__input field__input--textarea field__input--readonly"
                   data-isfocused="false"
                   data-readonly="true"
                 >
                   <textarea
                     aria-activedescendant="Android-phone-popular"
                     aria-haspopup="false"
+                    aria-invalid="true"
                     aria-owns="test-id-popular-dropdown"
                     aria-required="true"
                     autocomplete="off"
-                    class="c40 c41 c42 field__text field__text--autoExpand"
+                    class="c39 c40 c41 field__text field__text--autoExpand"
                     data-role="textarea-input"
                     id="test-id-textarea"
                     placeholder=""
@@ -2076,13 +1966,13 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
           </div>
         </div>
         <div
-          class="c43 c44 c45 field-addon field-addon--after"
+          class="c42 c43 c44 field-addon field-addon--after"
           data-role="tag-input--addon-after-0"
         >
           addon-after1
         </div>
         <div
-          class="c43 c44 c45 field-addon field-addon--after"
+          class="c42 c43 c44 field-addon field-addon--after"
           data-role="tag-input--addon-after-1"
         >
           addon-after2
@@ -2091,11 +1981,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
     </div>
   </div>
   <div
-    class="c46 field__helper"
+    class="c45 field__helper"
     style="width: 1108.53px;"
   >
     <label
-      class="c47 field__helper-text"
+      class="c46 field__helper-text"
       data-role="tag-helper-text"
       for="test-id-textarea"
       id="test-id-helper-text"
@@ -2105,7 +1995,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-readonly-tag-input 1
   </div>
   <span
     aria-hidden="true"
-    class="c48"
+    class="c47"
   />
 </div>
 `;
@@ -2172,11 +2062,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   max-width: unset;
 }
 
-.c9 .c14 {
+:where(.c9) .c14 {
   color: inherit;
 }
 
-.c19 {
+.c18 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -2196,23 +2086,23 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   font-feature-settings: "liga";
 }
 
-.c19 > span {
+.c18 > span {
   display: inline-block;
 }
 
-.c19.c19 {
+.c18.c18 {
   max-width: unset;
 }
 
-.c9 .c19 {
+:where(.c9) .c18 {
   color: inherit;
 }
 
-.c20.c20 {
+.c19.c19 {
   color: rgb(201, 29, 29);
 }
 
-.c25.c25 {
+.c24.c24 {
   color: rgb(175, 121, 2);
 }
 
@@ -2268,15 +2158,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   width: fit-content;
 }
 
-.c9 .c12.c12:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c9 .c12.c12:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
-  color: inherit;
-}
-
 .c9 .c12.c12:focus .c13 {
+  color: inherit;
+}
+
+:where(.c9) .c12:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -2342,15 +2228,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   width: fit-content;
 }
 
-.c9 .c17.c17:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c9 .c17.c17:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
-  color: inherit;
-}
-
 .c9 .c17.c17:focus .c13 {
+  color: inherit;
+}
+
+:where(.c9) .c17:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -2380,7 +2262,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   display: none;
 }
 
-.c21 {
+.c20 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2391,7 +2273,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   color: rgb(201, 29, 29);
 }
 
-.c24 {
+.c23 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2402,21 +2284,21 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   color: rgb(22, 25, 29);
 }
 
-.c22 {
+.c21 {
   display: flex;
   margin-right: 4px;
 }
 
-.c22 .c13 {
+.c21 .c13 {
   font-size: 1.25rem;
 }
 
-.c23 {
+.c22 {
   align-self: center;
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c45 {
+.c44 {
   align-items: center;
   align-self: flex-end;
   display: flex;
@@ -2426,7 +2308,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   justify-content: center;
 }
 
-.c48 {
+.c47 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -2436,21 +2318,21 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   width: fit-content;
 }
 
-.c47 {
+.c46 {
   display: flex;
 }
 
-.c47 .c44 {
+.c46 .c43 {
   height: auto;
   visibility: hidden;
 }
 
-.c42 {
+.c41 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2468,18 +2350,18 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   width: 100%;
 }
 
-.c42::placeholder {
+.c41::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c39 {
+.c38 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -2491,7 +2373,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   height: 32px;
 }
 
-.c39 .c11 {
+.c38 .c11 {
   border-radius: 0px;
 }
 
@@ -2526,17 +2408,17 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   width: fit-content;
 }
 
-.c36 {
+.c35 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c36 > .c9 {
+.c35 > .c9 {
   margin: 0px 4px 4px 0px;
 }
 
-.c36 .c7 {
+.c35 .c7 {
   display: block;
   width: fit-content;
 }
@@ -2550,7 +2432,20 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   max-width: 100%;
 }
 
-.c30 {
+.c39 {
+  height: auto;
+}
+
+.c42 {
+  height: 32px;
+  overflow-y: hidden;
+  padding: calc(16px - 0.54375rem) 12px;
+  resize: none;
+  min-height: 32px;
+  min-width: 0px;
+}
+
+.c29 {
   background-color: rgb(255, 255, 255);
   border-radius: 0.75rem;
   display: inline-block;
@@ -2559,26 +2454,26 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   position: relative;
 }
 
-.c30 > .c32 {
+.c29 > .c31 {
   padding-right: 28px;
 }
 
-.c30--focus .c32 {
+.c29--focus .c31 {
   border-color: rgb(213, 0, 117);
 }
 
-.c30.tag--exit {
+.c29.tag--exit {
   border-color: transparent;
   margin: 0px 0px 8px 2px;
   transition: border-color 0.2s cubic-bezier(0.96, 0.01, 0.95, 0.01);
   vertical-align: bottom;
 }
 
-.c30.tag--exit-animation {
+.c29.tag--exit-animation {
   animation: 0.2s ease 0s 1 normal both running k0;
 }
 
-.c33 {
+.c32 {
   border: 1px solid rgb(169, 179, 188);
   border-radius: inherit;
   color: rgb(77, 77, 77);
@@ -2593,20 +2488,20 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   vertical-align: middle;
 }
 
-.c33 a {
+.c32 a {
   color: rgb(5, 104, 174);
   text-decoration: none;
 }
 
-.c33 a:focus {
+.c32 a:focus {
   color: rgb(213, 0, 117);
 }
 
-.c33 > .c13 {
+.c32 > .c13 {
   vertical-align: top;
 }
 
-.c34 {
+.c33 {
   font-size: 0.875rem;
   position: absolute;
   right: 0px;
@@ -2617,33 +2512,21 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   padding: 0px 4px;
 }
 
-.c34:hover {
+.c33:hover,
+.c33:focus {
   border-top-right-radius: inherit;
 }
 
-.c27 {
+.c26 {
   box-sizing: border-box;
 }
 
-.c27 .c29 {
+.c26 .c28 {
   margin: 0px 8px 8px 0px;
   vertical-align: middle;
 }
 
-.c40 {
-  height: auto;
-}
-
-.c43 {
-  height: 32px;
-  overflow-y: hidden;
-  padding: calc(16px - 0.54375rem) 12px;
-  resize: none;
-  min-height: 32px;
-  min-width: 0px;
-}
-
-.c35 .c37[data-isfocused="true"]::before {
+.c34 .c36[data-isfocused="true"]::before {
   display: none;
 }
 
@@ -2656,32 +2539,32 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   min-width: 24px;
 }
 
-.c46 {
+.c45 {
   align-self: flex-start;
   height: 40px;
 }
 
-.c26 {
+.c25 {
   display: flex;
 }
 
-.c26 .c37 {
+.c25 .c36 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
-.c31 {
+.c30 {
   outline-color: transparent;
   max-width: 100%;
 }
 
-.c31.c31 {
+.c30.c30 {
   margin: 4px 8px 4px 0px;
 }
 
-.c28 {
+.c27 {
   align-items: center;
   border-radius: 0px;
   display: flex;
@@ -2695,7 +2578,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
 }
 
-.c28 > .c0 {
+.c27 > .c0 {
   align-items: center;
   flex: 1 1 0px;
   min-width: 24px;
@@ -2703,12 +2586,12 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   position: relative;
 }
 
-.c28 > .c0 .c38 {
+.c27 > .c0 .c37 {
   box-shadow: none;
   outline: none;
 }
 
-.c28 > .c0 .c38 .c41 {
+.c27 > .c0 .c37 .c40 {
   border-radius: 0.75rem;
   border: 1px dashed rgb(89, 102, 115);
   height: 24px;
@@ -2718,7 +2601,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   min-width: 24px;
 }
 
-.c49 {
+.c48 {
   width: auto;
   position: absolute;
   visibility: hidden;
@@ -2807,40 +2690,40 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
 }
 
 @media (pointer: coarse) {
-  .c39:active {
+  .c38:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c39:hover {
+  .c38:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c33 a:active {
+  .c32 a:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c33 a:hover {
+  .c32 a:hover {
     color: rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c28:active {
+  .c27:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c28:hover {
+  .c27:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -2898,6 +2781,8 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               info
             </span>
@@ -2924,11 +2809,13 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
           type="button"
         >
           <i
-            class="c13 c18 c19 c20 plasma-icon plasma-icon--error plasma-icon--custom"
+            class="c13 c18 c19 plasma-icon plasma-icon--error plasma-icon--custom"
             data-role="plasma-icon"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               
             </span>
@@ -2942,21 +2829,23 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
         </button>
       </span>
       <div
-        class="c21 message message--error field__message"
+        class="c20 message message--error field__message"
         data-role="tag-input-error-message"
         id="test-id-error"
         style="width: 1108.53px;"
       >
         <div
-          class="c22 messageIcon"
+          class="c21 messageIcon"
         >
           <i
-            class="c13 c18 c19 c20 plasma-icon plasma-icon--error plasma-icon--custom"
+            class="c13 c18 c19 plasma-icon plasma-icon--error plasma-icon--custom"
             data-role="plasma-icon"
             title="Error"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               
             </span>
@@ -2969,28 +2858,30 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
           </i>
         </div>
         <div
-          class="c23 messageText"
+          class="c22 messageText"
           data-role="error-text"
         >
           errorMessage
         </div>
       </div>
       <div
-        class="c24 message message--warning field__message"
+        class="c23 message message--warning field__message"
         data-role="tag-input-warning-message"
         id="test-id-warning"
         style="width: 1108.53px;"
       >
         <div
-          class="c22 messageIcon"
+          class="c21 messageIcon"
         >
           <i
-            class="c13 c18 c14 c25 plasma-icon plasma-icon--warning"
+            class="c13 c14 c24 plasma-icon plasma-icon--warning"
             data-role="plasma-icon"
             title="Warning"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               warning
             </span>
@@ -3003,45 +2894,44 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
           </i>
         </div>
         <div
-          class="c23 messageText"
+          class="c22 messageText"
           data-role="warning-text"
         >
           warningMessage
         </div>
       </div>
       <div
-        class="c26 tag-input__group-wrapper"
+        class="c25 tag-input__group-wrapper"
         data-role="tag-input-group"
       >
         <div
           aria-label="Tags"
-          class="c27 tag-group c28"
+          class="c26 tag-group c27"
           data-role="tag-group"
           role="list"
           tabindex="-1"
         >
           <div
-            class="c29 c30 tag tag--removable c31"
+            class="c28 c29 tag tag--removable c30"
             data-role="tag"
             id="widgets"
             role="listitem"
             tabindex="-1"
           >
             <div
-              class="c32 c33 tag__content"
+              class="c31 c32 tag__content"
               data-role="tag-content"
               id="widgets-content"
             >
               Widgets
             </div>
             <button
-              aria-label="Remove tag"
-              aria-labelledby="widgets-button-title-hidden-text widgets-content"
-              class="c11 c12 button button--icon c34"
+              aria-label="Remove tag Widgets"
+              class="c11 c12 button button--icon c33"
               data-role="button"
               data-type="icon"
               tabindex="-1"
-              title="Remove tag"
+              title="Remove tag Widgets"
               type="button"
             >
               <i
@@ -3050,41 +2940,35 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   close
                 </span>
               </i>
-              <span
-                class="c15 -u-unseenButRead"
-                data-role="hidden-text"
-                id="widgets-button-title-hidden-text"
-              >
-                Remove tag
-              </span>
             </button>
           </div>
           <div
-            class="c29 c30 tag tag--removable c31"
+            class="c28 c29 tag tag--removable c30"
             data-role="tag"
             id="a12"
             role="listitem"
             tabindex="-1"
           >
             <div
-              class="c32 c33 tag__content"
+              class="c31 c32 tag__content"
               data-role="tag-content"
               id="a12-content"
             >
               A12
             </div>
             <button
-              aria-label="Remove tag"
-              aria-labelledby="a12-button-title-hidden-text a12-content"
-              class="c11 c12 button button--icon c34"
+              aria-label="Remove tag A12"
+              class="c11 c12 button button--icon c33"
               data-role="button"
               data-type="icon"
               tabindex="-1"
-              title="Remove tag"
+              title="Remove tag A12"
               type="button"
             >
               <i
@@ -3093,41 +2977,35 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   close
                 </span>
               </i>
-              <span
-                class="c15 -u-unseenButRead"
-                data-role="hidden-text"
-                id="a12-button-title-hidden-text"
-              >
-                Remove tag
-              </span>
             </button>
           </div>
           <div
-            class="c29 c30 tag tag--removable c31"
+            class="c28 c29 tag tag--removable c30"
             data-role="tag"
             id="mgm"
             role="listitem"
             tabindex="-1"
           >
             <div
-              class="c32 c33 tag__content"
+              class="c31 c32 tag__content"
               data-role="tag-content"
               id="mgm-content"
             >
               mgm
             </div>
             <button
-              aria-label="Remove tag"
-              aria-labelledby="mgm-button-title-hidden-text mgm-content"
-              class="c11 c12 button button--icon c34"
+              aria-label="Remove tag mgm"
+              class="c11 c12 button button--icon c33"
               data-role="button"
               data-type="icon"
               tabindex="-1"
-              title="Remove tag"
+              title="Remove tag mgm"
               type="button"
             >
               <i
@@ -3136,21 +3014,16 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   close
                 </span>
               </i>
-              <span
-                class="c15 -u-unseenButRead"
-                data-role="hidden-text"
-                id="mgm-button-title-hidden-text"
-              >
-                Remove tag
-              </span>
             </button>
           </div>
           <div
-            class="c0 c1 field-wrapper field-wrapper--block c35"
+            class="c0 c1 field-wrapper field-wrapper--block c34"
             data-role="textarea"
             role="listitem"
           >
@@ -3158,13 +3031,14 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
               class="c3 c4 field__main"
             >
               <div
-                class="c5 c36 field"
+                class="c5 c35 field"
                 data-role="textarea-control"
               >
                 <div
                   aria-expanded="false"
+                  aria-invalid="true"
                   aria-labelledby="test-id-label"
-                  class="c37 c38 c39 c40 field__input field__input--textarea"
+                  class="c36 c37 c38 c39 field__input field__input--textarea"
                   data-isfocused="false"
                   role="combobox"
                 >
@@ -3172,10 +3046,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
                     aria-activedescendant="Android-phone-popular"
                     aria-autocomplete="list"
                     aria-haspopup="listbox"
+                    aria-invalid="true"
                     aria-owns="test-id-popular-dropdown"
                     aria-required="true"
                     autocomplete="off"
-                    class="c41 c42 c43 field__text field__text--autoExpand"
+                    class="c40 c41 c42 field__text field__text--autoExpand"
                     data-role="textarea-input"
                     id="test-id-textarea"
                     placeholder=""
@@ -3186,13 +3061,13 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
           </div>
         </div>
         <div
-          class="c44 c45 c46 field-addon field-addon--after"
+          class="c43 c44 c45 field-addon field-addon--after"
           data-role="tag-input--addon-after-0"
         >
           addon-after1
         </div>
         <div
-          class="c44 c45 c46 field-addon field-addon--after"
+          class="c43 c44 c45 field-addon field-addon--after"
           data-role="tag-input--addon-after-1"
         >
           addon-after2
@@ -3201,11 +3076,11 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
     </div>
   </div>
   <div
-    class="c47 field__helper"
+    class="c46 field__helper"
     style="width: 1108.53px;"
   >
     <label
-      class="c48 field__helper-text"
+      class="c47 field__helper-text"
       data-role="tag-helper-text"
       for="test-id-textarea"
       id="test-id-helper-text"
@@ -3215,7 +3090,7 @@ exports[`com.mgmtp.a12.widgets.tag-input > desktop > render-tag-input 1`] = `
   </div>
   <span
     aria-hidden="true"
-    class="c49"
+    class="c48"
   />
 </div>
 `;

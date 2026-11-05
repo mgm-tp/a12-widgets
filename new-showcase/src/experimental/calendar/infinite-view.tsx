@@ -30,18 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode } from "react";
-import { useCallback, useRef, useState } from "react";
 import { addDays, format, isSameDay } from "date-fns";
 import { cloneDeep } from "lodash-es";
+import type { ReactNode } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import type { DateLoadingStatus, RowLoadingStatus } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Button, ButtonGroup, Calendar, Message } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import type { CalendarDay, DayEvent, SelectedDayEvent } from "./shared/data.js";
-import { disabledDays, generateDummyData, holidays } from "./shared/data.js";
 import { StyledCalendarMonthViewItem } from "./shared/calendar.styled.js";
 import { MonthViewDayFooter } from "./shared/component.js";
+import type { CalendarDay, DayEvent, SelectedDayEvent } from "./shared/data.js";
+import { disabledDays, generateDummyData, holidays } from "./shared/data.js";
 
 const DATE_FORMAT = "dd-MM-yyyy";
 const MIN_DATE = new Date(2022, 1, 15);

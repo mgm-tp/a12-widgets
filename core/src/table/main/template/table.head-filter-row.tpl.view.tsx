@@ -34,15 +34,14 @@ import type { ReactElement } from "react";
 import { useMemo } from "react";
 import { styled, css } from "styled-components";
 
-import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
+import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
+import { StyledTableContextProvider, useOptimalTableContextValue } from "./table.context.styled.js";
 import { HeadRowTpl } from "./table.head-row.tpl.view.js";
 import type { TableTemplateProps } from "./table.tpl.api.js";
-import { StyledTableContextProvider, useOptimalTableContextValue } from "./table.context.styled.js";
 
 export const StyledTableHeadFilterRow = styled(HeadRowTpl).withConfig({ displayName: "StyledTableHeadFilterRow-sc-" })<{
 	cardView?: boolean;
@@ -52,25 +51,27 @@ export const StyledTableHeadFilterRow = styled(HeadRowTpl).withConfig({ displayN
 	return css`
 		background-color: inherit;
 		border-bottom: ${headRow.filter.borderBottom};
-		${cardView &&
-		css`
-			display: block;
-			border: none;
+		${
+			cardView &&
+			css`
+				display: block;
+				border: none;
 
-			// Specific style for FILTER
-			padding-right: 0;
-			[data-role="${DataRoles.Table.Header.Row.SegmentLeft}"] {
-				&.${addPrefix("h_hidden")} {
-					display: block;
+				// Specific style for FILTER
+				padding-right: 0;
+				[data-role="${DataRoles.Table.Header.Row.SegmentLeft}"] {
+					&.${addPrefix("h_hidden")} {
+						display: block;
+					}
+					[data-role="${DataRoles.Table.Header.Cell}"] {
+						padding-top: 10px;
+					}
 				}
 				[data-role="${DataRoles.Table.Header.Cell}"] {
-					padding-top: 10px;
+					width: 100%;
 				}
-			}
-			[data-role="${DataRoles.Table.Header.Cell}"] {
-				width: 100%;
-			}
-		`}
+			`
+		}
 	`;
 });
 

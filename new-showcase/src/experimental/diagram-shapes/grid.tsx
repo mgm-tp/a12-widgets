@@ -48,10 +48,12 @@ export const StyledDiagramGridRow = styled.div<{ $isLastSubRow?: boolean; $hasMa
 			}
 
 			// vertically centered between sub-point and main-point
-			${!$hasMainRow &&
-			css`
-				margin-left: 4px;
-			`}
+			${
+				!$hasMainRow &&
+				css`
+					margin-left: 4px;
+				`
+			}
 
 			> [data-type="grid-point"]:last-child {
 				margin-right: 0;

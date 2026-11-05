@@ -32,15 +32,15 @@
 
 import type { ReactElement, ReactNode } from "react";
 import { useLayoutEffect, useContext, useRef, useEffect } from "react";
-import { ThemeProvider } from "styled-components";
 import { createPortal } from "react-dom";
 import { createRoot } from "react-dom/client";
+import { ThemeProvider } from "styled-components";
 
 import type { DefaultThemeType } from "../../theme/schema.js";
 
 import type { Container, Ref } from "./base-props.js";
-import { PortalContext } from "./widgets-root.view.js";
 import { useIsMount } from "./hooks.js";
+import { PortalContext } from "./widgets-root.view.js";
 
 function DummyRenderer(props: Container & { theme: DefaultThemeType; callback?: () => void }): ReactElement {
 	const { callback, theme, children } = props;

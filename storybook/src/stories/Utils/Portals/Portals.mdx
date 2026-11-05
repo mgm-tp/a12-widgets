@@ -1,0 +1,49 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as PortalsStories from "./Portals.stories";
+
+<Meta of={PortalsStories} />
+
+<Title />
+
+The `Portal` widget transports its children into a React portal appended to `document.body` (or the
+`WidgetsRoot` element), outside the current DOM tree — the foundation for modals, dropdowns and
+other overlays. It handles dismissal itself: `closeOnEsc` and `closeOnOutsideClick` trigger the
+`onClose` callback.
+
+`AttachedPortal` builds on the same idea but positions its content relative to a `referenceElement`,
+choosing an `orientation` (e.g. `bottom-start`, `top-end`) so the content stays fully visible inside
+the viewport. It also offers fine-grained control via `orientationList`, `fixedOrientation`,
+`focusOnOpen` and focus restoration after closing.
+
+## Playground
+
+Use the controls below to explore the `Portal` props interactively. Click the button in the preview
+to open the portal — its content is rendered into `document.body`.
+
+<Primary />
+
+<Controls of={PortalsStories.Playground} />
+
+## Examples
+
+### Attached portal
+
+<Canvas of={PortalsStories.Attached} />
+
+### Fixed orientation
+
+<Canvas of={PortalsStories.AttachedOrientation} />

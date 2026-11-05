@@ -63,6 +63,7 @@ export const CheckboxWithA11yShowcase: FC = () => {
 	return (
 		<div className="-u-width-full">
 			<Checkbox.Indeterminate
+				id="a11y-select-all"
 				checked={checkAll}
 				label="De/Select all"
 				title="De/Select all"
@@ -70,7 +71,7 @@ export const CheckboxWithA11yShowcase: FC = () => {
 				ariaControls={controlledCheckboxIds}
 				hideLabel
 			/>
-			<CheckboxGroup onValueChanged={handleChange}>
+			<CheckboxGroup id="checkboxes-accessibility-checkbox-group" onValueChanged={handleChange}>
 				{plainOptions.map((value) => (
 					<CheckboxGroup.Item
 						key={value}

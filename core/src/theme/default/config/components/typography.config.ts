@@ -33,7 +33,6 @@
 import { lighten } from "polished";
 
 import type { BaseThemeType } from "../../../schema/base-theme.js";
-
 import { FontConfig } from "../base/fonts.config.js";
 
 export type TypographyConfigType = {

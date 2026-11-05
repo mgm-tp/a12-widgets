@@ -34,12 +34,11 @@ import type { ReactElement } from "react";
 import { useContext } from "react";
 import { styled, css } from "styled-components";
 
-import { A11YLanguageContext } from "../../../../common/main/a11y-localization/language-context.js";
 import type { ButtonProps } from "../../../../button/main/button.api.js";
-import { Button } from "../../../../button/main/button.view.js";
-import { Icon } from "../../../../icon/main/icon.view.js";
 import { getBaseButtonVariantStyles } from "../../../../button/main/button.styled.js";
-
+import { Button } from "../../../../button/main/button.view.js";
+import { A11YLanguageContext } from "../../../../common/main/a11y-localization/language-context.js";
+import { Icon } from "../../../../icon/main/icon.view.js";
 import type { ContentBoxProps } from "../contentbox.tpl.api.js";
 
 import { HeadingAddonTpl } from "./heading.tpl.view.js";
@@ -52,10 +51,12 @@ export const StyledHeadingActionButton = styled(Button).withConfig({ displayName
 			&& {
 				${getBaseButtonVariantStyles(active ? headingActionButton.activated : headingActionButton)}
 
-				${active &&
-				css`
-					border-radius: ${headingActionButton.activated.borderRadius};
-				`}
+				${
+					active &&
+					css`
+						border-radius: ${headingActionButton.activated.borderRadius};
+					`
+				}
 			}
 		`;
 	}

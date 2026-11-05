@@ -30,16 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import type { FC, KeyboardEvent, MouseEvent } from "react";
 import { useContext, useRef, useCallback } from "react";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { Key } from "ts-key-enum";
 
+import { A11YLanguageContext } from "../../../../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../../../../common/main/data-roles.js";
+import { Key as KeyUtils } from "../../../../../common/main/utils.js";
 import { Icon } from "../../../../../icon/main/icon.view.js";
 import { StyledEditorButton } from "../../../rich-text-editor.styled.js";
-import { A11YLanguageContext } from "../../../../../common/main/a11y-localization/language-context.js";
-import { Key as KeyUtils } from "../../../../../common/main/utils.js";
-import { DataRoles } from "../../../../../common/main/data-roles.js";
 
 import type { BaseToolbarButtonProps } from "./toolbar-button.api.js";
 import type { ToolbarButtonInternalProps } from "./toolbar-button.internal.api.js";

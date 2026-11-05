@@ -34,15 +34,15 @@ import type { ReactElement } from "react";
 import { useContext } from "react";
 import { styled, css } from "styled-components";
 
+import { A11YLanguageContext } from "../../../../common/main/a11y-localization/language-context.js";
 import type { Orientation } from "../../../../common/main/alignment.js";
+import { DataRoles } from "../../../../common/main/data-roles.js";
+import { HiddenText } from "../../../../common/main/hidden-text/hidden-text.view.js";
 import { addPrefix, joinClassNames } from "../../../../common/main/utils.js";
+import { basePortalArrow } from "../../../../theme/base/mixins/_portal-arrow.js";
+import type { Variant } from "../../common/toast.common.api.js";
 import { renderIcon } from "../../common/toast.internal.js";
 import { toastColorState, StyledToastWrapper, StyledToastGraphic, StyledToastBody } from "../../common/toast.styled.js";
-import type { Variant } from "../../common/toast.common.api.js";
-import { basePortalArrow } from "../../../../theme/base/mixins/_portal-arrow.js";
-import { HiddenText } from "../../../../common/main/hidden-text/hidden-text.view.js";
-import { A11YLanguageContext } from "../../../../common/main/a11y-localization/language-context.js";
-import { DataRoles } from "../../../../common/main/data-roles.js";
 
 import type { ConnectedToastTemplateProps } from "./connected-toast.template.api.js";
 

@@ -32,8 +32,8 @@
 
 import { styled, css } from "styled-components";
 
-import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
 import { hover } from "../../theme/base/mixins/_interaction.js";
+import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
 
 import type { ResizeHandlerProps } from "./resize-handler.api.js";
 

@@ -34,7 +34,6 @@ import { render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
 import { Range } from "../../common/main/utils.js";
-
 import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
 import { VirtualizedBody } from "../main/table.virtualized-body.view.js";
 

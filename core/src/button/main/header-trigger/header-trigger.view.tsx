@@ -33,11 +33,11 @@
 import type { FC } from "react";
 import { useContext, useRef, useCallback } from "react";
 
-import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
+import { DataRoles } from "../../../common/index.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
 import { useInteractionHint } from "../../../interaction-hint/main/use-interaction-hint.js";
-import { DataRoles } from "../../../common/index.js";
 
 import type { HeaderTriggerProps } from "./header-trigger.api.js";
 import {

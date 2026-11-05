@@ -37,8 +37,8 @@ import { styled, css, ThemeProvider } from "styled-components";
 import type { Container } from "@com.mgmtp.a12.widgets/widgets-core";
 import { StyledFieldLabel, Button, Icon, ModalOverlay, ActionContentbox } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { ShowcaseExampleContent } from "./showcase-example-content.js";
 import type { Section } from "./definitions.js";
+import { ShowcaseExampleContent } from "./showcase-example-content.js";
 import { showcaseTheme } from "./showcase-theme.js";
 
 export interface ConfigurationViewProps extends Container, Omit<Section, "useConfiguration"> {
@@ -69,11 +69,13 @@ const StyledConfigurationWrapper = styled.div<{ $fullscreen: boolean }>(({ theme
 			background: ${colors.background.primaryBackground};
 		}
 
-		${!$fullscreen &&
-		css`
-			border-top-left-radius: 4px;
-			border-top-right-radius: 4px;
-		`}
+		${
+			!$fullscreen &&
+			css`
+				border-top-left-radius: 4px;
+				border-top-right-radius: 4px;
+			`
+		}
 	`;
 });
 

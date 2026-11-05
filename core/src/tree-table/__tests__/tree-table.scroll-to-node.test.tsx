@@ -34,7 +34,6 @@ import { render } from "test-utils";
 import { afterEach, describe, expect, test, vi } from "vitest";
 
 import { DataRoles } from "../../common/main/data-roles.js";
-
 import type { TreeTableScrollToNodeHandler } from "../main/tree-table.api.js";
 import { TreeTable } from "../main/tree-table.view.js";
 

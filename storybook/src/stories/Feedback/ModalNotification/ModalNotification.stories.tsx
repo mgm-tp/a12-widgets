@@ -34,10 +34,19 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { fn } from "storybook/test";
 
-import { Button, ModalNotification, Typography } from "@com.mgmtp.a12.widgets/widgets-core";
+import { Button, ButtonGroup, Icon, ModalNotification, Typography } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const sampleText =
 	"This notification contains important information that requires your attention. Please review the details and take the appropriate action before proceeding.";
+
+const variants = ["info", "success", "warning", "error"] as const;
+
+const variantTitles: Record<(typeof variants)[number], string> = {
+	info: "Information",
+	success: "Operation Successful",
+	warning: "Warning",
+	error: "Error"
+};
 
 const meta: Meta<typeof ModalNotification> = {
 	title: "Feedback/ModalNotification",
@@ -45,7 +54,6 @@ const meta: Meta<typeof ModalNotification> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		variant: {
 			control: "select",
@@ -68,6 +76,14 @@ const meta: Meta<typeof ModalNotification> = {
 			control: "boolean",
 			description: "Close the modal when pressing the Escape key (requires onClose)"
 		},
+		maxWidth: {
+			control: "text",
+			description: 'Maximum width of the modal — a number of pixels or a CSS string like "70%"'
+		},
+		fullscreen: {
+			control: "boolean",
+			description: "Render the modal overlay fullscreen"
+		},
 		onClose: {
 			description: "Callback triggered when the modal is closed"
 		}
@@ -77,208 +93,200 @@ const meta: Meta<typeof ModalNotification> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: (args) => {
-		const DefaultDemo = () => {
-			const [isOpen, setIsOpen] = useState(false);
-
-			return (
-				<>
-					<Button label="Show Modal" primary onClick={() => setIsOpen(true)} />
-					{isOpen && (
-						<ModalNotification
-							{...args}
-							id="default-modal-notification"
-							title="Modal Notification"
-							onClose={() => setIsOpen(false)}
-							enableCloseButton
-						>
-							<Typography.Body>{sampleText}</Typography.Body>
-						</ModalNotification>
-					)}
-				</>
-			);
-		};
-
-		return <DefaultDemo />;
-	},
+export const Playground: Story = {
 	args: {
-		onClose: fn()
-	}
-};
-
-export const Basic: Story = {
-	render: (args) => {
-		const BasicDemo = () => {
-			const [isOpen, setIsOpen] = useState(false);
-
-			return (
-				<>
-					<Button label="Show Modal" primary onClick={() => setIsOpen(true)} />
-					{isOpen && (
-						<ModalNotification
-							{...args}
-							id="basic-modal-notification"
-							title="Modal Notification"
-							onClose={() => setIsOpen(false)}
-							enableCloseButton
-						>
-							<Typography.Body>{sampleText}</Typography.Body>
-						</ModalNotification>
-					)}
-				</>
-			);
-		};
-
-		return <BasicDemo />;
-	},
-	args: {
+		title: "Modal Notification",
+		variant: "info",
+		enableCloseButton: true,
+		closeOnEsc: true,
 		onClose: fn()
 	},
+	render: function PlaygroundExample(args) {
+		const [isOpen, setIsOpen] = useState(false);
+
+		return (
+			<>
+				<Button label="Show Modal" primary onClick={() => setIsOpen(true)} />
+				{isOpen && (
+					<ModalNotification
+						{...args}
+						id="playground-modal-notification"
+						onClose={() => {
+							args.onClose?.();
+							setIsOpen(false);
+						}}
+					>
+						<Typography.Body>{sampleText}</Typography.Body>
+					</ModalNotification>
+				)}
+			</>
+		);
+	}
+};
+
+export const Variants: Story = {
+	render: function VariantsExample() {
+		const [openVariant, setOpenVariant] = useState<(typeof variants)[number] | undefined>(undefined);
+
+		return (
+			<>
+				<div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+					{variants.map((variant) => (
+						<Button key={variant} label={`Show ${variantTitles[variant]}`} onClick={() => setOpenVariant(variant)} />
+					))}
+				</div>
+				{openVariant && (
+					<ModalNotification
+						id={`${openVariant}-modal`}
+						title={variantTitles[openVariant]}
+						variant={openVariant}
+						onClose={() => setOpenVariant(undefined)}
+						enableCloseButton
+					>
+						<Typography.Body>{sampleText}</Typography.Body>
+					</ModalNotification>
+				)}
+			</>
+		);
+	},
 	parameters: {
 		docs: {
 			description: {
-				story: "Basic modal notification with a close button. Click the button to open the modal."
+				story:
+					"The `variant` prop selects the color scheme and default icon: `info` (default), `success`, `warning` or `error`."
 			}
 		}
 	}
 };
 
-export const InfoVariant: Story = {
-	render: () => {
-		const InfoDemo = () => {
-			const [isOpen, setIsOpen] = useState(false);
+export const WithCustomIcon: Story = {
+	render: function WithCustomIconExample() {
+		const [isOpen, setIsOpen] = useState(false);
 
-			return (
-				<>
-					<Button label="Show Info" primary onClick={() => setIsOpen(true)} />
-					{isOpen && (
-						<ModalNotification
-							id="info-modal"
-							title="Information"
-							variant="info"
-							onClose={() => setIsOpen(false)}
-							enableCloseButton
-						>
-							<Typography.Body>{sampleText}</Typography.Body>
-						</ModalNotification>
-					)}
-				</>
-			);
-		};
-
-		return <InfoDemo />;
+		return (
+			<>
+				<Button label="Show with Custom Icon" primary onClick={() => setIsOpen(true)} />
+				{isOpen && (
+					<ModalNotification
+						id="custom-icon-modal"
+						title="Custom Icon Notification"
+						icon={<Icon>star</Icon>}
+						onClose={() => setIsOpen(false)}
+						enableCloseButton
+					>
+						<Typography.Body>{sampleText}</Typography.Body>
+					</ModalNotification>
+				)}
+			</>
+		);
 	},
 	parameters: {
 		docs: {
 			description: {
-				story: "Info variant — default styling for informational messages."
+				story: "The `icon` prop replaces the variant's default icon with a custom element."
 			}
 		}
 	}
 };
 
-export const SuccessVariant: Story = {
-	render: () => {
-		const SuccessDemo = () => {
-			const [isOpen, setIsOpen] = useState(false);
+export const WithFooterActions: Story = {
+	render: function WithFooterActionsExample() {
+		const [isOpen, setIsOpen] = useState(false);
 
-			return (
-				<>
-					<Button label="Show Success" primary onClick={() => setIsOpen(true)} />
-					{isOpen && (
-						<ModalNotification
-							id="success-modal"
-							title="Operation Successful"
-							variant="success"
-							onClose={() => setIsOpen(false)}
-							enableCloseButton
-						>
-							<Typography.Body>The operation completed successfully. All records have been saved.</Typography.Body>
-						</ModalNotification>
-					)}
-				</>
-			);
-		};
-
-		return <SuccessDemo />;
+		return (
+			<>
+				<Button label="Show with Footer Actions" primary onClick={() => setIsOpen(true)} />
+				{isOpen && (
+					<ModalNotification
+						id="footer-actions-modal"
+						title="Action Required"
+						variant="warning"
+						onClose={() => setIsOpen(false)}
+						enableCloseButton
+						footer={
+							<ButtonGroup>
+								<Button label="Cancel" onClick={() => setIsOpen(false)} />
+								<Button label="Confirm" primary onClick={() => setIsOpen(false)} />
+							</ButtonGroup>
+						}
+					>
+						<Typography.Body>{sampleText}</Typography.Body>
+					</ModalNotification>
+				)}
+			</>
+		);
 	},
 	parameters: {
 		docs: {
 			description: {
-				story: "Success variant — used to confirm that an action completed successfully."
+				story:
+					"The `footer` prop renders custom content below the body — typically a `ButtonGroup` with confirm/cancel actions."
 			}
 		}
 	}
 };
 
-export const WarningVariant: Story = {
-	render: () => {
-		const WarningDemo = () => {
-			const [isOpen, setIsOpen] = useState(false);
+export const WithHeadingButtons: Story = {
+	render: function WithHeadingButtonsExample() {
+		const [isOpen, setIsOpen] = useState(false);
 
-			return (
-				<>
-					<Button label="Show Warning" primary onClick={() => setIsOpen(true)} />
-					{isOpen && (
-						<ModalNotification
-							id="warning-modal"
-							title="Warning"
-							variant="warning"
-							onClose={() => setIsOpen(false)}
-							enableCloseButton
-						>
-							<Typography.Body>
-								Some fields are incomplete. Saving now may result in missing data. Do you want to continue?
-							</Typography.Body>
-						</ModalNotification>
-					)}
-				</>
-			);
-		};
-
-		return <WarningDemo />;
+		return (
+			<>
+				<Button label="Show with Heading Buttons" primary onClick={() => setIsOpen(true)} />
+				{isOpen && (
+					<ModalNotification
+						id="heading-buttons-modal"
+						title="Notification with Actions"
+						onClose={() => setIsOpen(false)}
+						enableCloseButton
+						headingButtons={
+							<>
+								<Button icon={<Icon>edit</Icon>} title="Edit" onClick={() => {}} />
+								<Button icon={<Icon>share</Icon>} title="Share" onClick={() => {}} />
+							</>
+						}
+					>
+						<Typography.Body>{sampleText}</Typography.Body>
+					</ModalNotification>
+				)}
+			</>
+		);
 	},
 	parameters: {
 		docs: {
 			description: {
-				story: "Warning variant — alerts the user to a potential issue before proceeding."
+				story: "The `headingButtons` prop places additional icon buttons in the header, next to the close button."
 			}
 		}
 	}
 };
 
-export const ErrorVariant: Story = {
-	render: () => {
-		const ErrorDemo = () => {
-			const [isOpen, setIsOpen] = useState(false);
+export const CloseOnOutsideClick: Story = {
+	render: function CloseOnOutsideClickExample() {
+		const [isOpen, setIsOpen] = useState(false);
 
-			return (
-				<>
-					<Button label="Show Error" primary onClick={() => setIsOpen(true)} />
-					{isOpen && (
-						<ModalNotification
-							id="error-modal"
-							title="Error"
-							variant="error"
-							onClose={() => setIsOpen(false)}
-							enableCloseButton
-						>
-							<Typography.Body>
-								An error occurred while saving the record. Please try again or contact support.
-							</Typography.Body>
-						</ModalNotification>
-					)}
-				</>
-			);
-		};
-
-		return <ErrorDemo />;
+		return (
+			<>
+				<Button label="Show Modal (close on outside click)" primary onClick={() => setIsOpen(true)} />
+				{isOpen && (
+					<ModalNotification
+						id="outside-click-modal"
+						title="Close On Outside Click"
+						onClose={() => setIsOpen(false)}
+						closeOnOutsideClick
+						closeOnEsc
+					>
+						<Typography.Body>Click outside this modal or press ESC to close it.</Typography.Body>
+					</ModalNotification>
+				)}
+			</>
+		);
 	},
 	parameters: {
 		docs: {
 			description: {
-				story: "Error variant — indicates a failure that requires user attention."
+				story:
+					"`closeOnOutsideClick` and `closeOnEsc` dismiss the modal without a close button. Both require an `onClose` callback."
 			}
 		}
 	}

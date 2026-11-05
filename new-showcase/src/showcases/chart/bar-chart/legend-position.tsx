@@ -45,9 +45,9 @@ import {
 	Table
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
+import { ConfigurationView } from "../../../helpers/configuration-view.js";
 // start code removal
 import { CodeSnippetGenerationWrapper } from "../../../helpers/showcase-example.js";
-import { ConfigurationView } from "../../../helpers/configuration-view.js";
 
 const { Grid, Column, Row } = LayoutGrid;
 
@@ -96,13 +96,23 @@ export function LegendPosition(): ReactElement {
 							<PositionTableShowcase />
 						</Column>
 						<Column size={{ sm: 12, md: 4, lg: 3 }}>
-							<Radio label="Legend horizontal align" onValueChanged={handleHorizontalAlign} value={horizontalAlign}>
+							<Radio
+								id="bar-chart-legend-position-legend-horizontal-align"
+								label="Legend horizontal align"
+								onValueChanged={handleHorizontalAlign}
+								value={horizontalAlign}
+							>
 								<Radio.Item label="right (default)" value="right" />
 								<Radio.Item label="center" value="center" />
 								<Radio.Item label="left" value="left" />
 							</Radio>
 							<br />
-							<Radio label="Legend vertical align" onValueChanged={handleVerticalAlign} value={verticalAlign}>
+							<Radio
+								id="bar-chart-legend-position-legend-vertical-align"
+								label="Legend vertical align"
+								onValueChanged={handleVerticalAlign}
+								value={verticalAlign}
+							>
 								<Radio.Item label="above" value="above" />
 								<Radio.Item label="top (default)" value="top" />
 								<Radio.Item label="middle" value="middle" />

@@ -33,14 +33,14 @@
 import type { KeyboardEvent, ReactElement } from "react";
 import { useRef, useState, useContext, useEffect, useCallback, useMemo, cloneElement, isValidElement } from "react";
 
-import { addPrefix, joinClassNames, Key as CustomKey, StringUtils } from "../../../common/main/utils.js";
-import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import type { BadgeProps } from "../../../badge/index.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { addPrefix, joinClassNames, Key as CustomKey, StringUtils } from "../../../common/main/utils.js";
 import { CssEllipsis } from "../../../css-ellipsis/index.js";
 import { useInteractionHint } from "../../../interaction-hint/main/use-interaction-hint.js";
-import type { BadgeProps } from "../../../badge/index.js";
 
 import type { TabPanelTemplateProps } from "./tab-panel.tpl.api.js";
 import {

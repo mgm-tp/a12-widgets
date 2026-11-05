@@ -34,11 +34,10 @@ import { getByDataRole, render, fireEvent, waitFor, getAllByDataRole, setupDevic
 import { describe, vi, expect, test, beforeAll } from "vitest";
 
 import { Button } from "../../button/main/button.view.js";
-import { Icon } from "../../icon/main/icon.view.js";
 import { getA11yResource } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-
 import { QuickAccessButton } from "../main/quick-access-button.view.js";
 
 describe("com.mgmtp.a12.widgets.quick-access-menu.view", () => {

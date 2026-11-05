@@ -32,9 +32,14 @@
 
 import type { FC } from "react";
 import { useContext, useRef, useState, useCallback, useEffect, Fragment } from "react";
-import type { ResizePayload, OnResizeCallback } from "react-resize-detector";
-import { useResizeDetector } from "react-resize-detector";
 
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { useDeferredMount } from "../../common/main/hooks.js";
+import type { OnResizeCallback, ResizePayload } from "../../common/main/resize-observer/resize-observer.api.js";
+import { useResizeObserver } from "../../common/main/resize-observer/use-resize-observer.js";
+import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
 import {
 	addPrefix,
 	handleAriaHiddenOfWrapper,
@@ -42,12 +47,7 @@ import {
 	noop,
 	usePreviousProps
 } from "../../common/main/utils.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
 import { Portal } from "../../portal/main/portal.view.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { useDeferredMount } from "../../common/main/hooks.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
 import type { ProgressIndicatorProps, ProgressIndicatorSize } from "./progress-indicator.api.js";
 import {
@@ -303,12 +303,10 @@ export const ProgressIndicator: FC<ProgressIndicatorProps> = ({
 	const InnerOverLayWrapper = global ? TabSandbox : Fragment;
 	const innerOverlayProps = global ? { focusOnOpen: true, hasFocusStyle: true } : undefined;
 
-	useResizeDetector({
+	useResizeObserver({
 		handleWidth: false,
 		targetRef: outerOverlayRef,
-		onResize: adjustSize,
-		refreshMode: "debounce",
-		refreshRate: 0
+		onResize: adjustSize
 	});
 
 	const content = (

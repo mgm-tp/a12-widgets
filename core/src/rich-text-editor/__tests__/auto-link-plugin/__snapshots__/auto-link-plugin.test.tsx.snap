@@ -6,21 +6,10 @@ HTMLCollection [
     class="editor-paragraph"
     dir="auto"
   >
-    <a
-      class="editor-link"
-      href="mailto:test."foo".bar@gmail.co.uk"
-      target="_blank"
-    >
-      <span
-        data-lexical-text="true"
-      >
-        test."foo".bar@gmail.co.uk
-      </span>
-    </a>
     <span
       data-lexical-text="true"
     >
-      !
+      test."foo".bar@gmail.co.uk!
 "
     </span>
     <a

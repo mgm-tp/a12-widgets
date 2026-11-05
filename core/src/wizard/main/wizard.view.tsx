@@ -34,25 +34,25 @@ import type { ReactElement, ContextType, ReactNode, SyntheticEvent, KeyboardEven
 import { createRef, Children, isValidElement, cloneElement, Component, useRef, useContext, useState } from "react";
 import { ThemeContext, ThemeProvider } from "styled-components";
 
-import { Icon } from "../../icon/main/icon.view.js";
-import { bindMethods, getParentElement, joinClassNames } from "../../common/main/utils.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { provider } from "../../common/main/device-detector.js";
 import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import { ElementSizeMeasurer } from "../../common/main/responsive-handler.js";
-import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
+import { bindMethods, getParentElement, joinClassNames } from "../../common/main/utils.js";
 import { WidgetsResizeDetector } from "../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
+import { Icon } from "../../icon/main/icon.view.js";
+import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
 import { defaultTheme } from "../../theme/default/default-theme.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
+import { DefaultBehaviour } from "./responsive-behaviour/default-behaviour.js";
+import { NextStepFirstBehaviour } from "./responsive-behaviour/next-step-first-behaviour.js";
+import { NextStepFirstWithBoundaryFocusedBehaviour } from "./responsive-behaviour/next-step-first-with-boundary-focused-behaviour.js";
+import { PreviousStepFirstWithBoundaryFocusedBehaviour } from "./responsive-behaviour/previous-step-first-with-boundary-focused-behaviour.js";
+import type { WizardNavigationButtonProps, WizardProps, WizardStepProps } from "./wizard.api.js";
 import type { ResponsiveBehaviour, WizardState } from "./wizard.internal.js";
 import { computeCondensedStepCount, wizardBaseClassName } from "./wizard.internal.js";
-import { NextStepFirstWithBoundaryFocusedBehaviour } from "./responsive-behaviour/next-step-first-with-boundary-focused-behaviour.js";
-import { DefaultBehaviour } from "./responsive-behaviour/default-behaviour.js";
-import { PreviousStepFirstWithBoundaryFocusedBehaviour } from "./responsive-behaviour/previous-step-first-with-boundary-focused-behaviour.js";
-import { NextStepFirstBehaviour } from "./responsive-behaviour/next-step-first-behaviour.js";
-import type { WizardNavigationButtonProps, WizardProps, WizardStepProps } from "./wizard.api.js";
 import {
 	StyledWizardContent,
 	StyledWizardContentContainer,

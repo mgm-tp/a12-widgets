@@ -30,17 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import CSSEllipsisAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/css-ellipsis/main/css-ellipsis.api.json" with { type: "json" };
+import basicCode from "!./basic.tsx?raw";
+import tooltipCssEllipsisCode from "!./tooltip-css-ellipsis.tsx?raw";
+
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
+import CSSEllipsisAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/css-ellipsis/main/css-ellipsis.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseBulletListInMessageBox } from "../../helpers/showcase-styles.js";
 
 import { BasicCssEllipsisShowcase } from "./basic.js";
 import { TooltipCssEllipsisShowcase } from "./tooltip-css-ellipsis.js";
-
-import basicCode from "!./basic.tsx?raw";
-import tooltipCssEllipsisCode from "!./tooltip-css-ellipsis.tsx?raw";
 
 const { Item } = BulletList;
 const showcases: Showcase[] = [

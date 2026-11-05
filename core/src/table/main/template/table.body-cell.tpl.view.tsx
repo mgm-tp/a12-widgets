@@ -30,37 +30,36 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { darken } from "polished";
 import type { MouseEvent, ReactElement } from "react";
 import { memo, useRef, useContext, useCallback, useMemo } from "react";
 import { styled, css } from "styled-components";
-import { darken } from "polished";
 
-import { addPrefix, joinClassNames, getRole } from "../../../common/main/utils.js";
-import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
-import { useSelectedText } from "../../../common/main/hooks.js";
-import { activeAndHover, darkFocus } from "../../../theme/base/mixins/_interaction.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
-import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
-import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
-import { StyledCheckbox } from "../../../input/checkbox/main/checkbox.styled.js";
-import { StyledTreeNodeArrow, StyledTreeNodeIcon } from "../../../tree/main/tpl/tree-elements.styled.js";
-import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
-import { StyledTableDnDBody } from "../table.dnd.view.js";
+import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { useSelectedText } from "../../../common/main/hooks.js";
+import { addPrefix, joinClassNames, getRole } from "../../../common/main/utils.js";
+import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
+import { StyledCheckbox } from "../../../input/checkbox/main/checkbox.styled.js";
+import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
+import { activeAndHover, darkFocus } from "../../../theme/base/mixins/_interaction.js";
+import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
+import { StyledTreeNodeArrow, StyledTreeNodeIcon } from "../../../tree/main/tpl/tree-elements.styled.js";
 import type { Column } from "../column.api.js";
 import { useTableContext } from "../table.context.js";
-import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 import { TableDataAttributes } from "../table.data-attributes.js";
+import { StyledTableDnDBody } from "../table.dnd.view.js";
+import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
+import { StyledTableBodyRowSegment } from "./table.body-row-segment.tpl.view.js";
+import { StyledBodyRowBadgeWrapper, StyledTableBodyRow } from "./table.body-row.tpl.view.js";
+import { useStyledTableContext } from "./table.context.styled.js";
+import { StyledTableExpandableWrapper } from "./table.expandable-body-row-wrapper.tpl.view.js";
+import { StyledTableMixins, StyledBaseTable } from "./table.styled.js";
 import type { TableTemplateProps } from "./table.tpl.api.js";
 import { handleContextMenu, resetBoxShadowForSubInfoCell } from "./table.tpl.utils.js";
-import { StyledTableMixins, StyledBaseTable } from "./table.styled.js";
-import { useStyledTableContext } from "./table.context.styled.js";
-import { StyledBodyRowBadgeWrapper, StyledTableBodyRow } from "./table.body-row.tpl.view.js";
-import { StyledTableBodyRowSegment } from "./table.body-row-segment.tpl.view.js";
-import { StyledTableExpandableWrapper } from "./table.expandable-body-row-wrapper.tpl.view.js";
 
 export const StyledTableBodyCell = styled(StyledBaseTable.Cell).withConfig({ displayName: "StyledTableBodyCell-sc-" })<{
 	actionCell?: boolean;
@@ -117,10 +116,12 @@ export const StyledTableBodyCell = styled(StyledBaseTable.Cell).withConfig({ dis
 			min-height: ${bodyCell.minHeight};
 			overflow: hidden;
 
-			${$firstCell &&
-			css`
-				isolation: isolate;
-			`}
+			${
+				$firstCell &&
+				css`
+					isolation: isolate;
+				`
+			}
 
 			${StyledBodyRowBadgeWrapper} {
 				width: ${bodyRow.badge.width};
@@ -131,11 +132,13 @@ export const StyledTableBodyCell = styled(StyledBaseTable.Cell).withConfig({ dis
 
 				${StyledIconWrapper} {
 					font-size: ${bodyRow.badge.fontSize};
-					color: ${$verticalHeader
-						? bodyCell.subInfo.background
-						: subInfo
-							? darken(bodyRow.subBGRatio, background)
-							: background};
+					color: ${
+						$verticalHeader
+							? bodyCell.subInfo.background
+							: subInfo
+								? darken(bodyRow.subBGRatio, background)
+								: background
+					};
 					position: absolute;
 					top: 3px;
 					left: 4px;
@@ -148,161 +151,174 @@ export const StyledTableBodyCell = styled(StyledBaseTable.Cell).withConfig({ dis
 				}
 			}
 
-			${!actionCell &&
-			css`
-				flex-direction: column;
-			`};
+			${
+				!actionCell &&
+				css`
+					flex-direction: column;
+				`
+			};
 
-			${!rowDisabled &&
-			$cellHighlighting &&
-			!$verticalHeader &&
-			css`
-				${StyledTableMixins.setRowBG({
-					background: subInfo ? darken(bodyRow.subBGRatio, background) : background,
-					theme,
-					state: "hover",
-					darken: true
-				})};
-				border-bottom: ${bodyRow.borderBottom};
-				${StyledTableBodyRow}:last-child && {
-					border-bottom: none;
-				}
-
-				${StyledTableExpandableWrapper}:last-child &&&& {
-					border-bottom: none;
-				}
-
-				${StyledTableDnDBody}:last-child &&&& {
-					border-bottom: none;
-				}
-
-				${StyledTableExpandableWrapper} ${StyledTableBodyRow}:last-child && , ${StyledTableDnDBody} ${StyledTableBodyRow}:last-child && {
-					border-bottom: ${bodyRow.borderBottom};
-				}
-			`};
-
-			${subInfo &&
-			!$verticalHeader &&
-			css`
-				background-color: ${bodyCell.subInfo.background};
-				border-bottom: ${bodyRow.borderBottom};
-				border-top: ${bodyRow.borderBottom};
-				border-top-color: transparent;
-				justify-content: center;
-
-				${StyledTableBodyRow}:last-child && {
-					border-bottom: none;
-				}
-
-				${StyledTableMixins.setRowBG({ background, theme, darken: true })};
-
-				${!rowInteractive &&
+			${
 				!rowDisabled &&
-				!$cellHighlighting &&
+				$cellHighlighting &&
+				!$verticalHeader &&
 				css`
 					${StyledTableMixins.setRowBG({
-						background: bodyRow.nonInteractive.hoverBG,
+						background: subInfo ? darken(bodyRow.subBGRatio, background) : background,
 						theme,
 						state: "hover",
-						darken: true,
-						selector: StyledTableBodyRow
+						darken: true
 					})};
-					${StyledTableMixins.setRowBG({
-						background: bodyRow.nonInteractive.activeBG,
-						theme,
-						state: "active",
-						darken: true,
-						selector: StyledTableBodyRow
-					})};
-					${StyledTableMixins.setRowBG({
-						background: bodyRow.nonInteractive.focusBG,
-						theme,
-						state: "focus",
-						darken: true,
-						selector: StyledTableBodyRow
-					})};
-				`}
+					border-bottom: ${bodyRow.borderBottom};
+					${StyledTableBodyRow}:last-child && {
+						border-bottom: none;
+					}
 
-				${rowInteractive &&
-				!rowDisabled &&
-				!rowNoEffect &&
-				css`
-					position: relative;
-					border: none;
-					${createPseudoElement(":before")}
-					&:before {
+					${StyledTableExpandableWrapper}:last-child &&&& {
+						border-bottom: none;
+					}
+
+					${StyledTableDnDBody}:last-child &&&& {
+						border-bottom: none;
+					}
+
+					${StyledTableExpandableWrapper} ${StyledTableBodyRow}:last-child && , ${StyledTableDnDBody} ${StyledTableBodyRow}:last-child && {
 						border-bottom: ${bodyRow.borderBottom};
-						pointer-events: none;
+					}
+				`
+			};
+
+			${
+				subInfo &&
+				!$verticalHeader &&
+				css`
+					background-color: ${bodyCell.subInfo.background};
+					border-bottom: ${bodyRow.borderBottom};
+					border-top: ${bodyRow.borderBottom};
+					border-top-color: transparent;
+					justify-content: center;
+
+					${StyledTableBodyRow}:last-child && {
+						border-bottom: none;
 					}
 
-					${activeAndHover(
+					${StyledTableMixins.setRowBG({ background, theme, darken: true })};
+
+					${
+						!rowInteractive &&
+						!rowDisabled &&
+						!$cellHighlighting &&
 						css`
+							${StyledTableMixins.setRowBG({
+								background: bodyRow.nonInteractive.hoverBG,
+								theme,
+								state: "hover",
+								darken: true,
+								selector: StyledTableBodyRow
+							})};
+							${StyledTableMixins.setRowBG({
+								background: bodyRow.nonInteractive.activeBG,
+								theme,
+								state: "active",
+								darken: true,
+								selector: StyledTableBodyRow
+							})};
+							${StyledTableMixins.setRowBG({
+								background: bodyRow.nonInteractive.focusBG,
+								theme,
+								state: "focus",
+								darken: true,
+								selector: StyledTableBodyRow
+							})};
+						`
+					}
+
+					${
+						rowInteractive &&
+						!rowDisabled &&
+						!rowNoEffect &&
+						css`
+							position: relative;
+							border: none;
+							${createPseudoElement(":before")}
 							&:before {
-								border-top: ${bodyRow.interactive.hoverBorder};
-								border-bottom: ${bodyRow.interactive.hoverBorder};
-								background-clip: padding-box;
+								border-bottom: ${bodyRow.borderBottom};
+								pointer-events: none;
 							}
-						`,
-						`${StyledTableBodyRow}:not(:focus)`
-					)};
 
-					@media (pointer: fine) {
-						${StyledTableBodyRow}:not(:focus):hover [data-role="${DataRoles.Table.Body.Row
-							.SegmentLeft}"] &:first-child:before,
-						${StyledTableBodyRow}:not(:focus):hover > [data-role="${DataRoles.Table.Body.Row
-							.SegmentScroll}"]:first-child > &:first-child:before {
-							border-left: ${bodyRow.interactive.hoverBorder};
-						}
+							${activeAndHover(
+								css`
+									&:before {
+										border-top: ${bodyRow.interactive.hoverBorder};
+										border-bottom: ${bodyRow.interactive.hoverBorder};
+										background-clip: padding-box;
+									}
+								`,
+								`${StyledTableBodyRow}:not(:focus)`
+							)};
+
+							@media (pointer: fine) {
+								:is(${StyledTableBodyRow}):not(:focus):hover [data-role="${
+									DataRoles.Table.Body.Row.SegmentLeft
+								}"] &:first-child:before, ${StyledTableBodyRow}:not(:focus):hover > [data-role="${
+									DataRoles.Table.Body.Row.SegmentScroll
+								}"]:first-child > &:first-child:before {
+									border-left: ${bodyRow.interactive.hoverBorder};
+								}
+							}
+
+							${StyledTableBodyRow}:focus && {
+								background-clip: padding-box;
+								&:before {
+									border-top: ${bodyRow.interactive.focusBorder};
+									border-bottom: ${bodyRow.interactive.focusBorder};
+									margin: 1px 0;
+									${darkFocus}
+								}
+							}
+						`
 					}
+				`
+			};
 
-					${StyledTableBodyRow}:focus && {
-						background-clip: padding-box;
-						&:before {
-							border-top: ${bodyRow.interactive.focusBorder};
-							border-bottom: ${bodyRow.interactive.focusBorder};
-							margin: 1px 0;
-							${darkFocus}
-						}
+			${
+				!subInfo &&
+				!actionCell &&
+				css`
+					[data-role="${DataRoles.Tree}"] && {
+						padding: ${theme.components.treeTable.bodyCell.padding};
 					}
-				`}
-			`};
-
-			${!subInfo &&
-			!actionCell &&
-			css`
-				[data-role="${DataRoles.Tree}"] && {
-					padding: ${theme.components.treeTable.bodyCell.padding};
-				}
-			`};
+				`
+			};
 
 			color: ${useSecondaryColor && bodyCell.secondary.color};
 			font-weight: ${rowDisabled && bodyRow.disabled.fontWeight};
 
-			${actionCell &&
-			css`
-				align-self: center;
-				& > * {
-					flex-shrink: 0;
-					flex-wrap: nowrap;
-				}
-				&:after {
-					content: "";
-					font-size: 0;
-					min-height: inherit;
-				}
+			${
+				actionCell &&
+				css`
+					align-self: center;
+					& > * {
+						flex-shrink: 0;
+						flex-wrap: nowrap;
+					}
+					&:after {
+						content: "";
+						font-size: 0;
+						min-height: inherit;
+					}
 
-				${StyledCheckbox.StyledField} {
-					min-height: auto;
-				}
-			`};
+					${StyledCheckbox.StyledField} {
+						min-height: auto;
+					}
+				`
+			};
 
 			// Horizontal alignment
 			&& > * {
-				align-self: ${actionCell || horizAlignment === "center"
-					? "center"
-					: horizAlignment === "right"
-						? "flex-end"
-						: "flex-start"};
+				align-self: ${
+					actionCell || horizAlignment === "center" ? "center" : horizAlignment === "right" ? "flex-end" : "flex-start"
+				};
 			}
 			&& {
 				text-align: ${horizAlignment};
@@ -310,88 +326,100 @@ export const StyledTableBodyCell = styled(StyledBaseTable.Cell).withConfig({ dis
 			${StyledSelectTemplate.StyledFieldSelectControl} {
 				text-align-last: ${horizAlignment === "center" && "center"};
 			}
-			${actionCell &&
-			css`
-				justify-content: ${horizAlignment === "right"
-					? "flex-end"
-					: horizAlignment === "center"
-						? "center"
-						: "flex-start"};
-			`}
+			${
+				actionCell &&
+				css`
+					justify-content: ${
+						horizAlignment === "right" ? "flex-end" : horizAlignment === "center" ? "center" : "flex-start"
+					};
+				`
+			}
 
 			// Vertical alignment
-		${!actionCell &&
-			css`
-				justify-content: ${verAlignment === "bottom"
-					? "flex-end"
-					: verAlignment === "middle"
-						? "center"
-						: "flex-start"};
-			`}
-
-		${cardView &&
-			css`
-				text-align: left;
-				&,
-				&.${addPrefix("h_rightAlign")} {
-					justify-content: flex-start;
-				}
-				${actionCell &&
+			${
+				!actionCell &&
 				css`
-					justify-content: flex-end;
-				`}
-			`}
+					justify-content: ${
+						verAlignment === "bottom" ? "flex-end" : verAlignment === "middle" ? "center" : "flex-start"
+					};
+				`
+			}
 
-		${verAlignment === "bottom" &&
-			css`
-				${StyledTreeNodeArrow} {
-					bottom: 0;
-					margin-top: 0;
-					margin-bottom: calc((8px - ${theme.components.tree.nodeArrow.button.fontSize}) * 0.5);
-				}
+			${
+				cardView &&
+				css`
+					text-align: left;
+					&,
+					&.${addPrefix("h_rightAlign")} {
+						justify-content: flex-start;
+					}
+					${
+						actionCell &&
+						css`
+							justify-content: flex-end;
+						`
+					}
+				`
+			}
 
-				${StyledTreeNodeIcon} {
-					align-items: flex-end;
-				}
-			`};
+			${
+				verAlignment === "bottom" &&
+				css`
+					${StyledTreeNodeArrow} {
+						bottom: 0;
+						margin-top: 0;
+						margin-bottom: calc((8px - ${theme.components.tree.nodeArrow.button.fontSize}) * 0.5);
+					}
 
-			${verAlignment === "middle" &&
-			css`
-				&& ${StyledTreeNodeArrow} {
-					margin-top: 0;
-					top: 49%;
-					transform: translateY(-50%);
-				}
+					${StyledTreeNodeIcon} {
+						align-items: flex-end;
+					}
+				`
+			};
 
-				${StyledTreeNodeIcon} {
-					align-items: center;
-				}
-			`};
+			${
+				verAlignment === "middle" &&
+				css`
+					&& ${StyledTreeNodeArrow} {
+						margin-top: 0;
+						top: 49%;
+						transform: translateY(-50%);
+					}
+
+					${StyledTreeNodeIcon} {
+						align-items: center;
+					}
+				`
+			};
 
 			[class*="field--block"] {
 				flex-grow: 0;
 			}
 
-			${rowSubInfo &&
-			css`
-				// Style for touch devices with non-hover-capable pointing
-				@media (pointer: coarse) and (any-hover: none) {
-					border-bottom: ${bodyRow.borderBottom};
-					border-left: none;
-					border-right: none;
-					border-top: none;
-				}
-			`};
-			${$cellHighlighting &&
-			css`
-				@media (pointer: coarse) and (any-hover: none) {
-					&:active,
-					&:focus {
-						outline: none;
-						background-color: ${!$verticalHeader && bodyRow.nonInteractive.focusBG};
+			${
+				rowSubInfo &&
+				css`
+					// Style for touch devices with non-hover-capable pointing
+					@media (pointer: coarse) and (any-hover: none) {
+						border-bottom: ${bodyRow.borderBottom};
+						border-left: none;
+						border-right: none;
+						border-top: none;
 					}
-				}
-			`}
+				`
+			};
+			${
+				$cellHighlighting &&
+				css`
+					@media (pointer: coarse) and (any-hover: none) {
+						&:active,
+						&:focus {
+							outline: none;
+							background-color: ${!$verticalHeader && bodyRow.nonInteractive.focusBG};
+						}
+					}
+				`
+			}
 
 			${subInfo && resetBoxShadowForSubInfoCell(StyledTableBodyRowSegment)}
 		`;
@@ -416,14 +444,16 @@ export const StyledTableBodyCellGroupTpl = styled(StyledTableBodyCell).withConfi
 		const isCellHighlightingForRegularTable = !crossTabulation && $cellHighlighting;
 
 		return css`
-			${isCellHighlightingForRegularTable &&
-			css`
-				${StyledTableMixins.setRowBG({
-					background: bodyRow.nonInteractive.hoverBG,
-					theme,
-					state: "hover"
-				})}
-			`};
+			${
+				isCellHighlightingForRegularTable &&
+				css`
+					${StyledTableMixins.setRowBG({
+						background: bodyRow.nonInteractive.hoverBG,
+						theme,
+						state: "hover"
+					})}
+				`
+			};
 			position: relative;
 			${StyledTableBodyRowSegment} > && {
 				${createPseudoElement(
@@ -435,41 +465,47 @@ export const StyledTableBodyCellGroupTpl = styled(StyledTableBodyCell).withConfi
 					`
 				)}
 			}
-			${((crossTabulation && rowSegmentType === "left") || rowSegmentType === "right") &&
-			css`
-				${StyledTableBodyRowSegment} > && {
-					&:last-child:after {
-						border-right-color: transparent;
+			${
+				((crossTabulation && rowSegmentType === "left") || rowSegmentType === "right") &&
+				css`
+					${StyledTableBodyRowSegment} > && {
+						&:last-child:after {
+							border-right-color: transparent;
+						}
 					}
-				}
-			`}
+				`
+			}
 
-			${resizable &&
-			css`
-				[data-role="${DataRoles.Table.Body.Cell.Group}"]:last-child &&:last-child {
-					flex: 1;
-				}
-			`}
+			${
+				resizable &&
+				css`
+					[data-role="${DataRoles.Table.Body.Cell.Group}"]:last-child &&:last-child {
+						flex: 1;
+					}
+				`
+			}
 
-	        // Make sure when hover/focus, column's border not overlap with content row's border
-	        ${rowInteractive &&
-			css`
-				${activeAndHover(
-					css`
+			// Make sure when hover/focus, column's border not overlap with content row's border
+			${
+				rowInteractive &&
+				css`
+					${activeAndHover(
+						css`
+							&:after {
+								top: 3px;
+								bottom: 3px;
+							}
+						`,
+						StyledTableBodyRow
+					)}
+					${StyledTableBodyRow}:focus & {
 						&:after {
 							top: 3px;
 							bottom: 3px;
 						}
-					`,
-					StyledTableBodyRow
-				)}
-				${StyledTableBodyRow}:focus & {
-					&:after {
-						top: 3px;
-						bottom: 3px;
 					}
-				}
-			`}
+				`
+			}
 		`;
 	}
 );
@@ -480,14 +516,16 @@ const StyledTableBodyCellLabel = styled.div.withConfig({ displayName: "StyledTab
 	const { table } = theme.components;
 
 	return css`
-		${cardView &&
-		css`
-			align-items: center;
-			color: ${table.bodyCell.dataColor};
-			display: flex;
-			font-size: ${table.cardView.bodyCell.dataTitleFontSize};
-			margin-top: -16px;
-		`}
+		${
+			cardView &&
+			css`
+				align-items: center;
+				color: ${table.bodyCell.dataColor};
+				display: flex;
+				font-size: ${table.cardView.bodyCell.dataTitleFontSize};
+				margin-top: -16px;
+			`
+		}
 	`;
 });
 

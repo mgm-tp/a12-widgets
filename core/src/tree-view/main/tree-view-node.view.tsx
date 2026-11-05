@@ -41,15 +41,12 @@
 import type { FocusEvent, MouseEvent, ReactNode, RefObject } from "react";
 import { memo, useContext, useState } from "react";
 
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import { addPrefix, joinClassNames } from "../../common/main/utils.js";
-import { ArrowButton } from "../../tree/main/tpl/tree-elements.tpl.js";
-import { StyledTreeContext } from "../../tree/main/tpl/tree.tpl.api.js";
 import {
-	StyledTreeDropHint,
 	StyledTreeNodeActions,
 	StyledTreeNodeContainer,
 	StyledTreeNodeContent,
@@ -57,9 +54,11 @@ import {
 	StyledTreeNodeName,
 	StyledTreeNodeTitle
 } from "../../tree/main/tpl/tree-elements.styled.js";
+import { ArrowButton } from "../../tree/main/tpl/tree-elements.tpl.js";
 
 import type { TreeViewDnDState } from "./tree-view-dnd.js";
 import { useTreeViewNodeDnD } from "./tree-view-dnd.js";
+import { StyledTreeViewDropBand } from "./tree-view.styled.js";
 
 const baseClassName = addPrefix("treeWidget");
 
@@ -101,6 +100,13 @@ export interface TreeViewNodeProps {
 	/** Node label / custom content. */
 	label: ReactNode;
 
+	/**
+	 * The parent node's label. Announced to screen readers as ", belongs to <parentLabel>" directly
+	 * after this node's own name, so a user hears which parent the node sits under rather than only
+	 * its `aria-level`. `undefined` for a top-level node.
+	 */
+	parentLabel?: ReactNode;
+
 	/** Leading icon. */
 	icon?: ReactNode;
 
@@ -115,6 +121,13 @@ export interface TreeViewNodeProps {
 
 	/** Fired when the node content receives focus (parent updates the roving key). */
 	onActivate(): void;
+
+	/**
+	 * `tabIndex` of the expand/collapse control, resolved from the tree's keyboard navigation mode:
+	 * `undefined` leaves it in the tab order (Tab visits it after the node content, as in the legacy
+	 * `Tree`), `-1` takes it out so the node content is the node's only tab stop.
+	 */
+	expanderTabIndex?: number;
 
 	/** Index of this node in the flattened, visible rows (for DnD geometry). */
 	rowIndex: number;
@@ -143,11 +156,13 @@ export const TreeViewNode = memo(function TreeViewNode(props: TreeViewNodeProps)
 		disabled,
 		active,
 		label,
+		parentLabel,
 		icon,
 		actions,
 		onToggleExpand,
 		onSelect,
 		onActivate,
+		expanderTabIndex,
 		rowIndex,
 		dndEnabled,
 		dndStateRef,
@@ -180,8 +195,13 @@ export const TreeViewNode = memo(function TreeViewNode(props: TreeViewNodeProps)
 		}
 	};
 
-	const handleContentFocus = (): void => {
-		onActivate();
+	// `onFocus` is `focusin` and bubbles, so focus on the chevron or an action button inside the node
+	// reaches it too. Activating on those would move the roving tab stop onto this node mid-Tab-traversal,
+	// which makes Tab and Shift+Tab visit different elements. Only the content's own focus re-anchors it.
+	const handleContentFocus = (event: FocusEvent<HTMLElement>): void => {
+		if (event.target === event.currentTarget) {
+			onActivate();
+		}
 	};
 
 	const suppressOn = {
@@ -214,6 +234,8 @@ export const TreeViewNode = memo(function TreeViewNode(props: TreeViewNodeProps)
 		return undefined;
 	})();
 
+	const showParentLabel = level > 0 && parentLabel != null && parentLabel !== "";
+
 	const contentClassName = joinClassNames(
 		`${baseClassName}__nodeContent`,
 		{ [`${baseClassName}__nodeContent--selected`]: selected && !disabled },
@@ -225,21 +247,29 @@ export const TreeViewNode = memo(function TreeViewNode(props: TreeViewNodeProps)
 	const bandForbidden = !!indicator?.forbidden;
 
 	return (
-		<StyledTreeContext.Provider
-			value={{
-				focusNoBorder,
-				draggable: dndEnabled,
-				dragging,
-				dragOver: indicator?.type === "child" && !bandForbidden,
-				dropForbidden: indicator?.type === "child" && bandForbidden
-			}}
+		<StyledTreeNodeContainer
+			ref={dragRef}
+			$dragging={dragging}
+			id={`tree-node-${nodeKey}`}
+			className={joinClassNames(`${baseClassName}__node`, `${baseClassName}__node--level-${level}`)}
+			data-role={DataRoles.Tree.Node}
+			data-tree-level={level}
+			role="presentation"
 		>
-			<StyledTreeNodeContainer
-				ref={dragRef}
-				id={`tree-node-${nodeKey}`}
-				className={joinClassNames(`${baseClassName}__node`, `${baseClassName}__node--level-${level}`)}
-				data-role={DataRoles.Tree.Node}
-				data-tree-level={level}
+			{dndEnabled && (
+				<StyledTreeViewDropBand
+					$position="top"
+					$active={indicator?.type === "reorder-top"}
+					$forbidden={bandForbidden}
+					$level={bandLevel}
+					data-role={DataRoles.Tree.Dropdown.HintTop}
+					aria-hidden="true"
+				/>
+			)}
+			<StyledTreeNodeContent
+				id={`tree-node-content-${nodeKey}`}
+				data-role={DataRoles.Tree.Node.Content}
+				className={contentClassName}
 				role="treeitem"
 				aria-level={level + 1}
 				aria-setsize={setsize}
@@ -247,85 +277,82 @@ export const TreeViewNode = memo(function TreeViewNode(props: TreeViewNodeProps)
 				aria-expanded={expandable ? expanded : undefined}
 				aria-selected={selectable ? selected : undefined}
 				aria-disabled={disabled || undefined}
+				tabIndex={disabled ? undefined : active ? 0 : -1}
+				onClick={interactive ? handleContentClick : undefined}
+				onFocus={handleContentFocus}
+				title={interactive ? (selected ? treeTitles?.selectedTitle : treeTitles?.selectableTitle) : undefined}
+				$level={level}
+				$noEffect={noEffect}
+				$disabled={disabled}
+				$selected={selected && !disabled}
+				$interactive={interactive}
+				$focusNoBorder={focusNoBorder}
+				$draggable={dndEnabled}
+				$dragging={dragging}
+				$dragOver={indicator?.type === "child" && !bandForbidden}
+				$dropForbidden={indicator?.type === "child" && bandForbidden}
 			>
-				{dndEnabled && (
-					<StyledTreeDropHint
-						$position="top"
-						$available={indicator?.type === "reorder-top"}
-						$opened={indicator?.type === "reorder-top" && !bandForbidden}
-						$dropForbidden={indicator?.type === "reorder-top" && bandForbidden}
-						$level={bandLevel}
-						data-role={DataRoles.Tree.Dropdown.HintTop}
-						aria-hidden="true"
+				{a11yHint && <HiddenText>{a11yHint}</HiddenText>}
+				{expandable && (
+					<ArrowButton
+						id={`tree-node-arrow-${nodeKey}`}
+						expanded={expanded}
+						loading={loading}
+						onToggleExpansion={handleArrowClick}
+						tabIndex={expanderTabIndex}
+						// Named after the node, the way the legacy `Tree` names its own: `aria-labelledby` overrides the
+						// localized "Expand subitems" title, so the control announces which node it belongs to rather
+						// than a string every chevron in the tree shares. It must stay out of `aria-hidden` - it is
+						// focusable, and hiding a focusable element from assistive technology strands the focus.
+						htmlAttributes={{ "aria-labelledby": `tree-node-name-${nodeKey}` }}
+						{...suppressOn}
 					/>
 				)}
-				<StyledTreeNodeContent
-					id={`tree-node-content-${nodeKey}`}
-					data-role={DataRoles.Tree.Node.Content}
-					className={contentClassName}
-					tabIndex={disabled ? undefined : active ? 0 : -1}
-					onClick={interactive ? handleContentClick : undefined}
-					onFocus={handleContentFocus}
-					title={interactive ? (selected ? treeTitles?.selectedTitle : treeTitles?.selectableTitle) : undefined}
-					$level={level}
-					$noEffect={noEffect}
-					$disabled={disabled}
-					$selected={selected && !disabled}
-					$interactive={interactive}
-				>
-					{a11yHint && <HiddenText>{a11yHint}</HiddenText>}
-					{expandable && (
-						<ArrowButton
-							id={`tree-node-arrow-${nodeKey}`}
-							expanded={expanded}
-							loading={loading}
-							onToggleExpansion={handleArrowClick}
-							tabIndex={-1}
-							htmlAttributes={{ "aria-hidden": true }}
-							{...suppressOn}
-						/>
-					)}
-					<StyledTreeNodeTitle className={`${baseClassName}__nodeTitle`} data-role={DataRoles.Tree.Node.Title}>
-						{icon && (
-							<StyledTreeNodeIcon
-								className={`${baseClassName}__nodeIcon`}
-								id={`tree-node-icon-${nodeKey}`}
-								data-role={DataRoles.Tree.Node.Icon}
-							>
-								{icon}
-							</StyledTreeNodeIcon>
-						)}
-						<StyledTreeNodeName
-							className={`${baseClassName}__nodeName`}
-							id={`tree-node-name-${nodeKey}`}
-							data-role={DataRoles.Tree.Node.Name}
+				<StyledTreeNodeTitle className={`${baseClassName}__nodeTitle`} data-role={DataRoles.Tree.Node.Title}>
+					{icon && (
+						<StyledTreeNodeIcon
+							className={`${baseClassName}__nodeIcon`}
+							id={`tree-node-icon-${nodeKey}`}
+							data-role={DataRoles.Tree.Node.Icon}
 						>
-							{label}
-						</StyledTreeNodeName>
-						{actions && (
-							<StyledTreeNodeActions
-								className={`${baseClassName}__nodeActions`}
-								data-role={DataRoles.Tree.Node.Actions}
-								{...suppressOn}
-							>
-								{actions}
-							</StyledTreeNodeActions>
-						)}
-					</StyledTreeNodeTitle>
-				</StyledTreeNodeContent>
-				{dndEnabled && (
-					<StyledTreeDropHint
-						$position="bottom"
-						$available={indicator?.type === "reorder-bottom"}
-						$opened={indicator?.type === "reorder-bottom" && !bandForbidden}
-						$dropForbidden={indicator?.type === "reorder-bottom" && bandForbidden}
-						$level={bandLevel}
-						data-role={DataRoles.Tree.Dropdown.HintBottom}
-						aria-hidden="true"
-					/>
-				)}
-			</StyledTreeNodeContainer>
-		</StyledTreeContext.Provider>
+							{icon}
+						</StyledTreeNodeIcon>
+					)}
+					<StyledTreeNodeName
+						className={`${baseClassName}__nodeName`}
+						id={`tree-node-name-${nodeKey}`}
+						data-role={DataRoles.Tree.Node.Name}
+					>
+						{label}
+					</StyledTreeNodeName>
+					{showParentLabel && (
+						<HiddenText htmlTag="div" htmlAttributes={{ "data-role": DataRoles.Tree.Node.ParentLabel }}>
+							<HiddenText>{", " + (treeTitles?.belongTo ?? "")}</HiddenText>
+							{parentLabel}
+						</HiddenText>
+					)}
+					{actions && (
+						<StyledTreeNodeActions
+							className={`${baseClassName}__nodeActions`}
+							data-role={DataRoles.Tree.Node.Actions}
+							{...suppressOn}
+						>
+							{actions}
+						</StyledTreeNodeActions>
+					)}
+				</StyledTreeNodeTitle>
+			</StyledTreeNodeContent>
+			{dndEnabled && (
+				<StyledTreeViewDropBand
+					$position="bottom"
+					$active={indicator?.type === "reorder-bottom"}
+					$forbidden={bandForbidden}
+					$level={bandLevel}
+					data-role={DataRoles.Tree.Dropdown.HintBottom}
+					aria-hidden="true"
+				/>
+			)}
+		</StyledTreeNodeContainer>
 	);
 });
 

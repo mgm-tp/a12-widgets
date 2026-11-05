@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { MarkdownViewer } from "../helpers/markdown-viewer.js";
-import type { Showcase } from "../helpers/definitions.js";
-
 import readmeText from "!../docs/sample-app.md?raw";
+
+import type { Showcase } from "../helpers/definitions.js";
+import { MarkdownViewer } from "../helpers/markdown-viewer.js";
 
 const showcases: Showcase[] = [
 	{ label: "Quick Start", description: <MarkdownViewer source={readmeText} />, sections: [] }

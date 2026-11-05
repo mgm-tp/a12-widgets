@@ -31,35 +31,53 @@
  */
 
 /**
- * Drag-and-drop reparenting for {@link TreeView} on `@atlaskit/pragmatic-drag-and-drop` with the
- * tree-item hitbox (before / after / inside). Self-contained within `tree-view/` — it must NOT import
- * the `data-table/` DnD helpers (that would create a `tree-view → data-table` cycle), so the small
- * pragmatic helpers are re-implemented locally and the pure instruction mappers are ported here.
+ * Drag-and-drop reparenting for {@link TreeView} on `@com.mgmtp.a12.widgets/pragmatic-drag-and-drop` with the
+ * tree-item hitbox (before / after / inside).
+ *
+ * The pure instruction mapping, cycle guard and keyboard move arithmetic live in `./tree-dnd/`, shared
+ * with `DataTreeTable`. What stays here is the pragmatic adapter binding and this component's own
+ * pragmatic data keys. Note the dependency direction: `data-table/` may import `tree-view/`, never the
+ * reverse — importing the `data-table/` DnD helpers from here would be a cycle.
  *
  * The drop geometry lives on the per-node drop target; a single container-level monitor resolves the
- * completed drop. Visuals are driven through the legacy tree's `StyledTreeContext` + `StyledTreeDropHint`,
- * so no new styling is introduced.
+ * completed drop. Visuals: the sibling-insertion band is the tree view's own `StyledTreeViewDropBand`
+ * (indented to the target level, see `tree-view.styled.ts`); the reparent affordance washes the node
+ * content through the legacy `StyledTreeNodeContent` drag-over props.
  * @module
  */
 
 import type { Key, RefCallback, RefObject } from "react";
 import { useEffect, useRef, useState } from "react";
+
+import { attachInstruction, extractInstruction } from "@com.mgmtp.a12.widgets/pragmatic-drag-and-drop-hitbox/tree-item";
+import { combine } from "@com.mgmtp.a12.widgets/pragmatic-drag-and-drop/combine";
 import {
 	draggable,
 	dropTargetForElements,
 	monitorForElements
-} from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
-import { combine } from "@atlaskit/pragmatic-drag-and-drop/combine";
-import {
-	attachInstruction,
-	extractInstruction,
-	type Instruction,
-	type ItemMode
-} from "@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item";
+} from "@com.mgmtp.a12.widgets/pragmatic-drag-and-drop/element/adapter";
+
+import type { DragAndDropTitles } from "../../common/main/a11y-localization/index.js";
+import { triggerPostMoveFlash } from "../../common/main/dnd-flash/index.js";
+import { useLatestRef } from "../../common/main/hooks.js";
 
 import type { FlatTreeRow } from "./model/index.js";
-import { isSelfOrDescendant } from "./model/index.js";
-import type { TreeViewDragDrop, TreeViewDropPosition } from "./tree-view.api.js";
+import {
+	computeItemMode,
+	evaluateTreeCanDrop,
+	indicatorFromInstruction,
+	isSameIndicator,
+	resolveTreeDropResult
+} from "./tree-dnd/index.js";
+import type { IndicatorState, TreeDragItem } from "./tree-dnd/index.js";
+import type { TreeViewDragDrop } from "./tree-view.api.js";
+
+/*
+ * The shared tree-DnD core is re-exported so this module stays the single import
+ * site for TreeView's DnD (its tests and `use-tree-view-keyboard.ts` already point
+ * here). `./tree-dnd/` is internal to `core/src`, not part of any public barrel.
+ */
+export * from "./tree-dnd/index.js";
 
 /** Pragmatic data key under which the drag kind is carried (scopes which trees accept the drag). */
 const DRAG_TYPE_KEY = "treeViewDragType";
@@ -67,16 +85,16 @@ const DRAG_TYPE_KEY = "treeViewDragType";
 /** Pragmatic data key under which the hovered node's flat index is carried. */
 const TREE_INDEX_KEY = "treeViewRowIndex";
 
+/** Pragmatic data key marking the tree's root drop zone (the empty area below the last node). */
+const ROOT_DROP_KEY = "treeViewRootDrop";
+
+/** Whether a drop target's pragmatic data marks the root drop zone rather than a node. */
+function isRootDropTarget(data: Record<string | symbol, unknown>): boolean {
+	return data[ROOT_DROP_KEY] === true;
+}
+
 /** Default drag kind when the consumer does not set `acceptType`. */
 const DEFAULT_ACCEPT_TYPE = "tree-view-node";
-
-/** A ref that always holds the latest value passed to it (read fresh inside stable DnD callbacks). */
-function useLatestRef<T>(value: T): RefObject<T> {
-	const ref = useRef(value);
-	ref.current = value;
-
-	return ref;
-}
 
 /** Whether a pointer event originates inside an interactive control (so dragging should be suppressed). */
 function isInteractiveTarget(target: EventTarget | null): boolean {
@@ -110,157 +128,27 @@ export interface TreeViewDnDState<RowType = unknown> {
 
 	/** Indentation in pixels per depth level (drives the hitbox geometry). */
 	indentPerLevel: number;
-}
 
-/** The dragged node payload carried in pragmatic data. @internal */
-export interface TreeDragItem<RowType = unknown> {
-	rowIndex: number;
-	row: RowType;
-}
+	/**
+	 * Localized grab / move / drop / cancel announcements for keyboard grab-and-move. Held on the state
+	 * (rather than passed per call) so `performTreeKeyboardMove` has one signature across both trees.
+	 */
+	titles?: DragAndDropTitles;
 
-/** A resolved tree drop: the target row plus where the dragged node would land. */
-interface ResolvedTreeDrop<RowType> {
-	target: FlatTreeRow<RowType>;
-	targetIndex: number;
-	position: TreeViewDropPosition;
-}
+	/**
+	 * Announces a screen-reader message through the tree's polite live region. Set by {@link TreeView}
+	 * when drag-and-drop is enabled; used by the keyboard move handle to report a completed move.
+	 */
+	announce?: (message: string) => void;
 
-/** Visual indicator derived from the current hitbox instruction. @internal */
-export interface IndicatorState {
-	/** `reorder-top`/`reorder-bottom` draw a band above/below; `child` washes the row (reparent into it). */
-	type: "reorder-top" | "reorder-bottom" | "child";
+	/** Themed background for the post-move confirmation flash. */
+	flashColor?: string;
 
-	/** Tree level the reorder band is indented to. */
-	level: number;
-	forbidden: boolean;
-}
-
-/**
- * The pragmatic hitbox item mode for a row: `expanded` when it shows children, `last-in-group` when it
- * is the last visible child of its parent (enables the reparent affordance), otherwise `standard`.
- *
- * @internal
- */
-export function computeItemMode<RowType>(rows: FlatTreeRow<RowType>[], rowIndex: number): ItemMode {
-	const row = rows[rowIndex];
-
-	// Skip a trailing "load-more" sentinel so the last real child still reads as `last-in-group`.
-	let nextIndex = rowIndex + 1;
-
-	while (rows[nextIndex]?.kind === "load-more") {
-		nextIndex++;
-	}
-
-	const next = rows[nextIndex];
-
-	if (!row) {
-		return "standard";
-	}
-
-	if (next && next.level > row.level) {
-		return "expanded";
-	}
-
-	if (!next || next.level < row.level) {
-		return "last-in-group";
-	}
-
-	return "standard";
-}
-
-/**
- * Maps a hitbox {@link Instruction} for a hovered row into a {@link ResolvedTreeDrop}, or `null` when
- * the drop is blocked. Pure (no DOM / pragmatic state), so the position mapping — including the
- * `reparent` outdent's ancestor resolution — is unit-testable independently of hitbox geometry.
- *
- * @internal
- */
-export function mapInstructionToDropResult<RowType>(
-	instruction: Instruction | null,
-	targetIndex: number,
-	rows: FlatTreeRow<RowType>[]
-): ResolvedTreeDrop<RowType> | null {
-	const target = rows[targetIndex];
-
-	if (!instruction || instruction.type === "instruction-blocked" || !target) {
-		return null;
-	}
-
-	switch (instruction.type) {
-		case "reorder-above":
-			return { target, targetIndex, position: "before" };
-		case "reorder-below":
-			return { target, targetIndex, position: "after" };
-		case "make-child":
-			return { target, targetIndex, position: "inside" };
-		case "reparent": {
-			// Outdent: the dragged node becomes the next sibling of the ancestor at the (shallower) desired
-			// level — the nearest preceding row at that level in the DFS order.
-			let ancestorIndex = targetIndex;
-
-			for (let i = targetIndex; i >= 0; i--) {
-				if (rows[i]!.level === instruction.desiredLevel && rows[i]!.kind !== "load-more") {
-					ancestorIndex = i;
-					break;
-				}
-			}
-
-			return { target: rows[ancestorIndex]!, targetIndex: ancestorIndex, position: "after" };
-		}
-
-		default:
-			return null;
-	}
-}
-
-/** Translates a drop target's pragmatic data into a {@link ResolvedTreeDrop}, or `null`. */
-function resolveTreeDropResult<RowType>(
-	targetData: Record<string | symbol, unknown>,
-	state: TreeViewDnDState<RowType>
-): ResolvedTreeDrop<RowType> | null {
-	return mapInstructionToDropResult(extractInstruction(targetData), targetData[TREE_INDEX_KEY] as number, state.rows);
-}
-
-/**
- * Whether a drop is permitted: the consumer `canDrop` when provided, otherwise the default guard that
- * forbids dropping a node onto itself or into its own subtree (which would create a cycle).
- */
-function evaluateCanDrop<RowType>(
-	state: TreeViewDnDState<RowType>,
-	sourceRow: RowType,
-	resolved: ResolvedTreeDrop<RowType>
-): boolean {
-	if (state.options.canDrop) {
-		return state.options.canDrop({ source: sourceRow, target: resolved.target.row, position: resolved.position });
-	}
-
-	return !isSelfOrDescendant(resolved.target.key, state.rowKeyOf(sourceRow), state.metaByKey);
-}
-
-/**
- * Maps the current hitbox instruction to the visual indicator placement, or `null` for none.
- *
- * @internal
- */
-export function indicatorFromInstruction(instruction: Instruction | null, forbidden: boolean): IndicatorState | null {
-	if (!instruction) {
-		return null;
-	}
-
-	const resolved = instruction.type === "instruction-blocked" ? instruction.desired : instruction;
-
-	switch (resolved.type) {
-		case "reorder-above":
-			return { type: "reorder-top", level: resolved.currentLevel, forbidden };
-		case "reorder-below":
-			return { type: "reorder-bottom", level: resolved.currentLevel, forbidden };
-		case "make-child":
-			return { type: "child", level: resolved.currentLevel, forbidden };
-		case "reparent":
-			return { type: "reorder-bottom", level: resolved.desiredLevel, forbidden };
-		default:
-			return null;
-	}
+	/**
+	 * Stable ref holding the key of the node to flash on the next commit (set by a keyboard move, claimed
+	 * by that node's DnD hook once its row has re-rendered at its new position).
+	 */
+	pendingFlashKeyRef?: RefObject<Key | null>;
 }
 
 /**
@@ -294,15 +182,117 @@ export function useTreeViewDnDMonitor<RowType>(
 				const state = stateRef.current;
 				const dragData = source.data as unknown as TreeDragItem<RowType>;
 				const target = location.current.dropTargets[0];
-				const resolved = target ? resolveTreeDropResult(target.data, state) : null;
 
-				if (resolved && evaluateCanDrop(state, dragData.row, resolved)) {
+				// Dropped on the empty area below the last node (see `useTreeViewRootDropZone`): move to the top level.
+				if (target && isRootDropTarget(target.data)) {
+					if (state.options.canDropToRoot?.({ source: dragData.row }) ?? true) {
+						state.options.onDropToRoot?.({ source: dragData.row });
+
+						if (state.pendingFlashKeyRef) {
+							state.pendingFlashKeyRef.current = state.rowKeyOf(dragData.row);
+						}
+					}
+
+					return;
+				}
+
+				const resolved = target ? resolveTreeDropResult<RowType>(target.data, state.rows, TREE_INDEX_KEY) : null;
+
+				if (resolved && evaluateTreeCanDrop(state, dragData.row, resolved)) {
 					state.options.onDrop?.({ source: dragData.row, target: resolved.target.row, position: resolved.position });
+
+					// Confirm the landing node with a post-move flash once the reorder re-renders.
+					if (state.pendingFlashKeyRef) {
+						state.pendingFlashKeyRef.current = state.rowKeyOf(dragData.row);
+					}
 				}
 			}
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps -- rebind only when DnD toggles; live values read through refs.
 	}, [enabled]);
+}
+
+/**
+ * Root drop zone: the tree's container becomes a drop target for the empty area below the nodes list —
+ * the space under the last node when the tree has a bounded height, or an empty tree. Nodes stay the
+ * innermost targets, so this never competes with a node drop. Armed only while the consumer provides
+ * `onDropToRoot` (read live from the state ref). Feedback is the `data-drop-target` attribute on the
+ * container (`droppable` / `forbidden`), styled by `StyledTreeContainer`.
+ *
+ * @internal
+ */
+export function useTreeViewRootDropZone<RowType>(params: {
+	stateRef: RefObject<TreeViewDnDState<RowType>>;
+	containerEl: HTMLElement | null;
+
+	/** The nodes list; the zone is the container area below its bottom edge. */
+	nodesEl: HTMLElement | null;
+	enabled: boolean;
+}): void {
+	const { stateRef, containerEl, nodesEl, enabled } = params;
+
+	useEffect(() => {
+		const element = containerEl;
+
+		if (!element || !enabled) {
+			return undefined;
+		}
+
+		const acceptType = resolveAcceptType(stateRef.current.options);
+		let forbidden = false;
+
+		const clear = (): void => {
+			forbidden = false;
+			element.removeAttribute("data-drop-target");
+		};
+
+		// Force a `not-allowed` cursor while the forbidden zone is hovered. `dragover` bubbles up from the
+		// nodes too, so only act on events from the empty area — a node owns its own cursor feedback.
+		const forbidCursor = (event: DragEvent): void => {
+			if (forbidden && event.dataTransfer && !nodesEl?.contains(event.target as Node)) {
+				event.dataTransfer.dropEffect = "none";
+			}
+		};
+
+		element.addEventListener("dragover", forbidCursor);
+
+		const cleanup = dropTargetForElements({
+			element,
+			canDrop: ({ source, input }) => {
+				if (source.data[DRAG_TYPE_KEY] !== acceptType || !stateRef.current.options.onDropToRoot) {
+					return false;
+				}
+
+				// Only the area below the last node counts; an empty tree has an empty (zero-height) list.
+				const lastNode = nodesEl?.lastElementChild;
+
+				return !lastNode || input.clientY >= lastNode.getBoundingClientRect().bottom;
+			},
+			getData: () => ({ [ROOT_DROP_KEY]: true }),
+			onDrag: ({ source, location }) => {
+				// React only while the container itself is the innermost target.
+				if (location.current.dropTargets[0]?.element !== element) {
+					clear();
+
+					return;
+				}
+
+				const dragged = source.data as unknown as TreeDragItem<RowType>;
+
+				forbidden = !(stateRef.current.options.canDropToRoot?.({ source: dragged.row }) ?? true);
+				element.setAttribute("data-drop-target", forbidden ? "forbidden" : "droppable");
+			},
+			onDragLeave: clear,
+			onDrop: clear
+		});
+
+		return (): void => {
+			cleanup();
+			element.removeEventListener("dragover", forbidCursor);
+			clear();
+		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps -- rebind only on element swap / DnD toggle; live values read through refs.
+	}, [containerEl, nodesEl, enabled]);
 }
 
 /**
@@ -326,6 +316,8 @@ export function useTreeViewNodeDnD<RowType>(params: {
 	// Drag suppression while the pointer is over interactive children — a ref, since pragmatic reads
 	// `canDrag` fresh on each dragstart and flipping it needs no re-render.
 	const dragSuppressedRef = useRef(false);
+	// Mirrors `indicator.forbidden` as a ref for the synchronous `dragover` cursor listener.
+	const forbiddenRef = useRef(false);
 
 	useEffect(() => {
 		if (!element || !enabled) {
@@ -339,6 +331,15 @@ export function useTreeViewNodeDnD<RowType>(params: {
 		};
 
 		element.addEventListener("pointerover", onPointerOver);
+
+		// Force a `not-allowed` cursor on forbidden positions
+		const forbidCursor = (event: DragEvent): void => {
+			if (forbiddenRef.current && event.dataTransfer) {
+				event.dataTransfer.dropEffect = "none";
+			}
+		};
+
+		element.addEventListener("dragover", forbidCursor);
 
 		const cleanup = combine(
 			draggable({
@@ -384,6 +385,7 @@ export function useTreeViewNodeDnD<RowType>(params: {
 					// React only when this node is the innermost target; otherwise another node owns the indicator.
 					if (location.current.dropTargets[0]?.element !== element) {
 						setIndicator(null);
+						forbiddenRef.current = false;
 
 						return;
 					}
@@ -391,22 +393,52 @@ export function useTreeViewNodeDnD<RowType>(params: {
 					const state = stateRef.current;
 					const dragged = source.data as unknown as TreeDragItem<RowType>;
 					const instruction = extractInstruction(self.data);
-					const resolved = resolveTreeDropResult(self.data, state);
-					const forbidden = resolved ? !evaluateCanDrop(state, dragged.row, resolved) : true;
+					const resolved = resolveTreeDropResult<RowType>(self.data, state.rows, TREE_INDEX_KEY);
+					const forbidden = resolved ? !evaluateTreeCanDrop(state, dragged.row, resolved) : true;
 
-					setIndicator(indicatorFromInstruction(instruction, forbidden));
+					// Mirror for the native `dragover` cursor listener (read synchronously during dispatch).
+					forbiddenRef.current = forbidden;
+
+					const next = indicatorFromInstruction(instruction, forbidden);
+
+					setIndicator((previous) => (isSameIndicator(previous, next) ? previous : next));
 				},
-				onDragLeave: () => setIndicator(null),
-				onDrop: () => setIndicator(null)
+				onDragLeave: () => {
+					setIndicator(null);
+					forbiddenRef.current = false;
+				},
+				onDrop: () => {
+					setIndicator(null);
+					forbiddenRef.current = false;
+				}
 			})
 		);
 
 		return (): void => {
 			element.removeEventListener("pointerover", onPointerOver);
+			element.removeEventListener("dragover", forbidCursor);
 			cleanup();
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps -- rebind only on element swap / enable toggle; live values read through refs.
 	}, [element, enabled]);
+
+	// Post-move flash claim: after a drop reorders the tree, exactly one node's key sits in the shared
+	// pending-flash ref. On each commit the node whose key matches claims and clears it, then flashes its
+	// own element — so the moved node lights up wherever it re-rendered. No-op under reduced motion.
+	useEffect(() => {
+		const state = stateRef.current;
+		const pendingRef = state.pendingFlashKeyRef;
+		const row = state.rows[rowIndexRef.current]?.row;
+
+		if (!element || !pendingRef || row === undefined) {
+			return;
+		}
+
+		if (pendingRef.current !== null && pendingRef.current === state.rowKeyOf(row)) {
+			pendingRef.current = null;
+			triggerPostMoveFlash(element, { color: state.flashColor ?? "transparent" });
+		}
+	});
 
 	return { dragRef: setElement, indicator, dragging };
 }

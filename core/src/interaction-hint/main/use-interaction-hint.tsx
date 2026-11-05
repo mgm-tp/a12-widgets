@@ -30,17 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import merge from "deepmerge";
 import type React from "react";
 import { useContext, useMemo } from "react";
-import merge from "deepmerge";
 
+import type { InteractionHintConfigContextProps } from "./interaction-hint-context.js";
+import { InteractionHintConfigContext } from "./interaction-hint-context.js";
 import type {
 	InteractionHintComponentKey,
 	InteractionHintConfig,
 	InteractionHintProps
 } from "./interaction-hint.api.js";
-import type { InteractionHintConfigContextProps } from "./interaction-hint-context.js";
-import { InteractionHintConfigContext } from "./interaction-hint-context.js";
 import { InteractionHint } from "./interaction-hint.view.js";
 
 /** @internal */
@@ -48,10 +48,12 @@ export function resolveHintConfig(
 	context: InteractionHintConfigContextProps,
 	componentKey?: InteractionHintComponentKey
 ): InteractionHintConfig {
-	const baseConfig = {
+	const baseConfig: InteractionHintConfig = {
 		enabled: context.enableInteractionHint,
 		followCursor: context.followCursor,
-		hideArrow: context.hideArrow
+		hideArrow: context.hideArrow,
+		// Only forward a configured delay, so an unset context does not override an instance-level `showDelay`.
+		...(context.showDelay !== undefined && { showDelay: context.showDelay })
 	};
 
 	if (!componentKey) {

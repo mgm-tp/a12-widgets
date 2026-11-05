@@ -30,7 +30,6 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, test, expect, beforeAll, beforeEach, afterEach } from "vitest";
 import {
 	render,
 	waitFor,
@@ -40,6 +39,7 @@ import {
 	queryByDataRole,
 	queryAllByDataRole
 } from "test-utils";
+import { describe, test, expect, beforeAll, beforeEach, afterEach } from "vitest";
 import { page, userEvent } from "vitest/browser";
 
 import { DataRoles } from "../../../common/main/data-roles.js";

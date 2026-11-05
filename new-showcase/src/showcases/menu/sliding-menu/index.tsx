@@ -30,18 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import SlidingMenuAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/menu/main/sliding-menu.api.json" with { type: "json" };
-import MenuAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/menu/main/menu.api.json" with { type: "json" };
+import itemsCode from "!../menu.setup.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import customBackwardItemCode from "!./custom-backward-item.js?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import MenuAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/menu/main/menu.api.json" with { type: "json" };
+import SlidingMenuAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/menu/main/sliding-menu.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { Basic } from "./basic.js";
 import { CustomBackwardItem } from "./custom-backward-item.js";
-
-import itemsCode from "!../menu.setup.tsx?raw";
-import basicCode from "!./basic.tsx?raw";
-import customBackwardItemCode from "!./custom-backward-item.js?raw";
 
 const showcases: Showcase[] = [
 	{

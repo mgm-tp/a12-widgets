@@ -49,14 +49,16 @@ const ShowcaseProgressBarWrapper = styled.div<{ $hasBackground?: boolean }>(({ t
 	const { colors, spacing } = theme;
 
 	return css`
-		${$hasBackground
-			? css`
-					background-color: ${colors.interaction.secondaryInteractionColor};
-					outline: 2px solid transparent;
-				`
-			: css`
-					outline: 2px dotted ${colors.interaction.secondaryInteractionColor};
-				`}
+		${
+			$hasBackground
+				? css`
+						background-color: ${colors.interaction.secondaryInteractionColor};
+						outline: 2px solid transparent;
+					`
+				: css`
+						outline: 2px dotted ${colors.interaction.secondaryInteractionColor};
+					`
+		}
 		box-sizing: border-box;
 		height: ${spacing.spacing.spacingLg}px;
 		position: relative;

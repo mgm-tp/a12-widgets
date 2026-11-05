@@ -33,17 +33,16 @@
 import type { ReactElement, ContextType, ReactNode, MouseEvent, FocusEvent } from "react";
 import { Children, Component } from "react";
 
-import { Icon } from "../../../icon/main/icon.view.js";
-import { bindMethods, joinClassNames, addPrefix } from "../../../common/main/utils.js";
-import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { HiddenText } from "../../../common/index.js";
-
-import { TreeContainer, TreeNode } from "../tpl/tree-elements.tpl.js";
+import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
+import { bindMethods, joinClassNames, addPrefix } from "../../../common/main/utils.js";
+import { Icon } from "../../../icon/main/icon.view.js";
 import {
 	StyledInsertableTreeActionButton,
 	StyledInsertableTreeActionButtonGroup,
 	StyledInsertableTreeHint
 } from "../tpl/tree-elements.styled.js";
+import { TreeContainer, TreeNode } from "../tpl/tree-elements.tpl.js";
 
 import type { InsertableTreeProps } from "./insertable-tree.api.js";
 

@@ -44,11 +44,10 @@ import { useCallback, useContext, useEffect, useState } from "react";
 
 import { A11YLanguageContext } from "../../../../../common/main/a11y-localization/language-context.js";
 import { $isInlineStyleTextNode } from "../../../nodes/inline-style-text-node.js";
+import { useRichTextEditorCache } from "../../../template/rich-text-editor.tpl.view.js";
 import { APPLY_TEXT_FORMAT_COMMAND } from "../../../utils/commands.js";
 import { useEditorUpdateChange } from "../../../utils/hooks.js";
 import { $isClassNameAppliedToSelection, $updateTextSelection } from "../../../utils/selection.js";
-import { useRichTextEditorCache } from "../../../template/rich-text-editor.tpl.view.js";
-
 import type { ButtonType, Interactable } from "../toolbar-button/toolbar-button.api.js";
 import type { ToolbarButtonInternalProps } from "../toolbar-button/toolbar-button.internal.api.js";
 import { ToolbarButtonInternal } from "../toolbar-button/toolbar-button.view.js";
@@ -133,12 +132,7 @@ export function createInlineButton(buttonProps: InlineButtonProps): ButtonType {
 		useEffect(() => {
 			return editor.registerCommand(
 				APPLY_TEXT_FORMAT_COMMAND,
-				(payload: {
-					styleName: string;
-					allowCollapseStyle: boolean;
-					isActive: (selection: BaseSelection | null) => boolean;
-					isolateStyle: boolean;
-				}) => {
+				(payload) => {
 					const selection = $getSelection();
 
 					if ($isRangeSelection(selection)) {

@@ -32,8 +32,8 @@
 
 import { styled, css } from "styled-components";
 
-import { StyledBaseInput } from "../../../base-input-styled/base.styled.js";
 import { createBoxShadow } from "../../../../theme/base/mixins/_borderEffects.js";
+import { StyledBaseInput } from "../../../base-input-styled/base.styled.js";
 
 import StyledFieldInput = StyledBaseInput.StyledFieldInput;
 
@@ -45,12 +45,14 @@ export const StyledTextAreaInputWrapper = styled(StyledBaseInput.StyledFieldInpu
 	return css`
 		height: auto;
 
-		${textArea?.focus?.customBorder &&
-		css`
-			&${StyledFieldInput}[data-isfocused="true"] {
-				${createBoxShadow(textArea.focus.customBorder)}
-			}
-		`}
+		${
+			textArea?.focus?.customBorder &&
+			css`
+				&${StyledFieldInput}[data-isfocused="true"] {
+					${createBoxShadow(textArea.focus.customBorder)}
+				}
+			`
+		}
 	`;
 });
 

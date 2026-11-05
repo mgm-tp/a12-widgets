@@ -30,22 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useContext } from "react";
 import { styled, css } from "styled-components";
 
-import { Icon } from "../../../icon/main/icon.view.js";
-import { breakWord } from "../../../theme/base/mixins/_break-word.js";
-import { darkFocus } from "../../../theme/base/mixins/_interaction.js";
-import { StyledPopup } from "../../../pop-up-menu/main/popup-menu.styled.js";
 import { StyledButton } from "../../../button/main/button.styled.js";
-import { StyledMessageBoxMainContainer } from "../../../message-box/main/message-box.styled.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
+import { Icon } from "../../../icon/main/icon.view.js";
 import { StyledMasterDetailLayoutView } from "../../../layout/master-detail/main/master-detail.styled.js";
 import type { SupportingPanesLayoutProps } from "../../../layout/supporting-panes-layout/index.js";
 import { SupportingPanesLayoutComponents } from "../../../layout/supporting-panes-layout/index.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
+import { StyledMessageBoxMainContainer } from "../../../message-box/main/message-box.styled.js";
+import { StyledPopup } from "../../../pop-up-menu/main/popup-menu.styled.js";
+import { breakWord } from "../../../theme/base/mixins/_break-word.js";
+import { darkFocus } from "../../../theme/base/mixins/_interaction.js";
 
 import type { ContentBoxSidePanelMode } from "./contentbox.tpl.api.js";
-import { StyledContentBoxContext } from "./contentbox.context.js";
 
 import PrimaryPane = SupportingPanesLayoutComponents.PrimaryPane;
 import SecondaryPane = SupportingPanesLayoutComponents.SecondaryPane;
@@ -53,13 +51,13 @@ import SupportingPanesLayout = SupportingPanesLayoutComponents.SupportingPanesLa
 
 export const StyledContentBoxHeading = styled.div.withConfig({ displayName: "StyledContentBoxHeading-sc-" })<{
 	variantColor?: string;
-}>(({ theme, variantColor }) => {
+	$embedded?: boolean;
+}>(({ theme, variantColor, $embedded: embedded }) => {
 	const {
 		contentBox: { heading, contentBoxHeaderMinHeight }
 	} = theme.components;
 	const { fontSize } = theme.typography;
 	const { lineHeight } = theme.baseInputStyles;
-	const { embedded } = useContext(StyledContentBoxContext);
 
 	return css`
 		align-items: center;
@@ -76,25 +74,29 @@ export const StyledContentBoxHeading = styled.div.withConfig({ displayName: "Sty
 		border-radius: ${heading.borderRadius};
 		gap: ${heading.gap};
 
-		${variantColor &&
-		css`
-			&&& {
-				border-bottom-color: ${variantColor};
-			}
-		`}
+		${
+			variantColor &&
+			css`
+				&&& {
+					border-bottom-color: ${variantColor};
+				}
+			`
+		}
 
-		${embedded
-			? css`
-					background-color: inherit;
-					border: none;
-					min-height: 0;
-					padding: ${theme.components.contentBox.embedded.heading.padding};
-				`
-			: css`
-					${StyledMasterDetailLayoutView} && {
-						padding: ${theme.components.masterDetailLayout.contentBoxHeaderPadding};
-					}
-				`}
+		${
+			embedded
+				? css`
+						background-color: inherit;
+						border: none;
+						min-height: 0;
+						padding: ${theme.components.contentBox.embedded.heading.padding};
+					`
+				: css`
+						${StyledMasterDetailLayoutView} && {
+							padding: ${theme.components.masterDetailLayout.contentBoxHeaderPadding};
+						}
+					`
+		}
 	`;
 });
 
@@ -110,24 +112,25 @@ export const StyledHeadingIcon = styled(Icon).withConfig({ displayName: "StyledH
 		`}
 `;
 
-export const StyledContentBoxFooter = styled.div.withConfig({ displayName: "StyledContentBoxFooter-sc-" })(
-	({ theme }) => {
-		const { footer } = theme.components.contentBox;
-		const { embedded } = useContext(StyledContentBoxContext);
+export const StyledContentBoxFooter = styled.div.withConfig({ displayName: "StyledContentBoxFooter-sc-" })<{
+	$embedded?: boolean;
+}>(({ theme, $embedded: embedded }) => {
+	const { footer } = theme.components.contentBox;
 
-		return css`
-			align-items: center;
-			box-sizing: border-box;
-			background-color: ${footer.background};
-			border-bottom: ${footer.borderBottom};
-			border-radius: ${footer.borderRadius};
-			border-top: ${footer.borderTop};
-			display: flex;
-			flex-shrink: 0;
-			gap: ${footer.gap};
-			min-height: ${footer.minHeight};
-			padding: ${footer.padding};
-			${embedded &&
+	return css`
+		align-items: center;
+		box-sizing: border-box;
+		background-color: ${footer.background};
+		border-bottom: ${footer.borderBottom};
+		border-radius: ${footer.borderRadius};
+		border-top: ${footer.borderTop};
+		display: flex;
+		flex-shrink: 0;
+		gap: ${footer.gap};
+		min-height: ${footer.minHeight};
+		padding: ${footer.padding};
+		${
+			embedded &&
 			css`
 				background-color: inherit;
 				border: none;
@@ -135,10 +138,10 @@ export const StyledContentBoxFooter = styled.div.withConfig({ displayName: "Styl
 				flex-shrink: 0;
 				min-height: ${theme.components.contentBox.embedded.footer.minHeight};
 				padding: 0;
-			`}
-		`;
-	}
-);
+			`
+		}
+	`;
+});
 
 export const StyledContentBoxHeader = styled.div.withConfig({ displayName: "StyledContentBoxHeader-sc-" })<{
 	$noGrow?: boolean;
@@ -161,58 +164,62 @@ export const StyledContentBoxDetailPanelHeader = styled(StyledContentBoxHeader).
 	displayName: "StyledContentBoxDetailPanelHeader-sc-"
 })``;
 
-export const StyledContentBoxTitleWrapper = styled.div.withConfig({ displayName: "StyledContentBoxTitleWrapper-sc-" })(
-	({ theme }) => {
-		const { title } = theme.components.contentBox;
-		const { embedded } = useContext(StyledContentBoxContext);
+export const StyledContentBoxTitleWrapper = styled.div.withConfig({
+	displayName: "StyledContentBoxTitleWrapper-sc-"
+})<{
+	$embedded?: boolean;
+}>(({ theme, $embedded: embedded }) => {
+	const { title } = theme.components.contentBox;
 
-		return css`
-			align-items: center;
-			cursor: default;
-			display: flex;
-			flex: 1;
-			padding: 0;
-			font-family: ${title.fontFamily};
-			color: ${title.color};
-			font-size: ${title.fontSize};
-			font-weight: ${title.fontWeight};
-			line-height: ${title.lineHeight};
-			text-transform: none;
-			${breakWord}
-			${embedded &&
+	return css`
+		align-items: center;
+		cursor: default;
+		display: flex;
+		flex: 1;
+		padding: 0;
+		font-family: ${title.fontFamily};
+		color: ${title.color};
+		font-size: ${title.fontSize};
+		font-weight: ${title.fontWeight};
+		line-height: ${title.lineHeight};
+		text-transform: none;
+		${breakWord}
+		${
+			embedded &&
 			css`
 				color: ${theme.components.contentBox.embedded.title.color};
 				font-size: ${theme.components.contentBox.embedded.title.fontSize};
 				font-weight: ${theme.components.contentBox.embedded.title.fontWeight};
-			`}
-		`;
-	}
-);
+			`
+		}
+	`;
+});
 
-export const StyledContentBoxSubtitle = styled.div.withConfig({ displayName: "StyledContentBoxSubtitle-sc-" })(
-	({ theme }) => {
-		const { title, subTitle } = theme.components.contentBox;
-		const { embedded } = useContext(StyledContentBoxContext);
+export const StyledContentBoxSubtitle = styled.div.withConfig({ displayName: "StyledContentBoxSubtitle-sc-" })<{
+	$embedded?: boolean;
+}>(({ theme, $embedded: embedded }) => {
+	const { title, subTitle } = theme.components.contentBox;
 
-		return css`
-			color: ${title.color};
-			cursor: default;
-			font-size: ${subTitle.fontSize};
-			${breakWord}
-			${embedded &&
+	return css`
+		color: ${title.color};
+		cursor: default;
+		font-size: ${subTitle.fontSize};
+		${breakWord}
+		${
+			embedded &&
 			css`
 				color: ${theme.components.contentBox.embedded.title.color};
-			`}
-		`;
-	}
-);
+			`
+		}
+	`;
+});
 
 export const StyledContentBox = styled.div.withConfig({ displayName: "StyledContentBox-sc-" })<{
 	$boxShadow?: "always" | "none" | "default";
-}>(({ theme, $boxShadow }) => {
+	$embedded?: boolean;
+}>(({ theme, $boxShadow, $embedded: embedded }) => {
 	const { components, applicationStyles } = theme;
 	const { contentBox } = components;
-	const { embedded } = useContext(StyledContentBoxContext);
 
 	return css`
 		background-color: ${contentBox.contentBoxBG};
@@ -231,20 +238,24 @@ export const StyledContentBox = styled.div.withConfig({ displayName: "StyledCont
 		outline: 1px solid transparent;
 		padding: 0;
 
-		${$boxShadow === "always"
-			? css`
-					box-shadow: ${applicationStyles.boxShadow};
-				`
-			: css`
-					box-shadow: ${$boxShadow === "default" ? contentBox.contentBoxBoxShadow : "none"};
-				`}
+		${
+			$boxShadow === "always"
+				? css`
+						box-shadow: ${applicationStyles.boxShadow};
+					`
+				: css`
+						box-shadow: ${$boxShadow === "default" ? contentBox.contentBoxBoxShadow : "none"};
+					`
+		}
 
-		${embedded &&
-		css`
-			box-shadow: none;
-			background-color: transparent;
-			padding: ${contentBox.embedded.padding};
-		`}
+		${
+			embedded &&
+			css`
+				box-shadow: none;
+				background-color: transparent;
+				padding: ${contentBox.embedded.padding};
+			`
+		}
 	`;
 });
 
@@ -256,10 +267,12 @@ export const StyledContentBoxContent = styled.div.withConfig({ displayName: "Sty
 
 	return css`
 		box-sizing: border-box;
-		${$nonFooter &&
-		css`
-			border-radius: ${contentBox.content.borderRadius};
-		`}
+		${
+			$nonFooter &&
+			css`
+				border-radius: ${contentBox.content.borderRadius};
+			`
+		}
 		color: ${contentBox.content.color};
 		font-size: ${contentBox.content.fontSize};
 		flex: 1 1 100%;
@@ -274,15 +287,17 @@ export const StyledContentBoxContent = styled.div.withConfig({ displayName: "Sty
 		}
 
 		&& {
-			${padding === true &&
-			css`
-				[data-role="${DataRoles.Modal.OverlayContent}"] & {
-					padding: ${modalOverlay.contentBoxContentPadding};
-				}
-				[data-role="${DataRoles.Modal.OverlayContent}"] [data-role="${DataRoles.FilterSelector.Content.Secondary}"] & {
-					padding: ${filterSelector.content.secondary.contentBoxContent.padding};
-				}
-			`}
+			${
+				padding === true &&
+				css`
+					[data-role="${DataRoles.Modal.OverlayContent}"] & {
+						padding: ${modalOverlay.contentBoxContentPadding};
+					}
+					[data-role="${DataRoles.Modal.OverlayContent}"] [data-role="${DataRoles.FilterSelector.Content.Secondary}"] & {
+						padding: ${filterSelector.content.secondary.contentBoxContent.padding};
+					}
+				`
+			}
 		}
 	`;
 });
@@ -334,21 +349,25 @@ export const StyledContentBoxSidePanel = styled(SecondaryPane)<
 		border-radius: 0;
 		margin-left: 0;
 
-		${position === "right"
-			? css`
-					border-left: ${sidePanels.border};
-					${isOverlay &&
-					css`
-						box-shadow: ${sidePanels.overlay?.boxShadow};
-						position: absolute;
-						top: 0;
-						right: 0;
-						height: 100%;
-					`}
-				`
-			: css`
-					border-right: ${sidePanels.border};
-				`}
+		${
+			position === "right"
+				? css`
+						border-left: ${sidePanels.border};
+						${
+							isOverlay &&
+							css`
+								box-shadow: ${sidePanels.overlay?.boxShadow};
+								position: absolute;
+								top: 0;
+								right: 0;
+								height: 100%;
+							`
+						}
+					`
+				: css`
+						border-right: ${sidePanels.border};
+					`
+		}
 	`;
 });
 
@@ -364,10 +383,12 @@ export const StyledContentBoxWizardBar = styled.div.withConfig({ displayName: "S
 		max-height: 200px;
 		transition: max-height 0.6s ease-in-out;
 		border-bottom: ${contentBox.wizardBar.borderBottom};
-		${collapsed &&
-		css`
-			max-height: 0;
-			transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
-		`}
+		${
+			collapsed &&
+			css`
+				max-height: 0;
+				transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+			`
+		}
 	`;
 });

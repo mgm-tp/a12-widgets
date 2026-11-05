@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
 // start code removal
 import { loremIpsum } from "lorem-ipsum";
+import type { ReactElement } from "react";
 import { styled } from "styled-components";
 
 // end code removal

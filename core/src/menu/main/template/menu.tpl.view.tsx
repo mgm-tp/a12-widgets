@@ -30,8 +30,6 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Key } from "ts-key-enum";
-import { Fragment } from "react/jsx-runtime";
 import type {
 	ContextType,
 	HTMLAttributes,
@@ -46,9 +44,19 @@ import type {
 	MouseEvent as ReactMouseEvent
 } from "react";
 import { cloneElement, Component, createRef, useContext, useRef, isValidElement } from "react";
+import { Fragment } from "react/jsx-runtime";
+import { Key } from "ts-key-enum";
 
-import { Tooltip } from "../../../tooltip/main/tooltip.view.js";
-import { Icon } from "../../../icon/main/icon.view.js";
+import { AttachedPortal } from "../../../attached-portal/main/attached-portal.view.js";
+import { getBadgeTitle } from "../../../badge/main/badge-utils.js";
+import type { BadgeProps } from "../../../badge/main/badge.api.js";
+import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
+import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
+import type { Orientation } from "../../../common/main/alignment.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
+import { provider } from "../../../common/main/device-detector.js";
+import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { TabSandbox } from "../../../common/main/tab-sandbox.view.js";
 import {
 	addPrefix,
 	bindMethods,
@@ -57,19 +65,10 @@ import {
 	joinClassNames,
 	StringUtils
 } from "../../../common/main/utils.js";
-import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
-import type { Orientation } from "../../../common/main/alignment.js";
-import { TabSandbox } from "../../../common/main/tab-sandbox.view.js";
-import { provider } from "../../../common/main/device-detector.js";
-import { AttachedPortal } from "../../../attached-portal/main/attached-portal.view.js";
-import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
-import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
-import { getBadgeTitle } from "../../../badge/main/badge-utils.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-import type { BadgeProps } from "../../../badge/main/badge.api.js";
+import { Icon } from "../../../icon/main/icon.view.js";
 import { useInteractionHint } from "../../../interaction-hint/main/use-interaction-hint.js";
 import type { KeyboardNavigationMode } from "../../../keyboard-navigation/main/keyboard-navigation.api.js";
-
+import { Tooltip } from "../../../tooltip/main/tooltip.view.js";
 import type { MenuItem, MenuItemVariant } from "../menu.api.js";
 import { MenuUtils } from "../menu.internal.js";
 
@@ -630,7 +629,7 @@ export namespace MainMenu {
 				case "done":
 					return <Icon iconTheme="filled">check_circle</Icon>;
 				case "inProgress":
-					return <Icon iconTheme="filled">pending</Icon>;
+					return <Icon iconTheme="filled">contrast</Icon>;
 				default:
 					return;
 			}

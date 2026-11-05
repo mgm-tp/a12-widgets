@@ -32,8 +32,8 @@
 
 import merge from "deepmerge";
 
-import type { BaseThemeSpacingType } from "../schema/spacing.api.js";
-import { DefaultComponentsConfigs } from "../default/config/components/components.js";
+import { CompactSpacing } from "../compact/config/base/spacing.config.js";
+import { CompactComponentsConfigs } from "../compact/config/components/components.js";
 import { ApplicationStyles } from "../default/config/application/application_styles.config.js";
 import { DivisionLineStyles } from "../default/config/application/division-line.config.js";
 import {
@@ -41,20 +41,20 @@ import {
 	SpacingConfig,
 	VerticalSpacingConfig
 } from "../default/config/application/spacing.config.js";
+import { DefaultComponentsConfigs } from "../default/config/components/components.js";
 import { getDefaultTheme } from "../default/default-theme.js";
+import { ApplicationFlatStyles } from "../flat/config/application/application_styles.config.js";
+import { FlatDivisionLineStyles } from "../flat/config/application/division-line.config.js";
+import { FocusFlatStyles } from "../flat/config/application/focus.config.js";
+import { HoverFlatStyles } from "../flat/config/application/hover.config.js";
 import type { FlatColorsConfigType } from "../flat/config/base/colors.config.js";
 import { FlatColorsConfig } from "../flat/config/base/colors.config.js";
-import { CompactSpacing } from "../compact/config/base/spacing.config.js";
-import { HoverFlatStyles } from "../flat/config/application/hover.config.js";
-import { FocusFlatStyles } from "../flat/config/application/focus.config.js";
-import { FlatDivisionLineStyles } from "../flat/config/application/division-line.config.js";
-import { ApplicationFlatStyles } from "../flat/config/application/application_styles.config.js";
-import { CompactComponentsConfigs } from "../compact/config/components/components.js";
 import { FlatComponentsConfigs } from "../flat/config/components/components.js";
 import type { DivisionLineStyle } from "../schema/application-styles.api.js";
+import type { BaseThemeSpacingType } from "../schema/spacing.api.js";
 
-import { FlatCompactComponentsConfigs } from "./config/components/components.js";
 import { FlatCompactColorsConfig } from "./config/base/colors.config.js";
+import { FlatCompactComponentsConfigs } from "./config/components/components.js";
 
 /** @deprecated since v39.0.0. Use {@link getBaseTheme} from `@com.mgmtp.a12.widgets/widgets-core` — default base spacing is already compact (12px). */
 export const getFlatCompactTheme = () => {

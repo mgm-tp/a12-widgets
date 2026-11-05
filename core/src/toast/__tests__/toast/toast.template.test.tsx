@@ -33,10 +33,10 @@
 import { render, getByDataRole, fireEvent } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import { Icon } from "../../../icon/main/icon.view.js";
-import { ToastTemplate } from "../../main/toast/template/toast.template.view.js";
-import type { Variant } from "../../main/common/toast.common.api.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { Icon } from "../../../icon/main/icon.view.js";
+import type { Variant } from "../../main/common/toast.common.api.js";
+import { ToastTemplate } from "../../main/toast/template/toast.template.view.js";
 
 describe("com.mgmtp.a12.widgets.toast.template", () => {
 	test("render basic toast template", () => {

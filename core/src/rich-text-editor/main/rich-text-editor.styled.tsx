@@ -30,18 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { styled, css } from "styled-components";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
+import { styled, css } from "styled-components";
 
-import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
-import { List } from "../../list/main/list.view.js";
-import { StyledListItemContent, StyledListItemMeta, StyledListItemText } from "../../list/main/list.styled.js";
 import { Button } from "../../button/main/button.view.js";
-import { active, activeAndHover, darkFocus, hover, inputDarkFocus } from "../../theme/base/mixins/_interaction.js";
 import { StyledIconWrapper } from "../../icon/main/icon.view.js";
+import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
+import { StyledListItemContent, StyledListItemMeta, StyledListItemText } from "../../list/main/list.styled.js";
+import { List } from "../../list/main/list.view.js";
 import { PopUpMenu } from "../../pop-up-menu/main/pop-up-menu.view.js";
-import { basePortalArrow } from "../../theme/base/mixins/_portal-arrow.js";
 import { breakWord } from "../../theme/base/mixins/_break-word.js";
+import { active, activeAndHover, darkFocus, hover, inputDarkFocus } from "../../theme/base/mixins/_interaction.js";
+import { basePortalArrow } from "../../theme/base/mixins/_portal-arrow.js";
 
 export const StyledEditorMain = styled(StyledBaseInput.StyledFieldMain).withConfig({
 	displayName: "StyledEditorMain-sc-"
@@ -68,11 +68,13 @@ export const StyledEditorInput = styled(ContentEditable).withConfig({ displayNam
 	const { baseInput } = theme.components;
 
 	return css`
-		${$hasFocus &&
-		css`
-			outline-offset: ${baseInput.input.outlineOffset};
-			${inputDarkFocus}
-		`}
+		${
+			$hasFocus &&
+			css`
+				outline-offset: ${baseInput.input.outlineOffset};
+				${inputDarkFocus}
+			`
+		}
 	`;
 });
 
@@ -140,45 +142,59 @@ export const StyledEditorInputWrapper = styled(StyledBaseInput.StyledFieldInput)
 					margin: 0;
 				}
 
-				${$focused &&
-				css`
-					box-shadow: ${variant ? baseInput.input[variant].focusBoxShadow : baseInput.input.focusBoxShadow};
-					outline-offset: ${baseInput.input.outlineOffset};
-					${darkFocus}
-				`}
-				${$disabled &&
-				css`
-					background: ${baseInput.input.disabled.background};
-					box-shadow: ${baseInput.input.disabled.boxShadow};
-					color: ${baseInput.input.disabled.color};
-				`}
-				${$readonly &&
-				css`
-					background: ${baseInput.input.readonly.background};
-					box-shadow: none;
-				`}
-				${($disabled || $readonly) &&
-				css`
-					:focus-visible {
-						outline: none;
-					}
-				`}
-				${($autoExpand || $withInitialHeight || $singleLine) &&
-				css`
-					height: auto;
-				`}
-				${($autoExpand || $withInitialHeight) &&
-				css`
-					min-height: inherit;
-					max-height: inherit;
-				`}
-				${$singleLine &&
-				css`
-					margin: ${editor.singleLine.contentMargin};
-					min-height: ${applicationStyles.input.height};
-					overflow-x: auto;
-					padding: ${textArea.padding};
-				`}
+				${
+					$focused &&
+					css`
+						box-shadow: ${variant ? baseInput.input[variant].focusBoxShadow : baseInput.input.focusBoxShadow};
+						outline-offset: ${baseInput.input.outlineOffset};
+						${darkFocus}
+					`
+				}
+				${
+					$disabled &&
+					css`
+						background: ${baseInput.input.disabled.background};
+						box-shadow: ${baseInput.input.disabled.boxShadow};
+						color: ${baseInput.input.disabled.color};
+					`
+				}
+				${
+					$readonly &&
+					css`
+						background: ${baseInput.input.readonly.background};
+						box-shadow: none;
+					`
+				}
+				${
+					($disabled || $readonly) &&
+					css`
+						:focus-visible {
+							outline: none;
+						}
+					`
+				}
+				${
+					($autoExpand || $withInitialHeight || $singleLine) &&
+					css`
+						height: auto;
+					`
+				}
+				${
+					($autoExpand || $withInitialHeight) &&
+					css`
+						min-height: inherit;
+						max-height: inherit;
+					`
+				}
+				${
+					$singleLine &&
+					css`
+						margin: ${editor.singleLine.contentMargin};
+						min-height: ${applicationStyles.input.height};
+						overflow-x: auto;
+						padding: ${textArea.padding};
+					`
+				}
 			}
 		`;
 	}
@@ -293,13 +309,13 @@ export const StyledEditorButtonGroupTrigger = styled(Button).withConfig({
 				border: ${toolbar.item.icon.active.border};
 			}
 		`)}
-     	 ${hover(css`
+		${hover(css`
 			&:before {
 				background-color: ${toolbar.item.icon.hover.background};
 				border: ${toolbar.item.icon.hover.border};
 			}
 		`)}
-      	&:focus {
+		&:focus {
 			&:not(:disabled) {
 				border: none;
 			}
@@ -312,43 +328,45 @@ export const StyledEditorButtonGroupTrigger = styled(Button).withConfig({
 			}
 		}
 
-		${$active &&
-		css`
-			color: ${toolbar.item.icon.active.color};
-
-			&:before {
-				background-color: ${toolbar.item.icon.active.background};
-				transition: transform 0.1s cubic-bezier(0.71, 0.26, 1, 1);
-			}
-
-			${active(css`
-				&:not(:disabled) {
-					color: ${toolbar.item.icon.active.color};
-				}
+		${
+			$active &&
+			css`
+				color: ${toolbar.item.icon.active.color};
 
 				&:before {
-					background-color: ${toolbar.item.icon.active.activeBG};
-				}
-			`)}
-			${hover(css`
-				&:not(:disabled) {
-					color: ${toolbar.item.icon.active.color};
+					background-color: ${toolbar.item.icon.active.background};
+					transition: transform 0.1s cubic-bezier(0.71, 0.26, 1, 1);
 				}
 
-				&:before {
-					background-color: ${toolbar.item.icon.active.hoverBG};
-				}
-			`)}
-        	&:focus {
-				&:not(:disabled) {
-					color: ${toolbar.item.icon.active.color};
-				}
+				${active(css`
+					&:not(:disabled) {
+						color: ${toolbar.item.icon.active.color};
+					}
 
-				&:before {
-					background-color: ${toolbar.item.icon.active.focusBG};
+					&:before {
+						background-color: ${toolbar.item.icon.active.activeBG};
+					}
+				`)}
+				${hover(css`
+					&:not(:disabled) {
+						color: ${toolbar.item.icon.active.color};
+					}
+
+					&:before {
+						background-color: ${toolbar.item.icon.active.hoverBG};
+					}
+				`)}
+				&:focus {
+					&:not(:disabled) {
+						color: ${toolbar.item.icon.active.color};
+					}
+
+					&:before {
+						background-color: ${toolbar.item.icon.active.focusBG};
+					}
 				}
-			}
-		`}
+			`
+		}
 	`;
 });
 
@@ -408,62 +426,66 @@ export const StyledEditorButton = styled(List.Item).withConfig({ displayName: "S
 					position: relative;
 				}
 
-				${!disabled &&
-				css`
-					${active(css`
-						color: ${toolbar.item.icon.active.selector.color};
-
-						&:before {
-							background-color: ${toolbar.item.icon.active.selector.background};
-							transform: scale(0.95);
-						}
-					`)}
-					${hover(css`
-						color: ${toolbar.item.icon.hover.color};
-
-						&:before {
-							background-color: ${toolbar.item.icon.hover.background};
-							transform: scale(0.95);
-						}
-					`)}
-            		&:focus {
-						color: ${!isActive && toolbar.item.icon.focus.color};
-
-						&:before {
-							background-color: ${toolbar.item.icon.focus.background};
-							${darkFocus};
-							transform: none;
-						}
-					}
-
-					${isActive &&
+				${
+					!disabled &&
 					css`
-						color: ${toolbar.item.icon.active.color};
-
-						&:before {
-							background-color: ${toolbar.item.icon.active.background};
-							transition: transform 0.1s cubic-bezier(0.71, 0.26, 1, 1);
-						}
-
 						${active(css`
-							color: ${toolbar.item.icon.active.color};
+							color: ${toolbar.item.icon.active.selector.color};
 
 							&:before {
-								background-color: ${toolbar.item.icon.active.activeBG};
+								background-color: ${toolbar.item.icon.active.selector.background};
+								transform: scale(0.95);
 							}
 						`)}
 						${hover(css`
-							color: ${toolbar.item.icon.active.color};
+							color: ${toolbar.item.icon.hover.color};
 
 							&:before {
-								background-color: ${toolbar.item.icon.active.hoverBG};
+								background-color: ${toolbar.item.icon.hover.background};
+								transform: scale(0.95);
 							}
 						`)}
-              			&:focus:before {
-							background-color: ${toolbar.item.icon.active.focusBG};
+						&:focus {
+							color: ${!isActive && toolbar.item.icon.focus.color};
+
+							&:before {
+								background-color: ${toolbar.item.icon.focus.background};
+								${darkFocus};
+								transform: none;
+							}
 						}
-					`}
-				`}
+
+						${
+							isActive &&
+							css`
+								color: ${toolbar.item.icon.active.color};
+
+								&:before {
+									background-color: ${toolbar.item.icon.active.background};
+									transition: transform 0.1s cubic-bezier(0.71, 0.26, 1, 1);
+								}
+
+								${active(css`
+									color: ${toolbar.item.icon.active.color};
+
+									&:before {
+										background-color: ${toolbar.item.icon.active.activeBG};
+									}
+								`)}
+								${hover(css`
+									color: ${toolbar.item.icon.active.color};
+
+									&:before {
+										background-color: ${toolbar.item.icon.active.hoverBG};
+									}
+								`)}
+								&:focus:before {
+									background-color: ${toolbar.item.icon.active.focusBG};
+								}
+							`
+						}
+					`
+				}
 			}
 		}
 

@@ -32,13 +32,24 @@
 
 import type { ReactNode } from "react";
 
-import type { Identifiable, Styleable } from "../../../common/main/base-props.js";
+import type { DataRole, Identifiable, Styleable } from "../../../common/main/base-props.js";
 
-import type { TableTemplateProps } from "./table-template.api.js";
-import type { BaseColumnType } from "./column.api.js";
-import type { BaseTableProps } from "./table.api.js";
+export interface BaseRowsGroup extends Styleable, Identifiable, DataRole {
+	/**
+	 * aria-label attribute.
+	 */
+	ariaLabel?: string;
 
-export interface BaseRowsGroup extends Styleable, Identifiable, TableTemplateProps.TableDataAttribute {
+	/**
+	 * aria-hidden attribute.
+	 */
+	ariaHidden?: boolean;
+
+	/**
+	 * aria-labelledby attribute.
+	 */
+	ariaLabelledby?: string;
+
 	/**
 	 * Aria-role of element.
 	 *
@@ -51,16 +62,6 @@ export interface BaseRowsGroup extends Styleable, Identifiable, TableTemplatePro
 	 * - RowGroupHeader: "row"
 	 */
 	role?: boolean | string;
-}
-
-export interface TableRowsGroupProps<
-	RowType = unknown,
-	ColumnType extends BaseColumnType<TableRowsGroupRowType<RowType>> = BaseColumnType<TableRowsGroupRowType<RowType>>
-> extends Omit<BaseTableProps<TableRowsGroupRowType<RowType>, ColumnType>, "data"> {
-	/**
-	 * This data will be transferred to {@link IdenticalRowsGroup} that would be used for all handlers and component renderers.
-	 */
-	data?: RowsGroup<RowType>[];
 }
 
 export interface RowsGroup<RowType = unknown> extends BaseRowsGroup {
@@ -80,39 +81,6 @@ export interface RowsGroup<RowType = unknown> extends BaseRowsGroup {
 	collapsed?: boolean;
 }
 
-/**
- * Rows Group Head after being flattened would be a normal row.
- */
-export interface FlatGroupHead {
-	head: RowsGroupHead;
-}
-
 export interface RowsGroupHead extends BaseRowsGroup {
 	title: ReactNode;
 }
-
-/**
- * Like {@link RowsGroup} but with identical group that {@link subRows} belongs to.
- */
-export interface IdenticalRowsGroup<RowType = unknown> extends BaseRowsGroup {
-	head?: RowsGroupHead;
-
-	subRows: IdenticalRow<RowType>[];
-
-	collapsed?: boolean;
-}
-
-export interface IdenticalRow<RowType = unknown> {
-	parent?: RowsGroupHead;
-	data: RowType;
-}
-
-/**
- * A row could be something that is defined by users, a rows group, or just a group head.
- */
-export type TableRowsGroupRowType<RowType = unknown> =
-	| IdenticalRow<RowType>
-	| FlatGroupHead
-	| IdenticalRowsGroup<RowType>;
-
-export type BaseTableRowsGroupColumnType<RowType = unknown> = BaseColumnType<TableRowsGroupRowType<RowType>>;

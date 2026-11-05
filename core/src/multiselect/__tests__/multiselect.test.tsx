@@ -30,23 +30,22 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { getByText } from "@testing-library/dom";
+import type { PropsWithChildren, ReactElement, ReactNode } from "react";
+import { createContext, useContext, useState, useMemo } from "react";
 import { fireEvent, getAllByDataRole, getByDataRole, queryByDataRole, render, setupDevice, waitFor } from "test-utils";
 import { Key } from "ts-key-enum";
 import { describe, test, expect, vi, afterEach, beforeAll } from "vitest";
-import { getByText } from "@testing-library/dom";
 import { userEvent } from "vitest/browser";
-import type { PropsWithChildren, ReactElement, ReactNode } from "react";
-import { createContext, useContext, useState, useMemo } from "react";
 
-import { noop, Key as CustomKey } from "../../common/main/utils.js";
-import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { noop, Key as CustomKey } from "../../common/main/utils.js";
 import { navigateWithTab } from "../../common/test/user-event-utils.js";
 import { Icon } from "../../icon/index.js";
-
-import { Multiselect } from "../main/multiselect.view.js";
+import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
 import type { MultiselectProps } from "../main/multiselect.api.js";
 import * as multiselectInternal from "../main/multiselect.internal.js";
+import { Multiselect } from "../main/multiselect.view.js";
 
 vi.mock("../main/multiselect.internal.js", { spy: true });
 

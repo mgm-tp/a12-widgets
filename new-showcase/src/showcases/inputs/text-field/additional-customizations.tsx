@@ -71,6 +71,7 @@ export function AdditionalCustomizations(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<Checkbox
+					id="text-field-additional-customizations-text-aligned-right"
 					checked={isTextAligned}
 					onChange={setIsTextAligned}
 					label="Text aligned right"

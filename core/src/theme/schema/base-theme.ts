@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { BaseThemeColorsType } from "./base-colors.api.js";
 import type { ApplicationStyle, DivisionLineStyle } from "./application-styles.api.js";
-import type { FocusStyle } from "./focus.api.js";
+import type { BaseThemeColorsType } from "./base-colors.api.js";
 import type { InputStyle } from "./base-input-styles.api.js";
+import type { FocusStyle } from "./focus.api.js";
 import type { BaseThemeSpacingType } from "./spacing.api.js";
 import type { BaseThemeTypographyType } from "./typography.api.js";
 

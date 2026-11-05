@@ -35,7 +35,7 @@ import { useState } from "react";
 import { fn } from "storybook/test";
 
 import type { IconPickerProps } from "@com.mgmtp.a12.widgets/widgets-core";
-import { IconPicker } from "@com.mgmtp.a12.widgets/widgets-core";
+import { HintTooltip, IconPicker } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const meta: Meta<typeof IconPicker> = {
 	title: "Data Entry/IconPicker",
@@ -43,7 +43,6 @@ const meta: Meta<typeof IconPicker> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		placeholder: {
 			control: "text",
@@ -68,6 +67,18 @@ const meta: Meta<typeof IconPicker> = {
 		readonly: {
 			control: "boolean",
 			description: "Whether the icon picker is read-only"
+		},
+		messagePosition: {
+			control: "select",
+			options: ["above", "below"],
+			description:
+				'Where the error, warning and info message boxes render: `"above"` (default) between the label and the control, `"below"` directly under the control'
+		},
+		breakTooltipsToNewLine: {
+			control: "select",
+			options: [false, true, "above", "below"],
+			description:
+				'Where tooltips render: `true` / `"above"` (default for this widget) on a new line above the control, `false` inline beside the control, `"below"` on a new line below'
 		}
 	},
 	args: {
@@ -79,9 +90,9 @@ const meta: Meta<typeof IconPicker> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
-		id: "default-icon-picker",
+		id: "playground-icon-picker",
 		label: "Icon Picker",
 		placeholder: "Type an icon or select one",
 		hintTemplate: "{count} of {total} icons shown"
@@ -95,6 +106,14 @@ export const WithPreselectedIcon: Story = {
 		placeholder: "Type an icon or select one",
 		hintTemplate: "{count} of {total} icons shown",
 		selectedIcon: { value: "home", label: "home" }
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`selectedIcon` sets the initially selected icon — an object with `value` and `label` (and optionally an icon `theme`)."
+			}
+		}
 	}
 };
 
@@ -105,28 +124,47 @@ export const SaveSpaceMode: Story = {
 		placeholder: "Select an icon",
 		hintTemplate: "{count} of {total} icons shown",
 		saveSpaceMode: true
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`saveSpaceMode` renders the icon items without labels. Without the prop, the picker switches to this mode automatically when its width is below 208px."
+			}
+		}
 	}
 };
 
-export const Disabled: Story = {
+export const DisabledAndReadonly: Story = {
+	render: (args) => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+			<IconPicker
+				{...args}
+				id="disabled-icon-picker"
+				label="Disabled Icon Picker"
+				selectedIcon={{ value: "star", label: "star" }}
+				disabled
+			/>
+			<IconPicker
+				{...args}
+				id="readonly-icon-picker"
+				label="Readonly Icon Picker"
+				selectedIcon={{ value: "favorite", label: "favorite" }}
+				readonly
+			/>
+		</div>
+	),
 	args: {
-		id: "disabled-icon-picker",
-		label: "Disabled Icon Picker",
 		placeholder: "Type an icon or select one",
-		hintTemplate: "{count} of {total} icons shown",
-		selectedIcon: { value: "star", label: "star" },
-		disabled: true
-	}
-};
-
-export const Readonly: Story = {
-	args: {
-		id: "readonly-icon-picker",
-		label: "Readonly Icon Picker",
-		placeholder: "Type an icon or select one",
-		hintTemplate: "{count} of {total} icons shown",
-		selectedIcon: { value: "favorite", label: "favorite" },
-		readonly: true
+		hintTemplate: "{count} of {total} icons shown"
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`disabled` blocks all interaction, while `readonly` keeps the current selection visible but not editable."
+			}
+		}
 	}
 };
 
@@ -137,31 +175,86 @@ export const WithHelperText: Story = {
 		placeholder: "Type an icon name to search",
 		hintTemplate: "{count} of {total} icons shown",
 		helperText: "Start typing to search for Material icons by name."
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`helperText` renders supporting text below the input, e.g. instructions on how to search."
+			}
+		}
+	}
+};
+
+export const MessagePosition: Story = {
+	args: {
+		id: "icon-picker-message-position",
+		label: "Icon Picker",
+		placeholder: "Type an icon or select one",
+		hintTemplate: "{count} of {total} icons shown",
+		helperText: "Helper text explaining the field",
+		error: true,
+		errorMessage: "Please select an icon",
+		messagePosition: "below"
+	},
+	parameters: {
+		controls: { include: ["messagePosition"] },
+		docs: {
+			description: {
+				story:
+					'`messagePosition` places the message box relative to the control. This story starts at `"below"`, which renders it directly under the control — switch the control to `"above"` for the default placement between the label and the control.'
+			}
+		}
+	}
+};
+
+export const TooltipPosition: Story = {
+	args: {
+		id: "icon-picker-tooltip-position",
+		label: "Icon Picker",
+		placeholder: "Type an icon or select one",
+		hintTemplate: "{count} of {total} icons shown",
+		helperText: "Helper text explaining the field",
+		tooltips: <HintTooltip text="This is a hint" id="icon-picker-tooltip-position-hint" />,
+		ariaDescribedby: "icon-picker-tooltip-position-hint",
+		breakTooltipsToNewLine: "below"
+	},
+	parameters: {
+		controls: { include: ["breakTooltipsToNewLine"] },
+		docs: {
+			description: {
+				story:
+					'`breakTooltipsToNewLine` places the tooltips relative to the control. This story starts at `"below"`, which puts them on their own line under the control — switch the control to `false` to place them inline beside it, or to `"above"` / `true` for a line above, which is the default for this widget.'
+			}
+		}
 	}
 };
 
 export const Controlled: Story = {
-	render: () => {
-		const ControlledExample = () => {
-			const [selectedIcon, setSelectedIcon] = useState<IconPickerProps.Icon | undefined>();
+	render: function ControlledExample() {
+		const [selectedIcon, setSelectedIcon] = useState<IconPickerProps.Icon | undefined>();
 
-			return (
-				<div>
-					<IconPicker
-						id="controlled-icon-picker"
-						label="Controlled Icon Picker"
-						placeholder="Type an icon or select one"
-						hintTemplate="{count} of {total} icons shown"
-						selectedIcon={selectedIcon}
-						onChange={setSelectedIcon}
-					/>
-					<p style={{ marginTop: 12 }}>
-						Selected icon: <strong>{selectedIcon ? selectedIcon.label : "none"}</strong>
-					</p>
-				</div>
-			);
-		};
-
-		return <ControlledExample />;
+		return (
+			<div>
+				<IconPicker
+					id="controlled-icon-picker"
+					label="Controlled Icon Picker"
+					placeholder="Type an icon or select one"
+					hintTemplate="{count} of {total} icons shown"
+					selectedIcon={selectedIcon}
+					onChange={setSelectedIcon}
+				/>
+				<p style={{ marginTop: 12 }}>
+					Selected icon: <strong>{selectedIcon ? selectedIcon.label : "none"}</strong>
+				</p>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Pair `selectedIcon` with the `onChange` callback to control the selection from outside. `onChange` receives `undefined` when the clear button is clicked."
+			}
+		}
 	}
 };

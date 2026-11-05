@@ -94,13 +94,27 @@ export const createComplexColumns = (): BaseTreeTableColumnType<FileNode>[] => [
 	}
 ];
 
-export function createComplexTableData(long?: boolean, option?: { nodeName: string }): ReactNode[] {
+export function createComplexTableData(long?: boolean, option?: { nodeName: string; nodeKey?: string }): ReactNode[] {
 	const nodeName = option?.nodeName;
+	// The checkbox id has to be unique across the whole tree. The node name alone is not enough:
+	// "File 1" exists under both C: and E:, so callers in those branches pass their own nodeKey.
+	const nodeSlug = (option?.nodeKey ?? nodeName ?? "node")
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/^-|-$/g, "");
 
 	return Array.from(new Range(6)).map((colIndex) => {
 		switch (colIndex) {
 			case 0:
-				return <Checkbox label={`Select The ${nodeName ?? "Node"}`} hideLabel checked={false} onChange={noop} />;
+				return (
+					<Checkbox
+						id={`tree-table-select-${nodeSlug}`}
+						label={`Select The ${nodeName ?? "Node"}`}
+						hideLabel
+						checked={false}
+						onChange={noop}
+					/>
+				);
 			case 1:
 				return (
 					<CssEllipsis useTooltip maxLine={2}>
@@ -187,17 +201,18 @@ export const COMPLEX_TREE_TABLE_NODE_CREATOR: () => FileNode = () => ({
 						}
 					]
 				},
-				...Array.from(new Range(3)).map(
-					(index): FileNode => ({
-						id: generateUid(),
-						icon: Icons.FILE,
-						data: {
-							type: "file",
-							name: `File ${index + 1}`,
-							otherCells: createComplexTableData(index % 2 === 0, { nodeName: `File ${index + 1}` })
-						}
-					})
-				),
+				...Array.from(new Range(3)).map((index): FileNode => ({
+					id: generateUid(),
+					icon: Icons.FILE,
+					data: {
+						type: "file",
+						name: `File ${index + 1}`,
+						otherCells: createComplexTableData(index % 2 === 0, {
+							nodeName: `File ${index + 1}`,
+							nodeKey: `c-file-${index + 1}`
+						})
+					}
+				})),
 				{
 					id: generateUid(),
 					icon: Icons.FILE,
@@ -246,17 +261,18 @@ export const COMPLEX_TREE_TABLE_NODE_CREATOR: () => FileNode = () => ({
 						otherCells: createComplexTableData(false, { nodeName: "autostart.bat" })
 					}
 				},
-				...Array.from(new Range(100)).map(
-					(index): FileNode => ({
-						id: generateUid(),
-						icon: Icons.FILE,
-						data: {
-							type: "file",
-							name: `File ${index + 1}`,
-							otherCells: createComplexTableData(index > 5 && index < 20, { nodeName: `File ${index + 1}` })
-						}
-					})
-				)
+				...Array.from(new Range(100)).map((index): FileNode => ({
+					id: generateUid(),
+					icon: Icons.FILE,
+					data: {
+						type: "file",
+						name: `File ${index + 1}`,
+						otherCells: createComplexTableData(index > 5 && index < 20, {
+							nodeName: `File ${index + 1}`,
+							nodeKey: `e-file-${index + 1}`
+						})
+					}
+				}))
 			]
 		}
 	]

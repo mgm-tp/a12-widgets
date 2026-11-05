@@ -30,18 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { getByDataRole, queryByDataRole, render, fireEvent, waitFor } from "test-utils";
-import { describe, test, expect } from "vitest";
-import { userEvent } from "vitest/browser";
 import type { ReactNode } from "react";
 import { useCallback, useRef, useState } from "react";
+import { getByDataRole, queryByDataRole, render, fireEvent, waitFor } from "test-utils";
+import { describe, test, expect, vi } from "vitest";
+import { userEvent } from "vitest/browser";
 
-import { Icon } from "../../../icon/main/icon.view.js";
-import { Link } from "../../../link/main/link/link.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { noop } from "../../../common/main/utils.js";
 import type { DropDownItem } from "../../../dropdown/main/template/dropdown.tpl.api.js";
-
+import { Icon } from "../../../icon/main/icon.view.js";
+import { Link } from "../../../link/main/link/link.view.js";
 import { Autocomplete } from "../main/autocomplete.view.js";
 
 import { inputProps, cityItems } from "./data.js";
@@ -424,6 +423,42 @@ describe("Autocomplete desktop behavior", () => {
 			});
 		});
 
+		test("Arrow up after clearing the selection activates the last item, and Enter selects it", async () => {
+			const shortItems = ["London", "Paris", "Berlin"];
+			const onValueChange = vi.fn();
+
+			render(
+				<Autocomplete
+					items={shortItems}
+					hintTemplate="{count} matches"
+					value={shortItems[0]}
+					onValueChange={onValueChange}
+					links={[<Link>Assign to me</Link>, <Link>Remove assignment</Link>]}
+				/>
+			);
+
+			// Clearing leaves the list open with nothing selected. Arrowing up from there used to activate
+			// no option at all, and left Enter reaching for a link option that was never there.
+			const clearButton = queryByDataRole(document.body, DataRoles.Button) as HTMLElement;
+			clearButton.focus();
+			await userEvent.keyboard("{Enter}");
+
+			const input = queryByDataRole(document.body, DataRoles.TextField.Input) as HTMLInputElement;
+			input.focus();
+			await userEvent.keyboard("{ArrowUp}");
+
+			await waitFor(() => {
+				expect(
+					document.querySelector(`[data-preselect='true'][data-role='${DataRoles.Dropdown.Item}']`)
+				).toHaveTextContent("Berlin");
+			});
+
+			onValueChange.mockClear();
+			await userEvent.keyboard("{Enter}");
+
+			await waitFor(() => expect(onValueChange).toHaveBeenCalledWith("Berlin"));
+		});
+
 		test("Select only one item when multiple items have the same label but different ids", async () => {
 			const ITEMS: DropDownItem[] = [
 				{
@@ -525,7 +560,7 @@ describe("Autocomplete desktop behavior", () => {
 			});
 		});
 
-		test.skip("Should display all items when dropdown is reopened if data is already available", async () => {
+		test("Should display all items when dropdown is reopened if data is already available", async () => {
 			render(<ExampleAsynchronousAutoComplete itemsProps={cityItems} timeout={50} />);
 			const input = queryByDataRole(document.body, DataRoles.TextField.Input) as HTMLInputElement;
 			const inputValue = "Berlin";
@@ -533,61 +568,32 @@ describe("Autocomplete desktop behavior", () => {
 			await userEvent.clear(input);
 			await userEvent.type(input, inputValue);
 
-			await waitFor(() => {
-				const progress = queryByDataRole(document.body, DataRoles.ProgressIndicator.OuterOverlay);
-				expect(progress).toBeVisible();
-			});
-
+			// The loading overlay is only up for the 50ms search delay, so assert the settled result
+			// instead of polling for that transient state.
 			await waitFor(
 				() => {
-					const progress = queryByDataRole(document.body, DataRoles.ProgressIndicator.OuterOverlay);
-
-					// Progress indicator may be removed from DOM or hidden
-					if (progress) {
-						expect(progress).not.toBeVisible();
-					}
+					const dropdownItems = document.querySelectorAll(`[data-role="${DataRoles.Dropdown.Item}"]`);
+					const selectedItem = document.querySelector(`[aria-selected='true'][data-role='${DataRoles.Dropdown.Item}']`);
+					expect(selectedItem).toHaveTextContent(inputValue);
+					expect(dropdownItems).toHaveLength(1);
 				},
-				{ timeout: 5000 }
+				{ timeout: 3000 }
 			);
-
-			await waitFor(() => {
-				const dropdownItems = document.querySelectorAll(`[data-role="${DataRoles.Dropdown.Item}"]`);
-				const selectedItem = document.querySelector(`[aria-selected='true'][data-role='${DataRoles.Dropdown.Item}']`);
-				expect(selectedItem).toHaveTextContent(inputValue);
-				expect(dropdownItems).toHaveLength(1);
-			});
 
 			await userEvent.keyboard("{Escape}");
 
 			await userEvent.click(input);
 
-			// After clicking, the onSearch callback is triggered, which sets loading to true
+			// Reopening triggers onSearch(""), which replaces the filtered item with the full list
 			await waitFor(
 				() => {
-					const progress = queryByDataRole(document.body, DataRoles.ProgressIndicator.OuterOverlay);
-					expect(progress).toBeTruthy();
+					const selectedItem = document.querySelector(`[aria-selected='true'][data-role='${DataRoles.Dropdown.Item}']`);
+					const dropdownItems = document.querySelectorAll(`[data-role="${DataRoles.Dropdown.Item}"]`);
+					expect(selectedItem).toHaveTextContent(inputValue);
+					expect(dropdownItems).toHaveLength(cityItems.length);
 				},
 				{ timeout: 3000 }
 			);
-
-			await waitFor(
-				() => {
-					const progress = queryByDataRole(document.body, DataRoles.ProgressIndicator.OuterOverlay);
-
-					// Progress indicator may be removed from DOM or hidden
-					if (progress) {
-						expect(progress).not.toBeVisible();
-					}
-				},
-				{ timeout: 5000 }
-			);
-
-			await waitFor(() => {
-				const selectedItem = document.querySelector(`[aria-selected='true'][data-role='${DataRoles.Dropdown.Item}']`);
-				const dropdownItems = document.querySelectorAll(`[data-role="${DataRoles.Dropdown.Item}"]`);
-				expect(selectedItem).toHaveTextContent(inputValue);
-				expect(dropdownItems).toHaveLength(cityItems.length);
-			});
 		});
 	});
 });

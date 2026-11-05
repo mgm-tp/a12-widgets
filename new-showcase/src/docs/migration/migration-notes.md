@@ -1,10 +1,389 @@
-## 39.0.3
+## 39.1.0
 
-No breaking changes in 39.0.2.
+Nothing in this release has to be migrated: every deprecated API keeps working, and no public symbol
+was removed. Four things can nevertheless ask something of you, all of them narrow:
 
-## 39.0.2
+- Tests that count option elements in a **long** `Autocomplete` list see only the options in view, now
+  that such lists are windowed.
+- Tests that assert the `Autocomplete`'s ARIA attributes see the corrected ones — which includes the
+  `Autocomplete` embedded in `DatePicker` and `DateTimePicker`.
+- `createRef<MobileAutocomplete>()` used as a _type_, and subclassing `DefaultAutocomplete` /
+  `MobileAutocomplete`, no longer compile, because those are function components now.
+- Tests that index the children of a `RichTextEditor` element, or match on its `br` elements, see the
+  DOM Lexical 0.51 renders.
 
-No breaking changes in 39.0.2.
+Everything below that is either opt-in or explains what a deprecated API is replaced by.
+
+### Rich Text Editor: Lexical updated to 0.51
+
+Lexical is updated from `0.44` to `0.51`. One public API detail of the Rich Text Editor follows from it.
+
+`APPLY_TEXT_FORMAT_COMMAND` is now typed as `LexicalCommand<ApplyTextFormatPayload>` rather than `LexicalCommand<unknown>`. Lexical 0.49 makes command payload types invariant, so an untyped command can no longer be dispatched or registered at all. The runtime payload is unchanged — the new `ApplyTextFormatPayload` interface only gives the existing shape (`styleName`, `allowCollapseStyle`, `isActive`, `isolateStyle`) a name. If you annotated the payload yourself when registering a listener, you can drop the annotation and let it be inferred.
+
+If your project subclasses Lexical's built-in nodes, note that the statics `importDOM()`, `importJSON()`, `clone()` and `transform()` are only synthesized once the class is registered with an editor, and `importDOM()` not at all. Read the conversions from `Klass.prototype.$config()` instead, and use `LexicalEditor.parseEditorState`, `$generateNodesFromDOM` or `$cloneWithProperties` in place of the removed statics. Lexical 0.50 also parks a zero-size `img[data-lexical-decorator-boundary]` beside a block-level decorator node that opens or closes its parent element, so tests that index an element's children need to skip it. `CAN_UNDO_COMMAND` and `CAN_REDO_COMMAND` are deprecated upstream in favour of the `canUndo` and `canRedo` signals of `HistoryExtension`; they keep working.
+
+`LexicalComposer` from `@lexical/react` is deprecated upstream in favour of `LexicalExtensionComposer`, with removal announced for a future major version.
+`RichTextEditor` still builds on `LexicalComposer`, so `RichTextEditorProps.initialConfig`, `defaultConfig()` and `EditorNodes` keep their current shape (`InitialConfigType` is not deprecated) and nothing changes for you yet. `MarkdownEditor` (experimental) is already built on extensions.
+
+### Widgets generate fallback ids with `useId()` instead of `generateUid()`
+
+`Checkbox`, `Checkbox.Indeterminate`, `CheckboxGroup`, `DateInput`, `FlyoutMenu`, `Radio.Item`, `Toggle.Item`,
+`TreeContainer`, `TreeNode` and `TreeView` (experimental) still generate an `id` when you do not pass one — it now comes
+from React's `useId()`.
+
+**This is not a breaking change**, but the generated value is now an opaque React id such as `_r_3_`. Do not depend on
+its shape, and do not use it as a test selector or a persisted key — pass your own `id` where you need a predictable
+handle:
+
+```tsx
+// Both are accessible; only the second gives you an id you can select on
+<Checkbox label="Accept terms" checked={checked} onChange={setChecked} />
+<Checkbox id="accept-terms" label="Accept terms" checked={checked} onChange={setChecked} />
+```
+
+`generateUid()` is deprecated. It stays exported and functional; use React's `useId()` for element ids, or a counter or
+`crypto.randomUUID()` for a value that must differ on every call. Its JSDoc lists the replacement for each use case.
+
+### Autocomplete rebuilt: single implementation, APG accessibility
+
+The `Autocomplete` has been reimplemented as a single function component, built on the WAI-ARIA APG combobox pattern. `AutocompleteProps` is unchanged, including the long-deprecated `searchResult` and `ariaLabelledby` props, which are still accepted and behave exactly as before. Most projects need no changes at all.
+
+**Long match lists are now windowed.** Once a list reaches 150 matches, the `Autocomplete` renders only the options currently in view instead of all of them. This is what removes the delay when opening or filtering a large list. The new `virtualize` propertylets you force this behavior on or off. Because a windowed list only keeps the visible options in the DOM, a test that counts option elements, or looks for one that has scrolled out of view, will see just the options in the window rather than the full list. To handle this, either assert against the real size (which the options still report through `aria-setsize` and `aria-posinset`), or pin the old rendering for that test:
+
+```tsx
+<Autocomplete {...props} virtualize={false} /> // renders every match, as before
+```
+
+**The fullscreen dialog on phones behaves the same as before**, but it has been rebuilt on the APG "combobox with a dialog popup" pattern. The field shown on the page is now a read-only combobox with `aria-haspopup="dialog"` that opens the dialog, and the editable combobox with the listbox lives inside that dialog. Previously there were two comboboxes, and one of them was hidden with `aria-hidden` while still staying focusable. The new `mobileModal` propertylets you pin the presentation regardless of the device, which is useful for tests and for desktop touch screens:
+
+```tsx
+<Autocomplete {...props} mobileModal /> // always the fullscreen dialog
+<Autocomplete {...props} mobileModal={false} /> // always the attached dropdown
+<Autocomplete {...props} /> // dialog on phones, dropdown elsewhere (unchanged default)
+```
+
+Your existing selectors keep working on the phone presentation. Every part of it is a composed widget carrying its usual `data-role`. The field in the page and the dialog's own field are both `text-field-input` (you can tell them apart by checking whether they sit inside `modal-overlay`), the dialog itself is `modal-overlay` with the content box's roles nested inside it, and its dismiss button is a `button` titled with the localized "Save and close". The one new addition is `autocomplete-live-region`, on the visually hidden element that announces result counts. It got its own role because it has no composed widget to inherit one from.
+
+**What this means for you:** the ARIA attributes are now the standard ones, so a test that asserts the old values will now see the corrected ones instead. `DatePicker` and `DateTimePicker` both embed an `Autocomplete`, so their DOM shows the same corrections.
+
+| Attribute                            | Before                          | Now                                        |
+| ------------------------------------ | ------------------------------- | ------------------------------------------ |
+| `aria-autocomplete` on the field     | `"list"`                        | `"both"` (it completes inline as well)     |
+| the listbox the field points at      | `aria-owns` (non-standard here) | `aria-controls`                            |
+| `aria-flowto`, `aria-placeholder`    | set on phones                   | gone (neither is valid on a combobox)      |
+| `aria-hidden` on a focusable field   | set on one of two comboboxes    | gone (there is one combobox at a time now) |
+| `aria-label` when no label was given | `""`                            | not set at all                             |
+
+**Deprecated props**, still working, but worth planning your move away from:
+
+| Deprecated             | Replacement                                                                                                                                                                                            |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `searchResult`         | None. It has never had any effect, and is safe to delete.                                                                                                                                              |
+| `ariaLabelledby`       | `ariaDescribedby`, which takes precedence when both are set. The two are not always interchangeable, so set `ariaDescribedby` to the element id(s) that should label the field rather than copying it. |
+| `mobileTriggerElement` | None. It has no effect anymore. The fullscreen dialog it used to belong to is still there, but its trigger is now the field itself, which carries the label, validation messages and helper text.      |
+| `DefaultAutocomplete`  | `Autocomplete`, or `Autocomplete` with `mobileModal={false}` to keep pinning the attached dropdown.                                                                                                    |
+| `MobileAutocomplete`   | `Autocomplete`, or `Autocomplete` with `mobileModal` to keep pinning the fullscreen dialog.                                                                                                            |
+
+`DefaultAutocomplete` and `MobileAutocomplete` still work. Each is now a thin wrapper that pins
+`mobileModal` to the presentation it used to hardcode, so the behavior is unchanged:
+
+```tsx
+// Before, and this still compiles and behaves the same
+<MobileAutocomplete {...props} />
+
+// After
+<Autocomplete {...props} mobileModal />
+```
+
+One caveat: both are now functions instead of classes. The old classes never exposed any methods
+beyond React's own lifecycle, so an instance `ref` could never actually do anything with them anyway.
+Still, `createRef<MobileAutocomplete>()` (using the name as a _type_) and subclassing no longer
+compile. Switch to `Autocomplete` in both of those cases. `StyledAutocompleteModal` is still exported.
+
+### Drag & drop engine now consumed as `@com.mgmtp.a12.widgets/pragmatic-drag-and-drop*`
+
+The `@atlaskit/pragmatic-drag-and-drop*` packages behind `DataTable`, `DataTreeTable` and `TreeView` are replaced by `@com.mgmtp.a12.widgets/pragmatic-drag-and-drop*` — byte-identical repackaged builds with a proper `exports` field, fixing the Node ESM resolution failures described in the 39.0.1 note below. No code changes are required.
+
+Only if your project references the old packages explicitly — e.g. `pnpm.overrides`/`resolutions` entries, license-scanner allowlists, or direct imports of pragmatic-drag-and-drop APIs for custom integrations with these components — update those references to the new package names (versions: `pragmatic-drag-and-drop` ^2.0.1, `-hitbox` ^2.0.0, `-auto-scroll` ^3.0.0).
+
+### Master-Detail: Motion migration — deprecated styled components
+
+The animation layer has been migrated from `react-transition-group` to Motion. This migration is **non-breaking**: the affected styled components remain exported and functional, but several are now deprecated or accept deprecated (ignored) props. Existing code keeps compiling and rendering; the notes below describe the recommended migration path and the one behavioral caveat on `StyledMasterDetailLayoutPane`.
+
+#### `StyledMasterDetailPlaceholder` and `StyledMasterDetailLayoutBodyWithoutAnimation` deprecated
+
+Both remain exported. `StyledMasterDetailLayoutBodyWithoutAnimation` now aliases `StyledMasterDetailLayoutBody` (the body no longer wraps a `TransitionGroup`, so there is no separate "without animation" variant). `StyledMasterDetailPlaceholder` is no longer used internally. Prefer `StyledMasterDetailLayoutBody` directly.
+
+```typescript
+// Before (still works, now deprecated)
+import { StyledMasterDetailLayoutBodyWithoutAnimation } from "@com.mgmtp.a12.widgets/widgets-core";
+
+// After (recommended)
+import { StyledMasterDetailLayoutBody } from "@com.mgmtp.a12.widgets/widgets-core";
+```
+
+#### `StyledMasterDetailLayoutBody` propertychanges
+
+The component is now a plain `div` (previously a `TransitionGroup` wrapper). The `$animation` and `$isAnimateRtl` propertiesare **deprecated and ignored** — they still type-check so existing call sites compile, but they no longer have any effect and should be removed. A new optional `$isSingleView` propertywas added — it is for internal use and does not need to be passed by consumers.
+
+```typescript
+// Before (still works; deprecated propertiesare ignored)
+<StyledMasterDetailLayoutBody $smallView={true} $isAnimateRtl={false} $animation={true} />
+
+// After (recommended)
+<StyledMasterDetailLayoutBody $smallView={true} />
+```
+
+#### `StyledMasterDetailLayoutPane` propertychanges
+
+The component now wraps Motion's `motion.div` instead of a plain `div`. The propertiesbelow are **deprecated and ignored** rather than removed, so existing usages keep compiling. `$width` still accepts `number | string` (a `number` is treated as px). A new `$flexGrow` propertywas added.
+
+> **One caveat:** because the underlying element is now `motion.div`, the pane no longer accepts `react-transition-group` `CSSTransition` properties(`timeout`, `classNames`, `onEnter`, …). If you spread those onto the pane, remove them.
+
+| property        | Before               | After                          |
+| --------------- | -------------------- | ------------------------------ |
+| `$smallView`    | `boolean` (optional) | deprecated, ignored            |
+| `$isRtl`        | `boolean` (required) | deprecated, ignored, optional  |
+| `$numOfColumns` | `number` (required)  | deprecated, ignored, optional  |
+| `$columnsCount` | `number` (required)  | deprecated, ignored, optional  |
+| `$maxWidth`     | `number \| string`   | deprecated, ignored            |
+| `$width`        | `number \| string`   | `number \| string` (unchanged) |
+| `$isResizable`  | `boolean` (required) | unchanged                      |
+| `$flexGrow`     | —                    | `number` (new)                 |
+
+### Master-Detail: `ManagedMasterDetailState` deprecated
+
+`ManagedMasterDetailState` describes `ManagedMasterDetail`'s internal state. It remains exported and structurally unchanged, so existing imports keep compiling, but there is **no replacement** — remove any references to it. If you were mirroring the shape, declare your own type instead.
+
+### `react-resize-detector` replaced by the built-in `useResizeObserver` hook
+
+The library no longer depends on `react-resize-detector`. Element resize detection is handled by the new public `useResizeObserver` hook, built directly on the native `ResizeObserver` API.
+
+- `WidgetsResizeDetector` keeps working unchanged; its propertiesare now defined by the library instead of re-exporting `react-resize-detector` types.
+- Import `ResizePayload` and `OnResizeCallback` from `@com.mgmtp.a12.widgets/widgets-core` if you previously imported them from `react-resize-detector` for use with `WidgetsResizeDetector`.
+- The `refreshMode` and `refreshOptions` propertiesof `WidgetsResizeDetector` are deprecated and ignored: notifications are always coalesced onto a macrotask and debounced by `refreshRate` milliseconds (default `0`). `"throttle"` mode is no longer available.
+
+```tsx
+// Before
+import { type ResizePayload } from "react-resize-detector";
+import { WidgetsResizeDetector } from "@com.mgmtp.a12.widgets/widgets-core";
+
+// After
+import { WidgetsResizeDetector, type ResizePayload, useResizeObserver } from "@com.mgmtp.a12.widgets/widgets-core";
+
+// New: hook usage in function components
+const { ref, width, height } = useResizeObserver({ onResize: handleResize });
+```
+
+### Dropdown: nothing has to be migrated
+
+Every `DropDown` addition below is opt in, every deprecated API keeps working, and no public symbol
+was removed. Still, two narrow things could affect a project:
+
+- If a test counts the option elements in a list where you have passed the new `virtualize` prop, it
+  will now see only the options currently in view.
+- If a test reads `data-preselect` on an option after a selection has been cleared, it may now see
+  `"true"` where it previously saw `"false"`, because the attribute is now derived on every render.
+
+### Dropdown: long lists can be windowed, and `setPreselectedPosition` is deprecated
+
+`DropDown` can now render only the options currently in view instead of all of them, through the new
+`virtualize` prop. It stays off unless you turn it on. Sections (items with `children`) are windowed
+along with their options, and their headers scroll away as rows of the same window. The whole list is
+still rendered for `horizontal` lists, and when `useFocusStyle` puts focus on the options.
+
+**What this means for you:** a windowed list only keeps the visible options in the DOM, so a test that
+counts option elements, or looks for one that has scrolled out of view, will see just the options in
+the window rather than the whole list. Either assert against the real size (which the options still
+report through `aria-setsize` and `aria-posinset`), or leave `virtualize` off for that list.
+
+Two behaviors changed for everyone, whether the list is windowed or not:
+
+- Options that share a label and value no longer all appear active when one of them is activated.
+  Enter now selects the option that was navigated to, rather than the first one with a matching value.
+- `data-preselect` on an option now reflects the active option instead of the selected one. If you
+  assert on it in tests, note that it stays in sync during keyboard navigation, which is what it
+  already did in the browser.
+
+Arrowing into a list whose first or last option was disabled used to activate that option, and the
+selection keys would then select it. Both ends now skip disabled options, matching how stepping
+through the list already worked.
+
+**Deprecated method:** `setPreselectedPosition({ row, index })` on a `DropDown` instance is replaced
+by `setPreselectedIndex(index)`, which takes the option's position in the flattened item list.
+
+```tsx
+// Before
+dropdownRef.current?.setPreselectedPosition({ row: 4, index: 0 });
+
+// After
+dropdownRef.current?.setPreselectedIndex(4);
+```
+
+The old method still works. A `{ row, index }` pair is resolved against the row grouping, and in a
+vertical list, `row` already is that flat index, which is how it was used in practice.
+
+### Dropdown: the active option moves out of the component, into `useDropdownNavigation`
+
+A combobox is an input that keeps the focus, paired with a list that holds the options, so the two
+need to agree on which option is active. Previously, that meant holding on to the rendered `DropDown`
+and calling into it, and to activate a particular option, you had to work out its position in the
+list's own flattening of `items`. The new hook holds the active option instead, and the list is simply
+handed the result:
+
+```tsx
+// Before
+const dropdownRef = useRef<DropDown | null>(null);
+const [activeItem, setActiveItem] = useState<DropDownItem>();
+
+<input onKeyDown={(event) => dropdownRef.current?.handleForwardedKeyboardEvent(event)} />
+<DropDown ref={dropdownRef} items={items} onPreselectedItemChange={setActiveItem} />;
+
+// After
+const navigation = useDropdownNavigation({ items });
+
+<input aria-activedescendant={navigation.activeItem?.id} onKeyDown={navigation.handleKeyDown} />
+<DropDown items={items} navigation={navigation} />;
+```
+
+| Instance method                    | On the handle                               |
+| ---------------------------------- | ------------------------------------------- |
+| `handleForwardedKeyboardEvent(e)`  | `handleKeyDown(e)`                          |
+| `setPreselectedIndex(i)`           | `setActiveIndex(i)`                         |
+| `setPreselectedPosition({row: i})` | `setActiveItem(item)` (no index to compute) |
+| `resetPreselectedPosition()`       | `reset()`                                   |
+
+Pass the same `items` array to both the hook and the list, so a position means the same thing on both
+sides. All four methods still work, so nothing has to be migrated. That said, once a list is given a
+`navigation` handle, it reads its active option from that handle, so avoid driving the same list both
+ways.
+
+`moveToFirst()` and `moveToLast()` are also available now, and they skip disabled options
+automatically, which is exactly what callers computing `items.findIndex((item) => !item.disabled)` by
+hand were trying to achieve.
+
+### Dropdown: multi-select lists, and options that carry their own value
+
+`selectionMode="multiple"` turns `DropDown` into a multi-select listbox. It renders a checkbox in
+front of every option, announces itself as `aria-multiselectable`, states each option's
+`aria-selected`, toggles on click as well as on Space or Enter, and reports the result through
+`onSelectionChange`. If you built this behavior by hand before (a checkbox in each option's `graphic`,
+a computed `ariaChecked`, and `keysToSelectItem={[" "]}`), you can now hand it over to the component:
+
+```tsx
+// Before
+<DropDown
+  items={items.map((item) => ({
+    ...item,
+    selected: false,
+    ariaChecked: item.selected ? "true" : "false",
+    graphic: <Checkbox hideLabel label={item.label} checked={!!item.selected} onChange={...} />
+  }))}
+  keysToSelectItem={[" "]}
+  hideA11yLabel
+  onSelectedItemChange={(option) => toggle(items.find((item) => item.label === option?.label))}
+/>
+
+// After
+<DropDown
+  selectionMode="multiple"
+  items={items.map((item) => ({ ...item, data: item }))}
+  selectedItems={selected}
+  getItemKey={(option) => option.id!}
+  onSelectionChange={(selectedItems, toggledOption) => toggle(toggledOption.data)}
+/>
+```
+
+Two supporting additions are useful on their own:
+
+- **`data`** on an option carries the value it stands for, and every callback that reports an option
+  hands it back untouched. This means options no longer need to be matched back onto your own model
+  by label or id. `DropDownItem<T>` and `DropDownProps<T>` take its type, inferred from `items`.
+- **`getItemKey`** identifies an option, and all selection and active-option matching goes through it.
+  Without it, options are still compared by `value`, falling back to `label` together with `id`, which
+  cannot tell two options sharing a label apart. Pass it whenever labels may repeat.
+
+`indeterminate` on an option shows the mixed state on its checkbox, useful for a "select all" option.
+
+Every option now states its selection through `aria-selected`, which is what a listbox's options are
+required to carry, and what tests and styles should read going forward. Nothing is taken away: an
+option that already carried `aria-checked` (as `Multiselect`'s options do) keeps it, so existing
+selectors and styles keep matching. The one exception is a `Multiselect` option on macOS: it keeps
+`role="checkbox"` instead of `role="option"` and has no `aria-selected`, so that VoiceOver announces
+it correctly.
+
+### `flattenItems` is deprecated
+
+Use `buildNavigationModel(items).entries` instead, which reports each option's position in the
+flattened list along with it. `flattenItems` still works.
+
+The two differ in one respect: the model flattens only the one level of sections the list renders,
+while `flattenItems` recurses to any depth. For items nested deeper than that, the model is the one
+that matches what's actually on screen.
+
+`getDropDownItemsLength` has moved to `dropdown/main/template/dropdown.utils.ts`, alongside the other
+`DropDownItem` helpers. It is unchanged at the package root, which is the only place it was ever
+importable from, so this needs nothing from you. It counts the same options it always did: the one
+level of sections the list renders, with any option nested deeper counting as itself.
+
+### Tag Input: Deprecated properties in `StyledTagInputTag`
+
+Tags in **Tag Input** no longer show a hover/active style, since clicking a tag by itself doesn't do anything, only its remove button does. Therefore, the `$hover` property has been deprecated and will be removed in the future release. For the same reason, the theme config properties `tagInput.tag.hoverBorderColor` and `tagInput.tag.activeBorderColor` are also deprecated.
+
+### `widgets-utils` package deprecated
+
+`@com.mgmtp.a12.widgets/widgets-utils` is deprecated as a whole and will be removed in a future major version. Nothing
+stops working in 39.x: the package is still published, every export is still there and still behaves as before, and each
+one now carries a `@deprecated` note naming its replacement.
+
+The package was never part of the Widgets library proper. Its three components exist to assemble the showcase, they are
+outside the [breaking change management](#/get-started/breaking-changes-management) that applies to `widgets-core`, and
+they have no theme configuration, tests or documentation of their own.
+
+| Deprecated export                                    | What to use instead                                                                                                                                                                                                                                         |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AnimationWrapper`                                   | Render the child conditionally, or drive the transition with an animation library such as Motion. The `a12-animation-wrapper-*` classes it toggles are defined by no Widgets stylesheet, so out of the box the wrapper only delays unmounting by `timeout`. |
+| `CodeExample`, `SourceCodeSection`, `LICENSE_HEADER` | Use `react-syntax-highlighter` (or any other highlighter) directly — `widgets-core` has no code viewer.                                                                                                                                                     |
+| `NewsBox`                                            | Compose the same layout from `LayoutGrid`, `CssEllipsis` and `ResponsiveImageContainer` in `widgets-core`.                                                                                                                                                  |
+
+```tsx
+// Before (still works, now deprecated)
+import { AnimationWrapper } from "@com.mgmtp.a12.widgets/widgets-utils";
+
+<AnimationWrapper show={show}>
+	<ConnectedToast referenceElement={referenceElement} message={message} onClose={close} />
+</AnimationWrapper>;
+
+// After: render the child conditionally
+show && <ConnectedToast referenceElement={referenceElement} message={message} onClose={close} />;
+```
+
+Where no replacement fits, copy the source into your own project: it ships in the package's `src` folder under the same
+dual license as the rest of A12 Widgets.
+
+### `AndroidScrollInputIntoViewIfNeeded` is deprecated and installs nothing
+
+Importing anything from the package used to install an Android-only polyfill that, on every window
+`resize`, scrolled the focused `input` or `textarea` into view with `scrollIntoView(true)`. On Android
+a resize is what the on-screen keyboard causes every time it opens or closes, and `true` aligns the
+element to the _top_ of the viewport — so focusing any text field threw the page to that field's top
+edge, behind a fixed or sticky page header, and overrode scroll positions the widgets set on purpose.
+Android Chrome scrolls a focused field above the keyboard on its own, so nothing is installed any
+more.
+
+Nothing has to be migrated. `AndroidScrollInputIntoViewIfNeeded` stays exported as an
+already-resolved promise, so importing or awaiting it keeps compiling and keeps working:
+
+```tsx
+// Both still work; the import can simply be dropped
+import { AndroidScrollInputIntoViewIfNeeded } from "@com.mgmtp.a12.widgets/widgets-core";
+
+await AndroidScrollInputIntoViewIfNeeded;
+```
+
+If your application relied on a focused field being pulled to the top of the viewport, scroll it
+yourself on `focus` — and give the target a `scroll-margin-top` the height of your header, so it does
+not end up underneath it.
 
 ## 39.0.1
 
@@ -105,7 +484,7 @@ Missing palette variants (`primaryHover`, `primaryActive`, `primaryLight`, `prim
 
 #### Styled-components `DefaultTheme` augmentation
 
-This only matters if your **own** typed styled-components read base-theme-specific tokens through the `theme` prop (e.g. `theme.colors.shadow`, `theme.hoverStyles`). If they don't, your existing augmentation keeps compiling unchanged. To get autocomplete and type-checking for the new tokens, augment `DefaultTheme` with `BaseThemeConfig`:
+This only matters if your **own** typed styled-components read base-theme-specific tokens through the `theme` property(e.g. `theme.colors.shadow`, `theme.hoverStyles`). If they don't, your existing augmentation keeps compiling unchanged. To get autocomplete and type-checking for the new tokens, augment `DefaultTheme` with `BaseThemeConfig`:
 
 ```ts
 // src/@types/styled-components.d.ts
@@ -538,7 +917,7 @@ Breaking Change: `disableVendorPrefixes` removed.
 
 New Requirement: Defining `shouldForwardProp`
 
-- Styled Components v6 no longer performs automatic prop validation. Instead, it recommends using transient props ($prop) to pass style-only props to components. If you cannot use transient props, you must define a shouldForwardProp function to filter props.
+- Styled Components v6 no longer performs automatic propertyvalidation. Instead, it recommends using transient properties($prop) to pass style-only propertiesto components. If you cannot use transient props, you must define a shouldForwardProp function to filter props.
   - You can import the built-in `shouldForwardProp` function from widgets-core:
 
   ```tsx
@@ -862,7 +1241,7 @@ The javascript output of the npm artifacts was updated from `ES2020` to `ES2024`
 
   Besides, the `wrapper` property is no longer needed and is removed since Portal will automatically find its parent element.
 
-- `withSizeDetector` HOC is difficult to use, and because it combines the props needed for window resize detection as well as element resize detector, the resulting API is confusing. We also don't see the need for a component to combine those behaviors, except in the case of a component library like Widgets itself. It has now been removed in favor of new hooks: `useWindowSize` and `useElementSizeDetector`
+- `withSizeDetector` HOC is difficult to use, and because it combines the propertiesneeded for window resize detection as well as element resize detector, the resulting API is confusing. We also don't see the need for a component to combine those behaviors, except in the case of a component library like Widgets itself. It has now been removed in favor of new hooks: `useWindowSize` and `useElementSizeDetector`
   - The hooks return the current breakpoint directly, so there is no need to write a callback with additional state update.
   - There are also 2 React components to support class component: `WindowSizeDetector` and `ElementSizeDetector`.
 

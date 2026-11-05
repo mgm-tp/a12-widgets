@@ -39,10 +39,10 @@ import { useTheme } from "styled-components";
 import type { ButtonGroupContainerProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Button, ButtonGroupContainer, Icon, Checkbox } from "@com.mgmtp.a12.widgets/widgets-core";
 
-// start code removal
-import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 import { ConfigurationView } from "../../helpers/configuration-view.js";
 import { CodeSnippetGenerationWrapper } from "../../helpers/showcase-example.js";
+// start code removal
+import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 
 const leftSlotButtons: ButtonGroupContainerProps.ButtonProps[] = [
 	{
@@ -124,6 +124,7 @@ export const ResponsiveShowcase: FC = () => {
 						range={{ max: 800, min: 32 }}
 					/>
 					<Checkbox
+						id="button-group-container-collapsing-direction"
 						label="Collapsing from right to left"
 						checked={collapsingDirection === "right-to-left"}
 						onChange={(value) => setCollapsingDirection(value ? "right-to-left" : "left-to-right")}

@@ -35,38 +35,38 @@ import { useState, useMemo, memo } from "react";
 
 import { joinClassNames } from "../../common/main/utils.js";
 
-import { TableTemplate } from "./template/index.js";
-import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
-import type { TableContextType, TableProps, VirtualScrollOptions } from "./table.api.js";
 import type { BaseColumnType } from "./column.api.js";
-import type { TableComponentRenderers, TableScrollToNodeHandler } from "./table-renderer.api.js";
 import type { InfiniteScrollOptions } from "./infinite-scroll.api.js";
-import { TableInternalUtils, flattenAllColumns, hasColumnGroup } from "./table.utils.js";
-import { TableContextProvider, CellHighlightingTableContextProvider, useTableContext } from "./table.context.js";
-import { Head } from "./table.head.view.js";
-import { HeadRow } from "./table.head-row.view.js";
-import { HeadCell } from "./table.head-cell.view.js";
-import { HeadCellGroup } from "./table.head-cell-group.view.js";
-import { HeadContent } from "./table.head-content.view.js";
-import { Body } from "./table.body.view.js";
-import { InfiniteScrollBody } from "./table.infinite-scroll-body.view.js";
-import { VirtualizedBody } from "./table.virtualized-body.view.js";
-import { BodyRow } from "./table.body-row.view.js";
+import type { TableComponentRenderers, TableScrollToNodeHandler } from "./table-renderer.api.js";
+import type { TableContextType, TableProps, VirtualScrollOptions } from "./table.api.js";
 import { BodyCell } from "./table.body-cell.view.js";
 import { BodyContent } from "./table.body-content.view.js";
-import { PlaceHolderBodyRow } from "./table.place-holder-row.view.js";
-import { Foot } from "./table.foot.view.js";
-import { FootRow } from "./table.foot-row.view.js";
+import { BodyRow } from "./table.body-row.view.js";
+import { Body } from "./table.body.view.js";
+import { TableContextProvider, CellHighlightingTableContextProvider, useTableContext } from "./table.context.js";
+import { DnDTable } from "./table.dnd.view.js";
 import { FootCell } from "./table.foot-cell.view.js";
 import { FootContent } from "./table.foot-content.view.js";
-import { HeadFilterRow } from "./table.head-filter-row.view.js";
+import { FootRow } from "./table.foot-row.view.js";
+import { Foot } from "./table.foot.view.js";
+import { HeadCellGroup } from "./table.head-cell-group.view.js";
+import { HeadCell } from "./table.head-cell.view.js";
+import { HeadContent } from "./table.head-content.view.js";
 import { HeadFilterCell } from "./table.head-filter-cell.view.js";
 import { HeadFilterContent } from "./table.head-filter-content.view.js";
-import { DnDTable } from "./table.dnd.view.js";
+import { HeadFilterRow } from "./table.head-filter-row.view.js";
+import { HeadRow } from "./table.head-row.view.js";
+import { Head } from "./table.head.view.js";
+import { InfiniteScrollBody } from "./table.infinite-scroll-body.view.js";
+import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
 import { PlaceHolderBodyCell } from "./table.place-holder-body-cell.view.js";
 import { PlaceHolderBodyContent } from "./table.place-holder-body-content.view.js";
+import { PlaceHolderBodyRow } from "./table.place-holder-row.view.js";
 import { RowGroupHeader } from "./table.row-group-header.view.js";
 import { TableRowScroller } from "./table.row-scroller.js";
+import { TableInternalUtils, flattenAllColumns, hasColumnGroup } from "./table.utils.js";
+import { VirtualizedBody } from "./table.virtualized-body.view.js";
+import { TableTemplate } from "./template/index.js";
 
 export const DefaultTableComponentRenderers: TableComponentRenderers<any> = {
 	headRenderer: (params) => <Head {...params} />,

@@ -30,16 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import CardAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/card/main/card.api.json" with { type: "json" };
+import basicCode from "!./basic.tsx?raw";
+import primaryActionCode from "!./primary-action.tsx?raw";
+
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
+import CardAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/card/main/card.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { BasicCardShowcase } from "./basic.js";
 import { PrimaryActionCardShowcase } from "./primary-action.js";
-
-import basicCode from "!./basic.tsx?raw";
-import primaryActionCode from "!./primary-action.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

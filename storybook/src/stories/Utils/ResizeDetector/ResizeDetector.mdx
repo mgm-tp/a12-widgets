@@ -1,0 +1,48 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ResizeDetectorStories from "./ResizeDetector.stories";
+
+<Meta of={ResizeDetectorStories} />
+
+<Title />
+
+The `WidgetsResizeDetector` widget is a thin wrapper around the library's own `useResizeObserver`
+hook, making element resize observation usable in class components. Pass a
+`targetRef` pointing at the element to observe and an `onResize` callback that receives the latest
+`width`, `height` and `ResizeObserver` entry whenever that element changes size.
+
+- It renders only its `children` — no extra wrapper element is added to the DOM.
+- `handleWidth` / `handleHeight` select which dimension changes trigger the callback.
+- `refreshRate` debounces the notifications. `refreshMode` and `refreshOptions` are deprecated and
+  ignored — notifications are always debounced.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ResizeDetectorStories.Playground} />
+
+## Examples
+
+### Width only
+
+<Canvas of={ResizeDetectorStories.WidthOnly} />
+
+### Throttled updates
+
+<Canvas of={ResizeDetectorStories.Throttled} />

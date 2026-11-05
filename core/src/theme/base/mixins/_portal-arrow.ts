@@ -104,85 +104,109 @@ export const basePortalArrow = (props: {
 			transform: rotate(45deg);
 			width: ${arrow.size}px;
 
-			${arrow.styles?.position !== "fixed" &&
-			css`
-				${side}: ${-arrow.size / 2}px;
-			`}
+			${
+				arrow.styles?.position !== "fixed" &&
+				css`
+					${side}: ${-arrow.size / 2}px;
+				`
+			}
 
-			${orientation.includes("top") &&
-			css`
-				border-left: none;
-				box-shadow: ${arrow.boxShadow};
-			`}
-			
-			${orientation.includes("bottom") &&
-			css`
-				border-right: none;
-			`}
-			
-			${orientation.includes("left") &&
-			css`
-				border-bottom: none;
-				box-shadow: 2px -2px 2px 0 rgba(0, 0, 0, 0.2);
-			`}
-			
-			${orientation.includes("right") &&
-			css`
-				border-top: none;
-			`}
-			
-			${["top", "bottom"].includes(orientation) &&
-			css`
-				left: ${arrowAdjustPosition.left};
-				transform: translateX(-50%) rotate(45deg);
-			`}
-			
-			${["left", "right"].includes(orientation) &&
-			css`
-				top: ${arrowAdjustPosition.top};
-				transform: translateY(-50%) rotate(45deg);
-			`}
+			${
+				orientation.includes("top") &&
+				css`
+					border-left: none;
+					box-shadow: ${arrow.boxShadow};
+				`
+			}
 
-			${arrow.styles &&
-			css`
-				${arrow.styles}; // Override styles of arrow
-			`}
+			${
+				orientation.includes("bottom") &&
+				css`
+					border-right: none;
+				`
+			}
+
+			${
+				orientation.includes("left") &&
+				css`
+					border-bottom: none;
+					box-shadow: 2px -2px 2px 0 rgba(0, 0, 0, 0.2);
+				`
+			}
+
+			${
+				orientation.includes("right") &&
+				css`
+					border-top: none;
+				`
+			}
+
+			${
+				["top", "bottom"].includes(orientation) &&
+				css`
+					left: ${arrowAdjustPosition.left};
+					transform: translateX(-50%) rotate(45deg);
+				`
+			}
+
+			${
+				["left", "right"].includes(orientation) &&
+				css`
+					top: ${arrowAdjustPosition.top};
+					transform: translateY(-50%) rotate(45deg);
+				`
+			}
+
+			${
+				arrow.styles &&
+				css`
+					${arrow.styles}; // Override styles of arrow
+				`
+			}
 		}
 
-		${["top-start", "bottom-start"].includes(orientation) &&
-		css`
-			margin-left: ${arrow.parentMargin};
+		${
+			["top-start", "bottom-start"].includes(orientation) &&
+			css`
+				margin-left: ${arrow.parentMargin};
 
-			${element} {
-				left: ${arrow.startPosition};
-			}
-		`}
+				${element} {
+					left: ${arrow.startPosition};
+				}
+			`
+		}
 
-		${["left-start", "right-start"].includes(orientation) &&
-		css`
-			margin-top: ${arrow.parentMargin};
+		${
+			["left-start", "right-start"].includes(orientation) &&
+			css`
+				margin-top: ${arrow.parentMargin};
 
-			${element} {
-				top: ${arrow.startPosition};
-			}
-		`}
-		
-		${["top-end", "bottom-end"].includes(orientation) &&
-		css`
-			margin-right: ${arrow.parentMargin};
+				${element} {
+					top: ${arrow.startPosition};
+				}
+			`
+		}
 
-			${element} {
-				right: ${arrow.endPosition};
-			}
-		`}
-		
-		${["left-end", "right-end"].includes(orientation) &&
-		css`
-			margin-bottom: ${arrow.parentMargin};
+		${
+			["top-end", "bottom-end"].includes(orientation) &&
+			css`
+				margin-right: ${arrow.parentMargin};
 
-			${element} {
-				bottom: ${arrow.endPosition};
-			}
-		`}
+				${element} {
+					right: ${arrow.endPosition};
+				}
+			`
+		}
+
+		${
+			["left-end", "right-end"].includes(orientation) &&
+			css`
+				margin-bottom: ${arrow.parentMargin};
+
+				${element} {
+					bottom: ${arrow.endPosition};
+				}
+			`
+		}
 	`;
 };

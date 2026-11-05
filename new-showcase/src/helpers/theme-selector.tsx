@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { ThemeProvider } from "styled-components";
 import type { ReactNode } from "react";
 import { createContext, useContext, useMemo } from "react";
+import { ThemeProvider } from "styled-components";
 
 import type { DefaultThemeType } from "@com.mgmtp.a12.widgets/widgets-core";
 import { getBaseTheme } from "@com.mgmtp.a12.widgets/widgets-core";

@@ -43,6 +43,9 @@ import { Config } from "./config.ts";
 // NodeNext + verbatimModuleSyntax the default import resolves to the module namespace, so cast it
 // back to the actual factory shape that the runtime exposes.
 const asciidoctorFactory = asciidoctorModule as unknown as () => Asciidoctor;
+
+/** Asset tree mirrored from `src/` into `lib/`, copied next to the standalone HTML. */
+const ASSETS_DIRECTORY_NAME = "assets";
 const asciidoctor = asciidoctorFactory();
 
 const registry = asciidoctor.Extensions.create();
@@ -92,6 +95,13 @@ export async function build(): Promise<void> {
 	} catch {
 		// Highlight stylesheet missing in environments where the dependency was not installed; ignore.
 	}
+
+	// The generated HTML references images by their bundle-relative path (assets/images/…), so the
+	// asset tree has to sit next to index.html for the standalone preview to resolve them.
+	await Fs.cp(Path.join(Config.libDir, ASSETS_DIRECTORY_NAME), Path.join(Config.outDir, ASSETS_DIRECTORY_NAME), {
+		recursive: true,
+		force: true
+	});
 
 	console.log("[build] OK.");
 }

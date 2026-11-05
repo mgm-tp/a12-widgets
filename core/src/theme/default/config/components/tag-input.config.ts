@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { BaseThemeType } from "../../../schema/base-theme.js";
 import type { CustomBorder } from "../../../base/mixins/_borderEffects.js";
+import type { BaseThemeType } from "../../../schema/base-theme.js";
 
 export type TagInputConfigType = {
 	disabled: { background: string; boxShadow: string; color: string };
@@ -40,9 +40,12 @@ export type TagInputConfigType = {
 	infoBoxShadow: string;
 	readonlyBG: string;
 	tag: {
-		activeBorderColor: string;
+		/** @deprecated since 39.1.0 — tags no longer show a hover/active border style. */
+		activeBorderColor?: string;
 		disabled: { background: string; color: string };
-		hoverBorderColor: string;
+
+		/** @deprecated since 39.1.0 — tags no longer show a hover/active border style. */
+		hoverBorderColor?: string;
 		margin: string;
 		readonlyBG: string;
 	};
@@ -71,12 +74,10 @@ export const tagInputConfig = (theme: BaseThemeType): TagInputConfigType => {
 		infoBoxShadow: `${applicationStyles.input.defaultBorder} ${colors.variant.infoColor}`,
 		readonlyBG: colors.background.interactiveBackground,
 		tag: {
-			activeBorderColor: colors.interaction.active.colorTouch,
 			disabled: {
 				background: colors.interaction.disabled.colorLight,
 				color: colors.interaction.disabled.colorDark
 			},
-			hoverBorderColor: colors.interaction.hover.color,
 			margin: `${spacing.verticalSpacing.vertWhiteSpacing2xs}px ${spacing.horizontalSpacing.horizWhiteSpacingxs}px ${spacing.verticalSpacing.vertWhiteSpacing2xs}px 0`,
 			readonlyBG: colors.background.tertiaryBackground
 		},

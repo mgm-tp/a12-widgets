@@ -32,23 +32,23 @@
 
 import type { ComponentType, ContextType, ReactNode, ChangeEvent, KeyboardEvent, ReactElement, FC } from "react";
 import { Component, useContext, useMemo, useCallback } from "react";
+import { dateMatchModifiers } from "react-day-picker";
 import { Key } from "ts-key-enum";
-import { isMatch } from "react-day-picker";
 
-import { bindMethods, convertToArr, inputWithSuffixName, StringUtils } from "../../../common/main/utils.js";
-import { TimeUtils } from "../../../common/main/date-time/time-utils.js";
-import { DateTimeUtils } from "../../../common/main/date-time/date-utils.js";
-import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { Button } from "../../../button/main/button.view.js";
-import { Icon } from "../../../icon/main/icon.view.js";
-import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { DateTimeContext } from "../../../common/main/date-time/date-time-context.js";
-
+import { DateTimeUtils } from "../../../common/main/date-time/date-utils.js";
+import { TimeUtils } from "../../../common/main/date-time/time-utils.js";
+import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { bindMethods, convertToArr, inputWithSuffixName, StringUtils } from "../../../common/main/utils.js";
+import { Icon } from "../../../icon/main/icon.view.js";
+import { FieldDefaultsConfig } from "../../../input/field-default-config/main/field-default-config.utils.js";
 import type { DateTimePickerProps } from "../date-time-picker.api.js";
 import { StyledDateTimePickerInput } from "../date-time-picker.styled.js";
 
-import type { DateTimePickerInputProps } from "./date-time-picker-input.api.js";
 import { DateTimePickerDialog } from "./date-time-picker-dialog.view.js";
+import type { DateTimePickerInputProps } from "./date-time-picker-input.api.js";
 import { createDefaultDateTimeConverter, createDefaultDateTimeFormatter } from "./date-time-picker-input.internal.js";
 
 export interface DateTimePickerInputState {
@@ -153,20 +153,26 @@ export function DateTimePickerInput<T extends DateTimePickerProps>(
 
 						return (
 							<>
-								<StyledDateTimePickerInput
-									{...rest}
-									label={inputLabel}
-									errorMessage={inputErrorMessage}
-									warningMessage={inputWarningMessage}
-									addonAfter={inputTooltips}
-									placeholder={dateTimeInputFormat}
-									value={this.state.inputValue}
-									prefixes={button}
-									onChange={this.handleInputChange}
-									onBlur={this.handleInputBlur}
-									onKeyDown={this.handleKeyDown}
-									id={inputId}
-								/>
+								<FieldDefaultsConfig inputProps={rest} tooltipFallback={false}>
+									{({ breakTooltipsToNewLine }): ReactNode => (
+										<StyledDateTimePickerInput
+											{...rest}
+											label={inputLabel}
+											errorMessage={inputErrorMessage}
+											warningMessage={inputWarningMessage}
+											tooltips={breakTooltipsToNewLine && inputTooltips}
+											addonAfter={!breakTooltipsToNewLine && inputTooltips}
+											breakTooltipsToNewLine={breakTooltipsToNewLine}
+											placeholder={dateTimeInputFormat}
+											value={this.state.inputValue}
+											prefixes={button}
+											onChange={this.handleInputChange}
+											onBlur={this.handleInputBlur}
+											onKeyDown={this.handleKeyDown}
+											id={inputId}
+										/>
+									)}
+								</FieldDefaultsConfig>
 								{this.buttonPickerRef && this.state.showPicker && (
 									<Dialog
 										referenceElement={this.buttonPickerRef}
@@ -223,7 +229,7 @@ export function DateTimePickerInput<T extends DateTimePickerProps>(
 				const validDateTime =
 					convertedDateTime &&
 					(!this.props.pickerProps?.disabled ||
-						!isMatch(convertedDateTime, convertToArr(this.props.pickerProps?.disabled)));
+						!dateMatchModifiers(convertedDateTime, convertToArr(this.props.pickerProps?.disabled)));
 
 				if (validDateTime) {
 					this.setState({

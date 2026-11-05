@@ -38,16 +38,16 @@ import {
 	StyledCollapsiblePanelWrapper
 } from "../../../collapsible-panel/main/collapsible-panel.view.js";
 import { addPrefix } from "../../../common/main/utils.js";
-import { StyledFieldLabel, StyledFieldMessageWrapper } from "../../../input/base/template/base.tpl.view.js";
 import { StyledAutocompleteWrapper } from "../../../input/autocomplete/main/autocomplete.styled.js";
 import { StyledBaseInput } from "../../../input/base-input-styled/base.styled.js";
-import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
-import { StyledLink } from "../../../link/main/link/link.view.js";
-import { StyledTextOutputContent } from "../../../text-output/main/text-output.view.js";
-import { StyledMultiselectWrapper } from "../../../multiselect/main/multiselect.styled.js";
+import { StyledFieldLabel, StyledFieldMessageWrapper } from "../../../input/base/template/base.tpl.view.js";
 import { StyledIconPickerWrapper } from "../../../input/icon-picker/main/icon-picker.styled.js";
-import { StyledTimePickerWrapper } from "../../../time-picker/main/time-picker.styled.js";
+import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
 import { StyledYearMonthSelector } from "../../../input/year-month-selector/year-month-selector.styled.js";
+import { StyledLink } from "../../../link/main/link/link.view.js";
+import { StyledMultiselectWrapper } from "../../../multiselect/main/multiselect.styled.js";
+import { StyledTextOutputContent } from "../../../text-output/main/text-output.view.js";
+import { StyledTimePickerWrapper } from "../../../time-picker/main/time-picker.styled.js";
 
 import { baseFormClassName } from "./background-color.js";
 
@@ -60,23 +60,14 @@ const fontWeightStyle = (val: number) => css`
 	}
 
 	// Text Field, Text Area, Text Output, Time Picker, Autocomplete, Select, Multiselect, Icon Picker, Year and Month Selector, Radio, Checkbox, Checkbox Group
-	> ${StyledFieldWrapper},
-		> ${StyledField},
-		> ${StyledAutocompleteWrapper},
-		> ${StyledMultiselectWrapper},
-		> ${StyledIconPickerWrapper},
-		> ${StyledTimePickerWrapper},
-		> ${StyledYearMonthSelector} {
+	> ${StyledFieldWrapper}, > ${StyledField}, > ${StyledAutocompleteWrapper}, > ${StyledMultiselectWrapper}, > ${StyledIconPickerWrapper}, > ${StyledTimePickerWrapper}, > ${StyledYearMonthSelector} {
 		${StyledFieldLabel}, ${StyledFieldMessageWrapper}, ${StyledFieldInput}, ${StyledFieldSelectControl}, ${StyledTextOutputContent} {
 			font-weight: ${val};
 		}
 	}
 
 	// 1st/2nd level Section
-	&.${baseFormClassName}__multicolumnsection,
-		&.${baseFormClassName}__controlgrid,
-		&.${baseFormClassName}__repeat,
-		&.${baseFormClassName}__section {
+	&.${baseFormClassName}__multicolumnsection, &.${baseFormClassName}__controlgrid, &.${baseFormClassName}__repeat, &.${baseFormClassName}__section {
 		> .${baseFormClassName}__sectionTitle, > .${baseFormClassName}__section > .${baseFormClassName}__sectionTitle {
 			font-weight: ${val};
 		}

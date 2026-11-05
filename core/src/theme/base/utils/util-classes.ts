@@ -74,7 +74,7 @@ import { width } from "./width.js";
 export const utilClasses = css`
 	${backgroundAttachment}
 	${backgroundColor}
-  	${backgroundPosition}
+	${backgroundPosition}
 	${backgroundRepeat}
 	${backgroundSize}
 	${borderColor}

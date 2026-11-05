@@ -1,0 +1,64 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ModalOverlayStories from "./ModalOverlay.stories";
+
+<Meta of={ModalOverlayStories} />
+
+<Title />
+
+The `ModalOverlay` widget displays content in a dialog on top of the current page, blocking
+interaction with everything behind it. Use it for confirmations, focused forms or any task that
+requires the user's full attention before continuing.
+
+- Closing is controlled by the consumer: render the modal conditionally and pass `onClose`; enable
+  `closeOnEsc` and/or `closeOnOutsideClick` to let users dismiss it.
+- Focus is managed automatically — the modal is focused on open (`focusOnOpen`) and focus returns
+  to the trigger element on close (`focusBack`).
+- Size it with `maxWidth` (pixels or a string like `"70%"`), make it `fullscreen`, or constrain it
+  to its parent with `fitToParent`.
+- Avoid `closeOnOutsideClick` when the modal contains other portals (e.g. `Select`, `DatePicker`),
+  as clicks inside them count as outside clicks.
+
+## Playground
+
+Use the controls below to explore all props interactively. Stories only render a trigger button —
+click it to open the modal.
+
+<Primary />
+
+<Controls of={ModalOverlayStories.Playground} />
+
+## Examples
+
+### Maximum width
+
+<Canvas of={ModalOverlayStories.WithMaxWidth} />
+
+### Fullscreen
+
+<Canvas of={ModalOverlayStories.Fullscreen} />
+
+### No gutter
+
+<Canvas of={ModalOverlayStories.NoGutter} />
+
+### Confirmation dialog
+
+<Canvas of={ModalOverlayStories.ConfirmationDialog} />
+
+### Form modal
+
+<Canvas of={ModalOverlayStories.FormModal} />

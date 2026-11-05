@@ -29,30 +29,30 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > Should have the gr
   max-width: unset;
 }
 
-.c25 .c10 {
-  font-size: 1.25rem;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
+  color: inherit;
+}
+
+.c18 .c10 {
+  user-select: none;
+}
+
+.c18 .c10 {
+  color: inherit;
+}
+
+.c18 .c10 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c10 {
+  display: block;
 }
 
 .c16 {
   color: rgb(127, 140, 155);
   user-select: none;
   cursor: pointer;
-}
-
-.c36 .c10 {
-  user-select: none;
-}
-
-.c36 .c10 {
-  color: inherit;
-}
-
-.c36 .c10 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c36.c36 > .c10 {
-  display: block;
 }
 
 .c9 {
@@ -91,7 +91,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > Should have the gr
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -120,7 +120,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > Should have the gr
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -156,11 +156,6 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > Should have the gr
   width: 100%;
 }
 
-.c17[class*="h_"] .c6 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c3 {
   display: inline-flex;
 }
@@ -181,76 +176,15 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > Should have the gr
   width: 0px;
 }
 
-.c26 .c10 {
-  font-size: 1.125rem;
-}
-
-.c27 .c10 {
+.c19 .c10 {
   color: inherit;
 }
 
-.c28 .c10 {
+.c20 .c10 {
   color: inherit;
 }
 
-.c29 .c10 {
-  color: inherit;
-}
-
-.c30 .c10 {
-  color: inherit;
-}
-
-.c31 .c10 {
-  color: inherit;
-}
-
-.c32 .c10 {
-  color: inherit;
-}
-
-.c33 .c10 {
-  color: inherit;
-}
-
-.c34 .c10 {
-  color: inherit;
-}
-
-.c35 .c10 {
-  color: inherit;
-}
-
-.c4[class*="h_"] .c24.c24 {
-  background-color: inherit !important;
-}
-
-.c18 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c19 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c20 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c21 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c22 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c23 .c8 > .c10 {
+.c17 .c8 > .c10 {
   color: inherit;
   cursor: default;
 }
@@ -296,6 +230,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > Should have the gr
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               vertical_align_top
             </span>
@@ -324,6 +260,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > Should have the gr
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               expand_more
             </span>
@@ -364,30 +302,30 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty
   max-width: unset;
 }
 
-.c25 .c10 {
-  font-size: 1.25rem;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
+  color: inherit;
+}
+
+.c18 .c10 {
+  user-select: none;
+}
+
+.c18 .c10 {
+  color: inherit;
+}
+
+.c18 .c10 {
+  font-size: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c18.c18 > .c10 {
+  display: block;
 }
 
 .c16 {
   color: rgb(127, 140, 155);
   user-select: none;
   cursor: pointer;
-}
-
-.c37 .c10 {
-  user-select: none;
-}
-
-.c37 .c10 {
-  color: inherit;
-}
-
-.c37 .c10 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c37.c37 > .c10 {
-  display: block;
 }
 
 .c9 {
@@ -426,7 +364,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -455,7 +393,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -491,11 +429,6 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty
   width: 100%;
 }
 
-.c17[class*="h_"] .c6 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c3 {
   display: inline-flex;
 }
@@ -516,94 +449,15 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty
   width: 0px;
 }
 
-.c26 .c10 {
-  font-size: 1.125rem;
-}
-
-.c27 .c10 {
+.c19 .c10 {
   color: inherit;
 }
 
-.c28 .c10 {
+.c20 .c10 {
   color: inherit;
 }
 
-.c29 .c10 {
-  color: inherit;
-}
-
-.c30 .c10 {
-  color: inherit;
-}
-
-.c31 .c10 {
-  color: inherit;
-}
-
-.c32 .c10 {
-  color: inherit;
-}
-
-.c33 .c10 {
-  color: inherit;
-}
-
-.c34 .c10 {
-  color: inherit;
-}
-
-.c35 .c10 {
-  color: inherit;
-}
-
-.c36 .c10 {
-  color: inherit;
-}
-
-.c4[class*="h_"] .c24.c24 {
-  background-color: inherit !important;
-}
-
-.c18 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c19 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c20 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c21 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c22 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c23 .c8 > .c10 {
-  color: inherit;
-  cursor: default;
-}
-
-.c38 .c13 {
-  pointer-events: none;
-}
-
-.c38 .c6:focus {
-  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c38 .c6 .c8 > .c10 {
+.c17 .c8 > .c10 {
   color: inherit;
   cursor: default;
 }
@@ -651,6 +505,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               block
             </span>
@@ -679,6 +535,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > Mobile > should apply empty
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               expand_more
             </span>
@@ -724,7 +582,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render base custo
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -761,7 +619,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render base custo
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -877,7 +735,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render disabled s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -920,7 +778,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render disabled s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1043,6 +901,10 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render error sele
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5.c5 {
   color: rgb(201, 29, 29);
 }
@@ -1084,7 +946,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render error sele
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1121,7 +983,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render error sele
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1203,6 +1065,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render error sele
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           
         </span>
@@ -1233,6 +1097,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render error sele
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-invalid="true"
         class="c10 field__selectTitle field__selectTitle--error"
         data-role="select-input"
         role="combobox"
@@ -1295,6 +1160,10 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render info selec
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5.c5 {
   color: rgb(5, 104, 174);
 }
@@ -1336,7 +1205,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render info selec
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1373,7 +1242,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render info selec
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1455,6 +1324,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render info selec
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
@@ -1512,7 +1383,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render readonly s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1552,7 +1423,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render readonly s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1654,7 +1525,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1691,7 +1562,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1844,7 +1715,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1881,7 +1752,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1982,19 +1853,19 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
 `;
 
 exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select with options group 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2011,31 +1882,27 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c6.c6 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2045,11 +1912,11 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -2058,13 +1925,13 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   position: relative;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c5::after {
+.c4::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -2087,42 +1954,42 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 <div
-  class="c0 c1 field field--block"
+  class="c0 field field--block"
   data-role="select"
 >
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="select-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-role="select-wrapper"
     >
       <input
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="select-input"
         role="combobox"
         value=""
       />
       <span
         aria-hidden="true"
-        class="c5 field__select-arrow"
+        class="c4 field__select-arrow"
       />
     </div>
   </div>
@@ -2130,19 +1997,19 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
 `;
 
 exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select with tooltip 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2159,31 +2026,27 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c6.c6 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2193,11 +2056,11 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -2206,13 +2069,13 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   position: relative;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c5::after {
+.c4::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -2235,42 +2098,42 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 <div
-  class="c0 c1 field field--tooltips field--tooltips-1 field--block"
+  class="c0 field field--tooltips field--tooltips-1 field--block"
   data-role="select"
 >
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="select-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-role="select-wrapper"
     >
       <input
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="select-input"
         role="combobox"
         value=""
       />
       <span
         aria-hidden="true"
-        class="c5 field__select-arrow"
+        class="c4 field__select-arrow"
       />
     </div>
     <div
@@ -2283,19 +2146,19 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
 `;
 
 exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select with tooltip in new line 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2312,31 +2175,27 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c6.c6 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2346,11 +2205,11 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -2359,13 +2218,13 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
   position: relative;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c5::after {
+.c4::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -2388,20 +2247,20 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 <div
-  class="c0 c1 field field--block"
+  class="c0 field field--block"
   data-role="select"
 >
   <div
@@ -2410,25 +2269,25 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render select wit
     Test tooltip
   </div>
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="select-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-role="select-wrapper"
     >
       <input
         aria-autocomplete="list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="select-input"
         role="combobox"
         value=""
       />
       <span
         aria-hidden="true"
-        class="c5 field__select-arrow"
+        class="c4 field__select-arrow"
       />
     </div>
   </div>
@@ -2483,6 +2342,10 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render warning se
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5.c5 {
   color: rgb(175, 121, 2);
 }
@@ -2524,7 +2387,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render warning se
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2561,7 +2424,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render warning se
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2643,6 +2506,8 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > render warning se
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           warning
         </span>
@@ -2694,7 +2559,7 @@ exports[`com.mgmtp.a12.widgets.input.custom.select > desktop > should render and
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   font-size: inherit;

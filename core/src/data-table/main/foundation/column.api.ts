@@ -30,6 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+/*
+ * Deliberate fork of `core/src/table/main/column.api.ts` — see `./README.md`.
+ * Near-verbatim copy; kept mutually assignable by
+ * `__tests__/foundation.fork-drift.test.ts`. Divergence is allowed, but update
+ * that guard in the same commit.
+ */
+
 import type { ReactNode } from "react";
 
 import type { HTMLAttributes } from "../../../common/main/base-props.js";
@@ -125,6 +132,12 @@ export interface BaseColumnType<RowType = unknown> extends HTMLAttributes {
 	 * The width scale of the column.
 	 * @default 1.0
 	 *
+	 * Without {@link fixedWidth} the value is a share of the table width, with `width × 150`
+	 * pixels as the column's floor. The floor is the whole cell, padding included, so a very
+	 * small scale leaves no room for content: at `0.2` the 30px cell is all padding and a
+	 * checkbox inside it is clipped away. For an icon-only or checkbox column, leave `width`
+	 * unset and mark it {@link actionColumn} so it auto-sizes to its content instead.
+	 *
 	 * *Note:* This prop has no effect when the column contains {@link subColumns}.
 	 */
 	width?: Column.Width;
@@ -145,6 +158,9 @@ export interface BaseColumnType<RowType = unknown> extends HTMLAttributes {
 	/**
 	 * Indicates that a column is holding action buttons.
 	 * If this is set to true, the width will be automatically calculated unless a {@link width} is defined.
+	 *
+	 * On the experimental `DataTable`/`DataTreeTable`, this content-fit auto-sizing can be turned
+	 * off globally via the `actionColumnAutoSize` prop.
 	 */
 	actionColumn?: boolean;
 

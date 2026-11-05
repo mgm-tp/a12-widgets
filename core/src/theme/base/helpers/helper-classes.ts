@@ -50,16 +50,16 @@ import { wordBreakHelper } from "./word_break.js";
 export const helperClasses = css`
 	${backgroundColorHelper}
 	${displayHelper}
-    ${floatHelper}
-    ${fontColorHelper}
-    ${fontSizeHelper}
-    ${fontStyleHelper}
-    ${fontWeightHelper}
-    ${lineHeightHelper}
-    ${marginHelper}
-    ${paddingHelper}
-    ${textAlignHelper}
-    ${textTransformHelper}
-    ${verticalAlignHelper}
-    ${wordBreakHelper}
+	${floatHelper}
+	${fontColorHelper}
+	${fontSizeHelper}
+	${fontStyleHelper}
+	${fontWeightHelper}
+	${lineHeightHelper}
+	${marginHelper}
+	${paddingHelper}
+	${textAlignHelper}
+	${textTransformHelper}
+	${verticalAlignHelper}
+	${wordBreakHelper}
 `;

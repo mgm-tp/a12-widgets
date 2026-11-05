@@ -1,0 +1,51 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ButtonGroupStories from "./ButtonGroup.stories";
+
+<Meta of={ButtonGroupStories} />
+
+<Title />
+
+The `ButtonGroup` widget is a specialized layout container that wraps multiple buttons and
+positions them together with consistent spacing. Use it wherever related actions appear side by
+side, such as form footers or toolbars.
+
+- Use `alignment` (`left` or `right`) to float the group inside a surrounding `Clearfix`;
+  right-aligned groups should come after left-aligned ones in the DOM so the tab order matches
+  the visual order.
+- Use `vertical` to stack the buttons in a column instead of a row.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ButtonGroupStories.Playground} />
+
+## Examples
+
+### Alignment
+
+<Canvas of={ButtonGroupStories.Alignment} />
+
+### Vertical
+
+<Canvas of={ButtonGroupStories.Vertical} />
+
+### Interaction hints
+
+<Canvas of={ButtonGroupStories.WithInteractionHint} />

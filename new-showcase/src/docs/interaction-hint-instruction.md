@@ -26,7 +26,8 @@ function App() {
 }
 ```
 
-By default the provider also exposes `followCursor` and `hideArrow` global options (both default to `false`).
+By default the provider also exposes `followCursor` and `hideArrow` global options (both default to `false`), plus
+`showDelay`, the delay in milliseconds before a hint appears on hover (defaults to `500`).
 
 ---
 
@@ -38,6 +39,7 @@ Each key may be either a boolean shorthand (enabled/disabled) or a detailed conf
 - `enabled?: boolean`
 - `followCursor?: boolean`
 - `hideArrow?: boolean`
+- `showDelay?: number`
 - `position?: "left" | "right"` (only used for vertical/list-based components)
 
 Example:

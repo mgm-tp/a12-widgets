@@ -31,12 +31,12 @@
  */
 
 import type { CSSProperties, Key, ReactElement, ReactNode, RefObject } from "react";
-import { useEffect, useRef, useState } from "react";
 
-import type { TableScrollToNodeHandler } from "./foundation/table-renderer.api.js";
 import type { DataTableInfiniteScrollOptions } from "./data-table-infinite-scroll.api.js";
+import { useDataTableInfiniteLoader } from "./data-table.use-infinite-loader.js";
 import { useDataTableVirtualizer } from "./data-table.use-virtualizer.js";
 import { DataTableWindowedTbody } from "./data-table.windowed-tbody.view.js";
+import type { TableScrollToNodeHandler } from "./foundation/table-renderer.api.js";
 
 export interface DataTableInfiniteScrollSlot {
 	index: number;
@@ -71,15 +71,11 @@ export interface DataTableInfiniteScrollBodyProps {
 /**
  * Infinite-scroll `<tbody>` implementation.
  *
- * Shares the {@link useDataTableVirtualizer} engine with {@link DataTableVirtualizedBody} and
- * adds incremental loading: an effect keyed on the rendered range detects unloaded rows
- * entering (or approaching, within {@link DataTableInfiniteScrollOptions#threshold}) the
- * viewport and calls {@link DataTableInfiniteScrollOptions#loadData} to fetch a batch of at
- * least {@link DataTableInfiniteScrollOptions#minimumBatchSize} rows. Rows whose
- * {@link DataTableInfiniteScrollOptions#rowLoadingStatus} is not `"loaded"` render via the
- * consumer's placeholder callback. (`@tanstack/react-virtual` has no built-in
- * `InfiniteLoader`, so range detection, batching and in-flight de-duplication are
- * implemented here.)
+ * Shares the {@link useDataTableVirtualizer} windowing engine with
+ * {@link DataTableVirtualizedBody} and the {@link useDataTableInfiniteLoader} loading
+ * engine with the card layout's infinite-scroll body, contributing only the `<tbody>`
+ * scaffold. Rows whose {@link DataTableInfiniteScrollOptions#rowLoadingStatus} is not
+ * `"loaded"` render via the consumer's placeholder callback.
  *
  * @internal
  */
@@ -105,90 +101,15 @@ export function DataTableInfiniteScrollBody(props: DataTableInfiniteScrollBodyPr
 		virtualizerRef
 	});
 
-	// Ranges already requested via `loadData`, keyed `start:stop`. A key is added before
-	// the call and kept after the promise settles (it is NOT removed on completion):
-	// once a range's rows load, its key can never be recomputed, and keeping the key for
-	// a request that failed (or resolved without updating statuses) prevents the same
-	// batch from being re-requested in a storm. Retry semantics: a failed range is
-	// retried only when scrolling produces a *different* batch key or the dataset is
-	// replaced (`rowCount` change clears the cache).
-	const requestedRanges = useRef<Set<string>>(new Set());
-
-	// Bumped when a `loadData` promise settles, to re-scan the visible window once.
-	// Needed because the load effect intentionally does not depend on the consumer's
-	// `rowLoadingStatus` callback identity: if a request loaded fewer rows than asked,
-	// the leftover unloaded rows would otherwise wait for the next scroll.
-	const [loadEpoch, setLoadEpoch] = useState(0);
-
-	// Latest-ref pattern: consumers typically pass inline lambdas, so keeping these out
-	// of the load effect's deps stops every parent render from re-running the scan. The
-	// sync effect is declared *before* the load effect so the refs are current when it
-	// reads them (effects run in declaration order).
-	const loadDataRef = useRef(loadData);
-	const rowLoadingStatusRef = useRef(rowLoadingStatus);
-
-	useEffect(() => {
-		loadDataRef.current = loadData;
-		rowLoadingStatusRef.current = rowLoadingStatus;
+	useDataTableInfiniteLoader({
+		rowCount,
+		rowLoadingStatus,
+		loadData,
+		threshold,
+		minimumBatchSize,
+		firstVisible: virtualItems[0]?.index ?? 0,
+		lastVisible: virtualItems[virtualItems.length - 1]?.index ?? 0
 	});
-
-	const firstVisible = virtualItems[0]?.index ?? 0;
-	const lastVisible = virtualItems[virtualItems.length - 1]?.index ?? 0;
-
-	// Drop the request cache when the dataset is replaced.
-	useEffect(() => {
-		requestedRanges.current.clear();
-	}, [rowCount]);
-
-	useEffect(() => {
-		if (rowCount === 0) {
-			return;
-		}
-
-		const statusOf = rowLoadingStatusRef.current;
-
-		// Scan the rendered window plus `threshold` rows ahead for the first unloaded row.
-		const scanStart = firstVisible;
-		const scanEnd = Math.min(rowCount - 1, lastVisible + threshold);
-
-		let firstUnloaded = -1;
-		let lastUnloaded = -1;
-
-		for (let i = scanStart; i <= scanEnd; i++) {
-			if (statusOf(i) === undefined) {
-				if (firstUnloaded === -1) {
-					firstUnloaded = i;
-				}
-
-				lastUnloaded = i;
-			}
-		}
-
-		if (firstUnloaded === -1) {
-			return;
-		}
-
-		// Expand to at least `minimumBatchSize`, clamped to the dataset.
-		let startIndex = firstUnloaded;
-		const stopIndex = Math.min(rowCount - 1, Math.max(lastUnloaded, firstUnloaded + minimumBatchSize - 1));
-
-		// Back-fill toward the start only across still-unloaded rows, so a small leading
-		// sliver is batched without re-requesting already-loaded rows.
-		while (startIndex > 0 && stopIndex - startIndex + 1 < minimumBatchSize && statusOf(startIndex - 1) === undefined) {
-			startIndex--;
-		}
-
-		const key = `${startIndex}:${stopIndex}`;
-
-		if (requestedRanges.current.has(key)) {
-			return;
-		}
-
-		requestedRanges.current.add(key);
-		void loadDataRef.current({ startIndex, stopIndex }).finally(() => {
-			setLoadEpoch((epoch) => epoch + 1);
-		});
-	}, [firstVisible, lastVisible, rowCount, threshold, minimumBatchSize, loadEpoch]);
 
 	return (
 		<DataTableWindowedTbody

@@ -30,46 +30,32 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { ReactElement } from "react";
 import { createContext, useCallback, useContext, useRef, useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
 import { styled } from "styled-components";
 
 import type { RowEventHandlerGetter } from "@com.mgmtp.a12.widgets/widgets-core";
-import type {
-	DataTableColumn,
-	DataTableCellStyleGetter,
-	DataTableRowStyleGetter,
-	DataTableSlotProps,
-	DataTableSlots,
-	DataTableScrollToNodeHandler
-} from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { Button, ButtonGroup, Icon, List } from "@com.mgmtp.a12.widgets/widgets-core";
+import type {
+	DataTableCellStyleGetter,
+	DataTableColumn,
+	DataTableProps,
+	DataTableRowStyleGetter,
+	DataTableScrollToNodeHandler,
+	DataTableSlotProps,
+	DataTableSlots
+} from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
-import type { Employee } from "../Table/table.data.js";
-import { BASIC_COLUMNS, EMPLOYEES } from "../Table/table.data.js";
+import type { Employee } from "./data-table.data.js";
+import { BASIC_COLUMNS, EMPLOYEES, EMPLOYEE_COLUMNS, makeEmployees } from "./data-table.data.js";
+import { useRowSelection } from "./data-table.helpers.js";
 
-const STATUS_COLUMNS: DataTableColumn<Employee>[] = [
-	...BASIC_COLUMNS,
-	{ label: "Status", dataKey: "status", width: 1, verticalAlignment: "middle" }
-];
+const employeeKey = (row: Employee) => row.id;
 
 function RowSelectionDemo() {
-	const [selected, setSelected] = useState<Employee | undefined>();
-
-	const rowEventHandlers: RowEventHandlerGetter<Employee> = useCallback(
-		({ row }) => ({ onClick: () => setSelected((prev) => (prev === row ? undefined : row)) }),
-		[]
-	);
-
-	const rowStyling: DataTableRowStyleGetter<Employee> = useCallback(
-		({ row }) => ({
-			selected: selected === row,
-			title: selected === row ? "Selected" : "Selectable"
-		}),
-		[selected]
-	);
+	const { rowEventHandlers, rowStyling } = useRowSelection(employeeKey);
 
 	return (
 		<DataTable<Employee>
@@ -84,33 +70,7 @@ function RowSelectionDemo() {
 }
 
 function MultiSelectionDemo() {
-	const [selected, setSelected] = useState<Set<number>>(new Set());
-
-	const rowEventHandlers: RowEventHandlerGetter<Employee> = useCallback(
-		({ row }) => ({
-			onClick: () =>
-				setSelected((prev) => {
-					const next = new Set(prev);
-
-					if (next.has(row.id)) {
-						next.delete(row.id);
-					} else {
-						next.add(row.id);
-					}
-
-					return next;
-				})
-		}),
-		[]
-	);
-
-	const rowStyling: DataTableRowStyleGetter<Employee> = useCallback(
-		({ row }) => ({
-			selected: selected.has(row.id),
-			title: selected.has(row.id) ? "Selected" : "Selectable"
-		}),
-		[selected]
-	);
+	const { rowEventHandlers, rowStyling } = useRowSelection(employeeKey, { multi: true });
 
 	return (
 		<DataTable<Employee>
@@ -124,68 +84,34 @@ function MultiSelectionDemo() {
 	);
 }
 
-function RowStylingDemo() {
-	const rowStyling: DataTableRowStyleGetter<Employee> = useCallback(({ row, rowIndex }) => {
-		if (rowIndex === 2) {
-			return { disabled: true, title: "Disabled — on leave" };
-		}
+const ROW_STYLING: DataTableRowStyleGetter<Employee> = ({ row, rowIndex }) => {
+	if (rowIndex === 2) {
+		return { disabled: true, title: "Disabled — on leave" };
+	}
 
-		if (row.status === "On Leave") {
-			return { highlighted: true, highlightVariant: "info", title: "On leave" };
-		}
+	if (row.status === "On Leave") {
+		return { highlighted: true, highlightVariant: "info", title: "On leave" };
+	}
 
-		if (rowIndex === 0) {
-			return { interactive: true, title: "Click me" };
-		}
+	if (rowIndex === 0) {
+		return { interactive: true, title: "Click me" };
+	}
 
-		return {};
-	}, []);
+	return {};
+};
 
-	const rowEventHandlers: RowEventHandlerGetter<Employee> = useCallback(
-		({ rowIndex }) => (rowIndex === 0 ? { onClick: () => undefined } : {}),
-		[]
-	);
+const ROW_EVENT_HANDLERS: RowEventHandlerGetter<Employee> = ({ rowIndex }) =>
+	rowIndex === 0 ? { onClick: () => undefined } : {};
 
-	return (
-		<DataTable<Employee>
-			ariaLabel="Row styling variants"
-			data={EMPLOYEES}
-			columns={STATUS_COLUMNS}
-			rowKey="id"
-			rowStyling={rowStyling}
-			rowEventHandlers={rowEventHandlers}
-		/>
-	);
-}
+const CELL_STYLING: DataTableCellStyleGetter<Employee, DataTableColumn<Employee>> = ({ row, column }) => {
+	if (column.dataKey === "status" && row.status === "On Leave") {
+		return { useSecondaryColor: true, secondaryCellTitle: "Currently unavailable" };
+	}
 
-function CellStylingDemo() {
-	const cellStyling: DataTableCellStyleGetter<Employee, DataTableColumn<Employee>> = useCallback(({ row, column }) => {
-		if (column.dataKey === "status" && row.status === "On Leave") {
-			return { useSecondaryColor: true, secondaryCellTitle: "Currently unavailable" };
-		}
+	return {};
+};
 
-		return {};
-	}, []);
-
-	return (
-		<DataTable<Employee>
-			ariaLabel="Cell styling variants"
-			data={EMPLOYEES}
-			columns={STATUS_COLUMNS}
-			rowKey="id"
-			cellStyling={cellStyling}
-		/>
-	);
-}
-
-const SCROLL_ROWS: Employee[] = Array.from({ length: 50 }, (_, i) => ({
-	id: i + 1,
-	firstName: `First${i + 1}`,
-	lastName: `Last${i + 1}`,
-	department: ["Engineering", "Sales", "Marketing", "Finance"][i % 4],
-	role: ["Engineer", "Manager", "Designer", "Analyst"][i % 4],
-	status: i % 3 === 0 ? "On Leave" : "Active"
-}));
+const SCROLL_ROWS = makeEmployees(50);
 
 const StyledScrollContainer = styled.div`
 	display: flex;
@@ -195,24 +121,11 @@ const StyledScrollContainer = styled.div`
 
 function ScrollToNodeDemo() {
 	const scrollHandlerRef = useRef<DataTableScrollToNodeHandler | undefined>(undefined);
-	const [selected, setSelected] = useState<Employee | undefined>();
+	const { rowEventHandlers, rowStyling } = useRowSelection(employeeKey);
 
 	const scrollTo = useCallback((index: number) => {
 		scrollHandlerRef.current?.(index, { autoFocus: true });
 	}, []);
-
-	const rowEventHandlers: RowEventHandlerGetter<Employee> = useCallback(
-		({ row }) => ({ onClick: () => setSelected((prev) => (prev === row ? undefined : row)) }),
-		[]
-	);
-
-	const rowStyling: DataTableRowStyleGetter<Employee> = useCallback(
-		({ row }) => ({
-			selected: selected === row,
-			title: selected === row ? "Selected" : "Selectable"
-		}),
-		[selected]
-	);
 
 	return (
 		<StyledScrollContainer>
@@ -247,33 +160,16 @@ const ContextMenuActionContext = createContext<(action: string) => void>(() => u
  */
 function EmployeeContextMenu({ row, rowIndex, closeHandler }: DataTableSlotProps.ContextMenu<Employee>): ReactElement {
 	const setLastAction = useContext(ContextMenuActionContext);
+	const report = (action: string) => () => {
+		setLastAction(`${action} ${row.firstName} ${row.lastName} (row ${rowIndex + 1})`);
+		closeHandler();
+	};
 
 	return (
 		<List border paddedRight>
-			<List.Item
-				text="View"
-				graphic={<Icon>visibility</Icon>}
-				onClick={() => {
-					setLastAction(`View ${row.firstName} ${row.lastName} (row ${rowIndex + 1})`);
-					closeHandler();
-				}}
-			/>
-			<List.Item
-				text="Edit"
-				graphic={<Icon>edit</Icon>}
-				onClick={() => {
-					setLastAction(`Edit ${row.firstName} ${row.lastName} (row ${rowIndex + 1})`);
-					closeHandler();
-				}}
-			/>
-			<List.Item
-				text="Delete"
-				graphic={<Icon>delete</Icon>}
-				onClick={() => {
-					setLastAction(`Delete ${row.firstName} ${row.lastName} (row ${rowIndex + 1})`);
-					closeHandler();
-				}}
-			/>
+			<List.Item text="View" graphic={<Icon>visibility</Icon>} onClick={report("View")} />
+			<List.Item text="Edit" graphic={<Icon>edit</Icon>} onClick={report("Edit")} />
+			<List.Item text="Delete" graphic={<Icon>delete</Icon>} onClick={report("Delete")} />
 		</List>
 	);
 }
@@ -301,9 +197,9 @@ function ContextMenuDemo() {
 	);
 }
 
-const meta: Meta<typeof RowSelectionDemo> = {
+const meta: Meta<typeof DataTable<Employee>> = {
 	title: "Data Display/DataTable/Interactions",
-	component: RowSelectionDemo,
+	component: DataTable,
 	parameters: { layout: "padded" },
 	tags: ["autodocs"]
 };
@@ -311,14 +207,38 @@ const meta: Meta<typeof RowSelectionDemo> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const BASE_ARGS: DataTableProps<Employee> = {
+	ariaLabel: "Employees",
+	data: EMPLOYEES,
+	columns: BASIC_COLUMNS,
+	rowKey: "id"
+};
+
+const STATEFUL_DEMO = { controls: { disable: true } };
+
 export const RowSelection: Story = {
-	name: "Row Selection",
 	render: () => <RowSelectionDemo />,
 	parameters: {
+		...STATEFUL_DEMO,
 		docs: {
+			source: {
+				language: "tsx",
+				code: `const [selected, setSelected] = useState<number>();
+
+<DataTable<Employee>
+	ariaLabel="Selectable employees"
+	data={employees}
+	columns={columns}
+	rowKey="id"
+	rowEventHandlers={({ row }) => ({
+		onClick: () => setSelected((prev) => (prev === row.id ? undefined : row.id))
+	})}
+	rowStyling={({ row }) => ({ selected: row.id === selected })}
+/>`
+			},
 			description: {
 				story:
-					"Combine `rowEventHandlers` (to capture clicks) with `rowStyling` (to mark the active row as `selected`). Clicking the same row again toggles selection off."
+					"Selection is consumer state: combine `rowEventHandlers` (to capture clicks) with `rowStyling` (to mark the active row as `selected`). Clicking the same row again toggles selection off."
 			}
 		}
 	}
@@ -328,10 +248,37 @@ export const MultiSelection: Story = {
 	name: "Multi-row Selection",
 	render: () => <MultiSelectionDemo />,
 	parameters: {
+		...STATEFUL_DEMO,
 		docs: {
+			source: {
+				language: "tsx",
+				code: `const [selected, setSelected] = useState<Set<number>>(() => new Set());
+
+const toggle = (id: number) =>
+	setSelected((prev) => {
+		const next = new Set(prev);
+
+		if (next.has(id)) {
+			next.delete(id);
+		} else {
+			next.add(id);
+		}
+
+		return next;
+	});
+
+<DataTable<Employee>
+	ariaLabel="Multi-selectable employees"
+	data={employees}
+	columns={columns}
+	rowKey="id"
+	rowEventHandlers={({ row }) => ({ onClick: () => toggle(row.id) })}
+	rowStyling={({ row }) => ({ selected: selected.has(row.id) })}
+/>`
+			},
 			description: {
 				story:
-					"Track selection in a `Set` of row ids instead of a single row. `rowEventHandlers` toggles the clicked row's id, and `rowStyling` returns `selected: set.has(row.id)` so any number of rows can be marked at once."
+					"Track a `Set` of row ids instead of a single row. `rowEventHandlers` toggles the clicked row's id, and `rowStyling` returns `selected: set.has(row.id)` so any number of rows can be marked at once."
 			}
 		}
 	}
@@ -339,9 +286,42 @@ export const MultiSelection: Story = {
 
 export const RowStyling: Story = {
 	name: "Row Styling Variants",
-	render: () => <RowStylingDemo />,
+	args: {
+		...BASE_ARGS,
+		ariaLabel: "Row styling variants",
+		columns: EMPLOYEE_COLUMNS,
+		rowStyling: ROW_STYLING,
+		rowEventHandlers: ROW_EVENT_HANDLERS
+	},
 	parameters: {
 		docs: {
+			source: {
+				language: "tsx",
+				code: `const rowStyling: DataTableRowStyleGetter<Employee> = ({ row, rowIndex }) => {
+	if (rowIndex === 2) {
+		return { disabled: true, title: "Disabled — on leave" };
+	}
+
+	if (row.status === "On Leave") {
+		return { highlighted: true, highlightVariant: "info", title: "On leave" };
+	}
+
+	if (rowIndex === 0) {
+		return { interactive: true, title: "Click me" };
+	}
+
+	return {};
+};
+
+<DataTable<Employee>
+	ariaLabel="Row styling variants"
+	data={employees}
+	columns={columns}
+	rowKey="id"
+	rowStyling={rowStyling}
+	rowEventHandlers={({ rowIndex }) => (rowIndex === 0 ? { onClick: () => undefined } : {})}
+/>`
+			},
 			description: {
 				story:
 					"Return `{ interactive, disabled, highlighted, highlightVariant, selected }` from `rowStyling` to drive the row's visual variant. Row 1 is `interactive` (hover cursor), row 3 is `disabled`, and rows with `status === 'On Leave'` are `highlighted` with `info` variant."
@@ -351,10 +331,28 @@ export const RowStyling: Story = {
 };
 
 export const CellStyling: Story = {
-	name: "Cell Styling",
-	render: () => <CellStylingDemo />,
+	args: {
+		...BASE_ARGS,
+		ariaLabel: "Cell styling variants",
+		columns: EMPLOYEE_COLUMNS,
+		cellStyling: CELL_STYLING
+	},
 	parameters: {
 		docs: {
+			source: {
+				language: "tsx",
+				code: `<DataTable<Employee>
+	ariaLabel="Cell styling variants"
+	data={employees}
+	columns={columns}
+	rowKey="id"
+	cellStyling={({ row, column }) =>
+		column.dataKey === "status" && row.status === "On Leave"
+			? { useSecondaryColor: true, secondaryCellTitle: "Currently unavailable" }
+			: {}
+	}
+/>`
+			},
 			description: {
 				story:
 					"`cellStyling` runs per cell. Return `{ useSecondaryColor: true }` to render the de-emphasized secondary background — here, status cells reading `On Leave` are dimmed."
@@ -364,23 +362,68 @@ export const CellStyling: Story = {
 };
 
 export const ScrollToNode: Story = {
-	name: "Scroll To Node",
 	render: () => <ScrollToNodeDemo />,
 	parameters: {
+		...STATEFUL_DEMO,
 		docs: {
+			source: {
+				language: "tsx",
+				code: `const scrollHandlerRef = useRef<DataTableScrollToNodeHandler>(undefined);
+
+<Button onClick={() => scrollHandlerRef.current?.(24, { autoFocus: true })}>Row 25</Button>
+
+<DataTable<Employee>
+	ariaLabel="Scroll-to-node employee table"
+	data={employees}
+	columns={columns}
+	rowKey="id"
+	maxHeight={400}
+	scrollToNode={(handler) => {
+		scrollHandlerRef.current = handler;
+	}}
+/>`
+			},
 			description: {
 				story:
-					"The `scrollToNode` prop exposes a handler via callback. Store it in a ref and call `handler(index, { autoFocus: true })` to scroll the row into view and optionally focus it."
+					"The `scrollToNode` prop exposes a handler via callback. Store it in a ref and call `handler(index, { autoFocus: true })` to scroll the row into view and optionally focus it. Works in every mode, virtualized or not."
 			}
 		}
 	}
 };
 
 export const ContextMenu: Story = {
-	name: "Context Menu",
 	render: () => <ContextMenuDemo />,
 	parameters: {
+		...STATEFUL_DEMO,
 		docs: {
+			source: {
+				language: "tsx",
+				code: `function EmployeeContextMenu({ row, closeHandler }: DataTableSlotProps.ContextMenu<Employee>) {
+	const act = (action: string) => () => {
+		onAction(action, row);
+		closeHandler();
+	};
+
+	return (
+		<List border paddedRight>
+			<List.Item text="View" graphic={<Icon>visibility</Icon>} onClick={act("View")} />
+			<List.Item text="Edit" graphic={<Icon>edit</Icon>} onClick={act("Edit")} />
+			<List.Item text="Delete" graphic={<Icon>delete</Icon>} onClick={act("Delete")} />
+		</List>
+	);
+}
+
+// Declare slots at module scope so their identity stays stable across renders.
+const SLOTS: DataTableSlots<Employee> = { contextMenu: EmployeeContextMenu };
+
+<DataTable<Employee>
+	ariaLabel="Employees with context menu"
+	data={employees}
+	columns={columns}
+	rowKey="id"
+	slots={SLOTS}
+/>`
+			},
 			description: {
 				story:
 					"Provide the `contextMenu` slot to open a popover at the cursor when a body row is right-clicked. The slot component receives `{ row, rowIndex, closeHandler }` — call `closeHandler()` after handling an action to dismiss the menu."

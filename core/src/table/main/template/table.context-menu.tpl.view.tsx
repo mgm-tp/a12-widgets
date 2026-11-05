@@ -35,11 +35,11 @@ import { useState, useCallback } from "react";
 import { Key } from "ts-key-enum";
 
 import { AttachedPortal } from "../../../attached-portal/main/attached-portal.view.js";
-import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import type { Orientation } from "../../../common/main/alignment.js";
+import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 
-import type { TableTemplateProps } from "./table.tpl.api.js";
 import { StyledContextMenuDialog } from "./table.styled.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 
 export function ContextMenuTpl(
 	props: TableTemplateProps.ContextMenuProps | TableTemplateProps.HeadContextMenuProps

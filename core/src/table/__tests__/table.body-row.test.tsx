@@ -35,11 +35,10 @@ import { getByDataRole, render, fireEvent } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
 import { Range } from "../../common/main/utils.js";
-
-import type { TableTemplateProps } from "../main/template/table.tpl.api.js";
 import type { TableRenderPropsType } from "../main/table-renderer.api.js";
-import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
 import { BodyRow } from "../main/table.body-row.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import type { TableTemplateProps } from "../main/template/table.tpl.api.js";
 
 describe("com.mgmtp.a12.widgets.table.body-row", () => {
 	const COLUMN_COUNT = 4;

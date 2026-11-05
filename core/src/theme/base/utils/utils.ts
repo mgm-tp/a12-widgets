@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { css } from "styled-components";
 import { kebabCase } from "lodash-es";
+import { css } from "styled-components";
 
 import { GeneralColorsConfig } from "../colors.config.js";
 

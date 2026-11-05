@@ -30,16 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-// Barrel for the `@com.mgmtp.a12.widgets/widgets-core/experimental` entry point.
-//
-// `DataTable`/`DataTreeTable` and `TreeView` are recently introduced and depend
-// on `@atlaskit/pragmatic-drag-and-drop`, whose `exports` subpaths fail to
-// resolve as directory imports under Node ESM in some consumer environments
-// (`Directory import '.../element/adapter' is not supported`). Keeping them on
-// this separate entry ensures importing the package root never pulls
-// pragmatic-drag-and-drop into the module graph.
+// Barrel for the `@com.mgmtp.a12.widgets/widgets-core/experimental` entry point:
+// components that are not yet stable enough for the package root.
 //
 // Note: this is distinct from `src/experimental/` (Calendar, experimental
 // Input/Slider), which remain exported from the package root.
 export * from "./data-table/index.js";
+export * from "./markdown-editor/index.js";
 export * from "./tree-view/index.js";

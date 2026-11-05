@@ -38,7 +38,6 @@
 import type { ReactNode } from "react";
 
 import type { LinkProps } from "../../../link/main/link/link.api.js";
-
 import type { FileUploadProps } from "../file-upload.api.js";
 
 export interface DefaultFileUploadProps extends FileUploadProps {
@@ -110,12 +109,6 @@ export interface DefaultFileUploadProps extends FileUploadProps {
 	 * Specifies the title of the placeholder icon for better support Accessibility.
 	 */
 	placeholderIconTitle?: string;
-
-	/**
-	 * Whether the tooltips should be broken to a new line or not.
-	 * @default false
-	 */
-	breakTooltipsToNewLine?: boolean;
 
 	/**
 	 * A callback that will be invoked when the cancel button is clicked.

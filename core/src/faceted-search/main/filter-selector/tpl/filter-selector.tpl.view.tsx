@@ -33,16 +33,15 @@
 import type { ReactElement } from "react";
 import { useContext } from "react";
 
-import { TextField } from "../../../../input/text-field/main/template/text-field.tpl.view.js";
 import { Button } from "../../../../button/main/button.view.js";
-import { Icon } from "../../../../icon/main/icon.view.js";
-import { ContentBoxElements } from "../../../../contentbox/main/template/contentbox.tpl.view.js";
-import { joinClassNames, addPrefix } from "../../../../common/main/utils.js";
 import type { A11yDefinition } from "../../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../../common/main/a11y-localization/language-context.js";
-import { StyledContentBoxContext } from "../../../../contentbox/main/template/contentbox.context.js";
 import { DataRoles } from "../../../../common/main/data-roles.js";
-
+import { joinClassNames, addPrefix } from "../../../../common/main/utils.js";
+import { StyledContentBoxContext } from "../../../../contentbox/main/template/contentbox.context.js";
+import { ContentBoxElements } from "../../../../contentbox/main/template/contentbox.tpl.view.js";
+import { Icon } from "../../../../icon/main/icon.view.js";
+import { TextField } from "../../../../input/text-field/main/template/text-field.tpl.view.js";
 import {
 	StyledFilterSelectorWrapper,
 	StyledFilterSelectorBody,

@@ -99,6 +99,10 @@ exports[`com.mgmtp.a12.widgets.link > render a link with icon 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
+  color: inherit;
+}
+
 .c0 {
   background-position: -10000% bottom;
   background-repeat: no-repeat;
@@ -177,6 +181,8 @@ exports[`com.mgmtp.a12.widgets.link > render a link with icon 1`] = `
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       check_circle
     </span>
@@ -213,6 +219,10 @@ exports[`com.mgmtp.a12.widgets.link > render a mailto link 1`] = `
 
 .c2.c2 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
+  color: inherit;
 }
 
 .c0 {
@@ -293,6 +303,8 @@ exports[`com.mgmtp.a12.widgets.link > render a mailto link 1`] = `
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       email
     </span>
@@ -328,6 +340,10 @@ exports[`com.mgmtp.a12.widgets.link > render an external link 1`] = `
 
 .c2.c2 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
+  color: inherit;
 }
 
 .c0 {
@@ -410,6 +426,8 @@ exports[`com.mgmtp.a12.widgets.link > render an external link 1`] = `
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       open_in_new
     </span>

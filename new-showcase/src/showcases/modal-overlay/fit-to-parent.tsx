@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 import { useCallback, useRef, useState } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import {
 	ButtonGroup,

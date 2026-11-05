@@ -34,10 +34,9 @@ import { getAllByDataRole, render, screen } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
 import { DataRoles } from "../../common/main/data-roles.js";
-
 import { IconMappingContext } from "../main/icon-mapping-context.js";
-import { Icon } from "../main/icon.view.js";
 import type { IconMappingDefinition } from "../main/icon.api.js";
+import { Icon } from "../main/icon.view.js";
 
 describe("com.mgmtp.a12.widgets.icon", () => {
 	const iconName = "reply";
@@ -125,8 +124,8 @@ describe("com.mgmtp.a12.widgets.icon", () => {
 			</IconMappingContext>
 		);
 		const icons = getAllByDataRole(container, DataRoles.Icon);
-		expect(icons[0]).toHaveTextContent("report_problem");
-		expect(icons[1]).toHaveTextContent("help_center");
+		expect(icons[0]).toMatchTextContent("report_problem");
+		expect(icons[1]).toMatchTextContent("help_center");
 	});
 
 	/**

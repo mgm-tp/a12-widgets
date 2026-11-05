@@ -43,20 +43,20 @@ import {
 	CssEllipsis
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import type { ContentBoxWrapperProps } from "../../examples/master-detail/showcase-content-box-wrapper.api.js";
-import type { StringRow } from "../../examples/master-detail/master-view.js";
 import { TABLE_COLUMNS, ROWS_PER_PAGE, createTableData, updateOrAddFilter } from "../../contentbox/data.js";
+import type { StringRow } from "../../examples/master-detail/master-view.js";
+import type { ContentBoxWrapperProps } from "../../examples/master-detail/showcase-content-box-wrapper.api.js";
 
-import type { FilterData, FilterInFilterBarData } from "./filter/type.js";
 import {
 	PRESET_FILTER_DEFINITIONS,
 	ADDITIONAL_FILTER_DEFINITIONS,
 	createFiltersFromDefinitions,
 	normalizeFilterId
 } from "./filter/data.js";
-import { FilterPaneContent } from "./filter/filter-pane-content.js";
 import { FilterBarShowcase } from "./filter/filter-bar.js";
 import { FilterProvider, useFilterContext } from "./filter/filter-context.js";
+import { FilterPaneContent } from "./filter/filter-pane-content.js";
+import type { FilterData, FilterInFilterBarData } from "./filter/type.js";
 
 export const TABLE_DATA = createTableData();
 

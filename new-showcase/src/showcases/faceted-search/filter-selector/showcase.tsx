@@ -56,9 +56,9 @@ import {
 
 import type { Data, FilterInFilterBarData } from "./data.js";
 import { filterData, contentInContentBox } from "./data.js";
-import * as Utils from "./utils.js";
-import { FilterViewTemplate } from "./template.js";
 import { ShowcaseFilterSelector } from "./filter-selector.js";
+import { FilterViewTemplate } from "./template.js";
+import * as Utils from "./utils.js";
 
 export function FilterSelectorShowcase(): ReactElement {
 	const isMobile = provider.isPhone();

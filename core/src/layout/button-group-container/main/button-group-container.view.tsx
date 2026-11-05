@@ -32,9 +32,9 @@
 
 import type { ReactNode } from "react";
 
-import type { ButtonGroupContainerProps } from "./button-group-container.api.js";
-import { ButtonGroupContainerNew } from "./button-group-container-new.view.js";
 import { ButtonGroupContainerLegacy } from "./button-group-container-legacy.view.js";
+import { ButtonGroupContainerNew } from "./button-group-container-new.view.js";
+import type { ButtonGroupContainerProps } from "./button-group-container.api.js";
 
 /**
  * ButtonGroupContainer wrapper component that delegates to either the new or legacy implementation

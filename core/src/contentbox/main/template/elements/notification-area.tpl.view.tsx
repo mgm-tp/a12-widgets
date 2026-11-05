@@ -32,9 +32,8 @@
 
 import type { ReactElement } from "react";
 
-import { joinClassNames } from "../../../../common/main/utils.js";
 import { DataRoles } from "../../../../common/main/data-roles.js";
-
+import { joinClassNames } from "../../../../common/main/utils.js";
 import type { ContentBoxProps } from "../contentbox.tpl.api.js";
 
 import { BASE_CONTENTBOX_CLASS_NAME } from "./config.js";

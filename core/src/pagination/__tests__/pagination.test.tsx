@@ -34,7 +34,6 @@ import { getAllByDataRole, render, fireEvent } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
 import { noop } from "../../common/main/utils.js";
-
 import { Pagination } from "../main/pagination.view.js";
 
 describe("com.mgmtp.a12.widgets.pagination", () => {

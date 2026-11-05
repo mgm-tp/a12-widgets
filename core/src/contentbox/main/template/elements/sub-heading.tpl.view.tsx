@@ -31,29 +31,29 @@
  */
 
 import type { ReactElement, DetailedHTMLProps, HTMLAttributes } from "react";
-import { useContext, forwardRef } from "react";
+import { createContext, useContext, forwardRef } from "react";
 import { styled, css } from "styled-components";
 
-import { joinClassNames } from "../../../../common/main/utils.js";
+import { StyledBreadCrumbWrapper } from "../../../../breadcrumb/main/breadcrumb.styled.js";
+import { StyledButton } from "../../../../button/main/button.styled.js";
 import type { Container, Styleable } from "../../../../common/main/base-props.js";
+import { DataRoles } from "../../../../common/main/data-roles.js";
+import { joinClassNames } from "../../../../common/main/utils.js";
 import { StyledFilterBarWrapper } from "../../../../faceted-search/main/filter-bar/filter-bar.styled.js";
 import { StyledGrid, StyledGridRow } from "../../../../layout/layout-grid/main/layout-grid.styled.js";
-import { StyledButton } from "../../../../button/main/button.styled.js";
-import { StyledBreadCrumbWrapper } from "../../../../breadcrumb/main/breadcrumb.styled.js";
-import { DataRoles } from "../../../../common/main/data-roles.js";
-
+import { StyledContentBoxContext } from "../contentbox.context.js";
 import type { ContentBoxProps } from "../contentbox.tpl.api.js";
 import { StyledSubActionBarTpl } from "../sub-action-bar.tpl.view.js";
-import { StyledContentBoxContext } from "../contentbox.context.js";
 
 import { BASE_CONTENTBOX_CLASS_NAME } from "./config.js";
 
 export namespace SubHeadingElements {
 	const baseClassName = BASE_CONTENTBOX_CLASS_NAME;
 
-	export const StyledSubHeading = styled.div.withConfig({ displayName: "StyledSubHeading-sc-" })(({ theme }) => {
+	export const StyledSubHeading = styled.div.withConfig({ displayName: "StyledSubHeading-sc-" })<{
+		$embedded?: boolean;
+	}>(({ theme, $embedded: embedded }) => {
 		const { contentBox } = theme.components;
-		const { embedded } = useContext(StyledContentBoxContext);
 
 		return css`
 			display: flex;
@@ -71,22 +71,25 @@ export namespace SubHeadingElements {
 				padding: ${contentBox.subHeading.breadcrumbListPadding};
 			}
 
-			${embedded &&
-			css`
-				& > * {
-					background-color: inherit;
-					min-height: ${contentBox.embedded.subHeading.minHeight};
-					&:not(:empty):not(${StyledSubActionBarTpl}) {
-						border-bottom: none;
-						border-top: ${contentBox.embedded.subHeading.borderTop};
+			${
+				embedded &&
+				css`
+					& > * {
+						background-color: inherit;
+						min-height: ${contentBox.embedded.subHeading.minHeight};
+						&:not(:empty):not(${StyledSubActionBarTpl}) {
+							border-bottom: none;
+							border-top: ${contentBox.embedded.subHeading.borderTop};
+						}
 					}
-				}
-			`}
+				`
+			}
 		`;
 	});
 
 	export function SubHeading(props: ContentBoxProps.BaseProps): ReactElement<ContentBoxProps.BaseProps> {
 		const className = joinClassNames(`${baseClassName}__subheading`, props.className);
+		const { embedded } = useContext(StyledContentBoxContext);
 
 		return (
 			<StyledSubHeading
@@ -94,6 +97,7 @@ export namespace SubHeadingElements {
 				className={className}
 				style={props.style}
 				data-role={DataRoles.Contentbox.Subheading}
+				$embedded={embedded}
 			>
 				{props.children}
 			</StyledSubHeading>
@@ -268,7 +272,16 @@ export namespace SubHeadingElements {
 		);
 	}
 
-	const StyledActionBarGroup = styled.div.withConfig({ displayName: "StyledActionBarGroup-sc-" })(({ theme }) => {
+	/**
+	 * Whether an {@link ActionBarGroup} is nested inside another one (level 2). Used instead of a `& > &`
+	 * selector, which styled-components collapses to a theme-independent selector, breaking theme switching.
+	 */
+	const ActionBarGroupNestingContext = createContext(false);
+
+	const StyledActionBarGroup = styled.div.withConfig({ displayName: "StyledActionBarGroup-sc-" })<{
+		/** Whether this group is nested inside another action bar group ("level 2"). */
+		$nested?: boolean;
+	}>(({ theme, $nested }) => {
 		const { actionBarGroup } = theme.components.contentBox;
 
 		return css`
@@ -279,42 +292,49 @@ export namespace SubHeadingElements {
 				margin: ${actionBarGroup.dividerMargin};
 			}
 			// Group Level 2
-			& > && {
-				background-color: ${actionBarGroup.secondLevelBG};
-				border-radius: ${actionBarGroup.borderRadius};
-				height: auto;
-				margin: 0 -6px;
-				min-height: 0;
-				padding: ${actionBarGroup.secondLevelPadding};
-				// Divider Level 2
-				& > ${StyledActionBarGroupDivider} {
-					background-color: ${actionBarGroup.dividerSecondLevelBG};
-					border-radius: 50%;
-					height: ${actionBarGroup.dividerSecondLevelHeight};
-					width: ${actionBarGroup.dividerSecondLevelWidth};
-				}
-				${StyledButton} {
-					&:disabled {
-						border: ${actionBarGroup.secondLevelButton.disabledBorder};
+			${
+				$nested &&
+				css`
+					&&& {
+						background-color: ${actionBarGroup.secondLevelBG};
+						border-radius: ${actionBarGroup.borderRadius};
+						height: auto;
+						margin: 0 -6px;
+						min-height: 0;
+						padding: ${actionBarGroup.secondLevelPadding};
+						// Divider Level 2
+						& > ${StyledActionBarGroupDivider} {
+							background-color: ${actionBarGroup.dividerSecondLevelBG};
+							border-radius: 50%;
+							height: ${actionBarGroup.dividerSecondLevelHeight};
+							width: ${actionBarGroup.dividerSecondLevelWidth};
+						}
+						${StyledButton} {
+							&:disabled {
+								border: ${actionBarGroup.secondLevelButton.disabledBorder};
+							}
+							&:not(:hover):not(:focus):not(:disabled) {
+								border: ${actionBarGroup.secondLevelButton.border};
+							}
+						}
 					}
-					&:not(:hover):not(:focus):not(:disabled) {
-						border: ${actionBarGroup.secondLevelButton.border};
-					}
-				}
+				`
 			}
 		`;
 	});
 
 	export function ActionBarGroup(props: ContentBoxProps.ActionBarGroupProps): ReactElement<ContentBoxProps.BaseProps> {
 		const { children, className, ...rest } = props;
+		const nested = useContext(ActionBarGroupNestingContext);
 
 		return (
 			<StyledActionBarGroup
 				className={joinClassNames(className, `${baseClassName}__subheadingActionBarGroup`)}
 				data-role={DataRoles.Contentbox.ActionBarGroup}
+				$nested={nested}
 				{...rest}
 			>
-				{children}
+				<ActionBarGroupNestingContext.Provider value>{children}</ActionBarGroupNestingContext.Provider>
 			</StyledActionBarGroup>
 		);
 	}

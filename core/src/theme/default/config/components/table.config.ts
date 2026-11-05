@@ -80,10 +80,34 @@ export type TableConfigType = {
 	bodyRowDnD: {
 		hint: { height: string; openedBG: string; openedBorder: string };
 		preview: { background: string; boxShadow: string; opacity: string };
+		slot: { border: string; offset: string };
 	};
 	cardView: {
 		bodyCell: { dataTitleFontSize: string; fontSize: string };
 		bodyRow: { borderRadius: string | number; boxShadow: string; width: string };
+
+		/**
+		 * The card list itself: the block (top/bottom) padding around the stack and the
+		 * gap between consecutive cards. The inline inset is left to {@link bodyRow.width}
+		 * so a card spans the same fraction of its container as it does on the production
+		 * `Table`, instead of compounding the two. The list paints no background of its
+		 * own — the cards sit on the surrounding surface, as they do on the production
+		 * `Table`.
+		 */
+		list: { gap: string; blockPadding: string };
+
+		/**
+		 * One card: its inner padding and the vertical gap between the fields it stacks.
+		 *
+		 * `fieldGap` is sized so a field's pitch (its own height plus the gap) matches the
+		 * production `Table`'s card view, which spaces fields with per-cell padding
+		 * instead — 24px top, 12px bottom, offset by the label's -16px margin. Same
+		 * rhythm, without the negative margin.
+		 */
+		card: { padding: string; fieldGap: string };
+
+		/** One field inside a card: the gap between its column label and its value. */
+		field: { labelGap: string };
 	};
 	color: string;
 	contextMenu: {
@@ -217,6 +241,13 @@ export const tableConfig = (theme: BaseThemeType): TableConfigType => {
 				background: colors.background.interactiveBackground,
 				boxShadow: `0 1px 4px 0 ${rgba(colors.boxShadowBackground, 0.4)}`,
 				opacity: "0.8"
+			},
+			// Dashed outline that rides the (hidden) dragged row into the opened gap,
+			// marking where the row will land. Negative `offset` insets the outline so it
+			// stays inside the row's box and does not touch the neighbouring rows.
+			slot: {
+				border: `1px dashed ${colors.interaction.draggable.color}`,
+				offset: `-${spacing.spacing.spacing2xs}px`
 			}
 		},
 		bodyCell: {
@@ -307,6 +338,21 @@ export const tableConfig = (theme: BaseThemeType): TableConfigType => {
 				width: "97%",
 				borderRadius: "2px",
 				boxShadow: `0 1px 2px 0 ${rgba(colors.boxShadowBackground, 0.4)}`
+			},
+			list: {
+				// The production `Table` puts 16px between cards, via a hard-coded row margin.
+				// There is no 16px step on a 12px base scale (…12, 18, 24…) and no card-spacing
+				// token in the theme to reuse, so this takes the nearest real step rather than
+				// carrying a literal across.
+				gap: spacing.verticalSpacing.vertWhiteSpacingsm + "px",
+				blockPadding: spacing.verticalSpacing.vertWhiteSpacingsm + "px"
+			},
+			card: {
+				padding: `${spacing.verticalSpacing.vertWhiteSpacingsm}px ${spacing.horizontalSpacing.horizWhiteSpacingmd}px`,
+				fieldGap: spacing.verticalSpacing.vertWhiteSpacingmd + "px"
+			},
+			field: {
+				labelGap: spacing.verticalSpacing.vertWhiteSpacing3xs + "px"
 			}
 		},
 		headRowGroup: {

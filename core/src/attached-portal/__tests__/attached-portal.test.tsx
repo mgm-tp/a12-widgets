@@ -30,20 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { waitFor } from "@testing-library/dom";
+import type { ChangeEvent, KeyboardEvent, ReactNode } from "react";
+import { useRef, useState, useCallback, useEffect, useMemo } from "react";
 import { render } from "test-utils";
 import { describe, expect, test, afterEach } from "vitest";
 import { userEvent } from "vitest/browser";
-import type { ChangeEvent, KeyboardEvent, ReactNode } from "react";
-import { useRef, useState, useCallback, useEffect, useMemo } from "react";
-import { waitFor } from "@testing-library/dom";
 
-import { DataRoles } from "../../common/main/data-roles.js";
 import { Button } from "../../button/main/button.view.js";
-import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-import { TextField } from "../../input/text-field/main/template/text-field.tpl.view.js";
-import { DropDown } from "../../dropdown/main/template/dropdown.tpl.view.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import type { DropDownItem } from "../../dropdown/main/template/dropdown.tpl.api.js";
-
+import { DropDown } from "../../dropdown/main/template/dropdown.tpl.view.js";
+import { TextField } from "../../input/text-field/main/template/text-field.tpl.view.js";
+import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
 import { AttachedPortal } from "../main/attached-portal.view.js";
 
 const TEXTAREA_DATA_ROLE = "dropdown-textarea";
@@ -561,7 +560,9 @@ describe("AttachedPortal interaction behavior", () => {
 	});
 
 	test("should update the position of portal when the trigger element changes the position", async () => {
-		const { getByDataRole } = render(<ExampleAttachedPortal hasReferenceElement title="Interaction Hint" />);
+		const { getByDataRole, queryByDataRole } = render(
+			<ExampleAttachedPortal hasReferenceElement title="Interaction Hint" />
+		);
 
 		const triggerElement = getByDataRole("trigger-button") as HTMLElement;
 		triggerElement.focus();
@@ -570,12 +571,17 @@ describe("AttachedPortal interaction behavior", () => {
 		expect(interactionHint).toBeVisible();
 
 		await userEvent.click(triggerElement);
+
+		// The hint renders in an AttachedPortal of its own, and the `mouseover` that precedes the click leaves a
+		// show timeout armed that would bring it back `showDelay` later. Move the pointer off the trigger so the
+		// hint is gone for good, then require that exactly one AttachedPortal — the one the click opened — is left.
+		await userEvent.unhover(triggerElement);
+		await waitFor(() => {
+			expect(queryByDataRole(DataRoles.InteractionHint)).toBeFalsy();
+		});
+
 		const attachedPortal = getByDataRole(DataRoles.AttachedPortal) as HTMLElement;
 		expect(attachedPortal).toBeVisible();
-
-		await waitFor(() => {
-			expect(interactionHint).not.toBeVisible();
-		});
 
 		const attachedPortalRect = attachedPortal.getBoundingClientRect();
 
@@ -591,5 +597,64 @@ describe("AttachedPortal interaction behavior", () => {
 		);
 
 		expect(attachedPortal).toBeVisible();
+	});
+});
+
+describe("AttachedPortal and tables in the document", () => {
+	function TableWithPortal({ tableRole }: { tableRole?: string }): ReactNode {
+		const [reference, setReference] = useState<HTMLButtonElement | null>(null);
+		const [open, setOpen] = useState(false);
+
+		return (
+			<>
+				<button ref={setReference} onClick={() => setOpen((value) => !value)} data-role="toggle-portal">
+					toggle
+				</button>
+				<table data-role={DataRoles.Table} role={tableRole}>
+					<thead>
+						<tr>
+							<th>Name</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Ada</td>
+						</tr>
+					</tbody>
+				</table>
+				{reference && open ? (
+					<AttachedPortal referenceElement={reference}>
+						<div data-role="portal-content">content</div>
+					</AttachedPortal>
+				) : null}
+			</>
+		);
+	}
+
+	test("leaves a native table's implicit roles untouched while a portal is open and after it closes", async () => {
+		const { getByDataRole, queryByDataRole } = render(<TableWithPortal />);
+		const table = getByDataRole(DataRoles.Table);
+
+		await userEvent.click(getByDataRole("toggle-portal"));
+		expect(getByDataRole("portal-content")).toBeVisible();
+		// `role="presentation"` on the `<table>` would cascade to its rows and cells.
+		expect(table).not.toHaveAttribute("role");
+
+		await userEvent.click(getByDataRole("toggle-portal"));
+		await waitFor(() => expect(queryByDataRole("portal-content")).toBeNull());
+		expect(table).not.toHaveAttribute("role");
+	});
+
+	test("keeps an explicit grid role through the portal's lifetime", async () => {
+		const { getByDataRole, queryByDataRole } = render(<TableWithPortal tableRole="grid" />);
+		const table = getByDataRole(DataRoles.Table);
+
+		await userEvent.click(getByDataRole("toggle-portal"));
+		expect(getByDataRole("portal-content")).toBeVisible();
+		expect(table).toHaveAttribute("role", "grid");
+
+		await userEvent.click(getByDataRole("toggle-portal"));
+		await waitFor(() => expect(queryByDataRole("portal-content")).toBeNull());
+		expect(table).toHaveAttribute("role", "grid");
 	});
 });

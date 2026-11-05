@@ -43,31 +43,33 @@ export interface FileNode {
 	children?: FileNode[];
 }
 
+// Keys are prefixed per example, since several trees share this page and node keys must be unique
+// document-wide (a node's DOM id is derived from its key).
 export const FILE_TREE: FileNode[] = [
 	{
-		id: "src",
+		id: "basic-src",
 		label: "src",
 		kind: "folder",
 		children: [
 			{
-				id: "components",
+				id: "basic-components",
 				label: "components",
 				kind: "folder",
 				children: [
-					{ id: "button", label: "button.tsx", kind: "file" },
-					{ id: "input", label: "input.tsx", kind: "file" }
+					{ id: "basic-button", label: "button.tsx", kind: "file" },
+					{ id: "basic-input", label: "input.tsx", kind: "file" }
 				]
 			},
-			{ id: "index", label: "index.ts", kind: "file" }
+			{ id: "basic-index", label: "index.ts", kind: "file" }
 		]
 	},
 	{
-		id: "docs",
+		id: "basic-docs",
 		label: "docs",
 		kind: "folder",
-		children: [{ id: "readme", label: "README.md", kind: "file" }]
+		children: [{ id: "basic-readme", label: "README.md", kind: "file" }]
 	},
-	{ id: "package", label: "package.json", kind: "file" }
+	{ id: "basic-package", label: "package.json", kind: "file" }
 ];
 
 export const fileIcon = (node: FileNode): ReactElement => (
@@ -79,16 +81,17 @@ export const fileIcon = (node: FileNode): ReactElement => (
  * with `defaultExpandedKeys`); selection is controlled via `selectedKeys` + `onSelectionChange`.
  */
 export function BasicTreeView(): ReactElement {
-	const [selected, setSelected] = useState<ReadonlySet<Key>>(new Set(["button"]));
+	const [selected, setSelected] = useState<ReadonlySet<Key>>(new Set(["basic-button"]));
 
 	return (
 		<TreeView<FileNode>
+			id="basic-tree-view"
 			tree={FILE_TREE}
 			rowKey="id"
 			getChildren={(node) => node.children}
 			getLabel={(node) => node.label}
 			getIcon={fileIcon}
-			defaultExpandedKeys={["src", "components"]}
+			defaultExpandedKeys={["basic-src", "basic-components"]}
 			selectionMode="single"
 			selectedKeys={selected}
 			onSelectionChange={setSelected}

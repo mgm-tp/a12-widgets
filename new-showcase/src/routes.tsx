@@ -32,133 +32,70 @@
 
 import type { MenuItem } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import type { Showcase as ShowcaseData } from "./helpers/definitions.js";
-import type { SearchItem } from "./helpers/global-search/search-component.js";
-import { SearchComponent } from "./helpers/global-search/search-component.js";
-import { isGroupSection, toLink } from "./helpers/utils.js";
+import ExperimentalCalendar from "./experimental/calendar/index.js";
+import ExperimentalDiagramShapes from "./experimental/diagram-shapes/index.js";
+import ExperimentalInfiniteScrollTable from "./experimental/infinite-scroll-table/index.js";
+import ExperimentalSlider from "./experimental/slider/index.js";
+import ContentSecurityPolicies from "./faq/content-security-policies.js";
+import PreventingCrashFromTranslationTool from "./faq/preventing-crash-from-translation-tool.js";
 import GetStartedBreakingChangesManagement from "./get-started/breaking-changes-management.js";
 import GetStartedChangeLog from "./get-started/change-log.js";
 import GetStartedInteractionHintInstruction from "./get-started/interaction-hint-instruction.js";
 import GetStartedKeyboardNavigationInstruction from "./get-started/keyboard-navigation-instruction.js";
-import GetStartedMigrationInstructionsMigrationNotes from "./get-started/migration-instructions/migration-notes.js";
-import GetStartedMigrationInstructionsPatchInstruction from "./get-started/migration-instructions/patch-instruction.js";
-import GetStartedMigrationInstructionsCodemodInstruction from "./get-started/migration-instructions/codemod-instruction.js";
-import GetStartedMigrationInstructionsRichTextEditorMigration from "./get-started/migration-instructions/rich-text-editor-migration.js";
-import GetStartedMigrationInstructionsNewTableAndTreeComponents from "./get-started/migration-instructions/new-table-and-tree-components.js";
-import GetStartedMigrationInstructionsChartWidgetsToRechartsMigrationOverview from "./get-started/migration-instructions/chart-widgets-to-recharts/migration-overview.js";
 import GetStartedMigrationInstructionsChartWidgetsToRechartsBarChartMigration from "./get-started/migration-instructions/chart-widgets-to-recharts/bar-chart-migration.js";
 import GetStartedMigrationInstructionsChartWidgetsToRechartsLineChartMigration from "./get-started/migration-instructions/chart-widgets-to-recharts/line-chart-migration.js";
+import GetStartedMigrationInstructionsChartWidgetsToRechartsMigrationOverview from "./get-started/migration-instructions/chart-widgets-to-recharts/migration-overview.js";
 import GetStartedMigrationInstructionsChartWidgetsToRechartsPieChartMigration from "./get-started/migration-instructions/chart-widgets-to-recharts/pie-chart-migration.js";
+import GetStartedMigrationInstructionsCodemodInstruction from "./get-started/migration-instructions/codemod-instruction.js";
+import GetStartedMigrationInstructionsMigrationNotes from "./get-started/migration-instructions/migration-notes.js";
+import GetStartedMigrationInstructionsNewTableAndTreeComponents from "./get-started/migration-instructions/new-table-and-tree-components.js";
+import GetStartedMigrationInstructionsPatchInstruction from "./get-started/migration-instructions/patch-instruction.js";
+import GetStartedMigrationInstructionsRichTextEditorMigration from "./get-started/migration-instructions/rich-text-editor-migration.js";
+import GetStartedPlasmaConfig from "./get-started/plasma-config.js";
+import GetStartedQuickStart from "./get-started/quick-start.js";
 import GetStartedShowcaseRedesign from "./get-started/showcase-redesign.js";
 import GetStartedStyledComponents from "./get-started/styled-components.js";
-import GetStartedQuickStart from "./get-started/quick-start.js";
 import GetStartedTouchDetection from "./get-started/touch-detection.js";
-import GetStartedPlasmaConfig from "./get-started/plasma-config.js";
+import type { Showcase as ShowcaseData } from "./helpers/definitions.js";
+import type { SearchItem } from "./helpers/global-search/search-component.js";
+import { SearchComponent } from "./helpers/global-search/search-component.js";
+import { isGroupSection, toLink } from "./helpers/utils.js";
+import Playground from "./playground/playground-module.js";
 import ShowcasesAccessibilityAccessibility from "./showcases/accessibility/accessibility.js";
-import ShowcasesBasicTheme from "./showcases/basic-theme/index.js";
+import ShowcasesAccordion from "./showcases/accordion/index.js";
+import ShowcasesApplicationFrameApplicationFrame from "./showcases/application-frame/application-frame.js";
+import ShowcasesApplicationHeader from "./showcases/application-header/index.js";
+import ShowcasesAttachedPortal from "./showcases/attached-portal/index.js";
+import ShowcasesBaseThemeCustomization from "./showcases/base-theme/customization.js";
 import ShowcasesBaseThemeOverview from "./showcases/base-theme/index.js";
 import ShowcasesBaseThemeQuickStart from "./showcases/base-theme/quick-start.js";
-import ShowcasesBaseThemeCustomization from "./showcases/base-theme/customization.js";
 import ShowcasesBasicColors from "./showcases/basic-colors/index.js";
-import ShowcasesFont from "./showcases/font/index.js";
-import ShowcasesSpacing from "./showcases/spacing/index.js";
-import ShowcasesHelperClasses from "./showcases/helper-classes/index.js";
-import ShowcasesUtilClasses from "./showcases/util-classes/index.js";
-import ShowcasesButton from "./showcases/button/index.js";
-import ShowcasesButtonGroup from "./showcases/button-group/index.js";
-import ShowcasesButtonGroupContainer from "./showcases/button-group-container/index.js";
-import ShowcasesToggle from "./showcases/toggle/index.js";
-import ShowcasesQuickAccessButton from "./showcases/quick-access-button/index.js";
-import ShowcasesIcon from "./showcases/icon/index.js";
-import ShowcasesLink from "./showcases/link/index.js";
-import ShowcasesPopUpMenu from "./showcases/pop-up-menu/index.js";
-import ShowcasesApplicationFrameApplicationFrame from "./showcases/application-frame/application-frame.js";
-import ShowcasesCallout from "./showcases/callout/index.js";
-import ShowcasesModalOverlay from "./showcases/modal-overlay/index.js";
-import ShowcasesResponsiveImageContainer from "./showcases/responsive-image-container/index.js";
-import ShowcasesResizeAndDragContainer from "./showcases/resize-and-drag-container/index.js";
-import ShowcasesResizeHandler from "./showcases/resize-handler/index.js";
-import ShowcasesCollapsiblePanel from "./showcases/collapsible-panel/index.js";
-import ShowcasesContentbox from "./showcases/contentbox/index.js";
-import ShowcasesMasterDetail from "./showcases/master-detail/index.js";
-import ShowcasesLayoutGridTemplate from "./showcases/layout-grid/template/index.js";
-import ShowcasesLayoutGridDashboard from "./showcases/layout-grid/dashboard/index.js";
-import ShowcasesSplitView from "./showcases/split-view/index.js";
-import ShowcasesAccordion from "./showcases/accordion/index.js";
-import ShowcasesApplicationHeader from "./showcases/application-header/index.js";
+import ShowcasesBasicTheme from "./showcases/basic-theme/index.js";
 import ShowcasesBreadcrumb from "./showcases/breadcrumb/index.js";
-import ShowcasesDropdown from "./showcases/dropdown/index.js";
-import ShowcasesMenuFlyoutMenu from "./showcases/menu/flyout-menu/index.js";
-import ShowcasesMenuSlidingMenu from "./showcases/menu/sliding-menu/index.js";
-import ShowcasesTabPanel from "./showcases/tab-panel/index.js";
-import ShowcasesInputsAutocomplete from "./showcases/inputs/autocomplete/index.js";
-import ShowcasesInputsCheckboxes from "./showcases/inputs/checkboxes/index.js";
-import ShowcasesFileUpload from "./showcases/file-upload/index.js";
-import ShowcasesInputsIconPicker from "./showcases/inputs/icon-picker/index.js";
-import ShowcasesMultiselect from "./showcases/multiselect/index.js";
-import ShowcasesRichTextEditor from "./showcases/rich-text-editor/index.js";
-import ShowcasesRadio from "./showcases/radio/index.js";
-import ShowcasesSelect from "./showcases/select/index.js";
-import ShowcasesInputsSwitch from "./showcases/inputs/switch/index.js";
-import ShowcasesInputsTagInput from "./showcases/inputs/tag-input/index.js";
-import ShowcasesInputsTextField from "./showcases/inputs/text-field/index.js";
-import ShowcasesInputsTextArea from "./showcases/inputs/text-area/index.js";
-import ShowcasesDatePicker from "./showcases/date-picker/index.js";
-import ShowcasesTimePicker from "./showcases/time-picker/index.js";
-import ShowcasesDateTimePicker from "./showcases/date-time-picker/index.js";
-import ShowcasesInputsMonthSelector from "./showcases/inputs/month-selector/index.js";
-import ShowcasesInputsYearSelector from "./showcases/inputs/year-selector/index.js";
-import ShowcasesInputsYearMonthSelector from "./showcases/inputs/year-month-selector/index.js";
-import ShowcasesNotificationBadge from "./showcases/notification/badge/index.js";
+import ShowcasesBulletListNestedList from "./showcases/bullet-list/nested-list/index.js";
 import ShowcasesBulletListOrderedList from "./showcases/bullet-list/ordered-list/index.js";
 import ShowcasesBulletListUnorderedList from "./showcases/bullet-list/unordered-list/index.js";
-import ShowcasesBulletListNestedList from "./showcases/bullet-list/nested-list/index.js";
+import ShowcasesButtonGroupContainer from "./showcases/button-group-container/index.js";
+import ShowcasesButtonGroup from "./showcases/button-group/index.js";
+import ShowcasesButton from "./showcases/button/index.js";
+import ShowcasesCallout from "./showcases/callout/index.js";
 import ShowcasesCard from "./showcases/card/index.js";
 import ShowcasesChartBarChart from "./showcases/chart/bar-chart/index.js";
 import ShowcasesChartLineChart from "./showcases/chart/line-chart/index.js";
 import ShowcasesChartPieChart from "./showcases/chart/pie-chart/index.js";
+import ShowcasesChat from "./showcases/chat/index.js";
+import ShowcasesCollapsiblePanel from "./showcases/collapsible-panel/index.js";
+import ShowcasesColumnVisibilityPanel from "./showcases/column-visibility-panel/index.js";
+import ShowcasesCommentCommentContainer from "./showcases/comment/comment-container/index.js";
+import ShowcasesCommentComment from "./showcases/comment/comment/index.js";
+import ShowcasesContentbox from "./showcases/contentbox/index.js";
 import ShowcasesCounter from "./showcases/counter/index.js";
-import ShowcasesInteractiveTile from "./showcases/interactive-tile/index.js";
-import ShowcasesInteractionHint from "./showcases/interaction-hint/index.js";
-import ShowcasesList from "./showcases/list/index.js";
-import ShowcasesPagination from "./showcases/pagination/index.js";
-import ShowcasesStatus from "./showcases/status/index.js";
+import ShowcasesCssEllipsis from "./showcases/css-ellipsis/index.js";
 import ShowcasesDataTable from "./showcases/data-table/index.js";
 import ShowcasesDataTreeTable from "./showcases/data-tree-table/index.js";
-import ShowcasesTable from "./showcases/table/index.js";
-import ShowcasesTag from "./showcases/tag/index.js";
-import ShowcasesTextOutput from "./showcases/text-output/index.js";
-import ShowcasesTooltip from "./showcases/tooltip/index.js";
-import ShowcasesTree from "./showcases/tree/index.js";
-import ShowcasesTreeView from "./showcases/tree-view/index.js";
-import ShowcasesTreeTable from "./showcases/tree-table/index.js";
-import ShowcasesGlobalMessageBox from "./showcases/global-message-box/index.js";
-import ShowcasesModalNotification from "./showcases/modal-notification/index.js";
-import ShowcasesNotificationToastsToast from "./showcases/notification/toasts/toast/index.js";
-import ShowcasesNotificationToastsConnectedToast from "./showcases/notification/toasts/connected-toast/index.js";
-import ShowcasesNotificationToastsToastGroup from "./showcases/notification/toasts/toast-group/index.js";
-import ShowcasesProgressBar from "./showcases/progress-bar/index.js";
-import ShowcasesProgressIndicator from "./showcases/progress-indicator/index.js";
-import ShowcasesCssEllipsis from "./showcases/css-ellipsis/index.js";
-import ShowcasesLinesEllipsis from "./showcases/lines-ellipsis/index.js";
-import ShowcasesMessage from "./showcases/message/index.js";
-import ShowcasesAttachedPortal from "./showcases/attached-portal/index.js";
-import ShowcasesPortal from "./showcases/portal/index.js";
-import ShowcasesTypography from "./showcases/typography/index.js";
-import ShowcasesResizeDetector from "./showcases/resize-detector/index.js";
-import ShowcasesChat from "./showcases/chat/index.js";
-import ShowcasesCommentComment from "./showcases/comment/comment/index.js";
-import ShowcasesCommentCommentContainer from "./showcases/comment/comment-container/index.js";
-import ShowcasesLoginLayout from "./showcases/login-layout/index.js";
-import ShowcasesFacetedSearchFilterBar from "./showcases/faceted-search/filter-bar/index.js";
-import ShowcasesFacetedSearchFilterSelector from "./showcases/faceted-search/filter-selector/index.js";
-import ShowcasesMessageBox from "./showcases/message-box/index.js";
-import ShowcasesValidationBar from "./showcases/validation-bar/index.js";
-import ShowcasesWizard from "./showcases/wizard/index.js";
-import ExperimentalSlider from "./experimental/slider/index.js";
-import ExperimentalDiagramShapes from "./experimental/diagram-shapes/index.js";
-import ExperimentalInfiniteScrollTable from "./experimental/infinite-scroll-table/index.js";
-import ExperimentalCalendar from "./experimental/calendar/index.js";
+import ShowcasesDatePicker from "./showcases/date-picker/index.js";
+import ShowcasesDateTimePicker from "./showcases/date-time-picker/index.js";
+import ShowcasesDropdown from "./showcases/dropdown/index.js";
 import ShowcasesExamplesCollapsibleSidebar from "./showcases/examples/collapsible-sidebar/index.js";
 import ShowcasesExamplesDetermineLocation from "./showcases/examples/determine-location/index.js";
 import ShowcasesExamplesDragAndDrop from "./showcases/examples/drag-and-drop/index.js";
@@ -166,16 +103,84 @@ import ShowcasesExamplesDualPaneLayout from "./showcases/examples/dual-pane-layo
 import ShowcasesExamplesFilterSelectorNew from "./showcases/examples/filter-selector-new/index.js";
 import ShowcasesExamplesGallery from "./showcases/examples/gallery/index.js";
 import ShowcasesExamplesMasterDetail from "./showcases/examples/master-detail/index.js";
+import ShowcasesExamplesMessageAndTooltipPosition from "./showcases/examples/message-and-tooltip-position/index.js";
 import ShowcasesExamplesMultilingualField from "./showcases/examples/multilingual-field/index.js";
 import {
-	BasicMultiselectTableExample,
-	AdvancedMultiselectTableExample
+	AdvancedMultiselectTableExample,
+	BasicMultiselectTableExample
 } from "./showcases/examples/multiselect-table/index.js";
 import ShowcasesExamplesPassword from "./showcases/examples/password/index.js";
 import ShowcasesExamplesSidebarWithTabPanel from "./showcases/examples/sidebar-with-tab-panel/index.js";
 import ShowcasesExamplesStylingInTree from "./showcases/examples/styling-in-tree/index.js";
-import GetStartedContentSecurityPolicies from "./get-started/content-security-policies.js";
+import ShowcasesFacetedSearchFilterBar from "./showcases/faceted-search/filter-bar/index.js";
+import ShowcasesFacetedSearchFilterSelector from "./showcases/faceted-search/filter-selector/index.js";
+import ShowcasesFileUpload from "./showcases/file-upload/index.js";
+import ShowcasesFont from "./showcases/font/index.js";
+import ShowcasesGlobalMessageBox from "./showcases/global-message-box/index.js";
+import ShowcasesHelperClasses from "./showcases/helper-classes/index.js";
+import ShowcasesIcon from "./showcases/icon/index.js";
+import ShowcasesInputsAutocomplete from "./showcases/inputs/autocomplete/index.js";
+import ShowcasesInputsCheckboxes from "./showcases/inputs/checkboxes/index.js";
+import ShowcasesInputsIconPicker from "./showcases/inputs/icon-picker/index.js";
+import ShowcasesInputsMonthSelector from "./showcases/inputs/month-selector/index.js";
+import ShowcasesInputsSwitch from "./showcases/inputs/switch/index.js";
+import ShowcasesInputsTagInput from "./showcases/inputs/tag-input/index.js";
+import ShowcasesInputsTextArea from "./showcases/inputs/text-area/index.js";
+import ShowcasesInputsTextField from "./showcases/inputs/text-field/index.js";
+import ShowcasesInputsYearMonthSelector from "./showcases/inputs/year-month-selector/index.js";
+import ShowcasesInputsYearSelector from "./showcases/inputs/year-selector/index.js";
+import ShowcasesInteractionHint from "./showcases/interaction-hint/index.js";
+import ShowcasesInteractiveTile from "./showcases/interactive-tile/index.js";
+import ShowcasesLayoutGridDashboard from "./showcases/layout-grid/dashboard/index.js";
+import ShowcasesLayoutGridTemplate from "./showcases/layout-grid/template/index.js";
+import ShowcasesLinesEllipsis from "./showcases/lines-ellipsis/index.js";
+import ShowcasesLink from "./showcases/link/index.js";
+import ShowcasesList from "./showcases/list/index.js";
+import ShowcasesLoginLayout from "./showcases/login-layout/index.js";
+import ShowcasesMarkdownEditor from "./showcases/markdown-editor/index.js";
+import ShowcasesMasterDetail from "./showcases/master-detail/index.js";
+import ShowcasesMenuFlyoutMenu from "./showcases/menu/flyout-menu/index.js";
+import ShowcasesMenuSlidingMenu from "./showcases/menu/sliding-menu/index.js";
+import ShowcasesMessageBox from "./showcases/message-box/index.js";
+import ShowcasesMessage from "./showcases/message/index.js";
+import ShowcasesModalNotification from "./showcases/modal-notification/index.js";
+import ShowcasesModalOverlay from "./showcases/modal-overlay/index.js";
+import ShowcasesMultiselect from "./showcases/multiselect/index.js";
+import ShowcasesNotificationBadge from "./showcases/notification/badge/index.js";
+import ShowcasesNotificationToastsConnectedToast from "./showcases/notification/toasts/connected-toast/index.js";
+import ShowcasesNotificationToastsToastGroup from "./showcases/notification/toasts/toast-group/index.js";
+import ShowcasesNotificationToastsToast from "./showcases/notification/toasts/toast/index.js";
+import ShowcasesPagination from "./showcases/pagination/index.js";
+import ShowcasesPopUpMenu from "./showcases/pop-up-menu/index.js";
+import ShowcasesPortal from "./showcases/portal/index.js";
+import ShowcasesProgressBar from "./showcases/progress-bar/index.js";
+import ShowcasesProgressIndicator from "./showcases/progress-indicator/index.js";
+import ShowcasesQuickAccessButton from "./showcases/quick-access-button/index.js";
+import ShowcasesRadio from "./showcases/radio/index.js";
+import ShowcasesResizeAndDragContainer from "./showcases/resize-and-drag-container/index.js";
+import ShowcasesResizeDetector from "./showcases/resize-detector/index.js";
+import ShowcasesResizeHandler from "./showcases/resize-handler/index.js";
+import ShowcasesResponsiveImageContainer from "./showcases/responsive-image-container/index.js";
+import ShowcasesRichTextEditor from "./showcases/rich-text-editor/index.js";
+import ShowcasesSelect from "./showcases/select/index.js";
+import ShowcasesSpacing from "./showcases/spacing/index.js";
+import ShowcasesSplitView from "./showcases/split-view/index.js";
+import ShowcasesStatus from "./showcases/status/index.js";
 import ShowcasesSupportingPanesLayout from "./showcases/supporting-panes-layout/index.js";
+import ShowcasesTabPanel from "./showcases/tab-panel/index.js";
+import ShowcasesTable from "./showcases/table/index.js";
+import ShowcasesTag from "./showcases/tag/index.js";
+import ShowcasesTextOutput from "./showcases/text-output/index.js";
+import ShowcasesTimePicker from "./showcases/time-picker/index.js";
+import ShowcasesToggle from "./showcases/toggle/index.js";
+import ShowcasesTooltip from "./showcases/tooltip/index.js";
+import ShowcasesTreeTable from "./showcases/tree-table/index.js";
+import ShowcasesTreeView from "./showcases/tree-view/index.js";
+import ShowcasesTree from "./showcases/tree/index.js";
+import ShowcasesTypography from "./showcases/typography/index.js";
+import ShowcasesUtilClasses from "./showcases/util-classes/index.js";
+import ShowcasesValidationBar from "./showcases/validation-bar/index.js";
+import ShowcasesWizard from "./showcases/wizard/index.js";
 
 /*
  * *********************************************************************************************************************
@@ -183,7 +188,7 @@ import ShowcasesSupportingPanesLayout from "./showcases/supporting-panes-layout/
  * *********************************************************************************************************************
  */
 
-const Index: IndexMenuItem.Section[] = [
+const Index: IndexMenuItem[] = [
 	{
 		label: "Get Started",
 		children: [
@@ -589,6 +594,10 @@ const Index: IndexMenuItem.Section[] = [
 							}
 						]
 					},
+					{
+						label: "Column Visibility Panel",
+						component: ShowcasesColumnVisibilityPanel
+					},
 					{ label: "Counter", component: ShowcasesCounter },
 					{
 						label: "Interactive Tile",
@@ -751,6 +760,7 @@ const Index: IndexMenuItem.Section[] = [
 		children: [
 			{ label: "DataTable", component: ShowcasesDataTable },
 			{ label: "DataTreeTable", component: ShowcasesDataTreeTable },
+			{ label: "Markdown Editor", component: ShowcasesMarkdownEditor, hint: ["Markdown", "Lexical", "mdast"] },
 			{ label: "TreeView", component: ShowcasesTreeView },
 			{
 				label: "Slider",
@@ -802,6 +812,10 @@ const Index: IndexMenuItem.Section[] = [
 				component: ShowcasesExamplesMasterDetail
 			},
 			{
+				label: "Message and Tooltip Position",
+				component: ShowcasesExamplesMessageAndTooltipPosition
+			},
+			{
 				label: "Multilingual Field",
 				component: ShowcasesExamplesMultilingualField
 			},
@@ -837,10 +851,15 @@ const Index: IndexMenuItem.Section[] = [
 		children: [
 			{
 				label: "Content Security Policies (CSPs)",
-				component: GetStartedContentSecurityPolicies
+				component: ContentSecurityPolicies
+			},
+			{
+				label: "Preventing Crash When Using Translation Tool",
+				component: PreventingCrashFromTranslationTool
 			}
 		]
-	}
+	},
+	{ label: "Playground", component: Playground }
 ];
 
 /*
@@ -868,6 +887,13 @@ export namespace IndexMenuItem {
 		useFullPageLayout?: boolean;
 		useLargeView?: boolean;
 		useFullLayoutWithoutRightNav?: boolean;
+
+		/**
+		 * Render the showcase as a bare canvas that fills the content area (no breadcrumb, headline or
+		 * page padding) instead of the scrolling docs layout. Combine with `useFullPageLayout`. Intended
+		 * for app-like surfaces such as the playground.
+		 */
+		fitToContentArea?: boolean;
 	}
 
 	export interface Showcase extends MenuItem {

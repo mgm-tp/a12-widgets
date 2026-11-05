@@ -1,0 +1,61 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas, Description } from "@storybook/addon-docs/blocks";
+
+import * as YearMonthSelectorStories from "./YearMonthSelector.stories";
+
+<Meta of={YearMonthSelectorStories} />
+
+<Title />
+
+The `YearMonthSelector` widget combines a month selector and a year selector into a single labelled
+form field. Use it when only a month/year value is needed — e.g. credit card expiry dates or
+reporting periods — instead of a full date picker.
+
+- `month` uses a zero-based index (0 = January); changes are reported via `onValueChange(month, year)`.
+- The embedded year selector supports three rendering modes via `yearSelectorVariant` (`select`,
+  `textbox`, `autocomplete`); when omitted, the mode is auto-detected from `yearRange`.
+- `invalidComponent` controls whether the `year`, the `month` or `both` selectors are marked invalid
+  in an error state.
+- Provide `hiddenLabels` so screen readers can name the two individual selectors.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={YearMonthSelectorStories.Playground} />
+
+## Examples
+
+### Custom month names
+
+<Canvas of={YearMonthSelectorStories.WithCustomMonths} />
+
+### Custom year range
+
+<Canvas of={YearMonthSelectorStories.WithCustomYearRange} />
+
+### Disabled
+
+<Canvas of={YearMonthSelectorStories.Disabled} />
+
+### Validation error
+
+<Canvas of={YearMonthSelectorStories.WithValidationError} />
+
+### Controlled
+
+<Canvas of={YearMonthSelectorStories.Controlled} />

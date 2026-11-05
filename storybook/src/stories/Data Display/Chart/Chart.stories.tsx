@@ -47,7 +47,40 @@ const meta: Meta<BarChartProps> = {
 			}
 		}
 	},
-	tags: ["autodocs"]
+	argTypes: {
+		data: {
+			control: false,
+			description: "The source data of the chart; each element is an object"
+		},
+		barPropsMap: {
+			control: false,
+			description: "Configuration of the bars, keyed by `dataKey` (Recharts `Bar` props)"
+		},
+		labelKey: {
+			control: "text",
+			description: "The key of the data displayed in the custom x-axis legend"
+		},
+		xAxisDataKey: {
+			control: "text",
+			description: "The data key used for the x-axis"
+		},
+		xAxisLabel: {
+			control: "text",
+			description: "The label displayed on the x-axis"
+		},
+		yAxisLabel: {
+			control: "text",
+			description: "The label displayed on the y-axis"
+		},
+		showLegend: {
+			control: "boolean",
+			description: "If set true, the legend is displayed"
+		},
+		showTooltip: {
+			control: "boolean",
+			description: "If set true, the tooltip is displayed on hover"
+		}
+	}
 };
 
 export default meta;
@@ -62,9 +95,52 @@ const salesData = [
 	{ month: "Jun", revenue: 4390, costs: 2500 }
 ];
 
-export const DeprecatedBarChart: Story = {
+const trendData = [
+	{ month: "Jan", value: 2400 },
+	{ month: "Feb", value: 1398 },
+	{ month: "Mar", value: 5800 },
+	{ month: "Apr", value: 3908 },
+	{ month: "May", value: 4800 },
+	{ month: "Jun", value: 3800 }
+];
+
+const categoryData = [
+	{ name: "Category A", value: 400 },
+	{ name: "Category B", value: 300 },
+	{ name: "Category C", value: 200 },
+	{ name: "Category D", value: 100 }
+];
+
+export const Playground: Story = {
+	args: {
+		data: salesData,
+		labelKey: "month",
+		xAxisDataKey: "month",
+		showLegend: true,
+		showTooltip: true,
+		barPropsMap: {
+			revenue: { dataKey: "revenue", fill: "#4a90d9", name: "Revenue" },
+			costs: { dataKey: "costs", fill: "#e57373", name: "Costs" }
+		}
+	},
+	render: (args) => (
+		<div style={{ width: "100%", maxWidth: 600, height: "300px" }}>
+			<BarChart {...args} />
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"⚠️ Deprecated. Args-driven `BarChart` — use the controls to toggle `showLegend`, `showTooltip` and the axis props."
+			}
+		}
+	}
+};
+
+export const BarChartExample: Story = {
 	render: () => (
-		<div style={{ width: "600px", height: "300px" }}>
+		<div style={{ width: "100%", maxWidth: 600, height: "300px" }}>
 			<BarChart
 				data={salesData}
 				labelKey="month"
@@ -81,24 +157,16 @@ export const DeprecatedBarChart: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "⚠️ Deprecated. Basic bar chart with two data series. Migrate to Recharts BarChart."
+				story:
+					"⚠️ Deprecated. Bar chart with two data series configured via `barPropsMap`. Migrate to Recharts `BarChart`."
 			}
 		}
 	}
 };
 
-const trendData = [
-	{ month: "Jan", value: 2400 },
-	{ month: "Feb", value: 1398 },
-	{ month: "Mar", value: 5800 },
-	{ month: "Apr", value: 3908 },
-	{ month: "May", value: 4800 },
-	{ month: "Jun", value: 3800 }
-];
-
-export const DeprecatedLineChart: Story = {
+export const LineChartExample: Story = {
 	render: () => (
-		<div style={{ width: "600px", height: "300px" }}>
+		<div style={{ width: "100%", maxWidth: 600, height: "300px" }}>
 			<LineChart
 				data={trendData}
 				showLegend
@@ -113,22 +181,16 @@ export const DeprecatedLineChart: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "⚠️ Deprecated. Basic line chart. Migrate to Recharts LineChart."
+				story:
+					"⚠️ Deprecated. Line chart with a single series configured via `linePropsMap`. Migrate to Recharts `LineChart`."
 			}
 		}
 	}
 };
 
-const categoryData = [
-	{ name: "Category A", value: 400 },
-	{ name: "Category B", value: 300 },
-	{ name: "Category C", value: 200 },
-	{ name: "Category D", value: 100 }
-];
-
-export const DeprecatedPieChart: Story = {
+export const PieChartExample: Story = {
 	render: () => (
-		<div style={{ width: "400px", height: "300px" }}>
+		<div style={{ width: "100%", maxWidth: 400, height: "300px" }}>
 			<PieChart
 				data={categoryData}
 				legendProps={{ verticalAlign: "bottom" }}
@@ -140,7 +202,8 @@ export const DeprecatedPieChart: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "⚠️ Deprecated. Basic pie chart. Migrate to Recharts PieChart."
+				story:
+					"⚠️ Deprecated. Pie chart configured via `pieProps`, `legendProps` and `toolTipProps`. Migrate to Recharts `PieChart`."
 			}
 		}
 	}

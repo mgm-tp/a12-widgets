@@ -16,10 +16,6 @@ exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-fullscreen-login-
   width: 100%;
 }
 
-.c3 .c1 {
-  width: 378px;
-}
-
 .c0 {
   background-attachment: fixed;
   background-color: rgb(78, 89, 101);
@@ -92,14 +88,6 @@ exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-fullscreen-login-
   width: 100%;
 }
 
-.c3 .c1 {
-  width: 378px;
-}
-
-.c4 .c1 {
-  width: 378px;
-}
-
 .c0 {
   background-attachment: fixed;
   background-color: rgb(78, 89, 101);
@@ -161,7 +149,7 @@ exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-fullscreen-login-
 `;
 
 exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-container 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   overflow-y: auto;
   padding: 64px 64px 0px;
@@ -169,38 +157,21 @@ exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-container 1
   background-color: rgb(241, 242, 244);
 }
 
-.c1::after {
+.c0::after {
   content: "";
   display: block;
   height: 64px;
   width: 100%;
 }
 
-.c2 .c0 {
-  width: 378px;
-}
-
-.c3 .c0 {
-  width: 378px;
-}
-
-.c4 .c0 {
-  margin: 0px auto;
-  padding: 40px 40px 0px;
-}
-
-.c4 .c0::after {
-  height: 40px;
-}
-
 @media screen and (max-width: 575px) {
-  .c1 {
+  .c0 {
     padding: 40px 40px 0px;
   }
 }
 
 <div
-  class="c0 c1 -l-login__container -l-login__container--secondary test-class"
+  class="c0 -l-login__container -l-login__container--secondary test-class"
   data-role="login-layout-container"
   id="test-id"
   style="color: hotpink;"
@@ -425,19 +396,6 @@ exports[`com.mgmtp.a12.widgets.layout.login-layout > rendering-login-layout-with
 
 .c0 .c1 {
   width: 378px;
-}
-
-.c3 .c1 {
-  width: 378px;
-}
-
-.c4 .c1 {
-  margin: 0px auto;
-  padding: 40px 40px 0px;
-}
-
-.c4 .c1::after {
-  height: 40px;
 }
 
 @media screen and (max-width: 575px) {

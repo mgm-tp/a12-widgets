@@ -40,7 +40,6 @@ const meta: Meta<typeof Tooltip> = {
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		text: {
 			control: "text",
@@ -62,6 +61,14 @@ const meta: Meta<typeof Tooltip> = {
 		useDesktopView: {
 			control: "boolean",
 			description: "Use desktop view on mobile devices"
+		},
+		showDelay: {
+			control: { type: "number", min: 0, step: 50 },
+			description: "Delay in milliseconds before the tooltip appears on hover"
+		},
+		hideDelay: {
+			control: { type: "number", min: 0, step: 50 },
+			description: "Delay in milliseconds before the tooltip disappears after the pointer leaves"
 		}
 	}
 };
@@ -69,7 +76,7 @@ const meta: Meta<typeof Tooltip> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		text: "This is a tooltip"
 	},
@@ -80,74 +87,57 @@ export const Default: Story = {
 	)
 };
 
-export const OnIcon: Story = {
-	args: {
-		text: "Information about this feature"
-	},
-	render: (args) => (
-		<Tooltip {...args}>
-			<Icon>info</Icon>
-		</Tooltip>
-	)
+export const Variants: Story = {
+	render: () => (
+		<div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+			<Tooltip text="Default tooltip">
+				<Button label="Default" />
+			</Tooltip>
+			<Tooltip text="Operation completed successfully!" variant="success">
+				<Button label="Success" icon={<Icon>check</Icon>} />
+			</Tooltip>
+			<Tooltip text="Here's a helpful hint for you" variant="hint">
+				<Button label="Hint" icon={<Icon>lightbulb</Icon>} />
+			</Tooltip>
+			<Tooltip text="Please review before proceeding" variant="warning">
+				<Button label="Warning" icon={<Icon>warning</Icon>} />
+			</Tooltip>
+			<Tooltip text="An error occurred. Please try again." variant="error">
+				<Button label="Error" icon={<Icon>error</Icon>} destructive />
+			</Tooltip>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `variant` prop colors the tooltip bubble: `success`, `hint`, `warning` or `error`. Without a variant the default tooltip style is used."
+			}
+		}
+	}
 };
 
-export const OnLink: Story = {
-	args: {
-		text: "Click to navigate to the homepage"
-	},
-	render: (args) => (
-		<Tooltip {...args}>
-			<Link href="#">Home Page</Link>
-		</Tooltip>
-	)
-};
-
-export const SuccessVariant: Story = {
-	args: {
-		text: "Operation completed successfully!",
-		variant: "success"
-	},
-	render: (args) => (
-		<Tooltip {...args}>
-			<Button label="Success" icon={<Icon>check</Icon>} />
-		</Tooltip>
-	)
-};
-
-export const HintVariant: Story = {
-	args: {
-		text: "Here's a helpful hint for you",
-		variant: "hint"
-	},
-	render: (args) => (
-		<Tooltip {...args}>
-			<Button label="Hint" icon={<Icon>lightbulb</Icon>} />
-		</Tooltip>
-	)
-};
-
-export const WarningVariant: Story = {
-	args: {
-		text: "Please review before proceeding",
-		variant: "warning"
-	},
-	render: (args) => (
-		<Tooltip {...args}>
-			<Button label="Warning" icon={<Icon>warning</Icon>} />
-		</Tooltip>
-	)
-};
-
-export const ErrorVariant: Story = {
-	args: {
-		text: "An error occurred. Please try again.",
-		variant: "error"
-	},
-	render: (args) => (
-		<Tooltip {...args}>
-			<Button label="Error" icon={<Icon>error</Icon>} destructive />
-		</Tooltip>
-	)
+export const Anchors: Story = {
+	render: () => (
+		<div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
+			<Tooltip text="This is a tooltip">
+				<Button label="On a button" />
+			</Tooltip>
+			<Tooltip text="Information about this feature">
+				<Icon>info</Icon>
+			</Tooltip>
+			<Tooltip text="Click to navigate to the homepage">
+				<Link href="#">On a link</Link>
+			</Tooltip>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "The tooltip wraps any single `children` element — buttons, icons, links — and shows on hover or focus."
+			}
+		}
+	}
 };
 
 export const Disabled: Story = {
@@ -159,7 +149,14 @@ export const Disabled: Story = {
 		<Tooltip {...args}>
 			<Button label="Hover me (disabled tooltip)" />
 		</Tooltip>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`disabled` suppresses the tooltip entirely — hovering the anchor shows nothing."
+			}
+		}
+	}
 };
 
 export const LongText: Story = {
@@ -170,7 +167,14 @@ export const LongText: Story = {
 		<Tooltip {...args}>
 			<Button label="Long Tooltip" />
 		</Tooltip>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "Long `text` wraps across multiple lines inside the tooltip bubble."
+			}
+		}
+	}
 };
 
 export const WithRichContent: Story = {
@@ -186,7 +190,14 @@ export const WithRichContent: Story = {
 		<Tooltip {...args}>
 			<Button label="Rich Content" />
 		</Tooltip>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`text` accepts any `ReactNode`, so the tooltip can render structured content instead of a plain string."
+			}
+		}
+	}
 };
 
 export const Inverted: Story = {
@@ -201,27 +212,13 @@ export const Inverted: Story = {
 				<Button label="Inverted" primary invert />
 			</Tooltip>
 		</div>
-	)
-};
-
-export const AllVariants: Story = {
-	render: () => (
-		<div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-			<Tooltip text="Default tooltip">
-				<Button label="Default" />
-			</Tooltip>
-			<Tooltip text="Success message" variant="success">
-				<Button label="Success" />
-			</Tooltip>
-			<Tooltip text="Helpful hint" variant="hint">
-				<Button label="Hint" />
-			</Tooltip>
-			<Tooltip text="Warning message" variant="warning">
-				<Button label="Warning" />
-			</Tooltip>
-			<Tooltip text="Error message" variant="error">
-				<Button label="Error" />
-			</Tooltip>
-		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`invert` gives the trigger of a variant tooltip an inverted style for better contrast on dark backgrounds."
+			}
+		}
+	}
 };

@@ -30,15 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import simpleToggleButtonCode from "!./simple-toggle-button.tsx?raw";
+import toggleCode from "!./toggle.tsx?raw";
+
 import ToggleAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/toggle/main/toggle.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { ToggleShowcase } from "./toggle.js";
 import { SimpleToggleButtonShowcase } from "./simple-toggle-button.js";
-
-import toggleCode from "!./toggle.tsx?raw";
-import simpleToggleButtonCode from "!./simple-toggle-button.tsx?raw";
+import { ToggleShowcase } from "./toggle.js";
 
 const showcases: Showcase[] = [
 	{

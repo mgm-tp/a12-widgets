@@ -41,8 +41,20 @@ const meta: Meta<typeof Callout> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
+		referenceElement: {
+			control: false,
+			description: "The callout anchors to this reference element"
+		},
+		referenceElementRect: {
+			control: false,
+			description:
+				"DOMRect of the trigger element — useful for recalculating the orientation when the reference element is overlapped by other elements"
+		},
+		orientationList: {
+			control: false,
+			description: "Preferred orientations used to align the callout to the `referenceElement` on initial mount"
+		},
 		closeOnOutsideClick: {
 			control: "boolean",
 			description: "Clicking outside will close the callout"
@@ -61,7 +73,28 @@ const meta: Meta<typeof Callout> = {
 		},
 		padding: {
 			control: "text",
-			description: "Padding for the callout content area"
+			description: "Padding for the callout content area — `true` (default), `false` (no padding) or a custom CSS value"
+		},
+		header: {
+			control: false,
+			description: "Header of the callout with optional `prefix`, `title` and `suffix`"
+		},
+		footer: {
+			control: false,
+			description: "Footer content, typically used for action buttons"
+		},
+		resizeAndDragOptions: {
+			control: false,
+			description: "Makes the callout resizable and draggable (not supported on phone devices)"
+		},
+		boundToContentbox: {
+			control: false,
+			description:
+				"Initially expands the callout to the width of the Contentbox's content area — only works when `resizeAndDragOptions` is enabled"
+		},
+		onClose: {
+			control: false,
+			description: "Called when the callout requests to be closed"
 		}
 	}
 };
@@ -69,200 +102,215 @@ const meta: Meta<typeof Callout> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => {
-		const DefaultCallout = () => {
-			const [buttonEl, setButtonEl] = useState<HTMLButtonElement | null>(null);
-			const [open, setOpen] = useState(false);
+export const Playground: Story = {
+	args: {
+		closeOnOutsideClick: true,
+		closeOnEsc: true,
+		closeOnClickReferenceElement: true,
+		isPointerVisible: false
+	},
+	render: function PlaygroundExample(args) {
+		const [buttonEl, setButtonEl] = useState<HTMLButtonElement | null>(null);
+		const [open, setOpen] = useState(true);
 
-			const handleButtonRef = useCallback((ref: HTMLButtonElement | null) => {
-				setButtonEl(ref);
-			}, []);
+		const handleButtonRef = useCallback((ref: HTMLButtonElement | null) => {
+			setButtonEl(ref);
+		}, []);
 
-			const toggle = useCallback(() => setOpen((prev) => !prev), []);
-			const handleClose = useCallback(() => setOpen(false), []);
+		const toggle = useCallback(() => setOpen((prev) => !prev), []);
+		const handleClose = useCallback(() => setOpen(false), []);
 
-			return (
-				<div style={{ padding: "40px" }}>
-					<Button buttonRef={handleButtonRef} onClick={toggle} label="Open Callout" />
-					{open && buttonEl && (
-						<Callout
-							id="default-callout"
-							referenceElement={buttonEl}
-							onClose={handleClose}
-							header={{
-								title: <span>Callout Title</span>,
-								suffix: <Button icon={<Icon>close</Icon>} title="Close" onClick={handleClose} />
-							}}
-						>
-							<p style={{ margin: 0 }}>This is the callout content. It anchors to the reference element.</p>
-						</Callout>
-					)}
-				</div>
-			);
-		};
-
-		return <DefaultCallout />;
+		return (
+			<div style={{ padding: "40px" }}>
+				<Button buttonRef={handleButtonRef} onClick={toggle} label="Open Callout" />
+				{open && buttonEl && (
+					<Callout
+						{...args}
+						id="playground-callout"
+						referenceElement={buttonEl}
+						onClose={handleClose}
+						header={{
+							title: <span>Callout Title</span>,
+							suffix: <Button icon={<Icon>close</Icon>} title="Close" onClick={handleClose} />
+						}}
+					>
+						<p style={{ margin: 0 }}>This is the callout content. It anchors to the reference element.</p>
+					</Callout>
+				)}
+			</div>
+		);
 	}
 };
 
 export const WithPointer: Story = {
-	render: () => {
-		const WithPointerCallout = () => {
-			const buttonRef = useRef<HTMLButtonElement | null>(null);
-			const [open, setOpen] = useState(false);
+	render: function WithPointerExample() {
+		const buttonRef = useRef<HTMLButtonElement | null>(null);
+		const [open, setOpen] = useState(false);
 
-			const handleButtonRef = useCallback((ref: HTMLButtonElement | null) => {
-				buttonRef.current = ref;
-			}, []);
+		const handleButtonRef = useCallback((ref: HTMLButtonElement | null) => {
+			buttonRef.current = ref;
+		}, []);
 
-			const toggle = useCallback(() => setOpen((prev) => !prev), []);
-			const handleClose = useCallback(() => setOpen(false), []);
+		const toggle = useCallback(() => setOpen((prev) => !prev), []);
+		const handleClose = useCallback(() => setOpen(false), []);
 
-			return (
-				<div style={{ padding: "40px" }}>
-					<Button buttonRef={handleButtonRef} onClick={toggle} label="Open Callout with Pointer" />
-					{open && buttonRef.current && (
-						<Callout
-							id="pointer-callout"
-							referenceElement={buttonRef.current}
-							isPointerVisible
-							onClose={handleClose}
-							header={{
-								title: <span>Callout with Pointer</span>,
-								suffix: <Button icon={<Icon>close</Icon>} title="Close" onClick={handleClose} />
-							}}
-						>
-							<p style={{ margin: 0 }}>The pointer arrow shows which element triggered this callout.</p>
-						</Callout>
-					)}
-				</div>
-			);
-		};
-
-		return <WithPointerCallout />;
+		return (
+			<div style={{ padding: "40px" }}>
+				<Button buttonRef={handleButtonRef} onClick={toggle} label="Open Callout with Pointer" />
+				{open && buttonRef.current && (
+					<Callout
+						id="pointer-callout"
+						referenceElement={buttonRef.current}
+						isPointerVisible
+						onClose={handleClose}
+						header={{
+							title: <span>Callout with Pointer</span>,
+							suffix: <Button icon={<Icon>close</Icon>} title="Close" onClick={handleClose} />
+						}}
+					>
+						<p style={{ margin: 0 }}>The pointer arrow shows which element triggered this callout.</p>
+					</Callout>
+				)}
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`isPointerVisible` renders an arrow pointing at the `referenceElement`, so users can see which element triggered the callout."
+			}
+		}
 	}
 };
 
 export const WithHeader: Story = {
-	render: () => {
-		const WithHeaderCallout = () => {
-			const buttonRef = useRef<HTMLButtonElement | null>(null);
-			const [open, setOpen] = useState(false);
+	render: function WithHeaderExample() {
+		const buttonRef = useRef<HTMLButtonElement | null>(null);
+		const [open, setOpen] = useState(false);
 
-			const handleButtonRef = useCallback((ref: HTMLButtonElement | null) => {
-				buttonRef.current = ref;
-			}, []);
+		const handleButtonRef = useCallback((ref: HTMLButtonElement | null) => {
+			buttonRef.current = ref;
+		}, []);
 
-			const toggle = useCallback(() => setOpen((prev) => !prev), []);
-			const handleClose = useCallback(() => setOpen(false), []);
+		const toggle = useCallback(() => setOpen((prev) => !prev), []);
+		const handleClose = useCallback(() => setOpen(false), []);
 
-			return (
-				<div style={{ padding: "40px" }}>
-					<Button buttonRef={handleButtonRef} onClick={toggle} label="Open Callout with Full Header" />
-					{open && buttonRef.current && (
-						<Callout
-							id="header-callout"
-							referenceElement={buttonRef.current}
-							onClose={handleClose}
-							header={{
-								prefix: <Icon>info</Icon>,
-								title: <span>Information</span>,
-								suffix: <Button icon={<Icon>close</Icon>} title="Close" onClick={handleClose} />
-							}}
-						>
-							<p style={{ margin: 0 }}>
-								This callout has a header with a prefix icon, title, and a close button suffix.
-							</p>
-						</Callout>
-					)}
-				</div>
-			);
-		};
-
-		return <WithHeaderCallout />;
+		return (
+			<div style={{ padding: "40px" }}>
+				<Button buttonRef={handleButtonRef} onClick={toggle} label="Open Callout with Full Header" />
+				{open && buttonRef.current && (
+					<Callout
+						id="header-callout"
+						referenceElement={buttonRef.current}
+						onClose={handleClose}
+						header={{
+							prefix: <Icon>info</Icon>,
+							title: <span>Information</span>,
+							suffix: <Button icon={<Icon>close</Icon>} title="Close" onClick={handleClose} />
+						}}
+					>
+						<p style={{ margin: 0 }}>This callout has a header with a prefix icon, title, and a close button suffix.</p>
+					</Callout>
+				)}
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "The `header` prop accepts a `prefix` (e.g. an icon), a `title` and a `suffix` (e.g. a close button)."
+			}
+		}
 	}
 };
 
 export const WithFooter: Story = {
-	render: () => {
-		const WithFooterCallout = () => {
-			const buttonRef = useRef<HTMLButtonElement | null>(null);
-			const [open, setOpen] = useState(false);
+	render: function WithFooterExample() {
+		const buttonRef = useRef<HTMLButtonElement | null>(null);
+		const [open, setOpen] = useState(false);
 
-			const handleButtonRef = useCallback((ref: HTMLButtonElement | null) => {
-				buttonRef.current = ref;
-			}, []);
+		const handleButtonRef = useCallback((ref: HTMLButtonElement | null) => {
+			buttonRef.current = ref;
+		}, []);
 
-			const toggle = useCallback(() => setOpen((prev) => !prev), []);
-			const handleClose = useCallback(() => setOpen(false), []);
+		const toggle = useCallback(() => setOpen((prev) => !prev), []);
+		const handleClose = useCallback(() => setOpen(false), []);
 
-			return (
-				<div style={{ padding: "40px" }}>
-					<Button buttonRef={handleButtonRef} onClick={toggle} label="Open Callout with Footer" />
-					{open && buttonRef.current && (
-						<Callout
-							id="footer-callout"
-							referenceElement={buttonRef.current}
-							onClose={handleClose}
-							header={{
-								title: <span>Callout with Footer</span>,
-								suffix: <Button icon={<Icon>close</Icon>} title="Close" onClick={handleClose} />
-							}}
-							footer={
-								<div style={{ display: "flex", justifyContent: "flex-end", gap: "8px" }}>
-									<Button onClick={handleClose} label="Cancel" />
-									<Button primary onClick={handleClose} label="Confirm" />
-								</div>
-							}
-						>
-							<p style={{ margin: 0 }}>Callouts can include a footer area for action buttons.</p>
-						</Callout>
-					)}
-				</div>
-			);
-		};
-
-		return <WithFooterCallout />;
+		return (
+			<div style={{ padding: "40px" }}>
+				<Button buttonRef={handleButtonRef} onClick={toggle} label="Open Callout with Footer" />
+				{open && buttonRef.current && (
+					<Callout
+						id="footer-callout"
+						referenceElement={buttonRef.current}
+						onClose={handleClose}
+						header={{
+							title: <span>Callout with Footer</span>,
+							suffix: <Button icon={<Icon>close</Icon>} title="Close" onClick={handleClose} />
+						}}
+						footer={
+							<div style={{ display: "flex", justifyContent: "flex-end", gap: "8px" }}>
+								<Button onClick={handleClose} label="Cancel" />
+								<Button primary onClick={handleClose} label="Confirm" />
+							</div>
+						}
+					>
+						<p style={{ margin: 0 }}>Callouts can include a footer area for action buttons.</p>
+					</Callout>
+				)}
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "The `footer` prop renders arbitrary content below the body — typically a row of action buttons."
+			}
+		}
 	}
 };
 
 export const NoPadding: Story = {
-	render: () => {
-		const NoPaddingCallout = () => {
-			const buttonRef = useRef<HTMLButtonElement | null>(null);
-			const [open, setOpen] = useState(false);
+	render: function NoPaddingExample() {
+		const buttonRef = useRef<HTMLButtonElement | null>(null);
+		const [open, setOpen] = useState(false);
 
-			const handleButtonRef = useCallback((ref: HTMLButtonElement | null) => {
-				buttonRef.current = ref;
-			}, []);
+		const handleButtonRef = useCallback((ref: HTMLButtonElement | null) => {
+			buttonRef.current = ref;
+		}, []);
 
-			const toggle = useCallback(() => setOpen((prev) => !prev), []);
-			const handleClose = useCallback(() => setOpen(false), []);
+		const toggle = useCallback(() => setOpen((prev) => !prev), []);
+		const handleClose = useCallback(() => setOpen(false), []);
 
-			return (
-				<div style={{ padding: "40px" }}>
-					<Button buttonRef={handleButtonRef} onClick={toggle} label="Open Callout without Padding" />
-					{open && buttonRef.current && (
-						<Callout
-							id="no-padding-callout"
-							referenceElement={buttonRef.current}
-							padding={false}
-							onClose={handleClose}
-							header={{
-								title: <span>No Padding</span>,
-								suffix: <Button icon={<Icon>close</Icon>} title="Close" onClick={handleClose} />
-							}}
-						>
-							<div style={{ background: "#f0f0f0", padding: "16px" }}>
-								Content fills edge-to-edge when padding is disabled.
-							</div>
-						</Callout>
-					)}
-				</div>
-			);
-		};
-
-		return <NoPaddingCallout />;
+		return (
+			<div style={{ padding: "40px" }}>
+				<Button buttonRef={handleButtonRef} onClick={toggle} label="Open Callout without Padding" />
+				{open && buttonRef.current && (
+					<Callout
+						id="no-padding-callout"
+						referenceElement={buttonRef.current}
+						padding={false}
+						onClose={handleClose}
+						header={{
+							title: <span>No Padding</span>,
+							suffix: <Button icon={<Icon>close</Icon>} title="Close" onClick={handleClose} />
+						}}
+					>
+						<div style={{ background: "#f0f0f0", padding: "16px" }}>
+							Content fills edge-to-edge when padding is disabled.
+						</div>
+					</Callout>
+				)}
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'`padding={false}` removes the default content padding so content fills the callout edge-to-edge. A custom CSS value like `padding="12px 24px"` is also supported.'
+			}
+		}
 	}
 };

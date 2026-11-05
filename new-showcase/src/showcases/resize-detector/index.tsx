@@ -30,6 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import resizeDetectorCode from "!./resize-detector.tsx?raw";
 import type { JSONOutput } from "typedoc";
 
 import SizeDetectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/size-detector/main/size-detector.api.json" with { type: "json" };
@@ -37,8 +38,6 @@ import SizeDetectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/la
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { ResizeDetectorShowcase } from "./resize-detector.js";
-
-import resizeDetectorCode from "!./resize-detector.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

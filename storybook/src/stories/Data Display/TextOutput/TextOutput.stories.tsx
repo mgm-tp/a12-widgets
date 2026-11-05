@@ -32,7 +32,7 @@
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { TextOutput } from "@com.mgmtp.a12.widgets/widgets-core";
+import { TextOutput, ErrorTooltip, HintTooltip, WarningTooltip } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const meta: Meta<typeof TextOutput> = {
 	title: "Data Display/TextOutput",
@@ -40,11 +40,26 @@ const meta: Meta<typeof TextOutput> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		label: {
 			control: "text",
 			description: "Label shown above the value"
+		},
+		children: {
+			control: "text",
+			description: "Content (value) of the text output"
+		},
+		errorMessage: {
+			control: "text",
+			description: "Error message shown between label and value"
+		},
+		warningMessage: {
+			control: "text",
+			description: "Warning message shown between label and value"
+		},
+		infoMessage: {
+			control: "text",
+			description: "Info message shown between label and value"
 		},
 		alignment: {
 			control: "select",
@@ -54,6 +69,18 @@ const meta: Meta<typeof TextOutput> = {
 		noData: {
 			control: "boolean",
 			description: "Render an empty placeholder for missing data"
+		},
+		disableParagraphWrapping: {
+			control: "boolean",
+			description: "Do not wrap the content in an HTML paragraph (recommended inside table cells)"
+		},
+		addonAfter: {
+			control: false,
+			description: "Addons placed after the content, e.g. tooltips"
+		},
+		tooltips: {
+			control: false,
+			description: "Additional tooltips rendered next to the label"
 		}
 	}
 };
@@ -61,26 +88,34 @@ const meta: Meta<typeof TextOutput> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		label: "Full Name",
 		children: "Jane Doe"
 	}
 };
 
-export const WithErrorMessage: Story = {
-	args: {
-		label: "Email",
-		children: "invalid@",
-		errorMessage: "Invalid email address"
-	}
-};
-
-export const WithWarningMessage: Story = {
-	args: {
-		label: "Budget",
-		children: "€ 4,900",
-		warningMessage: "Near budget limit"
+export const Messages: Story = {
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+			<TextOutput label="Email" errorMessage="Invalid email address">
+				invalid@
+			</TextOutput>
+			<TextOutput label="Budget" warningMessage="Near budget limit">
+				€ 4,900
+			</TextOutput>
+			<TextOutput label="Membership" infoMessage="Renews automatically">
+				Premium
+			</TextOutput>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`errorMessage`, `warningMessage` and `infoMessage` render a validation-style message between the label and the value."
+			}
+		}
 	}
 };
 
@@ -88,13 +123,56 @@ export const NoData: Story = {
 	args: {
 		label: "Phone",
 		noData: true
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`noData` renders an italic dash placeholder in a muted color to indicate missing data."
+			}
+		}
 	}
 };
 
-export const RightAligned: Story = {
+export const Alignment: Story = {
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+			<TextOutput label="Left (default)" alignment="left">
+				€ 1,250.00
+			</TextOutput>
+			<TextOutput label="Center" alignment="center">
+				€ 1,250.00
+			</TextOutput>
+			<TextOutput label="Right" alignment="right">
+				€ 1,250.00
+			</TextOutput>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`alignment` aligns the value `left` (default), `center` or `right` — right alignment is typical for numeric values."
+			}
+		}
+	}
+};
+
+export const TooltipsAndAddons: Story = {
 	args: {
-		label: "Amount",
-		children: "€ 1,250.00",
-		alignment: "right"
+		label: "Project status",
+		children: "Two deliverables are overdue and the budget forecast exceeds the approved limit.",
+		tooltips: <HintTooltip text="Status is recalculated every night" />,
+		addonAfter: [
+			<ErrorTooltip key="error" text="Deliverables overdue" />,
+			<WarningTooltip key="warning" text="Budget forecast exceeded" />
+		]
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`tooltips` places tooltips next to the label, while `addonAfter` places addons (such as tooltips) after the content."
+			}
+		}
 	}
 };

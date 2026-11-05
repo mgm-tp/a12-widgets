@@ -29,6 +29,10 @@ exports[`com.mgmtp.a12.widgets.new-comment > rendering-new-comment 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c2 {
   color: rgb(77, 77, 77);
   cursor: default;
@@ -73,7 +77,7 @@ exports[`com.mgmtp.a12.widgets.new-comment > rendering-new-comment 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden auto;
   width: 100%;
 }
@@ -99,6 +103,8 @@ exports[`com.mgmtp.a12.widgets.new-comment > rendering-new-comment 1`] = `
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             account_circle
           </span>
@@ -220,7 +226,7 @@ exports[`com.mgmtp.a12.widgets.new-comment > rendering-new-comment-with-actions 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden auto;
   width: 100%;
 }
@@ -357,7 +363,7 @@ exports[`com.mgmtp.a12.widgets.new-comment > rendering-new-comment-with-reply 1`
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden auto;
   width: 100%;
   background-color: rgb(241, 242, 244);
@@ -380,12 +386,12 @@ exports[`com.mgmtp.a12.widgets.new-comment > rendering-new-comment-with-reply 1`
 `;
 
 exports[`com.mgmtp.a12.widgets.new-comment.input > rendering-new-comment-input 1`] = `
-.c8 {
+.c7 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -403,18 +409,18 @@ exports[`com.mgmtp.a12.widgets.new-comment.input > rendering-new-comment-input 1
   width: 100%;
 }
 
-.c8::placeholder {
+.c7::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c6 {
+.c5 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -458,11 +464,11 @@ exports[`com.mgmtp.a12.widgets.new-comment.input > rendering-new-comment-input 1
   max-width: 100%;
 }
 
-.c7 {
+.c6 {
   height: auto;
 }
 
-.c9 {
+.c8 {
   height: 100px;
   padding: calc(16px - 0.54375rem) 12px;
   resize: vertical;
@@ -471,19 +477,15 @@ exports[`com.mgmtp.a12.widgets.new-comment.input > rendering-new-comment-input 1
   min-width: 0px;
 }
 
-.c10 .c5 {
-  background-color: rgb(255, 255, 255);
-}
-
 @media (pointer: coarse) {
-  .c6:active {
+  .c5:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c6:hover {
+  .c5:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -500,12 +502,12 @@ exports[`com.mgmtp.a12.widgets.new-comment.input > rendering-new-comment-input 1
       data-role="textarea-control"
     >
       <div
-        class="c5 c6 c7 field__input field__input--textarea"
+        class="c5 c6 field__input field__input--textarea"
         data-isfocused="false"
       >
         <textarea
           autocomplete="off"
-          class="c8 c9 field__text"
+          class="c7 c8 field__text"
           data-role="textarea-input"
         />
       </div>

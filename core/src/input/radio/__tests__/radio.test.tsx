@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render, fireEvent, getAllByDataRole } from "test-utils";
+import { render, fireEvent, getAllByDataRole, isAfter } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
-import { Radio } from "../main/radio.view.js";
+import type { MessagePosition, TooltipLineBreak } from "../../base/template/base.tpl.api.js";
 import type { RadioProps } from "../main/radio.api.js";
+import { Radio } from "../main/radio.view.js";
 
 describe("com.mgmtp.a12.widgets.input.radio", () => {
 	const properties: Partial<RadioProps> = {
@@ -150,5 +150,158 @@ describe("com.mgmtp.a12.widgets.input.radio", () => {
 
 		expect(onItemFocus).toHaveBeenCalledTimes(1);
 		expect(onItemBlur).toHaveBeenCalledTimes(1);
+	});
+
+	describe("message position", () => {
+		const messageRoles = [
+			DataRoles.Radio.Group.ErrorMessage,
+			DataRoles.Radio.Group.WarningMessage,
+			DataRoles.Radio.Group.InfoMessage
+		];
+
+		const renderWithMessages = (messagePosition: MessagePosition) =>
+			render(
+				<Radio
+					id={properties.id}
+					label="Test Label"
+					helperText="Test Helper Text"
+					errorMessage="Test error message"
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					messagePosition={messagePosition}
+				>
+					<Radio.Item label="Option 1" value="1" />
+					<Radio.Item label="Option 2" value="2" />
+				</Radio>
+			);
+
+		test("renders the messages above the group for above", () => {
+			const { getAllByDataRole, getByDataRole } = renderWithMessages("above");
+			const items = getAllByDataRole(DataRoles.Radio.Item);
+			const label = getByDataRole(DataRoles.Radio.Group.Label);
+			const helperText = getByDataRole(DataRoles.Radio.Group.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(isAfter(message, items[0])).toBe(true);
+				// stays inside the label -> helper text envelope
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the group for below", () => {
+			const { getAllByDataRole, getByDataRole } = renderWithMessages("below");
+			const items = getAllByDataRole(DataRoles.Radio.Item);
+			const lastItem = items[items.length - 1];
+			const label = getByDataRole(DataRoles.Radio.Group.Label);
+			const helperText = getByDataRole(DataRoles.Radio.Group.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(isAfter(lastItem, message)).toBe(true);
+				// stays inside the label -> helper text envelope
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const renderWithTooltips = (breakTooltipsToNewLine: TooltipLineBreak, helperText?: string) =>
+			render(
+				<Radio
+					id={properties.id}
+					label="Test Radio"
+					helperText={helperText}
+					tooltips={<div>Test tooltip</div>}
+					breakTooltipsToNewLine={breakTooltipsToNewLine}
+				>
+					<Radio.Item label="Option 1" value="1" />
+					<Radio.Item label="Option 2" value="2" />
+				</Radio>
+			);
+
+		test("renders the tooltips above the group for false, having no inline placement", () => {
+			const { getAllByDataRole, getByDataRole, getByText } = renderWithTooltips(false);
+			const items = getAllByDataRole(DataRoles.Radio.Item);
+			const tooltip = getByText("Test tooltip");
+
+			expect(items.some((item) => item.contains(tooltip))).toBe(false);
+			// the very slot "above" uses: after the group label, before the group itself
+			expect(isAfter(getByDataRole(DataRoles.Radio.Group.Label), tooltip)).toBe(true);
+			expect(isAfter(tooltip, items[0])).toBe(true);
+		});
+
+		test("renders the tooltips above the group for above", () => {
+			const { getAllByDataRole, getByDataRole, getByText } = renderWithTooltips("above");
+			const items = getAllByDataRole(DataRoles.Radio.Item);
+			const tooltip = getByText("Test tooltip");
+
+			expect(items.some((item) => item.contains(tooltip))).toBe(false);
+			expect(isAfter(getByDataRole(DataRoles.Radio.Group.Label), tooltip)).toBe(true);
+			expect(isAfter(tooltip, items[0])).toBe(true);
+		});
+
+		test("renders the tooltips below the group for below", () => {
+			const { getAllByDataRole, getByDataRole, getByText } = renderWithTooltips("below", "Test Helper Text");
+			const items = getAllByDataRole(DataRoles.Radio.Item);
+			const helperText = getByDataRole(DataRoles.Radio.Group.HelperText);
+			const tooltip = getByText("Test tooltip");
+
+			expect(items.some((item) => item.contains(tooltip))).toBe(false);
+			expect(isAfter(items[items.length - 1], tooltip)).toBe(true);
+			expect(isAfter(tooltip, helperText)).toBe(true);
+		});
+	});
+
+	describe("aria-invalid", () => {
+		test("marks the item inputs as invalid for error", () => {
+			const { getAllByDataRole } = render(
+				<Radio id={properties.id} label="Test Radio" error>
+					<Radio.Item label="Option 1" value="1" />
+					<Radio.Item label="Option 2" value="2" />
+				</Radio>
+			);
+
+			for (const input of getAllByDataRole(DataRoles.Radio.Input)) {
+				expect(input).toHaveAttribute("aria-invalid", "true");
+			}
+		});
+
+		test("marks the item inputs as invalid for errorMessage", () => {
+			const { getAllByDataRole } = render(
+				<Radio id={properties.id} label="Test Radio" errorMessage="Test error message">
+					<Radio.Item label="Option 1" value="1" />
+					<Radio.Item label="Option 2" value="2" />
+				</Radio>
+			);
+
+			for (const input of getAllByDataRole(DataRoles.Radio.Input)) {
+				expect(input).toHaveAttribute("aria-invalid", "true");
+			}
+		});
+
+		test("does not mark the item inputs as invalid for a warning or an info", () => {
+			const { getAllByDataRole } = render(
+				<Radio
+					id={properties.id}
+					label="Test Radio"
+					warning
+					info
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+				>
+					<Radio.Item label="Option 1" value="1" />
+					<Radio.Item label="Option 2" value="2" />
+				</Radio>
+			);
+
+			for (const input of getAllByDataRole(DataRoles.Radio.Input)) {
+				expect(input).not.toHaveAttribute("aria-invalid");
+			}
+		});
 	});
 });

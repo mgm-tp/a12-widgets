@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { addPrefix, getParentElement } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix, getParentElement } from "../../common/main/utils.js";
 
 /** @internal */
 export const modalOverlayClassName = addPrefix("modalOverlay");

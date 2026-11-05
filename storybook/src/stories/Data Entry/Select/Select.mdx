@@ -1,0 +1,62 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as SelectStories from "./Select.stories";
+
+<Meta of={SelectStories} />
+
+<Title />
+
+The `Select` widget wraps the native HTML select element and adds a label, placeholder,
+helper text and validation messages. Use it whenever the user has to pick exactly one
+value from a predefined list of options.
+
+- `items` accepts flat options or groups (entries with `children` render as option groups).
+- `error`, `warning` and `info` flags pair with `errorMessage`, `warningMessage` and `infoMessage` for validation feedback.
+- `useCustomView` (or the `CustomSelect` widget) swaps the native select for a custom dropdown that supports rich item rendering and opens a modal picker on mobile devices.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={SelectStories.Playground} />
+
+## Examples
+
+### Label graphic
+
+<Canvas of={SelectStories.WithLabelGraphic} />
+
+### Grouped options
+
+<Canvas of={SelectStories.WithGroupedOptions} />
+
+### Disabled
+
+<Canvas of={SelectStories.Disabled} />
+
+### Readonly
+
+<Canvas of={SelectStories.Readonly} />
+
+### Validation states
+
+<Canvas of={SelectStories.ValidationStates} />
+
+### Custom view
+
+<Canvas of={SelectStories.CustomView} />

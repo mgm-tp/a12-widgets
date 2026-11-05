@@ -31,11 +31,10 @@
  */
 
 import type { FocusEventHandler, ReactElement, ReactNode } from "react";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { css, styled } from "styled-components";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
 import { composeCellShadow } from "./data-table.styled-utils.js";
@@ -49,41 +48,82 @@ export const StyledDataTableExpandableRow = styled.tr.withConfig({ displayName: 
 	$selected?: boolean;
 	$highlightVariant?: "success" | "info";
 }>(({ theme, $selected, $highlightVariant }) => {
-	const { table } = theme.components;
-	const { bodyRow } = table;
+	const { bodyRow } = theme.components.table;
 
 	return css`
 		background: ${bodyRow.background};
 		outline: none;
 
 		> td {
-			padding: ${table.bodyCell.padding};
+			padding: 0;
 			border-bottom: ${bodyRow.borderBottom};
 		}
 
-		${$highlightVariant === "info" &&
-		css`
-			background: ${bodyRow.infoBG};
-		`}
+		${
+			$highlightVariant === "info" &&
+			css`
+				background: ${bodyRow.infoBG};
+			`
+		}
 
-		${$highlightVariant === "success" &&
-		css`
-			background: ${bodyRow.successBG};
-		`}
+		${
+			$highlightVariant === "success" &&
+			css`
+				background: ${bodyRow.successBG};
+			`
+		}
 
-		${$selected &&
-		css`
-			background: ${bodyRow.selected.background};
+		${
+			$selected &&
+			css`
+				background: ${bodyRow.selected.background};
 
-			/* The table uses \`border-collapse: separate\`, under which borders on
+				/* The table uses \`border-collapse: separate\`, under which borders on
 			 * \`<tr>\` are ignored — paint the selected left accent as an inset
 			 * shadow on the spanning cell instead (same technique as the body row). */
-			> td {
-				box-shadow: ${composeCellShadow({ accent: { border: bodyRow.selected.borderLeft } })};
-			}
-		`}
+				> td {
+					box-shadow: ${composeCellShadow({ accent: { border: bodyRow.selected.borderLeft } })};
+				}
+			`
+		}
 	`;
 });
+
+const StyledDataTableExpandableRowContent = styled.div.withConfig({
+	displayName: "StyledDataTableExpandableRowContent-sc-"
+})`
+	position: sticky;
+	inset-inline-start: 0;
+	box-sizing: border-box;
+	max-width: 100%;
+`;
+
+/**
+ * Holds `element` at the scroll viewport's visible width. Sticky cannot be pushed past
+ * its containing block's edge, so any excess over `clientWidth` becomes drift at the
+ * end of the scroll range.
+ */
+function useVisibleWidth(elementRef: { current: HTMLDivElement | null }): void {
+	useLayoutEffect(() => {
+		const element = elementRef.current;
+		const viewport = element?.closest(`[data-role="${DataRoles.Table.Viewport}"]`);
+
+		if (!element || !viewport) {
+			return;
+		}
+
+		const measure = (): void => {
+			element.style.width = `${viewport.clientWidth}px`;
+		};
+
+		measure();
+
+		const observer = new ResizeObserver(measure);
+		observer.observe(viewport);
+
+		return (): void => observer.disconnect();
+	}, [elementRef]);
+}
 
 /**
  * Props accepted by {@link DataTableExpandableRowTpl}.
@@ -127,8 +167,11 @@ export function DataTableExpandableRowTpl({
 	onFocus
 }: DataTableExpandableRowTplProps): ReactElement {
 	const expandedRowRef = useRef<HTMLTableRowElement | null>(null);
-	const cardView = useDataTableContext((ctx) => ctx.cardView);
-	const leafCount = useDataTableContext((ctx) => ctx.leafPinning.length) || 1;
+	const contentRef = useRef<HTMLDivElement | null>(null);
+	const gridRole = useDataTableContext().gridRole;
+	const leafCount = useDataTableContext().leafPinning.length || 1;
+
+	useVisibleWidth(contentRef);
 
 	useEffect(() => {
 		if (focusOnMount) {
@@ -136,10 +179,14 @@ export function DataTableExpandableRowTpl({
 		}
 	}, [focusOnMount]);
 
+	// (tree)grid mode overrides the table role, dropping the native `<tr>`/`<td>`
+	// mappings — restate them so the expanded row keeps its semantics.
+	const rowRole = gridRole ? "row" : undefined;
+
 	return (
 		<StyledDataTableExpandableRow
 			data-role={DataRoles.Table.Expandable.Row}
-			role={cardView ? "presentation" : undefined}
+			role={rowRole}
 			ref={expandedRowRef}
 			tabIndex={focusOnMount ? -1 : undefined}
 			aria-selected={selected || undefined}
@@ -148,7 +195,9 @@ export function DataTableExpandableRowTpl({
 			onBlur={onBlur}
 			onFocus={onFocus}
 		>
-			<td colSpan={leafCount}>{children}</td>
+			<td colSpan={leafCount} role={gridRole ? "gridcell" : undefined}>
+				<StyledDataTableExpandableRowContent ref={contentRef}>{children}</StyledDataTableExpandableRowContent>
+			</td>
 		</StyledDataTableExpandableRow>
 	);
 }

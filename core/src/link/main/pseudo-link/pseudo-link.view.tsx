@@ -33,9 +33,8 @@
 import type { ReactElement } from "react";
 import { createRef } from "react";
 
-import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
+import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
 import { StyledLink } from "../link/link.view.js";
 
 import type { PseudoLinkProps } from "./pseudo-link.api.js";

@@ -1,0 +1,105 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as FlyoutMenuStories from "./FlyoutMenu.stories";
+import * as FlyoutMenuInteractionsStories from "./FlyoutMenuInteractions.stories";
+import * as FlyoutMenuKeyboardNavigationStories from "./FlyoutMenuKeyboardNavigation.stories";
+
+<Meta of={FlyoutMenuStories} />
+
+<Title />
+
+The `FlyoutMenu` widget renders a navigation menu either as a horizontal bar (`type="horizontal"`,
+e.g. an application header) or as a vertical sidebar (`type="vertical"`). Nested `items` open as
+flyout submenus on hover, click or keyboard interaction, with `hoverDelay` controlling how quickly
+hover opens them.
+
+- Items support `icon`, `badge`, `counter`, `selected`, `disabled`, `variant` status icons and an
+  `onClick` handler; `MenuGroup` entries group items in horizontal menus.
+- A vertical menu can be compacted to icons only via `collapsed`.
+- When a horizontal menu runs out of space, overflowing items condense into a three-dot item
+  (`onCondensed` reports them, `condensedBadge` decorates the three-dot item).
+- `useAs` ("main" or "tabNavigation") and `mainContainerLabel` control the menu's semantics and
+  accessible name.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={FlyoutMenuStories.Playground} />
+
+## Examples
+
+### Vertical
+
+<Canvas of={FlyoutMenuStories.Vertical} />
+
+### With submenus
+
+<Canvas of={FlyoutMenuStories.WithSubmenus} />
+
+### Collapsed
+
+<Canvas of={FlyoutMenuStories.Collapsed} />
+
+### Variants
+
+<Canvas of={FlyoutMenuStories.Variants} />
+
+### Badges and counters
+
+<Canvas of={FlyoutMenuStories.WithBadgesAndCounters} />
+
+### Grouped items
+
+<Canvas of={FlyoutMenuStories.WithGroups} />
+
+### Selected and disabled items
+
+<Canvas of={FlyoutMenuStories.SelectedAndDisabledItems} />
+
+### As main navigation
+
+<Canvas of={FlyoutMenuStories.AsMainNavigation} />
+
+### As tab navigation
+
+<Canvas of={FlyoutMenuStories.AsTabNavigation} />
+
+### Hidden labels
+
+<Canvas of={FlyoutMenuStories.WithHiddenLabels} />
+
+### Click handling
+
+<Canvas of={FlyoutMenuStories.WithClickHandler} />
+
+## Interaction hints
+
+The `Interactions` and `InteractionsAdvanced` sidebar entries demonstrate `InteractionHintConfigProvider`
+with the FlyoutMenu: enabling hints for horizontal/vertical menus, `followCursor`, `hideArrow` and the
+`position` option for vertical menus.
+
+<Canvas of={FlyoutMenuInteractionsStories.WithInteractionHint} />
+
+## Keyboard navigation
+
+The `KeyboardNavigation` sidebar entry demonstrates the default keyboard navigation mode (Tab and arrow
+keys move between items, Enter opens a submenu, Escape closes it) and the `arrow-only` mode configured
+via `KeyboardNavigationConfigProvider`, where Tab skips past the entire menu.
+
+<Canvas of={FlyoutMenuKeyboardNavigationStories.HorizontalDefaultMode} />

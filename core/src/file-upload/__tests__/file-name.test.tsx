@@ -34,10 +34,9 @@ import { render, fireEvent, getByDataRole, queryByDataRole, screen } from "test-
 import { describe, test, expect, vi } from "vitest";
 import { userEvent } from "vitest/browser";
 
+import { DataRoles } from "../../common/main/data-roles.js";
 import { Icon } from "../../icon/main/icon.view.js";
 import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
-
 import type { DefaultFileUploadProps } from "../main/default/default-file-upload.api.js";
 import { DefaultFileUpload } from "../main/default/default-file-upload.view.js";
 

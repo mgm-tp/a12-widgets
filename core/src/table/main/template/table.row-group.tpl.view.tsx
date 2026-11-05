@@ -35,11 +35,10 @@ import { useMemo } from "react";
 import { styled, css } from "styled-components";
 
 import { joinClassNames, getRole } from "../../../common/main/utils.js";
-
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
-import type { TableTemplateProps } from "./table.tpl.api.js";
 import { StyledTableBody } from "./table.body.tpl.view.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 
 export const StyledTableRowGroup = styled.div.withConfig({ displayName: "StyledTableRowGroup-sc-" })(({ theme }) => {
 	const { headRowGroup } = theme.components.table;

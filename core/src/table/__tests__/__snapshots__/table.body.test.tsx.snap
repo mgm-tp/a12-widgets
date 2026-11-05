@@ -5,7 +5,7 @@ exports[`com.mgmtp.a12.widgets.table.body > bodyRowRenderer 1`] = `
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -31,7 +31,7 @@ exports[`com.mgmtp.a12.widgets.table.body > dndBodyRowRendererFn 1`] = `
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 

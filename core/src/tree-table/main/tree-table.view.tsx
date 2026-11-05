@@ -36,26 +36,26 @@ import { useDrag, useDrop } from "react-dnd";
 import { getEmptyImage } from "react-dnd-html5-backend";
 import type { List } from "react-virtualized";
 
-import { createContext, useContextSelector } from "../../context/index.js";
-import { addPrefix, joinClassNames, StringUtils } from "../../common/main/utils.js";
+import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import type { DOMProps } from "../../common/main/base-props.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import { useKeepEditableCursorInDraggable } from "../../common/main/hooks.js";
-import type { DOMProps } from "../../common/main/base-props.js";
-import { TableTemplate } from "../../table/main/template/index.js";
-import type { TableContextType } from "../../table/main/table.api.js";
+import { addPrefix, joinClassNames, StringUtils } from "../../common/main/utils.js";
+import { createContext, useContextSelector } from "../../context/index.js";
 import type { TableRenderPropsType } from "../../table/main/table-renderer.api.js";
+import type { TableContextType } from "../../table/main/table.api.js";
+import { TableRowScroller } from "../../table/main/table.row-scroller.js";
+import { flattenAllColumns, getRowKey, hasColumnGroup, TableInternalUtils } from "../../table/main/table.utils.js";
 import {
 	DefaultTableComponentRenderers,
 	DnDTable,
 	StyledTableDnDBody,
 	TableContextProvider
 } from "../../table/main/table.view.js";
-import { flattenAllColumns, getRowKey, hasColumnGroup, TableInternalUtils } from "../../table/main/table.utils.js";
+import { TableTemplate } from "../../table/main/template/index.js";
 import { TreeNode } from "../../tree/main/tpl/tree-elements.tpl.js";
-import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { TableRowScroller } from "../../table/main/table.row-scroller.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
 import type {
 	BaseTreeTableColumnType,

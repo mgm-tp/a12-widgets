@@ -35,9 +35,8 @@ import { useRef, useEffect } from "react";
 import type { CSSObject } from "styled-components";
 import { css } from "styled-components";
 
-import { createContext, useContextSelector } from "../../../context/index.js";
 import { getNearestFocusableParent } from "../../../common/main/utils.js";
-
+import { createContext, useContextSelector } from "../../../context/index.js";
 import type { RowScrollManager } from "../table.internal.js";
 
 /** @internal **/
@@ -106,21 +105,21 @@ export const handleContextMenu =
 /** @internal */
 export const resetBoxShadowForSubInfoCell = (rowSegmentSelector: CSSObject | string) => css`
 	@media (pointer: fine) {
-		${rowSegmentSelector}:hover &&&:last-of-type,
-    &&&:first-of-type {
+		&&&:first-of-type,
+		${rowSegmentSelector}:hover &&&:last-of-type {
 			box-shadow: none;
 		}
 	}
 
 	@media (pointer: coarse) {
-		${rowSegmentSelector}:active &&&:last-of-type,
-    &&&:first-of-type {
+		&&&:first-of-type,
+		${rowSegmentSelector}:active &&&:last-of-type {
 			box-shadow: none;
 		}
 	}
 
-	${rowSegmentSelector}:focus-within &&&:last-of-type,
-  &&&:first-of-type {
+	&&&:first-of-type,
+	${rowSegmentSelector}:focus-within &&&:last-of-type {
 		box-shadow: none;
 	}
 `;

@@ -30,13 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { MouseEvent, FC } from "react";
-import { useEffect } from "react";
 import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
+
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { mergeRegister } from "@lexical/utils";
 import type { LexicalEditor } from "lexical";
 import { $getSelection, $isNodeSelection, $isRangeSelection, COMMAND_PRIORITY_EDITOR, createCommand } from "lexical";
-import { mergeRegister } from "@lexical/utils";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import type { MouseEvent, FC } from "react";
+import { useEffect } from "react";
 
 import {
 	Icon,

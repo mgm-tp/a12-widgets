@@ -1,0 +1,62 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as MultiselectStories from "./Multiselect.stories";
+
+<Meta of={MultiselectStories} />
+
+<Title />
+
+The `Multiselect` widget combines a text-field input with a dropdown of checkable options, letting
+users pick multiple values from a list. Typing into the input filters the available options, and the
+selected items are displayed in the input as a comma-separated list (customizable via `joiningHandler`).
+
+- The dropdown offers an optional "select all" entry (`enableSelectAllOption`, `selectAllText`) and an
+  informational hint above the options (`hintTemplate`, e.g. `"{count} of {total} options shown"`).
+- Selection is controlled by the consumer: pass `items` with `selected: true` flags and update them in
+  the `onChange` callback, which reports the full set of selected items.
+- Filtering, sorting and grouping of options can be customized with `filteringHandler`,
+  `sortingHandler` and `groupingHandler`; `mobile` renders the selection as a modal instead.
+- Validation feedback is shown below the input via `errorMessage`, `warningMessage` and `infoMessage`.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={MultiselectStories.Playground} />
+
+## Examples
+
+### Label graphic
+
+<Canvas of={MultiselectStories.WithLabelGraphic} />
+
+### Preselected items
+
+<Canvas of={MultiselectStories.WithPreselectedItems} />
+
+### Without "select all"
+
+<Canvas of={MultiselectStories.WithoutSelectAll} />
+
+### Disabled and readonly
+
+<Canvas of={MultiselectStories.DisabledAndReadonly} />
+
+### Validation messages
+
+<Canvas of={MultiselectStories.ValidationMessages} />

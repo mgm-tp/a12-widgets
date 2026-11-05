@@ -33,9 +33,9 @@
 import type { ReactElement } from "react";
 import { memo, useRef, useCallback } from "react";
 
+import { StyledTableContextProvider, useOptimalTableContextValue } from "./table.context.styled.js";
 import type { TableTemplateProps } from "./table.tpl.api.js";
 import { useRowScrollManager } from "./table.tpl.utils.js";
-import { StyledTableContextProvider, useOptimalTableContextValue } from "./table.context.styled.js";
 
 /** @internal */
 export const CollapsingWrapper = memo(function CollapsingWrapper(

@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useTheme } from "styled-components";
 import type { BezierDefinition, Variants } from "motion/react";
+import { useTheme } from "styled-components";
 
 import { getTransitionDuration } from "../../../common/main/utils/css-utils.js";
 

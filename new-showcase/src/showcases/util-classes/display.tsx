@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 import { useState, useMemo } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import { Select, Range } from "@com.mgmtp.a12.widgets/widgets-core";
 

@@ -63,12 +63,14 @@ export const StyledFilterSection = styled(Typography.Section)<{ $showHeaderActio
 	$showHeaderActions
 }) => {
 	return css`
-		${$showHeaderActions &&
-		css`
-			[data-role="${DataRoles.Typography.Headline.HeaderActions}"] {
-				opacity: 1;
-			}
-		`}
+		${
+			$showHeaderActions &&
+			css`
+				[data-role="${DataRoles.Typography.Headline.HeaderActions}"] {
+					opacity: 1;
+				}
+			`
+		}
 	`;
 });
 

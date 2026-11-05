@@ -30,20 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import SwitchAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/switch/main/switch.api.json" with { type: "json" };
+import addonsAndTooltipsCode from "!./addons-and-tooltips.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import labelPositionCode from "!./label-position.tsx?raw";
+import statesAndMessagesCode from "!./states-and-messages.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import SwitchAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/switch/main/switch.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 
-import { BasicSwitch } from "./basic.js";
-import { StatesAndMessagesSwitch } from "./states-and-messages.js";
 import { AddonsAndTooltipsSwitch } from "./addons-and-tooltips.js";
+import { BasicSwitch } from "./basic.js";
 import { LabelPositionSwitch } from "./label-position.js";
-
-import basicCode from "!./basic.tsx?raw";
-import statesAndMessagesCode from "!./states-and-messages.tsx?raw";
-import addonsAndTooltipsCode from "!./addons-and-tooltips.tsx?raw";
-import labelPositionCode from "!./label-position.tsx?raw";
+import { StatesAndMessagesSwitch } from "./states-and-messages.js";
 
 const showcases: Showcase[] = [
 	{

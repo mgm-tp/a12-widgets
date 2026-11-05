@@ -33,21 +33,20 @@
 import { getByDataRole, queryByDataRole, render } from "test-utils";
 import { describe, expect, test, vi } from "vitest";
 
-import { Icon } from "../../icon/main/icon.view.js";
 import { noop } from "../../common/main/utils.js";
 import { Counter } from "../../counter/main/counter.view.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { Tooltip } from "../../tooltip/main/tooltip.view.js";
-
-import { TreeContainer, TreeNode } from "../main/tpl/tree-elements.tpl.js";
+import { TreeAdapter } from "../main/behavior/tree.adapter.js";
 import type {
 	CollapsibleTreeNodeModel,
 	MapTreeNode,
 	SelectableTreeNodeModel,
 	TreeNodeModel
 } from "../main/behavior/tree.behavior.api.js";
-import { Selectable } from "../main/behavior/tree.selectable.js";
 import { Collapsible } from "../main/behavior/tree.collapsible.js";
-import { TreeAdapter } from "../main/behavior/tree.adapter.js";
+import { Selectable } from "../main/behavior/tree.selectable.js";
+import { TreeContainer, TreeNode } from "../main/tpl/tree-elements.tpl.js";
 import { Tree } from "../main/tpl/tree.tpl.view.js";
 
 namespace Icons {
@@ -301,5 +300,42 @@ describe("com.mgmtp.a12.widgets.tree", () => {
 		);
 
 		expect(queryByDataRole(container, "tree-node-expander")).toBeFalsy();
+	});
+
+	test("still derives the element ids when nodes carry no id", () => {
+		const { container } = render(
+			<TreeContainer>
+				<TreeNode label="Root" level={0} showArrow onArrowClick={noop}>
+					<TreeNode label="Child" level={1} />
+				</TreeNode>
+			</TreeContainer>
+		);
+
+		// A missing id must never leak into a derived id such as "tree-node-undefined".
+		expect(container.querySelector("[id*='undefined']")).toBeNull();
+
+		// The expander stays named after its own node rather than by the generic title.
+		const labelledBy = getByDataRole(container, "tree-node-expander")
+			.querySelector("button")
+			?.getAttribute("aria-labelledby");
+
+		expect(labelledBy).toBeTruthy();
+		expect(container.querySelector(`#${labelledBy}`)?.textContent).toBe("Root");
+	});
+
+	test("derives the node element ids from the node id", () => {
+		const { container } = render(
+			<TreeContainer id="container">
+				<TreeNode label="Root" level={0} id="root" showArrow onArrowClick={noop} />
+			</TreeContainer>
+		);
+
+		expect(container.querySelector("#tree-root-node-container")).toBeTruthy();
+		expect(container.querySelector("#tree-node-root")).toBeTruthy();
+		expect(container.querySelector("#tree-node-content-root")).toBeTruthy();
+		expect(container.querySelector("#tree-node-arrow-root")?.querySelector("button")).toHaveAttribute(
+			"aria-labelledby",
+			"tree-node-name-root"
+		);
 	});
 });

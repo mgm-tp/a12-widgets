@@ -35,10 +35,9 @@ import { describe, test, expect, vi } from "vitest";
 
 import { Button } from "../../button/main/button.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
+import type { ToastGroupProps } from "../main/toast-group.api.js";
 import { ToastGroup } from "../main/toast-group.view.js";
 import { Toast } from "../main/toast/toast.view.js";
-import type { ToastGroupProps } from "../main/toast-group.api.js";
 
 describe("com.mgmtp.a12.widgets.toast-group", () => {
 	const toasts = [

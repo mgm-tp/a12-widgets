@@ -30,17 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { LinkNode } from "@lexical/link";
+import type { LinkMatcher } from "@lexical/react/LexicalAutoLinkPlugin";
 import type { ElementNode, LexicalNode, TextNode } from "lexical";
 import { $isElementNode, $isLineBreakNode, $isParagraphNode } from "lexical";
 import { isEqual } from "lodash-es";
-import type { LinkNode } from "@lexical/link";
-import type { LinkMatcher } from "@lexical/react/LexicalAutoLinkPlugin";
 
 import type { InlineStyleTextNode } from "../nodes/inline-style-text-node.js";
 import { $isInlineStyleTextNode } from "../nodes/inline-style-text-node.js";
 import { $isListItemNode } from "../nodes/list-item-node.js";
-import type { TextMatcher, TextMatcherResult } from "../plugins/plugin.internal.api.js";
 import { $isMentionNode } from "../nodes/mention-node.js";
+import type { TextMatcher, TextMatcherResult } from "../plugins/plugin.internal.api.js";
 
 import { endsWithSeparator, findFirstMatch, isSeparator, startsWithSeparator } from "./common.js";
 import { $splitText } from "./selection.js";

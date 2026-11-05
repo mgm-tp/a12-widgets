@@ -50,8 +50,8 @@ import type {
 	RefObject
 } from "react";
 
-import type { Ref, Container, Identifiable, Styleable, HTMLAttributes } from "../../../common/main/base-props.js";
 import type { ButtonProps } from "../../../button/main/button.api.js";
+import type { Ref, Container, Identifiable, Styleable, HTMLAttributes } from "../../../common/main/base-props.js";
 
 export type ContentBoxSidePanelMode = "overlay" | "docked";
 

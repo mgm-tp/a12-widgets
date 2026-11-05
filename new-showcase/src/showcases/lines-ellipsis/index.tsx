@@ -30,19 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basedOnCode from "!./based-on.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import withCustomizedEllipsisCode from "!./customized-ellipsis.tsx?raw";
+import htmlTruncationCode from "!./html-truncation.tsx?raw";
+
 import LinesEllipsisAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/lines-ellipsis/main/lines-ellipsis.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
+import { BasedOnLineEllipsisShowcase } from "./based-on.js";
 import { BasicLineEllipsisShowcase } from "./basic.js";
 import { LinesEllipsisWithCustomizedEllipsisShowcase } from "./customized-ellipsis.js";
 import { HtmlTruncationShowcase } from "./html-truncation.js";
-import { BasedOnLineEllipsisShowcase } from "./based-on.js";
-
-import basicCode from "!./basic.tsx?raw";
-import withCustomizedEllipsisCode from "!./customized-ellipsis.tsx?raw";
-import htmlTruncationCode from "!./html-truncation.tsx?raw";
-import basedOnCode from "!./based-on.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

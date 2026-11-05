@@ -30,12 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { getByDataRole, queryByDataRole, render, waitFor } from "test-utils";
 import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
-import { getByDataRole, queryByDataRole, render, waitFor } from "test-utils";
 
 import { DataRoles } from "../../common/main/data-roles.js";
-
 import { editorThemeClasses } from "../main/themes/themes.js";
 
 import { DefaultEditorCombination } from "./default-editor-combination.js";

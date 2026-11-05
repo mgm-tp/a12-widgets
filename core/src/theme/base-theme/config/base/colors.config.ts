@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { setLightness, rgba } from "polished";
 import merge from "deepmerge";
+import { setLightness, rgba } from "polished";
 
-import type { BaseThemeColors } from "../../schema.js";
 import type { DeepPartial } from "../../../../common/main/utils.js";
+import type { BaseThemeColors } from "../../schema.js";
 
 const shared = {
 	white: "#fff",

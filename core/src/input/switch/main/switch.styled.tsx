@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { styled, css } from "styled-components";
 import { setLightness } from "polished";
+import { styled, css } from "styled-components";
 
-import { active, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
 import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
-import { Label } from "../../base/template/base.tpl.view.js";
+import { active, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
 import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
+import { Label } from "../../base/template/base.tpl.view.js";
 
 import type { SwitchLabelPosition } from "./switch.api.js";
 
@@ -47,20 +47,26 @@ export const StyledSwitchLabel = styled(Label).withConfig({ displayName: "Styled
 	const { label } = theme.components.switch;
 
 	return css`
-		${$isInteractive &&
-		css`
-			cursor: ${label.cursor};
-		`}
+		${
+			$isInteractive &&
+			css`
+				cursor: ${label.cursor};
+			`
+		}
 
-		${($labelPosition === "left" || $labelPosition === "right") &&
-		css`
-			margin: 0;
-		`}
-		
-		${$labelPosition === "bottom" &&
-		css`
-			margin-top: 0;
-		`}
+		${
+			($labelPosition === "left" || $labelPosition === "right") &&
+			css`
+				margin: 0;
+			`
+		}
+
+		${
+			$labelPosition === "bottom" &&
+			css`
+				margin-top: 0;
+			`
+		}
 	`;
 });
 
@@ -196,10 +202,12 @@ export const StyledSwitchInteractive = styled.span.withConfig({ displayName: "St
 				border-width: ${state === "on" && 0};
 				border-color: ${state === "off" && color};
 
-				${state === "on" &&
-				css`
-					outline: 1px solid transparent;
-				`}
+				${
+					state === "on" &&
+					css`
+						outline: 1px solid transparent;
+					`
+				}
 
 				${StyledSwitchThumbIcon} ${StyledIconWrapper} {
 					color: ${iconColor};
@@ -219,73 +227,83 @@ export const StyledSwitchInteractive = styled.span.withConfig({ displayName: "St
 		position: relative;
 		width: ${track.width};
 
-		${$checked &&
-		css`
-			${switchStates("on", thumb.color)}
-			${StyledSwitchThumb} {
-				transform: translate(calc(${track.width} - ${thumb.size}));
-			}
-		`}
-
-		${!$disabled &&
-		!$readonly &&
-		css`
-			${$warning && switchStates(currentState, thumb.warningColor)}
-			${$error && switchStates(currentState, thumb.errorColor)}
-			${active(css`
-				${switchStates("on", thumb.active.color)}
-				${StyledSwitchThumb} {
-					height: ${thumb.active.size};
-					transform: ${$checked ? `translate(calc(${track.width} - ${thumb.size} + 1px))` : "translate(-1px)"};
-					width: ${thumb.active.size};
-				}
-			`)}
-			
-			${hover(css`
-				${switchStates("on", thumb.hover.color)}
-				${StyledSwitchThumb} {
-					height: ${thumb.hover.size};
-					transform: ${$checked ? `translate(calc(${track.width} - ${thumb.size} + 1px))` : "translate(-1px)"};
-					width: ${thumb.hover.size};
-				}
-			`)}
-			
-			${$focused &&
+		${
+			$checked &&
 			css`
-				${darkFocus}
-				${switchStates("on", thumb.focus.color)}
-          		${StyledSwitchThumb} {
-					height: ${thumb.focus.size};
-					transform: ${$checked ? `translate(calc(${track.width} - ${thumb.size} + 1px))` : "translate(-1px)"};
-					width: ${thumb.focus.size};
+				${switchStates("on", thumb.color)}
+				${StyledSwitchThumb} {
+					transform: translate(calc(${track.width} - ${thumb.size}));
 				}
-			`}
-		`}
-		
-		${$readonly &&
-		css`
-			${StyledSwitchThumb} {
-				border-width: ${thumb.readonly.borderWidth};
-			}
+			`
+		}
 
-			${StyledSwitchTrack} {
-				border-color: ${track.readonly.borderColor};
-			}
+		${
+			!$disabled &&
+			!$readonly &&
+			css`
+				${$warning && switchStates(currentState, thumb.warningColor)}
+				${$error && switchStates(currentState, thumb.errorColor)}
+				${active(css`
+					${switchStates("on", thumb.active.color)}
+					${StyledSwitchThumb} {
+						height: ${thumb.active.size};
+						transform: ${$checked ? `translate(calc(${track.width} - ${thumb.size} + 1px))` : "translate(-1px)"};
+						width: ${thumb.active.size};
+					}
+				`)}
 
-			${switchStates(currentState, thumb.readonly.color, track.readonly.background)}
-		`}
-		
-		${$disabled &&
-		css`
-			${StyledSwitchThumb} {
-				border-width: ${thumb.disabled.borderWidth};
-			}
+				${hover(css`
+					${switchStates("on", thumb.hover.color)}
+					${StyledSwitchThumb} {
+						height: ${thumb.hover.size};
+						transform: ${$checked ? `translate(calc(${track.width} - ${thumb.size} + 1px))` : "translate(-1px)"};
+						width: ${thumb.hover.size};
+					}
+				`)}
 
-			${StyledSwitchTrack} {
-				border-color: ${track.disabled.borderColor};
-			}
+				${
+					$focused &&
+					css`
+						${darkFocus}
+						${switchStates("on", thumb.focus.color)}
+						${StyledSwitchThumb} {
+							height: ${thumb.focus.size};
+							transform: ${$checked ? `translate(calc(${track.width} - ${thumb.size} + 1px))` : "translate(-1px)"};
+							width: ${thumb.focus.size};
+						}
+					`
+				}
+			`
+		}
 
-			${switchStates(currentState, thumb.disabled.color, track.disabled.background)}
-		`}
+		${
+			$readonly &&
+			css`
+				${StyledSwitchThumb} {
+					border-width: ${thumb.readonly.borderWidth};
+				}
+
+				${StyledSwitchTrack} {
+					border-color: ${track.readonly.borderColor};
+				}
+
+				${switchStates(currentState, thumb.readonly.color, track.readonly.background)}
+			`
+		}
+
+		${
+			$disabled &&
+			css`
+				${StyledSwitchThumb} {
+					border-width: ${thumb.disabled.borderWidth};
+				}
+
+				${StyledSwitchTrack} {
+					border-color: ${track.disabled.borderColor};
+				}
+
+				${switchStates(currentState, thumb.disabled.color, track.disabled.background)}
+			`
+		}
 	`;
 });

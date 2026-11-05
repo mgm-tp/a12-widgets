@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { styled, css } from "styled-components";
 import { TransitionGroup } from "react-transition-group";
+import { styled, css } from "styled-components";
 
-import { fadeIn, fadeOut, slideUpAndHide } from "../../theme/base/mixins/_animation.js";
 import { addPrefix } from "../../common/main/utils.js";
+import { fadeIn, fadeOut, slideUpAndHide } from "../../theme/base/mixins/_animation.js";
 import { hover } from "../../theme/base/mixins/_interaction.js";
 import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
 
@@ -71,128 +71,148 @@ export const StyledToastGroupWrapper = styled.div.withConfig({ displayName: "Sty
 			flex: 1;
 		}
 
-		${isMobile &&
-		css`
-			max-width: none;
-			margin: ${toastGroup.mobile.margin};
-			width: auto;
-
-			${StyledToastWrapper} {
-				bottom: 0;
-				opacity: 1;
-				left: 0;
-				position: ${!$stacking && "absolute"};
-				visibility: visible;
-			}
-		`}
-		${!isMobile &&
-		css`
-			max-height: 100%;
-			overflow-y: auto;
-		`}
-		${$stackable &&
-		css`
-			${StyledToastBody} {
+		${
+			isMobile &&
+			css`
 				max-width: none;
-			}
-		`}
-		${$stacking &&
-		css`
-			${StyledToastAnimation} {
-				${isTopDown &&
-				css`
-					margin-bottom: calc(${toastGroup.stacked.toastBoxShadow.thickness}*2);
-				`}
-				${!isTopDown &&
-				css`
-					margin: calc(${toastGroup.stacked.toastBoxShadow.thickness}*2) 0;
-				`}
-			}
-			${StyledToastAnimation}, ${StyledToastWrapper} {
-				margin-top: 0;
-			}
-			${StyledToastGraphic} {
-				box-shadow:
-					${toastGroup.stacked.toastBoxShadow.level1Background} 15px
-						${isTopDown
-							? toastGroup.stacked.toastBoxShadow.thickness
-							: `-${toastGroup.stacked.toastBoxShadow.thickness}`},
-					${toastGroup.stacked.toastBoxShadow.level2Background} 30px
-						${isTopDown
-							? `calc(${toastGroup.stacked.toastBoxShadow.thickness}*2)`
-							: `calc(-${toastGroup.stacked.toastBoxShadow.thickness}*2)`};
-				transition: ease-in 0.2s;
-				${createPseudoElement(
-					":before",
-					css`
-						z-index: -1;
-					`
-				)}
-				${createPseudoElement(
-					":after",
-					css`
-						z-index: -1;
-					`
-				)}
-			}
-			${StyledToastBody} {
-				box-shadow:
-					${toastGroup.stacked.toastBoxShadow.level1Background} ${toastGroup.stacked.toastBoxShadow.thickness}
-						${isTopDown
-							? toastGroup.stacked.toastBoxShadow.thickness
-							: `-${toastGroup.stacked.toastBoxShadow.thickness}`},
-					${toastGroup.stacked.toastBoxShadow.level2Background} calc(${toastGroup.stacked.toastBoxShadow.thickness}*2)
-						${isTopDown
-							? `calc(${toastGroup.stacked.toastBoxShadow.thickness}*2)`
-							: `calc(-${toastGroup.stacked.toastBoxShadow.thickness}*2)`};
-				margin-right: calc(${toastGroup.stacked.toastBoxShadow.thickness}*2);
-				transition: ease-in 0.2s;
-				${createPseudoElement(
-					":before",
-					css`
-						z-index: -1;
-					`
-				)}
-				${createPseudoElement(
-					":after",
-					css`
-						z-index: -1;
-					`
-				)}
-			}
-			${hover(css`
-				${StyledToastGraphic}, ${StyledToastBody} {
-					box-shadow: none;
-					transition: ease-in-out 0.2s;
-					position: relative;
+				margin: ${toastGroup.mobile.margin};
+				width: auto;
+
+				${StyledToastWrapper} {
+					bottom: 0;
+					opacity: 1;
+					left: 0;
+					position: ${!$stacking && "absolute"};
+					visibility: visible;
 				}
-				${StyledToastGraphic}:before {
-					box-shadow: 15px ${toastGroup.stacked.toastBoxShadow.thickness}
-						${toastGroup.stacked.toastBoxShadow.level1Background};
+			`
+		}
+		${
+			!isMobile &&
+			css`
+				max-height: 100%;
+				overflow-y: auto;
+			`
+		}
+		${
+			$stackable &&
+			css`
+				${StyledToastBody} {
+					max-width: none;
+				}
+			`
+		}
+		${
+			$stacking &&
+			css`
+				${StyledToastAnimation} {
+					${
+						isTopDown &&
+						css`
+							margin-bottom: calc(${toastGroup.stacked.toastBoxShadow.thickness}*2);
+						`
+					}
+					${
+						!isTopDown &&
+						css`
+							margin: calc(${toastGroup.stacked.toastBoxShadow.thickness}*2) 0;
+						`
+					}
+				}
+				${StyledToastAnimation}, ${StyledToastWrapper} {
+					margin-top: 0;
+				}
+				${StyledToastGraphic} {
+					box-shadow:
+						${toastGroup.stacked.toastBoxShadow.level1Background} 15px
+							${
+								isTopDown
+									? toastGroup.stacked.toastBoxShadow.thickness
+									: `-${toastGroup.stacked.toastBoxShadow.thickness}`
+							},
+						${toastGroup.stacked.toastBoxShadow.level2Background} 30px
+							${
+								isTopDown
+									? `calc(${toastGroup.stacked.toastBoxShadow.thickness}*2)`
+									: `calc(-${toastGroup.stacked.toastBoxShadow.thickness}*2)`
+							};
 					transition: ease-in 0.2s;
+					${createPseudoElement(
+						":before",
+						css`
+							z-index: -1;
+						`
+					)}
+					${createPseudoElement(
+						":after",
+						css`
+							z-index: -1;
+						`
+					)}
 				}
-				${StyledToastBody}:before {
-					box-shadow: 15px calc(${toastGroup.stacked.toastBoxShadow.thickness} + 1px)
-						${toastGroup.stacked.toastBoxShadow.level1Background};
+				${StyledToastBody} {
+					box-shadow:
+						${toastGroup.stacked.toastBoxShadow.level1Background} ${toastGroup.stacked.toastBoxShadow.thickness}
+							${
+								isTopDown
+									? toastGroup.stacked.toastBoxShadow.thickness
+									: `-${toastGroup.stacked.toastBoxShadow.thickness}`
+							},
+						${toastGroup.stacked.toastBoxShadow.level2Background} calc(${toastGroup.stacked.toastBoxShadow.thickness}*2)
+							${
+								isTopDown
+									? `calc(${toastGroup.stacked.toastBoxShadow.thickness}*2)`
+									: `calc(-${toastGroup.stacked.toastBoxShadow.thickness}*2)`
+							};
+					margin-right: calc(${toastGroup.stacked.toastBoxShadow.thickness}*2);
 					transition: ease-in 0.2s;
-					width: calc(100% - 30px);
-					z-index: -1;
+					${createPseudoElement(
+						":before",
+						css`
+							z-index: -1;
+						`
+					)}
+					${createPseudoElement(
+						":after",
+						css`
+							z-index: -1;
+						`
+					)}
 				}
-				${StyledToastGraphic}:after {
-					box-shadow: 30px calc(${toastGroup.stacked.toastBoxShadow.thickness}*2)
-						${toastGroup.stacked.toastBoxShadow.level2Background};
-					transition: ease-in 0.2s;
-					z-index: -2;
-				}
-				${StyledToastBody}:after {
-					box-shadow: 30px calc(${toastGroup.stacked.toastBoxShadow.thickness}*2 + 1px)
-						${toastGroup.stacked.toastBoxShadow.level2Background};
-					transition: ease-in 0.2s;
-					width: calc(100% - 60px);
-					z-index: -2;
-				}
-			`)}
-		`}
+				${hover(css`
+					${StyledToastGraphic}, ${StyledToastBody} {
+						box-shadow: none;
+						transition: ease-in-out 0.2s;
+						position: relative;
+					}
+					${StyledToastGraphic}:before {
+						box-shadow: 15px ${toastGroup.stacked.toastBoxShadow.thickness}
+							${toastGroup.stacked.toastBoxShadow.level1Background};
+						transition: ease-in 0.2s;
+					}
+					${StyledToastBody}:before {
+						box-shadow: 15px calc(${toastGroup.stacked.toastBoxShadow.thickness} + 1px)
+							${toastGroup.stacked.toastBoxShadow.level1Background};
+						transition: ease-in 0.2s;
+						width: calc(100% - 30px);
+						z-index: -1;
+					}
+					${StyledToastGraphic}:after {
+						box-shadow: 30px calc(${toastGroup.stacked.toastBoxShadow.thickness}*2)
+							${toastGroup.stacked.toastBoxShadow.level2Background};
+						transition: ease-in 0.2s;
+						z-index: -2;
+					}
+					${StyledToastBody}:after {
+						box-shadow: 30px calc(${toastGroup.stacked.toastBoxShadow.thickness}*2 + 1px)
+							${toastGroup.stacked.toastBoxShadow.level2Background};
+						transition: ease-in 0.2s;
+						width: calc(100% - 60px);
+						z-index: -2;
+					}
+				`)}
+			`
+		}
 	`;
 });
 
@@ -211,63 +231,67 @@ export const StyledTransitionGroup = styled(TransitionGroup).withConfig({ displa
 		.${baseClassName}-stacked-enter {
 			animation: ${fadeIn()} 0.5s;
 		}
-		${$isMobile &&
-		css`
-			.${baseClassName}-exit {
-				animation: ${fadeOut()} ${toastGroup.hideDuration};
-				opacity: 0;
-				transition-delay: ${toastGroup.hideDuration};
-				visibility: hidden;
-				&:not(:last-child) {
-					animation: none;
+		${
+			$isMobile &&
+			css`
+				.${baseClassName}-exit {
+					animation: ${fadeOut()} ${toastGroup.hideDuration};
+					opacity: 0;
+					transition-delay: ${toastGroup.hideDuration};
+					visibility: hidden;
+					&:not(:last-child) {
+						animation: none;
+					}
 				}
-			}
-		`}
-		${!$isMobile &&
-		css`
-			.${baseClassName}-exit {
-				border: none;
-				overflow: hidden;
-				margin: 0;
-				transition: all ${toastGroup.moveUpDuration};
-				transition-delay: ${toastGroup.delayDuration};
-
-				* {
+			`
+		}
+		${
+			!$isMobile &&
+			css`
+				.${baseClassName}-exit {
+					border: none;
+					overflow: hidden;
 					margin: 0;
-					padding: 0;
-					transition:
-						margin ${toastGroup.duration},
-						padding ${toastGroup.duration};
+					transition: all ${toastGroup.moveUpDuration};
 					transition-delay: ${toastGroup.delayDuration};
-				}
-			}
-			.${baseClassName}-stacked-exit {
-				border: none;
-				overflow: hidden;
-				margin: 0;
-				transition: all ${toastGroup.moveUpDuration};
-				transition-delay: ${toastGroup.delayDuration};
 
-				* {
+					* {
+						margin: 0;
+						padding: 0;
+						transition:
+							margin ${toastGroup.duration},
+							padding ${toastGroup.duration};
+						transition-delay: ${toastGroup.delayDuration};
+					}
+				}
+				.${baseClassName}-stacked-exit {
+					border: none;
+					overflow: hidden;
 					margin: 0;
-					padding: 0;
-					transition:
-						margin 0.5s,
-						padding 0.5s;
+					transition: all ${toastGroup.moveUpDuration};
 					transition-delay: ${toastGroup.delayDuration};
+
+					* {
+						margin: 0;
+						padding: 0;
+						transition:
+							margin 0.5s,
+							padding 0.5s;
+						transition-delay: ${toastGroup.delayDuration};
+					}
 				}
-			}
 
-			.${baseClassName}-exit-active {
-				animation: ${slideUpAndHide} ${toastGroup.hideDuration};
-				animation-fill-mode: forwards;
-			}
+				.${baseClassName}-exit-active {
+					animation: ${slideUpAndHide} ${toastGroup.hideDuration};
+					animation-fill-mode: forwards;
+				}
 
-			.${baseClassName}-stacked-exit-active {
-				animation: ${slideUpAndHide} 0s;
-				animation-fill-mode: forwards;
-			}
-		`}
+				.${baseClassName}-stacked-exit-active {
+					animation: ${slideUpAndHide} 0s;
+					animation-fill-mode: forwards;
+				}
+			`
+		}
 	`;
 });
 

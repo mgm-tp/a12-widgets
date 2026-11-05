@@ -33,8 +33,8 @@
 import { render, fireEvent, getByDataRole } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
-import { Error, Warning, Info, Label, SelectionSuffix } from "../../template/base.tpl.view.js";
 import { DataRoles } from "../../../../common/main/data-roles.js";
+import { Error, Warning, Info, Label, SelectionSuffix } from "../../template/base.tpl.view.js";
 
 describe("com.mgmtp.a12.widgets.input.base.label", () => {
 	test("render basic label", () => {

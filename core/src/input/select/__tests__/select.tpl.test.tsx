@@ -30,12 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { getByDataRole, isAfter, render, fireEvent } from "test-utils";
 import { Key } from "ts-key-enum";
-import { getByDataRole, render, fireEvent } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
+import type { MessagePosition, TooltipLineBreak } from "../../base/template/base.tpl.api.js";
 import type { SelectTemplateProps } from "../main/template/select.tpl.api.js";
 import { SelectTemplate } from "../main/template/select.tpl.view.js";
 
@@ -148,5 +148,121 @@ describe("com.mgmtp.a12.widgets.input.select.template", () => {
 
 		fireEvent.keyDown(wrapper, { key: Key.Enter });
 		expect(onSelectWrapperKeyDownSpy).toHaveBeenCalledTimes(1);
+	});
+
+	describe("message position", () => {
+		/**
+		 * The select template does not use the base defaults, it derives its own message roles from its
+		 * `dataRole` prop, which falls back to `select`.
+		 */
+		const messageRoles = [
+			`${DataRoles.Select}-error-message`,
+			`${DataRoles.Select}-warning-message`,
+			`${DataRoles.Select}-info-message`
+		];
+		const controlRole = `${DataRoles.Select}-control`;
+		const labelRole = `${DataRoles.Select}-label`;
+		const helperTextRole = `${DataRoles.Select}-helper-text`;
+
+		const renderWithMessages = (messagePosition: MessagePosition) =>
+			render(
+				<SelectTemplate
+					label="Test Label"
+					helperText="Test Helper Text"
+					errorMessage="Test error message"
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					messagePosition={messagePosition}
+				>
+					options
+				</SelectTemplate>
+			);
+
+		/**
+		 * The messages are siblings of the select control rather than children of it, so they are ordered
+		 * against the control instead of being contained by it. Either position has to keep them inside the
+		 * label to helper text envelope.
+		 */
+		test("renders the messages above the control for above", () => {
+			const { getByDataRole } = renderWithMessages("above");
+			const control = getByDataRole(controlRole);
+			const label = getByDataRole(labelRole);
+			const helperText = getByDataRole(helperTextRole);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(false);
+				expect(isAfter(message, control)).toBe(true);
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the control for below", () => {
+			const { getByDataRole } = renderWithMessages("below");
+			const control = getByDataRole(controlRole);
+			const label = getByDataRole(labelRole);
+			const helperText = getByDataRole(helperTextRole);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(false);
+				expect(isAfter(control, message)).toBe(true);
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const controlRole = `${DataRoles.Select}-control`;
+
+		const renderWithTooltips = (breakTooltipsToNewLine: TooltipLineBreak, helperText?: string) =>
+			render(
+				<SelectTemplate
+					label="Test Label"
+					helperText={helperText}
+					tooltips={<div>Test tooltip</div>}
+					breakTooltipsToNewLine={breakTooltipsToNewLine}
+				>
+					options
+				</SelectTemplate>
+			);
+
+		/**
+		 * Inline tooltips are rendered bare inside the select control, with no addon element wrapping them,
+		 * so the tooltip is located by its own text.
+		 */
+		test("renders the tooltips inside the control beside the select wrapper for false", () => {
+			const { getByDataRole, getByText } = renderWithTooltips(false);
+			const control = getByDataRole(controlRole);
+			const selectWrapper = getByDataRole(DataRoles.Select.Wrapper);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(true);
+			expect(isAfter(selectWrapper, tooltip)).toBe(true);
+		});
+
+		test("renders the tooltips above the control for above", () => {
+			const { getByDataRole, getByText } = renderWithTooltips("above");
+			const control = getByDataRole(controlRole);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(false);
+			expect(isAfter(tooltip, control)).toBe(true);
+		});
+
+		test("renders the tooltips below the control for below", () => {
+			const { getByDataRole, getByText } = renderWithTooltips("below", "Test Helper Text");
+			const control = getByDataRole(controlRole);
+			const helperText = getByDataRole(`${DataRoles.Select}-helper-text`);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(false);
+			expect(isAfter(control, tooltip)).toBe(true);
+			expect(isAfter(tooltip, helperText)).toBe(true);
+		});
 	});
 });

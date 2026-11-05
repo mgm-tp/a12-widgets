@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { $generateHtmlFromNodes } from "@lexical/html";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import type { FC } from "react";
 import { useEffect } from "react";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { $generateHtmlFromNodes } from "@lexical/html";
 
 import type { OutPutPluginProps } from "./output-plugin.api.js";
 

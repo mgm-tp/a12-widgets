@@ -29,6 +29,10 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > rendering-collapsible-panel 1`
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
+}
+
 .c9 {
   color: rgb(77, 77, 77);
 }
@@ -161,6 +165,8 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > rendering-collapsible-panel 1`
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             keyboard_arrow_down
           </span>
@@ -233,16 +239,8 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > rendering-collapsible-panel-wi
   max-width: unset;
 }
 
-.c11 .c7 {
-  user-select: none;
-}
-
-.c11 .c7 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c7 {
-  display: block;
 }
 
 .c3 {
@@ -289,6 +287,10 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > rendering-collapsible-panel-wi
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c3.c3 {
   display: block;
   height: auto;
@@ -311,11 +313,6 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > rendering-collapsible-panel-wi
 
 .c5 {
   display: inline;
-}
-
-.c10 .c7 {
-  color: inherit;
-  font-size: calc(1.2rem);
 }
 
 .c6 {
@@ -502,6 +499,8 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > rendering-collapsible-panel-wi
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             keyboard_arrow_down
           </span>
@@ -548,6 +547,10 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > simulating-event-on-collapsibl
 
 .c5.c5 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
 }
 
 .c7 {
@@ -670,6 +673,8 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > simulating-event-on-collapsibl
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             keyboard_arrow_down
           </span>
@@ -722,6 +727,10 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > simulating-event-on-collapsibl
 
 .c5.c5 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
 }
 
 .c8 {
@@ -925,6 +934,8 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > simulating-event-on-collapsibl
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             keyboard_arrow_down
           </span>
@@ -1008,6 +1019,10 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > simulating-event-on-collapsibl
 
 .c5.c5 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
 }
 
 .c8 {
@@ -1136,6 +1151,8 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > simulating-event-on-collapsibl
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             keyboard_arrow_down
           </span>
@@ -1201,16 +1218,8 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > swap positions of addons and g
   max-width: unset;
 }
 
-.c10 .c6 {
-  user-select: none;
-}
-
-.c10 .c6 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c6 {
-  display: block;
 }
 
 .c8 {
@@ -1225,11 +1234,6 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > swap positions of addons and g
 
 .c4 {
   display: inline;
-}
-
-.c9 .c6 {
-  color: inherit;
-  font-size: calc(1.2rem);
 }
 
 .c5 {
@@ -1361,6 +1365,8 @@ exports[`com.mgmtp.a12.widgets.collapsiblePanel > swap positions of addons and g
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             keyboard_arrow_down
           </span>

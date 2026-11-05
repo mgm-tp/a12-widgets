@@ -37,17 +37,11 @@
 
 import type { RefCallback, ReactNode } from "react";
 
-import type { BaseInputProps, InputDOMProps } from "../../input/base/template/base.tpl.api.js";
 import type { Container } from "../../common/main/base-props.js";
+import type { BaseInputProps, InputDOMProps } from "../../input/base/template/base.tpl.api.js";
 
 export interface FileUploadProps
-	extends
-		Omit<
-			BaseInputProps,
-			"breakTooltipsToNewLine" | "ariaDescribedby" | "error" | "warning" | "info" | "fitToParent" | "readonly"
-		>,
-		Container,
-		InputDOMProps {
+	extends Omit<BaseInputProps, "ariaDescribedby" | "fitToParent" | "readonly">, Container, InputDOMProps {
 	/**
 	 * The reference of the upload area.
 	 */

@@ -67,6 +67,7 @@ export function PieChartVisibilityEntriesOfLegendShowCase(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<Checkbox
+					id="pie-chart-with-visibility-entries-show-all-entries"
 					checked={showNonPositiveEntries}
 					onChange={onCheckboxChange}
 					label="Show all entries"

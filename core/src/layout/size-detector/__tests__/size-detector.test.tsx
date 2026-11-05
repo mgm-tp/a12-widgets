@@ -30,14 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { waitFor } from "@testing-library/dom";
 import { useRef, useState } from "react";
 import { render } from "test-utils";
 import { describe, test, expect } from "vitest";
 import { userEvent } from "vitest/browser";
-import { waitFor } from "@testing-library/dom";
 
-import { useElementSizeDetector, useWindowSize } from "../main/size-detector.view.js";
 import { SizeDetectorUtils } from "../main/size-detector.utils.js";
+import { useElementSizeDetector, useWindowSize } from "../main/size-detector.view.js";
 
 const ExampleSizeDetect1 = () => {
 	const { breakPoint } = useWindowSize();

@@ -74,6 +74,14 @@ export interface TagProps extends Styleable, Identifiable, Ref<HTMLDivElement> {
 	tabIndex?: number;
 
 	/**
+	 * @internal
+	 * TabIndex for the remove button only. Overrides {@link tabIndex} for the remove button when set.
+	 *
+	 * If not set, the remove button falls back to {@link tabIndex}.
+	 */
+	removeButtonTabIndex?: number;
+
+	/**
 	 * Fire when the remove button is clicked.
 	 *
 	 * *Note:* Only works if {@link removable} is set to true.

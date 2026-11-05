@@ -30,11 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC } from "react";
-import { useEffect } from "react";
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
+
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { $isTextNode } from "lexical";
-import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
+import type { FC } from "react";
+import { useEffect } from "react";
 
 import { Icon, InlineStyleTextNode, RichTextEditor } from "@com.mgmtp.a12.widgets/widgets-core";
 

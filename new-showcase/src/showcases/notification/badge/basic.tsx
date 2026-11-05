@@ -187,6 +187,7 @@ export function BasicBadgeShowcase(): ReactElement {
 					<p>With Vertical Menu: </p>
 					<div style={{ width: 300 }}>
 						<FlyoutMenu
+							id="badge-vertical-menu"
 							type="vertical"
 							items={data}
 							onCondensed={onCondensed}
@@ -196,6 +197,7 @@ export function BasicBadgeShowcase(): ReactElement {
 				</div>
 				<p>With Horizontal Menu: </p>
 				<FlyoutMenu
+					id="badge-horizontal-menu"
 					type="horizontal"
 					items={data}
 					onCondensed={onCondensed}

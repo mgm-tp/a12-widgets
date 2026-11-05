@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import determineLocationCode from "!./determine-location.tsx?raw";
+
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { DetermineLocation } from "./determine-location.js";
-
-import determineLocationCode from "!./determine-location.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

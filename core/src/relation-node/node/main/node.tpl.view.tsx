@@ -33,10 +33,10 @@
 import type { MouseEvent, ReactElement, SyntheticEvent, TouchEvent, FocusEvent } from "react";
 import { useRef, useState, useCallback, Children, isValidElement, cloneElement } from "react";
 
-import { addPrefix, getParentElement, isElementFocusable, joinClassNames } from "../../../common/main/utils.js";
-import { provider } from "../../../common/main/device-detector.js";
-import { CssEllipsis } from "../../../css-ellipsis/main/css-ellipsis.view.js";
 import { DataRoles } from "../../../common/index.js";
+import { provider } from "../../../common/main/device-detector.js";
+import { addPrefix, getParentElement, isElementFocusable, joinClassNames } from "../../../common/main/utils.js";
+import { CssEllipsis } from "../../../css-ellipsis/main/css-ellipsis.view.js";
 
 import type { NodeTplProps } from "./node.tpl.api.js";
 

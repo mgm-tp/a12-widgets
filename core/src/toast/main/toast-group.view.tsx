@@ -44,14 +44,15 @@ import {
 } from "react";
 import { CSSTransition } from "react-transition-group";
 
+import { ButtonGroup } from "../../button-group/main/button-group.view.js";
 import { getGlobalViewportBox } from "../../common/main/alignment.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
 import type { CustomClientRect } from "../../common/main/utils.js";
 import { addPrefix, getParentElement, joinClassNames } from "../../common/main/utils.js";
-import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
 import { Portal } from "../../portal/main/portal.view.js";
-import { ButtonGroup } from "../../button-group/main/button-group.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
+import type { ToastGroupProps } from "./toast-group.api.js";
 import {
 	StyledToastAnimation,
 	StyledToastGroupWrapper,
@@ -59,7 +60,6 @@ import {
 	StyledToastGroupToolbarTitle,
 	StyledTransitionGroup
 } from "./toast-group.styled.js";
-import type { ToastGroupProps } from "./toast-group.api.js";
 import type { ToastProps } from "./toast/toast.api.js";
 
 const baseClassName = addPrefix("toast");

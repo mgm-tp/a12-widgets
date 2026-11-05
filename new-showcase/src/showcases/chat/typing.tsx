@@ -37,9 +37,9 @@ import { useState } from "react";
 
 import { Chat, Icon, ProgressIndicator, Radio } from "@com.mgmtp.a12.widgets/widgets-core";
 
+import { ConfigurationView } from "../../helpers/configuration-view.js";
 // start code removal
 import { CodeSnippetGenerationWrapper } from "../../helpers/showcase-example.js";
-import { ConfigurationView } from "../../helpers/configuration-view.js";
 // end code removal
 
 const { Container, Message, UserInfo, MessageGroup, SecondaryContent, TypingMarker } = Chat;

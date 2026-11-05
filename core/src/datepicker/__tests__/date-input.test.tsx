@@ -43,12 +43,11 @@ import {
 import { describe, vi, expect, test, beforeEach, afterEach } from "vitest";
 import { userEvent } from "vitest/browser";
 
+import { DataRoles } from "../../common/main/data-roles.js";
 import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
 import { provider } from "../../common/main/device-detector.js";
 import { Counter } from "../../counter/main/counter.view.js";
 import { TextAffix } from "../../input/text-field/text-field.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
-
 import { DateInput } from "../main/date-input.view.js";
 
 const datePickerClassName = "DayPicker";
@@ -665,5 +664,139 @@ describe("com.mgmtp.a12.widgets.date-input", () => {
 
 			deviceDetectorStub.mockRestore();
 		});
+	});
+});
+
+describe("com.mgmtp.a12.widgets.date-input.generated-id", () => {
+	const inputOf = (container: HTMLElement): HTMLInputElement => container.querySelector("input") as HTMLInputElement;
+
+	test("generates an input id so the label stays associated when none is given", () => {
+		const { container } = render(
+			<DateInput label="Date" dateFormatter={defaultDateFormatter} dateConverter={defaultDateConverter} />
+		);
+		const input = inputOf(container);
+
+		expect(input.id).toBeTruthy();
+		expect(input.labels?.length).toBeGreaterThan(0);
+		// A missing id must never surface as "undefined-input".
+		expect(container.querySelector("[id*='undefined']")).toBeNull();
+	});
+
+	test("keeps the generated input id stable across re-renders", () => {
+		const { container, rerender } = render(
+			<DateInput label="Date" dateFormatter={defaultDateFormatter} dateConverter={defaultDateConverter} />
+		);
+		const before = inputOf(container).id;
+
+		rerender(
+			<DateInput
+				label="Date"
+				placeholder="pick one"
+				dateFormatter={defaultDateFormatter}
+				dateConverter={defaultDateConverter}
+			/>
+		);
+
+		expect(inputOf(container).id).toBe(before);
+	});
+
+	test("gives sibling instances distinct generated input ids", () => {
+		const { container } = render(
+			<>
+				<DateInput label="From" dateFormatter={defaultDateFormatter} dateConverter={defaultDateConverter} />
+				<DateInput label="To" dateFormatter={defaultDateFormatter} dateConverter={defaultDateConverter} />
+			</>
+		);
+		const [first, second] = container.querySelectorAll("input");
+
+		expect(first.id).not.toBe(second.id);
+	});
+
+	test("derives the input id from a given id", () => {
+		const { container } = render(
+			<DateInput id="my-date" label="Date" dateFormatter={defaultDateFormatter} dateConverter={defaultDateConverter} />
+		);
+
+		expect(inputOf(container).id).toBe("my-date-input");
+	});
+});
+
+describe("com.mgmtp.a12.widgets.date-input — picker lifecycle", () => {
+	beforeEach(() => {
+		vi.useFakeTimers();
+		vi.setSystemTime(new Date(Date.UTC(2022, 2, 2).valueOf()));
+	});
+
+	afterEach(() => {
+		vi.useRealTimers();
+	});
+
+	const openPicker = async (container: HTMLElement): Promise<HTMLElement> => {
+		await userEvent.click(getByDataRole(container, DataRoles.Button));
+
+		return getByDataRole(container, DataRoles.DatePicker);
+	};
+
+	test("opens the picker on the month of the selected date and selects it", async () => {
+		const { container } = render(
+			<DateInput
+				dateFormatter={defaultDateFormatter}
+				dateConverter={defaultDateConverter}
+				defaultValue={new Date(Date.UTC(2021, 5, 15))}
+			/>
+		);
+
+		const picker = await openPicker(container);
+
+		expect((getByDataRole(picker, DataRoles.Month.Selector.Input) as HTMLSelectElement).value).toBe("5");
+		expect((getByDataRole(picker, DataRoles.Year.Selector.Input) as HTMLInputElement).value).toBe("2021");
+		expect(getByRole(picker, "gridcell", { name: /June 15th, 2021, selected/ }).parentElement).toHaveAttribute(
+			"aria-selected",
+			"true"
+		);
+	});
+
+	test("Escape closes the picker", async () => {
+		const { container } = render(
+			<DateInput dateFormatter={defaultDateFormatter} dateConverter={defaultDateConverter} />
+		);
+
+		const picker = await openPicker(container);
+		getByRole(picker, "gridcell", { name: /March 15th, 2022/ }).focus();
+		await userEvent.keyboard("{Escape}");
+
+		expect(queryByDataRole(container, DataRoles.DatePicker)).toBeNull();
+		expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeNull();
+	});
+
+	test("choosing a day closes the picker and returns focus to the trigger button", async () => {
+		const onSelectedDayChange = vi.fn();
+		const { container } = render(
+			<DateInput
+				dateFormatter={defaultDateFormatter}
+				dateConverter={defaultDateConverter}
+				onSelectedDayChange={onSelectedDayChange}
+			/>
+		);
+
+		const picker = await openPicker(container);
+		await userEvent.click(getByRole(picker, "gridcell", { name: /March 15th, 2022/ }));
+
+		expect(onSelectedDayChange).toHaveBeenCalledWith(new Date(Date.UTC(2022, 2, 15)));
+		expect(queryByDataRole(container, DataRoles.DatePicker)).toBeNull();
+		expect(getByDataRole(container, DataRoles.Button)).toHaveFocus();
+		expect(container.querySelector("input")).toHaveValue("03/15/2022");
+	});
+
+	test("unmounting while the picker is open removes it without errors", async () => {
+		const { container, unmount } = render(
+			<DateInput dateFormatter={defaultDateFormatter} dateConverter={defaultDateConverter} />
+		);
+
+		await openPicker(container);
+
+		expect(() => unmount()).not.toThrow();
+		expect(queryByDataRole(document.body, DataRoles.DatePicker)).toBeNull();
+		expect(queryByDataRole(document.body, DataRoles.AttachedPortal)).toBeNull();
 	});
 });

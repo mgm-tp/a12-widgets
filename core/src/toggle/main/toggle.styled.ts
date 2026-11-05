@@ -33,10 +33,10 @@
 import type { RuleSet } from "styled-components";
 import { styled, css } from "styled-components";
 
-import type { DefaultThemeType } from "../../theme/schema.js";
 import { StyledIconWrapper } from "../../icon/main/icon.view.js";
-import { active, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
 import { createBorder } from "../../theme/base/mixins/_borderEffects.js";
+import { active, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
+import type { DefaultThemeType } from "../../theme/schema.js";
 
 import type { ToggleItemVariant } from "./toggle.api.js";
 
@@ -53,13 +53,15 @@ export namespace StyledToggle {
 			margin: 0;
 			padding: 0;
 
-			${$hasOverlay &&
-			css`
-				${StyledToggleItem} {
-					outline: none;
-					z-index: 0;
-				}
-			`}
+			${
+				$hasOverlay &&
+				css`
+					${StyledToggleItem} {
+						outline: none;
+						z-index: 0;
+					}
+				`
+			}
 		`;
 	});
 
@@ -71,10 +73,12 @@ export namespace StyledToggle {
 
 		return css`
 			display: flex;
-			${($disabled || $readonly) &&
-			css`
-				pointer-events: none;
-			`}
+			${
+				($disabled || $readonly) &&
+				css`
+					pointer-events: none;
+				`
+			}
 			&:first-of-type {
 				border-top-left-radius: ${item.borderRadius};
 				border-bottom-left-radius: ${item.borderRadius};
@@ -105,10 +109,12 @@ export namespace StyledToggle {
 			flex-grow: 1;
 			min-height: ${content.minHeight};
 			padding: ${content.padding};
-			${$showOnlySelectedOption &&
-			css`
-				position: relative;
-			`}
+			${
+				$showOnlySelectedOption &&
+				css`
+					position: relative;
+				`
+			}
 		`;
 	});
 
@@ -197,41 +203,47 @@ export namespace StyledToggle {
 				position: absolute;
 				border-radius: inherit;
 			}
-			${!$showOnlySelectedOption &&
-			css`
-				&:first-of-type {
-					border-top-left-radius: ${item.borderRadius};
-					border-bottom-left-radius: ${item.borderRadius};
-					${StyledToggleContent} {
-						padding-left: ${content.horizSpacing};
+			${
+				!$showOnlySelectedOption &&
+				css`
+					&:first-of-type {
+						border-top-left-radius: ${item.borderRadius};
+						border-bottom-left-radius: ${item.borderRadius};
+						${StyledToggleContent} {
+							padding-left: ${content.horizSpacing};
+						}
 					}
-				}
-				&:last-child {
-					border-right: ${item.border};
-					border-top-right-radius: ${item.borderRadius};
-					border-bottom-right-radius: ${item.borderRadius};
-					${StyledToggleContent} {
-						padding-right: ${content.horizSpacing};
+					&:last-child {
+						border-right: ${item.border};
+						border-top-right-radius: ${item.borderRadius};
+						border-bottom-right-radius: ${item.borderRadius};
+						${StyledToggleContent} {
+							padding-right: ${content.horizSpacing};
+						}
 					}
-				}
-			`}
+				`
+			}
 
-			${$showOnlySelectedOption &&
-			css`
-				border: ${item.withOverlay.border};
-				border-radius: ${item.withOverlay.borderRadius};
-			`}
-			
+			${
+				$showOnlySelectedOption &&
+				css`
+					border: ${item.withOverlay.border};
+					border-radius: ${item.withOverlay.borderRadius};
+				`
+			}
+
 			${StyledIconWrapper} {
 				text-decoration: none;
 				color: inherit;
 				// Prevent text selection on icon when dragging the cursor.
 				user-select: none;
 				-webkit-user-select: none;
-				${!$showOnlySelectedOption &&
-				css`
-					margin: ${item.iconMargin};
-				`}
+				${
+					!$showOnlySelectedOption &&
+					css`
+						margin: ${item.iconMargin};
+					`
+				}
 			}
 
 			&[disabled] {
@@ -245,7 +257,7 @@ export namespace StyledToggle {
 				`)}
 				${hover(css`
 					text-decoration: ${item.hover.textDecoration};
-				`)} 
+				`)}
 				&:focus {
 					outline: none;
 					text-decoration: ${item.focus.textDecoration};
@@ -265,14 +277,16 @@ export namespace StyledToggle {
 			background-color: ${colors.background};
 			color: ${colors.color};
 			box-shadow: none;
-			${!disabled &&
-			css`
-				border-right: ${item.border};
-				border-color: ${colors.background};
-				& + ${StyledToggleItemBase} {
-					border-left: 0;
-				}
-			`}
+			${
+				!disabled &&
+				css`
+					border-right: ${item.border};
+					border-color: ${colors.background};
+					& + ${StyledToggleItemBase} {
+						border-left: 0;
+					}
+				`
+			}
 		`;
 	};
 
@@ -293,12 +307,14 @@ export namespace StyledToggle {
 		return css`
 			color: ${item[$state].color};
 
-			${$state === "focus" &&
-			css`
-				&:before {
-					outline: ${content.focus.outline};
-				}
-			`}
+			${
+				$state === "focus" &&
+				css`
+					&:before {
+						outline: ${content.focus.outline};
+					}
+				`
+			}
 
 			${borderStyle}
 		`;
@@ -317,9 +333,9 @@ export namespace StyledToggle {
 
 					&:not(:disabled) {
 						${active(getItemStyles(theme, item.selected.active))}
-						${hover(getItemStyles(theme, item.selected.hover))} 
-						
-					&:focus {
+						${hover(getItemStyles(theme, item.selected.hover))}
+
+						&:focus {
 							&:before {
 								${darkFocus};
 							}
@@ -327,51 +343,61 @@ export namespace StyledToggle {
 						}
 					}
 
-					${!$disabled &&
-					!$readonly &&
-					css`
-						&:last-child {
-							border-color: ${item.selected.background};
-						}
-					`}
+					${
+						!$disabled &&
+						!$readonly &&
+						css`
+							&:last-child {
+								border-color: ${item.selected.background};
+							}
+						`
+					}
 
-					${$readonly &&
-					css`
-						&[disabled] {
-							${getItemStyles(theme, item.selected.readonly, true)}
-						}
-					`}
-					
-				${$disabled &&
-					css`
-						&[disabled] {
-							${getItemStyles(theme, item.selected.disabled, true)}
-						}
-					`}
+					${
+						$readonly &&
+						css`
+							&[disabled] {
+								${getItemStyles(theme, item.selected.readonly, true)}
+							}
+						`
+					}
+
+					${
+						$disabled &&
+						css`
+							&[disabled] {
+								${getItemStyles(theme, item.selected.disabled, true)}
+							}
+						`
+					}
 				`;
 			}
 
 			return css`
 				&:not(:disabled) {
 					${active(getInteractiveItemStyles(theme, "active"))}
-					${hover(getInteractiveItemStyles(theme, "hover"))} 
-				&:focus {
+					${hover(getInteractiveItemStyles(theme, "hover"))}
+					&:focus {
 						${getInteractiveItemStyles(theme, "focus")}
 					}
 				}
 
-				${$readonly &&
-				css`
-					&[disabled] {
-						${getItemStyles(theme, item.readonly, true)}
-					}
-				`}
-				${$disabled &&
-				css`
-					&[disabled] {
-						${getItemStyles(theme, item.disabled, true)}
-					}
-				`}
+				${
+					$readonly &&
+					css`
+						&[disabled] {
+							${getItemStyles(theme, item.readonly, true)}
+						}
+					`
+				}
+				${
+					$disabled &&
+					css`
+						&[disabled] {
+							${getItemStyles(theme, item.disabled, true)}
+						}
+					`
+				}
 			`;
 		}
 	);
@@ -404,33 +430,41 @@ export namespace StyledToggle {
 			box-sizing: border-box;
 			display: flex;
 			isolation: isolate;
-			${$showOnlySelectedOption &&
-			css`
-				position: relative;
-				outline: none;
-				${!$block &&
+			${
+				$showOnlySelectedOption &&
 				css`
-					width: fit-content;
-				`}
-				${$block &&
-				css`
-					min-width: fit-content;
-					${StyledOptionButtons} {
-						width: 100%;
+					position: relative;
+					outline: none;
+					${
+						!$block &&
+						css`
+							width: fit-content;
+						`
 					}
-				`}
-				// fix bug of unexpected border color from selected-item while Overlay is on
-				${$showOverlay &&
-				css`
-					&& ${StyledToggleItem} {
-						background: transparent;
-						border-color: transparent;
-						&:before {
-							border-color: transparent;
-						}
+					${
+						$block &&
+						css`
+							min-width: fit-content;
+							${StyledOptionButtons} {
+								width: 100%;
+							}
+						`
 					}
-				`}
-			`}
+					// fix bug of unexpected border color from selected-item while Overlay is on
+					${
+						$showOverlay &&
+						css`
+							&& ${StyledToggleItem} {
+								background: transparent;
+								border-color: transparent;
+								&:before {
+									border-color: transparent;
+								}
+							}
+						`
+					}
+				`
+			}
 		`;
 	});
 }

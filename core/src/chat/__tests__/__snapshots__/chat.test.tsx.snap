@@ -53,29 +53,17 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-avatar 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.chat.template > rendering-date-marker 1`] = `
-.c0 + .c4 {
-  padding-top: 0px;
-}
-
-.c0 + .c5 {
-  padding-top: 0px;
-}
-
-.c0 + .c6 {
-  padding-top: 0px;
-}
-
-.c1 {
+.c0 {
   display: flex;
   justify-content: center;
   padding: 0px 8px;
 }
 
-.c1:first-child > .c2 {
+.c0:first-child > .c1 {
   margin-top: 0px;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(97, 111, 124);
   border-radius: 12px;
   color: rgb(255, 255, 255);
@@ -88,13 +76,13 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-date-marker 1`] = `
 }
 
 <div
-  class="c0 c1 chat-date test-class"
+  class="c0 chat-date test-class"
   data-role="chat-date-marker"
   id="test-id"
   style="color: red;"
 >
   <div
-    class="c2 c3 chat-date__content"
+    class="c1 c2 chat-date__content"
     data-role="chat-date-marker-content"
   >
     Yesterday
@@ -194,7 +182,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 1`] = `
-.c6 {
+.c4 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -214,58 +202,62 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 1`] = `
   font-feature-settings: "liga";
 }
 
-.c6 > span {
+.c4 > span {
   display: inline-block;
 }
 
-.c6.c6 {
+.c4.c4 {
   max-width: unset;
 }
 
-.c9:not(:first-child) {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
+.c7:not(:first-child) {
   padding: 4px 0px 0px;
 }
 
-.c9 + .c2 {
+.c7 + .c1 {
   padding-top: 8px;
 }
 
-.c9:last-child {
+.c7:last-child {
   padding-bottom: 8px;
 }
 
-.c1 {
+.c0 {
   position: relative;
   padding: 8px 0px 0px;
 }
 
-.c1:first-child {
+.c0:first-child {
   padding-top: 0px;
 }
 
-.c1 .c8:last-child {
+.c0 .c6:last-child {
   padding-bottom: 0px;
 }
 
-.c1:last-child {
+.c0:last-child {
   padding: 8px 0px;
 }
 
-.c1 .c8 .c12 {
+.c0 .c6 .c9 {
   background-color: rgb(255, 255, 255);
   border-color: rgb(181, 228, 253);
   margin-left: 6px;
 }
 
-.c1 .c8 {
+.c0 .c6 {
   padding-right: 5%;
 }
 
-.c1 .c8:not(.c8 ~ .c8) .c12 {
+.c0 .c6:not(.c6 ~ .c6) .c9 {
   border-top-left-radius: 0px;
 }
 
-.c1 .c8:not(.c8 ~ .c8) .c12::before {
+.c0 .c6:not(.c6 ~ .c6) .c9::before {
   background-color: rgb(255, 255, 255);
   border-bottom: 0px;
   border-left-color: rgb(181, 228, 253);
@@ -275,58 +267,12 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 1`] = `
   transform: rotate(0deg) skew(50deg, 0deg);
 }
 
-.c15 .c8:last-child {
-  padding-bottom: 0px;
-}
-
-.c15 .c8 .c12 {
-  background-color: rgb(241, 242, 244);
-  border-color: rgb(241, 242, 244);
-  margin-right: 6px;
-}
-
-.c15 .c8 .c10 {
-  justify-content: flex-end;
-}
-
-.c15 .c8 {
-  padding-left: 5%;
-}
-
-.c15 .c8:not(.c8 ~ .c8) .c12 {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 0px;
-}
-
-.c15 .c8:not(.c8 ~ .c8) .c12::before {
-  background-color: rgb(241, 242, 244);
-  border-bottom: 0px;
-  border-left: 0px;
-  border-right: 1px solid rgb(241, 242, 244);
-  border-top-color: rgb(241, 242, 244);
-  left: unset;
-  right: -4px;
-  transform: rotate(0deg) skew(-50deg, 0deg);
-}
-
-.c21 .c5 {
-  color: inherit;
-  font-size: inherit;
-  margin: 0px 0px 0px 8px;
-}
-
-.c22 .c5 {
-  color: inherit;
-  font-size: inherit;
-  margin: 0px 0px 0px 8px;
-}
-
-.c4 {
+.c3 {
   display: flex;
   margin-right: 4px;
 }
 
-.c7 {
+.c5 {
   align-self: center;
   flex-grow: 1;
   flex-shrink: 1;
@@ -339,12 +285,12 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 1`] = `
   white-space: nowrap;
 }
 
-.c3 {
+.c2 {
   display: flex;
   width: 100%;
 }
 
-.c14 {
+.c11 {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
@@ -353,7 +299,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 1`] = `
   white-space: pre-wrap;
 }
 
-.c13 {
+.c10 {
   background-color: rgb(255, 255, 255);
   border-color: rgb(181, 228, 253);
   border-radius: 4px;
@@ -366,7 +312,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 1`] = `
   margin-left: 6px;
 }
 
-.c13::before {
+.c10::before {
   border-color: transparent;
   border-style: solid;
   border-width: 1px;
@@ -378,81 +324,58 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 1`] = `
   width: 6px;
 }
 
-.c11 {
+.c8 {
   display: flex;
   flex-wrap: wrap;
 }
 
-.c16 + .c8,
-.c16 + .c0 {
-  padding-top: 0px;
-}
-
-.c17 + .c8,
-.c17 + .c0 {
-  padding-top: 0px;
-}
-
-.c18 + .c8,
-.c18 + .c0 {
-  padding-top: 0px;
-}
-
-.c19 + .c8,
-.c19 + .c0 {
-  padding-top: 0px;
-}
-
-.c20 + .c8,
-.c20 + .c0 {
-  padding-top: 0px;
-}
-
 <div
-  class="c0 c1 chat-message-group"
+  class="c0 chat-message-group"
   data-role="chat-message-group"
 >
   <div
-    class="c2 c3 chat-user chat-user--left"
+    class="c1 c2 chat-user chat-user--left"
     data-role="chat-user-info"
   >
     <div
-      class="c4 chat-user__avatar"
+      class="c3 chat-user__avatar"
       data-role="chat-user-avatar"
     >
       <i
-        class="c5 c6 plasma-icon"
+        class="c4 plasma-icon"
         data-role="plasma-icon"
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           account_circle
         </span>
       </i>
     </div>
     <div
-      class="c7 chat-user__name"
+      class="c5 chat-user__name"
       data-role="chat-user-name"
     >
       Peter
     </div>
   </div>
   <div
-    class="c8 c9 chat-message chat-message--left"
+    class="c6 c7 chat-message chat-message--left"
     data-role="chat-message"
   >
     <div
-      class="c10 c11 chat-message__container"
+      class="c8 chat-message__container"
       data-role="chat-message-container"
     >
       <div
-        class="c12 c13 chat-message__bubble"
+        class="c9 c10 chat-message__bubble"
         data-role="chat-message-bubble"
       >
         <div
           aria-label="Peter said:"
-          class="c14 chat-message__content"
+          class="c11 chat-message__content"
           data-role="chat-message-content"
           role="region"
         >
@@ -465,7 +388,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 2`] = `
-.c8 {
+.c6 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -479,12 +402,12 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 2`] = `
   margin: -1px !important;
 }
 
-.c8 * {
+.c6 * {
   width: 1px;
   height: 1px;
 }
 
-.c6 {
+.c4 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -504,45 +427,49 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 2`] = `
   font-feature-settings: "liga";
 }
 
-.c6 > span {
+.c4 > span {
   display: inline-block;
 }
 
-.c6.c6 {
+.c4.c4 {
   max-width: unset;
 }
 
-.c10:not(:first-child) {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
+.c8:not(:first-child) {
   padding: 4px 0px 0px;
 }
 
-.c10 + .c2 {
+.c8 + .c1 {
   padding-top: 8px;
 }
 
-.c10:last-child {
+.c8:last-child {
   padding-bottom: 8px;
 }
 
-.c16 .c9:last-child {
+.c14 .c7:last-child {
   padding-bottom: 0px;
 }
 
-.c16 .c9 .c13 {
+.c14 .c7 .c11 {
   background-color: rgb(255, 255, 255);
   border-color: rgb(181, 228, 253);
   margin-left: 6px;
 }
 
-.c16 .c9 {
+.c14 .c7 {
   padding-right: 5%;
 }
 
-.c16 .c9:not(.c9 ~ .c9) .c13 {
+.c14 .c7:not(.c7 ~ .c7) .c11 {
   border-top-left-radius: 0px;
 }
 
-.c16 .c9:not(.c9 ~ .c9) .c13::before {
+.c14 .c7:not(.c7 ~ .c7) .c11::before {
   background-color: rgb(255, 255, 255);
   border-bottom: 0px;
   border-left-color: rgb(181, 228, 253);
@@ -552,43 +479,43 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 2`] = `
   transform: rotate(0deg) skew(50deg, 0deg);
 }
 
-.c1 {
+.c0 {
   position: relative;
   padding: 8px 0px 0px;
 }
 
-.c1:first-child {
+.c0:first-child {
   padding-top: 0px;
 }
 
-.c1 .c9:last-child {
+.c0 .c7:last-child {
   padding-bottom: 0px;
 }
 
-.c1:last-child {
+.c0:last-child {
   padding: 8px 0px;
 }
 
-.c1 .c9 .c13 {
+.c0 .c7 .c11 {
   background-color: rgb(241, 242, 244);
   border-color: rgb(241, 242, 244);
   margin-right: 6px;
 }
 
-.c1 .c9 .c11 {
+.c0 .c7 .c9 {
   justify-content: flex-end;
 }
 
-.c1 .c9 {
+.c0 .c7 {
   padding-left: 5%;
 }
 
-.c1 .c9:not(.c9 ~ .c9) .c13 {
+.c0 .c7:not(.c7 ~ .c7) .c11 {
   border-top-left-radius: 4px;
   border-top-right-radius: 0px;
 }
 
-.c1 .c9:not(.c9 ~ .c9) .c13::before {
+.c0 .c7:not(.c7 ~ .c7) .c11::before {
   background-color: rgb(241, 242, 244);
   border-bottom: 0px;
   border-left: 0px;
@@ -599,24 +526,12 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 2`] = `
   transform: rotate(0deg) skew(-50deg, 0deg);
 }
 
-.c22 .c5 {
-  color: inherit;
-  font-size: inherit;
-  margin: 0px 0px 0px 8px;
-}
-
-.c23 .c5 {
-  color: inherit;
-  font-size: inherit;
-  margin: 0px 0px 0px 8px;
-}
-
-.c4 {
+.c3 {
   display: flex;
   margin-right: 4px;
 }
 
-.c7 {
+.c5 {
   align-self: center;
   flex-grow: 1;
   flex-shrink: 1;
@@ -629,12 +544,12 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 2`] = `
   white-space: nowrap;
 }
 
-.c3 {
+.c2 {
   display: flex;
   width: 100%;
 }
 
-.c15 {
+.c13 {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
@@ -643,7 +558,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 2`] = `
   white-space: pre-wrap;
 }
 
-.c14 {
+.c12 {
   background-color: rgb(255, 255, 255);
   border-color: rgb(181, 228, 253);
   border-radius: 4px;
@@ -656,7 +571,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 2`] = `
   margin-left: 6px;
 }
 
-.c14::before {
+.c12::before {
   border-color: transparent;
   border-style: solid;
   border-width: 1px;
@@ -668,87 +583,64 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-message-group 2`] = `
   width: 6px;
 }
 
-.c12 {
+.c10 {
   display: flex;
   flex-wrap: wrap;
 }
 
-.c17 + .c9,
-.c17 + .c0 {
-  padding-top: 0px;
-}
-
-.c18 + .c9,
-.c18 + .c0 {
-  padding-top: 0px;
-}
-
-.c19 + .c9,
-.c19 + .c0 {
-  padding-top: 0px;
-}
-
-.c20 + .c9,
-.c20 + .c0 {
-  padding-top: 0px;
-}
-
-.c21 + .c9,
-.c21 + .c0 {
-  padding-top: 0px;
-}
-
 <div
-  class="c0 c1 chat-message-group chat-message-group--right"
+  class="c0 chat-message-group chat-message-group--right"
   data-role="chat-message-group"
 >
   <div
-    class="c2 c3 chat-user chat-user--left"
+    class="c1 c2 chat-user chat-user--left"
     data-role="chat-user-info"
   >
     <div
-      class="c4 chat-user__avatar"
+      class="c3 chat-user__avatar"
       data-role="chat-user-avatar"
     >
       <i
-        class="c5 c6 plasma-icon"
+        class="c4 plasma-icon"
         data-role="plasma-icon"
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           account_circle
         </span>
       </i>
     </div>
     <div
-      class="c7 chat-user__name"
+      class="c5 chat-user__name"
       data-role="chat-user-name"
     >
       Peter
     </div>
   </div>
   <span
-    class="c8 -u-unseenButRead"
+    class="c6 -u-unseenButRead"
     data-role="hidden-text"
   >
     Me: 
   </span>
   <div
-    class="c9 c10 chat-message chat-message--left"
+    class="c7 c8 chat-message chat-message--left"
     data-role="chat-message"
   >
     <div
-      class="c11 c12 chat-message__container"
+      class="c9 c10 chat-message__container"
       data-role="chat-message-container"
     >
       <div
-        class="c13 c14 chat-message__bubble"
+        class="c11 c12 chat-message__bubble"
         data-role="chat-message-bubble"
       >
         <div
           aria-label="Peter said:"
-          class="c15 chat-message__content"
+          class="c13 chat-message__content"
           data-role="chat-message-content"
           role="region"
         >
@@ -1097,7 +989,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-type 3`] =
 `;
 
 exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-with-fixToBottom 1`] = `
-.c3 {
+.c2 {
   align-items: center;
   background-color: rgb(5, 104, 174);
   border-radius: 12px;
@@ -1111,7 +1003,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-with-fixTo
   text-align: center;
 }
 
-.c3 > :first-child {
+.c2 > :first-child {
   flex-shrink: 1;
 }
 
@@ -1121,18 +1013,6 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-with-fixTo
   transition: visibility 0.4s, opacity 0.4s linear;
   visibility: visible;
   opacity: 1;
-}
-
-.c4 .c2 {
-  background-color: rgb(41, 122, 36);
-}
-
-.c5 .c2 {
-  background-color: rgb(201, 29, 29);
-}
-
-.c6 .c2 {
-  background-color: rgb(249, 191, 48);
 }
 
 .c0 {
@@ -1155,7 +1035,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-notification-with-fixTo
     data-role="chat-notification-wrapper"
   >
     <div
-      class="c2 c3 chat-notification-content"
+      class="c2 chat-notification-content"
       data-role="chat-notification-content"
     />
   </div>
@@ -1197,7 +1077,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-type-marker 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.chat.template > rendering-user-info 1`] = `
-.c3 {
+.c2 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -1217,24 +1097,24 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-user-info 1`] = `
   font-feature-settings: "liga";
 }
 
-.c3 > span {
+.c2 > span {
   display: inline-block;
 }
 
-.c3.c3 {
+.c2.c2 {
   max-width: unset;
 }
 
-.c5 + .c0 {
-  padding-top: 8px;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
+  color: inherit;
 }
 
-.c2 {
+.c1 {
   display: flex;
   margin-right: 4px;
 }
 
-.c4 {
+.c3 {
   align-self: center;
   flex-grow: 1;
   flex-shrink: 1;
@@ -1247,34 +1127,36 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-user-info 1`] = `
   white-space: nowrap;
 }
 
-.c1 {
+.c0 {
   display: flex;
   width: 100%;
 }
 
 <div
-  class="c0 c1 chat-user chat-user--left test-class"
+  class="c0 chat-user chat-user--left test-class"
   data-role="chat-user-info"
   id="test-id"
   style="color: red;"
 >
   <div
-    class="c2 chat-user__avatar"
+    class="c1 chat-user__avatar"
     data-role="chat-user-avatar"
   >
     <i
-      class="c3 plasma-icon"
+      class="c2 plasma-icon"
       data-role="plasma-icon"
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         account_circle
       </span>
     </i>
   </div>
   <div
-    class="c4 chat-user__name"
+    class="c3 chat-user__name"
     data-role="chat-user-name"
   >
     Peter
@@ -1283,7 +1165,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > rendering-user-info 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.chat.template > simulating-click-event-notification 1`] = `
-.c3 {
+.c2 {
   align-items: center;
   background-color: rgb(5, 104, 174);
   border-radius: 12px;
@@ -1297,7 +1179,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > simulating-click-event-notificati
   text-align: center;
 }
 
-.c3 > :first-child {
+.c2 > :first-child {
   flex-shrink: 1;
 }
 
@@ -1316,18 +1198,6 @@ exports[`com.mgmtp.a12.widgets.chat.template > simulating-click-event-notificati
   width: 75%;
 }
 
-.c4 .c2 {
-  background-color: rgb(41, 122, 36);
-}
-
-.c5 .c2 {
-  background-color: rgb(201, 29, 29);
-}
-
-.c6 .c2 {
-  background-color: rgb(249, 191, 48);
-}
-
 <div
   class="c0 chat-notification chat-notification--info"
   data-role="chat-notification"
@@ -1338,7 +1208,7 @@ exports[`com.mgmtp.a12.widgets.chat.template > simulating-click-event-notificati
   >
     <div
       aria-label="Notification"
-      class="c2 c3 chat-notification-content"
+      class="c2 chat-notification-content"
       data-role="chat-notification-content"
       role="region"
     />

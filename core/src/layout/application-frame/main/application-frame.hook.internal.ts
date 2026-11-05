@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { clamp } from "lodash-es";
 import type { RefObject } from "react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useTheme } from "styled-components";
-import { useResizeDetector } from "react-resize-detector";
-import { clamp } from "lodash-es";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { useResizeObserver } from "../../../common/main/resize-observer/use-resize-observer.js";
 import { DOMUtils } from "../../../common/main/utils/dom-utils.js";
 
 import convertToPixel = DOMUtils.convertToPixel;
@@ -100,7 +100,7 @@ export const useSideBarExpandedWidth = ({
 			sideBarRef.current?.closest<HTMLElement>(`[data-role="${DataRoles.ApplicationFrame.Content}"]`) || null;
 	}, [sideBarRef]);
 
-	useResizeDetector({
+	useResizeObserver({
 		targetRef: contentRef,
 		onResize: calculateWidth
 	});

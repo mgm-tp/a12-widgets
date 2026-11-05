@@ -1,0 +1,64 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as InteractiveTileStories from "./InteractiveTile.stories";
+import * as InteractiveTileInteractionsStories from "./InteractiveTileInteractions.stories";
+
+<Meta of={InteractiveTileStories} />
+
+<Title />
+
+The `InteractiveTile` widget is a clickable tile that presents arbitrary content — typically an icon
+plus a short label — and reacts to mouse and keyboard interaction. Use it for option grids,
+navigation entry points or selectable cards.
+
+- `primary` and `secondary` select the visual style; without either flag the tile is styled as secondary, and `active` highlights it.
+- `selected` shows a checkmark in the top-right corner — combine it with `onClick` for controlled single or multi selection.
+- `disabled` blocks all mouse and keyboard interaction.
+- The `title` prop is shown on hover and can be surfaced as a tooltip via `InteractionHintConfigProvider`.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={InteractiveTileStories.Playground} />
+
+## Examples
+
+### Variants
+
+<Canvas of={InteractiveTileStories.Variants} />
+
+### States
+
+<Canvas of={InteractiveTileStories.States} />
+
+### Controlled selection
+
+<Canvas of={InteractiveTileStories.Selection} />
+
+### Interaction hints
+
+<Canvas of={InteractiveTileStories.WithInteractionHint} />
+
+## Interaction tests
+
+The `InteractiveTile/Interactions` sidebar entry covers interaction-hint configurations in depth:
+fixed-position hints, hints that follow the cursor (`followCursor`), hiding the arrow pointer
+(`hideArrow`) and tiles without hints. One representative comparison is embedded below.
+
+<Canvas of={InteractiveTileInteractionsStories.InteractionHintVariations} />

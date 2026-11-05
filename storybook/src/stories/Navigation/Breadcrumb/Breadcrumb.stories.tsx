@@ -40,11 +40,14 @@ const meta: Meta<typeof Breadcrumb> = {
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		separator: {
+			control: "text",
+			description: "Custom divider between items. Defaults to a `chevron_right` icon."
+		},
+		children: {
 			control: false,
-			description: "Custom divider between items"
+			description: "`Breadcrumb.Item` elements forming the navigation trail"
 		}
 	}
 };
@@ -52,9 +55,9 @@ const meta: Meta<typeof Breadcrumb> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => (
-		<Breadcrumb>
+export const Playground: Story = {
+	render: (args) => (
+		<Breadcrumb {...args}>
 			<Breadcrumb.Item>
 				<Link href="#">Home</Link>
 			</Breadcrumb.Item>
@@ -68,36 +71,41 @@ export const Default: Story = {
 	)
 };
 
-export const WithCustomSeparator: Story = {
+export const CustomSeparator: Story = {
 	render: () => (
-		<Breadcrumb separator="→">
-			<Breadcrumb.Item>
-				<Link href="#">Home</Link>
-			</Breadcrumb.Item>
-			<Breadcrumb.Item>
-				<Link href="#">Category</Link>
-			</Breadcrumb.Item>
-			<Breadcrumb.Item currentPage>
-				<span>Current Page</span>
-			</Breadcrumb.Item>
-		</Breadcrumb>
-	)
-};
-
-export const WithIconSeparator: Story = {
-	render: () => (
-		<Breadcrumb separator={<Icon>chevron_right</Icon>}>
-			<Breadcrumb.Item>
-				<Link href="#">Home</Link>
-			</Breadcrumb.Item>
-			<Breadcrumb.Item>
-				<Link href="#">Settings</Link>
-			</Breadcrumb.Item>
-			<Breadcrumb.Item currentPage>
-				<span>Profile</span>
-			</Breadcrumb.Item>
-		</Breadcrumb>
-	)
+		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+			<Breadcrumb separator="→">
+				<Breadcrumb.Item>
+					<Link href="#">Home</Link>
+				</Breadcrumb.Item>
+				<Breadcrumb.Item>
+					<Link href="#">Category</Link>
+				</Breadcrumb.Item>
+				<Breadcrumb.Item currentPage>
+					<span>Current Page</span>
+				</Breadcrumb.Item>
+			</Breadcrumb>
+			<Breadcrumb separator={<Icon>arrow_forward</Icon>}>
+				<Breadcrumb.Item>
+					<Link href="#">Home</Link>
+				</Breadcrumb.Item>
+				<Breadcrumb.Item>
+					<Link href="#">Settings</Link>
+				</Breadcrumb.Item>
+				<Breadcrumb.Item currentPage>
+					<span>Profile</span>
+				</Breadcrumb.Item>
+			</Breadcrumb>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `separator` prop accepts any `ReactNode` — a plain string or an `Icon` element. Without it, a `chevron_right` icon is rendered between items."
+			}
+		}
+	}
 };
 
 export const WithIcons: Story = {
@@ -126,7 +134,14 @@ export const WithIcons: Story = {
 				</span>
 			</Breadcrumb.Item>
 		</Breadcrumb>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "Each `Breadcrumb.Item` accepts arbitrary content, so links can combine an `Icon` with a label."
+			}
+		}
+	}
 };
 
 export const LongPath: Story = {
@@ -151,7 +166,14 @@ export const LongPath: Story = {
 				<span>Current Page</span>
 			</Breadcrumb.Item>
 		</Breadcrumb>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "A deeply nested trail — the breadcrumb renders a separator between every pair of items."
+			}
+		}
+	}
 };
 
 export const SingleItem: Story = {
@@ -161,5 +183,13 @@ export const SingleItem: Story = {
 				<span>Home</span>
 			</Breadcrumb.Item>
 		</Breadcrumb>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'With a single item no separator is rendered. `currentPage` still marks the item with `aria-current="page"`.'
+			}
+		}
+	}
 };

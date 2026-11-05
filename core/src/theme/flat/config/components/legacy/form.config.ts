@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FlatColorsConfig } from "../../base/colors.config.js";
 import type { FlatThemeType } from "../../../../schema.js";
+import type { FlatColorsConfig } from "../../base/colors.config.js";
 
 export const formFlatConfig = (theme: FlatThemeType) => {
 	const { typography, spacing, colors } = theme;

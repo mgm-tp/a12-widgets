@@ -32,9 +32,9 @@
 
 import type { ReactElement } from "react";
 
-import { joinClassNames, addPrefix } from "../../common/main/utils.js";
 import type { Container, Identifiable, Styleable } from "../../common/main/base-props.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { joinClassNames, addPrefix } from "../../common/main/utils.js";
 
 const baseClassName = addPrefix("collapsiblePanel");
 

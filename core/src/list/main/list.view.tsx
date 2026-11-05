@@ -34,6 +34,11 @@ import type { ReactElement, KeyboardEvent, MouseEvent, TouchEvent } from "react"
 import { createContext, useContext, useRef, useCallback, useState, useEffect, isValidElement } from "react";
 import { Key } from "ts-key-enum";
 
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { provider } from "../../common/main/device-detector.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { usePrevious } from "../../common/main/hooks.js";
 import {
 	addPrefix,
 	joinClassNames,
@@ -41,13 +46,8 @@ import {
 	getNearestFocusableParent,
 	getAllInteractiveElements
 } from "../../common/main/utils.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { provider } from "../../common/main/device-detector.js";
-import { usePrevious } from "../../common/main/hooks.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { ProgressBar } from "../../progress-bar/main/progress-bar.view.js";
 import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { ProgressBar } from "../../progress-bar/main/progress-bar.view.js";
 
 import type { ListItemProps, ListProps, ListSubHeaderProps } from "./list.api.js";
 import {

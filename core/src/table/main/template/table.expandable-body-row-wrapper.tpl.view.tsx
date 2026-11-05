@@ -35,11 +35,10 @@ import { memo, useMemo } from "react";
 import { styled, css } from "styled-components";
 
 import { joinClassNames, getRole } from "../../../common/main/utils.js";
-
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
-import type { TableTemplateProps } from "./table.tpl.api.js";
 import { StyledTableMixins } from "./table.styled.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 
 export const StyledTableExpandableWrapper = styled.div.withConfig({ displayName: "StyledTableExpandableWrapper-sc-" })(
 	({ theme }) => {

@@ -55,7 +55,7 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
   max-width: unset;
 }
 
-.c25 .c10 {
+:where(.c25) .c10 {
   color: inherit;
 }
 
@@ -197,15 +197,11 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
   width: fit-content;
 }
 
-.c25 .c7.c7:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c25 .c7.c7:not(:active):not(:hover):not(:focus) .c9:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
 .c25 .c7.c7:focus .c9 {
+  color: inherit;
+}
+
+:where(.c25) .c7:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -216,37 +212,6 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
 }
 
 .h_inlineBlock.h_middleAlign .c7.c7 > .c9 {
-  display: block;
-}
-
-.c38 .c9 {
-  user-select: none;
-}
-
-.c38 .c9 {
-  color: inherit;
-}
-
-.c38 .c9 {
-  font-size: inherit;
-}
-
-.c38.c38 .c9 {
-  color: inherit;
-}
-
-.c25 .c38 .c9 {
-  font-size: 1.25rem;
-}
-
-.c25 .c38.c38 {
-  color: rgb(169, 179, 188);
-  width: auto;
-  height: auto;
-  min-height: 0px;
-}
-
-.h_inlineBlock.h_middleAlign .c38.c38 > .c9 {
   display: block;
 }
 
@@ -277,20 +242,32 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
   top: 0px;
 }
 
-[data-role="table-body-cell"] > .c2 > .c31.c31 {
+.c4 {
+  cursor: pointer;
+  min-height: 48px;
+  min-width: 300px;
+  outline: none;
+  padding-left: calc(64px);
+  position: relative;
+}
+
+.c4::before {
+  border-bottom: 1px solid rgb(211, 214, 220);
+  inset: 0px;
+  content: "";
+  display: block;
+  position: absolute;
+  pointer-events: none;
+}
+
+[data-role="table-body-cell"] > .c2 > .c4.c4 {
   padding-left: calc(40px);
 }
 
-[data-role="table-body-cell"] > .c2 > .c32.c32 {
-  padding-left: calc(72px);
-}
-
-[data-role="table-body-cell"] > .c2 > .c33.c33 {
-  padding-left: calc(104px);
-}
-
-[data-role="table-body-cell"] > .c2 > .c34.c34 {
-  padding-left: calc(136px);
+.c4:focus::before {
+  border: 2px solid rgb(213, 0, 117);
+  margin: 1px;
+  outline: rgb(51, 51, 51) dotted 1px;
 }
 
 .c17 {
@@ -324,46 +301,6 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
 
 .c17 .c13 .c9 {
   color: inherit;
-}
-
-[data-role="table-body-cell"] > .c2 > .c35.c35 {
-  padding-left: calc(104px);
-}
-
-[data-role="table-body-cell"] > .c2 > .c36.c36 {
-  padding-left: calc(136px);
-}
-
-[data-role="table-body-cell"] > .c2 > .c37.c37 {
-  padding-left: calc(104px);
-}
-
-.c4 {
-  cursor: pointer;
-  min-height: 48px;
-  min-width: 300px;
-  outline: none;
-  padding-left: calc(64px);
-  position: relative;
-}
-
-.c4::before {
-  border-bottom: 1px solid rgb(211, 214, 220);
-  inset: 0px;
-  content: "";
-  display: block;
-  position: absolute;
-  pointer-events: none;
-}
-
-[data-role="table-body-cell"] > .c2 > .c4.c4 {
-  padding-left: calc(40px);
-}
-
-.c4:focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
 }
 
 .c21 {
@@ -583,12 +520,6 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
 }
 
 @media (pointer: coarse) {
-  .c17:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-}
-
-@media (pointer: coarse) {
   .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
@@ -603,6 +534,12 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
 @media (pointer: fine) {
   .c4:hover::before {
     border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c17:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 }
 
@@ -766,6 +703,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 expand_more
               </span>
@@ -788,6 +727,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 computer
               </span>
@@ -847,6 +788,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     expand_more
                   </span>
@@ -941,6 +884,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         folder
                       </span>
@@ -1056,6 +1001,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         chevron_right
                       </span>
@@ -1152,6 +1099,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
                           >
                             <span
                               aria-hidden="true"
+                              class="notranslate"
+                              translate="no"
                             >
                               done
                             </span>
@@ -1206,6 +1155,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         folder
                       </span>
@@ -1260,6 +1211,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     storage
                   </span>
@@ -1316,6 +1269,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     chevron_right
                   </span>
@@ -1338,6 +1293,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering combined tree 1`] = `
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     storage
                   </span>
@@ -1407,6 +1364,10 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c9 {
+  color: inherit;
+}
+
 .c6 {
   align-items: center;
   border: 2px solid transparent;
@@ -1449,6 +1410,10 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c6:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c6.c6 {
@@ -1500,6 +1465,13 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
 
 .c17.c17 .c8 {
   color: inherit;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c17.c17) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
 }
 
 .h_inlineBlock.h_middleAlign .c17.c17 {
@@ -2075,6 +2047,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 expand_more
               </span>
@@ -2158,6 +2132,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     computer
                   </span>
@@ -2208,6 +2184,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     chevron_right
                   </span>
@@ -2263,6 +2241,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     chevron_right
                   </span>
@@ -2319,6 +2299,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     expand_more
                   </span>
@@ -2380,6 +2362,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         expand_more
                       </span>
@@ -2441,6 +2425,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             chevron_right
                           </span>
@@ -2505,6 +2491,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     chevron_right
                   </span>
@@ -2560,6 +2548,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     expand_more
                   </span>
@@ -2627,6 +2617,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template 1`] = `
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         expand_more
                       </span>
@@ -2779,6 +2771,10 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c9 {
+  color: inherit;
+}
+
 .c6 {
   align-items: center;
   border: 2px solid transparent;
@@ -2821,6 +2817,10 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c6:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c6.c6 {
@@ -2872,6 +2872,13 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
 
 .c17.c17 .c8 {
   color: inherit;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c17.c17) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
 }
 
 .h_inlineBlock.h_middleAlign .c17.c17 {
@@ -3450,6 +3457,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 expand_more
               </span>
@@ -3533,6 +3542,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     computer
                   </span>
@@ -3583,6 +3594,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     chevron_right
                   </span>
@@ -3638,6 +3651,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     chevron_right
                   </span>
@@ -3694,6 +3709,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     expand_more
                   </span>
@@ -3755,6 +3772,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         expand_more
                       </span>
@@ -3816,6 +3835,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             chevron_right
                           </span>
@@ -3880,6 +3901,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     chevron_right
                   </span>
@@ -3935,6 +3958,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     expand_more
                   </span>
@@ -4002,6 +4027,8 @@ exports[`com.mgmtp.a12.widgets.tree > rendering tree template fitToParent 1`] = 
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         expand_more
                       </span>

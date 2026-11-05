@@ -48,6 +48,10 @@ exports[`com.mgmtp.a12.widgets.icon > rendering-icon 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0 {
+  color: inherit;
+}
+
 <i
   class="c0 plasma-icon"
   data-role="plasma-icon"
@@ -55,6 +59,8 @@ exports[`com.mgmtp.a12.widgets.icon > rendering-icon 1`] = `
 >
   <span
     aria-hidden="true"
+    class="notranslate"
+    translate="no"
   >
     reply
   </span>
@@ -96,12 +102,18 @@ exports[`com.mgmtp.a12.widgets.icon > rendering-icon-size 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0 {
+  color: inherit;
+}
+
 <i
   class="c0 plasma-icon plasma-icon--big"
   data-role="plasma-icon"
 >
   <span
     aria-hidden="true"
+    class="notranslate"
+    translate="no"
   >
     reply
   </span>
@@ -156,6 +168,10 @@ exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0 {
+  color: inherit;
+}
+
 .c1.c1 {
   color: rgb(5, 104, 174);
 }
@@ -167,6 +183,8 @@ exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 1`] = `
 >
   <span
     aria-hidden="true"
+    class="notranslate"
+    translate="no"
   >
     reply
   </span>
@@ -227,6 +245,10 @@ exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 2`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0 {
+  color: inherit;
+}
+
 .c1.c1 {
   color: rgb(41, 122, 36);
 }
@@ -238,6 +260,8 @@ exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 2`] = `
 >
   <span
     aria-hidden="true"
+    class="notranslate"
+    translate="no"
   >
     reply
   </span>
@@ -298,6 +322,10 @@ exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 3`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0 {
+  color: inherit;
+}
+
 .c1.c1 {
   color: rgb(175, 121, 2);
 }
@@ -309,6 +337,8 @@ exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 3`] = `
 >
   <span
     aria-hidden="true"
+    class="notranslate"
+    translate="no"
   >
     reply
   </span>
@@ -369,6 +399,10 @@ exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 4`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0 {
+  color: inherit;
+}
+
 .c1.c1 {
   color: rgb(201, 29, 29);
 }
@@ -380,6 +414,8 @@ exports[`com.mgmtp.a12.widgets.icon > rendering-variant-icon 4`] = `
 >
   <span
     aria-hidden="true"
+    class="notranslate"
+    translate="no"
   >
     reply
   </span>

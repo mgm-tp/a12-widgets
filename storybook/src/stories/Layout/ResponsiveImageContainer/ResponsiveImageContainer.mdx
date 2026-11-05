@@ -1,0 +1,51 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ResponsiveImageContainerStories from "./ResponsiveImageContainer.stories";
+
+<Meta of={ResponsiveImageContainerStories} />
+
+<Title />
+
+The `ResponsiveImageContainer` widget renders an image that automatically scales to fit its
+parent container while preserving its aspect ratio (via `object-fit: contain`). Use it whenever
+an image must adapt to a layout slot of unknown or changing size — cards, previews, galleries.
+
+- The image never exceeds the parent's width or height; wide and tall images both scale down proportionally.
+- Provide `alt` text for accessibility; it defaults to an empty string.
+- `onClick` and `onLoad` callbacks let you react to user interaction and successful loading.
+- The legacy `handleHeight` and `preferWidth` props are deprecated — sizing is handled purely in CSS.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ResponsiveImageContainerStories.Playground} />
+
+## Examples
+
+### With title
+
+<Canvas of={ResponsiveImageContainerStories.WithTitle} />
+
+### Aspect ratios
+
+<Canvas of={ResponsiveImageContainerStories.AspectRatios} />
+
+### Narrow container
+
+<Canvas of={ResponsiveImageContainerStories.NarrowContainer} />

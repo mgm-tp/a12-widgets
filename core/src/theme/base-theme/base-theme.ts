@@ -33,16 +33,14 @@
 import merge from "deepmerge";
 
 import type { DeepPartial } from "../../common/main/utils.js";
-
-import type { BaseSpacing, Spacing, HorizontalSpacing, VerticalSpacing } from "../schema/spacing.api.js";
-import type { BaseThemeComponentsType } from "../schema/components.api.js";
-import type { FontSize } from "../schema/typography.api.js";
-import type { BorderConfig } from "../schema/border.api.js";
-import type { OpacityConfig } from "../schema/opacity.api.js";
-import type { MotionConfig } from "../schema/motion.api.js";
 import type { InputStyle } from "../schema/base-input-styles.api.js";
+import type { BorderConfig } from "../schema/border.api.js";
+import type { BaseThemeComponentsType } from "../schema/components.api.js";
+import type { MotionConfig } from "../schema/motion.api.js";
+import type { OpacityConfig } from "../schema/opacity.api.js";
+import type { BaseSpacing, Spacing, HorizontalSpacing, VerticalSpacing } from "../schema/spacing.api.js";
+import type { FontSize } from "../schema/typography.api.js";
 
-import type { BaseThemeColors, BaseThemeConfig, BaseThemeCore } from "./schema.js";
 import {
 	baseThemeColors,
 	FontConfig,
@@ -65,6 +63,7 @@ import {
 	LineHeightConfig,
 	BaseThemeComponentsConfigs
 } from "./config/index.js";
+import type { BaseThemeColors, BaseThemeConfig, BaseThemeCore } from "./schema.js";
 import { mergeConfig } from "./utils/merge-config.js";
 
 export interface SpacingOverrides {

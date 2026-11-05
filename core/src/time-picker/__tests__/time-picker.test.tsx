@@ -30,21 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render, getByDataRole, getAllByDataRole, setupDevice, getByRole } from "test-utils";
-import { describe, test, expect, vi, beforeAll } from "vitest";
-import { userEvent } from "vitest/browser";
 import { enUS } from "date-fns/locale";
+import { render, getByDataRole, getAllByDataRole, setupDevice, getByRole } from "test-utils";
+import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
+import { userEvent } from "vitest/browser";
 
-import { Icon } from "../../icon/main/icon.view.js";
 import { Button } from "../../button/main/button.view.js";
-import { TimeUtils } from "../../common/main/date-time/time-utils.js";
+import { DataRoles } from "../../common/index.js";
 import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
-import { DataRoles } from "../../common/index.js";
-
-import { TimePicker } from "../main/time-picker.view.js";
-import { Header } from "../main/time-picker.internal.js";
+import { TimeUtils } from "../../common/main/date-time/time-utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import type { TimePickerProps } from "../main/time-picker.api.js";
+import { Header } from "../main/time-picker.internal.js";
+import { TimePicker } from "../main/time-picker.view.js";
 
 const timezone = "America/New_York";
 
@@ -362,10 +361,13 @@ describe("com.mgmtp.a12.widgets.time-picker.time-picker-desktop", () => {
 });
 
 describe("com.mgmtp.a12.widgets.time-picker.time-picker-mobile", () => {
-	beforeAll(() => {
+	beforeEach(() => {
 		setupDevice();
 	});
 
+	afterEach(() => {
+		vi.resetAllMocks();
+	});
 	test("rendering-a-time-picker-dialog", async () => {
 		const date = new Date(Date.UTC(2017, 11, 25, 14, 0));
 		const { container } = render(<TimePicker id="test-id" value={date} />);

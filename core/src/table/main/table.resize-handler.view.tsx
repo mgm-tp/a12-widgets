@@ -30,21 +30,21 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { isEqual } from "lodash-es";
 import { memo, useState, useRef, useMemo, useCallback } from "react";
 import type { DraggableEventHandler } from "react-draggable";
 import Draggable from "react-draggable";
 import { styled, css } from "styled-components";
-import { isEqual } from "lodash-es";
 
+import { DataRoles } from "../../common/main/data-roles.js";
 import { getParentElement, joinClassNames, roundDecimalNumber } from "../../common/main/utils.js";
 import { activeAndHover } from "../../theme/base/mixins/_interaction.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
-import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
-import { TableDataAttributes } from "./table.data-attributes.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
-import { TableInternalUtils as Utils } from "./table.utils.js";
 import { useTableContext } from "./table.context.js";
+import { TableDataAttributes } from "./table.data-attributes.js";
+import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
+import { TableInternalUtils as Utils } from "./table.utils.js";
 
 const MIN_COLUMN_WIDTH = 0.1;
 const CSS_MIN_COLUMN_WIDTH = 150;
@@ -68,16 +68,21 @@ const StyledTableColumnResizeHandler = styled.div.withConfig({ displayName: "Sty
 			height: 100%;
 			width: ${resizeHandler.width};
 		}
-		${isRightResizeHandler &&
-		css`
-			right: -${resizeHandler.horizontalPadding};
-		`}
-		${!isRightResizeHandler &&
-		css`
-			left: calc((${resizeHandler.horizontalPadding} + ${resizeHandler.width}) * -1);
-		`}
-	  	${!isResizing &&
-		css`
+		${
+			isRightResizeHandler &&
+			css`
+				right: -${resizeHandler.horizontalPadding};
+			`
+		}
+		${
+			!isRightResizeHandler &&
+			css`
+				left: calc((${resizeHandler.horizontalPadding} + ${resizeHandler.width}) * -1);
+			`
+		}
+		${
+			!isResizing &&
+			css`
 			${activeAndHover(css`
 				div {
 					background-color: ${resizeHandler.background};
@@ -86,13 +91,16 @@ const StyledTableColumnResizeHandler = styled.div.withConfig({ displayName: "Sty
 			&[${TableDataAttributes.Data.ResizeHandlerHover}="true"] div {
 				background-color: ${resizeHandler.background};
 			}
-		`}
-		${isResizing &&
-		css`
-			div {
-				background-color: transparent;
-			}
-		`}
+		`
+		}
+		${
+			isResizing &&
+			css`
+				div {
+					background-color: transparent;
+				}
+			`
+		}
 	`;
 });
 

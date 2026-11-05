@@ -1,0 +1,91 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Data Display/TreeView/Overview" />
+
+# TreeView
+
+> ⚠️ **Experimental.** `TreeView` is the headless-model-driven successor to the legacy `Tree`
+> template and its behavior HOCs, shipped from the `/experimental` entry point. The API may still
+> change. Consumer documentation and migration notes live in the showcase; these stories are the
+> isolated reproductions used for development and QA.
+
+`TreeView` is one component instead of a `Selectable(Collapsible(DragDrop(TreeAdapter(Tree))))`
+stack: your own row type flows straight through, the hierarchy comes in as a nested `tree` (read via
+`getChildren`) or a flat `data` list (read via `getParentId`), and a stable `rowKey` keys expansion,
+selection and drag-and-drop. Presentation is supplied through `getLabel` / `getIcon` / `getActions`,
+or `renderNode` for full control.
+
+```tsx
+import { TreeView } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+
+<TreeView
+	tree={nodes}
+	getChildren={(n) => n.children}
+	rowKey="id"
+	getLabel={(n) => n.label}
+	selectionMode="single"
+	selectedKeys={selected}
+	onSelectionChange={setSelected}
+	defaultExpandedKeys={["root"]}
+/>;
+```
+
+## Where to look
+
+| If you want to…                                         | See the story                    |
+| ------------------------------------------------------- | -------------------------------- |
+| Render a tree from nested data                          | **Basic**                        |
+| Render a tree from a flat adjacency list                | **Flat Data**                    |
+| Select nodes (single / multiple)                        | **Selection**                    |
+| Own the expansion state                                 | **Controlled Expansion**         |
+| Reorder or re-parent nodes by dragging or keyboard      | **Drag & Drop (reparenting)**    |
+| Fetch children on first expand                          | **Lazy Loading**                 |
+| Add per-node buttons, disable a node                    | **Node Actions & Disabled Nodes** |
+| Scroll a node into view, fill the parent's height       | **Scroll to Node**               |
+
+## Keyboard
+
+The tree is a single roving tab stop (`role="tree"`, one `tabindex="0"` node).
+
+| Key                      | Without drag-and-drop                                  | While a node is picked up (`dragDrop` set)               |
+| ------------------------ | ------------------------------------------------------ | -------------------------------------------------------- |
+| **Up / Down**            | Move to the previous / next visible node               | Move the node before the previous / after the next sibling |
+| **Right**                | Expand, or step into the first child                   | Nest the node under the sibling above it                 |
+| **Left**                 | Collapse, or step to the parent                        | Move the node out, right after its parent (from a first-level node: to the top level) |
+| **Home / End**           | First / last visible node                              | First / last position among its siblings                 |
+| **Space**                | Pick the node up (or select it when there is no DnD)   | Drop                                                     |
+| **Enter**                | Select                                                 | Drop                                                     |
+| **Escape**               | —                                                      | Cancel and put the node back                             |
+
+Every pick-up, move, drop and cancel is announced through a live region; the texts are localized via
+`A11YLanguageContext`.
+
+Because the pick-up claims Space, a selectable tree with `dragDrop` set selects with Enter alone.
+`dragDrop.keyboardGrabKey: false` gives Space back to selection, at the cost of the keyboard path to
+reordering — provide another one (node actions, a context menu). Enter is not an alternative grab key: the
+`tree` pattern assigns it the node's default action.
+
+## Relation to the legacy `Tree`
+
+The `Tree` template and its behavior HOCs (`TreeAdapter`, `Collapsible`, `Selectable`, `DragDrop`,
+`Insertable`) are **deprecated since 39.0.0** and still work. The low-level `TreeContainer` /
+`TreeNode` / `ArrowButton` primitives are not deprecated — `TreeView`, `TreeTable` and `DataTreeTable`
+all build on them. `TreeView` uses `dragDrop`; its table sibling `DataTreeTable` uses `dragDropOptions`
+with the same option shape. Both accept `onDropToRoot` / `canDropToRoot`, which open the empty area below
+the last node as a drop zone that moves the node to the top level — the counterpart of the legacy
+`hideRoot` drop onto the body. Nodes whose children are not loaded yet get their chevron by leaving those
+children `undefined` (never `[]`) with `loadChildren` set — no placeholder children — while `isLeaf` pins
+definite leaves.

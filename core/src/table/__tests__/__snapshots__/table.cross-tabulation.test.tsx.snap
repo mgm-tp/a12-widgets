@@ -254,7 +254,7 @@ exports[`com.mgmtp.a12.widgets.table.cross-tabulation > Cross Tabulation with co
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -1989,7 +1989,7 @@ exports[`com.mgmtp.a12.widgets.table.cross-tabulation > Cross Tabulation with no
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 

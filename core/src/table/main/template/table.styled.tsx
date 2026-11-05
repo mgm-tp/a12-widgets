@@ -30,22 +30,21 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { darken } from "polished";
 import type { CSSObject } from "styled-components";
 import { styled, css } from "styled-components";
-import { darken } from "polished";
 
-import { breakWord } from "../../../theme/base/mixins/_break-word.js";
-import type { DefaultThemeType } from "../../../theme/schema.js";
-import { active, hover } from "../../../theme/base/mixins/_interaction.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
+import { getHorizontalSpace } from "../../../common/main/utils.js";
 import { StyledBaseInput } from "../../../input/base-input-styled/base.styled.js";
+import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
+import { StyledListItemWrapper } from "../../../list/main/list.styled.js";
 import { StyledTagInputFieldWrapper } from "../../../tag-input/main/tag-input.styled.js";
 import { StyledTagGroup } from "../../../tag/main/tag-group.view.js";
-import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
+import { breakWord } from "../../../theme/base/mixins/_break-word.js";
+import { active, hover } from "../../../theme/base/mixins/_interaction.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
-import { getHorizontalSpace } from "../../../common/main/utils.js";
-import { StyledListItemWrapper } from "../../../list/main/list.styled.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-
+import type { DefaultThemeType } from "../../../theme/schema.js";
 import type { Column } from "../column.api.js";
 import { TableDataAttributes } from "../table.data-attributes.js";
 
@@ -60,12 +59,14 @@ export namespace StyledBaseTable {
 			return css`
 				display: ${cardView ? "block" : "flex"};
 				position: relative;
-				${cardView &&
-				css`
-					border: none;
-					border-radius: ${table.cardView.bodyRow.borderRadius};
-					box-shadow: ${table.cardView.bodyRow.boxShadow};
-				`}
+				${
+					cardView &&
+					css`
+						border: none;
+						border-radius: ${table.cardView.bodyRow.borderRadius};
+						box-shadow: ${table.cardView.bodyRow.boxShadow};
+					`
+				}
 			`;
 		}
 	);
@@ -172,70 +173,86 @@ export namespace StyledBaseTable {
 
 				${breakWord}
 
-				${subInfo &&
-				css`
-					color: ${bodyCell.subInfo.color};
-					& > * {
+				${
+					subInfo &&
+					css`
 						color: ${bodyCell.subInfo.color};
-					}
-				`}
+						& > * {
+							color: ${bodyCell.subInfo.color};
+						}
+					`
+				}
 
-			${actionCell &&
-				css`
-					height: 100%;
-				`}
-
-
-			${!cardView &&
-				css`
-					${rowSegmentType === "left" &&
+				${
+					actionCell &&
 					css`
-						${firstColumnStyle}
+						height: 100%;
+					`
+				}
 
-						${Group}:not(:first-child) &&:first-child {
-							${resetColumnStyle}
-						}
-					`}
-
-					${rowSegmentType === "scroll" &&
+				${
+					!cardView &&
 					css`
-						${Segment}:first-child && {
-							${firstColumnStyle}
+						${
+							rowSegmentType === "left" &&
+							css`
+								${firstColumnStyle}
+
+								${Group}:not(:first-child) &&:first-child {
+									${resetColumnStyle}
+								}
+							`
 						}
-						${Segment}:first-child ${Group}:not(:first-child) &&:first-child {
-							${resetColumnStyle}
+
+						${
+							rowSegmentType === "scroll" &&
+							css`
+								${Segment}:first-child && {
+									${firstColumnStyle}
+								}
+								${Segment}:first-child ${Group}:not(:first-child) &&:first-child {
+									${resetColumnStyle}
+								}
+							`
 						}
-					`}
-				`}
+					`
+				}
 
-		  	${cardView &&
-				css`
-					position: relative;
-					padding-top: 24px;
-					font-size: ${table.cardView.bodyCell.fontSize};
-					width: 100%;
-				`}
+				${
+					cardView &&
+					css`
+						position: relative;
+						padding-top: 24px;
+						font-size: ${table.cardView.bodyCell.fontSize};
+						width: 100%;
+					`
+				}
 
-
-		  	${resizable &&
-				css`
+				${
+					resizable &&
+					css`
 					[${TableDataAttributes.Data.Head.CellResizing}="true"] div {
 						background-color: transparent;
 					}
-					${rowSegmentType === "scroll" &&
+					${
+						rowSegmentType === "scroll" &&
+						css`
+							${Segment} > &&:last-child {
+								flex: 1;
+							}
+						`
+					}
+				`
+				}
+				${
+					crossTabulation &&
+					rowSegmentType === "left" &&
 					css`
-						${Segment} > &&:last-child {
-							flex: 1;
-						}
-					`}
-				`}
-		  	${crossTabulation &&
-				rowSegmentType === "left" &&
-				css`
-					color: ${headCell.color};
-					font-size: ${headCell.fontSize};
-					font-weight: ${headCell.fontWeight};
-				`}
+						color: ${headCell.color};
+						font-size: ${headCell.fontSize};
+						font-weight: ${headCell.fontWeight};
+					`
+				}
 			`;
 		}
 	);
@@ -251,26 +268,32 @@ export namespace StyledBaseTable {
 			display: ${cardView ? "block" : "flex"};
 			position: relative;
 
-			${rowSegmentType === "left" &&
-			css`
-				${crossTabulation &&
+			${
+				rowSegmentType === "left" &&
 				css`
-					background: ${header.background};
-					${createPseudoElement(
-						":after",
+					${
+						crossTabulation &&
 						css`
-							left: unset;
-							border-right: ${headRow.borderBottom};
+							background: ${header.background};
+							${createPseudoElement(
+								":after",
+								css`
+									left: unset;
+									border-right: ${headRow.borderBottom};
+								`
+							)}
 						`
-					)}
-				`}
-			`}
+					}
+				`
+			}
 
-			${rowSegmentType === "scroll" &&
-			css`
-				flex: 1 1 0%;
-				overflow: hidden;
-			`}
+			${
+				rowSegmentType === "scroll" &&
+				css`
+					flex: 1 1 0%;
+					overflow: hidden;
+				`
+			}
 		`;
 	});
 }
@@ -295,18 +318,20 @@ export const StyledTableMixins = {
 		return css`
 			${props.state === "hover" && hover(backgroundStyle, props.selector)}
 			${props.state === "active" && active(backgroundStyle, props.selector)}
-		  	${props.state === "focus" &&
-			(props.selector
-				? css`
-						${props.selector}:focus && {
-							${backgroundStyle}
-						}
-					`
-				: css`
-						&:focus {
-							${backgroundStyle}
-						}
-					`)}
+			${
+				props.state === "focus" &&
+				(props.selector
+					? css`
+							${props.selector}:focus && {
+								${backgroundStyle}
+							}
+						`
+					: css`
+							&:focus {
+								${backgroundStyle}
+							}
+						`)
+			}
 		`;
 	},
 	setFirstCellSpacing: (props: {
@@ -330,42 +355,46 @@ export const StyledTableMixins = {
 					: `calc(${bodyCell.width}px + ${bodyCell.firstMarginLeft})`;
 
 		return css`
-			${!props.expandableCell &&
-			css`
-				min-width: ${width};
-				width: ${width};
-			`}
+			${
+				!props.expandableCell &&
+				css`
+					min-width: ${width};
+					width: ${width};
+				`
+			}
 
-			${!props.subInfo
-				? props.actionCell
-					? css`
+			${
+				!props.subInfo
+					? props.actionCell
+						? css`
+								padding: ${headCell.padding};
+								padding-top: 0;
+								padding-bottom: 0;
+								padding-left: calc(${getHorizontalSpace("left", headCell.padding)} + ${bodyCell.firstMarginLeft});
+							`
+						: css`
+								padding-left: calc(${bodyCell.firstMarginLeft} + ${getHorizontalSpace("left", bodyCell.padding)});
+								[data-role="${DataRoles.Tree}"] && {
+									padding-left: calc(
+										${bodyCell.firstMarginLeft} + ${getHorizontalSpace("left", treeTableBodyCell.padding)}
+									);
+								}
+							`
+					: props.actionCell &&
+						css`
 							padding: ${headCell.padding};
 							padding-top: 0;
 							padding-bottom: 0;
-							padding-left: calc(${getHorizontalSpace("left", headCell.padding)} + ${bodyCell.firstMarginLeft});
 						`
-					: css`
-							padding-left: calc(${bodyCell.firstMarginLeft} + ${getHorizontalSpace("left", bodyCell.padding)});
-							[data-role="${DataRoles.Tree}"] && {
-								padding-left: calc(
-									${bodyCell.firstMarginLeft} + ${getHorizontalSpace("left", treeTableBodyCell.padding)}
-								);
-							}
-						`
-				: props.actionCell &&
-					css`
-						padding: ${headCell.padding};
-						padding-top: 0;
-						padding-bottom: 0;
-					`}
+			}
 		`;
 	},
 	setInputBG: (props: { background: string }) => {
 		return css`
+			${StyledTagInputFieldWrapper} ${StyledTagGroup},
 			${StyledBaseInput.StyledFieldInput}:not([data-readonly="true"]):not([data-disabled="true"]),
 			${StyledSelectTemplate.StyledSelectInput}:not(:read-only):not(:disabled),
-			${StyledSelectTemplate.StyledFieldSelectWrapper}:not([data-readonly="true"]):not([data-disabled="true"]),
-			${StyledTagInputFieldWrapper} ${StyledTagGroup} {
+			${StyledSelectTemplate.StyledFieldSelectWrapper}:not([data-readonly="true"]):not([data-disabled="true"]) {
 				background-color: ${props.background};
 			}
 		`;

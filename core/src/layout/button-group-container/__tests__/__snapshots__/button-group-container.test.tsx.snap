@@ -29,6 +29,10 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-button-group-c
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
+  color: inherit;
+}
+
 .c3 {
   align-items: center;
   cursor: pointer;
@@ -171,6 +175,10 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-button-group-c
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .c8:not(:disabled):focus {
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -222,6 +230,13 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-button-group-c
   color: inherit;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c12.c12) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
 .h_inlineBlock.h_middleAlign .c12.c12 {
   display: block;
   height: auto;
@@ -264,12 +279,19 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-button-group-c
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
+.c0 {
+  display: flex;
+  flex-grow: 1;
+  max-width: 100%;
+  gap: 8px;
+}
+
 .c4 {
   border-radius: 2px;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
   display: flex;
   isolation: isolate;
@@ -306,13 +328,6 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-button-group-c
   width: 2px;
   background-color: rgb(41, 122, 36);
   opacity: 0.2;
-}
-
-.c0 {
-  display: flex;
-  flex-grow: 1;
-  max-width: 100%;
-  gap: 8px;
 }
 
 @media (pointer: coarse) {
@@ -483,6 +498,8 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-button-group-c
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               arrow_drop_down
             </span>
@@ -534,6 +551,10 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-responsive-but
 
 .c13.c13 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c13 {
+  color: inherit;
 }
 
 .c5 {
@@ -678,6 +699,10 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-responsive-but
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .c10:not(:disabled):focus {
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -727,6 +752,13 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-responsive-but
 
 .c14.c14 .c12 {
   color: inherit;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c14.c14) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
 }
 
 .h_inlineBlock.h_middleAlign .c14.c14 {
@@ -797,12 +829,33 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-responsive-but
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
+.c0 {
+  display: flex;
+  flex-grow: 1;
+  max-width: 100%;
+  gap: 8px;
+}
+
+.c1 {
+  flex-shrink: 1;
+  flex-wrap: nowrap;
+  min-width: 0px;
+}
+
+.c1 .c2 {
+  flex-shrink: 0;
+}
+
+.c1 .c4 {
+  white-space: nowrap;
+}
+
 .c6 {
   border-radius: 2px;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
   display: flex;
   isolation: isolate;
@@ -839,27 +892,6 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-responsive-but
   width: 2px;
   background-color: rgb(41, 122, 36);
   opacity: 0.2;
-}
-
-.c0 {
-  display: flex;
-  flex-grow: 1;
-  max-width: 100%;
-  gap: 8px;
-}
-
-.c1 {
-  flex-shrink: 1;
-  flex-wrap: nowrap;
-  min-width: 0px;
-}
-
-.c1 .c2 {
-  flex-shrink: 0;
-}
-
-.c1 .c4 {
-  white-space: nowrap;
 }
 
 @media (pointer: coarse) {
@@ -1030,6 +1062,8 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-responsive-but
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               arrow_drop_down
             </span>
@@ -1115,6 +1149,8 @@ exports[`com.mgmtp.a12.widgets.button-group-container > rendering-responsive-but
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               arrow_drop_down
             </span>
@@ -1155,11 +1191,23 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
 .c25 .c7 {
   user-select: none;
 }
 
 .c25 .c7 {
+  color: inherit;
+}
+
+.c25 .c7 {
+  font-size: inherit;
+}
+
+.c25.c25 .c7 {
   color: inherit;
 }
 
@@ -1173,6 +1221,10 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
 
 .c26 .c7 {
   color: inherit;
+}
+
+.c26 .c7 {
+  font-size: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c26.c26 > .c7 {
@@ -1203,8 +1255,8 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   color: inherit;
 }
 
-.c28.c28 .c7 {
-  color: inherit;
+.c28 .c7 {
+  font-size: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c28.c28 > .c7 {
@@ -1219,8 +1271,8 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   color: inherit;
 }
 
-.c29 .c7 {
-  font-size: inherit;
+.c29.c29 .c7 {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c29.c29 > .c7 {
@@ -1232,14 +1284,6 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
 }
 
 .c30 .c7 {
-  color: inherit;
-}
-
-.c30 .c7 {
-  font-size: inherit;
-}
-
-.c30.c30 .c7 {
   color: inherit;
 }
 
@@ -1255,10 +1299,6 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   color: inherit;
 }
 
-.c31 .c7 {
-  font-size: inherit;
-}
-
 .h_inlineBlock.h_middleAlign .c31.c31 > .c7 {
   display: block;
 }
@@ -1269,10 +1309,6 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
 
 .c32 .c7 {
   color: inherit;
-}
-
-.c32 .c7 {
-  font-size: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c32.c32 > .c7 {
@@ -1327,10 +1363,6 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   color: inherit;
 }
 
-.c36.c36 .c7 {
-  color: inherit;
-}
-
 .h_inlineBlock.h_middleAlign .c36.c36 > .c7 {
   display: block;
 }
@@ -1341,6 +1373,10 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
 
 .c37 .c7 {
   color: inherit;
+}
+
+.c37 .c7 {
+  font-size: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c37.c37 > .c7 {
@@ -1355,23 +1391,11 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   color: inherit;
 }
 
-.h_inlineBlock.h_middleAlign .c38.c38 > .c7 {
-  display: block;
-}
-
-.c39 .c7 {
-  user-select: none;
-}
-
-.c39 .c7 {
-  color: inherit;
-}
-
-.c39 .c7 {
+.c38 .c7 {
   font-size: inherit;
 }
 
-.h_inlineBlock.h_middleAlign .c39.c39 > .c7 {
+.h_inlineBlock.h_middleAlign .c38.c38 > .c7 {
   display: block;
 }
 
@@ -1426,6 +1450,17 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
 
 .c23:not(:last-child) {
   border-bottom: 2px solid rgb(211, 214, 220);
+}
+
+.c41 .c5 .c7 {
+  font-size: 1.125rem;
+}
+
+.c41 .c9 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .c42 .c5 .c7 {
@@ -1549,17 +1584,6 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   text-transform: uppercase;
 }
 
-.c53 .c5 .c7 {
-  font-size: 1.125rem;
-}
-
-.c53 .c9 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
 .c4 {
   align-items: center;
   box-sizing: border-box;
@@ -1597,7 +1621,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -1664,7 +1688,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -1731,7 +1755,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -1791,7 +1815,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -1844,7 +1868,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -1913,7 +1937,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -1982,7 +2006,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -2043,7 +2067,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -2095,7 +2119,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -2164,7 +2188,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -2233,7 +2257,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -2294,7 +2318,7 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -2356,20 +2380,20 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   position: relative;
 }
 
-.c40 .c7 {
+.c39 .c7 {
   position: relative;
 }
 
-.c40 .c7::before {
+.c39 .c7::before {
   inset: 0px;
   position: absolute;
 }
 
-.c40 .c7:focus {
+.c39 .c7:focus {
   outline: none;
 }
 
-.c40 .c7:focus::before {
+.c39 .c7:focus::before {
   content: "";
   outline: rgb(51, 51, 51) dotted 1px;
 }
@@ -2389,12 +2413,12 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
   min-width: 52px;
 }
 
-.c41 .c7 {
-  font-size: inherit;
-}
-
 .c2 {
   text-transform: uppercase;
+}
+
+.c40 .c7 {
+  font-size: inherit;
 }
 
 @media (pointer: coarse) {
@@ -2914,6 +2938,8 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               block
             </span>
@@ -2951,6 +2977,8 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               bookmark
             </span>
@@ -2988,6 +3016,8 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               delete
             </span>
@@ -3025,6 +3055,8 @@ exports[`com.mgmtp.a12.widgets.button-group-container > should render list menu 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               home
             </span>

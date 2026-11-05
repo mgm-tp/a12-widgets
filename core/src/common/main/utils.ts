@@ -96,6 +96,18 @@ export function addPrefix(...classNames: string[]): string {
 
 /**
  * Generates an unique id for html elements that need a globally unique id.
+ *
+ * @deprecated since 39.1.0. The id is derived from `Math.random()`, so it is neither collision-free nor stable: calling
+ * this in a render body produces a new value on every render, it cannot survive SSR hydration, and in environments
+ * where `Math.random()` is deterministic (some headless test browsers) sibling calls return the same value, yielding
+ * duplicate DOM ids.
+ *
+ * Replacements, depending on what the id is for:
+ * - A stable element id inside a function component: use React's `useId()`. For several ids in one component, derive
+ *   them from it (`` `${id}-label` ``, `` `${id}-${index}` ``).
+ * - A value that must differ on every call, such as a React `key` used to force a remount, or a request correlation
+ *   id: use a counter, or `crypto.randomUUID()` where a secure context is guaranteed.
+ * - Ids for data created outside React (fixtures, models): use whatever the data layer already keys on.
  */
 export function generateUid(): string {
 	return Math.round(Math.random() * Math.pow(2, 32)).toString(16);
@@ -338,7 +350,15 @@ export function getIframeOffset(
 			break;
 		}
 
-		const parentDoc = parentWindow.document;
+		let parentDoc: Document;
+
+		try {
+			parentDoc = parentWindow.document;
+		} catch {
+			// cross-origin parent window (e.g. sandboxed iframe) — stop traversing
+			break;
+		}
+
 		const hostIframe = Array.from(parentDoc.querySelectorAll("iframe")).find(
 			(iframe) => iframe.contentDocument === currentDoc
 		);
@@ -746,6 +766,23 @@ export function isTypeableCharacter(event: KeyboardEvent): boolean {
 	const key = event.key;
 
 	return key !== KeyEnum[key as KeyEnum];
+}
+
+/**
+ * The key that picks a row / node up for keyboard drag-and-drop; `false` switches the keyboard grab off.
+ *
+ * Space only: in the `grid` / `tree` patterns an unmodified Space carries no assigned meaning, while Enter
+ * performs the row's default action, so remapping the grab onto it would trade a free key for a taken one.
+ * The canonical declaration — each component's public options repeat the union inline, so no published API
+ * report depends on this type.
+ *
+ * @internal
+ */
+export type KeyboardGrabKey = "Space" | false;
+
+/** Whether `event` picks an item up. `"Spacebar"` is the legacy spelling of `" "`. @internal */
+export function isKeyboardGrabKey(event: { key: string }, grabKey: KeyboardGrabKey): boolean {
+	return grabKey !== false && (event.key === " " || event.key === "Spacebar");
 }
 
 export function handleAriaHiddenOfWrapper(addAriaHidden = true): void {

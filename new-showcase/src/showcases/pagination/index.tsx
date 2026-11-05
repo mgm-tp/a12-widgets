@@ -30,18 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import alignmentCode from "!./alignment.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import simpleCode from "!./simple.tsx?raw";
+
 import PaginationAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/pagination/main/pagination.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
 
+import { AlignmentPaginationShowcase } from "./alignment.js";
 import { BasicPaginationShowcase } from "./basic.js";
 import { SimplePaginationShowcase } from "./simple.js";
-import { AlignmentPaginationShowcase } from "./alignment.js";
-
-import basicCode from "!./basic.tsx?raw";
-import simpleCode from "!./simple.tsx?raw";
-import alignmentCode from "!./alignment.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

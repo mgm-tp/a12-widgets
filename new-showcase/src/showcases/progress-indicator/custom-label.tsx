@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 import { useState } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import type { ProgressIndicatorSize } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Radio, CheckboxGroup, Typography, ProgressIndicator } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -65,6 +65,7 @@ export function CustomLabel(): ReactElement {
 				<>
 					<Typography.Body>
 						<Radio
+							id="progress-indicator-custom-label-size"
 							className="-u-margin-b-sm"
 							label="Size of the loading indicator"
 							onValueChanged={changeSize}
@@ -77,7 +78,12 @@ export function CustomLabel(): ReactElement {
 						</Radio>
 					</Typography.Body>
 					<Typography.Body>
-						<CheckboxGroup label="Options" onValueChanged={onCheckboxChange} className="-u-margin-b-xs">
+						<CheckboxGroup
+							id="progress-indicator-custom-label-options"
+							label="Options"
+							onValueChanged={onCheckboxChange}
+							className="-u-margin-b-xs"
+						>
 							<CheckboxGroup.Item
 								label="Display the loading circle and label horizontally"
 								value="horizontal"

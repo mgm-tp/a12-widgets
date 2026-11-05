@@ -32,8 +32,8 @@
 
 import { Range } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { createUserCard } from "../../../../helpers/faker.js";
 import type { UserCard } from "../../../../helpers/definitions.js";
+import { createUserCard } from "../../../../helpers/faker.js";
 
 export type RowObject = UserCard & {
 	checked?: boolean;

@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { isSameDay } from "date-fns";
 import type { ReactNode } from "react";
 import { useCallback, useState } from "react";
-import { isSameDay } from "date-fns";
 
 import { Calendar, Status } from "@com.mgmtp.a12.widgets/widgets-core";
 

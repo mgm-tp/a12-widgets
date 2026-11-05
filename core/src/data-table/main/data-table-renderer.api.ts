@@ -32,33 +32,38 @@
 
 import type { CSSProperties, HTMLAttributes, Key, MouseEventHandler, ReactNode, Ref, RefCallback } from "react";
 
-import type { Identifiable, Styleable } from "../../common/main/base-props.js";
+import type { Container, Identifiable, Styleable } from "../../common/main/base-props.js";
 
-import type { BaseColumnType } from "./foundation/column.api.js";
-import type { CellStyles as TableCellStyles } from "./foundation/table.api.js";
-import type { TableRenderPropsType, TableScrollToNodeHandler } from "./foundation/table-renderer.api.js";
-import type { RowsGroup } from "./foundation/table-row-group.api.js";
 import type { DataTableSortOrder } from "./data-table.sort.js";
+import type { BaseColumnType } from "./foundation/column.api.js";
+import type { TableRenderPropsType } from "./foundation/table-renderer.api.js";
+import type { RowsGroup } from "./foundation/table-row-group.api.js";
+import type { CellStyles as TableCellStyles } from "./foundation/table.api.js";
 
 /**
- * @deprecated Use {@link TableScrollToNodeHandler} instead.
+ * Props passed to DataTable's structural slots. Each interface is self-contained
+ * — it declares exactly the fields the DataTable templates produce and consume,
+ * so slot implementors never receive props that silently do nothing.
  */
-export type DataTableScrollToNodeHandler = TableScrollToNodeHandler;
-
 export namespace DataTableRenderPropsType {
 	export interface BaseProps extends Identifiable, Styleable {
 		key?: Key;
 	}
 
-	export type HeadProps = TableRenderPropsType.HeadProps;
+	export interface HeadProps extends BaseProps {
+		/** The pre-built header rows (and filter row). */
+		children?: ReactNode;
+	}
 
-	export type HeadRowProps = TableRenderPropsType.HeadRowProps;
+	export interface HeadRowProps extends BaseProps {
+		/** The pre-built header cells. */
+		children?: ReactNode;
+	}
 
 	export interface HeadCellProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	>
-		extends BaseProps, TableRenderPropsType.HeadCellProps<ColumnType> {
+	> extends BaseProps {
 		column: ColumnType;
 
 		/**
@@ -116,21 +121,22 @@ export namespace DataTableRenderPropsType {
 	export interface HeadContentProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	>
-		extends BaseProps, TableRenderPropsType.HeadContentProps<ColumnType> {
+	> extends BaseProps {
 		column: ColumnType;
 		columnIndex: number;
 		sortOrder: DataTableSortOrder;
 		defaultContent: ReactNode;
 	}
 
-	export type HeadFilterRowProps = TableRenderPropsType.HeadRowProps;
+	export interface HeadFilterRowProps extends BaseProps {
+		/** The pre-built filter cells. */
+		children?: ReactNode;
+	}
 
 	export interface HeadFilterCellProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	>
-		extends BaseProps, TableRenderPropsType.HeadCellProps<ColumnType> {
+	> extends BaseProps {
 		column: ColumnType;
 		columnIndex: number;
 
@@ -144,14 +150,15 @@ export namespace DataTableRenderPropsType {
 	export interface HeadFilterContentProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	>
-		extends BaseProps, TableRenderPropsType.HeadContentProps<ColumnType> {
+	> extends BaseProps {
 		column: ColumnType;
 		columnIndex: number;
 	}
 
-	export interface BodyProps<RowType = unknown, ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>>
-		extends BaseProps, TableRenderPropsType.BodyProps<RowType> {
+	export interface BodyProps<
+		RowType = unknown,
+		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
+	> extends BaseProps {
 		data: RowType[];
 		columns: ColumnType[];
 		children?: ReactNode;
@@ -178,8 +185,10 @@ export namespace DataTableRenderPropsType {
 		title?: string;
 	}
 
-	export interface BodyRowProps<RowType = unknown, ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>>
-		extends BaseProps, TableRenderPropsType.BodyRowProps<RowType> {
+	export interface BodyRowProps<
+		RowType = unknown,
+		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
+	> extends BaseProps {
 		row: RowType;
 		rowIndex: number;
 		columns: ColumnType[];
@@ -189,6 +198,26 @@ export namespace DataTableRenderPropsType {
 		 * `rowStyling({ row, rowIndex })`.
 		 */
 		styles?: RowStyleResult;
+
+		/**
+		 * Whether the row is selected.
+		 */
+		selected?: boolean;
+
+		/**
+		 * Whether the row is highlighted.
+		 */
+		highlighted?: boolean;
+
+		/**
+		 * Variant highlight of this row, from `rowStyling().highlightVariant`.
+		 */
+		highlightVariant?: "success" | "info";
+
+		/**
+		 * Whether the row is interactive (renders as clickable).
+		 */
+		interactive?: boolean;
 
 		/**
 		 * Whether the row is disabled.
@@ -210,6 +239,12 @@ export namespace DataTableRenderPropsType {
 		ariaExpanded?: boolean;
 
 		/**
+		 * Explicit `aria-rowindex`, set only in windowed (virtualized/infinite)
+		 * modes where native `<table>` row numbering can't convey position.
+		 */
+		ariaRowIndex?: number;
+
+		/**
 		 * Additional HTML attributes spread onto the row `<tr>`. Lets a wrapper inject extra ARIA (e.g.
 		 * `aria-level` / `aria-setsize` / `aria-posinset` for a `treegrid`) without a bespoke row slot.
 		 */
@@ -219,6 +254,18 @@ export namespace DataTableRenderPropsType {
 		 * Inline style contributed by a custom windowed body implementation.
 		 */
 		virtualStyle?: CSSProperties;
+
+		/** Row click handler resolved from `rowEventHandlers`. */
+		onClick?: MouseEventHandler<HTMLElement>;
+
+		/** Row context-menu handler (present when the `contextMenu` slot is enabled). */
+		onContextMenu?: MouseEventHandler<HTMLElement>;
+
+		/**
+		 * Mouse-over handler forwarded by the DnD row wrapper — suppresses dragging
+		 * while the cursor is over an interactive child. Present only under DnD.
+		 */
+		onMouseOver?: MouseEventHandler<HTMLElement>;
 
 		/**
 		 * Ref to the `<tr>` element. Custom renderers must forward it to their root
@@ -231,8 +278,7 @@ export namespace DataTableRenderPropsType {
 	export interface BodyCellProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	>
-		extends BaseProps, TableRenderPropsType.BodyCellProps<RowType, ColumnType> {
+	> extends BaseProps {
 		row: RowType;
 		rowIndex: number;
 		column: ColumnType;
@@ -296,8 +342,7 @@ export namespace DataTableRenderPropsType {
 	export interface BodyContentProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	>
-		extends BaseProps, TableRenderPropsType.BodyContentProps<RowType, ColumnType> {
+	> extends BaseProps {
 		row: RowType;
 		rowIndex: number;
 		column: ColumnType;
@@ -305,7 +350,7 @@ export namespace DataTableRenderPropsType {
 		defaultContent: ReactNode;
 	}
 
-	export interface PlaceHolderBodyRowProps extends BaseProps, TableRenderPropsType.PlaceHolderBodyRowProps {
+	export interface PlaceHolderBodyRowProps extends BaseProps {
 		rowIndex: number;
 		columnCount: number;
 		children?: ReactNode;
@@ -314,8 +359,7 @@ export namespace DataTableRenderPropsType {
 	export interface PlaceHolderBodyCellProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	>
-		extends BaseProps, TableRenderPropsType.PlaceHolderBodyCellProps<RowType, ColumnType> {
+	> extends BaseProps {
 		rowIndex: number;
 		column: ColumnType;
 		columnIndex: number;
@@ -325,22 +369,26 @@ export namespace DataTableRenderPropsType {
 	export interface PlaceHolderBodyContentProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	>
-		extends BaseProps, TableRenderPropsType.PlaceHolderBodyContentProps<RowType, ColumnType> {
+	> extends BaseProps {
 		rowIndex: number;
 		column: ColumnType;
 		columnIndex: number;
 	}
 
-	export type FootProps = TableRenderPropsType.FootProps;
+	export interface FootProps extends BaseProps {
+		/** The pre-built footer row. */
+		children?: ReactNode;
+	}
 
-	export type FootRowProps = TableRenderPropsType.FootRowProps;
+	export interface FootRowProps extends BaseProps {
+		/** The pre-built footer cells. */
+		children?: ReactNode;
+	}
 
 	export interface FootCellProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	>
-		extends BaseProps, TableRenderPropsType.FootCellProps<ColumnType> {
+	> extends BaseProps {
 		column: ColumnType;
 		columnIndex: number;
 
@@ -354,8 +402,7 @@ export namespace DataTableRenderPropsType {
 	export interface FootContentProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	>
-		extends BaseProps, TableRenderPropsType.FootContentProps<ColumnType> {
+	> extends BaseProps {
 		column: ColumnType;
 		columnIndex: number;
 	}
@@ -363,7 +410,11 @@ export namespace DataTableRenderPropsType {
 	/**
 	 * Props passed to the body context menu renderer.
 	 */
-	export type ContextMenuProps<RowType = unknown> = TableRenderPropsType.ContextMenuProps<RowType>;
+	export interface ContextMenuProps<RowType = unknown> {
+		row: RowType;
+		rowIndex: number;
+		closeHandler: () => void;
+	}
 
 	/**
 	 * Props passed to the head context menu renderer.
@@ -371,7 +422,7 @@ export namespace DataTableRenderPropsType {
 	export interface HeadContextMenuProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	> extends TableRenderPropsType.HeadContextMenuProps<ColumnType> {
+	> {
 		column: ColumnType;
 		columnIndex: number;
 		closeHandler: () => void;
@@ -384,16 +435,14 @@ export namespace DataTableRenderPropsType {
 	export interface AdditionalContentProps<
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-	>
-		extends BaseProps, TableRenderPropsType.BodyRowProps<RowType> {
+	> extends BaseProps {
 		row: RowType;
 		rowIndex: number;
 		columns: ColumnType[];
 	}
 
 	/**
-	 * Props passed to the row-group header renderer. Not structurally compatible
-	 * with {@link TableRenderPropsType.RowGroupHeaderProps}: this exposes the full
+	 * Props passed to the row-group header renderer. Exposes the full
 	 * `RowsGroup` and group-level metadata rather than a `row`/`rowIndex` pair.
 	 */
 	export interface RowGroupHeaderProps<RowType = unknown> extends BaseProps {
@@ -414,7 +463,7 @@ export namespace DataTableRenderPropsType {
 	 * (matching `acceptType`), including drags that started in another DataTable.
 	 */
 	export interface ActiveDrag<RowType = unknown> {
-		/** The dragged row payload, as captured at drag start. */
+		/** The dragged row payload, as captured at drag start (includes the preview snapshot). */
 		item: TableRenderPropsType.DragObject<RowType>;
 
 		/**
@@ -442,6 +491,39 @@ export namespace DataTableRenderPropsType {
 	export type DropResult<RowType = unknown> = TableRenderPropsType.DropResult<RowType>;
 
 	/**
+	 * A single entry in the {@link DndRowRegistry}: the row datum plus its mounted
+	 * `<tr>` element.
+	 *
+	 * Deliberately *not* tagged internal: {@link DataTableContextType.dndRowRegistry}
+	 * is part of the public context, and `stripInternal` (inherited from the shared
+	 * devtools tsconfig) would drop this declaration from the emitted `.d.ts` while
+	 * leaving that field referencing it — breaking the published types.
+	 *
+	 * @experimental
+	 */
+	export interface DndRowEntry<RowType = unknown> {
+		/** The row datum — used to build `canDrop` / drop-result payloads. */
+		row: RowType;
+
+		/** The mounted `<tr>` the shift engine writes transforms to. */
+		element: HTMLTableRowElement;
+	}
+
+	/**
+	 * Live registry of a DataTable's mounted body rows, keyed by data row index.
+	 * Populated by the default DnD body-row wrapper and read by the drag monitor's
+	 * row-shift engine, which iterates it to open the projected drop gap and to
+	 * hit-test the release pointer against the rows' logical (untransformed) rects.
+	 * Only rows currently in the DOM appear — under virtualization off-window rows
+	 * are absent, exactly like the set the engine may shift.
+	 *
+	 * Deliberately not tagged internal — see {@link DndRowEntry}.
+	 *
+	 * @experimental
+	 */
+	export type DndRowRegistry<RowType = unknown> = Map<number, DndRowEntry<RowType>>;
+
+	/**
 	 * Args passed to the render-prop {@link DndBodyRowProps.children}. The render
 	 * function must apply `dragRef` to the `<tr>` element and forward `onMouseOver`
 	 * so drag-and-drop can fire on the row.
@@ -464,10 +546,6 @@ export namespace DataTableRenderPropsType {
 		RowType = unknown,
 		ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
 	> extends Omit<BodyRowProps<RowType, ColumnType>, "children"> {
-		/**
-		 * @deprecated since 36.2.0 because drag and drop to the top area is now always allowed.
-		 */
-		shouldRenderTopDropTarget?: boolean;
 		canDrag?: boolean;
 
 		/**
@@ -481,17 +559,35 @@ export namespace DataTableRenderPropsType {
 	/**
 	 * Props for the drag source element wrapping row content.
 	 */
-	export type DragSourceProps<RowType = unknown> = TableRenderPropsType.DragSourceProps<RowType>;
+	export interface DragSourceProps<RowType = unknown> extends Container, Styleable, Identifiable {
+		rowIndex: number;
+		row: RowType;
+		canDrag?: boolean;
+	}
 
 	/**
-	 * Props for the drop target element between rows.
+	 * Props for the drop target element between rows. `rowIndex` is the insertion
+	 * index the target represents (`0…rowCount`).
 	 */
-	export type DropTargetProps<RowType = unknown> = TableRenderPropsType.DropTargetProps<RowType>;
+	export interface DropTargetProps<RowType = unknown> extends Container, Styleable, Identifiable {
+		rowIndex: number;
+		row: RowType;
+	}
 
 	/**
 	 * Props for the drag preview overlay.
 	 */
-	export type DragPreviewProps = TableRenderPropsType.DragPreviewProps;
+	export interface DragPreviewProps<RowType = unknown> extends Container, Identifiable, Styleable {
+		/**
+		 * Snapshot of the drag in progress: the dragged item and the on-screen origin
+		 * the preview is anchored to. Passed as a prop rather than read from
+		 * {@link DataTableContextType} on purpose — the preview is the only consumer of
+		 * this per-gesture value, and the shared context must stay identity-stable
+		 * across an interaction (it has no per-field re-render bailout, so a change
+		 * there re-renders every cell in the table).
+		 */
+		activeDrag: ActiveDrag<RowType>;
+	}
 
 	/**
 	 * Props for the per-row overlay slot — a layer painted over a single body row

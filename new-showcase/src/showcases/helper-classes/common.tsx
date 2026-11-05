@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { FC } from "react";
 import { useCallback, useState } from "react";
 import { styled } from "styled-components";
-import { loremIpsum } from "lorem-ipsum";
 
 import {
 	Autocomplete,
@@ -63,7 +63,6 @@ import {
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { ConfigurationView } from "../../helpers/configuration-view.js";
-
 import { ITEMS } from "../inputs/autocomplete/data.js";
 
 type helperClassesType = {
@@ -155,17 +154,23 @@ export const CommonShowcases: FC<CommonProps> = (props: CommonProps) => {
 							</ButtonGroup>
 						)}
 						<div className={selectedClass?.name}>
-							<Radio label="Radio" labelGraphic={<Icon>info</Icon>}>
+							<Radio id="helper-classes-common-radio" label="Radio" labelGraphic={<Icon>info</Icon>}>
 								<Radio.Item label="Option 1" value="Value_1" />
 								<Radio.Item label="Option 2" value="Value_2" />
 								<Radio.Item label="Option 3" value="Value_3" />
 							</Radio>
 						</div>
 						<div className={selectedClass?.name}>
-							<Checkbox label="Checkbox" title="Basic" checked={false} onChange={noop} />
+							<Checkbox
+								id="helper-classes-common-checkbox"
+								label="Checkbox"
+								title="Basic"
+								checked={false}
+								onChange={noop}
+							/>
 						</div>
 						<div className={selectedClass?.name}>
-							<CheckboxGroup label="Checkbox Group">
+							<CheckboxGroup id="helper-classes-common-checkbox-group" label="Checkbox Group">
 								<CheckboxGroup.Item label="Option 1" value="Value_1" />
 								<CheckboxGroup.Item label="Option 2" value="Value_2" />
 								<CheckboxGroup.Item label="Option 3" value="Value_3" />

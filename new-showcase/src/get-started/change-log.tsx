@@ -32,8 +32,8 @@
 
 import ChangeLogMD from "@com.mgmtp.a12.widgets/widgets-core/CHANGELOG.md?raw";
 
-import { MarkdownViewer } from "../helpers/markdown-viewer.js";
 import type { Showcase } from "../helpers/definitions.js";
+import { MarkdownViewer } from "../helpers/markdown-viewer.js";
 
 const showcases: Showcase[] = [
 	{ label: "Change Log", description: <MarkdownViewer source={ChangeLogMD} />, sections: [] }

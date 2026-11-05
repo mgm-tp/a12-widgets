@@ -36,6 +36,7 @@ export * from "./base-input-styled/index.js";
 export * from "./buffered/index.js";
 export * from "./checkbox/index.js";
 export * from "./checkbox-group/index.js";
+export * from "./field-default-config/index.js";
 export * from "./icon-picker/index.js";
 export * from "./radio/index.js";
 export * from "./select/index.js";

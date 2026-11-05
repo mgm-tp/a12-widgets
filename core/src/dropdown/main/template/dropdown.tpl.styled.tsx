@@ -32,13 +32,13 @@
 
 import { styled, css } from "styled-components";
 
-import { hover, active, activeAndHover } from "../../../theme/base/mixins/_interaction.js";
-import { breakWord } from "../../../theme/base/mixins/_break-word.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { StyledCheckbox } from "../../../input/checkbox/main/checkbox.styled.js";
 import { StyledLink } from "../../../link/main/link/link.view.js";
 import { createBorder } from "../../../theme/base/mixins/_borderEffects.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
+import { breakWord } from "../../../theme/base/mixins/_break-word.js";
+import { hover, active, activeAndHover } from "../../../theme/base/mixins/_interaction.js";
 
 export const StyledDropdownWrapper = styled.div.withConfig({ displayName: "StyledDropdownWrapper-sc-" })<{
 	$lightBackground?: boolean;
@@ -56,25 +56,31 @@ export const StyledDropdownWrapper = styled.div.withConfig({ displayName: "Style
 		outline: ${dropdown.outline};
 		width: 100%;
 
-		${$lightBackground &&
-		css`
-			background-color: ${dropdown.lightBG};
-		`}
+		${
+			$lightBackground &&
+			css`
+				background-color: ${dropdown.lightBG};
+			`
+		}
 
-		${$touch &&
-		css`
-			display: block;
-			flex: 0 1 auto;
-			overflow-y: auto;
-		`}
-		
-		${$horizontal &&
-		css`
-			${StyledIconWrapper} {
-				font-size: ${dropdown.horizontal.item.graphic.fontSize};
-			}
-		`}
-		
+		${
+			$touch &&
+			css`
+				display: block;
+				flex: 0 1 auto;
+				overflow-y: auto;
+			`
+		}
+
+		${
+			$horizontal &&
+			css`
+				${StyledIconWrapper} {
+					font-size: ${dropdown.horizontal.item.graphic.fontSize};
+				}
+			`
+		}
+
 		&:focus {
 			outline: none;
 		}
@@ -109,28 +115,55 @@ export const StyledDropdownFooter = styled.div.withConfig({ displayName: "Styled
 	`;
 });
 
+/**
+ * Holds the scroll height of the whole option list while only the options in view are mounted. The
+ * options position themselves against it, so it has to establish the containing block.
+ */
+export const StyledDropdownVirtualSpacer = styled.div.withConfig({
+	displayName: "StyledDropdownVirtualSpacer-sc-"
+})`
+	position: relative;
+	width: 100%;
+`;
+
 export const StyledDropdownContent = styled.div.withConfig({ displayName: "StyledDropdownContent-sc-" })<{
 	$touch?: boolean;
 	$horizontal?: boolean;
-}>(({ theme, $touch, $horizontal }) => {
+	$virtualized?: boolean;
+}>(({ theme, $touch, $horizontal, $virtualized }) => {
 	return css`
 		animation: pulse-dropdown-content 0.1s;
-		display: flex;
+		display: ${$virtualized ? "block" : "flex"};
 		flex-direction: column;
+		// Cap the list and scroll, so that a popup anchored to a field stays on screen.
 		max-height: ${theme.components.dropdown.contentMaxHeight};
 		overflow-y: auto;
-		${$touch &&
-		css`
-			flex: 0 1 auto;
-			max-height: none;
-		`}
 
-		${$horizontal &&
-		css`
-			flex-direction: row;
-			flex-wrap: wrap;
-		`}
-		
+		// On touch the list is usually embedded in an already-bounded container — a fullscreen dialog
+		// that scrolls itself — where the cap would pointlessly limit it to a few rows. A dropdown that
+		// is anchored to a field even on touch puts the cap back itself; see
+		// StyledAutocompleteDropdownWrapper.
+		//
+		// The cap stays while the list is windowed: windowing measures this element as its viewport,
+		// so letting it grow to the full list height makes the window span everything
+		// and mounts every option — the opposite of what the virtualize property was asked for.
+		${
+			$touch &&
+			!$virtualized &&
+			css`
+				flex: 0 1 auto;
+				max-height: none;
+			`
+		}
+
+		${
+			$horizontal &&
+			css`
+				flex-direction: row;
+				flex-wrap: wrap;
+			`
+		}
+
 		@keyframes pulse-dropdown-content {
 			0% {
 				min-height: 1px;
@@ -162,6 +195,17 @@ export const StyledDropdownSection = styled.div.withConfig({ displayName: "Style
 	}
 );
 
+/**
+ * Groups the label with its secondary text as a column, so the pair can sit beside the graphic in
+ * an extended multi-select item, while the label and secondary text keep their own independent
+ * styling as siblings.
+ */
+export const StyledDropdownTextWrapper = styled.div.withConfig({ displayName: "StyledDropdownTextWrapper-sc-" })`
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+`;
+
 export const StyledDropdownText = styled.div.withConfig({ displayName: "StyledDropdownText-sc-" })<{
 	$extended?: boolean;
 	$horizontal?: boolean;
@@ -169,28 +213,34 @@ export const StyledDropdownText = styled.div.withConfig({ displayName: "StyledDr
 	const { dropdown } = theme.components;
 
 	return css`
-		${!$horizontal &&
-		css`
-			display: flex;
-			align-items: center;
-		`}
+		${
+			!$horizontal &&
+			css`
+				display: flex;
+				align-items: center;
+			`
+		}
 
 		${breakWord}
-		
-		${$extended &&
-		css`
-			font-weight: ${dropdown.item.extended.fontWeight};
-		`}
-		
-		${$horizontal &&
-		css`
-			font-size: ${dropdown.horizontal.item.label.fontSize};
-			overflow: hidden;
-			text-align: center;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			width: ${dropdown.horizontal.item.label.width};
-		`}
+
+		${
+			$extended &&
+			css`
+				font-weight: ${dropdown.item.extended.fontWeight};
+			`
+		}
+
+		${
+			$horizontal &&
+			css`
+				font-size: ${dropdown.horizontal.item.label.fontSize};
+				overflow: hidden;
+				text-align: center;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				width: ${dropdown.horizontal.item.label.width};
+			`
+		}
 	`;
 });
 
@@ -203,33 +253,41 @@ export const StyledDropdownSecondaryText = styled.div.withConfig({ displayName: 
 	const { dropdown } = theme.components;
 
 	return css`
-		${$extended &&
-		css`
-			color: ${dropdown.secondaryText.color};
-			font-size: ${dropdown.secondaryText.fontSize};
-			margin: ${dropdown.secondaryText.margin};
+		${
+			$extended &&
+			css`
+				color: ${dropdown.secondaryText.color};
+				font-size: ${dropdown.secondaryText.fontSize};
+				margin: ${dropdown.secondaryText.margin};
 
-			${StyledIconWrapper} {
+				${StyledIconWrapper} {
+					color: inherit;
+					font-size: inherit;
+					vertical-align: middle;
+				}
+			`
+		}
+
+		${
+			$preselected &&
+			css`
 				color: inherit;
-				font-size: inherit;
-				vertical-align: middle;
-			}
-		`}
+			`
+		}
 
-		${$preselected &&
-		css`
-			color: inherit;
-		`}
-		
-		${$touch &&
-		css`
-			margin: ${dropdown.touch.secondaryTextMargin};
-		`}
-		
-		${$disabled &&
-		css`
-			color: ${dropdown.secondaryText.disabledColor};
-		`}
+		${
+			$touch &&
+			css`
+				margin: ${dropdown.touch.secondaryTextMargin};
+			`
+		}
+
+		${
+			$disabled &&
+			css`
+				color: ${dropdown.secondaryText.disabledColor};
+			`
+		}
 	`;
 });
 
@@ -237,6 +295,7 @@ export const StyledDropdownItem = styled.div.withConfig({ displayName: "StyledDr
 	$disabled?: boolean;
 	$focusPreselected?: boolean;
 	$extended?: boolean;
+	$extendedSelection?: boolean;
 	$touch?: boolean;
 	$horizontal?: boolean;
 	$divider?: boolean;
@@ -249,6 +308,7 @@ export const StyledDropdownItem = styled.div.withConfig({ displayName: "StyledDr
 		$disabled,
 		$focusPreselected,
 		$extended,
+		$extendedSelection,
 		$preselected,
 		$touch,
 		$horizontal,
@@ -282,210 +342,259 @@ export const StyledDropdownItem = styled.div.withConfig({ displayName: "StyledDr
 				top: 0;
 			}
 
-			${$isEmptyValue &&
-			css`
-				color: ${dropdown.item.empty.color};
-				font-style: ${dropdown.item.empty.fontStyle};
-			`}
-
-			${$preselected &&
-			css`
-				background-color: ${dropdown.item.preselect.background};
-				color: ${dropdown.item.preselect.color};
-				font-weight: ${dropdown.item.preselect.fontWeight};
-
-				${StyledIconWrapper} {
-					color: inherit;
-				}
-			`}
-
-		${$extended &&
-			css`
-				display: flex;
-				flex: none;
-				flex-direction: column;
-				justify-content: center;
-			`}
-		
-    ${($extended || $touch) &&
-			!$preselected &&
-			css`
-				&:not(:focus):after {
-					border-bottom: ${dropdown.item.borderBottom};
-					content: "";
-				}
-			`}
-		
-		${!$disabled &&
-			css`
-				${!$focusPreselected &&
+			${
+				$isEmptyValue &&
 				css`
-					&:focus {
-						${dropdown.item.customFocusBorder
-							? css`
-									${createBorder(dropdown.item.customFocusBorder, true)};
-								`
-							: css`
-									&:after {
-										border: ${dropdown.item.focusBorder};
-										content: "";
-									}
-								`}
+					color: ${dropdown.item.empty.color};
+					font-style: ${dropdown.item.empty.fontStyle};
+				`
+			}
+
+			${
+				$preselected &&
+				css`
+					background-color: ${dropdown.item.preselect.background};
+					color: ${dropdown.item.preselect.color};
+					font-weight: ${dropdown.item.preselect.fontWeight};
+
+					${StyledIconWrapper} {
+						color: inherit;
 					}
-				`}
+				`
+			}
 
-				&:not([data-type="icon-selected"]) {
-					${active(css`
-						${$preselected &&
-						css`
-							background-color: transparent;
-							color: ${dropdown.item.active.color};
-						`}
-
-						&:after {
-							border: ${dropdown.item.active.border};
-							content: "";
-						}
-					`)}
-
-					${hover(css`
-						cursor: pointer;
-						font-style: ${dropdown.item.hover.fontStyle};
-
-						${$preselected &&
-						css`
-							background-color: transparent;
-							color: ${dropdown.item.hover.color};
-
-							${$isEmptyValue &&
-							css`
-								color: ${dropdown.item.empty.hover.color};
-							`}
-						`}
-
-						&:after {
-							border: ${dropdown.item.hover.border};
-							content: "";
-						}
-					`)}
-				}
-			`}
-  
-		${$focusPreselected &&
-			css`
-				${dropdown.item.customFocusPreselectBorder
-					? css`
-							${createBorder(dropdown.item.customFocusPreselectBorder, true)};
-							&:before {
-								outline: ${dropdown.item.focusPreselectOutline};
-							}
-						`
-					: css`
-							&:after {
-								border: ${dropdown.item.focusPreselectBorder};
-								bottom: 1px;
-								content: "";
-								left: 1px;
-								right: 1px;
-								outline: ${dropdown.item.focusPreselectOutline};
-							}
-						`}
-
-				&:first-child:after {
-					top: 1px;
-				}
-			`}
-		
-    ${$touch &&
-			css`
-				min-height: ${dropdown.touch.minHeight};
-				padding: ${dropdown.touch.itemPadding};
-				${$extended &&
+			${
+				$extended &&
 				css`
-					padding: ${dropdown.item.padding};
-					min-height: ${dropdown.item.extended.minHeight};
-				`}
-			`}
-		
-		${$horizontal &&
-			css`
-				align-items: center;
-				display: flex;
-				flex-direction: column;
-				padding: ${dropdown.horizontal.item.padding};
-				${$preselected &&
-				css`
-					color: ${dropdown.horizontal.selectedItem.color};
-					background-color: transparent;
-					font-weight: ${dropdown.horizontal.selectedItem.fontWeight};
-				`}
+					display: flex;
+					flex: none;
+					flex-direction: column;
+					justify-content: center;
+				`
+			}
 
-				${!$disabled &&
+			${
+				$extendedSelection &&
+				css`
+					align-items: center;
+					flex-direction: row;
+					justify-content: flex-start;
+				`
+			}
+
+			${
+				($extended || $touch) &&
 				!$preselected &&
 				css`
+					&:not(:focus):after {
+						border-bottom: ${dropdown.item.borderBottom};
+						content: "";
+					}
+				`
+			}
+
+			${
+				!$disabled &&
+				css`
+					${
+						!$focusPreselected &&
+						css`
+							&:focus {
+								${
+									dropdown.item.customFocusBorder
+										? css`
+												${createBorder(dropdown.item.customFocusBorder, true)};
+											`
+										: css`
+												&:after {
+													border: ${dropdown.item.focusBorder};
+													content: "";
+												}
+											`
+								}
+							}
+						`
+					}
+
 					&:not([data-type="icon-selected"]) {
 						${active(css`
-							color: ${dropdown.horizontal.item.activeColor};
+							${
+								$preselected &&
+								css`
+									background-color: transparent;
+									color: ${dropdown.item.active.color};
+								`
+							}
+
+							&:after {
+								border: ${dropdown.item.active.border};
+								content: "";
+							}
 						`)}
 
 						${hover(css`
-							color: ${dropdown.horizontal.item.hoverColor ?? dropdown.horizontal.item.hover.color};
-							font-style: ${dropdown.horizontal.item.hover.fontStyle};
+							cursor: pointer;
+							font-style: ${dropdown.item.hover.fontStyle};
+
+							${
+								$preselected &&
+								css`
+									background-color: transparent;
+									color: ${dropdown.item.hover.color};
+
+									${
+										$isEmptyValue &&
+										css`
+											color: ${dropdown.item.empty.hover.color};
+										`
+									}
+								`
+							}
+
+							&:after {
+								border: ${dropdown.item.hover.border};
+								content: "";
+							}
 						`)}
 					}
-				`}
-			`}
-		
-		${$disabled &&
-			css`
-				color: ${dropdown.item.disabledColor};
-				cursor: default;
-				pointer-events: none;
-				user-select: none;
-			`}
-		
-		&[data-type="multiselect-item"] {
+				`
+			}
+
+			${
+				$focusPreselected &&
+				css`
+					${
+						dropdown.item.customFocusPreselectBorder
+							? css`
+									${createBorder(dropdown.item.customFocusPreselectBorder, true)};
+									&:before {
+										outline: ${dropdown.item.focusPreselectOutline};
+									}
+								`
+							: css`
+									&:after {
+										border: ${dropdown.item.focusPreselectBorder};
+										bottom: 1px;
+										content: "";
+										left: 1px;
+										right: 1px;
+										outline: ${dropdown.item.focusPreselectOutline};
+									}
+								`
+					}
+
+					&:first-child:after {
+						top: 1px;
+					}
+				`
+			}
+
+			${
+				$touch &&
+				css`
+					min-height: ${dropdown.touch.minHeight};
+					padding: ${dropdown.touch.itemPadding};
+					${
+						$extended &&
+						css`
+							padding: ${dropdown.item.padding};
+							min-height: ${dropdown.item.extended.minHeight};
+						`
+					}
+				`
+			}
+
+			${
+				$horizontal &&
+				css`
+					align-items: center;
+					display: flex;
+					flex-direction: column;
+					padding: ${dropdown.horizontal.item.padding};
+					${
+						$preselected &&
+						css`
+							color: ${dropdown.horizontal.selectedItem.color};
+							background-color: transparent;
+							font-weight: ${dropdown.horizontal.selectedItem.fontWeight};
+						`
+					}
+
+					${
+						!$disabled &&
+						!$preselected &&
+						css`
+							&:not([data-type="icon-selected"]) {
+								${active(css`
+									color: ${dropdown.horizontal.item.activeColor};
+								`)}
+
+								${hover(css`
+									color: ${dropdown.horizontal.item.hoverColor ?? dropdown.horizontal.item.hover.color};
+									font-style: ${dropdown.horizontal.item.hover.fontStyle};
+								`)}
+							}
+						`
+					}
+				`
+			}
+
+			${
+				$disabled &&
+				css`
+					color: ${dropdown.item.disabledColor};
+					cursor: default;
+					pointer-events: none;
+					user-select: none;
+				`
+			}
+
+			&[data-type="multiselect-item"] {
 				&:has([data-role=${DataRoles.Checkbox.Input.Indeterminate}]) {
 					&:first-child {
 						font-weight: ${multiselect.dropdown.firstItemFontWeight};
 					}
 				}
 
-				${!$focusPreselected &&
-				css`
-					&:not(:last-child):not(:focus) {
-						&:after {
-							border-bottom: ${$divider && multiselect.dropdown.divider};
-							content: "";
-						}
-
-						&:has([data-role=${DataRoles.Checkbox.Input.Indeterminate}]):not(:active):not(:hover) {
-							&:first-child:after {
-								border-bottom: ${multiselect.dropdown.divider};
-							}
-						}
-
-						${$divider &&
-						css`
-							&:not(:active):not(:hover):after {
-								left: ${multiselect.dropdown.dividerGap};
-								right: ${multiselect.dropdown.dividerGap};
-							}
-						`}
-
-						${active(css`
+				${
+					!$focusPreselected &&
+					css`
+						&:not(:last-child):not(:focus) {
 							&:after {
-								border-bottom: ${dropdown.item.active.border};
+								border-bottom: ${$divider && multiselect.dropdown.divider};
+								content: "";
 							}
-						`)}
-      
-					${hover(css`
-							&:after {
-								border-bottom: ${dropdown.item.hover.border};
+
+							&:has([data-role=${DataRoles.Checkbox.Input.Indeterminate}]):not(:active):not(:hover) {
+								&:first-child:after {
+									border-bottom: ${multiselect.dropdown.divider};
+								}
 							}
-						`)}
-					}
-				`}
+
+							${
+								$divider &&
+								css`
+									&:not(:active):not(:hover):after {
+										left: ${multiselect.dropdown.dividerGap};
+										right: ${multiselect.dropdown.dividerGap};
+									}
+								`
+							}
+
+							${active(css`
+								&:after {
+									border-bottom: ${dropdown.item.active.border};
+								}
+							`)}
+
+							${hover(css`
+								&:after {
+									border-bottom: ${dropdown.item.hover.border};
+								}
+							`)}
+						}
+					`
+				}
 			}
 		`;
 	}
@@ -511,19 +620,23 @@ export const StyledDropdownGraphic = styled.div.withConfig({ displayName: "Style
 			min-height: auto;
 		}
 
-		${$horizontal &&
-		css`
-			height: ${dropdown.horizontal.item.graphic.size};
-			width: ${dropdown.horizontal.item.graphic.size};
-			justify-content: center;
-			margin: 0;
-			${$preselected &&
+		${
+			$horizontal &&
 			css`
-				background-color: ${dropdown.horizontal.selectedItem.background};
-				border-radius: 50%;
-				color: ${dropdown.horizontal.selectedItem.graphicColor};
-			`}
-		`}
+				height: ${dropdown.horizontal.item.graphic.size};
+				width: ${dropdown.horizontal.item.graphic.size};
+				justify-content: center;
+				margin: 0;
+				${
+					$preselected &&
+					css`
+						background-color: ${dropdown.horizontal.selectedItem.background};
+						border-radius: 50%;
+						color: ${dropdown.horizontal.selectedItem.graphicColor};
+					`
+				}
+			`
+		}
 	`;
 });
 
@@ -554,49 +667,57 @@ export const StyledDropdownLink = styled.div.withConfig({ displayName: "StyledDr
 			top: 0;
 		}
 
-		${$touch &&
-		css`
-			min-height: ${touch.minHeight};
-			padding: ${touch.itemPadding};
-			${!$preselected &&
+		${
+			$touch &&
 			css`
-				&:not(:last-child):not(:focus):not(:active):after {
-					border-bottom: ${link.item.borderBottom};
-					content: "";
+				min-height: ${touch.minHeight};
+				padding: ${touch.itemPadding};
+				${
+					!$preselected &&
+					css`
+						&:not(:last-child):not(:focus):not(:active):after {
+							border-bottom: ${link.item.borderBottom};
+							content: "";
+						}
+					`
 				}
-			`}
-		`}
+			`
+		}
 
-		${$preselected &&
-		css`
-			background-color: ${link.item.preselect.background};
-			color: ${link.item.preselect.color};
-
-			${StyledIconWrapper} {
-				color: inherit;
-			}
-			${StyledLink} {
-				background-image: ${link.item.preselect.backgroundImage};
-				background-position: left bottom;
+		${
+			$preselected &&
+			css`
+				background-color: ${link.item.preselect.background};
 				color: ${link.item.preselect.color};
-				font-weight: ${link.item.preselect.fontWeight};
-				transition: background-position ${link.item.transitionTiming};
-			}
-		`}
 
-			${activeAndHover(css`
+				${StyledIconWrapper} {
+					color: inherit;
+				}
+				${StyledLink} {
+					background-image: ${link.item.preselect.backgroundImage};
+					background-position: left bottom;
+					color: ${link.item.preselect.color};
+					font-weight: ${link.item.preselect.fontWeight};
+					transition: background-position ${link.item.transitionTiming};
+				}
+			`
+		}
+
+		${activeAndHover(css`
 			${StyledLink} {
 				background-position: left bottom;
 				transition: background-position ${link.item.transitionTiming};
 			}
 		`)}
 
-			${active(css`
-			${$preselected &&
-			css`
-				background-color: transparent;
-				color: ${link.item.active.color};
-			`}
+		${active(css`
+			${
+				$preselected &&
+				css`
+					background-color: transparent;
+					color: ${link.item.active.color};
+				`
+			}
 			&:after {
 				border: ${link.item.active.border};
 				content: "";
@@ -608,15 +729,17 @@ export const StyledDropdownLink = styled.div.withConfig({ displayName: "StyledDr
 			}
 		`)}
 
-    ${hover(css`
+		${hover(css`
 			cursor: pointer;
 
-			${$preselected &&
-			css`
-				background-color: transparent;
-				color: ${link.item.hover.color};
-				font-style: ${link.item.hover.fontStyle};
-			`}
+			${
+				$preselected &&
+				css`
+					background-color: transparent;
+					color: ${link.item.hover.color};
+					font-style: ${link.item.hover.fontStyle};
+				`
+			}
 
 			&:after {
 				border: ${link.item.hover.border};

@@ -1,0 +1,60 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as CheckboxStories from "./Checkbox.stories";
+
+<Meta of={CheckboxStories} />
+
+<Title />
+
+The `Checkbox` widget wraps the native HTML checkbox input and adds a label, tooltips and
+validation messages. It is a controlled component: pass the current value via `checked` and
+update your state in `onChange(value, event)`.
+
+- Supports `disabled` and `readonly` states.
+- The `error`, `warning` and `info` flags combine with `errorMessage`, `warningMessage` and
+  `infoMessage` to show validation hints below the checkbox.
+- For tri-state selection (e.g. a "select all" parent), use the separate `IndeterminateCheckbox`
+  widget, which accepts `checked: "mixed"`.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={CheckboxStories.Playground} />
+
+## Examples
+
+### Disabled
+
+<Canvas of={CheckboxStories.Disabled} />
+
+### Readonly
+
+<Canvas of={CheckboxStories.Readonly} />
+
+### Validation states
+
+<Canvas of={CheckboxStories.ValidationStates} />
+
+### Controlled usage
+
+<Canvas of={CheckboxStories.Controlled} />
+
+### Checkbox group
+
+<Canvas of={CheckboxStories.CheckboxGroup} />

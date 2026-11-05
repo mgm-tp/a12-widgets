@@ -35,12 +35,12 @@ import { beforeAll, describe, expect, test } from "vitest";
 import { page, userEvent } from "vitest/browser";
 
 import { Button } from "../../button/main/button.view.js";
-import { Icon } from "../../icon/main/icon.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
-import { Tooltip } from "../main/tooltip.view.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { ErrorTooltip } from "../error/main/error.view.js";
 import { HintTooltip } from "../hint/main/hint.view.js";
+import { TooltipConfigProvider } from "../main/tooltip-context.js";
+import { Tooltip } from "../main/tooltip.view.js";
 import { SuccessTooltip } from "../success/main/success.view.js";
 import { WarningTooltip } from "../warning/main/warning.view.js";
 
@@ -109,6 +109,89 @@ describe("com.mgmtp.a12.widgets.tooltip", () => {
 
 		await waitFor(() => {
 			expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeFalsy();
+		});
+	});
+
+	describe("show and hide delays", () => {
+		const PRODUCTION_DELAY = 200;
+
+		test("waits for showDelay before showing, and for hideDelay before hiding", async () => {
+			const delay = 300;
+			const { container } = render(
+				<Tooltip text="test tooltip" showDelay={delay} hideDelay={delay}>
+					<Button icon={<Icon>warning</Icon>} />
+				</Tooltip>
+			);
+			const tooltipTrigger = getByDataRole(container, DataRoles.Button);
+
+			await userEvent.hover(tooltipTrigger);
+
+			// Still inside the show window.
+			expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeFalsy();
+			expect(await findByDataRole(container, DataRoles.AttachedPortal)).toBeInTheDocument();
+
+			await userEvent.unhover(tooltipTrigger);
+
+			// Still inside the hide window, so the tooltip is deliberately still there.
+			expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeTruthy();
+			await waitFor(() => expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeFalsy(), {
+				timeout: delay * 4
+			});
+		});
+
+		test("TooltipConfigProvider applies its delays to tooltips in the subtree", async () => {
+			const { container } = render(
+				<TooltipConfigProvider showDelay={PRODUCTION_DELAY * 5}>
+					<Tooltip text="test tooltip">
+						<Button icon={<Icon>warning</Icon>} />
+					</Tooltip>
+				</TooltipConfigProvider>
+			);
+			const tooltipTrigger = getByDataRole(container, DataRoles.Button);
+
+			// A longer configured delay, checked past the production one: a slow machine can only
+			// make the tooltip later, never earlier, so this cannot fail on a loaded CI agent.
+			await userEvent.hover(tooltipTrigger);
+			await new Promise((resolve) => setTimeout(resolve, PRODUCTION_DELAY * 2));
+
+			expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeFalsy();
+			await waitFor(() => expect(queryByDataRole(container, DataRoles.AttachedPortal)).toBeTruthy(), {
+				timeout: PRODUCTION_DELAY * 15
+			});
+		});
+
+		test("an instance prop overrides the configured delay", async () => {
+			const { container } = render(
+				<TooltipConfigProvider showDelay={2000}>
+					<Tooltip text="test tooltip" showDelay={50}>
+						<Button icon={<Icon>warning</Icon>} />
+					</Tooltip>
+				</TooltipConfigProvider>
+			);
+			const tooltipTrigger = getByDataRole(container, DataRoles.Button);
+
+			await userEvent.hover(tooltipTrigger);
+
+			expect(await findByDataRole(container, DataRoles.AttachedPortal)).toBeInTheDocument();
+		});
+
+		test("a nested TooltipConfigProvider inherits delays it does not set", async () => {
+			const { container } = render(
+				<TooltipConfigProvider showDelay={50} hideDelay={50}>
+					<TooltipConfigProvider>
+						<Tooltip text="test tooltip">
+							<Button icon={<Icon>warning</Icon>} />
+						</Tooltip>
+					</TooltipConfigProvider>
+				</TooltipConfigProvider>
+			);
+			const tooltipTrigger = getByDataRole(container, DataRoles.Button);
+
+			const hoveredAt = performance.now();
+			await userEvent.hover(tooltipTrigger);
+
+			expect(await findByDataRole(container, DataRoles.AttachedPortal)).toBeInTheDocument();
+			expect(performance.now() - hoveredAt).toBeLessThan(PRODUCTION_DELAY);
 		});
 	});
 
@@ -182,6 +265,39 @@ describe("com.mgmtp.a12.widgets.tooltip", () => {
 
 		expect(attachedPortal).toBeVisible();
 		expect(attachedPortal).toMatchSnapshot();
+	});
+
+	test("icon button trigger inherits the tooltip variant color by default", () => {
+		const { getByDataRole } = render(
+			<Tooltip text="test tooltip" variant="error">
+				<Button icon={<Icon>warning</Icon>} />
+			</Tooltip>
+		);
+		const triggerWrapper = getByDataRole(DataRoles.Tooltip.TriggerWrapper);
+		const button = getByDataRole(DataRoles.Button);
+		const icon = getByDataRole(DataRoles.Icon);
+		const variantColor = getComputedStyle(triggerWrapper).color;
+
+		expect(getComputedStyle(button).color).toBe(variantColor);
+		expect(getComputedStyle(icon).color).toBe(variantColor);
+	});
+
+	test("consumer CSS overrides the tooltip variant color on an icon button trigger", () => {
+		const customColor = "rgb(1, 2, 3)";
+		const { getByDataRole } = render(
+			<>
+				<style>{`.custom-trigger-button { color: ${customColor}; }`}</style>
+				<Tooltip text="test tooltip" variant="error">
+					<Button className="custom-trigger-button" icon={<Icon>warning</Icon>} />
+				</Tooltip>
+			</>
+		);
+		const button = getByDataRole(DataRoles.Button);
+		const icon = getByDataRole(DataRoles.Icon);
+
+		expect(getComputedStyle(button).color).toBe(customColor);
+		// Single-class custom colors now apply to the trigger
+		expect(getComputedStyle(icon).color).toBe(customColor);
 	});
 
 	test("render tooltip with wrapper which has title attribute", async () => {

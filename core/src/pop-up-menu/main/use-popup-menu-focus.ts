@@ -33,9 +33,9 @@
 import { useCallback, useContext, useEffect, useRef } from "react";
 import type { RefObject } from "react";
 
-import { getAllFocusableElements, isElementFocusable, isVisibleOnScreen } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 import { provider } from "../../common/main/device-detector.js";
+import { getAllFocusableElements, isElementFocusable, isVisibleOnScreen } from "../../common/main/utils.js";
 
 import { PopupMenuConfigContext } from "./popup-menu-context.js";
 

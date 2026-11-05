@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { styled, css } from "styled-components";
 import { motion } from "motion/react";
+import { styled, css } from "styled-components";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
 
-import type { SupportingPanesLayoutProps } from "./supporting-panes-layout.api.js";
 import { StyledResizeHandle } from "./resize/resize-handle.styled.js";
+import type { SupportingPanesLayoutProps } from "./supporting-panes-layout.api.js";
 
 export const StyledSupportingPanesLayout = styled.div.withConfig({ displayName: "StyledSupportingPanesLayout-sc-" })(
 	({ theme }) => {
@@ -100,13 +100,15 @@ export const StyledSecondaryPane = styled(motion.div).withConfig({
 		width: ${$width};
 		transform-origin: ${animationTransformOrigin[$position]};
 
-		${$position === "left"
-			? css`
-					margin-right: ${gap};
-				`
-			: css`
-					margin-left: ${gap};
-				`}
+		${
+			$position === "left"
+				? css`
+						margin-right: ${gap};
+					`
+				: css`
+						margin-left: ${gap};
+					`
+		}
 
 		&:has(${StyledResizeHandle}[draggable="true"]) ~ & {
 			pointer-events: none;

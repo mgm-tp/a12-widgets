@@ -30,6 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import combinationCode from "!./combination.tsx?raw";
+import customSizeCode from "!./custom-size.tsx?raw";
+import customTextFileUploadShowcaseCode from "!./custom-text?raw";
+import basicCode from "!./default.tsx?raw";
+import fileNameBaseTemplateCode from "!./file-name/base-template.tsx?raw";
+import fileNameBasicCode from "!./file-name/basic.tsx?raw";
+import fileNameCombinationCode from "!./file-name/combination.tsx?raw";
+import fileNameStatesCode from "!./file-name/states.tsx?raw";
+import hiddenLabelAndTextsCode from "!./hidden-label-and-texts.js?raw";
+import interactiveReadOnlyCode from "!./interactive-read-only.tsx?raw";
+import placeHolderIconCode from "!./placeholder-icon.tsx?raw";
+import statesCode from "!./states.tsx?raw";
+
 import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
 import DefaultFileUploadAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/file-upload/main/default/default-file-upload.api.json" with { type: "json" };
 
@@ -37,28 +50,15 @@ import type { Showcase } from "../../helpers/definitions.js";
 
 import { Combination } from "./combination.js";
 import { CustomSize } from "./custom-size.js";
+import { CustomTextFileUploadShowcase } from "./custom-text.js";
 import { Basic } from "./default.js";
-import { States } from "./states.js";
 import { FileNameBasic } from "./file-name/basic.js";
 import { FileNameCombination } from "./file-name/combination.js";
 import { FileNameStates } from "./file-name/states.js";
-import { PlaceHolderIcon } from "./placeholder-icon.js";
-import { InteractiveReadOnly } from "./interactive-read-only.js";
-import { CustomTextFileUploadShowcase } from "./custom-text.js";
 import { HiddenLabelAndTexts } from "./hidden-label-and-texts.js";
-
-import combinationCode from "!./combination.tsx?raw";
-import customSizeCode from "!./custom-size.tsx?raw";
-import basicCode from "!./default.tsx?raw";
-import statesCode from "!./states.tsx?raw";
-import fileNameBasicCode from "!./file-name/basic.tsx?raw";
-import fileNameCombinationCode from "!./file-name/combination.tsx?raw";
-import fileNameStatesCode from "!./file-name/states.tsx?raw";
-import placeHolderIconCode from "!./placeholder-icon.tsx?raw";
-import fileNameBaseTemplateCode from "!./file-name/base-template.tsx?raw";
-import interactiveReadOnlyCode from "!./interactive-read-only.tsx?raw";
-import customTextFileUploadShowcaseCode from "!./custom-text?raw";
-import hiddenLabelAndTextsCode from "!./hidden-label-and-texts.js?raw";
+import { InteractiveReadOnly } from "./interactive-read-only.js";
+import { PlaceHolderIcon } from "./placeholder-icon.js";
+import { States } from "./states.js";
 
 const showcases: Showcase[] = [
 	{

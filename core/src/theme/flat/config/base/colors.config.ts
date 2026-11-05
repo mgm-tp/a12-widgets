@@ -30,12 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { setLightness } from "polished";
 import merge from "deepmerge";
+import { setLightness } from "polished";
 
 import { GeneralColorsConfig } from "../../../base/colors.config.js";
-import type { BaseThemeColorsType } from "../../../schema/base-colors.api.js";
 import { DefaultColorsConfig } from "../../../default/config/base/colors.config.js";
+import type { BaseThemeColorsType } from "../../../schema/base-colors.api.js";
 
 export const GeneralFlatColorsConfig = {
 	/*------------------------------------*\

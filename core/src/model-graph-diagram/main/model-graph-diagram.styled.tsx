@@ -61,33 +61,37 @@ export const StyledDiagramNodeWrapper = styled.div.withConfig({ displayName: "St
 		text-align: center;
 		width: ${node.width};
 
-		${$isSelected &&
-		css`
-			background-color: ${node.selectedBG};
-			border-left: ${node.leftEdgeBorder};
-			box-shadow: ${node.boxShadow};
-			color: ${node.selectedColor};
-		`}
+		${
+			$isSelected &&
+			css`
+				background-color: ${node.selectedBG};
+				border-left: ${node.leftEdgeBorder};
+				box-shadow: ${node.boxShadow};
+				color: ${node.selectedColor};
+			`
+		}
 
-		${$readOnly
-			? css`
-					border-color: ${node.readOnly.borderColor};
-				`
-			: css`
-					cursor: pointer;
-					color: ${node.color};
+		${
+			$readOnly
+				? css`
+						border-color: ${node.readOnly.borderColor};
+					`
+				: css`
+						cursor: pointer;
+						color: ${node.color};
 
-					${activeAndHover(css`
-						border-color: ${node.hoverBorderColor};
-						box-shadow: ${node.boxShadow};
-					`)}
+						${activeAndHover(css`
+							border-color: ${node.hoverBorderColor};
+							box-shadow: ${node.boxShadow};
+						`)}
 
-					&:focus {
-						border-color: ${node.focusBorderColor};
-						box-shadow: ${node.boxShadow};
-						${darkFocus}
-					}
-				`}
+						&:focus {
+							border-color: ${node.focusBorderColor};
+							box-shadow: ${node.boxShadow};
+							${darkFocus}
+						}
+					`
+		}
 	`;
 });
 
@@ -122,60 +126,64 @@ export const StyledDiagramLabelWrapper = styled.div.withConfig({ displayName: "S
 			position: absolute;
 		}
 
-		${$isSelected &&
-		css`
-			background-color: ${label.selected.background};
-			box-shadow: ${label.boxShadow};
-			color: ${label.selected.color};
+		${
+			$isSelected &&
+			css`
+				background-color: ${label.selected.background};
+				box-shadow: ${label.boxShadow};
+				color: ${label.selected.color};
 
-			// left edge of selected label
-			&:after {
-				border-left: ${label.selected.leftEdge.border};
-				border-top-left-radius: ${isMain ? label.mainLabel.borderRadius : label.subLabel.borderRadius};
-				border-bottom-left-radius: ${isMain ? label.mainLabel.borderRadius : label.subLabel.borderRadius};
-				content: "";
-				position: absolute;
-				width: 0;
-				inset: ${isMain ? label.selected.leftEdge.mainLabel.top : label.selected.leftEdge.subLabel.top} 0 0 1px;
-				height: ${isMain ? label.selected.leftEdge.mainLabel.height : label.selected.leftEdge.subLabel.height};
-			}
+				// left edge of selected label
+				&:after {
+					border-left: ${label.selected.leftEdge.border};
+					border-top-left-radius: ${isMain ? label.mainLabel.borderRadius : label.subLabel.borderRadius};
+					border-bottom-left-radius: ${isMain ? label.mainLabel.borderRadius : label.subLabel.borderRadius};
+					content: "";
+					position: absolute;
+					width: 0;
+					inset: ${isMain ? label.selected.leftEdge.mainLabel.top : label.selected.leftEdge.subLabel.top} 0 0 1px;
+					height: ${isMain ? label.selected.leftEdge.mainLabel.height : label.selected.leftEdge.subLabel.height};
+				}
 
-			// interactive border
-			&:before {
-				border-color: ${label.selected.borderColor};
-				z-index: 1;
-			}
-		`}
+				// interactive border
+				&:before {
+					border-color: ${label.selected.borderColor};
+					z-index: 1;
+				}
+			`
+		}
 
-		${$readOnly
-			? css`
-					background-color: ${label.readOnly.background};
-				`
-			: css`
-					background-color: ${label.background};
-					cursor: pointer;
+		${
+			$readOnly
+				? css`
+						background-color: ${label.readOnly.background};
+					`
+				: css`
+						background-color: ${label.background};
+						cursor: pointer;
 
-					${activeAndHover(css`
-						box-shadow: ${label.boxShadow};
-						&:before {
-							border-color: ${label.hoverBorderColor};
+						${activeAndHover(css`
+							box-shadow: ${label.boxShadow};
+							&:before {
+								border-color: ${label.hoverBorderColor};
+							}
+							&:after {
+								border-left-color: ${label.hoverBorderColor};
+							}
+						`)}
+
+						&:focus {
+							box-shadow: ${label.boxShadow};
+							${darkFocus}
+							&:before {
+								border-color: ${label.focusBorderColor};
+							}
+							&:after {
+								border-left-color: ${label.focusBorderColor};
+							}
 						}
-						&:after {
-							border-left-color: ${label.hoverBorderColor};
-						}
-					`)}
-
-					&:focus {
-						box-shadow: ${label.boxShadow};
-						${darkFocus}
-						&:before {
-							border-color: ${label.focusBorderColor};
-						}
-						&:after {
-							border-left-color: ${label.focusBorderColor};
-						}
-					}
-				`}
+					`
+		}
 	`;
 });
 
@@ -199,29 +207,33 @@ export const StyledDiagramPort = styled.div.withConfig({ displayName: "StyledDia
 		height: ${size};
 		width: ${size};
 
-		${$isSelected &&
-		css`
-			background-color: ${port.selectedBG};
-			box-shadow: none;
-			filter: blur(0);
-			padding: 0;
-		`}
+		${
+			$isSelected &&
+			css`
+				background-color: ${port.selectedBG};
+				box-shadow: none;
+				filter: blur(0);
+				padding: 0;
+			`
+		}
 
-		${$readOnly
-			? css`
-					background-color: ${port.readOnly.background};
-				`
-			: css`
-					background-color: ${port.background};
-					cursor: pointer;
+		${
+			$readOnly
+				? css`
+						background-color: ${port.readOnly.background};
+					`
+				: css`
+						background-color: ${port.background};
+						cursor: pointer;
 
-					${activeAndHover(css`
-						background-color: ${port.hoverBG};
-						box-shadow: ${port.interactiveBoxShadow};
-						filter: blur(0);
-						padding: 0;
-					`)}
-				`}
+						${activeAndHover(css`
+							background-color: ${port.hoverBG};
+							box-shadow: ${port.interactiveBoxShadow};
+							filter: blur(0);
+							padding: 0;
+						`)}
+					`
+		}
 	`;
 });
 

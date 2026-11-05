@@ -300,6 +300,13 @@ exports[`com.mgmtp.a12.widgets.button > rendering-disabled-button 1`] = `
   cursor: default;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c0.c0) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
 .h_inlineBlock.h_middleAlign .c0.c0 {
   display: block;
   height: auto;
@@ -336,6 +343,13 @@ exports[`com.mgmtp.a12.widgets.button > rendering-disabled-secondary-invert 1`] 
   box-shadow: none;
   color: rgb(169, 179, 188);
   cursor: default;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c0.c0) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
 }
 
 .h_inlineBlock.h_middleAlign .c0.c0 {
@@ -976,6 +990,10 @@ exports[`com.mgmtp.a12.widgets.button > rendering-progress-button-with-icon 1`] 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
+  color: inherit;
+}
+
 .c5 {
   animation: 0.2s ease 0s 1 normal none running k1;
   background-color: rgba(22, 25, 29, 0.8);
@@ -988,162 +1006,6 @@ exports[`com.mgmtp.a12.widgets.button > rendering-progress-button-with-icon 1`] 
   top: 0px;
   user-select: none;
   visibility: hidden;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.c8.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16.c16 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -1268,6 +1130,8 @@ exports[`com.mgmtp.a12.widgets.button > rendering-progress-button-with-icon 1`] 
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       search
     </span>
@@ -1396,7 +1260,7 @@ exports[`com.mgmtp.a12.widgets.button > rendering-secondary-invert 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: none;
   background: transparent;
   color: rgb(255, 255, 255);
@@ -1498,144 +1362,8 @@ exports[`com.mgmtp.a12.widgets.button > rendering-vertical-button 1`] = `
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -1728,6 +1456,8 @@ exports[`com.mgmtp.a12.widgets.button > rendering-vertical-button 1`] = `
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       search
     </span>
@@ -1834,26 +1564,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering button with progress bar 
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--primary"
   data-role="button"
@@ -1908,188 +1618,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-icon-button 1`] = 
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -2143,6 +1673,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-icon-button 1`] = 
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c0.c0 {
   display: block;
   height: auto;
@@ -2197,26 +1731,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-icon-button 1`] = 
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--activated"
   data-role="button"
@@ -2231,6 +1745,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-icon-button 1`] = 
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -2267,236 +1783,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-invert-icon-button
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -2609,26 +1897,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-invert-icon-button
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--outline button--dark button--activated"
   data-role="button"
@@ -2643,6 +1911,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-invert-icon-button
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -2679,236 +1949,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-invert-with-rounde
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -2977,26 +2019,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-invert-with-rounde
   display: block;
 }
 
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.c20.c20 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
-}
-
 @media (pointer: fine) {
   .c0:hover {
     outline: transparent solid 1px;
@@ -3041,26 +2063,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-invert-with-rounde
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--outline button--dark button--activated"
   data-role="button"
@@ -3075,6 +2077,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-active-invert-with-rounde
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -3111,204 +2115,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-destructive-icon-button 1
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -3362,6 +2170,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-destructive-icon-button 1
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c0.c0 {
   display: block;
   height: auto;
@@ -3416,26 +2228,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-destructive-icon-button 1
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--destructive"
   data-role="button"
@@ -3449,6 +2241,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-destructive-icon-button 1
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -3485,252 +2279,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-active-invert-ic
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -3774,6 +2324,13 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-active-invert-ic
   color: inherit;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c0.c0) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
 .h_inlineBlock.h_middleAlign .c0.c0 {
   display: block;
   height: auto;
@@ -3782,26 +2339,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-active-invert-ic
 
 .h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
   display: block;
-}
-
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 <button
@@ -3819,6 +2356,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-active-invert-ic
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -3855,252 +2394,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-active-invert-wi
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -4144,6 +2439,13 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-active-invert-wi
   color: inherit;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c0.c0) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
 .h_inlineBlock.h_middleAlign .c0.c0 {
   display: block;
   height: auto;
@@ -4152,26 +2454,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-active-invert-wi
 
 .h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
   display: block;
-}
-
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 <button
@@ -4189,6 +2471,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-active-invert-wi
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -4225,252 +2509,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-invert-icon-butt
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -4514,6 +2554,13 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-invert-icon-butt
   color: inherit;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c0.c0) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
 .h_inlineBlock.h_middleAlign .c0.c0 {
   display: block;
   height: auto;
@@ -4522,26 +2569,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-invert-icon-butt
 
 .h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
   display: block;
-}
-
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 <button
@@ -4558,6 +2585,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-invert-icon-butt
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -4594,252 +2623,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-invert-with-roun
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -4883,6 +2668,13 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-invert-with-roun
   color: inherit;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c0.c0) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
 .h_inlineBlock.h_middleAlign .c0.c0 {
   display: block;
   height: auto;
@@ -4891,26 +2683,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-invert-with-roun
 
 .h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
   display: block;
-}
-
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 <button
@@ -4927,6 +2699,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-disabled-invert-with-roun
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -4963,172 +2737,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button 1`] = `
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -5175,6 +2785,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button 1`] = `
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c0.c0 {
   display: block;
   height: auto;
@@ -5210,26 +2824,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button 1`] = `
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   aria-label="test-title"
   class="c0 button button--icon test-class-name"
@@ -5246,6 +2840,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button 1`] = `
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -5271,34 +2867,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button-with-badge 1`
 .c6 * {
   width: 1px;
   height: 1px;
-}
-
-.c2 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c2 > span {
-  display: inline-block;
-}
-
-.c2.c2 {
-  max-width: unset;
 }
 
 .c8 {
@@ -5343,172 +2911,36 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button-with-badge 1`
   top: calc(-4px);
 }
 
-.c9 .c1 {
-  user-select: none;
+.c2 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
 }
 
-.c9 .c1 {
+.c2 > span {
+  display: inline-block;
+}
+
+.c2.c2 {
+  max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.c11.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19.c19 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
-}
-
-.c21 .c1 {
-  user-select: none;
-}
-
-.c21 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -5555,6 +2987,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button-with-badge 1`
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .c0 .c3 {
   top: 0px;
   right: 0px;
@@ -5567,211 +3003,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button-with-badge 1`
 }
 
 .h_inlineBlock.h_middleAlign .c0.c0 > .c1 {
-  display: block;
-}
-
-.c22 .c1 {
-  user-select: none;
-}
-
-.c22 .c1 {
-  color: inherit;
-}
-
-.c22 .c1 {
-  font-size: inherit;
-}
-
-.c22 .c3 {
-  top: 0px;
-  right: 0px;
-}
-
-.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
-  display: block;
-}
-
-.c23 .c1 {
-  user-select: none;
-}
-
-.c23 .c1 {
-  color: inherit;
-}
-
-.c23 .c1 {
-  font-size: inherit;
-}
-
-.c23 .c3 {
-  top: 0px;
-  right: 0px;
-}
-
-.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
-  display: block;
-}
-
-.c24 .c1 {
-  user-select: none;
-}
-
-.c24 .c1 {
-  color: inherit;
-}
-
-.c24 .c1 {
-  font-size: inherit;
-}
-
-.c24 .c3 {
-  top: 0px;
-  right: 0px;
-}
-
-.h_inlineBlock.h_middleAlign .c24.c24 > .c1 {
-  display: block;
-}
-
-.c25 .c1 {
-  user-select: none;
-}
-
-.c25 .c1 {
-  color: inherit;
-}
-
-.c25 .c1 {
-  font-size: inherit;
-}
-
-.c25 .c3 {
-  top: 0px;
-  right: 0px;
-}
-
-.h_inlineBlock.h_middleAlign .c25.c25 > .c1 {
-  display: block;
-}
-
-.c26 .c1 {
-  user-select: none;
-}
-
-.c26 .c1 {
-  color: inherit;
-}
-
-.c26 .c1 {
-  font-size: inherit;
-}
-
-.c26 .c3 {
-  top: 0px;
-  right: 0px;
-}
-
-.c26.c26 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c26.c26 > .c1 {
-  display: block;
-}
-
-.c27 .c1 {
-  user-select: none;
-}
-
-.c27 .c1 {
-  color: inherit;
-}
-
-.c27 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c27.c27 > .c1 {
-  display: block;
-}
-
-.c28 .c1 {
-  user-select: none;
-}
-
-.c28 .c1 {
-  color: inherit;
-}
-
-.c28 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c28.c28 > .c1 {
-  display: block;
-}
-
-.c29 .c1 {
-  user-select: none;
-}
-
-.c29 .c1 {
-  color: inherit;
-}
-
-.c29 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c29.c29 > .c1 {
-  display: block;
-}
-
-.c30 .c1 {
-  user-select: none;
-}
-
-.c30 .c1 {
-  color: inherit;
-}
-
-.c30 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c30.c30 > .c1 {
-  display: block;
-}
-
-.c31 .c1 {
-  user-select: none;
-}
-
-.c31 .c1 {
-  color: inherit;
-}
-
-.c31 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c31.c31 > .c1 {
-  display: block;
-}
-
-.c32 .c1 {
-  user-select: none;
-}
-
-.c32 .c1 {
-  color: inherit;
-}
-
-.c32 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c32.c32 > .c1 {
   display: block;
 }
 
@@ -5800,26 +3031,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button-with-badge 1`
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   aria-label="10 unread notifications"
   class="c0 button button--icon"
@@ -5835,6 +3046,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-icon-button-with-badge 1`
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -5889,220 +3102,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-invert-icon-button 1`] = 
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -6188,26 +3189,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-invert-icon-button 1`] = 
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--outline button--dark"
   data-role="button"
@@ -6221,6 +3202,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-invert-icon-button 1`] = 
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -6257,220 +3240,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-invert-with-rounded-icon-
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -6531,42 +3302,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-invert-with-rounded-icon-
   display: block;
 }
 
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.c20.c20 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
-}
-
 @media (pointer: fine) {
   .c0:hover {
     outline: transparent solid 1px;
@@ -6592,26 +3327,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-invert-with-rounded-icon-
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--outline button--dark"
   data-role="button"
@@ -6625,6 +3340,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-invert-with-rounded-icon-
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -6661,288 +3378,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-active-icon-butto
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
-}
-
-.c21 .c1 {
-  user-select: none;
-}
-
-.c21 .c1 {
-  color: inherit;
-}
-
-.c21 .c1 {
-  font-size: inherit;
-}
-
-.c21.c21 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
-  display: block;
-}
-
-.c22 .c1 {
-  user-select: none;
-}
-
-.c22 .c1 {
-  color: inherit;
-}
-
-.c22 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -6997,6 +3434,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-active-icon-butto
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .c0:not(:disabled):focus {
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -7103,26 +3544,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-active-icon-butto
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--primary button--activated"
   data-role="button"
@@ -7137,6 +3558,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-active-icon-butto
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -7173,304 +3596,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-destructive-icon-
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
-}
-
-.c21 .c1 {
-  user-select: none;
-}
-
-.c21 .c1 {
-  color: inherit;
-}
-
-.c21 .c1 {
-  font-size: inherit;
-}
-
-.c21.c21 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
-  display: block;
-}
-
-.c22 .c1 {
-  user-select: none;
-}
-
-.c22 .c1 {
-  color: inherit;
-}
-
-.c22 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
-  display: block;
-}
-
-.c23 .c1 {
-  user-select: none;
-}
-
-.c23 .c1 {
-  color: inherit;
-}
-
-.c23 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -7525,6 +3652,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-destructive-icon-
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .c0:not(:disabled):focus {
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -7631,26 +3762,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-destructive-icon-
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--destructive button--primary"
   data-role="button"
@@ -7665,6 +3776,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-destructive-icon-
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -7701,272 +3814,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-icon-button 1`] =
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
-}
-
-.c21 .c1 {
-  user-select: none;
-}
-
-.c21 .c1 {
-  color: inherit;
-}
-
-.c21 .c1 {
-  font-size: inherit;
-}
-
-.c21.c21 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -8014,6 +3863,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-icon-button 1`] =
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .c0:not(:disabled):focus {
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -8075,26 +3928,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-icon-button 1`] =
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--primary"
   data-role="button"
@@ -8109,6 +3942,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-primary-icon-button 1`] =
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -8164,6 +3999,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-progress-icon-button 1`] 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
+  color: inherit;
+}
+
 .c5 {
   animation: 0.2s ease 0s 1 normal none running k1;
   background-color: rgba(22, 25, 29, 0.8);
@@ -8176,379 +4015,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-progress-icon-button 1`] 
   top: 0px;
   user-select: none;
   visibility: hidden;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.c8.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16.c16 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c4 {
-  animation-name: k0;
-  background-color: rgb(255, 255, 255);
-  border-radius: inherit;
-  height: auto;
-  opacity: 0.9;
-  inset: -2px !important;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
-}
-
-.c21 .c1 {
-  user-select: none;
-}
-
-.c21 .c1 {
-  color: inherit;
-}
-
-.c21 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
-  display: block;
-}
-
-.c22 .c1 {
-  user-select: none;
-}
-
-.c22 .c1 {
-  color: inherit;
-}
-
-.c22 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
-  display: block;
-}
-
-.c23 .c1 {
-  user-select: none;
-}
-
-.c23 .c1 {
-  color: inherit;
-}
-
-.c23 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
-  display: block;
-}
-
-.c24 .c1 {
-  user-select: none;
-}
-
-.c24 .c1 {
-  color: inherit;
-}
-
-.c24 .c1 {
-  font-size: inherit;
-}
-
-.c24.c24 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c24.c24 > .c1 {
-  display: block;
-}
-
-.c25 .c1 {
-  user-select: none;
-}
-
-.c25 .c1 {
-  color: inherit;
-}
-
-.c25 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c25.c25 > .c1 {
-  display: block;
-}
-
-.c26 .c1 {
-  user-select: none;
-}
-
-.c26 .c1 {
-  color: inherit;
-}
-
-.c26 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c26.c26 > .c1 {
-  display: block;
-}
-
-.c27 .c1 {
-  user-select: none;
-}
-
-.c27 .c1 {
-  color: inherit;
-}
-
-.c27 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c27.c27 > .c1 {
-  display: block;
-}
-
-.c28 .c1 {
-  user-select: none;
-}
-
-.c28 .c1 {
-  color: inherit;
-}
-
-.c28 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c28.c28 > .c1 {
-  display: block;
-}
-
-.c29 .c1 {
-  user-select: none;
-}
-
-.c29 .c1 {
-  color: inherit;
-}
-
-.c29 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c29.c29 > .c1 {
-  display: block;
-}
-
-.c30 .c1 {
-  user-select: none;
-}
-
-.c30 .c1 {
-  color: inherit;
-}
-
-.c30 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c30.c30 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -8596,6 +4062,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-progress-icon-button 1`] 
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .c0 .c1 {
@@ -8682,6 +4152,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-progress-icon-button 1`] 
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       search
     </span>
@@ -8732,352 +4204,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-active-icon-but
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
-}
-
-.c21 .c1 {
-  user-select: none;
-}
-
-.c21 .c1 {
-  color: inherit;
-}
-
-.c21 .c1 {
-  font-size: inherit;
-}
-
-.c21.c21 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
-  display: block;
-}
-
-.c22 .c1 {
-  user-select: none;
-}
-
-.c22 .c1 {
-  color: inherit;
-}
-
-.c22 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
-  display: block;
-}
-
-.c23 .c1 {
-  user-select: none;
-}
-
-.c23 .c1 {
-  color: inherit;
-}
-
-.c23 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
-  display: block;
-}
-
-.c24 .c1 {
-  user-select: none;
-}
-
-.c24 .c1 {
-  color: inherit;
-}
-
-.c24 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c24.c24 > .c1 {
-  display: block;
-}
-
-.c25 .c1 {
-  user-select: none;
-}
-
-.c25 .c1 {
-  color: inherit;
-}
-
-.c25 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c25.c25 > .c1 {
-  display: block;
-}
-
-.c26 .c1 {
-  user-select: none;
-}
-
-.c26 .c1 {
-  color: inherit;
-}
-
-.c26 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c26.c26 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -9132,6 +4260,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-active-icon-but
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .c0:not(:disabled):focus {
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -9238,26 +4370,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-active-icon-but
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--secondary button--activated"
   data-role="button"
@@ -9272,6 +4384,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-active-icon-but
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -9308,336 +4422,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-destructive-ico
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
-}
-
-.c21 .c1 {
-  user-select: none;
-}
-
-.c21 .c1 {
-  color: inherit;
-}
-
-.c21 .c1 {
-  font-size: inherit;
-}
-
-.c21.c21 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
-  display: block;
-}
-
-.c22 .c1 {
-  user-select: none;
-}
-
-.c22 .c1 {
-  color: inherit;
-}
-
-.c22 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
-  display: block;
-}
-
-.c23 .c1 {
-  user-select: none;
-}
-
-.c23 .c1 {
-  color: inherit;
-}
-
-.c23 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
-  display: block;
-}
-
-.c24 .c1 {
-  user-select: none;
-}
-
-.c24 .c1 {
-  color: inherit;
-}
-
-.c24 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c24.c24 > .c1 {
-  display: block;
-}
-
-.c25 .c1 {
-  user-select: none;
-}
-
-.c25 .c1 {
-  color: inherit;
-}
-
-.c25 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c25.c25 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -9692,6 +4478,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-destructive-ico
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .c0:not(:disabled):focus {
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -9798,26 +4588,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-destructive-ico
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--destructive button--secondary"
   data-role="button"
@@ -9832,6 +4602,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-destructive-ico
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>
@@ -9868,320 +4640,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-icon-button 1`]
   max-width: unset;
 }
 
-.c3 .c1 {
-  user-select: none;
-}
-
-.c3 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c3.c3 > .c1 {
-  display: block;
-}
-
-.c4 .c1 {
-  user-select: none;
-}
-
-.c4 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c4.c4 > .c1 {
-  display: block;
-}
-
-.c5 .c1 {
-  user-select: none;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c5.c5 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c1 {
-  display: block;
-}
-
-.c6 .c1 {
-  user-select: none;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c1 {
-  display: block;
-}
-
-.c7 .c1 {
-  user-select: none;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c7.c7 > .c1 {
-  display: block;
-}
-
-.c8 .c1 {
-  user-select: none;
-}
-
-.c8 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c1 {
-  display: block;
-}
-
-.c9 .c1 {
-  user-select: none;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c9.c9 > .c1 {
-  display: block;
-}
-
-.c10 .c1 {
-  user-select: none;
-}
-
-.c10 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c10.c10 > .c1 {
-  display: block;
-}
-
-.c11 .c1 {
-  user-select: none;
-}
-
-.c11 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c11.c11 > .c1 {
-  display: block;
-}
-
-.c12 .c1 {
-  user-select: none;
-}
-
-.c12 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c12.c12 > .c1 {
-  display: block;
-}
-
-.c13 .c1 {
-  user-select: none;
-}
-
-.c13 .c1 {
-  color: inherit;
-}
-
-.c13.c13 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c13.c13 > .c1 {
-  display: block;
-}
-
-.c14 .c1 {
-  user-select: none;
-}
-
-.c14 .c1 {
-  color: inherit;
-}
-
-.c14 .c1 {
-  font-size: 1.5rem;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c1 {
-  display: block;
-}
-
-.c15 .c1 {
-  user-select: none;
-}
-
-.c15 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c1 {
-  display: block;
-}
-
-.c16 .c1 {
-  user-select: none;
-}
-
-.c16 .c1 {
-  color: inherit;
-}
-
-.c16 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c16.c16 > .c1 {
-  display: block;
-}
-
-.c17 .c1 {
-  user-select: none;
-}
-
-.c17 .c1 {
-  color: inherit;
-}
-
-.c17 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c1 {
-  display: block;
-}
-
-.c18 .c1 {
-  user-select: none;
-}
-
-.c18 .c1 {
-  color: inherit;
-}
-
-.c18 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c1 {
-  display: block;
-}
-
-.c19 .c1 {
-  user-select: none;
-}
-
-.c19 .c1 {
-  color: inherit;
-}
-
-.c19 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c1 {
-  display: block;
-}
-
-.c20 .c1 {
-  user-select: none;
-}
-
-.c20 .c1 {
-  color: inherit;
-}
-
-.c20 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c1 {
-  display: block;
-}
-
-.c21 .c1 {
-  user-select: none;
-}
-
-.c21 .c1 {
-  color: inherit;
-}
-
-.c21 .c1 {
-  font-size: inherit;
-}
-
-.c21.c21 .c1 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 > .c1 {
-  display: block;
-}
-
-.c22 .c1 {
-  user-select: none;
-}
-
-.c22 .c1 {
-  color: inherit;
-}
-
-.c22 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c22.c22 > .c1 {
-  display: block;
-}
-
-.c23 .c1 {
-  user-select: none;
-}
-
-.c23 .c1 {
-  color: inherit;
-}
-
-.c23 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c23.c23 > .c1 {
-  display: block;
-}
-
-.c24 .c1 {
-  user-select: none;
-}
-
-.c24 .c1 {
-  color: inherit;
-}
-
-.c24 .c1 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c24.c24 > .c1 {
-  display: block;
 }
 
 .c0 {
@@ -10229,6 +4689,10 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-icon-button 1`]
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .c0:not(:disabled):focus {
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -10290,26 +4754,6 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-icon-button 1`]
   }
 }
 
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <button
   class="c0 button button--icon button--secondary"
   data-role="button"
@@ -10324,6 +4768,8 @@ exports[`com.mgmtp.a12.widgets.icon-button > rendering-secondary-icon-button 1`]
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       close
     </span>

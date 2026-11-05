@@ -48,17 +48,17 @@ import {
 	provider
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { RightNavMenu } from "./template/right-nav-menu.view.js";
-import { ShowcaseTypographyHeadline } from "./showcase-typography-headline.js";
 import type { Description, GroupSections, Section, Showcase, WidgetInfo } from "./definitions.js";
 import { ShowcaseDescription } from "./showcase-description.js";
-import { ShowcaseExample } from "./showcase-example.js";
 import { ShowcaseExampleToolbar } from "./showcase-example-toolbar.js";
+import { StyledShowcaseExampleWrapper } from "./showcase-example-wrapper.js";
+import { ShowcaseExample } from "./showcase-example.js";
+import { ShowcaseTypographyHeadline } from "./showcase-typography-headline.js";
+import { RightNavMenu } from "./template/right-nav-menu.view.js";
 import { ThemeSelector } from "./theme-selector.js";
-import { convertPathToBreadcrumbTexts, getHashId, isGroupSection, scrollToHashLink, toLink } from "./utils.js";
-import { ShowcaseTypedoc } from "./typedoc.view.js";
-import { StyledShowcaseExampleWrapper } from "./showcase-example-content.js";
 import { useToast } from "./toast-context.js";
+import { ShowcaseTypedoc } from "./typedoc.view.js";
+import { convertPathToBreadcrumbTexts, getHashId, isGroupSection, scrollToHashLink, toLink } from "./utils.js";
 
 export interface LayoutShowcaseContentBoxProps {
 	label: string;
@@ -88,42 +88,75 @@ const StyledShowcaseFlyoutMenu = styled(FlyoutMenu)(({ theme }) => {
 	`;
 });
 
-const StyledShowcaseSplitView = styled(SplitView)<{ $fullLayout?: boolean }>(({ $fullLayout }) => {
+const StyledShowcaseSplitView = styled(SplitView)<{ $fullLayout?: boolean; $fitToContentArea?: boolean }>(({
+	$fullLayout,
+	$fitToContentArea
+}) => {
 	return css`
 		justify-content: center;
 		padding: 40px;
 
-		${$fullLayout &&
-		css`
-			display: block;
-		`}
+		${
+			$fullLayout &&
+			css`
+				display: block;
+			`
+		}
+
+		${
+			$fitToContentArea &&
+			css`
+				display: block;
+				height: 100%;
+				overflow: hidden;
+				padding: 0;
+			`
+		}
 	`;
 });
 
-const StyledShowcaseContentWrapper = styled(SplitView.Area)<{ $fullLayout?: boolean; $hasRightNav?: boolean }>(({
-	theme,
-	$fullLayout,
-	$hasRightNav
-}) => {
+const StyledCanvas = styled.div`
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-height: 0;
+	height: 100%;
+`;
+
+const StyledShowcaseContentWrapper = styled(SplitView.Area)<{
+	$fullLayout?: boolean;
+	$hasRightNav?: boolean;
+	$fitToContentArea?: boolean;
+}>(({ theme, $fullLayout, $hasRightNav, $fitToContentArea }) => {
 	const { spacing, horizontalSpacing } = theme.spacing;
 
 	return css`
 		display: flex;
 		flex-direction: column;
 
-		${!$fullLayout &&
-		css`
-			gap: ${spacing.spacingSm}px;
-			padding: 0 ${horizontalSpacing.horizWhiteSpacing2xl}px;
-			width: calc(100% - 2 * ${horizontalSpacing.horizWhiteSpacinglg}px);
-			@media (min-width: 1400px) {
-				max-width: ${$hasRightNav ? 65 : 100}%;
-			}
-			@media (max-width: 600px) {
-				max-width: unset;
-				padding: 0;
-			}
-		`}
+		${
+			$fitToContentArea &&
+			css`
+				height: 100%;
+				min-height: 0;
+			`
+		}
+
+		${
+			!$fullLayout &&
+			css`
+				gap: ${spacing.spacingSm}px;
+				padding: 0 ${horizontalSpacing.horizWhiteSpacing2xl}px;
+				width: calc(100% - 2 * ${horizontalSpacing.horizWhiteSpacinglg}px);
+				@media (min-width: 1400px) {
+					max-width: ${$hasRightNav ? 65 : 100}%;
+				}
+				@media (max-width: 600px) {
+					max-width: unset;
+					padding: 0;
+				}
+			`
+		}
 		${StyledLink}:not(${StyledShowcaseExampleWrapper} ${StyledLink}):not(:hover):not(:active):not(:focus) {
 			color: #004d75;
 		}
@@ -163,13 +196,15 @@ const StyledShowcaseFullLayoutContent = styled.div<{
 			padding: ${$useDarkBackground ? spacing.verticalSpacing.vertWhiteSpacingsm : 0}px;
 		}
 
-		${$useDarkBackground &&
-		css`
-			background-color: #dbdfe8;
-			border: 1px solid #dbdfe8;
-			border-bottom: 0;
-			border-radius: 4px 4px 0 0;
-		`}
+		${
+			$useDarkBackground &&
+			css`
+				background-color: #dbdfe8;
+				border: 1px solid #dbdfe8;
+				border-bottom: 0;
+				border-radius: 4px 4px 0 0;
+			`
+		}
 	`;
 });
 
@@ -365,6 +400,7 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 						)}
 						{mappedShowcases.length > 1 && (
 							<FlyoutMenu
+								id="showcase-tab-navigation"
 								type="horizontal"
 								items={mappedShowcases.map((showcase) => ({
 									label: showcase.label,
@@ -439,6 +475,20 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 		(currentShowcase: Showcase): ReactNode => {
 			const showTypedoc = props.widgetInfo?.typedoc;
 
+			// Bare canvas: fill the content area with the showcase content only (no breadcrumb, headline or
+			// page padding). Used by app-like surfaces such as the playground.
+			if (props.fitToContentArea) {
+				return (
+					<StyledShowcaseSplitView id={currentShowcase.path?.split("/").pop()} $fullLayout $fitToContentArea>
+						<StyledShowcaseContentWrapper $fullLayout $fitToContentArea>
+							{/* Canvas surfaces always supply a ReactNode description (e.g. the playground), never a
+						    structured Description object. */}
+							<StyledCanvas>{currentShowcase.description as ReactNode}</StyledCanvas>
+						</StyledShowcaseContentWrapper>
+					</StyledShowcaseSplitView>
+				);
+			}
+
 			return (
 				<StyledShowcaseSplitView id={currentShowcase.path?.split("/").pop()} $fullLayout>
 					<StyledShowcaseContentWrapper $fullLayout>
@@ -467,6 +517,8 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 											label={section.label || currentShowcase.label}
 											hideResetButton
 											inFullLayoutMode
+											hidePlaygroundButton={section.hidePlaygroundButton}
+											useDarkBackground={section.useDarkBackground}
 										/>
 									</Fragment>
 								);
@@ -476,7 +528,7 @@ export const LayoutShowcaseContentBox: FC<LayoutShowcaseContentBoxProps> = (prop
 				</StyledShowcaseSplitView>
 			);
 		},
-		[currentTabIndex, handleTabClick, props.basePath, props.widgetInfo, showcaseTabs]
+		[currentTabIndex, handleTabClick, props.basePath, props.widgetInfo, props.fitToContentArea, showcaseTabs]
 	);
 
 	const showcase = mappedShowcases[0];

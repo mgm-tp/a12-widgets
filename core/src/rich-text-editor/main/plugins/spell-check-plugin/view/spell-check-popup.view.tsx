@@ -33,10 +33,9 @@
 import type { FC, CSSProperties } from "react";
 import { useState, useRef, useCallback, useMemo, useEffect } from "react";
 
-import { Portal } from "../../../../../portal/main/portal.view.js";
-import { provider } from "../../../../../common/main/device-detector.js";
 import { DataRoles } from "../../../../../common/main/data-roles.js";
-
+import { provider } from "../../../../../common/main/device-detector.js";
+import { Portal } from "../../../../../portal/main/portal.view.js";
 import type { SpellCheckPopupProps } from "../spell-check-plugin.api.js";
 
 import type { SpellCheckPopupInternalProps } from "./spell-check-popup.api.js";

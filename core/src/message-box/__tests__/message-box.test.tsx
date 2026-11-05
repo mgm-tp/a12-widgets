@@ -35,7 +35,6 @@ import { describe, expect, test } from "vitest";
 
 import { Button } from "../../button/main/button.view.js";
 import { getA11yResource } from "../../common/main/a11y-localization/language-context.js";
-
 import { MessageBox } from "../main/message-box.view.js";
 
 describe("com.mgmtp.a12.widgets.message-box", () => {

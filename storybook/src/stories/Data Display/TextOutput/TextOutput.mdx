@@ -1,0 +1,54 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as TextOutputStories from "./TextOutput.stories";
+
+<Meta of={TextOutputStories} />
+
+<Title />
+
+The `TextOutput` widget displays a read-only value with an optional `label`, styled consistently
+with the form input widgets. Use it to present stored data in detail views or read-only forms.
+
+- Supports validation-style `errorMessage`, `warningMessage` and `infoMessage` between label and value.
+- `tooltips` and `addonAfter` attach tooltips and addons to the label or content.
+- `noData` renders a muted placeholder for missing values; `alignment` controls text alignment.
+- Set `disableParagraphWrapping` when rendering inside table cells to avoid redundant paragraph semantics.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={TextOutputStories.Playground} />
+
+## Examples
+
+### Messages
+
+<Canvas of={TextOutputStories.Messages} />
+
+### No data
+
+<Canvas of={TextOutputStories.NoData} />
+
+### Alignment
+
+<Canvas of={TextOutputStories.Alignment} />
+
+### Tooltips and addons
+
+<Canvas of={TextOutputStories.TooltipsAndAddons} />

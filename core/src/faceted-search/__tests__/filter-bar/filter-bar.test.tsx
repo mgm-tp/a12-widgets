@@ -31,34 +31,50 @@
  */
 
 import { render, getByDataRole, fireEvent } from "test-utils";
-import { describe, expect, test, vi, beforeEach } from "vitest";
+import { describe, expect, test, vi, beforeEach, afterEach } from "vitest";
 
-import { Filter } from "../../main/filter/filter.view.js";
-import { FilterBar } from "../../main/filter-bar/filter-bar.view.js";
 import { FilterBarMobile } from "../../main/filter-bar/filter-bar.mobile.view.js";
+import { FilterBar } from "../../main/filter-bar/filter-bar.view.js";
+import { Filter } from "../../main/filter/filter.view.js";
 
 describe("com.mgmtp.a12.widgets.filter-bar", () => {
-	beforeEach(() => {
-		global.ResizeObserver = vi.fn().mockImplementation(function (callback) {
-			callback(
-				[
-					{
-						target: document.body,
-						contentRect: { width: 1024, height: 768 },
-						borderBoxSize: [{ inlineSize: 1024, blockSize: 768 }],
-						contentBoxSize: [{ inlineSize: 1024, blockSize: 768 }],
-						devicePixelContentBoxSize: [{ inlineSize: 1024, blockSize: 768 }]
-					}
-				],
-				{} as ResizeObserver
-			);
+	const originalResizeObserver = global.ResizeObserver;
 
-			return {
-				observe: vi.fn(),
-				unobserve: vi.fn(),
-				disconnect: vi.fn()
-			};
-		});
+	beforeEach(() => {
+		// Deterministic ResizeObserver so FilterBar's width-based layout does not depend
+		// on the real browser measuring the detached test container. The callback fires on
+		// observe() (matching real ResizeObserver semantics) with the observed element as
+		// the entry target and a fixed 1024x768 content box.
+		global.ResizeObserver = class implements ResizeObserver {
+			private readonly callback: ResizeObserverCallback;
+
+			constructor(callback: ResizeObserverCallback) {
+				this.callback = callback;
+			}
+
+			observe(target: Element): void {
+				this.callback(
+					[
+						{
+							target,
+							contentRect: { width: 1024, height: 768 } as DOMRectReadOnly,
+							borderBoxSize: [{ inlineSize: 1024, blockSize: 768 }],
+							contentBoxSize: [{ inlineSize: 1024, blockSize: 768 }],
+							devicePixelContentBoxSize: [{ inlineSize: 1024, blockSize: 768 }]
+						} as ResizeObserverEntry
+					],
+					this
+				);
+			}
+
+			unobserve(): void {}
+
+			disconnect(): void {}
+		};
+	});
+
+	afterEach(() => {
+		global.ResizeObserver = originalResizeObserver;
 	});
 
 	test("rendering-filter-bar-with-valid-classes", () => {

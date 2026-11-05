@@ -45,6 +45,54 @@ import type { BaseDataTableProps, DataTableRowKeyGetter } from "../data-table.ap
 export type DataTreeTableDropPosition = "before" | "after" | "inside";
 
 /**
+ * One currently-visible row, together with the tree metadata the table resolved for it.
+ *
+ * Reported by {@link DataTreeTableProps.onVisibleRowsChange}. Two things here cannot be derived
+ * from the consumer's own hierarchy: {@link index} (the ordinal position among visible rows, which
+ * depends on live expansion state) and the presence of synthetic `"load-more"` rows. Anything that
+ * has to line up with rendered rows — an overlay, a connector, a ruler — should read this rather
+ * than re-flatten the tree, since a hand-rolled flatten silently drifts once lazy loading or
+ * pagination inserts rows.
+ */
+export interface DataTreeTableRowMeta<RowType = unknown> {
+	/**
+	 * Discriminates a real node row from a synthetic "load more" affordance row. For `"load-more"`,
+	 * {@link row} carries the *parent* node whose next page would be fetched.
+	 */
+	kind: "node" | "load-more";
+
+	/** The consumer's row, verbatim. */
+	row: RowType;
+
+	/** Stable key of the row, from `rowKey`. */
+	key: Key;
+
+	/** Ordinal position among the currently visible rows, `0` for the first rendered row. */
+	index: number;
+
+	/** Depth in the tree; `0` for a top-level row. */
+	level: number;
+
+	/** Key of the parent row, or `undefined` for a top-level row. */
+	parentKey?: Key;
+
+	/** The parent row, or `undefined` for a top-level row. */
+	parentRow?: RowType;
+
+	/** Whether the row can be expanded (has, or can lazily load, children). */
+	expandable: boolean;
+
+	/** Whether the row is currently expanded. */
+	expanded: boolean;
+
+	/** 1-based position among its siblings, matching the row's `aria-posinset`. */
+	posinset: number;
+
+	/** Sibling count, matching the row's `aria-setsize`. */
+	setsize: number;
+}
+
+/**
  * Context handed to {@link DataTreeTableProps.renderExpandToggle} for a single tree row. Call
  * {@link toggle} to flip the row's expansion (honouring controlled/uncontrolled state and lazy
  * loading) exactly as the built-in chevron would.
@@ -89,6 +137,21 @@ export interface DataTreeTableDragDrop<RowType = unknown> {
 	/** Fired on a completed, permitted drop. Mutate your own tree here. */
 	onDrop?(params: { source: RowType; target: RowType; position: DataTreeTableDropPosition }): void;
 
+	/**
+	 * Fired when the dragged row is dropped onto the table's empty area — below the last row (visible when
+	 * the table has a bounded height, e.g. `maxHeight`) or the body of an empty tree. Move `source` to the
+	 * top level here. Providing this enables the root drop zone; it is the counterpart of the legacy
+	 * `TreeTable`'s `hideRoot` drop onto the body. Rows stay the innermost targets, so a drop on a row is
+	 * always reported through {@link onDrop} instead.
+	 */
+	onDropToRoot?(params: { source: RowType }): void;
+
+	/**
+	 * Whether `source` may be dropped onto the root zone. Defaults to `true`. A forbidden zone still shows
+	 * feedback (and a `not-allowed` cursor) while hovered, but reports no drop.
+	 */
+	canDropToRoot?(params: { source: RowType }): boolean;
+
 	/** Fired once when a drag begins, with the dragged `row`. For drag-start side effects (e.g. highlighting). */
 	onDragStart?(params: { row: RowType }): void;
 
@@ -118,6 +181,16 @@ export interface DataTreeTableDragDrop<RowType = unknown> {
 	 * shared table default.
 	 */
 	acceptType?: string;
+
+	/**
+	 * Whether Space picks the focused row up for keyboard drag-and-drop. Defaults to `"Space"`.
+	 *
+	 * The grab is consumed on the row and stops propagating, so by default a consumer's own Space shortcut
+	 * on a row never sees the press. `false` hands Space back, at the cost of the keyboard path to
+	 * reordering — provide another one (row buttons, a context menu). Enter is not an alternative: the
+	 * `treegrid` pattern assigns it the row's default action.
+	 */
+	keyboardGrabKey?: "Space" | false;
 }
 
 /**
@@ -157,11 +230,15 @@ export interface DataTreePaginationState {
  * Provide the hierarchy either as a nested {@link tree} (read via {@link getChildren}) or as a flat
  * {@link data} list plus {@link getParentId}. A stable {@link rowKey} is required.
  *
+ * `cardView` is not offered: a card list has no column axis to host the indent and chevron, and
+ * `role="list"` cannot express depth, so a card-view tree would lose its hierarchy. Use a plain
+ * {@link DataTable} with `cardView` for that layout.
+ *
  * @experimental
  */
 export interface DataTreeTableProps<RowType = unknown> extends Omit<
 	BaseDataTableProps<RowType, DataTableColumn<RowType>>,
-	"data" | "columns" | "rowKey" | "dragDropOptions" | "scrollToNode" | "gridRole" | "rowExpansion"
+	"data" | "columns" | "rowKey" | "dragDropOptions" | "scrollToNode" | "gridRole" | "rowExpansion" | "cardView"
 > {
 	/**
 	 * Nested hierarchy: the top-level rows, each exposing its children via {@link getChildren}.
@@ -201,6 +278,21 @@ export interface DataTreeTableProps<RowType = unknown> extends Omit<
 
 	/** Fired whenever a row is expanded or collapsed. Required to drive controlled {@link expandedKeys}. */
 	onExpandedChange?: (expandedKeys: Set<Key>, meta: { key: Key; expanded: boolean; row: RowType }) => void;
+
+	/**
+	 * Reports the currently-visible rows, in render order, whenever that set changes — on expansion,
+	 * lazy loading, pagination, or a change of input data.
+	 *
+	 * Use this for anything that must align with rendered rows (overlays, connectors, rulers): it
+	 * supplies each row's `index`, `level` and parent, including the synthetic `"load-more"` rows a
+	 * consumer cannot predict. Re-flattening the hierarchy by hand is the alternative, and it drifts
+	 * out of alignment as soon as lazy loading or pagination is involved.
+	 *
+	 * Fires after render, so storing the result in state costs one extra render per change.
+	 *
+	 * @experimental
+	 */
+	onVisibleRowsChange?: (rows: DataTreeTableRowMeta<RowType>[]) => void;
 
 	/**
 	 * Lazily loads a row's children the first time it is expanded. The resolved children are held

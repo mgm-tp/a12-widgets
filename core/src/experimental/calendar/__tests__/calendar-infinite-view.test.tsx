@@ -30,14 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { waitFor } from "@testing-library/dom";
+import { differenceInCalendarWeeks, format, isSameDay, startOfWeek } from "date-fns";
+import { getAllByDataRole, getByDataRole, render } from "test-utils";
 import { describe, expect, test, vi } from "vitest";
 import { userEvent } from "vitest/browser";
-import { getAllByDataRole, getByDataRole, render } from "test-utils";
-import { differenceInCalendarWeeks, format, isSameDay, startOfWeek } from "date-fns";
-import { waitFor } from "@testing-library/dom";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import type { CalendarDay, DateLoadingStatus } from "../main/calendar.api.js";
 import { CalendarInfiniteView } from "../main/view/calendar-month-view/calendar-infinite-view/calendar-infinite-view.js";
 

@@ -33,7 +33,6 @@
 import { describe, expect, test } from "vitest";
 
 import { Range } from "../../../common/main/utils.js";
-
 import type { LayoutResult, LayoutResultItem, Layoutable, ViewWidth } from "../main/master-detail.api.js";
 import { MasterDetailLayout } from "../main/master-detail.api.js";
 import { FocusLastLayout } from "../main/master-detail.default-model.js";
@@ -84,5 +83,62 @@ describe("com.mgmtp.a12.widgets.masterdetail", () => {
 	test("twoAndThree", () => {
 		const layout_5_2 = layout(5, 2);
 		expect(MasterDetailLayout.visible(layout_5_2)).toEqual(layoutResult(2, 3, 6));
+	});
+
+	test("hiddenItemsBeforeWindow", () => {
+		const items = layoutables(1, 5);
+		const lm = new FocusLastLayout(items);
+		lm.goto(items[2]); // head = items[2] ({id:3})
+		const result = lm.layout();
+		// first=1, last=2, so items[0] is hidden
+		expect(result.items).toHaveLength(3);
+		expect(result.items[0]).toEqual({ layoutable: items[0], width: undefined });
+		expect(result.items[1]).toEqual({ layoutable: items[1], width: 6 });
+		expect(result.items[2]).toEqual({ layoutable: items[2], width: 6 });
+	});
+
+	test("gotoThrowsForUnknownView", () => {
+		const items = layoutables(1, 5);
+		const lm = new FocusLastLayout(items);
+		expect(() => lm.goto({ id: 99 })).toThrow("view not in list of views");
+	});
+
+	test("singleColumn", () => {
+		const items = layoutables(1, 5);
+		const lm = new FocusLastLayout(items);
+		lm.columnCount = 1;
+		lm.goto(items[3]); // head = items[3] ({id:4})
+		const result = lm.layout();
+		// first=last=3, so only items[3] visible with width 12
+		expect(MasterDetailLayout.visible(result)).toEqual([{ layoutable: items[3], width: 12 }]);
+		// items[0..2] are hidden
+		expect(result.items.filter((i) => i.width === undefined)).toHaveLength(3);
+	});
+
+	test("threeColumns", () => {
+		const items = layoutables(1, 5);
+		const lm = new FocusLastLayout(items);
+		lm.columnCount = 3;
+		lm.goto(items[3]); // head = items[3] ({id:4})
+		const result = lm.layout();
+		// first=1, last=3, visibleCount=3 → width=4 each
+		expect(MasterDetailLayout.visible(result)).toEqual([
+			{ layoutable: items[1], width: 4 },
+			{ layoutable: items[2], width: 4 },
+			{ layoutable: items[3], width: 4 }
+		]);
+	});
+
+	test("preferredWidthOnLastItem", () => {
+		const items: Layout[] = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4, preferredWidth: 8 }];
+		const lm = new FocusLastLayout(items);
+		lm.columnCount = 2;
+		lm.goto(items[3]); // head = items[3] (preferredWidth:8)
+		const result = lm.layout();
+		// last has preferredWidth=8 → last:8, previous:12-8=4
+		expect(MasterDetailLayout.visible(result)).toEqual([
+			{ layoutable: items[2], width: 4 },
+			{ layoutable: items[3], width: 8 }
+		]);
 	});
 });

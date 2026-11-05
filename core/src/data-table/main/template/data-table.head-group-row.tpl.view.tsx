@@ -34,7 +34,6 @@ import type { ReactElement, ReactNode } from "react";
 import { styled } from "styled-components";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
 /**
@@ -66,7 +65,7 @@ export interface DataTableHeadGroupRowTplProps {
  */
 export function DataTableHeadGroupRowTpl({ ariaRowIndex, children }: DataTableHeadGroupRowTplProps): ReactElement {
 	// In (tree)grid mode restate the suppressed native header-row role.
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
+	const gridRole = useDataTableContext().gridRole;
 
 	return (
 		<StyledDataTableHeadGroupRow

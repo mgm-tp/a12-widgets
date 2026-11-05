@@ -31,24 +31,18 @@
  */
 
 import type { ReactElement } from "react";
-import { Children, isValidElement, cloneElement } from "react";
+import { Children, cloneElement, isValidElement, useId } from "react";
 import { styled, css } from "styled-components";
 
-import {
-	joinClassNames,
-	addPrefix,
-	generateUid,
-	noop,
-	resolveRef,
-	inputWithSuffixName
-} from "../../../common/main/utils.js";
-import { provider } from "../../../common/main/device-detector.js";
-import { InputElements } from "../../base/template/base.tpl.view.js";
-import { Checkbox } from "../../checkbox/main/checkbox.view.js";
-import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
-import { StyledCheckbox } from "../../checkbox/main/checkbox.styled.js";
-import { StyledBaseBoolean } from "../../base-input-styled/base-boolean.styled.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { provider } from "../../../common/main/device-detector.js";
+import { joinClassNames, addPrefix, noop, resolveRef, inputWithSuffixName } from "../../../common/main/utils.js";
+import { StyledBaseBoolean } from "../../base-input-styled/base-boolean.styled.js";
+import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
+import { InputElements } from "../../base/template/base.tpl.view.js";
+import { StyledCheckbox } from "../../checkbox/main/checkbox.styled.js";
+import { Checkbox } from "../../checkbox/main/checkbox.view.js";
+import { useFieldDefaultsConfig } from "../../field-default-config/main/field-default-config.utils.js";
 
 import type { CheckboxGroupProps, CheckboxItemProps } from "./checkbox-group.api.js";
 
@@ -71,7 +65,7 @@ export const StyledCheckboxGroupField = styled(StyledBaseInput.StyledField).with
 
 export function CheckboxGroup({
 	ariaDescribedby,
-	breakTooltipsToNewLine,
+	breakTooltipsToNewLine: breakTooltipsToNewLineProp,
 	children,
 	className,
 	disabled,
@@ -86,6 +80,7 @@ export function CheckboxGroup({
 	inline,
 	label,
 	labelGraphic,
+	messagePosition: messagePositionProp,
 	onValueChanged,
 	readonly,
 	style,
@@ -94,6 +89,10 @@ export function CheckboxGroup({
 	warningMessage,
 	wrapperRef
 }: CheckboxGroupProps): ReactElement<CheckboxGroupProps> {
+	const { breakTooltipsToNewLine, messagePosition } = useFieldDefaultsConfig(
+		{ messagePosition: messagePositionProp, breakTooltipsToNewLine: breakTooltipsToNewLineProp },
+		false
+	);
 	let fieldGroupRef: HTMLDivElement | null = null;
 	const isTouch = provider.hasTouch();
 	const baseFieldClassName = addPrefix("field");
@@ -107,7 +106,8 @@ export function CheckboxGroup({
 		className
 	);
 
-	const optionIdPrefix = id || generateUid();
+	const generatedId = useId();
+	const optionIdPrefix = id || generatedId;
 
 	const handleWrapperRef = (ref: HTMLDivElement | null): void => {
 		fieldGroupRef = ref;
@@ -124,10 +124,40 @@ export function CheckboxGroup({
 		}
 	};
 
+	const messagesElement = (
+		<>
+			{errorMessage && (
+				<InputElements.Error
+					id={id}
+					errorMessage={errorMessage}
+					dataRole={DataRoles.CheckboxGroup.ErrorMessage}
+					position={messagePosition}
+				/>
+			)}
+			{warningMessage && (
+				<InputElements.Warning
+					id={id}
+					warningMessage={warningMessage}
+					dataRole={DataRoles.CheckboxGroup.WarningMessage}
+					position={messagePosition}
+				/>
+			)}
+			{infoMessage && (
+				<InputElements.Info
+					id={id}
+					infoMessage={infoMessage}
+					dataRole={DataRoles.CheckboxGroup.InfoMessage}
+					position={messagePosition}
+				/>
+			)}
+		</>
+	);
+
 	return (
 		<StyledCheckboxGroupField
 			$block={fitToParent}
 			$hasTooltips={!!(numberOfTooltips && !breakTooltipsToNewLine)}
+			$tooltipPosition={breakTooltipsToNewLine}
 			$touch={isTouch}
 			className={wrapperClassNames}
 			style={style}
@@ -143,20 +173,8 @@ export function CheckboxGroup({
 				dataRole={DataRoles.CheckboxGroup.Label}
 				onClick={handleClickOnLabel}
 			/>
-			{tooltips}
-			{errorMessage && (
-				<InputElements.Error id={id} errorMessage={errorMessage} dataRole={DataRoles.CheckboxGroup.ErrorMessage} />
-			)}
-			{warningMessage && (
-				<InputElements.Warning
-					id={id}
-					warningMessage={warningMessage}
-					dataRole={DataRoles.CheckboxGroup.WarningMessage}
-				/>
-			)}
-			{infoMessage && (
-				<InputElements.Info id={id} infoMessage={infoMessage} dataRole={DataRoles.CheckboxGroup.InfoMessage} />
-			)}
+			{breakTooltipsToNewLine !== "below" && tooltips}
+			{messagePosition !== "below" && messagesElement}
 			<StyledBaseBoolean.StyledFieldGroup
 				className={`${baseFieldClassName}__group`}
 				ref={handleWrapperRef}
@@ -194,6 +212,8 @@ export function CheckboxGroup({
 					);
 				})}
 			</StyledBaseBoolean.StyledFieldGroup>
+			{messagePosition === "below" && messagesElement}
+			{breakTooltipsToNewLine === "below" && tooltips}
 			{helperText && (
 				<StyledBaseInput.StyledFieldHelperWrapper
 					className={`${baseFieldClassName}__helper`}

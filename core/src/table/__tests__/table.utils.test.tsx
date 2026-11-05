@@ -30,13 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, test, expect, vi } from "vitest";
 import { waitFor } from "@testing-library/dom";
+import { describe, test, expect, vi } from "vitest";
 
-import { Range } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
+import { Range } from "../../common/main/utils.js";
 import type { BaseColumnType } from "../main/column.api.js";
+import type {
+	IdenticalRowsGroup,
+	RowsGroup,
+	RowsGroupHead,
+	TableRowsGroupRowType
+} from "../main/table-rows-group/table-row-group.api.js";
+import { ColumnWidthSync } from "../main/table.internal.js";
 import {
 	countActionColumns,
 	flattenAllColumns,
@@ -50,13 +56,6 @@ import {
 	isColumnGroup,
 	TableInternalUtils
 } from "../main/table.utils.js";
-import type {
-	IdenticalRowsGroup,
-	RowsGroup,
-	RowsGroupHead,
-	TableRowsGroupRowType
-} from "../main/table-rows-group/table-row-group.api.js";
-import { ColumnWidthSync } from "../main/table.internal.js";
 
 const {
 	getFirstSubColumn,

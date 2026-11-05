@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import applicationHeaderCode from "!./application-header.tsx?raw";
+
 import ApplicationHeaderAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/application-header/main/application-header.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { ApplicationHeaderShowCase } from "./application-header.js";
-
-import applicationHeaderCode from "!./application-header.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

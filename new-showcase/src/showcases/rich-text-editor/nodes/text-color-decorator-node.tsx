@@ -30,14 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC, ReactNode } from "react";
-import { useEffect } from "react";
 import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
-import type { DOMExportOutput, LexicalEditor, LexicalNode, NodeKey } from "lexical";
-import { $getRoot, $getSelection, $isRangeSelection, $selectAll, createEditor, DecoratorNode } from "lexical";
-import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
+
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { LexicalNestedComposer } from "@lexical/react/LexicalNestedComposer";
+import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
+import type { DOMExportOutput, LexicalEditor, LexicalNode, NodeKey } from "lexical";
+import { $getRoot, $getSelection, $isRangeSelection, $selectAll, createEditor, DecoratorNode } from "lexical";
+import type { FC, ReactNode } from "react";
+import { useEffect } from "react";
 
 import { DataRoles } from "@com.mgmtp.a12.widgets/widgets-core";
 

@@ -71,7 +71,13 @@ export function DropDownWithGraphicShowcase(): ReactElement {
 		<ConfigurationView
 			reportLabel="Horizontal"
 			configuration={
-				<Checkbox fitToParent={false} checked={horizontal} label="Horizontal Mode" onChange={setHorizontal} />
+				<Checkbox
+					id="dropdown-items-with-graphic-horizontal-mode"
+					fitToParent={false}
+					checked={horizontal}
+					label="Horizontal Mode"
+					onChange={setHorizontal}
+				/>
 			}
 			useDarkBackground
 		>

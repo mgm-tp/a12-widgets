@@ -33,17 +33,16 @@
 import type { ChangeEvent, ReactElement } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { Range } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { Range } from "../../common/main/utils.js";
 import type { DropDownItem } from "../../dropdown/main/template/dropdown.tpl.api.js";
-
-import type { SelectItem } from "../select/main/select.api.js";
 import { Autocomplete } from "../autocomplete/main/autocomplete.view.js";
+import type { SelectItem } from "../select/main/select.api.js";
 import { TextField } from "../text-field/main/template/text-field.tpl.view.js";
 
+import type { OptionalYearMonthItem } from "./month-selector.api.js";
 import { StyledYearSelector, StyledYearSelectorWrapper } from "./year-month-selector.styled.js";
 import type { YearSelectorProps } from "./year-selector.api.js";
-import type { OptionalYearMonthItem } from "./month-selector.api.js";
 import {
 	clampRangeToYear,
 	detectVariant,

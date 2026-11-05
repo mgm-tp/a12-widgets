@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useRef, useState, useCallback, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useRef, useState, useCallback, useEffect } from "react";
 
 import type { MapTreeNode, SelectableTreeNodeModel, TreeNodeModel } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
@@ -48,8 +48,7 @@ import { FILE_SYSTEM, InteractiveTree, collectExpandedIds } from "./tree.data.js
 
 const meta: Meta = {
 	title: "Data Display/Tree/KeyboardNavigation",
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;

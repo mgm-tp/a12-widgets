@@ -31,7 +31,6 @@
  */
 
 import { generateUid } from "../../../common/main/utils.js";
-
 import type { MenuGroup, MenuItemType } from "../menu.api.js";
 import { isMenuGroup } from "../menu.utils.js";
 

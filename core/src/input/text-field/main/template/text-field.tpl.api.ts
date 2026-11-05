@@ -42,8 +42,7 @@ import type { ReactNode, KeyboardEvent, RefCallback, HTMLProps, MouseEvent, Inpu
 import type { Identifiable, Styleable } from "../../../../common/main/base-props.js";
 import type { BaseInputEventHandler, BaseInputProps, InputDOMProps } from "../../../base/template/base.tpl.api.js";
 
-export interface TextFieldProps
-	extends Omit<BaseInputProps, "breakTooltipsToNewLine">, BaseInputEventHandler<HTMLInputElement>, InputDOMProps {
+export interface TextFieldProps extends BaseInputProps, BaseInputEventHandler<HTMLInputElement>, InputDOMProps {
 	/**
 	 * Value of the input.
 	 */

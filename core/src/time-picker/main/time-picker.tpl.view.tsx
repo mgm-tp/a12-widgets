@@ -32,9 +32,9 @@
 
 import type { ReactNode, ReactElement } from "react";
 
-import { addPrefix, joinClassNames } from "../../common/main/utils.js";
 import type { Container, Identifiable, Styleable } from "../../common/main/base-props.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix, joinClassNames } from "../../common/main/utils.js";
 
 import { StyledTimePickerActions, StyledTimePickerHeader, StyledTimePickerText } from "./time-picker.styled.js";
 

@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { createContext } from "react";
 import { enUS, type Locale } from "date-fns/locale";
+import { createContext } from "react";
 
 import type { TimeFormat } from "./time-types.js";
 

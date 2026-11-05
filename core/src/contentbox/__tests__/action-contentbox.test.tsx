@@ -37,10 +37,9 @@ import { Button } from "../../button/main/button.view.js";
 import { getA11yResource } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-
-import { ActionContentbox } from "../main/action-contentbox/action-contentbox.view.js";
 import type { ActionContentboxProps } from "../main/action-contentbox/action-contentbox.api.js";
 import { ActionBar, Heading, SubHeading } from "../main/action-contentbox/action-contentbox.internal.js";
+import { ActionContentbox } from "../main/action-contentbox/action-contentbox.view.js";
 
 const actionButtons = [
 	{ label: "Action 1", align: "left" },

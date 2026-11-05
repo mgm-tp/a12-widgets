@@ -34,8 +34,8 @@ import type { ReactElement } from "react";
 import { useMemo } from "react";
 import { styled, css } from "styled-components";
 
-import { addPrefix } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix } from "../../common/main/utils.js";
 
 import type { ButtonGroupProps } from "./button-group.api.js";
 
@@ -48,22 +48,28 @@ export const StyledButtonGroup = styled.div.withConfig({ displayName: "StyledBut
 			display: flex;
 			flex-wrap: wrap;
 			gap: ${theme.components.buttonGroup.gap};
-			${alignment === "left" &&
-			css`
-				order: -1;
-			`}
-			${alignment === "right" &&
-			css`
-				order: 1;
-				flex-grow: 1;
-				justify-content: flex-end;
-			`}
-		
-		${vertical &&
-			css`
-				align-items: stretch;
-				flex-direction: column;
-			`}
+			${
+				alignment === "left" &&
+				css`
+					order: -1;
+				`
+			}
+			${
+				alignment === "right" &&
+				css`
+					order: 1;
+					flex-grow: 1;
+					justify-content: flex-end;
+				`
+			}
+
+			${
+				vertical &&
+				css`
+					align-items: stretch;
+					flex-direction: column;
+				`
+			}
 		`;
 	}
 );

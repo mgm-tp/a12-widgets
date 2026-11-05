@@ -30,14 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { KeyboardEvent, ReactNode } from "react";
-import { Component } from "react";
-import { Key } from "ts-key-enum";
+import type { FC, KeyboardEvent, ReactNode } from "react";
+import { Component, useCallback, useRef, useState } from "react";
 import { styled } from "styled-components";
+import { Key } from "ts-key-enum";
 
-import { provider as DeviceDetector } from "../../common/main/device-detector.js";
-import type { Orientation } from "../../common/main/alignment.js";
 import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
+import { DataRoles } from "../../common/index.js";
+import type { Orientation } from "../../common/main/alignment.js";
+import { provider as DeviceDetector } from "../../common/main/device-detector.js";
 import { bindMethods, getParentElement } from "../../common/main/utils.js";
 import { ModalOverlay } from "../../modal-overlay/main/modal-overlay.view.js";
 import { ResizeAndDragContainer } from "../../resize-and-drag-container/main/resize-and-drag-container.view.js";
@@ -59,57 +60,69 @@ interface CalloutState {
 	calloutOrientation: Orientation;
 }
 
-export class Callout extends Component<CalloutProps, CalloutState> {
-	static displayName = "Callout";
-	static defaultProps = {
-		closeOnEsc: true,
-		closeOnOutsideClick: true,
-		closeOnClickReferenceElement: true,
-		orientationList: orientations
+function stopPropagation(event: KeyboardEvent): void {
+	if (event.key !== Key.Tab && event.key !== Key.Escape) {
+		event.stopPropagation();
+	}
+}
+
+function handleCalloutBodyRef(ref: HTMLElement | null): void {
+	setTimeout(() => {
+		if (!DeviceDetector.isPhone() && ref && ref.scrollHeight - ref.clientHeight > 0) {
+			ref.tabIndex = 0;
+		}
+	});
+}
+
+const CalloutImpl: FC<CalloutProps> = ({
+	closeOnEsc,
+	closeOnOutsideClick,
+	closeOnClickReferenceElement,
+	orientationList,
+	id,
+	className,
+	style,
+	wrapperRef,
+	header,
+	footer,
+	padding,
+	isPointerVisible,
+	htmlAttributes,
+	children,
+	referenceElement,
+	referenceElementRect,
+	boundToContentbox,
+	resizeAndDragOptions,
+	onClose,
+	minHeight
+}) => {
+	const [{ pointerPosition, calloutOrientation }, setCalloutState] = useState<CalloutState>({
+		pointerPosition: {},
+		calloutOrientation: "bottom-start"
+	});
+	const calloutRef = useRef<HTMLElement | null>(null);
+	const isPhone = DeviceDetector.isPhone();
+
+	// Ref stays stable so wrapperRef fires once on mount, same as the old class did.
+	const wrapperRefProp = useRef(wrapperRef);
+	wrapperRefProp.current = wrapperRef;
+
+	const handleCalloutRef = useCallback((ref: HTMLDivElement | null): void => {
+		calloutRef.current = ref;
+		wrapperRefProp.current?.(ref);
+	}, []);
+
+	const handleOnVisibilityChange = (isVisible: boolean): void => {
+		if (onClose && !isVisible) {
+			onClose();
+		}
 	};
 
-	private calloutRef: HTMLElement | null = null;
-	private isPhone = DeviceDetector.isPhone();
+	const onOrientationChange = (orientation: Orientation): void => {
+		const callout = calloutRef.current;
 
-	constructor(props: CalloutProps) {
-		super(props);
-
-		this.state = {
-			pointerPosition: {},
-			calloutOrientation: "bottom-start"
-		};
-
-		bindMethods(this);
-	}
-
-	private handleCalloutRef(ref: HTMLDivElement | null): void {
-		this.calloutRef = ref;
-		this.props.wrapperRef?.(ref);
-	}
-
-	private handleOnVisibilityChange(isVisible: boolean): void {
-		if (this.props.onClose && !isVisible) {
-			this.props.onClose();
-		}
-	}
-
-	private stopPropagation(event: KeyboardEvent): void {
-		if (event.key !== Key.Tab && event.key !== Key.Escape) {
-			event.stopPropagation();
-		}
-	}
-
-	private getCalloutBodyRef(ref: HTMLElement | null): void {
-		setTimeout(() => {
-			if (!this.isPhone && ref && ref.scrollHeight - ref.clientHeight > 0) {
-				ref.tabIndex = 0;
-			}
-		});
-	}
-
-	private onOrientationChange(orientation: Orientation): void {
-		if (this.calloutRef && this.props.isPointerVisible) {
-			const calloutRect = this.calloutRef.getBoundingClientRect();
+		if (callout && isPointerVisible) {
+			const calloutRect = callout.getBoundingClientRect();
 
 			if (calloutRect.top <= 0) {
 				return;
@@ -118,10 +131,10 @@ export class Callout extends Component<CalloutProps, CalloutState> {
 			let top: number | undefined = undefined;
 
 			if (orientation === "right" || orientation === "left") {
-				const pointerHeight = this.calloutRef.querySelector(`[data-role=${baseDataRole}-pointer]`)?.clientHeight ?? 0;
+				const pointerHeight = callout.querySelector(`[data-role=${baseDataRole}-pointer]`)?.clientHeight ?? 0;
 
-				const referenceElementRect = this.props.referenceElement.getBoundingClientRect();
-				const calloutInnerRect = this.calloutRef
+				const referenceRect = referenceElement.getBoundingClientRect();
+				const calloutInnerRect = callout
 					.querySelector(`[data-role=${baseDataRole}-inner]`)
 					?.getBoundingClientRect() ?? {
 					top: 0,
@@ -131,114 +144,126 @@ export class Callout extends Component<CalloutProps, CalloutState> {
 
 				const minTopValue = calloutInnerRect.top - calloutRect.top + pointerHeight;
 				const maxTopValue = calloutInnerRect.bottom - calloutRect.top - pointerHeight;
-				top = Math.max(referenceElementRect.top - calloutRect.top + referenceElementRect.height / 2, minTopValue);
+				top = Math.max(referenceRect.top - calloutRect.top + referenceRect.height / 2, minTopValue);
 				top = Math.min(top, maxTopValue);
 				top = calloutInnerRect.height - pointerHeight > top ? top : undefined;
 			}
 
-			this.setState({
+			setCalloutState({
 				pointerPosition: { top },
 				calloutOrientation: orientation
 			});
 		}
-	}
+	};
 
-	private renderContent(): ReactNode {
-		const shouldAutoWidth = this.props.boundToContentbox || this.props.resizeAndDragOptions?.initialSize?.width;
+	const renderContent = (): ReactNode => {
+		const shouldAutoWidth = boundToContentbox || resizeAndDragOptions?.initialSize?.width;
 
 		return (
 			<CalloutTpl
-				id={this.props.id}
-				className={this.props.className}
-				style={shouldAutoWidth ? { width: "auto", ...this.props.style } : this.props.style}
-				wrapperRef={this.handleCalloutRef}
-				header={this.props.header}
-				footer={this.props.footer}
-				resizeAndDrag={!!this.props.resizeAndDragOptions}
-				padding={this.props.padding}
-				isPointerVisible={!this.isPhone && this.props.isPointerVisible}
-				pointerPosition={this.state.pointerPosition}
-				calloutOrientation={
-					!this.isPhone && !this.props.resizeAndDragOptions ? this.state.calloutOrientation : undefined
-				}
-				bodyRef={this.getCalloutBodyRef}
-				htmlAttributes={this.props.htmlAttributes}
+				id={id}
+				className={className}
+				style={shouldAutoWidth ? { width: "auto", ...style } : style}
+				wrapperRef={handleCalloutRef}
+				header={header}
+				footer={footer}
+				resizeAndDrag={!!resizeAndDragOptions}
+				padding={padding}
+				isPointerVisible={!isPhone && isPointerVisible}
+				pointerPosition={pointerPosition}
+				calloutOrientation={!isPhone && !resizeAndDragOptions ? calloutOrientation : undefined}
+				bodyRef={handleCalloutBodyRef}
+				htmlAttributes={htmlAttributes}
 			>
-				{this.props.children}
+				{children}
 			</CalloutTpl>
 		);
+	};
+
+	let defaultRnDOptions: CalloutWithResizeAndDragProps | undefined = resizeAndDragOptions;
+
+	if (boundToContentbox && defaultRnDOptions) {
+		const contentboxContentArea = getParentElement(
+			referenceElement,
+			(el) => el.getAttribute("data-role") === `${DataRoles.Contentbox.Content}`
+		);
+
+		if (contentboxContentArea) {
+			const { width, left } = contentboxContentArea.getBoundingClientRect();
+
+			defaultRnDOptions = {
+				...defaultRnDOptions,
+				initialSize: { height: defaultRnDOptions?.initialSize?.height ?? "", width },
+				initialPosition: { ...defaultRnDOptions?.initialPosition, x: left }
+			};
+		}
 	}
 
-	private renderContainer(): ReactNode {
-		const {
-			resizeAndDragOptions,
-			referenceElement,
-			referenceElementRect,
-			orientationList,
-			closeOnEsc,
-			closeOnOutsideClick,
-			closeOnClickReferenceElement,
-			onClose
-		} = this.props;
+	return isPhone ? (
+		<ModalOverlay onClose={onClose} closeOnEsc={closeOnEsc} closeOnOutsideClick={closeOnOutsideClick} focusBack>
+			{renderContent()}
+		</ModalOverlay>
+	) : resizeAndDragOptions ? (
+		<ResizeAndDragContainer
+			{...defaultRnDOptions}
+			referenceElement={referenceElement}
+			onClose={onClose}
+			closeOnEsc={closeOnEsc}
+			closeOnOutsideClick={closeOnOutsideClick}
+			orientationList={orientationList}
+			fixedOrientation
+			minHeight={minHeight}
+		>
+			{renderContent()}
+		</ResizeAndDragContainer>
+	) : (
+		<StyledAttachedPortal
+			closeOnEsc={closeOnEsc}
+			closeOnOutsideClick={closeOnOutsideClick}
+			closeOnClickReferenceElement={closeOnClickReferenceElement}
+			hideOnReferenceElementPositionChange
+			referenceElement={referenceElement}
+			adjustPositionToScreen
+			orientationList={orientationList}
+			fixedOrientation
+			focusOnReferenceElementAfterClose
+			onVisibilityChange={handleOnVisibilityChange}
+			onOrientationChange={onOrientationChange}
+			onKeyDown={stopPropagation}
+			referenceElementRect={referenceElementRect}
+		>
+			{renderContent()}
+		</StyledAttachedPortal>
+	);
+};
 
-		let defaultRnDOptions: CalloutWithResizeAndDragProps | undefined = resizeAndDragOptions;
+CalloutImpl.displayName = "CalloutImpl";
 
-		if (this.props.boundToContentbox && defaultRnDOptions) {
-			const contentboxContentArea = getParentElement(
-				referenceElement,
-				(el) => el.getAttribute("data-role") === "contentbox-content"
-			);
+/**
+ * A pop-up attached to a reference element, rendered into a portal. Opens as a modal overlay on phones;
+ * becomes a resizable, draggable container when `resizeAndDragOptions` is set.
+ *
+ * @remarks
+ * Built as a function component under the hood. `Callout` stays a class shell around it, so refs,
+ * subclassing and `defaultProps` still work. A subclass overriding one of the old private methods no
+ * longer has any effect; new code should not rely on any of this.
+ */
+export class Callout extends Component<CalloutProps> {
+	static displayName = "Callout";
+	static defaultProps = {
+		closeOnEsc: true,
+		closeOnOutsideClick: true,
+		closeOnClickReferenceElement: true,
+		orientationList: orientations
+	};
 
-			if (contentboxContentArea) {
-				const { width, left } = contentboxContentArea.getBoundingClientRect();
-
-				defaultRnDOptions = {
-					...defaultRnDOptions,
-					initialSize: { height: defaultRnDOptions?.initialSize?.height ?? "", width },
-					initialPosition: { ...defaultRnDOptions?.initialPosition, x: left }
-				};
-			}
-		}
-
-		return this.isPhone ? (
-			<ModalOverlay onClose={onClose} closeOnEsc={closeOnEsc} closeOnOutsideClick={closeOnOutsideClick} focusBack>
-				{this.renderContent()}
-			</ModalOverlay>
-		) : resizeAndDragOptions ? (
-			<ResizeAndDragContainer
-				{...defaultRnDOptions}
-				referenceElement={referenceElement}
-				onClose={onClose}
-				closeOnEsc={closeOnEsc}
-				closeOnOutsideClick={closeOnOutsideClick}
-				orientationList={orientationList}
-				fixedOrientation
-				minHeight={this.props.minHeight}
-			>
-				{this.renderContent()}
-			</ResizeAndDragContainer>
-		) : (
-			<StyledAttachedPortal
-				closeOnEsc={closeOnEsc}
-				closeOnOutsideClick={closeOnOutsideClick}
-				closeOnClickReferenceElement={closeOnClickReferenceElement}
-				hideOnReferenceElementPositionChange
-				referenceElement={referenceElement}
-				adjustPositionToScreen
-				orientationList={orientationList}
-				fixedOrientation
-				focusOnReferenceElementAfterClose
-				onVisibilityChange={this.handleOnVisibilityChange}
-				onOrientationChange={this.onOrientationChange}
-				onKeyDown={this.stopPropagation}
-				referenceElementRect={referenceElementRect}
-			>
-				{this.renderContent()}
-			</StyledAttachedPortal>
-		);
+	constructor(props: CalloutProps) {
+		super(props);
+		// Subclasses rely on this constructor to bind their own methods.
+		bindMethods(this);
 	}
 
 	render(): ReactNode {
-		return this.renderContainer();
+		return <CalloutImpl {...this.props} />;
 	}
 }

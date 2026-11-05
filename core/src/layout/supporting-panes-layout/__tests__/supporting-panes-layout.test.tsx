@@ -30,22 +30,21 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { waitFor } from "@testing-library/dom";
 import type { ReactElement, ReactNode } from "react";
 import { useState, useCallback } from "react";
 import { styled, css } from "styled-components";
 import { findAllByDataRole, getByDataRole, render } from "test-utils";
 import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
-import { waitFor } from "@testing-library/dom";
 
+import { ButtonGroup } from "../../../button-group/main/button-group.view.js";
+import { Button } from "../../../button/main/button.view.js";
 import type { Container } from "../../../common/main/base-props.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-import { Button } from "../../../button/main/button.view.js";
-import { ButtonGroup } from "../../../button-group/main/button-group.view.js";
 import { Typography } from "../../../typography/main/typography.view.js";
-
-import { SupportingPanesLayoutComponents } from "../main/supporting-panes-layout.view.js";
 import type { SupportingPanesLayoutProps as SPLProps } from "../main/supporting-panes-layout.api.js";
+import { SupportingPanesLayoutComponents } from "../main/supporting-panes-layout.view.js";
 
 const { PrimaryPane, SecondaryPane, SupportingPanesLayout } = SupportingPanesLayoutComponents;
 

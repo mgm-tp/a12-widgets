@@ -34,38 +34,38 @@ import merge from "deepmerge";
 
 import type { DeepPartial as UtilsDeepPartial } from "../common/main/utils.js";
 
-import type { DefaultThemeType, FlatCompactThemeType, FlatThemeType } from "./schema.js";
-import { FontConfig } from "./default/config/base/fonts.config.js";
+import { LineHeightConfig } from "./base-theme/config/application/line-height.config.js";
+import { getCompactTheme } from "./compact/compact-theme.js";
+import { CompactComponentsConfigs } from "./compact/config/components/components.js";
+import { ApplicationStyles } from "./default/config/application/application_styles.config.js";
+import { DivisionLineStyles } from "./default/config/application/division-line.config.js";
+import { FocusStyles } from "./default/config/application/focus.config.js";
 import { FontSizeConfig } from "./default/config/application/font_size.config.js";
 import { FontWeightConfig } from "./default/config/application/font_weight.config.js";
-import { LineHeightConfig } from "./base-theme/config/application/line-height.config.js";
 import {
 	HorizontalSpacingConfig,
 	SpacingConfig,
 	VerticalSpacingConfig
 } from "./default/config/application/spacing.config.js";
-import { ApplicationStyles } from "./default/config/application/application_styles.config.js";
-import { FocusStyles } from "./default/config/application/focus.config.js";
+import { FontConfig } from "./default/config/base/fonts.config.js";
 import { BaseInputStyles } from "./default/config/base/input.config.js";
-import { DivisionLineStyles } from "./default/config/application/division-line.config.js";
 import { DefaultComponentsConfigs } from "./default/config/components/components.js";
-import type { BaseThemeType } from "./schema/base-theme.js";
-import type { BaseThemeColorsType } from "./schema/base-colors.api.js";
-import type { BaseThemeTypographyType } from "./schema/typography.api.js";
-import type { ApplicationStyle, DivisionLineStyle } from "./schema/application-styles.api.js";
-import type { BaseThemeSpacingType } from "./schema/spacing.api.js";
-import type { FocusStyle } from "./schema/focus.api.js";
-import type { BaseThemeComponentsType } from "./schema/components.api.js";
 import { getDefaultTheme } from "./default/default-theme.js";
-import { getCompactTheme } from "./compact/compact-theme.js";
-import { getFlatTheme } from "./flat/flat-theme.js";
-import { getFlatCompactTheme } from "./flat-compact/flat-compact-theme.js";
-import { CompactComponentsConfigs } from "./compact/config/components/components.js";
-import { FlatComponentsConfigs } from "./flat/config/components/components.js";
 import { FlatCompactComponentsConfigs } from "./flat-compact/config/components/components.js";
+import { getFlatCompactTheme } from "./flat-compact/flat-compact-theme.js";
 import { ApplicationFlatStyles } from "./flat/config/application/application_styles.config.js";
-import { FocusFlatStyles } from "./flat/config/application/focus.config.js";
 import { FlatDivisionLineStyles } from "./flat/config/application/division-line.config.js";
+import { FocusFlatStyles } from "./flat/config/application/focus.config.js";
+import { FlatComponentsConfigs } from "./flat/config/components/components.js";
+import { getFlatTheme } from "./flat/flat-theme.js";
+import type { DefaultThemeType, FlatCompactThemeType, FlatThemeType } from "./schema.js";
+import type { ApplicationStyle, DivisionLineStyle } from "./schema/application-styles.api.js";
+import type { BaseThemeColorsType } from "./schema/base-colors.api.js";
+import type { BaseThemeType } from "./schema/base-theme.js";
+import type { BaseThemeComponentsType } from "./schema/components.api.js";
+import type { FocusStyle } from "./schema/focus.api.js";
+import type { BaseThemeSpacingType } from "./schema/spacing.api.js";
+import type { BaseThemeTypographyType } from "./schema/typography.api.js";
 
 /** @deprecated since v39.0.0. Use {@link getBaseTheme} instead. */
 export type ThemeType = "default" | "compact" | "flat" | "flat-compact";

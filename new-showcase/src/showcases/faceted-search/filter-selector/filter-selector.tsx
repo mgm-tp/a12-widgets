@@ -47,10 +47,10 @@ import {
 	ButtonGroup
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { FilterViewTemplate } from "./template.js";
-import * as Utils from "./utils.js";
 import type { Data } from "./data.js";
 import { sectionData } from "./data.js";
+import { FilterViewTemplate } from "./template.js";
+import * as Utils from "./utils.js";
 
 export type ShowcaseFilterSelectorProps = {
 	isMobile?: boolean;

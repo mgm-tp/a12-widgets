@@ -1,0 +1,84 @@
+<!--
+  Widgets — introduction overview diagram (container level, hand-authored SVG).
+  Embedded from src/0100_introduction.adoc as image::assets/images/widgets-overview.svg[…].
+  scripts/compile.ts mirrors src/ to lib/ and copies non-adoc files verbatim, dist.ts zips all of
+  lib/, and build.ts copies the asset tree next to the standalone dist/index.html.
+
+  Widgets has no inputs and no infrastructure, so there is no left or right zone: the whole story is
+  what the library offers inside the application's browser process, what it needs there, and what the
+  project adds. Composition and context only — no internal call flow. Three of the four fill
+  categories appear: Widgets builds on no A12 library, so that category has no box and no legend key.
+
+  Utility components and the entry-point/stability aspect are deliberately not part of the
+  architecture story — packaging is an Artifacts matter. The peer-dependency card names the
+  libraries the library is documented against and points at Artifacts for the full list.
+
+  Re-verify with §Architecture at each release line: a block renamed, added, or dropped there must
+  move this picture too, or the two contradict each other.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 592" width="840" height="592" role="img" aria-labelledby="t d" font-family="'Segoe UI', Inter, system-ui, sans-serif">
+  <title id="t">Widgets overview</title>
+  <desc id="d">Widgets is a library inside an A12 client application — one browser process. It offers the widget collection; theming in three layers (application, semantic, widget) configured through the styled-components theme provider with the shipped Plasma themes; keyboard navigation in two modes, configurable for the application as a whole and per widget; accessibility behavior — ARIA attributes and focus management, with screen-reader texts shipped in English and German; and testability through stable data-role attributes instead of fragile CSS selectors. In the same process run the third-party libraries the application provides as peer dependencies — React, React DOM, and styled-components, with the complete list in the Artifacts section — and those shipped with widgets-core: Lexical, react-day-picker, the pragmatic drag-and-drop packages, and virtualized rendering. The project's own code adds components built on the same contract and its own derived theme. Every widget follows one contract: typed props on a shared base-props foundation, its own theme configuration, and stable data-role attributes for test selection. Widgets builds on no other A12 component.</desc>
+
+  <defs>
+    <style>
+      .block { fill:#ffffff; stroke:#cbd5e1; stroke-width:1 }
+      .tp    { fill:#f1f2f4; stroke:#a9b1bd; stroke-width:1 }
+      .own   { fill:#fffdf5; stroke:#d6b877; stroke-width:1; stroke-dasharray:5 3 }
+      .name  { font-size:14px; fill:#0f172a }
+      .tpnm  { font-size:14px; fill:#334155 }
+      .lead  { font-size:15px; font-weight:600; fill:#0f172a }
+      .sub   { font-size:12px; fill:#64748b }
+      .cap   { font-size:11px; fill:#64748b; font-style:italic }
+      .band  { font-size:11px; font-weight:600; letter-spacing:.06em; fill:#94a3b8 }
+    </style>
+  </defs>
+
+  <!-- ── the browser process ─────────────────────────────────── -->
+  <rect x="80" y="48" width="700" height="432" rx="14" fill="#fcfdfe" stroke="#94a3b8" stroke-width="1.5"/>
+  <text class="lead" x="104" y="82">A12 client application</text>
+  <text class="sub"  x="104" y="102">one browser process — the screens the project builds and the A12 engines both render with Widgets</text>
+
+  <text class="band" x="104" y="132">WIDGETS</text>
+  <g class="block"><rect x="104" y="140" width="200" height="58" rx="8"/></g>
+  <text class="name" x="122" y="164">Widget collection</text>
+  <text class="cap"  x="122" y="182">inputs, tables, frame elements</text>
+  <g class="block"><rect x="330" y="140" width="200" height="58" rx="8"/></g>
+  <text class="name" x="348" y="164">Theming</text>
+  <text class="cap"  x="348" y="182">three layers, Plasma themes</text>
+  <g class="block"><rect x="556" y="140" width="200" height="58" rx="8"/></g>
+  <text class="name" x="574" y="164">Keyboard navigation</text>
+  <text class="cap"  x="574" y="182">two modes, configurable</text>
+
+  <g class="block"><rect x="104" y="208" width="313" height="58" rx="8"/></g>
+  <text class="name" x="122" y="232">Accessibility</text>
+  <text class="cap"  x="122" y="250">ARIA and focus behavior; texts in en and de</text>
+  <g class="block"><rect x="443" y="208" width="313" height="58" rx="8"/></g>
+  <text class="name" x="461" y="232">Testability</text>
+  <text class="cap"  x="461" y="250">stable data-role attributes, not CSS selectors</text>
+
+  <!-- ── in the same process ─────────────────────────────────── -->
+  <text class="band" x="104" y="288">IN THE SAME PROCESS</text>
+  <text class="cap"  x="248" y="288">Widgets builds on no other A12 component</text>
+  <g class="tp"><rect x="104" y="296" width="652" height="88" rx="8"/></g>
+  <text class="tpnm" x="122" y="318">React, React DOM, styled-components</text>
+  <text class="cap"  x="122" y="335">provided by the application as peer dependencies — full list in Artifacts</text>
+  <text class="tpnm" x="122" y="357">Lexical, react-day-picker, pragmatic drag-and-drop, virtualization</text>
+  <text class="cap"  x="122" y="374">shipped with widgets-core</text>
+
+  <g class="own"><rect x="104" y="404" width="652" height="56" rx="8"/></g>
+  <text class="name" x="122" y="428">Your project code</text>
+  <text class="cap"  x="122" y="446">custom components on the same contract; your own derived theme</text>
+
+  <text class="cap" x="104" y="508">One contract per widget: a typed props interface on a shared base-props foundation.</text>
+  <text class="cap" x="104" y="524">That uniformity is what makes widgets interchangeable for the model-driven engines</text>
+  <text class="cap" x="104" y="540">and predictable in application code.</text>
+
+  <!-- ── legend ──────────────────────────────────────────────── -->
+  <g class="block"><rect x="104" y="560" width="14" height="14" rx="3"/></g>
+  <text class="cap" x="126" y="571">Widgets</text>
+  <g class="tp"><rect x="212" y="560" width="14" height="14" rx="3"/></g>
+  <text class="cap" x="234" y="571">third-party libraries</text>
+  <g class="own"><rect x="366" y="560" width="14" height="14" rx="3"/></g>
+  <text class="cap" x="388" y="571">the project's own code</text>
+</svg>

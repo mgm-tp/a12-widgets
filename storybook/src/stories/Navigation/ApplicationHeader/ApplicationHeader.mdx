@@ -1,0 +1,52 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ApplicationHeaderStories from "./ApplicationHeader.stories";
+
+<Meta of={ApplicationHeaderStories} />
+
+<Title />
+
+The `ApplicationHeader` widget renders a banner bar at the top of the page for displaying the
+application logo, application name, version or user information. Content is passed through two
+slots that accept any `ReactNode`:
+
+- `leftSlots` — typically the application logo, name or a hamburger menu in mobile mode.
+- `rightSlots` — typically version info, the user name, action buttons or a popup menu when
+  horizontal space is limited.
+- The header element uses the ARIA `role` `"banner"` by default; it can be overridden via the
+  `role` prop.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ApplicationHeaderStories.Playground} />
+
+## Examples
+
+### With actions
+
+<Canvas of={ApplicationHeaderStories.WithActions} />
+
+### Logo only
+
+<Canvas of={ApplicationHeaderStories.LogoOnly} />
+
+### Multiple actions
+
+<Canvas of={ApplicationHeaderStories.MultipleActions} />

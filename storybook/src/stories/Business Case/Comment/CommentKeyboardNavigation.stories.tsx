@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { CSSProperties } from "react";
 
 import {
 	Comment,
@@ -44,8 +44,7 @@ import {
 const meta: Meta<typeof Comment> = {
 	title: "Business Case/Comment/KeyboardNavigation",
 	component: Comment,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;

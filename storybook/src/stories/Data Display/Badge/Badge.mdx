@@ -1,0 +1,65 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas, Description } from "@storybook/addon-docs/blocks";
+
+import * as BadgeStories from "./Badge.stories";
+
+<Meta of={BadgeStories} />
+
+<Title />
+
+The `Badge` widget displays a small count indicator, typically anchored to the corner of another
+element such as an icon or button. Use it to signal unread items, pending tasks or status counts.
+
+- Anchored by default — place it inside a `position: relative` container next to the element it annotates.
+- Use `standalone` to render it as a regular inline element instead.
+- Use `tiny` for a plain dot marker without a count.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={BadgeStories.Playground} />
+
+## Examples
+
+### Variants
+
+<Canvas of={BadgeStories.Variants} />
+
+### Light variants
+
+<Canvas of={BadgeStories.Light} />
+
+### Overflow count
+
+<Canvas of={BadgeStories.Overflow} />
+
+### Standalone
+
+<Canvas of={BadgeStories.Standalone} />
+
+### Tiny
+
+<Canvas of={BadgeStories.Tiny} />
+
+### Hiding the badge
+
+<Canvas of={BadgeStories.Hidden} />
+
+### Animation
+
+<Canvas of={BadgeStories.Animated} />

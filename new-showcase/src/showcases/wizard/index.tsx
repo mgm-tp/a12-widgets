@@ -30,8 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import WizardAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/wizard/main/wizard.api.json" with { type: "json" };
+import basicCode from "!./basic.tsx?raw";
+import responsiveCode from "!./responsive.tsx?raw";
+import statesCode from "!./states.tsx?raw";
+
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
+import WizardAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/wizard/main/wizard.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
@@ -39,10 +43,6 @@ import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
 import { BasicShowcase } from "./basic.js";
 import { ResponsiveShowcase } from "./responsive.js";
 import { StatesShowcase } from "./states.js";
-
-import basicCode from "!./basic.tsx?raw";
-import responsiveCode from "!./responsive.tsx?raw";
-import statesCode from "!./states.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

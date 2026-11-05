@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { CommonToastProps } from "../../common/toast.common.api.js";
 import type { Orientation } from "../../../../common/main/alignment.js";
+import type { CommonToastProps } from "../../common/toast.common.api.js";
 
 export interface ConnectedToastTemplateProps extends CommonToastProps {
 	/**

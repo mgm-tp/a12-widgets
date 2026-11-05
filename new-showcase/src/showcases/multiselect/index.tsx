@@ -30,22 +30,22 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import MultiselectAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/multiselect/main/multiselect.api.json" with { type: "json" };
+import additionalCustomizationsCode from "!./additional-customizations.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import dataCode from "!./data.ts?raw";
+import hideSelectAllOptionCode from "!./hide-select-all-option.tsx?raw";
+import messagesCode from "!./messages.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import MultiselectAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/multiselect/main/multiselect.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
 
-import { BasicMultiselect } from "./basic.js";
 import { AdditionalCustomizationsMultiselect } from "./additional-customizations.js";
-import { MessagesMultiselect } from "./messages.js";
+import { BasicMultiselect } from "./basic.js";
 import { HideSelectAllOption } from "./hide-select-all-option.js";
-
-import basicCode from "!./basic.tsx?raw";
-import additionalCustomizationsCode from "!./additional-customizations.tsx?raw";
-import messagesCode from "!./messages.tsx?raw";
-import dataCode from "!./data.ts?raw";
-import hideSelectAllOptionCode from "!./hide-select-all-option.tsx?raw";
+import { MessagesMultiselect } from "./messages.js";
 
 const showcases: Showcase[] = [
 	{

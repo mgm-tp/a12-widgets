@@ -30,12 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode } from "react";
 import type { Day } from "date-fns";
+import type { ReactNode } from "react";
 import type { Locale } from "react-day-picker";
 
 import { DataRoles } from "../../../../../common/main/data-roles.js";
-
 import { getWeekdays } from "../utils.internal.js";
 
 import {

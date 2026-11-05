@@ -1,0 +1,65 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as FacetedSearchStories from "./FacetedSearch.stories";
+
+<Meta of={FacetedSearchStories} />
+
+<Title />
+
+The FacetedSearch widgets let users narrow down result sets with removable filter chips. `Filter`
+renders a single chip with a `name`, optional `options` values and a close button (`onClose`);
+`FilterBar` is the responsive container that lays the chips out and collapses overflowing ones
+behind an expand/collapse button. A separate `FilterSelector` panel is available for picking which
+filters to apply.
+
+- `active` filters get a highlighted left border; inactive ones are dimmed.
+- `FilterBar` reports responsively hidden chips via `onHiddenFiltersChange` and can start collapsed
+  with `initialCollapsed`.
+- Use `nonRemovable` for mandatory filters and `compact` for dense layouts.
+
+## Playground
+
+Use the controls below to explore the `FilterBar` props interactively.
+
+<Primary />
+
+<Controls of={FacetedSearchStories.Playground} />
+
+## Examples
+
+### Interactive filter bar
+
+<Canvas of={FacetedSearchStories.Interactive} />
+
+### Filters with options
+
+<Canvas of={FacetedSearchStories.WithOptions} />
+
+### Compact
+
+<Canvas of={FacetedSearchStories.Compact} />
+
+### Overflow
+
+<Canvas of={FacetedSearchStories.Overflow} />
+
+### Non-removable filter
+
+<Canvas of={FacetedSearchStories.NonRemovable} />
+
+### Disabled
+
+<Canvas of={FacetedSearchStories.Disabled} />

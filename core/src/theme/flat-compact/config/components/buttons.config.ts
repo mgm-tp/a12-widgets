@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FlatCompactThemeType } from "../../../schema.js";
 import type { DeepPartial } from "../../../../common/main/utils.js";
 import type { ButtonConfigType } from "../../../default/config/components/button.config.js";
+import type { FlatCompactThemeType } from "../../../schema.js";
 
 export const buttonFlatCompactConfig = (theme: FlatCompactThemeType): DeepPartial<ButtonConfigType> => {
 	const { spacing, typography } = theme;

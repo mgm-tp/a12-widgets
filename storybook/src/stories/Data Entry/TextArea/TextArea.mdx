@@ -1,0 +1,70 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as TextAreaStories from "./TextArea.stories";
+
+<Meta of={TextAreaStories} />
+
+<Title />
+
+The `TextAreaStateless` widget wraps the HTML `textarea` element and adds a label, validation
+messages, helper text, prefixes/suffixes and addons. Use it for multi-line free-text input such as
+descriptions, comments or notes.
+
+- Fully controlled — pass `value` and update it in `onChange`; the widget keeps no intrinsic state.
+- Use `error`/`warning` together with `errorMessage`/`warningMessage` for validation feedback.
+- Use `autoExpand` to let the field grow with its content instead of scrolling.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={TextAreaStories.Playground} />
+
+## Examples
+
+### Helper text
+
+<Canvas of={TextAreaStories.WithHelperText} />
+
+### Disabled and read-only
+
+<Canvas of={TextAreaStories.DisabledAndReadonly} />
+
+### Validation messages
+
+<Canvas of={TextAreaStories.ValidationMessages} />
+
+### Prefixes and suffixes
+
+<Canvas of={TextAreaStories.PrefixesAndSuffixes} />
+
+### Text affix as suffix
+
+<Canvas of={TextAreaStories.WithTextAffixAsSuffix} />
+
+### Addons
+
+<Canvas of={TextAreaStories.WithAddons} />
+
+### Auto focus
+
+<Canvas of={TextAreaStories.AutoFocus} />
+
+### Auto expand
+
+<Canvas of={TextAreaStories.AutoExpand} />

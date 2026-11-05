@@ -32,8 +32,8 @@
 
 import { describe, test, expect } from "vitest";
 
-import { findFirstMatch } from "../../main/utils/common.js";
 import type { TextMatcherResult } from "../../main/plugins/plugin.internal.api.js";
+import { findFirstMatch } from "../../main/utils/common.js";
 
 describe("findFirstMatch", () => {
 	// Helper matcher functions for testing

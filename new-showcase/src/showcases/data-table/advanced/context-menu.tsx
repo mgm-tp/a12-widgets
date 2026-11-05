@@ -34,16 +34,15 @@ import type { ReactElement } from "react";
 import { useMemo, useCallback, useState } from "react";
 
 import type { RowEventHandlerGetter } from "@com.mgmtp.a12.widgets/widgets-core";
+import { Icon, ButtonGroup, Button, PopUpMenu, List, provider } from "@com.mgmtp.a12.widgets/widgets-core";
 import type {
 	DataTableColumn,
 	DataTableSlotProps,
 	DataTableRowStyleGetter
 } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
-import { Icon, ButtonGroup, Button, PopUpMenu, List, provider } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import type { Transaction } from "../../../helpers/definitions.js";
-
 import { Utils } from "../utils.js";
 
 type RowType = Transaction;

@@ -32,9 +32,9 @@
 
 import { memo } from "react";
 
-import { TableTemplate } from "./template/index.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
 import { isGroupHead, isRowGroup } from "./table.utils.js";
+import { TableTemplate } from "./template/index.js";
 
 /** @internal */
 export const RowGroupHeader = memo(function RowGroupHeader<RowType = unknown>(

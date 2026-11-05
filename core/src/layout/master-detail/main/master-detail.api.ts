@@ -44,9 +44,9 @@
 import type { ReactNode } from "react";
 
 import type { Styleable, Identifiable } from "../../../common/main/base-props.js";
-import type { SizeDetectorComponentProps } from "../../size-detector/main/size-detector.api.js";
-import type { ResizeOptions as ResizeHandlerOptions } from "../../resizable/resize-handler.api.js";
 import type { MakeRequired } from "../../../common/main/type-utilities.js";
+import type { ResizeOptions as ResizeHandlerOptions } from "../../resizable/resize-handler.api.js";
+import type { SizeDetectorComponentProps } from "../../size-detector/main/size-detector.api.js";
 
 /**
  * Layout strategy to layout "Layoutables" in a "master detail" style (see view).

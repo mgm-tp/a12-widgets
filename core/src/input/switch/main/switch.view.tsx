@@ -31,14 +31,15 @@
  */
 
 import type { ReactNode, FocusEvent, ChangeEvent, ReactElement } from "react";
-import { useState, Children, isValidElement, cloneElement, createRef } from "react";
+import { useState, Children, createRef } from "react";
 
-import { joinClassNames, noop, addPrefix } from "../../../common/main/utils.js";
-import type { Styleable } from "../../../common/main/base-props.js";
-import { InputElements } from "../../base/template/base.tpl.view.js";
-import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
-import { Icon } from "../../../icon/main/icon.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { renderTooltips } from "../../../common/main/tooltip-utils.js";
+import { joinClassNames, noop, addPrefix } from "../../../common/main/utils.js";
+import { Icon } from "../../../icon/main/icon.view.js";
+import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
+import { InputElements } from "../../base/template/base.tpl.view.js";
+import { useFieldDefaultsConfig } from "../../field-default-config/main/field-default-config.utils.js";
 
 import type { SwitchProps } from "./switch.api.js";
 import {
@@ -57,6 +58,7 @@ import {
 export function Switch({
 	addonAfter: addonAfterProp,
 	ariaDescribedby,
+	breakTooltipsToNewLine: breakTooltipsToNewLineProp,
 	checked,
 	checkedIcon,
 	checkedOption,
@@ -74,6 +76,7 @@ export function Switch({
 	label,
 	labelGraphic,
 	labelPosition = "top",
+	messagePosition: messagePositionProp,
 	onBlur,
 	onChange,
 	onFocus,
@@ -85,6 +88,10 @@ export function Switch({
 	warning,
 	warningMessage
 }: SwitchProps): ReactElement<SwitchProps> {
+	const { breakTooltipsToNewLine, messagePosition } = useFieldDefaultsConfig(
+		{ messagePosition: messagePositionProp, breakTooltipsToNewLine: breakTooltipsToNewLineProp },
+		"above"
+	);
 	const baseFieldClassName = addPrefix("field");
 
 	const wrapperClasses = joinClassNames(
@@ -129,17 +136,24 @@ export function Switch({
 			</StyledBaseInput.StyledFieldAddon>
 		));
 
-	const tooltips =
-		tooltipsProp &&
-		Children.map(
-			tooltipsProp,
-			(element, index) =>
-				isValidElement<Styleable>(element) &&
-				cloneElement(element, {
-					key: "element-" + index,
-					className: joinClassNames(element.props.className, `${baseFieldClassName}__tooltip`)
-				})
-		);
+	const tooltips = renderTooltips(tooltipsProp, `${baseFieldClassName}__tooltip`);
+
+	/**
+	 * The beside slot. Reuses the addon wrapper `addonAfter` already renders into, which supplies the
+	 * centring, the fixed control height and the horizontal margin. Rendered as the last child of the
+	 * control row, which is the inline wrapper when the label sits beside the control.
+	 */
+	const besideTooltips = !breakTooltipsToNewLine && tooltips && (
+		<StyledBaseInput.StyledFieldAddon
+			$position="after"
+			className={`${baseFieldClassName}-addon ${baseFieldClassName}-addon--after`}
+			data-role={DataRoles.Switch.TooltipAddon}
+		>
+			{tooltips}
+		</StyledBaseInput.StyledFieldAddon>
+	);
+
+	const isInlineLabel = labelPosition === "left" || labelPosition === "right";
 
 	const switchRef = createRef<HTMLDivElement>();
 
@@ -225,34 +239,68 @@ export function Switch({
 						{ [`${id}-helperText`]: id && helperText },
 						ariaDescribedby
 					)}
+					aria-invalid={error || errorMessage ? true : undefined}
 				/>
 			</StyledSwitchInteractive>
 			{renderOption(checkedOption, DataRoles.Switch.CheckedOption)}
 			{addonAfter}
+			{!isInlineLabel && besideTooltips}
 		</StyledSwitchControl>
 	);
 
-	return (
-		<StyledSwitchField $block={fitToParent} className={wrapperClasses} data-role={DataRoles.Switch} style={style}>
-			{labelPosition === "top" && labelElement}
-			{tooltips}
+	const messagesElement = (
+		<>
 			{errorMessage && (
-				<InputElements.Error id={id} errorMessage={errorMessage} dataRole={DataRoles.Switch.ErrorMessage} />
+				<InputElements.Error
+					id={id}
+					errorMessage={errorMessage}
+					dataRole={DataRoles.Switch.ErrorMessage}
+					position={messagePosition}
+				/>
 			)}
 			{warningMessage && (
-				<InputElements.Warning id={id} warningMessage={warningMessage} dataRole={DataRoles.Switch.WarningMessage} />
+				<InputElements.Warning
+					id={id}
+					warningMessage={warningMessage}
+					dataRole={DataRoles.Switch.WarningMessage}
+					position={messagePosition}
+				/>
 			)}
-			{infoMessage && <InputElements.Info id={id} infoMessage={infoMessage} dataRole={DataRoles.Switch.InfoMessage} />}
-			{labelPosition === "left" || labelPosition === "right" ? (
+			{infoMessage && (
+				<InputElements.Info
+					id={id}
+					infoMessage={infoMessage}
+					dataRole={DataRoles.Switch.InfoMessage}
+					position={messagePosition}
+				/>
+			)}
+		</>
+	);
+
+	return (
+		<StyledSwitchField
+			$block={fitToParent}
+			$tooltipPosition={breakTooltipsToNewLine}
+			className={wrapperClasses}
+			data-role={DataRoles.Switch}
+			style={style}
+		>
+			{labelPosition === "top" && labelElement}
+			{(breakTooltipsToNewLine === true || breakTooltipsToNewLine === "above") && tooltips}
+			{messagePosition !== "below" && messagesElement}
+			{isInlineLabel ? (
 				<StyledSwitchInlineWrapper data-role={DataRoles.Switch.InlineWrapper}>
 					{labelPosition === "left" && labelElement}
 					{switchControl}
 					{labelPosition === "right" && labelElement}
+					{besideTooltips}
 				</StyledSwitchInlineWrapper>
 			) : (
 				switchControl
 			)}
 			{labelPosition === "bottom" && labelElement}
+			{messagePosition === "below" && messagesElement}
+			{breakTooltipsToNewLine === "below" && tooltips}
 			{helperText && (
 				<StyledBaseInput.StyledFieldHelperWrapper
 					className={`${baseFieldClassName}__helper`}

@@ -30,9 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { Key, ReactElement } from "react";
-import { useState } from "react";
-import type { Instruction } from "@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item";
+import type { Key, KeyboardEvent as ReactKeyboardEvent, ReactElement } from "react";
+import { Profiler, useMemo, useState } from "react";
 import {
 	fireEvent,
 	findByText,
@@ -43,23 +42,31 @@ import {
 	queryByText,
 	render
 } from "test-utils";
-import { userEvent } from "vitest/browser";
 import { describe, expect, test, vi } from "vitest";
+import { userEvent } from "vitest/browser";
+
+import type { Instruction } from "@com.mgmtp.a12.widgets/pragmatic-drag-and-drop-hitbox/tree-item";
 
 import { DataRoles } from "../../common/main/data-roles.js";
+import { KeyboardNavigationConfigProvider } from "../../keyboard-navigation/main/keyboard-navigation-context.js";
 import type { FlatTreeRow } from "../../tree-view/main/model/index.js";
 import { flattenTree, isSelfOrDescendant } from "../../tree-view/main/model/index.js";
-
 import type { DataTableColumn } from "../main/columns.js";
 import type { DataTableSlotProps } from "../main/data-table-slots.api.js";
 import type { DataTableSortState } from "../main/data-table.sort.js";
-import type { DataTreeTableProps, DataTreeTableScrollToNodeHandler } from "../main/data-tree-table/index.js";
-import { DataTreeTable } from "../main/data-tree-table/index.js";
 import {
 	computeItemMode,
 	indicatorFromInstruction,
-	mapInstructionToDropResult
+	isSameIndicator,
+	mapInstructionToDropResult,
+	resolveTreeKeyboardMove
 } from "../main/data-tree-table/data-tree-table.dnd.js";
+import type {
+	DataTreeTableProps,
+	DataTreeTableRowMeta,
+	DataTreeTableScrollToNodeHandler
+} from "../main/data-tree-table/index.js";
+import { DataTreeTable } from "../main/data-tree-table/index.js";
 
 interface Row {
 	id: string;
@@ -186,10 +193,83 @@ describe("com.mgmtp.a12.widgets.data-tree-table — rendering", () => {
 		expect(icons[0].textContent).toBe("📁");
 		expect(icons[3].textContent).toBe("📄");
 
-		// The icon sits between the toggle slot and the label within the tree cell.
-		const cell = getAllByDataRole(container, DataRoles.TreeTable.Cell)[0];
-		const [, iconSlot] = Array.from(cell.children);
+		// The icon sits between the toggle slot and the label, inside the node title.
+		const title = getAllByDataRole(container, DataRoles.Tree.Node.Title)[0];
+		const [iconSlot, label] = Array.from(title.children);
 		expect(iconSlot.getAttribute("data-role")).toBe(DataRoles.TreeTable.Icon);
+		expect(label.getAttribute("data-role")).toBe(DataRoles.Tree.Node.Name);
+	});
+
+	test("anchors the node title and name with the ids a control can point aria-labelledby at", () => {
+		const { container } = render(<DataTreeTable tree={TREE} columns={COLUMNS} rowKey="id" defaultExpandAll />);
+
+		const title = getAllByDataRole(container, DataRoles.Tree.Node.Title)[0];
+		const name = getAllByDataRole(container, DataRoles.Tree.Node.Name)[0];
+
+		expect(title.id).toBe("tree-node-title-a");
+		expect(name.id).toBe("tree-node-name-a");
+		expect(title.contains(name)).toBe(true);
+		expect(name.textContent).toBe("Folder A");
+
+		// The chevron stays outside the title, so naming a control after the title cannot fold the
+		// expand/collapse control's own name into the result.
+		const [expander] = expanderButtons(container);
+		expect(title.contains(expander)).toBe(false);
+	});
+
+	test("names the expand/collapse control after its node, the way the legacy TreeTable does", () => {
+		const { container } = render(<DataTreeTable tree={TREE} columns={COLUMNS} rowKey="id" defaultExpandAll />);
+
+		const [expander] = expanderButtons(container);
+		const name = getAllByDataRole(container, DataRoles.Tree.Node.Name)[0];
+
+		// `aria-labelledby` overrides the localized "Expand subitems" title, so the control announces the node
+		// rather than a string every chevron in the table shares.
+		expect(expander.getAttribute("aria-labelledby")).toBe("tree-node-name-a");
+		expect(name.id).toBe("tree-node-name-a");
+		expect(name.textContent).toBe("Folder A");
+
+		// The wrapper carries the arrow id, matching the legacy `tree-node-arrow-{id}`.
+		expect(getAllByDataRole(container, DataRoles.Tree.Node.Expander)[0].id).toBe("tree-node-arrow-a");
+
+		// The tree cell reuses the legacy `Tree` node roles and id shapes, so a consumer's selectors and any
+		// `aria-labelledby` written against `TreeTable` keep working after the migration.
+		expect(getAllByDataRole(container, DataRoles.Tree.Node.Title)[0].id).toBe("tree-node-title-a");
+
+		// The action stays available as state, not as part of the name.
+		expect(expander.getAttribute("aria-expanded")).toBe("true");
+	});
+
+	test("a consumer-supplied expand toggle is left to name itself", () => {
+		const { container } = render(
+			<DataTreeTable
+				tree={TREE}
+				columns={COLUMNS}
+				rowKey="id"
+				defaultExpandAll
+				renderExpandToggle={({ toggle }) => (
+					<button type="button" aria-label="My toggle" onClick={toggle}>
+						x
+					</button>
+				)}
+			/>
+		);
+
+		expect(queryByDataRole(container, DataRoles.Tree.Node.Expander)).toBeNull();
+		expect(container.querySelector('[aria-label="My toggle"]')?.getAttribute("aria-labelledby")).toBeNull();
+	});
+
+	test("the node title of a child row also covers the hidden parent text, the node name does not", () => {
+		const { container } = render(<DataTreeTable tree={TREE} columns={COLUMNS} rowKey="id" defaultExpandAll />);
+
+		// Row 1 is "File A1", a child of "Folder A".
+		const title = getAllByDataRole(container, DataRoles.Tree.Node.Title)[1];
+		const name = getAllByDataRole(container, DataRoles.Tree.Node.Name)[1];
+
+		expect(name.textContent).toBe("File A1");
+		expect(title.textContent).toContain("File A1");
+		expect(title.textContent).toContain("Folder A");
+		expect(title.contains(getAllByDataRole(container, DataRoles.TreeTable.ParentLabel)[0])).toBe(true);
 	});
 
 	test("renders no icon slot when getIcon returns nothing for a row", () => {
@@ -241,6 +321,67 @@ function FolderABusyOverlay({ row }: DataTableSlotProps.RowOverlay<Row>): ReactE
 	return (row as Row).id === "a" ? <span>busy-a</span> : null;
 }
 
+describe("com.mgmtp.a12.widgets.data-tree-table — render cost of consumer-derived row state", () => {
+	test("changing the selected node re-renders only the rows whose selection changed", async () => {
+		// Expanded, so two of the four rows are bystanders to the selection move below —
+		// with only the two top-level rows every row would change and the assertion could
+		// not tell precision from a whole-table re-render.
+		const renders: Record<string, number> = { a: 0, a1: 0, a2: 0, b: 0 };
+
+		function CellProbe({ row, defaultContent }: DataTableSlotProps.CellContent<Row>): ReactElement {
+			// Sentinel placeholders have no `id`; only the real rows are counted.
+			if (row.id in renders) {
+				renders[row.id]++;
+			}
+
+			return <>{defaultContent}</>;
+		}
+
+		function SelectableTree(): ReactElement {
+			const [selectedId, setSelectedId] = useState("a");
+			const slots = useMemo(() => ({ cellContent: CellProbe }), []);
+
+			return (
+				<DataTreeTable
+					tree={TREE}
+					columns={COLUMNS}
+					rowKey="id"
+					ariaLabel="Files"
+					defaultExpandAll
+					rowStyling={({ row }) => ({ selected: row.id === selectedId })}
+					rowEventHandlers={({ row }) => ({ onClick: () => setSelectedId(row.id) })}
+					slots={slots}
+				/>
+			);
+		}
+
+		const { container } = render(<SelectableTree />);
+		const rows = bodyRows(container);
+
+		// Mount counts are one full render per row — the tree column renders through the
+		// wrapper's own cell renderer rather than the `cellContent` slot, so this is
+		// calibrated rather than assumed to be `COLUMNS.length`.
+		const perRow = renders.a;
+
+		expect(perRow).toBeGreaterThan(0);
+		expect(rows[0].getAttribute("aria-selected")).toBe("true");
+
+		for (const id of Object.keys(renders)) {
+			renders[id] = 0;
+		}
+
+		await userEvent.click(rows[3]);
+
+		expect(rows[0].getAttribute("aria-selected")).toBeNull();
+		expect(rows[3].getAttribute("aria-selected")).toBe("true");
+
+		// The wrapper re-wraps `rowStyling` in its own memoized getter before handing it to
+		// the inner DataTable; that indirection must not flatten the per-row precision back
+		// into a whole-table re-render. Only "a" (deselected) and "b" (selected) may pay.
+		expect(renders).toEqual({ a: perRow, a1: 0, a2: 0, b: perRow });
+	});
+});
+
 describe("com.mgmtp.a12.widgets.data-tree-table — rowOverlay slot", () => {
 	test("renders the overlay slot over the matching rows only", () => {
 		const { container } = render(
@@ -268,6 +409,207 @@ describe("com.mgmtp.a12.widgets.data-tree-table — rowOverlay slot", () => {
 		);
 
 		expect(queryByDataRole(container, DataRoles.Table.RowOverlay)).toBeNull();
+	});
+});
+
+interface PagedRow {
+	id: string;
+	parentId?: string;
+	name: string;
+}
+
+/**
+ * Minimal paginated host: parent "a" has two children but only reports the first until
+ * `onLoadMore` fires, so the tree emits a `"load-more"` row in between.
+ */
+function PagedHost(props: { onVisibleRowsChange: (rows: DataTreeTableRowMeta<PagedRow>[]) => void }): ReactElement {
+	const [loaded, setLoaded] = useState(1);
+
+	const children: PagedRow[] = [
+		{ id: "a1", parentId: "a", name: "child-1" },
+		{ id: "a2", parentId: "a", name: "child-2" }
+	];
+
+	return (
+		<DataTreeTable<PagedRow>
+			ariaLabel="Paged"
+			data={[{ id: "a", name: "Folder A" }, ...children.slice(0, loaded)]}
+			getParentId={(row) => row.parentId}
+			rowKey="id"
+			columns={[{ label: "Name", dataKey: "name" }]}
+			expandedKeys={new Set(["a"])}
+			isLeaf={(row) => row.id !== "a"}
+			getPagination={(parentId) =>
+				parentId === "a" && loaded < children.length ? { hasMore: true, total: children.length } : undefined
+			}
+			onLoadMore={() => setLoaded((n) => Math.min(n + 1, children.length))}
+			onVisibleRowsChange={props.onVisibleRowsChange}
+		/>
+	);
+}
+
+describe("com.mgmtp.a12.widgets.data-tree-table — onVisibleRowsChange", () => {
+	test("reports the visible rows in render order with depth and parent", () => {
+		const onVisibleRowsChange = vi.fn<(rows: DataTreeTableRowMeta<Row>[]) => void>();
+
+		render(
+			<DataTreeTable
+				tree={TREE}
+				columns={COLUMNS}
+				rowKey="id"
+				defaultExpandAll
+				ariaLabel="Files"
+				onVisibleRowsChange={onVisibleRowsChange}
+			/>
+		);
+
+		const reported = onVisibleRowsChange.mock.lastCall?.[0] ?? [];
+
+		expect(reported.map((meta) => [meta.key, meta.index, meta.level, meta.parentKey])).toEqual([
+			["a", 0, 0, undefined],
+			["a1", 1, 1, "a"],
+			["a2", 2, 1, "a"],
+			["b", 3, 0, undefined]
+		]);
+		expect(reported.map((meta) => meta.row.name)).toEqual(["Folder A", "File A1", "File A2", "File B"]);
+		expect(reported[1].parentRow).toBe(TREE[0]);
+	});
+
+	test("indexes match the rendered row order, and re-report on collapse", async () => {
+		const onVisibleRowsChange = vi.fn<(rows: DataTreeTableRowMeta<Row>[]) => void>();
+
+		const { container } = render(
+			<DataTreeTable
+				tree={TREE}
+				columns={COLUMNS}
+				rowKey="id"
+				defaultExpandAll
+				ariaLabel="Files"
+				onVisibleRowsChange={onVisibleRowsChange}
+			/>
+		);
+
+		expect(onVisibleRowsChange.mock.lastCall?.[0]).toHaveLength(bodyRows(container).length);
+
+		await userEvent.click(expanderButtons(container)[0]);
+
+		const afterCollapse = onVisibleRowsChange.mock.lastCall?.[0] ?? [];
+
+		expect(afterCollapse.map((meta) => meta.key)).toEqual(["a", "b"]);
+		// The ordinal must follow the rendered rows, not the position in the source hierarchy.
+		expect(afterCollapse.map((meta) => meta.index)).toEqual([0, 1]);
+		expect(afterCollapse).toHaveLength(bodyRows(container).length);
+	});
+
+	test("expandable and expanded track the row's own state", async () => {
+		const onVisibleRowsChange = vi.fn<(rows: DataTreeTableRowMeta<Row>[]) => void>();
+
+		const { container } = render(
+			<DataTreeTable
+				tree={TREE}
+				columns={COLUMNS}
+				rowKey="id"
+				ariaLabel="Files"
+				onVisibleRowsChange={onVisibleRowsChange}
+			/>
+		);
+
+		const collapsed = onVisibleRowsChange.mock.lastCall?.[0] ?? [];
+
+		expect(collapsed.map((meta) => [meta.key, meta.expandable, meta.expanded])).toEqual([
+			["a", true, false],
+			["b", false, false]
+		]);
+
+		await userEvent.click(expanderButtons(container)[0]);
+
+		expect(onVisibleRowsChange.mock.lastCall?.[0][0]).toMatchObject({ key: "a", expandable: true, expanded: true });
+	});
+
+	test("includes the synthetic load-more row a consumer cannot derive", async () => {
+		const onVisibleRowsChange = vi.fn<(rows: DataTreeTableRowMeta<PagedRow>[]) => void>();
+
+		render(<PagedHost onVisibleRowsChange={onVisibleRowsChange} />);
+
+		const reported = onVisibleRowsChange.mock.lastCall?.[0] ?? [];
+
+		// parent, its one loaded child, then the load-more affordance the tree inserted itself.
+		expect(reported.map((meta) => meta.kind)).toEqual(["node", "node", "load-more"]);
+		expect(reported[2].index).toBe(2);
+		// A sentinel carries the *parent* whose next page it would fetch.
+		expect(reported[2].parentKey).toBe("a");
+
+		await userEvent.click(getByText(document.body, "Load more"));
+
+		const afterLoad = onVisibleRowsChange.mock.lastCall?.[0] ?? [];
+
+		// Second child arrived, so the sentinel is gone and the indexes shift down.
+		expect(afterLoad.map((meta) => meta.kind)).toEqual(["node", "node", "node"]);
+		expect(afterLoad.map((meta) => meta.index)).toEqual([0, 1, 2]);
+	});
+
+	test("storing the reported rows in state does not loop, even with inline tree callbacks", () => {
+		let renders = 0;
+
+		/**
+		 * The intended shape, and the one that used to hang: inline `getChildren` / `isLeaf` make the
+		 * model re-derive its rows array every render, and the consumer feeds the report straight back
+		 * into state as a fresh `Map`. Only a value-gated notification terminates here.
+		 */
+		function Host(): ReactElement {
+			const [indexByKey, setIndexByKey] = useState<Map<Key, number>>(new Map());
+
+			renders += 1;
+
+			return (
+				<>
+					<span data-role="probe">{indexByKey.size}</span>
+					<DataTreeTable
+						tree={TREE}
+						columns={COLUMNS}
+						rowKey="id"
+						defaultExpandAll
+						ariaLabel="Files"
+						getChildren={(row) => row.children}
+						isLeaf={(row) => !row.children?.length}
+						onVisibleRowsChange={(rows) => setIndexByKey(new Map(rows.map((m) => [m.key, m.index])))}
+					/>
+				</>
+			);
+		}
+
+		const { container } = render(<Host />);
+
+		// Settles at: initial render + the one caused by storing the report.
+		expect(renders).toBeLessThanOrEqual(3);
+		expect(getByDataRole(container, "probe").textContent).toBe("4");
+	});
+
+	test("does not re-fire when only an inline listener identity changes", () => {
+		const spy = vi.fn();
+
+		function Host({ tick }: { tick: number }): ReactElement {
+			return (
+				<DataTreeTable
+					tree={TREE}
+					columns={COLUMNS}
+					rowKey="id"
+					ariaLabel={`Files ${tick}`}
+					// A fresh closure every render — the common consumer shape.
+					onVisibleRowsChange={(rows) => spy(rows.length)}
+				/>
+			);
+		}
+
+		const { rerender } = render(<Host tick={0} />);
+
+		expect(spy).toHaveBeenCalledTimes(1);
+
+		rerender(<Host tick={1} />);
+		rerender(<Host tick={2} />);
+
+		// The visible row set never changed, so the listener must stay quiet.
+		expect(spy).toHaveBeenCalledTimes(1);
 	});
 });
 
@@ -314,8 +656,8 @@ describe("com.mgmtp.a12.widgets.data-tree-table — expansion", () => {
 	});
 
 	test("lazily loads children the first time a row is expanded", async () => {
-		const loadChildren = vi.fn(
-			(): Promise<Row[]> => Promise.resolve([{ id: "x1", name: "Loaded child", size: "1 KB" }])
+		const loadChildren = vi.fn((): Promise<Row[]> =>
+			Promise.resolve([{ id: "x1", name: "Loaded child", size: "1 KB" }])
 		);
 		const { container } = render(
 			<DataTreeTable
@@ -366,6 +708,79 @@ describe("com.mgmtp.a12.widgets.data-tree-table — expansion", () => {
 
 		await vi.waitFor(() => expect(container.textContent).toContain("Loaded child"));
 		expect(container.querySelector(`[data-role="${DataRoles.ProgressIndicator.CircleSpinner}"]`)).toBeNull();
+	});
+
+	test("a paginated parent with no loaded children shows a chevron and expands to the load-more row", async () => {
+		interface PRow {
+			id: string;
+			parentId?: string;
+			name: string;
+			size: string;
+		}
+
+		const onLoadMore = vi.fn();
+		const { container } = render(
+			<DataTreeTable<PRow>
+				ariaLabel="Unloaded folder"
+				data={[
+					{ id: "f", name: "Folder", size: "—" },
+					{ id: "x", name: "File", size: "1 KB" }
+				]}
+				getParentId={(row) => row.parentId}
+				rowKey="id"
+				columns={[
+					{ label: "Name", dataKey: "name" },
+					{ label: "Size", dataKey: "size" }
+				]}
+				getPagination={(parentId) => (parentId === "f" ? { hasMore: true, total: 3 } : undefined)}
+				onLoadMore={onLoadMore}
+			/>
+		);
+
+		// Not a single child row is loaded, yet the folder is expandable: `getPagination("f").hasMore`
+		// says its first page is still outstanding, so no placeholder child rows are needed. "x" reports
+		// no pagination state and stays a leaf.
+		expect(expanderButtons(container).length).toBe(1);
+		expect(queryByDataRole(container, DataRoles.TreeTable.LoadMore)).toBeNull();
+
+		await userEvent.click(expanderButtons(container)[0]);
+
+		// Expanding an empty first page renders just the load-more affordance, nested under the folder.
+		const loadMoreRow = getByDataRole(container, DataRoles.TreeTable.LoadMore);
+		expect(loadMoreRow.getAttribute("aria-level")).toBe("2");
+
+		await userEvent.click(getByText(loadMoreRow, "Load more"));
+		expect(onLoadMore).toHaveBeenCalledWith({ parentId: "f" });
+	});
+
+	test("a paginated parent drops its chevron once its pages are drained", () => {
+		interface PRow {
+			id: string;
+			parentId?: string;
+			name: string;
+		}
+
+		const columns: DataTableColumn<PRow>[] = [{ label: "Name", dataKey: "name" }];
+		const render_ = (hasMore: boolean): HTMLElement =>
+			render(
+				<DataTreeTable<PRow>
+					ariaLabel="Drained folder"
+					data={[{ id: "f", name: "Folder" }]}
+					getParentId={(row) => row.parentId}
+					rowKey="id"
+					columns={columns}
+					getPagination={(parentId) => (parentId === "f" ? { hasMore, total: 0 } : undefined)}
+					onLoadMore={vi.fn()}
+				/>
+			).container;
+
+		const expanders = (container: HTMLElement): number =>
+			container.querySelectorAll(`[data-role="${DataRoles.Tree.Node.Expander}"] button`).length;
+
+		// Derived expandability retracts on its own: a parent that reports no further pages and has no
+		// loaded children is a leaf, with nothing for the consumer to flip.
+		expect(expanders(render_(true))).toBe(1);
+		expect(expanders(render_(false))).toBe(0);
 	});
 });
 
@@ -509,7 +924,7 @@ describe("com.mgmtp.a12.widgets.data-tree-table — controlled pagination (load 
 	});
 
 	test("never forwards the load-more sentinel row to rowEventHandlers", () => {
-		const rowEventHandlers = vi.fn(() => ({}));
+		const rowEventHandlers = vi.fn((_params: { row: FRow; rowIndex: number }) => ({}));
 		const { container } = render(
 			<DataTreeTable<FRow>
 				ariaLabel="Guarded handlers"
@@ -647,6 +1062,24 @@ describe("com.mgmtp.a12.widgets.data-tree-table — accessibility", () => {
 			expect(rows[2].contains(document.activeElement) || document.activeElement === rows[2]).toBe(true);
 		});
 	});
+
+	test("the expand/collapse control is its own tab stop in the default navigation mode", () => {
+		const { container } = render(<DataTreeTable tree={TREE} columns={COLUMNS} rowKey="id" ariaLabel="Files" />);
+
+		expect(expanderButtons(container)[0]).not.toHaveAttribute("tabindex");
+	});
+
+	test("arrow-only navigation takes the expand/collapse control out of the tab order", () => {
+		const { container } = render(
+			<KeyboardNavigationConfigProvider mode="arrow-only">
+				<DataTreeTable tree={TREE} columns={COLUMNS} rowKey="id" ariaLabel="Files" />
+			</KeyboardNavigationConfigProvider>
+		);
+
+		// The row stays the table's only tab stop; the arrows drive expansion instead.
+		expect(expanderButtons(container)[0]).toHaveAttribute("tabindex", "-1");
+		expect(bodyRows(container)[0]).toHaveAttribute("tabindex", "0");
+	});
 });
 
 describe("com.mgmtp.a12.widgets.data-tree-table — drag and drop", () => {
@@ -672,9 +1105,21 @@ describe("com.mgmtp.a12.widgets.data-tree-table — drag and drop", () => {
 	describe("position mapping (pure)", () => {
 		test("reorder/make-child map to before / after / inside", () => {
 			const { rows } = flat(); // a(0), a1(1), a2(2), b(3)
-			const above: Instruction = { type: "reorder-above", currentLevel: 1, indentPerLevel: 16 };
-			const below: Instruction = { type: "reorder-below", currentLevel: 1, indentPerLevel: 16 };
-			const child: Instruction = { type: "make-child", currentLevel: 1, indentPerLevel: 16 };
+			const above: Instruction = {
+				type: "reorder-above",
+				currentLevel: 1,
+				indentPerLevel: 16
+			};
+			const below: Instruction = {
+				type: "reorder-below",
+				currentLevel: 1,
+				indentPerLevel: 16
+			};
+			const child: Instruction = {
+				type: "make-child",
+				currentLevel: 1,
+				indentPerLevel: 16
+			};
 
 			expect(mapInstructionToDropResult(above, 1, rows)?.position).toBe("before");
 			expect(mapInstructionToDropResult(below, 1, rows)?.position).toBe("after");
@@ -684,7 +1129,12 @@ describe("com.mgmtp.a12.widgets.data-tree-table — drag and drop", () => {
 		test("reparent outdent resolves the ancestor at the desired level", () => {
 			const { rows } = flat();
 			// Drop below a1 (level 1) with desiredLevel 0 → becomes a sibling after Folder A (level 0).
-			const reparent: Instruction = { type: "reparent", currentLevel: 1, indentPerLevel: 16, desiredLevel: 0 };
+			const reparent: Instruction = {
+				type: "reparent",
+				currentLevel: 1,
+				indentPerLevel: 16,
+				desiredLevel: 0
+			};
 			const result = mapInstructionToDropResult(reparent, 1, rows);
 
 			expect(result?.position).toBe("after");
@@ -701,6 +1151,37 @@ describe("com.mgmtp.a12.widgets.data-tree-table — drag and drop", () => {
 
 			expect(mapInstructionToDropResult(null, 1, rows)).toBeNull();
 			expect(mapInstructionToDropResult(blocked, 1, rows)).toBeNull();
+		});
+	});
+
+	describe("keyboard move resolution (pure)", () => {
+		// Expanded rows: a(0), a1(1), a2(2), b(3). a1/a2 are siblings under a; a/b are siblings at root.
+		test("up/down/top/bottom stay within the sibling group", () => {
+			const { rows } = flat();
+
+			// a1 is the first child of a: no move up, down lands after a2.
+			expect(resolveTreeKeyboardMove(rows, 1, "up")).toBeNull();
+			expect(resolveTreeKeyboardMove(rows, 1, "down")).toMatchObject({ targetIndex: 2, position: "after" });
+			// a2 is the last child: down/bottom are no-ops, up lands before a1.
+			expect(resolveTreeKeyboardMove(rows, 2, "down")).toBeNull();
+			expect(resolveTreeKeyboardMove(rows, 2, "up")).toMatchObject({ targetIndex: 1, position: "before" });
+			expect(resolveTreeKeyboardMove(rows, 2, "top")).toMatchObject({ targetIndex: 1, position: "before" });
+		});
+
+		test("into nests under the preceding sibling; out outdents after the parent", () => {
+			const { rows } = flat();
+
+			// a2 nests into a1 (inside).
+			expect(resolveTreeKeyboardMove(rows, 2, "into")).toMatchObject({ targetIndex: 1, position: "inside" });
+			// a1 outdents to become the sibling after its parent Folder A (index 0).
+			expect(resolveTreeKeyboardMove(rows, 1, "out")).toMatchObject({ targetIndex: 0, position: "after" });
+		});
+
+		test("out on a root row is a no-op (no parent to outdent past)", () => {
+			const { rows } = flat();
+
+			expect(resolveTreeKeyboardMove(rows, 0, "out")).toBeNull(); // Folder A is a root
+			expect(resolveTreeKeyboardMove(rows, 3, "out")).toBeNull(); // File B is a root
 		});
 	});
 
@@ -728,9 +1209,28 @@ describe("com.mgmtp.a12.widgets.data-tree-table — drag and drop", () => {
 				forbidden: false
 			});
 			expect(
-				indicatorFromInstruction({ type: "reparent", currentLevel: 1, indentPerLevel: 16, desiredLevel: 0 }, true)
+				indicatorFromInstruction(
+					{
+						type: "reparent",
+						currentLevel: 1,
+						indentPerLevel: 16,
+						desiredLevel: 0
+					},
+					true
+				)
 			).toEqual({ type: "reorder-bottom", level: 0, forbidden: true });
 			expect(indicatorFromInstruction(null, false)).toBeNull();
+		});
+
+		test("equal indicators compare as the same placement (so a repeated dragover can bail)", () => {
+			const base = { type: "reorder-top", level: 1, forbidden: false } as const;
+
+			expect(isSameIndicator(null, null)).toBe(true);
+			expect(isSameIndicator(base, { ...base })).toBe(true);
+			expect(isSameIndicator(base, null)).toBe(false);
+			expect(isSameIndicator(base, { ...base, level: 2 })).toBe(false);
+			expect(isSameIndicator(base, { ...base, forbidden: true })).toBe(false);
+			expect(isSameIndicator(base, { ...base, type: "child" })).toBe(false);
 		});
 	});
 
@@ -757,6 +1257,45 @@ describe("com.mgmtp.a12.widgets.data-tree-table — drag and drop", () => {
 			return new Promise((resolve) => requestAnimationFrame(() => resolve()));
 		}
 
+		/** A frame followed by a macrotask, so resize notifications flushed on a timer after that frame land too. */
+		async function frameAndTimers(): Promise<void> {
+			await nextFrame();
+			await new Promise((resolve) => setTimeout(resolve));
+		}
+
+		/** Waits until `read()` stops changing across two frames, then returns it. */
+		async function settled(read: () => number): Promise<number> {
+			let previous = -1;
+
+			while (previous !== read()) {
+				previous = read();
+				await frameAndTimers();
+				await frameAndTimers();
+			}
+
+			return read();
+		}
+
+		/**
+		 * Repeats an identical drag event until it stops costing commits, then returns the
+		 * settled count. React's eager same-state bail-out only applies once the fiber carries
+		 * no lanes from the previous render, so the first stationary event after a real change
+		 * still renders once — this reaches the steady state that must then be free.
+		 */
+		async function holdStill(read: () => number, fire: () => void): Promise<number> {
+			for (let warmUp = 0; warmUp < 4; warmUp++) {
+				const before = read();
+				fire();
+				await settled(read);
+
+				if (read() === before) {
+					break;
+				}
+			}
+
+			return read();
+		}
+
 		async function dragOnto(source: HTMLElement, target: HTMLElement, fraction: number): Promise<void> {
 			const dataTransfer = startDrag(source);
 			await nextFrame();
@@ -770,6 +1309,65 @@ describe("com.mgmtp.a12.widgets.data-tree-table — drag and drop", () => {
 			fireEvent.drop(target, { dataTransfer, clientX, clientY });
 			fireEvent.dragEnd(source, { dataTransfer });
 		}
+
+		test("holding the pointer still over a row commits nothing; moving it commits again", async () => {
+			// `onDrag` fires from every `dragover`, and the browser re-fires `dragover` on a timer
+			// while the pointer is held still — the hovered row's indicator state must compare
+			// equal placements or a motionless hover repaints it several times a second.
+			let commits = 0;
+			const { container } = render(
+				<Profiler
+					id="data-tree-table"
+					onRender={(): void => {
+						commits++;
+					}}
+				>
+					<DataTreeTable
+						tree={TREE}
+						columns={COLUMNS}
+						rowKey="id"
+						defaultExpandAll
+						dragDropOptions={{ onDrop: vi.fn(), canDrop: () => true }}
+						ariaLabel="Still hover"
+					/>
+				</Profiler>
+			);
+
+			// Let the table's own measurement commits finish first; one landing late, inside the
+			// motionless window below, would be counted against the drag.
+			await settled(() => commits);
+
+			const rows = bodyRows(container);
+			const target = rows[1];
+			const dataTransfer = startDrag(rows[0]);
+
+			try {
+				await nextFrame();
+
+				const rect = target.getBoundingClientRect();
+				const still = { clientX: rect.left + rect.width * 0.7, clientY: rect.top + rect.height * 0.05 };
+				const moved = { clientX: still.clientX, clientY: rect.top + rect.height * 0.9 };
+
+				fireEvent.dragEnter(target, { dataTransfer, ...still });
+				const beforeStill = await holdStill(
+					() => commits,
+					() => fireEvent.dragOver(target, { dataTransfer, ...still })
+				);
+
+				for (let repeat = 0; repeat < 5; repeat++) {
+					fireEvent.dragOver(target, { dataTransfer, ...still });
+					await nextFrame();
+				}
+
+				expect(commits).toBe(beforeStill);
+
+				// A real move to the opposite edge flips the indicator, which must still commit.
+				fireEvent.dragOver(target, { dataTransfer, ...moved });
+				await vi.waitFor(() => expect(commits).toBeGreaterThan(beforeStill));
+			} finally {
+				fireEvent.dragEnd(rows[0], { dataTransfer });
+			}
+		});
 
 		test("rows are draggable only when dragDropOptions is provided", () => {
 			const withDnd = render(
@@ -989,6 +1587,336 @@ describe("com.mgmtp.a12.widgets.data-tree-table — drag and drop", () => {
 
 			fireEvent.dragEnd(rows[1], { dataTransfer });
 		});
+
+		// Root drop zone: the viewport's empty area below the `<table>` (only there when the table is
+		// shorter than its bounded height) accepts a drop that moves the row to the top level.
+		describe("root drop zone", () => {
+			const A1 = TREE[0].children![0]; // File A1
+
+			function renderRootDnd(options: DataTreeTableProps<Row>["dragDropOptions"]): {
+				container: HTMLElement;
+				rows: HTMLElement[];
+				viewport: HTMLElement;
+			} {
+				const { container } = render(
+					<div style={{ height: 320 }}>
+						<DataTreeTable
+							tree={TREE}
+							columns={COLUMNS}
+							rowKey="id"
+							defaultExpandAll
+							dragDropOptions={options}
+							ariaLabel="DnD root"
+						/>
+					</div>
+				);
+
+				return { container, rows: bodyRows(container), viewport: getByDataRole(container, DataRoles.Table.Viewport) }; // a(0), a1(1), a2(2), b(3)
+			}
+
+			/** Starts dragging `source` and hovers the viewport's empty area below the `<table>`. */
+			async function hoverBelowRows(
+				container: HTMLElement,
+				source: HTMLElement
+			): Promise<{ dataTransfer: DataTransfer; point: { clientX: number; clientY: number } }> {
+				const viewport = getByDataRole(container, DataRoles.Table.Viewport);
+				const table = getByDataRole(container, DataRoles.Table);
+				const dataTransfer = startDrag(source);
+				await nextFrame();
+
+				const point = {
+					clientX: viewport.getBoundingClientRect().left + 20,
+					clientY: table.getBoundingClientRect().bottom + 20
+				};
+
+				// The empty area is real: the viewport reaches further down than the table.
+				expect(point.clientY).toBeLessThan(viewport.getBoundingClientRect().bottom);
+
+				fireEvent.dragEnter(viewport, { dataTransfer, ...point });
+				fireEvent.dragOver(viewport, { dataTransfer, ...point });
+
+				return { dataTransfer, point };
+			}
+
+			test("dropping on the empty area below the last row reports onDropToRoot, not onDrop", async () => {
+				const onDrop = vi.fn();
+				const onDropToRoot = vi.fn();
+				const { container, rows, viewport } = renderRootDnd({ onDrop, onDropToRoot });
+
+				const { dataTransfer, point } = await hoverBelowRows(container, rows[1]); // File A1
+
+				await vi.waitFor(() => expect(viewport.getAttribute("data-drop-target")).toBe("droppable"));
+
+				fireEvent.drop(viewport, { dataTransfer, ...point });
+				fireEvent.dragEnd(rows[1], { dataTransfer });
+
+				expect(onDropToRoot).toHaveBeenCalledTimes(1);
+				expect(onDropToRoot.mock.calls[0][0]).toEqual({ source: A1 });
+				expect(onDrop).not.toHaveBeenCalled();
+				// Feedback is cleared once the drop completes.
+				expect(viewport.getAttribute("data-drop-target")).toBeNull();
+			});
+
+			test("the zone is armed only while onDropToRoot is provided", async () => {
+				const onDrop = vi.fn();
+				const { container, rows, viewport } = renderRootDnd({ onDrop });
+
+				const { dataTransfer, point } = await hoverBelowRows(container, rows[1]);
+				await nextFrame();
+
+				expect(viewport.getAttribute("data-drop-target")).toBeNull();
+
+				fireEvent.drop(viewport, { dataTransfer, ...point });
+				fireEvent.dragEnd(rows[1], { dataTransfer });
+
+				expect(onDrop).not.toHaveBeenCalled();
+			});
+
+			test("canDropToRoot:false shows the forbidden zone and blocks the drop", async () => {
+				const onDropToRoot = vi.fn();
+				const { container, rows, viewport } = renderRootDnd({ onDropToRoot, canDropToRoot: () => false });
+
+				const { dataTransfer, point } = await hoverBelowRows(container, rows[1]);
+
+				await vi.waitFor(() => expect(viewport.getAttribute("data-drop-target")).toBe("forbidden"));
+
+				fireEvent.drop(viewport, { dataTransfer, ...point });
+				fireEvent.dragEnd(rows[1], { dataTransfer });
+
+				expect(onDropToRoot).not.toHaveBeenCalled();
+				expect(viewport.getAttribute("data-drop-target")).toBeNull();
+			});
+
+			test("hovering the header never arms the zone", async () => {
+				const onDropToRoot = vi.fn();
+				const { container, rows, viewport } = renderRootDnd({ onDropToRoot });
+				const headerCell = getAllByDataRole(container, DataRoles.Table.Header.Cell)[0];
+
+				const dataTransfer = startDrag(rows[1]);
+				await nextFrame();
+
+				const rect = headerCell.getBoundingClientRect();
+				const point = { clientX: rect.left + rect.width / 2, clientY: rect.top + rect.height / 2 };
+
+				fireEvent.dragEnter(headerCell, { dataTransfer, ...point });
+				fireEvent.dragOver(headerCell, { dataTransfer, ...point });
+				await nextFrame();
+
+				expect(viewport.getAttribute("data-drop-target")).toBeNull();
+
+				fireEvent.drop(headerCell, { dataTransfer, ...point });
+				fireEvent.dragEnd(rows[1], { dataTransfer });
+
+				expect(onDropToRoot).not.toHaveBeenCalled();
+			});
+		});
+
+		// Tree-aware keyboard grab-and-move: Space grabs the focused row, arrows reorder it (↑/↓ among
+		// siblings, Home/End to the ends, → nests, ← outdents), Space/Enter drop, Escape cancels. Each move
+		// fires the same `onDrop` a pointer drop would and announces through the tree's live region.
+		describe("keyboard grab-and-move", () => {
+			const A1 = TREE[0].children![0]; // File A1
+			const A2 = TREE[0].children![1]; // File A2
+
+			function renderKbd(options: Parameters<typeof DataTreeTable<Row>>[0]["dragDropOptions"]): {
+				container: HTMLElement;
+				rows: HTMLElement[];
+			} {
+				const { container } = render(
+					<DataTreeTable
+						tree={TREE}
+						columns={COLUMNS}
+						rowKey="id"
+						defaultExpandAll
+						dragDropOptions={options}
+						ariaLabel="DnD kbd"
+					/>
+				);
+
+				return { container, rows: bodyRows(container) }; // a(0), a1(1), a2(2), b(3)
+			}
+
+			function liveText(container: HTMLElement): string {
+				return getByDataRole(container, DataRoles.TreeTable.A11yLiveRegion).textContent ?? "";
+			}
+
+			test("Space grabs (announcing instructions); ArrowDown reorders down as a sibling ('after')", async () => {
+				const onDrop = vi.fn();
+				const { container, rows } = renderKbd({ onDrop, canDrop: () => true });
+
+				rows[1].focus(); // File A1 (first child of Folder A)
+				await userEvent.keyboard(" ");
+				expect(liveText(container)).toMatch(/grabbed/i);
+
+				await userEvent.keyboard("{ArrowDown}");
+				expect(onDrop).toHaveBeenCalledTimes(1);
+				expect(onDrop.mock.calls[0][0]).toMatchObject({ source: A1, target: A2, position: "after" });
+				expect(liveText(container)).toMatch(/moved to position/i);
+			});
+
+			test("ArrowUp reorders up as a sibling ('before')", async () => {
+				const onDrop = vi.fn();
+				const { rows } = renderKbd({ onDrop, canDrop: () => true });
+
+				rows[2].focus(); // File A2
+				await userEvent.keyboard(" ");
+				await userEvent.keyboard("{ArrowUp}");
+
+				expect(onDrop).toHaveBeenCalledTimes(1);
+				expect(onDrop.mock.calls[0][0]).toMatchObject({ source: A2, target: A1, position: "before" });
+			});
+
+			test("ArrowRight nests under the preceding sibling ('inside')", async () => {
+				const onDrop = vi.fn();
+				const { rows } = renderKbd({ onDrop, canDrop: () => true });
+
+				rows[2].focus(); // File A2
+				await userEvent.keyboard(" ");
+				await userEvent.keyboard("{ArrowRight}");
+
+				expect(onDrop).toHaveBeenCalledTimes(1);
+				expect(onDrop.mock.calls[0][0]).toMatchObject({ source: A2, target: A1, position: "inside" });
+			});
+
+			test("ArrowLeft outdents to the parent's level ('after' the parent)", async () => {
+				const onDrop = vi.fn();
+				const { rows } = renderKbd({ onDrop, canDrop: () => true });
+
+				rows[1].focus(); // File A1
+				await userEvent.keyboard(" ");
+				await userEvent.keyboard("{ArrowLeft}");
+
+				expect(onDrop).toHaveBeenCalledTimes(1);
+				expect(onDrop.mock.calls[0][0]).toMatchObject({ source: A1, target: TREE[0], position: "after" });
+			});
+
+			test("Escape cancels the grab: no move, and a subsequent arrow just navigates", async () => {
+				const onDrop = vi.fn();
+				const { container, rows } = renderKbd({ onDrop, canDrop: () => true });
+
+				rows[1].focus();
+				await userEvent.keyboard(" ");
+				await userEvent.keyboard("{Escape}");
+				expect(liveText(container)).toMatch(/cancel/i);
+
+				await userEvent.keyboard("{ArrowDown}");
+				expect(onDrop).not.toHaveBeenCalled();
+				expect(document.activeElement).toBe(rows[2]); // focus moved, not grabbed
+			});
+
+			// The grab stops propagation, so by default a consumer's own Space shortcut never sees the press.
+			function renderKbdWithConsumerKeys(
+				options: Parameters<typeof DataTreeTable<Row>>[0]["dragDropOptions"],
+				onConsumerKeyDown: (event: ReactKeyboardEvent<HTMLElement>) => void
+			): { container: HTMLElement; rows: HTMLElement[] } {
+				const { container } = render(
+					<div onKeyDown={onConsumerKeyDown}>
+						<DataTreeTable
+							tree={TREE}
+							columns={COLUMNS}
+							rowKey="id"
+							defaultExpandAll
+							dragDropOptions={options}
+							ariaLabel="DnD kbd grab key"
+						/>
+					</div>
+				);
+
+				return { container, rows: bodyRows(container) };
+			}
+
+			test("the default grab swallows Space before a consumer's own row shortcut sees it", async () => {
+				const onConsumerKeyDown = vi.fn();
+				const { container, rows } = renderKbdWithConsumerKeys({ onDrop: vi.fn() }, onConsumerKeyDown);
+
+				rows[1].focus();
+				await userEvent.keyboard(" ");
+
+				expect(liveText(container)).toMatch(/grabbed/i);
+				expect(onConsumerKeyDown).not.toHaveBeenCalled();
+			});
+
+			test("keyboardGrabKey:false never grabs and hands Space back to the consumer", async () => {
+				const onDrop = vi.fn();
+				const onConsumerKeyDown = vi.fn();
+				const { container, rows } = renderKbdWithConsumerKeys({ onDrop, keyboardGrabKey: false }, onConsumerKeyDown);
+
+				rows[1].focus();
+				await userEvent.keyboard(" ");
+
+				expect(liveText(container)).not.toMatch(/grabbed/i);
+				expect(onConsumerKeyDown).toHaveBeenCalledTimes(1);
+
+				// Nothing is grabbed, so the arrow navigates instead of reordering.
+				await userEvent.keyboard("{ArrowDown}");
+				expect(onDrop).not.toHaveBeenCalled();
+				expect(document.activeElement).toBe(rows[2]);
+			});
+
+			test("canDrag:false prevents grabbing (no announcement, no move)", async () => {
+				const onDrop = vi.fn();
+				const { container, rows } = renderKbd({ onDrop, canDrag: () => false });
+
+				rows[1].focus();
+				await userEvent.keyboard(" ");
+				expect(liveText(container)).not.toMatch(/grabbed/i);
+
+				await userEvent.keyboard("{ArrowDown}");
+				expect(onDrop).not.toHaveBeenCalled();
+			});
+
+			test("consecutive grabbed moves keep operating on the same node (controlled reorder)", async () => {
+				const onDrop = vi.fn();
+
+				function Harness(): ReactElement {
+					const [tree, setTree] = useState<Row[]>([
+						{ id: "a", name: "A", size: "1 MB" },
+						{ id: "b", name: "B", size: "2 MB" },
+						{ id: "c", name: "C", size: "3 MB" }
+					]);
+
+					return (
+						<DataTreeTable
+							tree={tree}
+							columns={COLUMNS}
+							rowKey="id"
+							defaultExpandAll
+							ariaLabel="controlled reorder"
+							dragDropOptions={{
+								canDrop: () => true,
+								onDrop: (params) => {
+									onDrop(params);
+									setTree((prev) => {
+										const next = prev.filter((r) => r.id !== params.source.id);
+										const idx = next.findIndex((r) => r.id === params.target.id);
+										next.splice(params.position === "after" ? idx + 1 : idx, 0, params.source);
+
+										return next;
+									});
+								}
+							}}
+						/>
+					);
+				}
+
+				const { container } = render(<Harness />);
+				bodyRows(container)[0].focus(); // A
+
+				// Grab A, move it down past B: order becomes B, A, C.
+				await userEvent.keyboard(" ");
+				await userEvent.keyboard("{ArrowDown}");
+				await vi.waitFor(() => expect(onDrop).toHaveBeenCalledTimes(1));
+				// The moved row is refocused at its new slot so the next press keeps moving A (not B).
+				await vi.waitFor(() => expect(document.activeElement?.textContent).toContain("A"));
+
+				// A second ArrowDown moves A past C (using A's NEW position): order becomes B, C, A.
+				await userEvent.keyboard("{ArrowDown}");
+				await vi.waitFor(() => expect(onDrop).toHaveBeenCalledTimes(2));
+
+				expect(onDrop.mock.calls[0][0]).toMatchObject({ source: { id: "a" }, target: { id: "b" }, position: "after" });
+				expect(onDrop.mock.calls[1][0]).toMatchObject({ source: { id: "a" }, target: { id: "c" }, position: "after" });
+			});
+		});
 	});
 
 	// Regression: DataTreeTable re-clones columns every render to inject the tree affordances, which
@@ -1015,7 +1943,10 @@ describe("com.mgmtp.a12.widgets.data-tree-table — drag and drop", () => {
 					tree={TREE}
 					columns={SORTABLE_COLUMNS}
 					rowKey="id"
-					sortOptions={{ sortState: [{ columnId: "name", order: "asc" }], onSort: vi.fn() }}
+					sortOptions={{
+						sortState: [{ columnId: "name", order: "asc" }],
+						onSort: vi.fn()
+					}}
 				/>
 			);
 
@@ -1048,5 +1979,84 @@ describe("com.mgmtp.a12.widgets.data-tree-table — drag and drop", () => {
 			await userEvent.click(headCell(container, "Name"));
 			expect(headCell(container, "Name").getAttribute("aria-sort")).toBe("none");
 		});
+	});
+});
+
+describe("com.mgmtp.a12.widgets.data-tree-table — action column auto-size", () => {
+	// Tree column + a width-less action column holding `buttonCount` buttons. The
+	// auto-size machinery flows through the DataTable wrapper unchanged.
+	const treeAutoSizeColumns = (buttonCount: number): DataTableColumn<Row>[] => [
+		{ label: "Name", dataKey: "name" },
+		{
+			label: "",
+			actionColumn: true,
+			hiddenText: "Actions",
+			renderCell: (): ReactElement => (
+				<>
+					{Array.from({ length: buttonCount }, (_, i) => (
+						<button key={i} type="button">
+							Action {i + 1}
+						</button>
+					))}
+				</>
+			)
+		}
+	];
+
+	// Two leaves: Name (0) and the action column (1) → `--a12-col-1-width`.
+	const actionWidth = (container: HTMLElement): number => {
+		const table = container.querySelector("table") as HTMLTableElement;
+
+		return parseFloat(table.style.getPropertyValue("--a12-col-1-width"));
+	};
+
+	test("auto-sizes a width-less action column for a nested tree", async () => {
+		const { container: c1 } = render(
+			<DataTreeTable tree={TREE} columns={treeAutoSizeColumns(1)} rowKey="id" defaultExpandAll ariaLabel="One" />
+		);
+		const { container: c3 } = render(
+			<DataTreeTable tree={TREE} columns={treeAutoSizeColumns(3)} rowKey="id" defaultExpandAll ariaLabel="Three" />
+		);
+
+		await vi.waitFor(() => {
+			expect(actionWidth(c1)).toBeGreaterThan(0);
+			expect(actionWidth(c3)).toBeGreaterThan(actionWidth(c1));
+		});
+	});
+
+	test("auto-sizes a width-less action column for a flat adjacency list", async () => {
+		const flat: Row[] = [
+			{ id: "a", name: "Folder A", size: "10 MB" },
+			{ id: "a1", name: "File A1", size: "1 MB" }
+		];
+		const { container } = render(
+			<DataTreeTable
+				data={flat}
+				getParentId={(row) => (row.id === "a1" ? "a" : undefined)}
+				columns={treeAutoSizeColumns(3)}
+				rowKey="id"
+				defaultExpandAll
+				ariaLabel="Flat tree auto-size"
+			/>
+		);
+
+		await vi.waitFor(() => {
+			expect(actionWidth(container)).toBeGreaterThan(0);
+		});
+	});
+
+	test("actionColumnAutoSize=false opts the tree-table out", () => {
+		const { container } = render(
+			<DataTreeTable
+				tree={TREE}
+				columns={treeAutoSizeColumns(3)}
+				rowKey="id"
+				defaultExpandAll
+				actionColumnAutoSize={false}
+				ariaLabel="Opt out"
+			/>
+		);
+		const table = container.querySelector("table") as HTMLTableElement;
+		expect(table.style.getPropertyValue("--a12-col-1-width")).toBe("");
 	});
 });

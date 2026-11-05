@@ -39,24 +39,47 @@ const meta: Meta<typeof FilterBar> = {
 	title: "Business Case/FacetedSearch",
 	component: FilterBar,
 	parameters: {
-		layout: "padded",
-		docs: {
-			description: {
-				component:
-					"FacetedSearch provides filter chips (Filter), a responsive container (FilterBar), and a filter picker panel (FilterSelector). FilterBar collapses filters that overflow the available width into a '+N more' button."
-			}
-		}
+		layout: "padded"
 	},
-	tags: ["autodocs"]
+	argTypes: {
+		initialCollapsed: {
+			control: "boolean",
+			description: "Specifies whether the Filter Bar is collapsed to a single row initially"
+		},
+		disabled: {
+			control: "boolean",
+			description: "Disables the Filter Bar and all contained filters"
+		},
+		compact: {
+			control: "boolean",
+			description: "Hides the action area (expand/collapse button) and keeps the bar collapsed"
+		},
+		actions: {
+			control: false,
+			description: "Custom actions placed at the end of the bar"
+		},
+		onHiddenFiltersChange: {
+			control: false,
+			description: "Callback fired with the indices of filters hidden by the responsive behavior"
+		},
+		children: {
+			control: false,
+			description: "The Filter chips to display"
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	name: "Basic Filter Bar",
-	render: () => (
-		<FilterBar>
+export const Playground: Story = {
+	args: {
+		initialCollapsed: false,
+		disabled: false,
+		compact: false
+	},
+	render: (args) => (
+		<FilterBar {...args}>
 			<Filter name="Status: Active" active onClose={() => {}} />
 			<Filter name="Category: Design" onClose={() => {}} />
 			<Filter name="Priority: High" onClose={() => {}} />
@@ -66,112 +89,74 @@ export const Default: Story = {
 		docs: {
 			description: {
 				story:
-					"FilterBar containing Filter chips. Active filters have a highlighted left border; inactive filters are dimmed. Use onClose to allow removal."
+					"A `FilterBar` containing `Filter` chips. `active` filters have a highlighted left border; inactive filters are dimmed. Use the controls to explore the `FilterBar` props."
 			}
 		}
 	}
 };
 
-export const BasicFilterBar: Story = {
-	render: () => {
-		const BasicFilterBarExample = () => {
-			const [activeFilters, setActiveFilters] = useState<string[]>(["status"]);
+export const Interactive: Story = {
+	render: function InteractiveExample() {
+		const [activeFilters, setActiveFilters] = useState<string[]>(["status"]);
 
-			const toggleFilter = (id: string) => {
-				setActiveFilters((prev) => (prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]));
-			};
-
-			const removeFilter = (id: string) => {
-				setActiveFilters((prev) => prev.filter((f) => f !== id));
-			};
-
-			const filters = [
-				{ id: "status", name: "Status: Active" },
-				{ id: "category", name: "Category: Design" },
-				{ id: "assignee", name: "Assignee: Alice" },
-				{ id: "priority", name: "Priority: High" }
-			];
-
-			return (
-				<FilterBar
-					actions={
-						<Button onClick={() => setActiveFilters([])} secondary>
-							Clear all
-						</Button>
-					}
-				>
-					{filters
-						.filter((f) => activeFilters.includes(f.id))
-						.map((filter) => (
-							<Filter
-								key={filter.id}
-								name={filter.name}
-								active
-								onClick={() => toggleFilter(filter.id)}
-								onClose={() => removeFilter(filter.id)}
-							/>
-						))}
-					{filters
-						.filter((f) => !activeFilters.includes(f.id))
-						.map((filter) => (
-							<Filter
-								key={filter.id}
-								name={filter.name}
-								onClick={() => toggleFilter(filter.id)}
-								onClose={() => removeFilter(filter.id)}
-							/>
-						))}
-				</FilterBar>
-			);
+		const toggleFilter = (id: string) => {
+			setActiveFilters((prev) => (prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]));
 		};
 
-		return <BasicFilterBarExample />;
+		const removeFilter = (id: string) => {
+			setActiveFilters((prev) => prev.filter((f) => f !== id));
+		};
+
+		const filters = [
+			{ id: "status", name: "Status: Active" },
+			{ id: "category", name: "Category: Design" },
+			{ id: "assignee", name: "Assignee: Alice" },
+			{ id: "priority", name: "Priority: High" }
+		];
+
+		return (
+			<FilterBar
+				actions={
+					<Button onClick={() => setActiveFilters([])} secondary>
+						Clear all
+					</Button>
+				}
+			>
+				{filters
+					.filter((f) => activeFilters.includes(f.id))
+					.map((filter) => (
+						<Filter
+							key={filter.id}
+							name={filter.name}
+							active
+							onClick={() => toggleFilter(filter.id)}
+							onClose={() => removeFilter(filter.id)}
+						/>
+					))}
+				{filters
+					.filter((f) => !activeFilters.includes(f.id))
+					.map((filter) => (
+						<Filter
+							key={filter.id}
+							name={filter.name}
+							onClick={() => toggleFilter(filter.id)}
+							onClose={() => removeFilter(filter.id)}
+						/>
+					))}
+			</FilterBar>
+		);
 	},
 	parameters: {
 		docs: {
 			description: {
 				story:
-					"FilterBar with active and inactive Filter chips. Click a filter to toggle its active state. Click × to remove it."
+					"FilterBar with active and inactive Filter chips and a custom `actions` element. Click a filter to toggle its `active` state, click × (`onClose`) to remove it, or use 'Clear all' to deactivate everything."
 			}
 		}
 	}
 };
 
-export const CompactMode: Story = {
-	render: () => (
-		<FilterBar compact>
-			<Filter name="Status: Open" active compact onClose={() => {}} />
-			<Filter name="Type: Bug" compact onClose={() => {}} />
-			<Filter name="Sprint: Current" compact onClose={() => {}} />
-		</FilterBar>
-	),
-	parameters: {
-		docs: {
-			description: {
-				story: "FilterBar and Filter in compact mode for dense layouts."
-			}
-		}
-	}
-};
-
-export const DisabledState: Story = {
-	render: () => (
-		<FilterBar disabled>
-			<Filter name="Status: Active" active disabled onClose={() => {}} />
-			<Filter name="Priority: High" disabled onClose={() => {}} />
-		</FilterBar>
-	),
-	parameters: {
-		docs: {
-			description: {
-				story: "Disabled FilterBar and filters — no interaction possible."
-			}
-		}
-	}
-};
-
-export const FilterWithOptions: Story = {
-	name: "Filter with Options",
+export const WithOptions: Story = {
 	render: () => (
 		<FilterBar>
 			<Filter name="Language" active options="English, German" separator=" / " onClose={() => {}} />
@@ -192,7 +177,48 @@ export const FilterWithOptions: Story = {
 		docs: {
 			description: {
 				story:
-					"Use the options prop to display the current filter value inside the chip. Use separator to join multiple option values. The options can be a string or ReactNode."
+					"Use the `options` prop to display the current filter value inside the chip. Use `separator` to join multiple option values. The options can be a string or ReactNode."
+			}
+		}
+	}
+};
+
+export const Compact: Story = {
+	render: () => (
+		<FilterBar compact>
+			<Filter name="Status" options="Open" active compact onClose={() => {}} />
+			<Filter name="Type" options="Bug" compact onClose={() => {}} />
+			<Filter name="Sprint" options="Current" compact onClose={() => {}} />
+		</FilterBar>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`compact` on `FilterBar` hides the action area and keeps the bar collapsed. `compact` on a `Filter` with `options` shows only the option values and moves the filter name into a tooltip."
+			}
+		}
+	}
+};
+
+export const Overflow: Story = {
+	render: () => (
+		<div style={{ maxWidth: "480px" }}>
+			<FilterBar initialCollapsed>
+				<Filter name="Status: Active" active onClose={() => {}} />
+				<Filter name="Category: Design" active onClose={() => {}} />
+				<Filter name="Assignee: Alice" active onClose={() => {}} />
+				<Filter name="Priority: High" active onClose={() => {}} />
+				<Filter name="Sprint: Current" active onClose={() => {}} />
+				<Filter name="Type: Bug" active onClose={() => {}} />
+			</FilterBar>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"When filters do not fit into a single row, the collapsed FilterBar hides the overflowing chips and shows an expand/collapse arrow button. `initialCollapsed` starts the bar collapsed; `onHiddenFiltersChange` reports the indices of the hidden filters."
 			}
 		}
 	}
@@ -211,7 +237,23 @@ export const NonRemovable: Story = {
 		docs: {
 			description: {
 				story:
-					"Set nonRemovable on a Filter to hide its close button. Use this for mandatory filters that cannot be removed by the user, such as tenant or role restrictions."
+					"Set `nonRemovable` on a `Filter` to hide its close button. Use this for mandatory filters that cannot be removed by the user, such as tenant or role restrictions."
+			}
+		}
+	}
+};
+
+export const Disabled: Story = {
+	render: () => (
+		<FilterBar disabled>
+			<Filter name="Status: Active" active disabled onClose={() => {}} />
+			<Filter name="Priority: High" disabled onClose={() => {}} />
+		</FilterBar>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`disabled` on `FilterBar` and `Filter` prevents all interaction with the bar and its chips."
 			}
 		}
 	}

@@ -426,10 +426,31 @@ export interface TableTitles {
 	emptyStateLabel?: string;
 
 	/**
-	 * Default fallback aria-label for an action column whose definition doesn't supply
-	 * a `label` or `hiddenText`. Used by DataTable.
+	 * Accessible title for the state badge shown on a disabled row's first cell. Used by DataTable.
 	 */
-	actionColumnDefaultLabel?: string;
+	rowDisabledBadgeLabel?: string;
+
+	/**
+	 * Accessible title for the state badge shown on a success-highlighted row's first cell. Used by DataTable.
+	 */
+	rowSuccessBadgeLabel?: string;
+
+	/**
+	 * Accessible title for the state badge shown on an info-highlighted row's first cell. Used by DataTable.
+	 */
+	rowInfoBadgeLabel?: string;
+
+	/**
+	 * Announced state of an expandable row whose additional content is showing. Used by DataTable's
+	 * card view, where the card is a `listitem` and cannot carry `aria-expanded`.
+	 */
+	rowExpandedLabel?: string;
+
+	/**
+	 * Announced state of an expandable row whose additional content is hidden. Used by DataTable's
+	 * card view, where the card is a `listitem` and cannot carry `aria-expanded`.
+	 */
+	rowCollapsedLabel?: string;
 }
 
 export interface HeaderTriggerTitles {
@@ -525,6 +546,29 @@ export interface ContentboxTitles {
 	combinationMenuTriggerClose?: string;
 }
 
+export interface ColumnVisibilityPanelTitles {
+	/** The panel's title, which is also the accessible name of its dialog. */
+	title?: string;
+
+	/** The label of the action that restores the columns' default visibility. */
+	resetAction?: string;
+
+	/** The tooltip of the close button shown in the modal presentation. */
+	closeButton?: string;
+
+	/** The label of the action that shows every listed column. */
+	showAllAction?: string;
+
+	/** The placeholder and hidden label of the search field. */
+	searchPlaceholder?: string;
+
+	/** The tooltip of the button that clears the search field. */
+	clearSearchButton?: string;
+
+	/** The message shown when the search matches no column. */
+	noResults?: string;
+}
+
 export interface ModalNotificationTitles {
 	infoTitle?: string;
 	successTitle?: string;
@@ -600,6 +644,122 @@ export interface TreeTableTitles {
 	treeTableLabel?: string;
 }
 
+/**
+ * Accessible names for the markdown editor.
+ *
+ * An extension adds its own strings by merging an object into this interface,
+ * named after the extension:
+ *
+ * ```ts
+ * declare module "@com.mgmtp.a12.widgets/widgets-core" {
+ *   interface MarkdownEditorTitles {
+ *     infoPanel?: { warning?: string };
+ *   }
+ * }
+ *
+ * mergeA11yResource({
+ *   en: { markdownEditorTitles: { infoPanel: { warning: "Finding" } } },
+ *   de: { markdownEditorTitles: { infoPanel: { warning: "Feststellung" } } }
+ * });
+ * ```
+ *
+ * The extension then reads `markdownEditorTitles.infoPanel` and falls back to its own
+ * defaults for anything not supplied. Naming the object after the extension is what
+ * keeps two of them apart when both want a `remove` string.
+ *
+ * Extensions that ship inside the library augment the module they sit next to instead
+ * of the package name — see `getInfoPanelTitles` for how that looks.
+ */
+export interface MarkdownEditorTitles {
+	/** Accessible label of the formatting toolbar. */
+	toolbarLabel?: string;
+
+	/** History buttons. */
+	undo?: string;
+	redo?: string;
+
+	/** Inline formatting buttons. */
+	bold?: string;
+	italic?: string;
+	strikethrough?: string;
+	underline?: string;
+	highlight?: string;
+	code?: string;
+	subscript?: string;
+	superscript?: string;
+
+	/** Block-type (heading) menu. */
+	headingMenu?: string;
+	paragraph?: string;
+	heading1?: string;
+	heading2?: string;
+	heading3?: string;
+	heading4?: string;
+	heading5?: string;
+	heading6?: string;
+
+	/** List buttons. */
+	bulletList?: string;
+	orderedList?: string;
+	taskList?: string;
+	indent?: string;
+	outdent?: string;
+
+	/** Insert buttons/menus. */
+	link?: string;
+	image?: string;
+	codeBlockMenu?: string;
+	blockquote?: string;
+	horizontalRule?: string;
+
+	/** Table menu. */
+	tableMenu?: string;
+	insertTable?: string;
+	addRowBefore?: string;
+	addRowAfter?: string;
+	addColumnBefore?: string;
+	addColumnAfter?: string;
+	deleteRow?: string;
+	deleteColumn?: string;
+	alignColumnLeft?: string;
+	alignColumnCenter?: string;
+	alignColumnRight?: string;
+	deleteTable?: string;
+
+	/** Image right-click menu. */
+	editImage?: string;
+	deleteImage?: string;
+
+	/** Mode switcher. */
+	modeSwitcherLabel?: string;
+	modeEdit?: string;
+	modeSource?: string;
+	modeView?: string;
+
+	/** Link dialog. */
+	linkDialogTitle?: string;
+	linkUrlLabel?: string;
+	linkTextLabel?: string;
+	linkSubmit?: string;
+	linkRemove?: string;
+	linkInvalid?: string;
+
+	/** Image dialog. */
+	imageDialogTitle?: string;
+	imageEditDialogTitle?: string;
+	imageSrcLabel?: string;
+	imageAltLabel?: string;
+	imageTitleLabel?: string;
+	imageSubmit?: string;
+	imageUpdate?: string;
+	imageInvalid?: string;
+
+	directiveUnknown?: string;
+
+	/** Shared dialog action. */
+	cancel?: string;
+}
+
 export interface ToggleButtonTitles {
 	selected?: string;
 	overlayTitle?: string;
@@ -636,7 +796,33 @@ export interface AccordionVariantTitles {
 /**
  * Typing for all accessibility related text
  */
+/**
+ * Localized screen-reader announcements for keyboard-accessible drag-and-drop ("grab-and-move").
+ * Shared by DataTable and TreeView: the focused row / node is grabbed, moved with the arrow keys and
+ * dropped — no visible handle. All are live-region messages, not visible labels.
+ */
+export interface DragAndDropTitles {
+	/**
+	 * Announced when an item is grabbed — should tell the user how to move and finish, e.g.
+	 * "Grabbed. Use the arrow keys to move, Space to drop, Escape to cancel."
+	 */
+	grabInstructions?: string;
+
+	/**
+	 * Announced after each keyboard move. Supports `{position}` and `{total}` placeholders, e.g.
+	 * "Moved to position {position} of {total}".
+	 */
+	movedAnnouncement?: string;
+
+	/** Announced when an item is dropped (grab released with Space / Enter). */
+	dropped?: string;
+
+	/** Announced when a grab is cancelled with Escape. */
+	moveCancelled?: string;
+}
+
 export interface A11yDefinition {
+	dragAndDropTitles?: DragAndDropTitles;
 	accordionVariantTitles?: AccordionVariantTitles;
 	applicationFrameTitles?: ApplicationFrameTitles;
 	tooltipTitles?: TooltipTitles;
@@ -672,12 +858,14 @@ export interface A11yDefinition {
 	baseInputTitles?: BaseInputTitles;
 	progressIndicatorTitles?: ProgressIndicatorTitles;
 	contentboxTitles?: ContentboxTitles;
+	columnVisibilityPanelTitles?: ColumnVisibilityPanelTitles;
 	modalNotificationTitles?: ModalNotificationTitles;
 	listTitles?: ListTitles;
 	badgeTitles?: BadgeTitles;
 	typographyTitles?: TypographyTitles;
 	accordionTitles?: AccordionTitles;
 	pluginEditorTitles?: PluginEditorTitles;
+	markdownEditorTitles?: MarkdownEditorTitles;
 	treeTableTitles?: TreeTableTitles;
 	toggleButtonTitles?: ToggleButtonTitles;
 	tabPanelTitles?: TabPanelTitles;

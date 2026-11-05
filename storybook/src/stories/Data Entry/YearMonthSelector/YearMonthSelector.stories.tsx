@@ -34,7 +34,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { fn } from "storybook/test";
 
-import { YearMonthSelector } from "@com.mgmtp.a12.widgets/widgets-core";
+import { HintTooltip, YearMonthSelector } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const meta: Meta<typeof YearMonthSelector> = {
 	title: "Data Entry/YearMonthSelector",
@@ -42,14 +42,13 @@ const meta: Meta<typeof YearMonthSelector> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		year: {
 			control: "number",
 			description: "The currently selected year"
 		},
 		month: {
-			control: "number",
+			control: { type: "number", min: 0, max: 11 },
 			description: "The currently selected month (0–11, where 0 = January)"
 		},
 		months: {
@@ -58,7 +57,17 @@ const meta: Meta<typeof YearMonthSelector> = {
 		},
 		yearRange: {
 			control: "object",
-			description: "Override for the available year range ({ start, end })"
+			description:
+				"Range of selectable years — absolute (`{ start, end }`) or relative offsets (`{ startOffset, endOffset }`)"
+		},
+		yearSelectorVariant: {
+			control: "select",
+			options: ["autocomplete", "select", "textbox"],
+			description: "Rendering mode of the embedded year selector. Auto-detected when omitted."
+		},
+		yearPlaceholder: {
+			control: "text",
+			description: "Placeholder text shown in the year selector when no year is selected"
 		},
 		disabled: {
 			control: "boolean",
@@ -68,10 +77,30 @@ const meta: Meta<typeof YearMonthSelector> = {
 			control: "boolean",
 			description: "Whether the selectors are read-only"
 		},
+		error: {
+			control: "boolean",
+			description: "Whether the field is in an error state"
+		},
+		errorMessage: {
+			control: "text",
+			description: "Error message shown below the selectors"
+		},
 		invalidComponent: {
 			control: "select",
 			options: ["year", "month", "both"],
 			description: "Which selector(s) should display as invalid"
+		},
+		messagePosition: {
+			control: "select",
+			options: ["above", "below"],
+			description:
+				'Where the error, warning and info message boxes render: `"above"` (default) between the label and the control, `"below"` directly under the control'
+		},
+		breakTooltipsToNewLine: {
+			control: "select",
+			options: [false, true, "above", "below"],
+			description:
+				'Where tooltips render: `true` / `"above"` on a new line above the whole control, `"below"` on a new line below. Left unset or `false`, the tooltips are delegated into the year selector and render beside its input.'
 		}
 	},
 	args: {
@@ -82,18 +111,10 @@ const meta: Meta<typeof YearMonthSelector> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
-		id: "default-year-month-selector",
+		id: "playground-year-month-selector",
 		label: "Year Month Selector",
-		hiddenLabels: { yearLabel: "Year", monthLabel: "Month" }
-	}
-};
-
-export const WithPreselectedValue: Story = {
-	args: {
-		id: "preselected-year-month-selector",
-		label: "Year Month Selector (pre-selected)",
 		year: 2024,
 		month: 5,
 		hiddenLabels: { yearLabel: "Year", monthLabel: "Month" }
@@ -108,6 +129,14 @@ export const WithCustomMonths: Story = {
 		month: 0,
 		months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 		hiddenLabels: { yearLabel: "Year", monthLabel: "Month" }
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `months` prop replaces the default month names with a custom array of 12 labels — useful for abbreviations or other languages."
+			}
+		}
 	}
 };
 
@@ -119,6 +148,14 @@ export const WithCustomYearRange: Story = {
 		month: 3,
 		yearRange: { start: 2020, end: 2030 },
 		hiddenLabels: { yearLabel: "Year", monthLabel: "Month" }
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`yearRange` restricts the selectable years. Pass absolute bounds (`{ start, end }`) or offsets relative to the selected year (`{ startOffset, endOffset }`)."
+			}
+		}
 	}
 };
 
@@ -130,6 +167,13 @@ export const Disabled: Story = {
 		month: 6,
 		disabled: true,
 		hiddenLabels: { yearLabel: "Year", monthLabel: "Month" }
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`disabled` disables both the year and the month selector. `onValueChange` is not called while disabled."
+			}
+		}
 	}
 };
 
@@ -143,35 +187,94 @@ export const WithValidationError: Story = {
 		errorMessage: "Please select a valid year and month.",
 		invalidComponent: "both",
 		hiddenLabels: { yearLabel: "Year", monthLabel: "Month" }
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`error` and `errorMessage` show a validation error. `invalidComponent` controls whether the `year`, the `month` or `both` selectors are marked invalid."
+			}
+		}
+	}
+};
+
+export const MessagePosition: Story = {
+	args: {
+		id: "year-month-selector-message-position",
+		label: "Year Month Selector",
+		helperText: "Helper text explaining the field",
+		year: 2026,
+		month: 0,
+		error: true,
+		errorMessage: "Please select a valid year and month.",
+		invalidComponent: "both",
+		messagePosition: "below",
+		hiddenLabels: { yearLabel: "Year", monthLabel: "Month" }
+	},
+	parameters: {
+		controls: { include: ["messagePosition"] },
+		docs: {
+			description: {
+				story:
+					'`messagePosition` places the message box relative to the control. This story starts at `"below"`, which renders it directly under the control — switch the control to `"above"` for the default placement between the label and the control.'
+			}
+		}
+	}
+};
+
+export const TooltipPosition: Story = {
+	args: {
+		id: "year-month-selector-tooltip-position",
+		label: "Year Month Selector",
+		helperText: "Helper text explaining the field",
+		year: 2026,
+		month: 0,
+		tooltips: <HintTooltip text="This is a hint" id="year-month-selector-tooltip-position-hint" />,
+		ariaDescribedby: "year-month-selector-tooltip-position-hint",
+		breakTooltipsToNewLine: "below",
+		hiddenLabels: { yearLabel: "Year", monthLabel: "Month" }
+	},
+	parameters: {
+		controls: { include: ["breakTooltipsToNewLine"] },
+		docs: {
+			description: {
+				story:
+					'`breakTooltipsToNewLine` places the tooltips relative to the control. This story starts at `"below"`, which puts them on their own line under the control — switch the control to `false` for the default inline placement beside it, or to `"above"` / `true` for a line above.'
+			}
+		}
 	}
 };
 
 export const Controlled: Story = {
-	render: () => {
-		const ControlledExample = () => {
-			const [month, setMonth] = useState<number | undefined>(new Date().getMonth());
-			const [year, setYear] = useState<number | undefined>(new Date().getFullYear());
+	render: function ControlledExample() {
+		const [month, setMonth] = useState<number | undefined>(new Date().getMonth());
+		const [year, setYear] = useState<number | undefined>(new Date().getFullYear());
 
-			return (
-				<div>
-					<YearMonthSelector
-						id="controlled-year-month-selector"
-						label="Controlled Year Month Selector"
-						year={year}
-						month={month}
-						onValueChange={(m, y) => {
-							setMonth(m);
-							setYear(y);
-						}}
-						hiddenLabels={{ yearLabel: "Year", monthLabel: "Month" }}
-					/>
-					<p style={{ marginTop: 12 }}>
-						Selected: <strong>{year ?? "—"}</strong> / <strong>{month !== undefined ? month + 1 : "—"}</strong>
-					</p>
-				</div>
-			);
-		};
-
-		return <ControlledExample />;
+		return (
+			<div>
+				<YearMonthSelector
+					id="controlled-year-month-selector"
+					label="Controlled Year Month Selector"
+					year={year}
+					month={month}
+					onValueChange={(m, y) => {
+						setMonth(m);
+						setYear(y);
+					}}
+					hiddenLabels={{ yearLabel: "Year", monthLabel: "Month" }}
+				/>
+				<p style={{ marginTop: 12 }}>
+					Selected: <strong>{year ?? "—"}</strong> / <strong>{month !== undefined ? month + 1 : "—"}</strong>
+				</p>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Controlled usage: keep `year` and `month` in state and update them in the `onValueChange(month, year)` callback."
+			}
+		}
 	}
 };

@@ -30,32 +30,32 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import accessibilityDateTimePickerCode from "!./accessibility-date-time-picker.tsx?raw";
+import dateTimePickerInputWithAdditionalPropsCode from "!./date-time-picker-input.additional-props.tsx?raw";
+import dateTimePickerInputContextTimeModeCode from "!./date-time-picker-input.context-time-mode.tsx?raw";
+import dateTimePickerInputCustomFormatCode from "!./date-time-picker-input.custom-format.tsx?raw";
+import dateTimePickerInputWithTimeInputCode from "!./date-time-picker-input.time-input.tsx?raw";
+import dateTimePickerInputWithTimezoneCode from "!./date-time-picker-input.timezone.tsx?raw";
+import simpleDateTimePickerCode from "!./date-time-picker.simple.tsx?raw";
+import dateTimeTimeButtonCode from "!./date-time-picker.time-button.tsx?raw";
+
 import { BulletList, ExternalLink, Link } from "@com.mgmtp.a12.widgets/widgets-core";
 import DateTimePropsAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/date-time-picker/main/date-time-picker.api.json" with { type: "json" };
 import DateTimePickerDialogPropsAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/date-time-picker/main/wrapper/date-time-picker-dialog.api.json" with { type: "json" };
-import DateTimePickerTimeInputAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/date-time-picker/main/wrapper/date-time-picker.time-input.api.json" with { type: "json" };
 import DateTimePickerInputAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/date-time-picker/main/wrapper/date-time-picker-input.api.json" with { type: "json" };
+import DateTimePickerTimeInputAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/date-time-picker/main/wrapper/date-time-picker.time-input.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
 
-import { DateTimePickerInputWithTimezone } from "./date-time-picker-input.timezone.js";
-import { SimpleDateTimePicker } from "./date-time-picker.simple.js";
-import { DateTimeTimeButton } from "./date-time-picker.time-button.js";
-import { DateTimePickerInputWithTimeInput } from "./date-time-picker-input.time-input.js";
+import { AccessibilityDateTimePickerShowcase } from "./accessibility-date-time-picker.js";
 import { DateTimePickerInputWithAdditionalProps } from "./date-time-picker-input.additional-props.js";
 import { DateTimePickerInputContextTimeModeShowcase } from "./date-time-picker-input.context-time-mode.js";
 import { DateTimePickerInputCustomFormat } from "./date-time-picker-input.custom-format.js";
-import { AccessibilityDateTimePickerShowcase } from "./accessibility-date-time-picker.js";
-
-import dateTimePickerInputWithTimezoneCode from "!./date-time-picker-input.timezone.tsx?raw";
-import simpleDateTimePickerCode from "!./date-time-picker.simple.tsx?raw";
-import dateTimeTimeButtonCode from "!./date-time-picker.time-button.tsx?raw";
-import dateTimePickerInputWithTimeInputCode from "!./date-time-picker-input.time-input.tsx?raw";
-import dateTimePickerInputWithAdditionalPropsCode from "!./date-time-picker-input.additional-props.tsx?raw";
-import dateTimePickerInputContextTimeModeCode from "!./date-time-picker-input.context-time-mode.tsx?raw";
-import dateTimePickerInputCustomFormatCode from "!./date-time-picker-input.custom-format.tsx?raw";
-import accessibilityDateTimePickerCode from "!./accessibility-date-time-picker.tsx?raw";
+import { DateTimePickerInputWithTimeInput } from "./date-time-picker-input.time-input.js";
+import { DateTimePickerInputWithTimezone } from "./date-time-picker-input.timezone.js";
+import { SimpleDateTimePicker } from "./date-time-picker.simple.js";
+import { DateTimeTimeButton } from "./date-time-picker.time-button.js";
 
 const showcases: Showcase[] = [
 	{

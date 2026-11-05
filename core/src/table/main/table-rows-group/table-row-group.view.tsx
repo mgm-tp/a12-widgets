@@ -32,14 +32,14 @@
 
 import type { FunctionComponent, ReactNode, ReactElement } from "react";
 import { useRef, useEffect, useMemo } from "react";
-import { styled, useTheme } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { styled, useTheme } from "styled-components";
 
-import { addPrefix } from "../../../common/main/utils.js";
 import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
-
-import { TableTemplate } from "../template/index.js";
+import { addPrefix } from "../../../common/main/utils.js";
 import type { TableComponentRenderers, TableRenderPropsType } from "../table-renderer.api.js";
+import { useTableContext } from "../table.context.js";
+import { RowGroupHeader } from "../table.row-group-header.view.js";
 import {
 	flattenRowsGroup,
 	TableInternalUtils,
@@ -51,8 +51,7 @@ import {
 	isRowGroup
 } from "../table.utils.js";
 import { Table, DefaultTableComponentRenderers } from "../table.view.js";
-import { useTableContext } from "../table.context.js";
-import { RowGroupHeader } from "../table.row-group-header.view.js";
+import { TableTemplate } from "../template/index.js";
 
 import type {
 	BaseTableRowsGroupColumnType,

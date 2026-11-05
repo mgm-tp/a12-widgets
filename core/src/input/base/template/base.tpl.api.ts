@@ -40,6 +40,21 @@ import type { ReactNode, ChangeEvent, FocusEvent, MouseEvent, KeyboardEvent, HTM
 
 import type { Identifiable, Ref, Styleable, DataRole, Container } from "../../../common/main/base-props.js";
 
+/**
+ * Controls where tooltips are rendered relative to the input control.
+ * - `false`: inline (beside the control)
+ * - `true` / `"above"`: on a new line above the control
+ * - `"below"`: on a new line below the control
+ */
+export type TooltipLineBreak = boolean | "above" | "below";
+
+/**
+ * Controls where the error, warning and info message boxes are rendered relative to the input control.
+ * - `"above"` (default): between the label and the control
+ * - `"below"`: directly under the control
+ */
+export type MessagePosition = "above" | "below";
+
 export interface BaseInputProps extends Identifiable, Styleable {
 	/**
 	 * The input widget's label.
@@ -89,10 +104,35 @@ export interface BaseInputProps extends Identifiable, Styleable {
 	tooltips?: ReactNode;
 
 	/**
-	 * Break tooltips in new line or not.
-	 * @default false
+	 * Controls where {@link tooltips} are rendered relative to the input control.
+	 * - `false`: inline, beside the control
+	 * - `true` / `"above"`: on a new line above the control
+	 * - `"below"`: on a new line below the control
+	 *
+	 * There is no single default: every widget keeps the layout it had before this property existed,
+	 * so an unset value behaves exactly like the value it is listed under.
+	 * - `"above"`: Icon Picker, Rich Text Editor, Switch, Tag Input, Text Field, Text Area, Date
+	 *   Picker, Time Picker
+	 * - `false`: Autocomplete, Checkbox, Checkbox Group, File Upload (default and compact),
+	 *   Multiselect, Radio, Select (native and custom), Date Time Picker, Month Selector, Year and
+	 *   Month Selector
+	 *
+	 * Year Selector follows the control its `variant` resolves to: `"above"` for `"textbox"`, `false` for `"autocomplete"` and `"select"`.
+	 *
+	 * The name is misleading: this sets a position, not a yes/no line break. It is kept to avoid a
+	 * breaking change and will be renamed to `tooltipPosition` in the next breaking release.
 	 */
-	breakTooltipsToNewLine?: boolean;
+	// TODO: rename to `tooltipPosition` and retype to TooltipPosition in the next breaking release
+	breakTooltipsToNewLine?: TooltipLineBreak;
+
+	/**
+	 * Controls where the {@link errorMessage}, {@link warningMessage} and {@link infoMessage} boxes
+	 * are rendered relative to the input control.
+	 * - `"above"` (default): between the label and the control
+	 * - `"below"`: directly under the control
+	 * @default "above"
+	 */
+	messagePosition?: MessagePosition;
 
 	/**
 	 * Warning state for the input widget.
@@ -185,14 +225,32 @@ export interface LabelProps extends Identifiable, Styleable, Ref<HTMLLabelElemen
 
 export interface ErrorProps extends Identifiable, Styleable, DataRole, Ref<HTMLDivElement> {
 	errorMessage?: ReactNode;
+
+	/**
+	 * Where the message is rendered relative to the input control, which selects its spacing.
+	 * @default "above"
+	 */
+	position?: MessagePosition;
 }
 
 export interface WarningProps extends Identifiable, Styleable, DataRole, Ref<HTMLDivElement> {
 	warningMessage?: ReactNode;
+
+	/**
+	 * Where the message is rendered relative to the input control, which selects its spacing.
+	 * @default "above"
+	 */
+	position?: MessagePosition;
 }
 
 export interface InfoProps extends Identifiable, Styleable, DataRole, Ref<HTMLDivElement> {
 	infoMessage?: ReactNode;
+
+	/**
+	 * Where the message is rendered relative to the input control, which selects its spacing.
+	 * @default "above"
+	 */
+	position?: MessagePosition;
 }
 
 export interface SelectionSuffixProps extends Identifiable, Styleable, DataRole {
@@ -207,10 +265,13 @@ export interface InputTooltipsProps {
 	tooltips: ReactNode;
 
 	/**
-	 * Break tooltips in new line or not.
+	 * Controls where tooltips are rendered relative to the input control.
+	 * - `false` (default): inline, beside the control
+	 * - `true` / `"above"`: on a new line above the control
+	 * - `"below"`: on a new line below the control
 	 * @default false
 	 */
-	breakLine?: boolean;
+	breakLine?: TooltipLineBreak;
 }
 
 export interface InputDOMProps<T extends HTMLElement = HTMLInputElement> {

@@ -38,26 +38,34 @@ const meta: Meta<typeof Message> = {
 	title: "Utils/Message",
 	component: Message,
 	parameters: {
-		layout: "padded",
-		docs: {
-			description: {
-				component: "Message is a utility container for displaying inline text messages within a layout."
-			}
-		}
+		layout: "padded"
 	},
-	tags: ["autodocs"]
+	argTypes: {
+		children: {
+			control: "text",
+			description: "The message content"
+		},
+		className: {
+			control: "text",
+			description: "Additional css class names"
+		},
+		id: {
+			control: "text",
+			description: "Html id attribute of the message element"
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		children: "This is a simple message component used to display inline text content."
 	}
 };
 
-export const WithFormattedContent: Story = {
+export const FormattedContent: Story = {
 	render: () => (
 		<Message>
 			<strong>Note:</strong> This field is required and must be unique across all records.
@@ -66,7 +74,24 @@ export const WithFormattedContent: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Message can contain formatted content like bold text or inline elements."
+				story:
+					"Message accepts any `children`, so the content can contain formatted text like bold text or inline elements."
+			}
+		}
+	}
+};
+
+export const LongContent: Story = {
+	args: {
+		children:
+			"Longer messages wrap with the surrounding layout. The message inherits its color, font and padding from the " +
+			"theme, so it stays visually consistent with the rest of the application without any additional styling."
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Long messages wrap naturally inside their container; typography and `padding` come from the theme configuration."
 			}
 		}
 	}

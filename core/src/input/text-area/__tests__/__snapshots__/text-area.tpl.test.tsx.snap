@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`com.mgmtp.a12.widgets.text-area-tpl > render auto-width text-area 1`] = `
-.c7 {
+.c6 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -16,12 +16,12 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render auto-width text-area 1`] =
   margin: -1px !important;
 }
 
-.c7 * {
+.c6 * {
   width: 1px;
   height: 1px;
 }
 
-.c6 {
+.c5 {
   color: rgb(77, 77, 77);
   display: inline-block;
   font-family: "Open Sans", sans-serif;
@@ -33,11 +33,11 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render auto-width text-area 1`] =
   align-self: center;
 }
 
-.c6:empty {
+.c5:empty {
   display: none;
 }
 
-.c13 {
+.c12 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -47,16 +47,16 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render auto-width text-area 1`] =
   width: fit-content;
 }
 
-.c12 {
+.c11 {
   display: flex;
 }
 
-.c10 {
+.c9 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -74,18 +74,18 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render auto-width text-area 1`] =
   width: 100%;
 }
 
-.c10::placeholder {
+.c9::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c8 {
+.c7 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -95,11 +95,6 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render auto-width text-area 1`] =
   font-weight: 400;
   outline: transparent solid 1px;
   height: 32px;
-}
-
-.c14 .c1 {
-  display: flex;
-  width: 100%;
 }
 
 .c0 {
@@ -113,35 +108,30 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render auto-width text-area 1`] =
   max-width: 100%;
 }
 
-.c15 .c5 {
-  display: block;
-  width: fit-content;
-}
-
-.c4 {
+.c3 {
   box-sizing: border-box;
   display: inline-block;
 }
 
-.c4 .c5 {
+.c3 .c4 {
   display: block;
   width: fit-content;
 }
 
-.c2 {
+.c1 {
   display: inline-flex;
 }
 
-.c2 .c3 {
+.c1 .c2 {
   flex: 1 1 160px;
   max-width: 100%;
 }
 
-.c9 {
+.c8 {
   height: auto;
 }
 
-.c11 {
+.c10 {
   height: 100px;
   padding: calc(16px - 0.54375rem) 12px;
   resize: vertical;
@@ -151,14 +141,14 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render auto-width text-area 1`] =
 }
 
 @media (pointer: coarse) {
-  .c8:active {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c8:hover {
+  .c7:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -168,30 +158,30 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render auto-width text-area 1`] =
   data-role="textarea"
 >
   <div
-    class="c1 c2 field__main"
+    class="c1 field__main"
   >
     <div
-      class="c3 c4 field"
+      class="c2 c3 field"
       data-role="textarea-control"
     >
       <label
-        class="c5 c6 label field__label"
+        class="c4 c5 label field__label"
         data-role="textarea-label"
       >
         Test Label
         <span
-          class="c7 -u-unseenButRead"
+          class="c6 -u-unseenButRead"
           data-role="hidden-text"
         >
           , Test placeholder
         </span>
       </label>
       <div
-        class="c8 c9 field__input field__input--textarea"
+        class="c7 c8 field__input field__input--textarea"
       >
         <textarea
           autocomplete="off"
-          class="c10 c11 field__text"
+          class="c9 c10 field__text"
           data-role="textarea-input"
           placeholder="Test placeholder"
         >
@@ -201,10 +191,10 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render auto-width text-area 1`] =
     </div>
   </div>
   <div
-    class="c12 field__helper"
+    class="c11 field__helper"
   >
     <label
-      class="c13 field__helper-text"
+      class="c12 field__helper-text"
       data-role="textarea-helper-text"
     >
       Test Helper Text
@@ -269,7 +259,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render basic text-area 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -298,7 +288,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render basic text-area 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -429,7 +419,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render disabled text-area 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -457,7 +447,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render disabled text-area 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   display: flex;
   font-family: "Open Sans", sans-serif;
@@ -468,11 +458,6 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render disabled text-area 1`] = `
   background-color: rgb(226, 230, 233);
   box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
   color: rgb(169, 179, 188);
-}
-
-.c10 .c1 {
-  display: flex;
-  width: 100%;
 }
 
 .c0 {
@@ -558,7 +543,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render readonly text-area 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -586,7 +571,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render readonly text-area 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -678,7 +663,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render readonly with value text-a
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -706,7 +691,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render readonly with value text-a
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -794,7 +779,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render readonly with value text-a
 `;
 
 exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with addons 1`] = `
-.c4 {
+.c3 {
   align-items: center;
   align-self: flex-end;
   display: flex;
@@ -804,7 +789,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with addons 1`] 
   justify-content: center;
 }
 
-.c12 {
+.c11 {
   align-items: center;
   align-self: flex-end;
   display: flex;
@@ -814,17 +799,12 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with addons 1`] 
   justify-content: center;
 }
 
-.c13 .c3 {
-  height: auto;
-  visibility: hidden;
-}
-
-.c10 {
+.c9 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -842,18 +822,18 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with addons 1`] 
   width: 100%;
 }
 
-.c10::placeholder {
+.c9::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c8 {
+.c7 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -882,7 +862,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with addons 1`] 
   max-width: 100%;
 }
 
-.c7 {
+.c6 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
@@ -892,21 +872,21 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with addons 1`] 
   display: inline-flex;
 }
 
-.c2 .c6 {
+.c2 .c5 {
   flex: 1 1 160px;
   max-width: 100%;
 }
 
-.c9 {
+.c8 {
   height: auto;
 }
 
-.c5 {
+.c4 {
   align-items: flex-start;
   line-height: 32px;
 }
 
-.c11 {
+.c10 {
   height: 100px;
   padding: calc(16px - 0.54375rem) 12px;
   resize: vertical;
@@ -916,14 +896,14 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with addons 1`] 
 }
 
 @media (pointer: coarse) {
-  .c8:active {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c8:hover {
+  .c7:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -936,28 +916,28 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with addons 1`] 
     class="c1 c2 field__main"
   >
     <div
-      class="c3 c4 c5 field-addon field-addon--textarea field-addon--before"
+      class="c3 c4 field-addon field-addon--textarea field-addon--before"
       data-role="textarea--addon-before-0"
     >
       Test addon before
     </div>
     <div
-      class="c6 c7 field"
+      class="c5 c6 field"
       data-role="textarea-control"
     >
       <div
-        class="c8 c9 field__input field__input--textarea"
+        class="c7 c8 field__input field__input--textarea"
       >
         <textarea
           autocomplete="off"
-          class="c10 c11 field__text"
+          class="c9 c10 field__text"
           data-role="textarea-input"
           id="test-id"
         />
       </div>
     </div>
     <div
-      class="c3 c12 c5 field-addon field-addon--textarea field-addon--after"
+      class="c11 c4 field-addon field-addon--textarea field-addon--after"
       data-role="textarea--addon-after-0"
     >
       Test addon after
@@ -1002,7 +982,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with affixes 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1031,7 +1011,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with affixes 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -1149,7 +1129,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with error 1`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1178,7 +1158,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with error 1`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1276,6 +1256,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with error 1`] =
         class="c5 c6 field__input field__input--textarea field__input--error"
       >
         <textarea
+          aria-invalid="true"
           autocomplete="off"
           class="c7 c8 field__text"
           data-role="textarea-input"
@@ -1334,6 +1315,10 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with error-messa
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
 .c9.c9 {
   color: rgb(201, 29, 29);
 }
@@ -1368,7 +1353,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with error-messa
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1397,7 +1382,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with error-messa
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1505,6 +1490,8 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with error-messa
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               
             </span>
@@ -1527,6 +1514,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with error-messa
         class="c12 c13 field__input field__input--textarea field__input--error"
       >
         <textarea
+          aria-invalid="true"
           autocomplete="off"
           class="c14 c15 field__text"
           data-role="textarea-input"
@@ -1585,6 +1573,10 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with extended pr
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10 {
+  color: inherit;
+}
+
 .c15 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -1611,6 +1603,10 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with extended pr
 
 .c15.c15 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c15 {
+  color: inherit;
 }
 
 .c11.c11 {
@@ -1693,7 +1689,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with extended pr
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1721,7 +1717,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with extended pr
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1818,6 +1814,8 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with extended pr
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               
             </span>
@@ -1851,6 +1849,8 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with extended pr
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               warning
             </span>
@@ -1884,6 +1884,8 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with extended pr
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               info
             </span>
@@ -1914,6 +1916,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with extended pr
           aria-busy="true"
           aria-describedby="test-id-info test-id-warning test-id-error Test aria-describedby test-id-label"
           aria-haspopup="listbox"
+          aria-invalid="true"
           aria-label="Test Label"
           aria-owns="list-id"
           autocomplete="off"
@@ -1966,7 +1969,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with hidden labe
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1995,7 +1998,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with hidden labe
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -2031,11 +2034,6 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with hidden labe
 }
 
 .c4 .c5 {
-  display: block;
-  width: fit-content;
-}
-
-.c11 .c5 {
   display: block;
   width: fit-content;
 }
@@ -2112,7 +2110,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with info 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2141,7 +2139,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with info 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2297,6 +2295,10 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with info-messag
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
 .c9.c9 {
   color: rgb(5, 104, 174);
 }
@@ -2331,7 +2333,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with info-messag
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2360,7 +2362,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with info-messag
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2468,6 +2470,8 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with info-messag
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               info
             </span>
@@ -2506,7 +2510,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with right-align
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2535,7 +2539,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with right-align
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -2636,7 +2640,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with tooltip 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2665,7 +2669,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with tooltip 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -2772,7 +2776,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with warning 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2801,7 +2805,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with warning 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2957,6 +2961,10 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with warning-mes
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
 .c9.c9 {
   color: rgb(175, 121, 2);
 }
@@ -2991,7 +2999,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with warning-mes
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -3020,7 +3028,7 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with warning-mes
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3128,6 +3136,8 @@ exports[`com.mgmtp.a12.widgets.text-area-tpl > render text-area with warning-mes
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               warning
             </span>

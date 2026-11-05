@@ -30,12 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ChangeEvent } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useState, useRef, useCallback } from "react";
+import type { ChangeEvent } from "react";
+import { useState } from "react";
 import { fn } from "storybook/test";
 
-import { TextAreaStateless, AttachedPortal, Button, Icon, TextAffix } from "@com.mgmtp.a12.widgets/widgets-core";
+import { TextAreaStateless, Button, HintTooltip, Icon, TextAffix } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const meta: Meta<typeof TextAreaStateless> = {
 	title: "Data Entry/TextArea",
@@ -50,7 +50,6 @@ const meta: Meta<typeof TextAreaStateless> = {
 			</div>
 		)
 	],
-	tags: ["autodocs"],
 	argTypes: {
 		value: {
 			control: "text",
@@ -84,6 +83,10 @@ const meta: Meta<typeof TextAreaStateless> = {
 			control: "boolean",
 			description: "Allow the text area height to grow as the user types"
 		},
+		autoFocus: {
+			control: "boolean",
+			description: "Automatically focus the text area after rendering"
+		},
 		textAlignment: {
 			control: "select",
 			options: ["left", "right"],
@@ -104,6 +107,18 @@ const meta: Meta<typeof TextAreaStateless> = {
 		helperText: {
 			control: "text",
 			description: "Helper text displayed below the text area"
+		},
+		messagePosition: {
+			control: "select",
+			options: ["above", "below"],
+			description:
+				'Where the error, warning and info message boxes render: `"above"` (default) between the label and the control, `"below"` directly under the control'
+		},
+		breakTooltipsToNewLine: {
+			control: "select",
+			options: [false, true, "above", "below"],
+			description:
+				'Where tooltips render: `true` / `"above"` (default for this widget) on a new line above the control, `false` inline beside the control, `"below"` on a new line below'
 		}
 	},
 	args: {
@@ -114,20 +129,12 @@ const meta: Meta<typeof TextAreaStateless> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
-		id: "default-text-area",
+		id: "playground-text-area",
 		label: "Description",
 		value: "",
 		placeholder: "Enter a description..."
-	}
-};
-
-export const WithValue: Story = {
-	args: {
-		id: "prefilled-text-area",
-		label: "Notes",
-		value: "These are some pre-filled notes about the current record."
 	}
 };
 
@@ -138,222 +145,246 @@ export const WithHelperText: Story = {
 		value: "",
 		placeholder: "Tell us about yourself",
 		helperText: "This will be shown publicly on your profile."
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`helperText` renders supporting text below the field to guide the user's input."
+			}
+		}
 	}
 };
 
-export const Disabled: Story = {
-	args: {
-		id: "disabled-text-area",
-		label: "Read-only content",
-		value: "This content cannot be edited.",
-		disabled: true
+export const DisabledAndReadonly: Story = {
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+			<TextAreaStateless id="disabled-text-area" label="Disabled" value="This content cannot be edited." disabled />
+			<TextAreaStateless
+				id="readonly-text-area"
+				label="Read-only"
+				value="By using this service you agree to our terms and conditions."
+				readonly
+			/>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`disabled` blocks all interaction with the field, while `readonly` keeps the value selectable and focusable but not editable."
+			}
+		}
 	}
 };
 
-export const Readonly: Story = {
-	args: {
-		id: "readonly-text-area",
-		label: "Terms of service",
-		value: "By using this service you agree to our terms and conditions.",
-		readonly: true
+export const ValidationMessages: Story = {
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+			<TextAreaStateless id="error-text-area" label="Message" value="" error errorMessage="Message cannot be empty" />
+			<TextAreaStateless
+				id="warning-text-area"
+				label="Message"
+				value="Hi"
+				warning
+				warningMessage="Your message is very short — are you sure?"
+			/>
+			<TextAreaStateless
+				id="info-text-area"
+				label="Message"
+				value="Hello there"
+				infoMessage="Markdown formatting is supported."
+			/>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`error` and `warning` switch the field styling, while `errorMessage`, `warningMessage` and `infoMessage` render the corresponding message below the field."
+			}
+		}
 	}
 };
 
-export const WithErrorMessage: Story = {
-	args: {
-		id: "error-text-area",
-		label: "Message",
-		value: "",
-		error: true,
-		errorMessage: "Message cannot be empty"
-	}
-};
+export const PrefixesAndSuffixes: Story = {
+	render: function PrefixesAndSuffixesExample() {
+		const [prefixValue, setPrefixValue] = useState("");
+		const [suffixValue, setSuffixValue] = useState("");
 
-export const WithWarningMessage: Story = {
-	args: {
-		id: "warning-text-area",
-		label: "Message",
-		value: "Hi",
-		warning: true,
-		warningMessage: "Your message is very short — are you sure?"
-	}
-};
-
-export const WithPrefixes: Story = {
-	render: () => {
-		const Demo = () => {
-			const [value, setValue] = useState("");
-			const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => setValue(event.target.value);
-
-			return (
+		return (
+			<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
 				<TextAreaStateless
 					id="textarea-with-prefixes"
 					label="With prefixes"
-					value={value}
-					onChange={handleChange}
+					value={prefixValue}
+					onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setPrefixValue(event.target.value)}
 					prefixes={[<Icon key="p1">search</Icon>]}
 				/>
-			);
-		};
-
-		return <Demo />;
-	}
-};
-
-export const WithSuffixes: Story = {
-	render: () => {
-		const Demo = () => {
-			const [value, setValue] = useState("");
-			const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => setValue(event.target.value);
-
-			return (
 				<TextAreaStateless
 					id="textarea-with-suffixes"
 					label="With suffixes"
-					value={value}
-					onChange={handleChange}
+					value={suffixValue}
+					onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setSuffixValue(event.target.value)}
 					suffixes={[<Icon key="s1">info</Icon>]}
 				/>
-			);
-		};
-
-		return <Demo />;
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`prefixes` and `suffixes` place elements such as icons inside the field, before or after the text."
+			}
+		}
 	}
 };
 
 export const WithTextAffixAsSuffix: Story = {
-	render: () => {
-		const Demo = () => {
-			const [value, setValue] = useState("");
-			const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => setValue(event.target.value);
+	render: function WithTextAffixAsSuffixExample() {
+		const [value, setValue] = useState("");
+		const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => setValue(event.target.value);
 
-			return (
-				<TextAreaStateless
-					id="textarea-with-text-affix-suffix"
-					label="Glucose level"
-					value={value}
-					onChange={handleChange}
-					placeholder="Enter a value"
-					suffixes={[
-						<TextAffix key="unit" id="textarea-with-text-affix-suffix-unit">
-							mmol/l
-						</TextAffix>
-					]}
-					ariaDescribedby="textarea-with-text-affix-suffix-unit"
-				/>
-			);
-		};
-
-		return <Demo />;
+		return (
+			<TextAreaStateless
+				id="textarea-with-text-affix-suffix"
+				label="Glucose level"
+				value={value}
+				onChange={handleChange}
+				placeholder="Enter a value"
+				suffixes={[
+					<TextAffix key="unit" id="textarea-with-text-affix-suffix-unit">
+						mmol/l
+					</TextAffix>
+				]}
+				ariaDescribedby="textarea-with-text-affix-suffix-unit"
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"A `TextAffix` used as a suffix displays a textual unit. Linking it via `ariaDescribedby` makes the unit available to screen readers."
+			}
+		}
 	}
 };
 
 export const WithAddons: Story = {
-	render: () => {
-		const Demo = () => {
-			const [value, setValue] = useState("");
-			const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => setValue(event.target.value);
+	render: function WithAddonsExample() {
+		const [value, setValue] = useState("");
+		const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => setValue(event.target.value);
 
-			return (
-				<TextAreaStateless
-					id="textarea-with-addons"
-					label="With addons"
-					value={value}
-					onChange={handleChange}
-					addonBefore={[<Button key="b1">A</Button>]}
-					addonAfter={[<Button key="a1">B</Button>]}
-					placeholder="With leading/trailing addons"
-				/>
-			);
-		};
-
-		return <Demo />;
+		return (
+			<TextAreaStateless
+				id="textarea-with-addons"
+				label="With addons"
+				value={value}
+				onChange={handleChange}
+				addonBefore={[<Button key="b1">A</Button>]}
+				addonAfter={[<Button key="a1">B</Button>]}
+				placeholder="With leading/trailing addons"
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`addonBefore` and `addonAfter` attach elements such as buttons outside the input wrapper."
+			}
+		}
 	}
 };
 
 export const AutoFocus: Story = {
-	render: () => {
-		const Demo = () => {
-			const [value, setValue] = useState("");
-			const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => setValue(event.target.value);
+	render: function AutoFocusExample() {
+		const [value, setValue] = useState("");
+		const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => setValue(event.target.value);
 
-			return (
-				<TextAreaStateless
-					id="textarea-autofocus"
-					label="Auto focus"
-					value={value}
-					onChange={handleChange}
-					autoFocus
-					placeholder="This should receive focus on render"
-				/>
-			);
-		};
-
-		return <Demo />;
+		return (
+			<TextAreaStateless
+				id="textarea-autofocus"
+				label="Auto focus"
+				value={value}
+				onChange={handleChange}
+				autoFocus
+				placeholder="This should receive focus on render"
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`autoFocus` moves keyboard focus into the text area as soon as it renders."
+			}
+		}
 	}
 };
+
 export const AutoExpand: Story = {
-	render: () => {
-		const Demo = () => {
-			const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-			const [referenceElement, setReferenceElement] = useState<HTMLTextAreaElement | null>(null);
-			const [showPortal, setShowPortal] = useState(false);
-			const [value, setValue] = useState("");
-			const wrapperRef = useRef<HTMLDivElement | null>(null);
+	render: function AutoExpandExample() {
+		const [value, setValue] = useState("");
+		const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => setValue(event.target.value);
 
-			const setRefs = useCallback((el: HTMLTextAreaElement | null) => {
-				textareaRef.current = el;
-				setReferenceElement(el);
-			}, []);
+		return (
+			<TextAreaStateless
+				id="auto-expanded-textarea"
+				label="Comment"
+				value={value}
+				onChange={handleChange}
+				placeholder="Type or paste multi-line text here..."
+				autoExpand
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`autoExpand` lets the field grow vertically with its content instead of showing a scrollbar. Use `onHeightChanged` to react to height changes."
+			}
+		}
+	}
+};
 
-			const handleChange = useCallback((event: ChangeEvent<HTMLTextAreaElement>): void => {
-				setValue(event.target.value);
-				const el = event.target;
-				el.style.height = "auto";
-				el.style.height = `${el.scrollHeight}px`;
-			}, []);
+export const MessagePosition: Story = {
+	args: {
+		id: "text-area-message-position",
+		label: "Message",
+		helperText: "Helper text explaining the field",
+		value: "",
+		error: true,
+		errorMessage: "Message cannot be empty",
+		messagePosition: "below"
+	},
+	parameters: {
+		controls: { include: ["messagePosition"] },
+		docs: {
+			description: {
+				story:
+					'`messagePosition` places the message box relative to the control. This story starts at `"below"`, which renders it directly under the control — switch the control to `"above"` for the default placement between the label and the control.'
+			}
+		}
+	}
+};
 
-			const handleToggle = useCallback(() => {
-				setShowPortal((prev) => !prev);
-			}, []);
-
-			return (
-				<div style={{ padding: 16, width: 500 }} ref={wrapperRef}>
-					<label htmlFor="auto-expanded-textarea" style={{ display: "block", marginBottom: 6 }}>
-						Comment
-					</label>
-					<TextAreaStateless
-						id="auto-expanded-textarea"
-						label={undefined}
-						value={value}
-						onChange={handleChange}
-						placeholder="Type or paste multi-line text here..."
-						autoExpand
-						inputRef={setRefs}
-					/>
-
-					<Button onClick={handleToggle} style={{ marginTop: 80 }}>
-						{showPortal ? "Close" : "Open"} Show Helper Text
-					</Button>
-
-					{showPortal && referenceElement && (
-						<AttachedPortal
-							referenceElement={referenceElement}
-							orientation="bottom-start"
-							closeOnOutsideClick={false}
-							closeOnClickReferenceElement={false}
-						>
-							<div
-								style={{ width: 360, padding: 12, background: "#fffbe6", border: "1px solid #f0c36d", borderRadius: 4 }}
-							>
-								Helper: Use this field for additional notes; it expands as you type.
-							</div>
-						</AttachedPortal>
-					)}
-				</div>
-			);
-		};
-
-		return <Demo />;
+export const TooltipPosition: Story = {
+	args: {
+		id: "text-area-tooltip-position",
+		label: "Message",
+		helperText: "Helper text explaining the field",
+		value: "Example value",
+		tooltips: <HintTooltip text="This is a hint" id="text-area-tooltip-position-hint" />,
+		ariaDescribedby: "text-area-tooltip-position-hint",
+		breakTooltipsToNewLine: "below"
+	},
+	parameters: {
+		controls: { include: ["breakTooltipsToNewLine"] },
+		docs: {
+			description: {
+				story:
+					'`breakTooltipsToNewLine` places the tooltips relative to the control. This story starts at `"below"`, which puts them on their own line under the control — switch the control to `false` to place them inline beside it, or to `"above"` / `true` for a line above, which is the default for this widget.'
+			}
+		}
 	}
 };

@@ -30,14 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { rgba } from "polished";
 import { memo } from "react";
 import { styled, css, keyframes } from "styled-components";
-import { rgba } from "polished";
 
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
+import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
 
 const slideGradient = keyframes`
 	0% {

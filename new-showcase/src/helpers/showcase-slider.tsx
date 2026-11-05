@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { setLightness } from "polished";
 import type { ReactNode, ChangeEvent, ReactElement } from "react";
 import { styled, css } from "styled-components";
-import { setLightness } from "polished";
 
 import type { Identifiable, Styleable } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Label, generateUid } from "@com.mgmtp.a12.widgets/widgets-core";

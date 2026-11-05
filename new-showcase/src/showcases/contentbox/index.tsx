@@ -30,27 +30,27 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import actionBarGroupContentBoxCode from "!./action-bar-group.tsx?raw";
+import basicContentBoxCode from "!./basic-contentbox.tsx?raw";
+import combinationContentboxCode from "!./combination-contentbox.tsx?raw";
+import customHeadingCode from "!./custom-heading?raw";
+import navigationContentboxCode from "!./navigation-contentbox.tsx?raw";
+import paddingConfigurationCode from "!./padding-configuration?raw";
+import subActionBarWithAnimationCode from "!./subactionbar.tsx?raw";
+
 import { Link, BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 import ActionContentboxAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/contentbox/main/action-contentbox/action-contentbox.api.json" with { type: "json" };
 import ContentboxAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/contentbox/main/template/contentbox.tpl.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
+import { ActionBarGroupContentBox } from "./action-bar-group.js";
 import { BasicContentBox } from "./basic-contentbox.js";
 import { CombinationContentbox } from "./combination-contentbox.js";
-import { SubActionBarWithAnimationShowcase } from "./subactionbar.js";
-import { ActionBarGroupContentBox } from "./action-bar-group.js";
+import { CustomHeading } from "./custom-heading.js";
 import { NavigationContentbox } from "./navigation-contentbox.js";
 import { PaddingConfiguration } from "./padding-configuration.js";
-import { CustomHeading } from "./custom-heading.js";
-
-import basicContentBoxCode from "!./basic-contentbox.tsx?raw";
-import combinationContentboxCode from "!./combination-contentbox.tsx?raw";
-import subActionBarWithAnimationCode from "!./subactionbar.tsx?raw";
-import actionBarGroupContentBoxCode from "!./action-bar-group.tsx?raw";
-import navigationContentboxCode from "!./navigation-contentbox.tsx?raw";
-import paddingConfigurationCode from "!./padding-configuration?raw";
-import customHeadingCode from "!./custom-heading?raw";
+import { SubActionBarWithAnimationShowcase } from "./subactionbar.js";
 
 const showcases: Showcase[] = [
 	{

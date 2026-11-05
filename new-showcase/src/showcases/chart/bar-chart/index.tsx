@@ -30,9 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import differentStylesForBarsCode from "!./different-styles-for-bars.tsx?raw";
+import hideableLegendBarChartCode from "!./hideable-legend.tsx?raw";
+import legendPositionCode from "!./legend-position.tsx?raw";
+import simpleBarChartCode from "!./simple-bar-chart.tsx?raw";
+import barChartWithThresholdCode from "!./threshold.tsx?raw";
+import barChartWithNegativeValuesCode from "!./with-negative-values.tsx?raw";
+import withPercentageDimensionCode from "!./with-percentage-dimension.tsx?raw";
+
+import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 import BarChartAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/chart/bar-chart/main/bar-chart.api.json" with { type: "json" };
 import BarChartTplAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/chart/bar-chart/main/tpl/bar-chart.tpl.api.json" with { type: "json" };
-import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Showcase } from "../../../helpers/definitions.js";
 import {
@@ -41,22 +50,13 @@ import {
 } from "../../../helpers/showcase-styles.js";
 
 import { BasicBarChart } from "./basic.js";
-import { BarChartWithNegativeValues } from "./with-negative-values.js";
-import { BarChartWithThreshold } from "./threshold.js";
-import { SimpleBarChart } from "./simple-bar-chart.js";
 import { DifferentStylesForBars } from "./different-styles-for-bars.js";
-import { LegendPosition } from "./legend-position.js";
-import { WithPercentageDimension } from "./with-percentage-dimension.js";
 import { HideableLegendBarChartShowcase } from "./hideable-legend.js";
-
-import basicCode from "!./basic.tsx?raw";
-import barChartWithNegativeValuesCode from "!./with-negative-values.tsx?raw";
-import barChartWithThresholdCode from "!./threshold.tsx?raw";
-import simpleBarChartCode from "!./simple-bar-chart.tsx?raw";
-import differentStylesForBarsCode from "!./different-styles-for-bars.tsx?raw";
-import legendPositionCode from "!./legend-position.tsx?raw";
-import withPercentageDimensionCode from "!./with-percentage-dimension.tsx?raw";
-import hideableLegendBarChartCode from "!./hideable-legend.tsx?raw";
+import { LegendPosition } from "./legend-position.js";
+import { SimpleBarChart } from "./simple-bar-chart.js";
+import { BarChartWithThreshold } from "./threshold.js";
+import { BarChartWithNegativeValues } from "./with-negative-values.js";
+import { WithPercentageDimension } from "./with-percentage-dimension.js";
 
 const showcases: Showcase[] = [
 	{

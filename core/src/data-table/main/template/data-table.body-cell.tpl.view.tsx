@@ -30,6 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { darken } from "polished";
 import type {
 	CSSProperties,
 	FocusEventHandler,
@@ -39,16 +40,16 @@ import type {
 	ReactNode,
 	TdHTMLAttributes
 } from "react";
-import { darken } from "polished";
+import { useContext } from "react";
 import { css, styled } from "styled-components";
 
+import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
 import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
-import { cellBase, pinnedCell, StyledCellContent, StyledCellLabel, useCellPinning } from "./data-table.styled-utils.js";
+import { cellBase, cellPadding, pinnedCell, StyledCellContent, useCellPinning } from "./data-table.styled-utils.js";
 import { DataTableZIndex } from "./data-table.z-index.js";
 
 export const StyledDataTableBodyRowBadgeWrapper = styled.div.withConfig({
@@ -103,22 +104,26 @@ export const StyledDataTableBodyCell = styled.td.withConfig({ displayName: "Styl
 					: bodyRow.background;
 
 		return css`
-			${cellBase(theme)}
+			${cellBase(theme, $firstCell)}
 			overflow: hidden;
 			position: relative;
 			vertical-align: ${$verticalAlignment === "top" ? "top" : $verticalAlignment === "bottom" ? "bottom" : "middle"};
 			&:focus-visible {
 				outline: none;
 			}
-			${$subInfo &&
-			css`
-				background: ${bodyCell.subInfo.background};
-				color: ${bodyCell.subInfo.color};
-			`}
-			${$firstCell &&
-			css`
-				isolation: isolate;
-			`}
+			${
+				$subInfo &&
+				css`
+					background: ${bodyCell.subInfo.background};
+					color: ${bodyCell.subInfo.color};
+				`
+			}
+			${
+				$firstCell &&
+				css`
+					isolation: isolate;
+				`
+			}
 			${StyledDataTableBodyRowBadgeWrapper} {
 				width: ${bodyRow.badge.width};
 				&:before {
@@ -141,12 +146,7 @@ export const StyledDataTableBodyCell = styled.td.withConfig({ displayName: "Styl
 				}
 			}
 
-			${$actionColumn &&
-			css`
-				padding: ${table.actionCell.padding};
-				gap: 4px;
-				align-items: center;
-			`}
+			${$actionColumn && cellPadding(theme, table.actionCell.padding, $firstCell)}
 
 			${pinnedCell(theme, { $pinned, $pinnedEdge, zIndex: DataTableZIndex.pinnedBodyCell })}
 		`;
@@ -218,7 +218,8 @@ export interface DataTableBodyCellTplProps {
 	actionColumn?: boolean;
 
 	/**
-	 * Whether this is the first body cell in the row.
+	 * Whether this is the first body cell in the row. Hosts the row badge, isolates its
+	 * stacking context, and earns the first-column inset.
 	 */
 	firstCell?: boolean;
 
@@ -268,12 +269,6 @@ export interface DataTableBodyCellTplProps {
 	onMouseLeave?: MouseEventHandler<HTMLTableCellElement>;
 
 	/**
-	 * The column's label, shown inline above the cell content in card view
-	 * (where the `<thead>` is hidden). Supports any `ReactNode`.
-	 */
-	cellLabel?: ReactNode;
-
-	/**
 	 * Resolved cell-styling result for this cell. Provides optional `className`,
 	 * `style` and `secondaryCellTitle` (rendered via {@link HiddenText}).
 	 */
@@ -315,17 +310,14 @@ export function DataTableBodyCellTpl({
 	onKeyDown,
 	onMouseOver,
 	onMouseLeave,
-	cellLabel,
 	cellStyles,
 	htmlAttributes,
 	children
 }: DataTableBodyCellTplProps): ReactElement {
-	// Card view's `role="list"` root suppresses the cell with `presentation`.
 	// (tree)grid mode overrides the table role, which drops the native `<td>` cell
 	// mapping, so restate it as `role="gridcell"`. Default view uses the implicit role.
-	const cardView = useDataTableContext((ctx) => ctx.cardView);
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
-	const cellRole = cardView ? "presentation" : gridRole ? "gridcell" : undefined;
+	const gridRole = useDataTableContext().gridRole;
+	const cellRole = gridRole ? "gridcell" : undefined;
 	// Pass the full leaf range so a pinned spanning cell reports the correct
 	// freeze edge (the boundary leaf, not the origin).
 	const { pinStyle, isPinnedEdge } = useCellPinning(
@@ -335,13 +327,15 @@ export function DataTableBodyCellTpl({
 	);
 	const resolvedStyle: CSSProperties | undefined = pinStyle ? { ...pinStyle, ...cellStyles?.style } : cellStyles?.style;
 	// The badge only ever renders in the row's first cell — skip the allocation
-	// everywhere else.
+	// everywhere else. Titles come from `A11YLanguageContext` (localized en/de) like
+	// the table's other accessible names, with English fallbacks.
+	const { tableTitles } = useContext(A11YLanguageContext);
 	const badgeIcon = !firstCell ? null : rowDisabled ? (
-		<Icon title="Disable">block</Icon>
+		<Icon title={tableTitles?.rowDisabledBadgeLabel ?? "Disabled"}>block</Icon>
 	) : rowHighlightVariant === "success" ? (
-		<Icon title="Success">check</Icon>
+		<Icon title={tableTitles?.rowSuccessBadgeLabel ?? "Success"}>check</Icon>
 	) : rowHighlightVariant === "info" ? (
-		<Icon title="Info">info</Icon>
+		<Icon title={tableTitles?.rowInfoBadgeLabel ?? "Info"}>info</Icon>
 	) : null;
 	const handleOnClick: MouseEventHandler<HTMLTableCellElement> | undefined = onClick
 		? (event): void => {
@@ -367,6 +361,7 @@ export function DataTableBodyCellTpl({
 			role={cellRole}
 			colSpan={colSpan}
 			data-col-index={leafIndexAttr}
+			data-auto-size-col={actionColumn ? columnIndex : undefined}
 			data-pinned={pinning}
 			data-pinned-edge={isPinnedEdge ? pinning : undefined}
 			className={cellStyles?.className}
@@ -388,12 +383,6 @@ export function DataTableBodyCellTpl({
 			onMouseLeave={onMouseLeave ?? htmlAttributes?.onMouseLeave}
 		>
 			{badgeIcon ? <StyledDataTableBodyRowBadgeWrapper>{badgeIcon}</StyledDataTableBodyRowBadgeWrapper> : null}
-			{cardView && cellLabel ? (
-				<StyledCellLabel data-role={DataRoles.Table.Body.Cell.CardLabel}>
-					{cellLabel}
-					<HiddenText>, </HiddenText>
-				</StyledCellLabel>
-			) : null}
 			<StyledCellContent
 				$horizontalAlignment={horizontalAlignment}
 				$verticalAlignment={actionColumn ? "middle" : verticalAlignment}

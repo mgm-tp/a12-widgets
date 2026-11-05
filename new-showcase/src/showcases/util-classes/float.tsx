@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 import { useState } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import { Select, Checkbox, ResponsiveImageContainer } from "@com.mgmtp.a12.widgets/widgets-core";
 
@@ -50,6 +50,7 @@ export function FloatUtilClassShowcase(): ReactElement {
 			configuration={
 				<div className="-u-flex -u-flex-col">
 					<Checkbox
+						id="util-classes-float-checkbox"
 						fitToParent={false}
 						checked={useClearfixClass}
 						onChange={setUseClearfixClass}

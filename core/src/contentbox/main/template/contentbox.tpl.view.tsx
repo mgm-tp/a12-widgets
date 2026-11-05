@@ -32,30 +32,30 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 
-import { addPrefix, joinClassNames, Throttler } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { addPrefix, joinClassNames, Throttler } from "../../../common/main/utils.js";
 
-import { StyledContentBoxContext } from "./contentbox.context.js";
 import { ContentBoxWithSidePanel } from "./contentbox-with-side-panel.view.js";
+import { StyledContentBoxContext } from "./contentbox.context.js";
+import type { ContentBoxProps } from "./contentbox.tpl.api.js";
 import {
 	StyledContentBoxHeader,
 	StyledContentBox,
 	StyledContentBoxContent,
 	StyledContentBoxWizardBar
 } from "./contentbox.tpl.styled.js";
-import type { ContentBoxProps } from "./contentbox.tpl.api.js";
-import { HeadingAddonTpl, HeadingTpl } from "./elements/heading.tpl.view.js";
-import { TitleTpl } from "./elements/title.tpl.view.js";
-import { SubHeadingElements } from "./elements/sub-heading.tpl.view.js";
-import { FooterTpl } from "./elements/footer.tpl.view.js";
 import {
 	BackButtonTpl,
 	CloseButtonTpl,
 	ActionButtonTpl,
 	HeadingActionButtonTpl
 } from "./elements/button-action.tpl.view.js";
+import { FooterTpl } from "./elements/footer.tpl.view.js";
+import { HeadingAddonTpl, HeadingTpl } from "./elements/heading.tpl.view.js";
 import { NotificationAreaTpl } from "./elements/notification-area.tpl.view.js";
+import { SubHeadingElements } from "./elements/sub-heading.tpl.view.js";
 import { SubtitleTpl } from "./elements/subtitle.tpl.view.js";
+import { TitleTpl } from "./elements/title.tpl.view.js";
 
 const baseClassName = addPrefix("contentbox");
 
@@ -254,6 +254,7 @@ export const ContentBox = (props: ContentBoxProps) => {
 				role={role}
 				aria-label={ariaLabel}
 				$boxShadow={boxShadow}
+				$embedded={embedded}
 			>
 				{(heading || wizardBar || notificationArea || subHeading) && (
 					<StyledContentBoxHeader className={`${baseClassName}__header`} data-role={DataRoles.Contentbox.Header}>

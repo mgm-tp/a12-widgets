@@ -34,11 +34,11 @@ import type { FC } from "react";
 import { useState, useRef, useCallback, useEffect } from "react";
 
 import { getGlobalViewportBox } from "../../../../../common/main/alignment.js";
-import { StyledEditorTooltipArrow } from "../../../rich-text-editor.styled.js";
 import { provider } from "../../../../../common/main/device-detector.js";
+import { StyledEditorTooltipArrow } from "../../../rich-text-editor.styled.js";
 
-import type { TooltipPluginProps } from "./tooltip.api.js";
 import { TooltipWrapper } from "./tooltip-wrapper.view.js";
+import type { TooltipPluginProps } from "./tooltip.api.js";
 
 export const TooltipPlugin: FC<TooltipPluginProps> = ({ openedDelay = 500, closedDelay = 200, ...rest }) => {
 	const [isVisible, setVisible] = useState(false);

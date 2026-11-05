@@ -36,12 +36,11 @@ import { styled, css } from "styled-components";
 
 import { joinClassNames } from "../../../common/main/utils.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
-
 import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
-import type { TableTemplateProps } from "./table.tpl.api.js";
 import { StyledBaseTable } from "./table.styled.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 
 export const StyledTableFootRowSegment = styled(StyledBaseTable.Segment).withConfig({
 	displayName: "StyledTableFootRowSegment-sc-"
@@ -49,20 +48,22 @@ export const StyledTableFootRowSegment = styled(StyledBaseTable.Segment).withCon
 	const { bodyRow, footRow } = theme.components.table;
 
 	return css`
-		${rowSegmentType === "left" &&
-		crossTabulation &&
-		css`
-			background: ${bodyRow.background};
-			&&& {
-				box-shadow: ${footRow.boxShadow};
-			}
-			${createPseudoElement(
-				":after",
-				css`
-					border-right: none;
-				`
-			)}
-		`}
+		${
+			rowSegmentType === "left" &&
+			crossTabulation &&
+			css`
+				background: ${bodyRow.background};
+				&&& {
+					box-shadow: ${footRow.boxShadow};
+				}
+				${createPseudoElement(
+					":after",
+					css`
+						border-right: none;
+					`
+				)}
+			`
+		}
 	`;
 });
 

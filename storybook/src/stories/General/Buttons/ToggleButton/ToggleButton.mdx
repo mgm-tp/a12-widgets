@@ -1,0 +1,55 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ToggleButtonStories from "./ToggleButton.stories";
+
+<Meta of={ToggleButtonStories} />
+
+<Title />
+
+The `Toggle` widget renders a group of mutually exclusive options as connected buttons. It is a
+controlled component: pass the selected item's value via `value` and react to clicks with
+`onValueChanged(newValue, oldValue)`.
+
+- Options are declared as `Toggle.Item` children, each with a required `value` and arbitrary content (text, `Icon`, …).
+- `disabled` and `readOnly` can be set on the whole toggle or on individual items.
+- `showOnlySelectedOption` collapses the group to the selected item until hovered; the item-level `variant` (`status1`–`status3`) colors the selected-item overlay in this mode.
+- Wrap the toggle in an `InteractionHintConfigProvider` to show each item's `title` as a hover hint.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ToggleButtonStories.Playground} />
+
+## Examples
+
+### With icons
+
+<Canvas of={ToggleButtonStories.WithIcon} />
+
+### Disabled and read-only
+
+<Canvas of={ToggleButtonStories.DisabledAndReadOnly} />
+
+### Show only selected option
+
+<Canvas of={ToggleButtonStories.ShowOnlySelectedOption} />
+
+### Interaction hints
+
+<Canvas of={ToggleButtonStories.InteractionHints} />

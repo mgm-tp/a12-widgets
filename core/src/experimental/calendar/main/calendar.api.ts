@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { Day } from "date-fns";
 import type { CSSProperties, ReactNode } from "react";
 import type { Locale } from "react-day-picker";
-import type { Day } from "date-fns";
 
 import type { HTMLAttributes, Identifiable, Styleable } from "../../../common/main/base-props.js";
 

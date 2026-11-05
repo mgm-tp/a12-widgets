@@ -30,19 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC, ReactNode } from "react";
-import { useState, useEffect } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { $getNodeByKey } from "lexical";
+import type { FC, ReactNode } from "react";
+import { useState, useEffect } from "react";
 
 import { Button } from "../../button/main/button.view.js";
 import { Icon } from "../../icon/main/icon.view.js";
 import { Checkbox } from "../../input/checkbox/main/checkbox.view.js";
-import { ExternalLink } from "../../link/main/external-link/external-link.view.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-
-import { DefaultRichTextEditor } from "../main/wrapper/default-rich-text-editor.view.js";
-import type { LinkPluginConfig } from "../main/wrapper/default-rich-text-editor.api.js";
+import { ExternalLink } from "../../link/main/external-link/external-link.view.js";
 import type { InlineButtonProps, LinkDecoratorProps, MentionPluginProps, TooltipPluginConfig } from "../index.js";
 import {
 	$isInlineStyleTextNode,
@@ -59,6 +56,8 @@ import {
 	ItalicButton,
 	UnderlineButton
 } from "../main/plugins/static-toolbar-plugin/inline-button/inline-default-button.js";
+import type { LinkPluginConfig } from "../main/wrapper/default-rich-text-editor.api.js";
+import { DefaultRichTextEditor } from "../main/wrapper/default-rich-text-editor.view.js";
 
 export interface DefaultEditorCombinationProps {
 	hasMentionPlugin?: boolean;

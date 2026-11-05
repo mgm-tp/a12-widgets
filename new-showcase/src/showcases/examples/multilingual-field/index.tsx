@@ -30,12 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import dataCode from "!./data.ts?raw";
+import withCollapsiblePanelCode from "!./with-collapsible-panel.tsx?raw";
+
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { WithCollapsiblePanel } from "./with-collapsible-panel.js";
-
-import withCollapsiblePanelCode from "!./with-collapsible-panel.tsx?raw";
-import dataCode from "!./data.ts?raw";
 
 const showcases: Showcase[] = [
 	{

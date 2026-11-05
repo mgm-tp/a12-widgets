@@ -32,18 +32,19 @@
 
 import { styled, css } from "styled-components";
 
-import { activeAndHover } from "../../../theme/base/mixins/_interaction.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { StyledContentBoxContent } from "../../../contentbox/main/template/contentbox.tpl.styled.js";
+import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import {
 	StyledListItemWrapper,
 	StyledListItemContent,
 	StyledListItemMeta,
 	StyledListItemSecondaryText
 } from "../../../list/main/list.styled.js";
-import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { StyledModalOverlayWrapper } from "../../../modal-overlay/main/modal-overlay.view.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
+import { activeAndHover } from "../../../theme/base/mixins/_interaction.js";
 
+import { FilterSelector } from "./filter-selector.view.js";
 import {
 	StyledFilterSelectorContainer,
 	StyledFilterSelectorList,
@@ -53,7 +54,6 @@ import {
 	StyledFilterSelectorFooter
 } from "./filter.selector.styled.js";
 import { FilterSelectorTemplate } from "./tpl/filter-selector.tpl.view.js";
-import { FilterSelector } from "./filter-selector.view.js";
 
 export const StyledMobileFilterSelectorTemplate = styled(FilterSelectorTemplate).withConfig({
 	displayName: "StyledMobileFilterSelectorTemplate-sc-"
@@ -174,18 +174,22 @@ export const StyledMobileFilterSelectorItem = styled(FilterSelector.FilterItem).
 	displayName: "StyledMobileFilterSelectorItem-sc-"
 })<{ $active?: boolean; $expanded?: boolean }>(({ $active, $expanded }) => {
 	return css`
-		${$active &&
-		css`
-			${StyledListItemSecondaryText} {
-				font-style: normal;
-			}
-		`}
+		${
+			$active &&
+			css`
+				${StyledListItemSecondaryText} {
+					font-style: normal;
+				}
+			`
+		}
 
-		${$expanded &&
-		css`
-			${StyledFilterSelectorExpandButton} ${StyledIconWrapper} {
-				transform: rotate(-180deg);
-			}
-		`}
+		${
+			$expanded &&
+			css`
+				${StyledFilterSelectorExpandButton} ${StyledIconWrapper} {
+					transform: rotate(-180deg);
+				}
+			`
+		}
 	`;
 });

@@ -1,0 +1,74 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as RichTextEditorStories from "./RichTextEditor.stories";
+import * as RichTextEditorKeyboardNavigationStories from "./RichTextEditorKeyboardNavigation.stories";
+
+<Meta of={RichTextEditorStories} />
+
+<Title />
+
+The `DefaultRichTextEditor` widget is a form field for entering and formatting rich text, built on
+the [Lexical](https://lexical.dev/) editor framework. It supports bold, italic, underline, lists and
+text alignment via a configurable toolbar, and shares the common input field anatomy (`label`,
+`helperText`, `errorMessage`, `disabled`, `readonly`).
+
+- Compose the toolbar with `staticToolbarButtons` from items like `BoldButton`, `ItalicButton`, `BulletListButton`, `AlignButtonGroup` and `Separator`.
+- Control sizing with `minHeight`, `maxHeight` and `autoExpand`, or use `singleLine` for a compact one-line field.
+- Subscribe to content changes via `onChange`, which receives the Lexical `EditorState` and editor instance.
+- The editor requires its CSS theme: `import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";`
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={RichTextEditorStories.Playground} />
+
+## Examples
+
+### Toolbar
+
+<Canvas of={RichTextEditorStories.Toolbar} />
+
+### Auto-expanding height
+
+<Canvas of={RichTextEditorStories.AutoExpand} />
+
+### Single line
+
+<Canvas of={RichTextEditorStories.SingleLine} />
+
+### Disabled
+
+<Canvas of={RichTextEditorStories.Disabled} />
+
+### Readonly with content
+
+<Canvas of={RichTextEditorStories.Readonly} />
+
+### Helper text and error message
+
+<Canvas of={RichTextEditorStories.WithHelperAndError} />
+
+## Keyboard navigation
+
+The sidebar entry **RichTextEditor/KeyboardNavigation** demonstrates the two focus modes: in the
+default mode **Tab** moves through the toolbar and editor areas, while the arrow-only mode (enabled
+via `KeyboardNavigationConfigProvider`) keeps toolbar navigation on **← / →** and lets **Tab** skip
+the whole editor.
+
+<Canvas of={RichTextEditorKeyboardNavigationStories.DefaultMode} />

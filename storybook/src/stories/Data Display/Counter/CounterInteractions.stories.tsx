@@ -45,8 +45,7 @@ const meta: Meta<typeof Counter> = {
 	component: Counter,
 	parameters: {
 		layout: "centered"
-	},
-	tags: ["autodocs"]
+	}
 };
 
 export default meta;

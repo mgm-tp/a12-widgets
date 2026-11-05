@@ -30,107 +30,31 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useCallback, useMemo, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useMemo, useState } from "react";
 
-import type { RowEventHandlerGetter } from "@com.mgmtp.a12.widgets/widgets-core";
-import type {
-	DataTableColumn,
-	DataTableSortOrder,
-	DataTableSortState,
-	DataTableRowStyleGetter
-} from "@com.mgmtp.a12.widgets/widgets-core/experimental";
-import { Button, ButtonGroup, Icon, TextField } from "@com.mgmtp.a12.widgets/widgets-core";
+import { Button, ButtonGroup, Icon, Pagination, TextField } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { DataTableColumn, DataTableProps } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
-import type { Employee } from "../Table/table.data.js";
-import { BASIC_COLUMNS, EMPLOYEES } from "../Table/table.data.js";
+import type { Employee } from "./data-table.data.js";
+import { BASIC_COLUMNS, EMPLOYEES, EMPLOYEE_COLUMNS, makeEmployees } from "./data-table.data.js";
+import { useRowSelection, useSortedRows } from "./data-table.helpers.js";
 
-const PINNED_COLUMNS: DataTableColumn<Employee>[] = [
-	{ label: "ID", dataKey: "id", width: 0.4, fixedWidth: true, pinning: "left" },
-	{ label: "First Name", dataKey: "firstName", width: 1, sortable: true },
-	{ label: "Last Name", dataKey: "lastName", width: 1, sortable: true },
-	{ label: "Department", dataKey: "department", width: 1.5 },
-	{ label: "Role", dataKey: "role", width: 1.5 },
-	{ label: "Status", dataKey: "status", width: 1, pinning: "right" }
-];
-
-const ACTION_COLUMNS: DataTableColumn<Employee>[] = [
-	...BASIC_COLUMNS,
-	{
-		label: "",
-		actionColumn: true,
-		pinning: "right",
-		hiddenText: "Actions",
-		renderCell: () => (
-			<ButtonGroup>
-				<Button onClick={(event) => event.stopPropagation()}>Edit</Button>
-				<Button destructive onClick={(event) => event.stopPropagation()}>
-					Delete
-				</Button>
-			</ButtonGroup>
-		)
-	}
-];
-
-function BasicDataTableDemo() {
-	return <DataTable<Employee> ariaLabel="Employees" data={EMPLOYEES} columns={BASIC_COLUMNS} rowKey="id" />;
-}
+const PINNED_COLUMNS: DataTableColumn<Employee>[] = EMPLOYEE_COLUMNS.map((column) =>
+	column.dataKey === "status" ? { ...column, pinning: "right" } : column
+);
 
 function SortableDataTableDemo() {
-	const [sortedData, setSortedData] = useState<Employee[]>(EMPLOYEES);
-	const [sortState, setSortState] = useState<DataTableSortState>([]);
-
-	const onSort = useCallback((next: DataTableSortState, toggled: { columnId: string; order: DataTableSortOrder }) => {
-		setSortState(next);
-
-		if (toggled.columnId && toggled.order) {
-			const key = toggled.columnId as keyof Employee;
-			const direction = toggled.order === "asc" ? 1 : -1;
-
-			setSortedData(
-				[...EMPLOYEES].sort((a, b) => {
-					const av = a[key];
-					const bv = b[key];
-
-					return av < bv ? -direction : av > bv ? direction : 0;
-				})
-			);
-		} else {
-			setSortedData(EMPLOYEES);
-		}
-	}, []);
+	const { rows, sortOptions } = useSortedRows(EMPLOYEES);
 
 	return (
 		<DataTable<Employee>
 			ariaLabel="Sortable employees"
-			data={sortedData}
+			data={rows}
 			columns={BASIC_COLUMNS}
 			rowKey="id"
-			sortOptions={{ sortState, onSort }}
-		/>
-	);
-}
-
-function PinnedColumnsDemo() {
-	return (
-		<DataTable<Employee>
-			ariaLabel="Employees with pinned columns"
-			data={EMPLOYEES}
-			columns={PINNED_COLUMNS}
-			rowKey="id"
-			maxHeight={320}
-		/>
-	);
-}
-
-function ActionColumnDemo() {
-	return (
-		<DataTable<Employee>
-			ariaLabel="Employees with action column"
-			data={EMPLOYEES}
-			columns={ACTION_COLUMNS}
-			rowKey="id"
+			sortOptions={sortOptions}
 		/>
 	);
 }
@@ -139,7 +63,7 @@ const CARD_VIEW_COLUMNS: DataTableColumn<Employee>[] = [
 	{ label: "ID", dataKey: "id" },
 	{ label: "First Name", dataKey: "firstName" },
 	{ label: "Last Name", dataKey: "lastName" },
-	// A non-string (JSX/icon) label — these now render inline in card view.
+	// A non-string (JSX/icon) label — card view renders these inline too.
 	{
 		label: (
 			<span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
@@ -150,51 +74,51 @@ const CARD_VIEW_COLUMNS: DataTableColumn<Employee>[] = [
 	}
 ];
 
-function CardViewDemo() {
+const employeeKey = (row: Employee) => row.id;
+
+function CardViewInteractiveDemo() {
+	const { rowEventHandlers, rowStyling } = useRowSelection(employeeKey, { initial: [EMPLOYEES[1]?.id] });
+
 	return (
 		<DataTable<Employee>
-			ariaLabel="Employees (card view)"
+			ariaLabel="Employees (card view, selectable)"
 			data={EMPLOYEES}
 			columns={CARD_VIEW_COLUMNS}
 			rowKey="id"
 			cardView
+			rowStyling={rowStyling}
+			rowEventHandlers={rowEventHandlers}
 		/>
 	);
 }
 
-function EmptyDataTableDemo() {
-	return <DataTable<Employee> ariaLabel="Employees" data={[]} columns={BASIC_COLUMNS} rowKey="id" />;
-}
+const PAGED_EMPLOYEES = makeEmployees(12);
+const PAGE_SIZE = 5;
 
-function DisabledDataTableDemo() {
-	return <DataTable<Employee> ariaLabel="Employees" data={EMPLOYEES} columns={BASIC_COLUMNS} rowKey="id" disabled />;
-}
+function WithPaginationDemo() {
+	const [currentPage, setCurrentPage] = useState(1);
+	const pageCount = Math.ceil(PAGED_EMPLOYEES.length / PAGE_SIZE);
 
-function CellHighlightingDemo() {
+	const paged = useMemo(
+		() => PAGED_EMPLOYEES.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
+		[currentPage]
+	);
+
 	return (
-		<DataTable<Employee>
-			ariaLabel="Employees with cell highlighting"
-			data={EMPLOYEES}
-			columns={BASIC_COLUMNS}
-			rowKey="id"
-			cellHighlighting
-		/>
+		<div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+			<DataTable<Employee> ariaLabel="Paged employees" data={paged} columns={BASIC_COLUMNS} rowKey="id" />
+			<Pagination
+				alignment="right"
+				currentPage={currentPage}
+				pageCount={pageCount}
+				pageLabelTemplate="{page} / {total}"
+				onPageChanged={setCurrentPage}
+			/>
+		</div>
 	);
 }
 
 type ColumnAlignment = "left" | "center" | "right";
-
-function sortEmployees(data: Employee[], sortState: DataTableSortState): Employee[] {
-	const key = sortState[0]?.columnId as keyof Employee | undefined;
-
-	if (!key || !sortState[0]?.order) {
-		return data;
-	}
-
-	const direction = sortState[0]?.order === "asc" ? 1 : -1;
-
-	return [...data].sort((a, b) => (a[key] < b[key] ? -direction : a[key] > b[key] ? direction : 0));
-}
 
 interface PlaygroundArgs {
 	cardView: boolean;
@@ -202,6 +126,7 @@ interface PlaygroundArgs {
 	disabled: boolean;
 	disableArrowNavigation: boolean;
 	hideHeader: boolean;
+	actionColumn: boolean;
 	maxHeight: number;
 	columnAlignment: ColumnAlignment;
 }
@@ -216,25 +141,45 @@ function PlaygroundDemo({
 	disabled,
 	disableArrowNavigation,
 	hideHeader,
+	actionColumn,
 	maxHeight,
 	columnAlignment
 }: PlaygroundArgs) {
-	const [sortState, setSortState] = useState<DataTableSortState>([]);
+	const columns = useMemo<DataTableColumn<Employee>[]>(() => {
+		const aligned = BASIC_COLUMNS.map((column) => ({ ...column, horizontalAlignment: columnAlignment }));
 
-	const columns = useMemo<DataTableColumn<Employee>[]>(
-		() => BASIC_COLUMNS.map((column) => ({ ...column, horizontalAlignment: columnAlignment })),
-		[columnAlignment]
-	);
+		if (!actionColumn) {
+			return aligned;
+		}
 
-	const data = useMemo(() => sortEmployees(EMPLOYEES, sortState), [sortState]);
+		return [
+			...aligned,
+			{
+				label: "",
+				actionColumn: true,
+				pinning: "right",
+				hiddenText: "Actions",
+				renderCell: () => (
+					<ButtonGroup>
+						<Button onClick={(event) => event.stopPropagation()}>Edit</Button>
+						<Button destructive onClick={(event) => event.stopPropagation()}>
+							Delete
+						</Button>
+					</ButtonGroup>
+				)
+			}
+		];
+	}, [columnAlignment, actionColumn]);
+
+	const { rows, sortOptions } = useSortedRows(EMPLOYEES);
 
 	return (
 		<DataTable<Employee>
 			ariaLabel="DataTable playground"
-			data={data}
+			data={rows}
 			columns={columns}
 			rowKey="id"
-			sortOptions={{ sortState, onSort: (next) => setSortState(next) }}
+			sortOptions={sortOptions}
 			cardView={cardView}
 			cellHighlighting={cellHighlighting}
 			disabled={disabled}
@@ -253,25 +198,25 @@ type FilterMap = Record<string, string>;
  * would wire DataTable up in a real screen.
  */
 function FullExampleDemo() {
-	const [sortState, setSortState] = useState<DataTableSortState>([]);
 	const [filters, setFilters] = useState<FilterMap>({});
-	const [selectedId, setSelectedId] = useState<number | undefined>();
+	const { rowEventHandlers, rowStyling } = useRowSelection(employeeKey);
 
-	const data = useMemo(() => {
-		const filtered = EMPLOYEES.filter((row) =>
-			Object.entries(filters).every(([key, query]) => {
-				if (!query) {
-					return true;
-				}
+	const filtered = useMemo(
+		() =>
+			EMPLOYEES.filter((row) =>
+				Object.entries(filters).every(([key, query]) => {
+					if (!query) {
+						return true;
+					}
 
-				return String(row[key as keyof Employee] ?? "")
-					.toLowerCase()
-					.includes(query.toLowerCase());
-			})
-		);
-
-		return sortEmployees(filtered, sortState);
-	}, [filters, sortState]);
+					return String(row[key as keyof Employee] ?? "")
+						.toLowerCase()
+						.includes(query.toLowerCase());
+				})
+			),
+		[filters]
+	);
+	const { rows, sortOptions } = useSortedRows(filtered);
 
 	const columns = useMemo<DataTableColumn<Employee>[]>(() => {
 		const filterCell = (dataKey: string, label: string) => () => (
@@ -287,7 +232,7 @@ function FullExampleDemo() {
 			{
 				label: "ID",
 				dataKey: "id",
-				width: 0.4,
+				width: 0.7,
 				fixedWidth: true,
 				pinning: "left",
 				renderFooter: () => <strong>Total</strong>
@@ -298,7 +243,7 @@ function FullExampleDemo() {
 				width: 1,
 				sortable: true,
 				renderFilter: filterCell("firstName", "first name"),
-				renderFooter: () => <span>{data.length} shown</span>
+				renderFooter: () => <span>{rows.length} shown</span>
 			},
 			{
 				label: "Last Name",
@@ -311,39 +256,26 @@ function FullExampleDemo() {
 			{ label: "Role", dataKey: "role", width: 1.5 },
 			{ label: "Status", dataKey: "status", width: 1, pinning: "right" }
 		];
-	}, [filters, data.length]);
-
-	const rowEventHandlers: RowEventHandlerGetter<Employee> = useCallback(
-		({ row }) => ({ onClick: () => setSelectedId((prev) => (prev === row.id ? undefined : row.id)) }),
-		[]
-	);
-
-	const rowStyling: DataTableRowStyleGetter<Employee> = useCallback(
-		({ row }) => ({
-			selected: selectedId === row.id,
-			title: selectedId === row.id ? "Selected" : "Select row"
-		}),
-		[selectedId]
-	);
+	}, [filters, rows.length]);
 
 	return (
 		<DataTable<Employee>
 			ariaLabel="Employee directory"
-			data={data}
+			data={rows}
 			columns={columns}
 			rowKey="id"
 			maxHeight={360}
 			cellHighlighting
-			sortOptions={{ sortState, onSort: (next) => setSortState(next) }}
+			sortOptions={sortOptions}
 			rowEventHandlers={rowEventHandlers}
 			rowStyling={rowStyling}
 		/>
 	);
 }
 
-const meta: Meta<typeof BasicDataTableDemo> = {
+const meta: Meta<typeof DataTable<Employee>> = {
 	title: "Data Display/DataTable/DataTable",
-	component: BasicDataTableDemo,
+	component: DataTable,
 	parameters: { layout: "padded" },
 	tags: ["autodocs"]
 };
@@ -351,17 +283,47 @@ const meta: Meta<typeof BasicDataTableDemo> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+/**
+ * Stories that are plain props are written as `args`, so "Show code" is generated from the
+ * rendered `DataTable` element. Stories that need React state keep a demo component and
+ * ship a hand-written `docs.source.code` snippet instead — otherwise the snippet would only
+ * read `<SomeDemo />`. Controls are switched off for those, since the demo ignores args.
+ */
+const BASE_ARGS: DataTableProps<Employee> = {
+	ariaLabel: "Employees",
+	data: EMPLOYEES,
+	columns: BASIC_COLUMNS,
+	rowKey: "id"
+};
+
+const STATEFUL_DEMO = { controls: { disable: true } };
+
 export const Default: Story = {
-	render: () => <BasicDataTableDemo />
+	args: BASE_ARGS
 };
 
 export const Sortable: Story = {
 	name: "Sortable Columns",
 	render: () => <SortableDataTableDemo />,
 	parameters: {
+		...STATEFUL_DEMO,
 		docs: {
+			source: {
+				language: "tsx",
+				code: `const [sortState, setSortState] = useState<DataTableSortState>([]);
+const rows = useMemo(() => sortRows(employees, sortState), [sortState]);
+
+<DataTable<Employee>
+	ariaLabel="Sortable employees"
+	data={rows}
+	columns={columns}
+	rowKey="id"
+	sortOptions={{ sortState, onSort: setSortState }}
+/>`
+			},
 			description: {
-				story: "Click a column header to cycle sort state — ascending → descending → unsorted."
+				story:
+					"Sorting is controlled: pass `sortOptions={{ sortState, onSort }}`, assign `next` from `onSort` to your state and sort `data` yourself. Click a header to cycle ascending → descending → unsorted."
 			}
 		}
 	}
@@ -369,44 +331,74 @@ export const Sortable: Story = {
 
 export const WithPinnedColumn: Story = {
 	name: "Pinned Columns",
-	render: () => <PinnedColumnsDemo />,
+	args: {
+		...BASE_ARGS,
+		ariaLabel: "Employees with pinned columns",
+		columns: PINNED_COLUMNS,
+		maxHeight: 320
+	},
 	parameters: {
 		docs: {
 			description: {
-				story: "Pinned columns use `position: sticky` — no `ColumnWidthSync`, no per-row scroll containers."
-			}
-		}
-	}
-};
-
-export const WithActionColumn: Story = {
-	name: "Action Column",
-	render: () => <ActionColumnDemo />,
-	parameters: {
-		docs: {
-			description: {
-				story:
-					"Action columns auto-size via a `max-content` grid track. Custom body content is provided through the column-level `renderCell` hook."
+				story: '`pinning: "left" | "right"` keeps a column in view while the table scrolls horizontally.'
 			}
 		}
 	}
 };
 
 export const CardView: Story = {
-	name: "Card View",
-	render: () => <CardViewDemo />,
+	args: {
+		...BASE_ARGS,
+		ariaLabel: "Employees (card view)",
+		columns: CARD_VIEW_COLUMNS,
+		cardView: true
+	},
 	parameters: {
 		docs: {
 			description: {
 				story:
-					"In card view the `<thead>` is hidden and each cell renders its column's `label` inline as a real element. Non-string (`ReactNode`/icon) labels — like the “Role” column here — display correctly and are exposed to assistive technology."
+					'`cardView` renders a **separate layout**, not a restyled table: a `role="list"` of `listitem` cards with no `<table>` DOM. There is no header and no footer; each card labels its own fields, and non-string (`ReactNode`/icon) labels — like the “Role” column here — are rendered and exposed to assistive technology. Toggle `cardView` in the **Playground** story to switch between the two layouts.'
+			}
+		}
+	}
+};
+
+export const CardViewInteractive: Story = {
+	name: "Card View — selection & keyboard",
+	render: () => <CardViewInteractiveDemo />,
+	parameters: {
+		...STATEFUL_DEMO,
+		docs: {
+			source: {
+				language: "tsx",
+				code: `const [selected, setSelected] = useState<number | undefined>(employees[1]?.id);
+
+<DataTable<Employee>
+	ariaLabel="Employees (card view, selectable)"
+	data={employees}
+	columns={columns}
+	rowKey="id"
+	cardView
+	rowStyling={({ row }) => ({ selected: row.id === selected })}
+	rowEventHandlers={({ row }) => ({
+		onClick: () => setSelected((prev) => (prev === row.id ? undefined : row.id))
+	})}
+/>`
+			},
+			description: {
+				story:
+					"Card view shares the model with the table layout, so it is not read-only: `rowStyling` / `rowEventHandlers` select cards, and the arrow keys move between cards once the list has focus."
 			}
 		}
 	}
 };
 
 export const CellHighlighting: Story = {
-	render: () => <CellHighlightingDemo />,
+	args: {
+		...BASE_ARGS,
+		ariaLabel: "Employees with cell highlighting",
+		cellHighlighting: true
+	},
 	parameters: {
 		docs: {
 			description: {
@@ -419,7 +411,7 @@ export const CellHighlighting: Story = {
 
 export const Empty: Story = {
 	name: "Empty Table",
-	render: () => <EmptyDataTableDemo />,
+	args: { ...BASE_ARGS, data: [] },
 	parameters: {
 		docs: {
 			description: {
@@ -431,12 +423,52 @@ export const Empty: Story = {
 
 export const Disabled: Story = {
 	name: "Disabled Table",
-	render: () => <DisabledDataTableDemo />,
+	args: { ...BASE_ARGS, disabled: true },
 	parameters: {
 		docs: {
 			description: {
 				story:
 					"The `disabled` prop applies a disabled visual state and suppresses all event handlers — `rowStyling`/`cellStyling` and `cellHighlighting` are also inactive while disabled."
+			}
+		}
+	}
+};
+
+export const HiddenHeader: Story = {
+	args: { ...BASE_ARGS, ariaLabel: "Header-less table", hideHeader: true },
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`hideHeader` removes the `<thead>` (header rows and filter row) entirely. ARIA row numbering excludes the hidden header, and header-dependent features like `cellHighlighting` are inactive."
+			}
+		}
+	}
+};
+
+export const WithPagination: Story = {
+	render: () => <WithPaginationDemo />,
+	parameters: {
+		...STATEFUL_DEMO,
+		docs: {
+			source: {
+				language: "tsx",
+				code: `const PAGE_SIZE = 5;
+const [currentPage, setCurrentPage] = useState(1);
+const paged = employees.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+<DataTable<Employee> ariaLabel="Paged employees" data={paged} columns={columns} rowKey="id" />
+<Pagination
+	alignment="right"
+	currentPage={currentPage}
+	pageCount={Math.ceil(employees.length / PAGE_SIZE)}
+	pageLabelTemplate="{page} / {total}"
+	onPageChanged={setCurrentPage}
+/>`
+			},
+			description: {
+				story:
+					"Pagination is external to the table — slice `data` for the current page and drive `Pagination` via `currentPage` / `onPageChanged`. For very long lists compare **Large Data**."
 			}
 		}
 	}
@@ -450,6 +482,7 @@ export const Playground: StoryObj<typeof PlaygroundDemo> = {
 		disabled: false,
 		disableArrowNavigation: false,
 		hideHeader: false,
+		actionColumn: false,
 		maxHeight: 0,
 		columnAlignment: "left"
 	},
@@ -469,6 +502,11 @@ export const Playground: StoryObj<typeof PlaygroundDemo> = {
 			description: "Turn off row-level arrow-key navigation (ArrowUp/ArrowDown move focus between body rows)."
 		},
 		hideHeader: { control: "boolean", description: "Hide the `<thead>` entirely." },
+		actionColumn: {
+			control: "boolean",
+			description:
+				"Append a right-pinned, auto-sized action column rendering Edit/Delete buttons via the column-level `renderCell` hook (see **Action Column**)."
+		},
 		maxHeight: {
 			control: { type: "range", min: 0, max: 400, step: 20 },
 			description: "Scroll-viewport height in px (0 = unset, table grows to natural height)."
@@ -481,6 +519,22 @@ export const Playground: StoryObj<typeof PlaygroundDemo> = {
 	},
 	parameters: {
 		docs: {
+			source: {
+				language: "tsx",
+				code: `<DataTable<Employee>
+	ariaLabel="DataTable playground"
+	data={rows}
+	columns={columns.map((column) => ({ ...column, horizontalAlignment: columnAlignment }))}
+	rowKey="id"
+	sortOptions={sortOptions}
+	cardView={cardView}
+	cellHighlighting={cellHighlighting}
+	disabled={disabled}
+	disableArrowNavigation={disableArrowNavigation}
+	hideHeader={hideHeader}
+	maxHeight={maxHeight > 0 ? maxHeight : undefined}
+/>`
+			},
 			description: {
 				story:
 					"Flip the table-level display props live from the **Controls** panel to feel how each behaves — and how some combine (e.g. `cellHighlighting` goes inactive once `cardView`, `hideHeader`, or `disabled` is on). The table stays sortable throughout."
@@ -492,7 +546,57 @@ export const Playground: StoryObj<typeof PlaygroundDemo> = {
 export const FullExample: Story = {
 	render: () => <FullExampleDemo />,
 	parameters: {
+		...STATEFUL_DEMO,
 		docs: {
+			source: {
+				language: "tsx",
+				code: `const [filters, setFilters] = useState<Record<string, string>>({});
+const [sortState, setSortState] = useState<DataTableSortState>([]);
+const [selected, setSelected] = useState<number>();
+
+const filtered = employees.filter((row) =>
+	Object.entries(filters).every(([key, query]) =>
+		String(row[key as keyof Employee] ?? "").toLowerCase().includes(query.toLowerCase())
+	)
+);
+const rows = sortRows(filtered, sortState);
+
+const filterCell = (dataKey: keyof Employee, label: string) => () => (
+	<TextField
+		label={\`Filter \${label}\`}
+		hideLabel
+		value={filters[dataKey] ?? ""}
+		onChange={(ev) => setFilters((prev) => ({ ...prev, [dataKey]: ev.target.value }))}
+	/>
+);
+
+const columns: DataTableColumn<Employee>[] = [
+	{ label: "ID", dataKey: "id", width: 0.7, fixedWidth: true, pinning: "left", renderFooter: () => <strong>Total</strong> },
+	{
+		label: "First Name",
+		dataKey: "firstName",
+		sortable: true,
+		renderFilter: filterCell("firstName", "first name"),
+		renderFooter: () => <span>{rows.length} shown</span>
+	},
+	{ label: "Last Name", dataKey: "lastName", sortable: true, renderFilter: filterCell("lastName", "last name") },
+	{ label: "Department", dataKey: "department", width: 1.5, renderFilter: filterCell("department", "department") },
+	{ label: "Role", dataKey: "role", width: 1.5 },
+	{ label: "Status", dataKey: "status", pinning: "right" }
+];
+
+<DataTable<Employee>
+	ariaLabel="Employee directory"
+	data={rows}
+	columns={columns}
+	rowKey="id"
+	maxHeight={360}
+	cellHighlighting
+	sortOptions={{ sortState, onSort: setSortState }}
+	rowStyling={({ row }) => ({ selected: row.id === selected })}
+	rowEventHandlers={({ row }) => ({ onClick: () => setSelected(row.id) })}
+/>`
+			},
 			description: {
 				story:
 					"A realistic, copy-paste assembly combining the features that ship as isolated stories elsewhere: sortable headers, left/right **pinned** columns, an inline **filter row**, single-row **selection**, a sticky scroll viewport (`maxHeight`), `cellHighlighting`, and a `<tfoot>` summary that reflects the filtered count."

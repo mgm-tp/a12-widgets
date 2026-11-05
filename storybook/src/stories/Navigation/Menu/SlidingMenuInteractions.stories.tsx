@@ -41,8 +41,7 @@ const meta: Meta<typeof SlidingMenu> = {
 	component: SlidingMenu,
 	parameters: {
 		layout: "fullscreen"
-	},
-	tags: ["autodocs"]
+	}
 };
 
 export default meta;
@@ -144,28 +143,6 @@ const itemsWithVariants: MenuItem[] = [
 		variant: "done"
 	}
 ];
-
-const DefaultStory = () => {
-	const [expanded, setExpanded] = useState(false);
-
-	return (
-		<div style={{ height: "100vh", position: "relative" }}>
-			<div style={{ padding: "20px" }}>
-				<Button label={expanded ? "Close Menu" : "Open Menu"} onClick={() => setExpanded(!expanded)} primary />
-				<p style={{ marginTop: "10px", color: "#666" }}>Hover or focus on menu items to see interaction hints</p>
-			</div>
-			<InteractionHintConfigProvider enableInteractionHint componentConfigs={{ slidingMenu: true }}>
-				<div style={{ width: "320px" }}>
-					<SlidingMenu id="sliding-menu-interactions-default" items={itemsWithSubmenus} />
-				</div>
-			</InteractionHintConfigProvider>
-		</div>
-	);
-};
-
-export const Default: Story = {
-	render: () => <DefaultStory />
-};
 
 const WithInteractionHintStory = () => {
 	const [expanded, setExpanded] = useState(false);

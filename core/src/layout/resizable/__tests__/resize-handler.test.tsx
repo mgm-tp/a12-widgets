@@ -37,7 +37,6 @@ import { getByDataRole, render, waitFor } from "test-utils";
 import { describe, expect, test } from "vitest";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import type { ResizeHandlerProps } from "../resize-handler.api.js";
 import { ResizeHandler } from "../resize-handler.view.js";
 

@@ -53,10 +53,12 @@ type RowType = {
 
 export const StyledCodeName = styled.code<{ $deprecated?: boolean }>(({ theme, $deprecated }) => {
 	return css`
-		${$deprecated &&
-		css`
-			color: ${theme.colors.variant.errorColor};
-		`};
+		${
+			$deprecated &&
+			css`
+				color: ${theme.colors.variant.errorColor};
+			`
+		};
 	`;
 });
 

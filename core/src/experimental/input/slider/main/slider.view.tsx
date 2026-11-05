@@ -34,10 +34,10 @@ import type { MouseEvent, KeyboardEvent, ReactElement } from "react";
 import { createRef, Component } from "react";
 import { Key } from "ts-key-enum";
 
-import { InputElements } from "../../../../input//base/template/base.tpl.view.js";
-import { joinClassNames, addPrefix, bindMethods } from "../../../../common/main/utils.js";
-import { StyledBaseInput } from "../../../../input/base-input-styled/base.styled.js";
 import { DataRoles } from "../../../../common/index.js";
+import { joinClassNames, addPrefix, bindMethods } from "../../../../common/main/utils.js";
+import { InputElements } from "../../../../input//base/template/base.tpl.view.js";
+import { StyledBaseInput } from "../../../../input/base-input-styled/base.styled.js";
 
 import type { SliderProps } from "./slider.api.js";
 import {

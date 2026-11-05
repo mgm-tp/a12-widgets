@@ -62,7 +62,13 @@ export function MenuWithVariants(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<div>
-					<Checkbox checked={vertical} onChange={setVertical} label="Vertical Menu" title="Vertical Menu" />
+					<Checkbox
+						id="flyout-menu-with-variants-vertical-menu"
+						checked={vertical}
+						onChange={setVertical}
+						label="Vertical Menu"
+						title="Vertical Menu"
+					/>
 				</div>
 			}
 		>

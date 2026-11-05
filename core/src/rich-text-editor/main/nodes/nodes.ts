@@ -43,7 +43,12 @@ export const EditorNodes: InitialConfigType["nodes"] = [
 	{
 		replace: LexicalListItemNode,
 		with: (node: LexicalListItemNode): ListItemNode => {
-			return $createListItemNode(node.getChecked());
+			// `getChecked()` only reports the flag once the item sits in a check list, and a node
+			// being replaced is always still detached — so it would report `undefined` for every
+			// item and drop the checkbox state of imported HTML. Read the raw flag instead, the
+			// same way `ListItemNode.clone()` does. `ListNode`'s transform clears it again for
+			// lists that turn out not to be check lists.
+			return $createListItemNode(node.__checked);
 		},
 		withKlass: ListItemNode
 	},

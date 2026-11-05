@@ -35,8 +35,8 @@ import { faker as Faker } from "@faker-js/faker/locale/en";
 import type { CommentMeta, CommentProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Icon, Range } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { createCard } from "../../helpers/faker.js";
 import type { Card } from "../../helpers/definitions.js";
+import { createCard } from "../../helpers/faker.js";
 
 export const comments = [1, 2, 3, 4].map((i) => {
 	const card = createCard();

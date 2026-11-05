@@ -30,24 +30,31 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import CheckboxAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/checkbox/main/checkbox.api.json" with { type: "json" };
+import withA11yCode from "!./accessibility.tsx?raw";
+import basicCode from "!./checkbox-basic.tsx?raw";
+import defaultGroupCode from "!./checkbox-group.tsx?raw";
+import statesCode from "!./checkbox-states.tsx?raw";
+import helperTextCheckboxesCode from "!./helper-text.tsx?raw";
+import indeterminateCode from "!./indeterminate.tsx?raw";
+import messagePositionCode from "!./message-position.tsx?raw";
+
+import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 import CheckboxGroupAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/checkbox-group/main/checkbox-group.api.json" with { type: "json" };
+import CheckboxAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/checkbox/main/checkbox.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
+import {
+	StyledShowcaseBulletListInMessageBox,
+	StyledShowcaseLinkInMessageBox
+} from "../../../helpers/showcase-styles.js";
 
-import { CheckboxBasicShowcase } from "./checkbox-basic.js";
-import { CheckboxStatesShowcase } from "./checkbox-states.js";
-import { DefaultCheckboxGroupShowcase } from "./checkbox-group.js";
-import { IndeterminateCheckboxShowcase } from "./indeterminate.js";
-import { HelperTextCheckboxesShowcase } from "./helper-text.js";
 import { CheckboxWithA11yShowcase } from "./accessibility.js";
-
-import basicCode from "!./checkbox-basic.tsx?raw";
-import statesCode from "!./checkbox-states.tsx?raw";
-import defaultGroupCode from "!./checkbox-group.tsx?raw";
-import indeterminateCode from "!./indeterminate.tsx?raw";
-import helperTextCheckboxesCode from "!./helper-text.tsx?raw";
-import withA11yCode from "!./accessibility.tsx?raw";
+import { CheckboxBasicShowcase } from "./checkbox-basic.js";
+import { DefaultCheckboxGroupShowcase } from "./checkbox-group.js";
+import { CheckboxStatesShowcase } from "./checkbox-states.js";
+import { HelperTextCheckboxesShowcase } from "./helper-text.js";
+import { IndeterminateCheckboxShowcase } from "./indeterminate.js";
+import { MessagePosition } from "./message-position.js";
 
 const showcases: Showcase[] = [
 	{
@@ -149,6 +156,46 @@ const showcases: Showcase[] = [
 					</p>
 				),
 				code: { name: "helper-text.tsx", code: helperTextCheckboxesCode }
+			},
+			{
+				label: "Message and Tooltip Position",
+				content: <MessagePosition />,
+				description: {
+					info: (
+						<>
+							<p>
+								Use <code>messagePosition</code> to render the <code>errorMessage</code>, <code>warningMessage</code>{" "}
+								and <code>infoMessage</code> boxes either <code>above</code> the control, between the label and the
+								control, or <code>below</code> it.
+							</p>
+							<p>
+								<code>breakTooltipsToNewLine</code> does the same for the tooltips: <code>false</code> keeps them beside
+								the control, <code>"above"</code> and <code>"below"</code> move them onto their own line.
+							</p>
+						</>
+					),
+					note: (
+						<StyledShowcaseBulletListInMessageBox>
+							<BulletList.Item>
+								Despite the name, <code>breakTooltipsToNewLine</code> sets a position rather than a yes/no line break.
+								It will be renamed to <code>tooltipPosition</code> in the next breaking release.
+							</BulletList.Item>
+							<BulletList.Item>
+								<code>FieldDefaultConfigProvider</code> sets <code>messagePosition</code> and{" "}
+								<code>tooltipPosition</code> for every data entry widget and every Text Output in a subtree at once. A
+								property on a single widget still wins, and nested providers merge. <code>tooltipPosition</code> takes{" "}
+								<code>"beside"</code>, <code>"above"</code> or <code>"below"</code>, where <code>"beside"</code> is{" "}
+								<code>breakTooltipsToNewLine</code>'s <code>false</code>. See{" "}
+								<StyledShowcaseLinkInMessageBox href="#/examples/message-and-tooltip-position">
+									Examples {">"} Message and Tooltip Position
+								</StyledShowcaseLinkInMessageBox>{" "}
+								for a runnable example.
+							</BulletList.Item>
+						</StyledShowcaseBulletListInMessageBox>
+					)
+				},
+				useConfiguration: true,
+				code: { name: "message-position.tsx", code: messagePositionCode }
 			},
 			{
 				label: "Accessibility",

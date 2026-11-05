@@ -31,32 +31,12 @@
  */
 
 import type { HTMLAttributes } from "react";
+import { createContext, useContext } from "react";
 
-import { createContext, useContextSelector } from "../../context/index.js";
-
+import type { DataTableRenderPropsType } from "./data-table-renderer.api.js";
+import type { ResolvedDataTableSlots } from "./data-table-slots.api.js";
 import type { BaseColumnType } from "./foundation/column.api.js";
 import type { TableDragDropOptions } from "./foundation/table.api.js";
-import type { DataTableRenderPropsType } from "./data-table-renderer.api.js";
-import type { DataTableSortState } from "./data-table.sort.js";
-import type { ResolvedDataTableSlots } from "./data-table-slots.api.js";
-
-/**
- * Minimal handle attributes exposed by `useColumnResize`. Loose shape so the
- * context value can be assigned the hook output without an exact match.
- */
-export interface DataTableResizeHandleProps {
-	/** Pointer-down handler that initiates a drag-resize. */
-	onPointerDown?: unknown;
-
-	/** Key-down handler for keyboard-driven resize. */
-	onKeyDown?: unknown;
-
-	/** Tab order of the resize handle. */
-	tabIndex?: number;
-
-	/** ARIA role for the resize handle. */
-	role?: string;
-}
 
 /**
  * Shared per-render state exposed to every template inside a `<DataTable>`.
@@ -107,25 +87,6 @@ export interface DataTableContextType<
 	leafPinning: readonly (("left" | "right") | undefined)[];
 
 	/**
-	 * Cumulative pixel offsets for sticky-pinned leaf cells, aligned by index
-	 * with the resolved leaf columns. The orchestrator measures rendered leaf header widths
-	 * with a `ResizeObserver` and exposes:
-	 *
-	 *  - `left[i]` — px from the table's inline-start edge for leaf `i` when it
-	 *    is left-pinned. Equal to the sum of widths of all preceding left-pinned
-	 *    leaves; `0` for the first left-pinned leaf and for non-pinned leaves.
-	 *  - `right[i]` — px from the table's inline-end edge for leaf `i` when it
-	 *    is right-pinned. Equal to the sum of widths of all following right-pinned
-	 *    leaves; `0` for the last right-pinned leaf and for non-pinned leaves.
-	 *
-	 * Cell templates read this slice to drive
-	 * `inset-inline-start` / `inset-inline-end` via the `--a12-data-table-pin-offset`
-	 * custom property, so multi-column pinning (including pinning inherited from
-	 * a column group) cascades correctly instead of stacking at a single edge.
-	 */
-	leafPinOffsets: { readonly left: readonly number[]; readonly right: readonly number[] };
-
-	/**
 	 * 1-based `aria-rowindex` for the footer row — the last index in the grid.
 	 * Set by the orchestrator only when {@link isVirtualizedMode} is `true` and a
 	 * footer is shown, so the default footer renderer completes the explicit row
@@ -149,25 +110,23 @@ export interface DataTableContextType<
 	leafPinningEdge: { readonly left: number; readonly right: number };
 
 	/**
-	 * Per-leaf `headers` attribute value, aligned by index with the resolved leaf columns.
-	 * Each entry is the space-separated list of header-cell `id`s that cover
-	 * that leaf column — its group ancestors (upper header rows) followed by the
-	 * leaf header (bottom row). Body cells apply this as their `headers`
-	 * attribute to restore the header⇄cell association the CSS-Grid layout
-	 * strips from the native `<table>` (see {@link DataTable}).
+	 * Localized screen-reader-only text a header cell renders for an action column
+	 * whose definition supplies no `hiddenText`. Resolved from
+	 * `A11YLanguageContext.tableTitles.actionTitle`. Optional so templates rendered
+	 * outside a `<DataTable>` provider can fall back to their own lookup.
 	 */
-	leafHeaderIds?: readonly string[];
-
-	/**
-	 * Localized fallback label for an action column with no visible `label`.
-	 * Resolved from `A11YLanguageContext.tableTitles.actionColumnDefaultLabel`.
-	 * Optional so templates rendered outside a `<DataTable>` provider can
-	 * fall back to their own `A11YLanguageContext` lookup.
-	 */
-	actionColumnFallbackLabel?: string;
+	actionColumnHiddenText?: string;
 
 	/** Whether the given leaf column is resizable. */
 	isResizable?: (columnIndex: number) => boolean;
+
+	/**
+	 * Total number of leaf columns. Lets a head cell tell whether it owns the
+	 * last leaf column (`leafTo === leafColumnCount - 1`) so its resize handle can
+	 * drop the boundary-straddling overhang that would otherwise poke past the
+	 * table's right edge and force a permanent horizontal scrollbar.
+	 */
+	leafColumnCount?: number;
 
 	/**
 	 * DOM-level pointer/keyboard/role props for the given leaf column's resize
@@ -175,6 +134,20 @@ export interface DataTableContextType<
 	 * cell renders the handle at its right edge when the column is resizable.
 	 */
 	resizeHandleProps?: (columnIndex: number) => HTMLAttributes<HTMLDivElement>;
+
+	/**
+	 * DOM-level pointer/keyboard/role props for a column group's resize handle.
+	 * Resizes the group's whole leaf range `[leafFrom, leafTo]` proportionally
+	 * (every leaf scales by the same factor, preserving the group's internal
+	 * ratios). `groupColumn` / `groupLabel` are reported through the resize
+	 * callbacks and used for the handle's accessible name.
+	 */
+	groupResizeHandleProps?: (
+		leafFrom: number,
+		leafTo: number,
+		groupColumn: BaseColumnType<RowType>,
+		groupLabel: string
+	) => HTMLAttributes<HTMLDivElement>;
 
 	/**
 	 * Whether the given row is the currently focused arrow-navigation target.
@@ -188,7 +161,15 @@ export interface DataTableContextType<
 	 * element so the roving tabindex can move to it imperatively (without a
 	 * table-wide re-render). Identity-stable across renders.
 	 */
-	onRowFocusChange?: (rowIndex: number, row?: HTMLTableRowElement) => void;
+	onRowFocusChange?: (rowIndex: number, row?: HTMLElement) => void;
+
+	/**
+	 * Re-assert that some rendered body row carries the roving tab stop. Called by
+	 * the windowed tbody after each commit — the focused row can scroll out of the
+	 * rendered window and unmount, taking the only `tabIndex=0` with it.
+	 * Identity-stable across renders.
+	 */
+	ensureRowTabStop?: () => void;
 
 	/** Whether row arrow-key navigation is active. */
 	arrowNavActive: boolean;
@@ -209,6 +190,15 @@ export interface DataTableContextType<
 	leavesInGroup?: ReadonlySet<number>;
 
 	/**
+	 * Per leaf column, the group that draws the resize handle on its right edge.
+	 * Every other header cell ending on that edge draws none; `undefined` leaves it
+	 * to the leaf itself.
+	 *
+	 * @internal
+	 */
+	resizeEdgeOwner?: (BaseColumnType<RowType> | undefined)[];
+
+	/**
 	 * The merged slot set: consumer {@link DataTableSlots} over
 	 * {@link DataTableDefaultSlots}. Published so nested compositions — the
 	 * windowed bodies, {@link DataTableRowsGroup}, custom container slots
@@ -219,9 +209,6 @@ export interface DataTableContextType<
 	 * reading a slot from context never forces a remount by itself.
 	 */
 	slots?: ResolvedDataTableSlots<RowType, ColumnType>;
-
-	/** Current sort state (id-keyed, priority-ordered), if any. */
-	sortState?: DataTableSortState;
 
 	/**
 	 * Sort handler. Templates only fire the callback (forwarding the activation event so the
@@ -242,28 +229,25 @@ export interface DataTableContextType<
 
 	/**
 	 * Drag-and-drop options forwarded from the orchestrator. Consumed by the
-	 * default DnD renderers (`DataTableDnDBodyRow`, `DataTableDnDDropTarget`) so they
+	 * default DnD renderer (`DataTableDnDBodyRow`) and the drag monitor so they
 	 * can be invoked through the renderer slots without prop-drilling.
 	 */
 	dragDropOptions?: TableDragDropOptions<RowType>;
 
 	/**
-	 * Snapshot of the drag currently in progress, tracked by the orchestrator's
-	 * drag-and-drop monitor — `null`/`undefined` when nothing compatible is being
-	 * dragged. The default drop targets read it to open while a compatible drag
-	 * is active; the default drag preview reads the dragged item and its initial
-	 * position from it.
-	 */
-	activeDrag?: DataTableRenderPropsType.ActiveDrag<RowType> | null;
-
-	/**
-	 * Number of body rows. Used by the default drop targets to recognise the
-	 * table's top/bottom edge (`rowIndex === 0` / `rowIndex === rowCount`) so the
-	 * edge drop indicators can be clamped inside the table's content box —
-	 * otherwise their gap-centred band overflows the scroll viewport and makes a
-	 * scrollbar flicker in/out during a drag.
+	 * Number of body rows. Exposed for renderers that need the row total (e.g. to
+	 * recognise the table's top/bottom edge).
 	 */
 	rowCount?: number;
+
+	/**
+	 * Live registry of this table's mounted body rows, keyed by data row index.
+	 * The default DnD body-row wrapper (`DataTableDnDBodyRow`) registers each row
+	 * here on mount; the drag monitor's row-shift engine reads it to open the
+	 * projected drop gap and to hit-test the pointer against the rows' logical
+	 * rects. Absent when drag-and-drop is disabled.
+	 */
+	dndRowRegistry?: DataTableRenderPropsType.DndRowRegistry<RowType>;
 }
 
 /**
@@ -275,7 +259,6 @@ export interface DataTableContextType<
 const DEFAULT_CONTEXT_VALUE: DataTableContextType<unknown, BaseColumnType<unknown>> = {
 	headerDepth: 1,
 	leafPinning: [],
-	leafPinOffsets: { left: [], right: [] },
 	leafPinningEdge: { left: -1, right: -1 },
 	arrowNavActive: false
 };
@@ -297,9 +280,28 @@ export const DataTableContext = createContext<DataTableContextType<any, any>>(
 export const DataTableContextProvider = DataTableContext.Provider;
 
 /**
- * Selective-subscription hook for the {@link DataTableContext}: pass a selector
- * that picks the slice your template depends on, and the template re-renders
- * only when that slice changes (reference-equality on the selector result).
+ * Reader for the {@link DataTableContext}: returns the whole context value; pick
+ * the slice your template needs off the result (`useDataTableContext().gridRole`).
+ *
+ * The context carries only *cold* shared state — layout/config/identity-stable
+ * callbacks that change on structural events (columns, data, slots), never
+ * mid-interaction (sort, drag and keyboard-focus state are routed around it). So a
+ * plain {@link useContext} is sufficient: it needs no selective re-render guard, and
+ * DataTable no longer depends on `useContextSelector`.
+ *
+ * This is a plain reader, **not** a slice subscription — there is no per-field
+ * re-render bailout, so the context value must stay cold (a hot, per-interaction
+ * value must never be added to it). A previous signature took a `(ctx) => slice`
+ * selector; it read exactly like `use-context-selector`'s subscribing API but did
+ * not subscribe, an invitation to expect a bailout that never came. It was removed.
+ *
+ * React context propagation walks *into* memoized subtrees to find consumers, so the
+ * `DataTableBodyRow` memo boundary does not shield the cell templates: one changed
+ * field here costs a re-render of every rendered cell. That is why the in-progress
+ * drag (`activeDrag`) reaches the drag preview as a prop instead of living here — it
+ * was the last per-gesture value in this object, and it made every drag start and end
+ * a table-wide re-render to serve a single overlay. `data-table.render-cost.test.tsx`
+ * guards the contract: every interaction must cost zero consumer re-renders.
  *
  * Templates should treat the returned value as a fallback — a direct prop with
  * the same value wins. This keeps templates usable standalone and overridable.
@@ -308,10 +310,7 @@ export const DataTableContextProvider = DataTableContext.Provider;
  */
 export function useDataTableContext<
 	RowType = unknown,
-	ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>,
-	Selector extends (context: DataTableContextType<RowType, ColumnType>) => any = (
-		context: DataTableContextType<RowType, ColumnType>
-	) => any
->(selector: Selector): ReturnType<Selector> {
-	return useContextSelector(DataTableContext, selector);
+	ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
+>(): DataTableContextType<RowType, ColumnType> {
+	return useContext(DataTableContext) as DataTableContextType<RowType, ColumnType>;
 }

@@ -30,13 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { enUS } from "date-fns/locale";
 import { getByRole, render, getByText, getByDataRole } from "test-utils";
 import { beforeAll, afterAll, beforeEach, afterEach, describe, vi, expect, test } from "vitest";
-import { enUS } from "date-fns/locale";
 
-import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
+import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { DateTimePickerTimeInput } from "../main/wrapper/date-time-picker.time-input.view.js";
 
 describe("com.mgmtp.a12.widgets.date-time-picker.time-input", () => {

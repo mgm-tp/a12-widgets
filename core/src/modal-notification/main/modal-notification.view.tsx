@@ -34,25 +34,25 @@ import type { ReactElement, ReactNode } from "react";
 import { useContext } from "react";
 import { styled, css } from "styled-components";
 
-import { joinClassNames, addPrefix } from "../../common/main/utils.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { StyledButton, variantButtonStyles } from "../../button/main/button.styled.js";
+import { Button } from "../../button/main/button.view.js";
 import type {
 	A11yDefinition,
 	ModalNotificationTitles
 } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { ModalOverlay } from "../../modal-overlay/main/modal-overlay.view.js";
-import { ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
-import { StyledHeadingAffix } from "../../contentbox/main/template/elements/heading.tpl.view.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { joinClassNames, addPrefix } from "../../common/main/utils.js";
+import type { ActionContentboxProps } from "../../contentbox/main/action-contentbox/action-contentbox.api.js";
+import { ActionContentbox } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
 import {
 	StyledContentBoxHeading,
 	StyledContentBoxTitleWrapper
 } from "../../contentbox/main/template/contentbox.tpl.styled.js";
-import { ActionContentbox } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
-import type { ActionContentboxProps } from "../../contentbox/main/action-contentbox/action-contentbox.api.js";
+import { ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
+import { StyledHeadingAffix } from "../../contentbox/main/template/elements/heading.tpl.view.js";
 import { Icon, StyledIconWrapper } from "../../icon/main/icon.view.js";
-import { StyledButton, variantButtonStyles } from "../../button/main/button.styled.js";
-import { Button } from "../../button/main/button.view.js";
+import { ModalOverlay } from "../../modal-overlay/main/modal-overlay.view.js";
 
 import type { ModalNotificationProps } from "./modal-notification.api.js";
 
@@ -78,15 +78,17 @@ export const StyledModalNotificationContentBox = styled(ActionContentbox).withCo
 
 			${variantButtonStyles({ theme, isWarning: $variant === "warning", customColor: headingButtonColor })}
 
-			${$hasCloseButton &&
-			css`
-				${StyledButton} {
-					&:not(:hover):not(:focus):not([data-variant-type="activated"]) {
-						background-color: ${modalNotification.closeButton?.background};
-						color: ${headingButtonColor};
+			${
+				$hasCloseButton &&
+				css`
+					${StyledButton} {
+						&:not(:hover):not(:focus):not([data-variant-type="activated"]) {
+							background-color: ${modalNotification.closeButton?.background};
+							color: ${headingButtonColor};
+						}
 					}
-				}
-			`}
+				`
+			}
 		}
 
 		${StyledHeadingAffix} > ${StyledIconWrapper} {

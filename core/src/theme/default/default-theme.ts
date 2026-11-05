@@ -30,23 +30,23 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { LineHeightConfig } from "../base-theme/config/application/line-height.config.js";
 import type { DefaultThemeType } from "../schema.js";
 import type { BaseThemeColorsType } from "../schema/base-colors.api.js";
-import type { BaseThemeTypographyType } from "../schema/typography.api.js";
 import type { BaseThemeSpacingType } from "../schema/spacing.api.js";
-import { LineHeightConfig } from "../base-theme/config/application/line-height.config.js";
+import type { BaseThemeTypographyType } from "../schema/typography.api.js";
 
-import { DefaultColorsConfig } from "./config/base/colors.config.js";
-import { FontConfig } from "./config/base/fonts.config.js";
-import { DefaultComponentsConfigs } from "./config/components/components.js";
+import { ApplicationStyles } from "./config/application/application_styles.config.js";
+import { DivisionLineStyles } from "./config/application/division-line.config.js";
+import { FocusStyles } from "./config/application/focus.config.js";
 import { FontSizeConfig } from "./config/application/font_size.config.js";
 import { FontWeightConfig } from "./config/application/font_weight.config.js";
-import { BaseSpacingConfig } from "./config/base/spacing.config.js";
 import { HorizontalSpacingConfig, SpacingConfig, VerticalSpacingConfig } from "./config/application/spacing.config.js";
-import { ApplicationStyles } from "./config/application/application_styles.config.js";
+import { DefaultColorsConfig } from "./config/base/colors.config.js";
+import { FontConfig } from "./config/base/fonts.config.js";
 import { BaseInputStyles } from "./config/base/input.config.js";
-import { FocusStyles } from "./config/application/focus.config.js";
-import { DivisionLineStyles } from "./config/application/division-line.config.js";
+import { BaseSpacingConfig } from "./config/base/spacing.config.js";
+import { DefaultComponentsConfigs } from "./config/components/components.js";
 
 /** @deprecated since v39.0.0. The default theme will be removed in a future release with no replacement; its visual style is not carried forward. Adopt `getBaseTheme` from `@com.mgmtp.a12.widgets/widgets-core` to stay supported (it uses the flat-compact visual style). */
 export const getDefaultTheme = (): DefaultThemeType => {

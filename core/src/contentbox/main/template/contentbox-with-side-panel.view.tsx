@@ -32,20 +32,20 @@
 
 import { useRef, useCallback, useEffect } from "react";
 import { useTheme } from "styled-components";
-import { useResizeDetector } from "react-resize-detector";
 
-import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
+import { getTransitionDuration } from "../../../common/index.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { useResizeObserver } from "../../../common/main/resize-observer/use-resize-observer.js";
 import { TabSandbox } from "../../../common/main/tab-sandbox.view.js";
+import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import type { CustomAnimationConfig } from "../../../layout/index.js";
 import { SizeDetectorUtils } from "../../../layout/index.js";
 import { useWindowSize } from "../../../layout/size-detector/main/size-detector.view.js";
-import { getTransitionDuration } from "../../../common/index.js";
-
 import { normalizePanelWidth } from "../utils.js";
 
 import { contentBoxSidePanelAnimation } from "./contentbox-animations.js";
 import { StyledContentBoxContext } from "./contentbox.context.js";
+import type { ContentBoxProps, ContentBoxSidePanels } from "./contentbox.tpl.api.js";
 import {
 	StyledContentBoxHeader,
 	StyledContentBox,
@@ -56,7 +56,6 @@ import {
 	StyledSupportingPanesLayoutWrapper,
 	StyledContentBoxWizardBar
 } from "./contentbox.tpl.styled.js";
-import type { ContentBoxProps, ContentBoxSidePanels } from "./contentbox.tpl.api.js";
 
 const baseClassName = addPrefix("contentbox");
 
@@ -114,7 +113,7 @@ export const ContentBoxWithSidePanel = ({
 	const leftSidePanelRef = useRef<HTMLElement | null>(null);
 	const rightSidePanelRef = useRef<HTMLElement | null>(null);
 
-	const { ref: resizeRef, width: contentBoxWidth = 0 } = useResizeDetector({ refreshMode: "debounce", refreshRate: 0 });
+	const { ref: resizeRef, width: contentBoxWidth = 0 } = useResizeObserver();
 
 	const { breakPoint } = useWindowSize();
 
@@ -221,6 +220,7 @@ export const ContentBoxWithSidePanel = ({
 				role={role}
 				aria-label={ariaLabel}
 				$boxShadow={boxShadow}
+				$embedded={embedded}
 			>
 				{heading && (
 					<StyledContentBoxHeader

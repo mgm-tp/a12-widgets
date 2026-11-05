@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode, MouseEvent, KeyboardEvent, MutableRefObject, ComponentType } from "react";
 import type { LexicalEditor, BaseSelection } from "lexical";
+import type { ReactNode, MouseEvent, KeyboardEvent, MutableRefObject, ComponentType } from "react";
 
-import type { Container, Identifiable, Styleable, DataRole, Ref } from "../../../../../common/main/base-props.js";
 import type { A11yDefinition } from "../../../../../common/main/a11y-localization/a11y-key-definition.api.js";
+import type { Container, Identifiable, Styleable, DataRole, Ref } from "../../../../../common/main/base-props.js";
 
 export interface BaseToolbarButtonProps<LanguageContext = A11yDefinition>
 	extends Styleable, Identifiable, DataRole, Container, Partial<Interactable>, Ref {

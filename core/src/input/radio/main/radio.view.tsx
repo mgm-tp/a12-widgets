@@ -31,10 +31,11 @@
  */
 
 import type { ReactElement } from "react";
-import { Children, isValidElement, cloneElement } from "react";
+import { Children, cloneElement, isValidElement, useId } from "react";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
+import { provider } from "../../../common/main/device-detector.js";
 import {
-	generateUid,
 	joinClassNames,
 	addPrefix,
 	noop,
@@ -42,11 +43,10 @@ import {
 	resolveRef,
 	inputWithSuffixName
 } from "../../../common/main/utils.js";
-import { provider } from "../../../common/main/device-detector.js";
-import { InputElements } from "../../base/template/base.tpl.view.js";
-import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
 import { StyledBaseBoolean } from "../../base-input-styled/base-boolean.styled.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
+import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
+import { InputElements } from "../../base/template/base.tpl.view.js";
+import { useFieldDefaultsConfig } from "../../field-default-config/main/field-default-config.utils.js";
 
 import type { RadioItemProps, RadioProps } from "./radio.api.js";
 import { StyledRadio } from "./radio.styled.js";
@@ -56,7 +56,7 @@ const baseFieldClassName = addPrefix("field");
 
 export function Radio({
 	ariaDescribedby,
-	breakTooltipsToNewLine,
+	breakTooltipsToNewLine: breakTooltipsToNewLineProp,
 	children,
 	className,
 	disabled,
@@ -72,6 +72,7 @@ export function Radio({
 	inline,
 	label,
 	labelGraphic,
+	messagePosition: messagePositionProp,
 	name,
 	onValueChanged,
 	readonly,
@@ -82,6 +83,10 @@ export function Radio({
 	warningMessage,
 	wrapperRef
 }: RadioProps): ReactElement<RadioProps> {
+	const { breakTooltipsToNewLine, messagePosition } = useFieldDefaultsConfig(
+		{ messagePosition: messagePositionProp, breakTooltipsToNewLine: breakTooltipsToNewLineProp },
+		false
+	);
 	let fieldGroupRef: HTMLElement | null = null;
 	const isTouch = provider.hasTouch();
 	const numberOfTooltips = Children.count(tooltips);
@@ -109,6 +114,35 @@ export function Radio({
 		}
 	};
 
+	const messagesElement = (
+		<>
+			{errorMessage && (
+				<InputElements.Error
+					id={id}
+					errorMessage={errorMessage}
+					dataRole={DataRoles.Radio.Group.ErrorMessage}
+					position={messagePosition}
+				/>
+			)}
+			{warningMessage && (
+				<InputElements.Warning
+					id={id}
+					warningMessage={warningMessage}
+					dataRole={DataRoles.Radio.Group.WarningMessage}
+					position={messagePosition}
+				/>
+			)}
+			{infoMessage && (
+				<InputElements.Info
+					id={id}
+					infoMessage={infoMessage}
+					dataRole={DataRoles.Radio.Group.InfoMessage}
+					position={messagePosition}
+				/>
+			)}
+		</>
+	);
+
 	return (
 		<StyledRadio.StyledField
 			className={wrapperClassNames}
@@ -116,6 +150,7 @@ export function Radio({
 			data-role={DataRoles.Radio.Group}
 			$block={fitToParent}
 			$hasTooltips={!!numberOfTooltips && !breakTooltipsToNewLine}
+			$tooltipPosition={breakTooltipsToNewLine}
 			$touch={isTouch}
 		>
 			<InputElements.Label
@@ -127,20 +162,8 @@ export function Radio({
 				dataRole={DataRoles.Radio.Group.Label}
 				onClick={handleClickOnLabel}
 			/>
-			{tooltips}
-			{errorMessage && (
-				<InputElements.Error id={id} errorMessage={errorMessage} dataRole={DataRoles.Radio.Group.ErrorMessage} />
-			)}
-			{warningMessage && (
-				<InputElements.Warning
-					id={id}
-					warningMessage={warningMessage}
-					dataRole={DataRoles.Radio.Group.WarningMessage}
-				/>
-			)}
-			{infoMessage && (
-				<InputElements.Info id={id} infoMessage={infoMessage} dataRole={DataRoles.Radio.Group.InfoMessage} />
-			)}
+			{breakTooltipsToNewLine !== "below" && tooltips}
+			{messagePosition !== "below" && messagesElement}
 			<StyledBaseBoolean.StyledFieldGroup
 				{...groupDOMProps}
 				className={joinClassNames(`${baseFieldClassName}__group`, groupDOMProps?.className)}
@@ -178,6 +201,8 @@ export function Radio({
 					);
 				})}
 			</StyledBaseBoolean.StyledFieldGroup>
+			{messagePosition === "below" && messagesElement}
+			{breakTooltipsToNewLine === "below" && tooltips}
 			{helperText && (
 				<StyledBaseInput.StyledFieldHelperWrapper
 					className={`${baseFieldClassName}__helper`}
@@ -220,7 +245,8 @@ export namespace Radio {
 			props.className
 		);
 
-		const inputId = props.id ? props.id : generateUid();
+		const generatedId = useId();
+		const inputId = props.id || generatedId;
 		const { as, ...inputPropsRest } = props.inputProps ?? {};
 
 		return (
@@ -249,6 +275,7 @@ export namespace Radio {
 						data-role={DataRoles.Radio.Input}
 						aria-describedby={props.ariaDescribedby}
 						aria-checked={props.selected}
+						aria-invalid={props.error ? true : undefined}
 						$checked={props.selected}
 						$disabled={props.disabled}
 						$readonly={props.readonly}

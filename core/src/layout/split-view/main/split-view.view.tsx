@@ -31,15 +31,15 @@
  */
 
 import type { ReactElement } from "react";
-import { useState, useRef, useEffect } from "react";
-import { styled, css } from "styled-components";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import { styled, css, useTheme } from "styled-components";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
-import { ResizeHandler } from "../../resizable/resize-handler.view.js";
 import type { ResizeCallbackData } from "../../resizable/resize-handler.api.js";
 import { StyledResizeHandler } from "../../resizable/resize-handler.styled.js";
+import { ResizeHandler } from "../../resizable/resize-handler.view.js";
 import { useElementDimensions } from "../../resizable/resize-hook.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
 
 import type { SplitViewProps } from "./split-view.api.js";
 
@@ -103,6 +103,11 @@ export namespace SplitView {
 		});
 
 		const [widthState, setWidthState] = useState<number | string | undefined>(width);
+		const [layoutGap, setLayoutGap] = useState(0);
+		const [borderRadius, setBorderRadius] = useState(0);
+		const theme = useTheme();
+
+		const isResizable = !!resizableOptions;
 
 		const classNames = joinClassNames(`${baseClassName}__area`, { [addPrefix("-u-flex-none")]: width }, className);
 
@@ -145,6 +150,32 @@ export namespace SplitView {
 			return (): void => observer.disconnect();
 		}, []);
 
+		useLayoutEffect(() => {
+			if (!isResizable) {
+				return;
+			}
+
+			const target = elementRef.current;
+			const parent = target?.parentElement;
+			const isRightPosition = !isLastElement;
+			const sibling = isRightPosition ? target?.nextElementSibling : target?.previousElementSibling;
+
+			if (target && parent && sibling) {
+				const parentGap = parseFloat(getComputedStyle(parent).gap.split(" ")[0]) || 0;
+				const siblingMargin =
+					parseFloat(getComputedStyle(sibling)[isRightPosition ? "marginLeft" : "marginRight"]) || 0;
+				const targetMargin = parseFloat(getComputedStyle(target)[isRightPosition ? "marginRight" : "marginLeft"]) || 0;
+				setLayoutGap(parentGap + siblingMargin + targetMargin);
+			}
+
+			const content = target?.firstElementChild?.firstElementChild;
+
+			if (content) {
+				const { borderRadius: contentBorderRadius } = getComputedStyle(content);
+				setBorderRadius(parseFloat(contentBorderRadius.split(" ")[0] || "0") || 0);
+			}
+		}, [isResizable, isLastElement, theme]);
+
 		return (
 			<ResizeHandler
 				{...resizableOptions}
@@ -153,8 +184,10 @@ export namespace SplitView {
 				targetRef={elementRef}
 				onResizeStop={handleResizeStop}
 				onResizeStart={handleResizeStart}
-				resizable={!!resizableOptions}
+				resizable={isResizable}
 				position={isLastElement ? "left" : "right"}
+				layoutGap={layoutGap}
+				borderRadius={borderRadius}
 			>
 				<StyledAreaWrapper
 					ref={elementRef}

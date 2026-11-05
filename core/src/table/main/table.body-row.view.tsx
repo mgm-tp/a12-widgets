@@ -35,11 +35,11 @@ import { memo, useMemo, useEffect, useCallback } from "react";
 
 import { joinClassNames } from "../../common/main/utils.js";
 
-import { TableTemplate } from "./template/index.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
 import { useTableContext } from "./table.context.js";
 import { RowSegments } from "./table.row-segments.view.js";
 import { TableInternalUtils } from "./table.utils.js";
+import { TableTemplate } from "./template/index.js";
 import { getColumnSpan, getMaxColumnDepth } from "./template/table-head-grid/table-head-grid.utils.js";
 
 /** @internal */

@@ -39,42 +39,6 @@ exports[`com.mgmtp.a12.widgets.badge > render badge with given position 1`] = `
   color: rgb(255, 255, 255);
 }
 
-.c4.badge-wrapper-exit-active .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter-active .c2 {
-  transform: scale(1);
-}
-
-.c5.badge-wrapper-exit-active .c2 {
-  transform: scale(0);
-}
-
-.c5.badge-wrapper-enter .c2 {
-  transform: scale(0);
-}
-
-.c5.badge-wrapper-enter-active .c2 {
-  transform: scale(1);
-}
-
-.c6.badge-wrapper-exit-active .c2 {
-  transform: scale(0);
-}
-
-.c6.badge-wrapper-enter .c2 {
-  transform: scale(0);
-}
-
-.c6.badge-wrapper-enter-active .c2 {
-  transform: scale(1);
-}
-
 .c0 {
   display: inline-flex;
   position: absolute;
@@ -259,18 +223,6 @@ exports[`com.mgmtp.a12.widgets.badge > render light info badge 1`] = `
   transform: scale(1);
 }
 
-.c4.badge-wrapper-exit-active .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter-active .c2 {
-  transform: scale(1);
-}
-
 <span
   class="c0 badge-wrapper"
   data-role="badge"
@@ -348,18 +300,6 @@ exports[`com.mgmtp.a12.widgets.badge > render success, warning and error badge 1
 }
 
 .c0.badge-wrapper-enter-active .c2 {
-  transform: scale(1);
-}
-
-.c4.badge-wrapper-exit-active .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter-active .c2 {
   transform: scale(1);
 }
 
@@ -443,18 +383,6 @@ exports[`com.mgmtp.a12.widgets.badge > render success, warning and error badge 2
   transform: scale(1);
 }
 
-.c4.badge-wrapper-exit-active .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter-active .c2 {
-  transform: scale(1);
-}
-
 <span
   class="c0 badge-wrapper"
   data-role="badge"
@@ -535,18 +463,6 @@ exports[`com.mgmtp.a12.widgets.badge > render success, warning and error badge 3
   transform: scale(1);
 }
 
-.c4.badge-wrapper-exit-active .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter-active .c2 {
-  transform: scale(1);
-}
-
 <span
   class="c0 badge-wrapper"
   data-role="badge"
@@ -608,30 +524,6 @@ exports[`com.mgmtp.a12.widgets.badge > render tiny badge 1`] = `
   height: 8px;
   padding: 0px;
   width: 8px;
-}
-
-.c5.badge-wrapper-exit-active .c3 {
-  transform: scale(0);
-}
-
-.c5.badge-wrapper-enter .c3 {
-  transform: scale(0);
-}
-
-.c5.badge-wrapper-enter-active .c3 {
-  transform: scale(1);
-}
-
-.c6.badge-wrapper-exit-active .c3 {
-  transform: scale(0);
-}
-
-.c6.badge-wrapper-enter .c3 {
-  transform: scale(0);
-}
-
-.c6.badge-wrapper-enter-active .c3 {
-  transform: scale(1);
 }
 
 .c0 {
@@ -718,30 +610,6 @@ exports[`com.mgmtp.a12.widgets.badge > render tiny badge 2`] = `
   width: 8px;
 }
 
-.c5.badge-wrapper-exit-active .c3 {
-  transform: scale(0);
-}
-
-.c5.badge-wrapper-enter .c3 {
-  transform: scale(0);
-}
-
-.c5.badge-wrapper-enter-active .c3 {
-  transform: scale(1);
-}
-
-.c6.badge-wrapper-exit-active .c3 {
-  transform: scale(0);
-}
-
-.c6.badge-wrapper-enter .c3 {
-  transform: scale(0);
-}
-
-.c6.badge-wrapper-enter-active .c3 {
-  transform: scale(1);
-}
-
 .c0 {
   display: inline-flex;
   position: absolute;
@@ -824,30 +692,6 @@ exports[`com.mgmtp.a12.widgets.badge > render tiny badge 3`] = `
   height: 8px;
   padding: 0px;
   width: 8px;
-}
-
-.c5.badge-wrapper-exit-active .c3 {
-  transform: scale(0);
-}
-
-.c5.badge-wrapper-enter .c3 {
-  transform: scale(0);
-}
-
-.c5.badge-wrapper-enter-active .c3 {
-  transform: scale(1);
-}
-
-.c6.badge-wrapper-exit-active .c3 {
-  transform: scale(0);
-}
-
-.c6.badge-wrapper-enter .c3 {
-  transform: scale(0);
-}
-
-.c6.badge-wrapper-enter-active .c3 {
-  transform: scale(1);
 }
 
 .c0 {
@@ -948,30 +792,6 @@ exports[`com.mgmtp.a12.widgets.badge > test custom title 1`] = `
 }
 
 .c0.badge-wrapper-enter-active .c2 {
-  transform: scale(1);
-}
-
-.c4.badge-wrapper-exit-active .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter .c2 {
-  transform: scale(0);
-}
-
-.c4.badge-wrapper-enter-active .c2 {
-  transform: scale(1);
-}
-
-.c5.badge-wrapper-exit-active .c2 {
-  transform: scale(0);
-}
-
-.c5.badge-wrapper-enter .c2 {
-  transform: scale(0);
-}
-
-.c5.badge-wrapper-enter-active .c2 {
   transform: scale(1);
 }
 

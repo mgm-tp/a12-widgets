@@ -30,26 +30,28 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import AutocompleteAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/autocomplete/main/autocomplete.api.json" with { type: "json" };
+import addingItemsCode from "!./adding-item.tsx?raw";
+import asynchronousRequestsCode from "!./asynchronus-requests.tsx?raw";
+import dataCode from "!./data.ts?raw";
+import disableFullscreenDialogOnMobileCode from "!./disable-fullscreen-dialog-on-mobile.tsx?raw";
+import groupedItemsCode from "!./grouped-items.tsx?raw";
+import hideClearButtonCode from "!./hide-clear-button.js?raw";
+import predefinedOptionsCode from "!./predefined-options.tsx?raw";
+import withLinkItemsCode from "!./with-link-items.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import AutocompleteAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/autocomplete/main/autocomplete.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../../helpers/showcase-styles.js";
 
 import { AutocompleteAddingItemShowcase } from "./adding-item.js";
-import { AutocompleteGroupedItemsShowcase } from "./grouped-items.js";
 import { AutocompleteAsynchronousRequestsShowcase } from "./asynchronus-requests.js";
+import { AutocompleteDisableFullscreenDialogOnMobileShowcase } from "./disable-fullscreen-dialog-on-mobile.js";
+import { AutocompleteGroupedItemsShowcase } from "./grouped-items.js";
+import { HideClearButtonShowcase } from "./hide-clear-button.js";
 import { AutocompletePredefinedOptionsShowcase } from "./predefined-options.js";
 import { AutocompleteWithLinkItemsShowcase } from "./with-link-items.js";
-import { HideClearButtonShowcase } from "./hide-clear-button.js";
-
-import addingItemsCode from "!./adding-item.tsx?raw";
-import groupedItemsCode from "!./grouped-items.tsx?raw";
-import asynchronousRequestsCode from "!./asynchronus-requests.tsx?raw";
-import predefinedOptionsCode from "!./predefined-options.tsx?raw";
-import withLinkItemsCode from "!./with-link-items.tsx?raw";
-import hideClearButtonCode from "!./hide-clear-button.js?raw";
-import dataCode from "!./data.ts?raw";
 
 const showcases: Showcase[] = [
 	{
@@ -160,6 +162,21 @@ const showcases: Showcase[] = [
 					</p>
 				),
 				code: { name: "with-link-items.tsx", code: withLinkItemsCode }
+			},
+			{
+				label: "Disable fullscreen dialog on Mobile",
+				content: <AutocompleteDisableFullscreenDialogOnMobileShowcase />,
+				description: (
+					<p>
+						Mobile devices normally open the options in a fullscreen dialog instead of a dropdown like desktop, so the
+						on-screen keyboard doesn't cover them. However, you can keep the dropdown view on mobile too by setting{" "}
+						<code>mobileModal</code> to <strong>false</strong>.
+					</p>
+				),
+				code: [
+					{ name: "disable-fullscreen-dialog-on-mobile.tsx", code: disableFullscreenDialogOnMobileCode },
+					{ name: "data.ts", code: dataCode }
+				]
 			}
 		]
 	}

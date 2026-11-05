@@ -239,7 +239,7 @@ export class NavBar extends Component<NavBarProps, { selectedItem: MenuItem }> {
 			}
 		}));
 
-		return <FlyoutMenu items={navItems} type="horizontal" useAs="tabNavigation" />;
+		return <FlyoutMenu id="master-detail-nav" items={navItems} type="horizontal" useAs="tabNavigation" />;
 	}
 }
 
@@ -281,12 +281,14 @@ export const TableTpl = (props: TableTplProps): ReactElement => {
 	const { editable, sectionTitle } = props;
 	const { Grid, Row, Column } = LayoutGrid;
 	const [showCallout, setShowCallout] = useState(false);
+	// Two of these tables render side by side, so the ids below need the section to tell them apart.
+	const sectionId = sectionTitle.toLowerCase().replace(/\W+/g, "-");
 
 	const bodyContentRenderer = useMemo(
 		() =>
 			(props: TableRenderPropsType.BodyContentProps<RowType>): ReactNode => {
 				if (props.column.label === "Date") {
-					return <DateInput />;
+					return <DateInput id={`${sectionId}-row-date-${props.rowIndex}`} />;
 				}
 
 				if (props.column.label === "Action") {
@@ -301,7 +303,7 @@ export const TableTpl = (props: TableTplProps): ReactElement => {
 					/>
 				);
 			},
-		[]
+		[sectionId]
 	);
 
 	return (
@@ -340,7 +342,7 @@ export const TableTpl = (props: TableTplProps): ReactElement => {
 					<Grid>
 						<Row>
 							<Column size={{ sm: 12, md: 6, lg: 6 }}>
-								<DateInput label="Date" />
+								<DateInput id={`${sectionId}-new-date`} label="Date" />
 							</Column>
 							<Column size={{ sm: 12, md: 6, lg: 6 }}>
 								<TextField label="Content" onChange={noop} placeholder="Enter content" />

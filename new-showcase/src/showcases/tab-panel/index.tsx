@@ -30,25 +30,25 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import TabPanelTplAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tab-panel/main/template/tab-panel.tpl.api.json" with { type: "json" };
-import TabPanelAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tab-panel/main/tab-panel.api.json" with { type: "json" };
+import tabPanelAccessibilityCode from "!./accessibility.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import groupedHorizontalTabPanelCode from "!./grouped-horizontal-tab-panel.tsx?raw";
+import groupedTabsCode from "!./grouped-tab-panel-data.tsx?raw";
+import groupedVerticalTabPanelCode from "!./grouped-vertical-tab-panel.tsx?raw";
+import horizontalTabPanelCode from "!./horizontal-tab-panel.tsx?raw";
+
 import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import TabPanelAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tab-panel/main/tab-panel.api.json" with { type: "json" };
+import TabPanelTplAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tab-panel/main/template/tab-panel.tpl.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseBulletListInMessageBox } from "../../helpers/showcase-styles.js";
 
-import { TabPanelExample } from "./basic.js";
-import { HorizontalTabPanelShowcase } from "./horizontal-tab-panel.js";
 import { TabPanelAccessibilityShowcase } from "./accessibility.js";
-import { GroupedVerticalTabPanelShowcase } from "./grouped-vertical-tab-panel.js";
+import { TabPanelExample } from "./basic.js";
 import { GroupedHorizontalTabPanelShowcase } from "./grouped-horizontal-tab-panel.js";
-
-import basicCode from "!./basic.tsx?raw";
-import horizontalTabPanelCode from "!./horizontal-tab-panel.tsx?raw";
-import tabPanelAccessibilityCode from "!./accessibility.tsx?raw";
-import groupedVerticalTabPanelCode from "!./grouped-vertical-tab-panel.tsx?raw";
-import groupedHorizontalTabPanelCode from "!./grouped-horizontal-tab-panel.tsx?raw";
-import groupedTabsCode from "!./grouped-tab-panel-data.tsx?raw";
+import { GroupedVerticalTabPanelShowcase } from "./grouped-vertical-tab-panel.js";
+import { HorizontalTabPanelShowcase } from "./horizontal-tab-panel.js";
 
 const { Item } = BulletList;
 

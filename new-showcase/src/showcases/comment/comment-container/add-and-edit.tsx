@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import DOMPurify from "dompurify";
+import { produce } from "immer";
 import type { ChangeEvent, ReactElement } from "react";
 import { useRef, useState, useCallback } from "react";
-import { produce } from "immer";
-import DOMPurify from "dompurify";
 
 import type { CommentProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import {

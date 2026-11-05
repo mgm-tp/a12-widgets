@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import styled from "styled-components";
-import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import type { TabPanelTemplateProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
@@ -109,8 +109,7 @@ const tabContent: Record<string, React.ReactNode> = {
 const meta: Meta<typeof ApplicationFrame> = {
 	title: "Layout/ApplicationFrame/Advanced",
 	component: ApplicationFrame,
-	parameters: { layout: "fullscreen" },
-	tags: ["autodocs"]
+	parameters: { layout: "fullscreen" }
 };
 
 export default meta;
@@ -118,9 +117,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	parameters: {
-		viewport: { defaultViewport: "mobile1" }
+		viewport: { defaultViewport: "mobile1" },
+		docs: {
+			description: {
+				story:
+					"A vertical `TabPanel` placed in the `sub` slot. Selecting the active tab again collapses the sidebar via `subExpanded`."
+			}
+		}
 	},
-	render: () => {
+	render: function DefaultExample() {
 		const [tab, setTab] = useState<TabPanelTemplateProps.TabProps | undefined>(settingsTabs[0]);
 		const [collapsed, setCollapsed] = useState(false);
 
@@ -159,9 +164,15 @@ export const Default: Story = {
 
 export const WithSettingsInfoPanel: Story = {
 	parameters: {
-		viewport: { defaultViewport: "mobile1" }
+		viewport: { defaultViewport: "mobile1" },
+		docs: {
+			description: {
+				story:
+					"A settings/info panel composition using `subExpandedState` (minimize/maximize), `disableCollapsingSub`, `subResizableOptions` and a `stickyFooter`."
+			}
+		}
 	},
-	render: () => {
+	render: function WithSettingsInfoPanelExample() {
 		const [tab, setTab] = useState<TabPanelTemplateProps.TabProps | undefined>(settingsTabs[0]);
 		const [collapsed, setCollapsed] = useState(false);
 		const [maximized, setMaximized] = useState(false);

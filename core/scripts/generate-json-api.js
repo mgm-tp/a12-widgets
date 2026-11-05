@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import Path from "node:path";
 import Fs from "node:fs/promises";
+import Path from "node:path";
 
 import { minimatch } from "minimatch";
 import { Application, ReflectionKind } from "typedoc";

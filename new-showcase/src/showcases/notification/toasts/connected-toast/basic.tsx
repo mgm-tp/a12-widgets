@@ -30,13 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 import { useState, useRef, useCallback } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import type { CommonToastProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import { ConnectedToast, Radio, Button } from "@com.mgmtp.a12.widgets/widgets-core";
-import { AnimationWrapper } from "@com.mgmtp.a12.widgets/widgets-utils";
 
 import { ConfigurationView } from "../../../../helpers/configuration-view.js";
 
@@ -70,7 +69,13 @@ export function Basic(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<div>
-					<Radio inline label="Toast variant" onValueChanged={changeVariant} value={variant}>
+					<Radio
+						id="connected-toast-basic-toast-variant"
+						inline
+						label="Toast variant"
+						onValueChanged={changeVariant}
+						value={variant}
+					>
 						<Radio.Item label="Info" value="info" />
 						<Radio.Item label="Success" value="success" />
 						<Radio.Item label="Warning" value="warning" />
@@ -80,16 +85,14 @@ export function Basic(): ReactElement {
 			}
 		>
 			<Button primary label="Show/hide" buttonRef={setButtonRef} onClick={toggleShow} />
-			{referenceElement.current && (
-				<AnimationWrapper show={show}>
-					<ConnectedToast
-						referenceElement={referenceElement.current}
-						message={content}
-						duration={timeout}
-						onClose={onToastClose}
-						variant={variant}
-					/>
-				</AnimationWrapper>
+			{referenceElement.current && show && (
+				<ConnectedToast
+					referenceElement={referenceElement.current}
+					message={content}
+					duration={timeout}
+					onClose={onToastClose}
+					variant={variant}
+				/>
 			)}
 		</ConfigurationView>
 	);

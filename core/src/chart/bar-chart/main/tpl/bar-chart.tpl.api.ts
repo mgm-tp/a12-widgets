@@ -35,7 +35,6 @@ import type { CellProps } from "recharts";
 import type { LayoutType } from "recharts/types/util/types.js";
 
 import type { Styleable, Identifiable } from "../../../../common/main/base-props.js";
-
 import type { BarChartProps } from "../bar-chart.api.js";
 
 /**

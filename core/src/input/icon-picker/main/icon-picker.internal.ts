@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { IconTheme } from "../../../icon/index.js";
 import { CUSTOM_ICONS } from "../../../icon/main/custom-icons-data.js";
 import { MATERIAL_ICONS } from "../../../icon/main/material-icons-data.js";
-import type { IconTheme } from "../../../icon/index.js";
 
 import type { IconPickerProps } from "./icon-picker.api.js";
 

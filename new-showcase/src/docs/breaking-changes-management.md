@@ -10,7 +10,7 @@ The Widgets product consists of the following npm artifacts:
 
 - `@com.mgmtp.a12.widgets/widgets-core` — The main component library containing all widgets, their properties, interfaces, hooks, utilities, and theme system
 - `@com.mgmtp.a12.widgets/widgets-json-api` — JSON files generated from TypeScript typings of the core
-- `@com.mgmtp.a12.widgets/widgets-utils` — Utility components for showcase purposes
+- `@com.mgmtp.a12.widgets/widgets-utils` — Utility components for showcase purposes. **Deprecated since 39.1.0** and will be removed in a future major version; it was never subject to the breaking change management below
 - `@com.mgmtp.a12.widgets/widgets-showcase-redesign` — The showcase application demonstrating widgets usage, examples, and documentation
 
 ## Definition of Library

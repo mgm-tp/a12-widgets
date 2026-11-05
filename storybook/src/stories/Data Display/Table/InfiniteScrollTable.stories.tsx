@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { ReactElement, CSSProperties, ReactNode } from "react";
 import { useState, useCallback } from "react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import type { BaseColumnType, RowLoadingStatus, TableRenderPropsType } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Button, Table } from "@com.mgmtp.a12.widgets/widgets-core";

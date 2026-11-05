@@ -30,21 +30,21 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import MonthSelectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/year-month-selector/month-selector.api.json" with { type: "json" };
+import basicCode from "!./basic.tsx?raw";
+import withCustomMonthsCode from "!./custom-months.tsx?raw";
+import withOptionalValueCode from "!./optional-value.tsx?raw";
+import withDifferentLocaleCode from "!./with-different-locale.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import MonthSelectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/year-month-selector/month-selector.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../../helpers/showcase-styles.js";
 
 import { BasicMonthSelector } from "./basic.js";
-import { MonthSelectorWithDifferentLocale } from "./with-different-locale.js";
 import { MonthSelectorWithCustomMonths } from "./custom-months.js";
 import { MonthSelectorWithOptionalValue } from "./optional-value.js";
-
-import basicCode from "!./basic.tsx?raw";
-import withDifferentLocaleCode from "!./with-different-locale.tsx?raw";
-import withCustomMonthsCode from "!./custom-months.tsx?raw";
-import withOptionalValueCode from "!./optional-value.tsx?raw";
+import { MonthSelectorWithDifferentLocale } from "./with-different-locale.js";
 
 const showcases: Showcase[] = [
 	{

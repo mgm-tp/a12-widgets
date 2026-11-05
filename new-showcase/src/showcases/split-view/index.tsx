@@ -30,16 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./split-view.tsx?raw";
 import type { JSONOutput } from "typedoc";
 
-import SplitViewAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/split-view/main/split-view.api.json" with { type: "json" };
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import SplitViewAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/split-view/main/split-view.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { SplitViewShowcase } from "./split-view.js";
-
-import basicCode from "!./split-view.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

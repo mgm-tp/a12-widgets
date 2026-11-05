@@ -35,11 +35,10 @@ import { Key } from "ts-key-enum";
 import { describe, vi, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
+import { DataRoles } from "../../common/main/data-roles.js";
 // import { navigateWithTab } from "../../common/test/user-event-utils.js";
 import { Key as KeyUtils } from "../../common/main/utils.js";
 import { Icon } from "../../icon/main/icon.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
-
 import { Toggle } from "../main/toggle.view.js";
 
 describe("com.mgmtp.a12.widgets.simple.toggle", () => {
@@ -63,13 +62,13 @@ describe("com.mgmtp.a12.widgets.simple.toggle", () => {
 
 		expect(selectedItemOverlay).toBeVisible();
 
+		// Hovering hides the overlay after a short delay, revealing every option.
 		await userEvent.hover(toggleWrapper);
-		expect(container.firstChild).toMatchSnapshot();
+		await waitFor(() => expect(selectedItemOverlay).not.toBeVisible());
 
 		await userEvent.unhover(toggleWrapper);
 
 		expect(getByDataRole(container, `${baseDataRole}-selected-item-overlay`)).toHaveStyle({ display: "flex" });
-		expect(container.firstChild).toMatchSnapshot();
 	});
 
 	test("rendering-disabled-simple-toggle", async () => {

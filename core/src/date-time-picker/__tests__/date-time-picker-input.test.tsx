@@ -34,13 +34,12 @@ import { fireEvent, getAllByDataRole, getByDataRole, queryByDataRole, render } f
 import { beforeAll, afterAll, describe, vi, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
 import { provider } from "../../common/main/device-detector.js";
-
+import type { DateTimePickerProps } from "../main/date-time-picker.api.js";
 import { DateTimePicker } from "../main/date-time-picker.view.js";
 import { DateTimePickerInput } from "../main/wrapper/date-time-picker-input.view.js";
-import type { DateTimePickerProps } from "../main/date-time-picker.api.js";
 
 const format = "DD-MM-YYYY HH.mm";
 const timezone = "America/New_York";

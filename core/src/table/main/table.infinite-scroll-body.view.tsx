@@ -39,8 +39,8 @@ import { A11YLanguageContext } from "../../common/main/a11y-localization/languag
 import { DataRoles } from "../../common/main/data-roles.js";
 
 import type { TableRenderPropsType } from "./table-renderer.api.js";
-import { getRowKey } from "./table.utils.js";
 import { useTableContext } from "./table.context.js";
+import { getRowKey } from "./table.utils.js";
 import { StyledTableVirtualizedBody } from "./table.virtualized-body.view.js";
 
 /** @internal */

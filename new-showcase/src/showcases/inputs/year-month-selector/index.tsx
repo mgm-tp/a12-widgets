@@ -30,25 +30,25 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import YearMonthSelectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/year-month-selector/year-month-selector.api.json" with { type: "json" };
+import withOptionalValue from "!./optional-value.tsx?raw";
+import withAutocompleteYear from "!./variant-autocomplete-year.tsx?raw";
+import withSelectYear from "!./variant-select-year.tsx?raw";
+import withDifferentLocale from "!./with-different-locale.tsx?raw";
+import withCustomMonths from "!./year-month-selector-with-custom-months.tsx?raw";
+import basicCode from "!./year-month-selector.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import YearMonthSelectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/year-month-selector/year-month-selector.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../../helpers/showcase-styles.js";
 
-import { YearMonthSelectorExample } from "./year-month-selector.js";
-import { YearMonthSelectorWithDifferentLocale } from "./with-different-locale.js";
-import { YearMonthSelectorWithCustomMonths } from "./year-month-selector-with-custom-months.js";
 import { YearMonthSelectorWithOptionalValue } from "./optional-value.js";
 import { YearMonthSelectorAutocompleteYear } from "./variant-autocomplete-year.js";
 import { YearMonthSelectorSelectYear } from "./variant-select-year.js";
-
-import basicCode from "!./year-month-selector.tsx?raw";
-import withDifferentLocale from "!./with-different-locale.tsx?raw";
-import withCustomMonths from "!./year-month-selector-with-custom-months.tsx?raw";
-import withOptionalValue from "!./optional-value.tsx?raw";
-import withAutocompleteYear from "!./variant-autocomplete-year.tsx?raw";
-import withSelectYear from "!./variant-select-year.tsx?raw";
+import { YearMonthSelectorWithDifferentLocale } from "./with-different-locale.js";
+import { YearMonthSelectorWithCustomMonths } from "./year-month-selector-with-custom-months.js";
+import { YearMonthSelectorExample } from "./year-month-selector.js";
 
 const showcases: Showcase[] = [
 	{

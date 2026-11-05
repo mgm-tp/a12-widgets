@@ -67,7 +67,7 @@ function NavBar() {
 		onClick: () => setSelectedItem(navItem)
 	}));
 
-	return <FlyoutMenu items={navItems} type="horizontal" useAs="tabNavigation" />;
+	return <FlyoutMenu id="combination-contentbox-nav" items={navItems} type="horizontal" useAs="tabNavigation" />;
 }
 
 export const actionButtons: ActionContentboxProps.ButtonConfiguration[] = [
@@ -94,7 +94,7 @@ export interface WizardBarProps {
 	setSelectedIndex(index: number): void;
 }
 
-export function WizardBar(props: WizardBarProps & InteractiveState): ReactElement<WizardBarProps & InteractiveState> {
+function WizardBar(props: WizardBarProps & InteractiveState): ReactElement<WizardBarProps & InteractiveState> {
 	const { handlePrevious, handleNext, selectedIndex, setSelectedIndex, steps } = props;
 
 	return (

@@ -30,16 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { isSameDay } from "date-fns";
 import type { ReactNode } from "react";
 import { useCallback, useState } from "react";
-import { isSameDay } from "date-fns";
 
 import { Calendar } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import type { DayEvent, SelectedDayEvent } from "./shared/data.js";
-import { calendarDays, disabledDays, holidays } from "./shared/data.js";
 import { StyledCalendarMonthViewItem } from "./shared/calendar.styled.js";
 import { MonthViewDayFooter } from "./shared/component.js";
+import type { DayEvent, SelectedDayEvent } from "./shared/data.js";
+import { calendarDays, disabledDays, holidays } from "./shared/data.js";
 
 export const MonthView = () => {
 	const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);

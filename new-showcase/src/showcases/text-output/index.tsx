@@ -30,8 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import TextOutputAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/text-output/main/text-output.api.json" with { type: "json" };
+import additionalCustomizationsCode from "!./additional-customizations.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import withAlignmentCode from "!./with-alignment.tsx?raw";
+
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
+import TextOutputAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/text-output/main/text-output.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseBulletListInMessageBox, StyledShowcaseLinkInMessageBox } from "../../helpers/showcase-styles.js";
@@ -39,10 +43,6 @@ import { StyledShowcaseBulletListInMessageBox, StyledShowcaseLinkInMessageBox } 
 import { AdditionalCustomizations } from "./additional-customizations.js";
 import { BasicTextOutput } from "./basic.js";
 import { TextOutputWithAlignment } from "./with-alignment.js";
-
-import basicCode from "!./basic.tsx?raw";
-import withAlignmentCode from "!./with-alignment.tsx?raw";
-import additionalCustomizationsCode from "!./additional-customizations.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

@@ -31,6 +31,7 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useState } from "react";
 
 import { Icon, InteractionHintConfigProvider, List, Typography } from "@com.mgmtp.a12.widgets/widgets-core";
 
@@ -44,6 +45,22 @@ const meta: Meta<typeof List> = {
 		border: {
 			control: "boolean",
 			description: "Whether the list has a border"
+		},
+		divider: {
+			control: "boolean",
+			description: "Whether a divider will be added below each item"
+		},
+		flipped: {
+			control: "boolean",
+			description: "Whether the position of the text and secondary text is reversed"
+		},
+		paddedLeft: {
+			control: "boolean",
+			description: "Whether the item's text should all be aligned with or without the graphic"
+		},
+		paddedRight: {
+			control: "boolean",
+			description: "Whether the item which doesn't have a meta will be aligned with the others"
 		}
 	}
 };
@@ -51,9 +68,16 @@ const meta: Meta<typeof List> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => (
-		<List>
+export const Playground: Story = {
+	args: {
+		border: false,
+		divider: false,
+		flipped: false,
+		paddedLeft: false,
+		paddedRight: false
+	},
+	render: (args) => (
+		<List {...args}>
 			<List.Item text="First item" />
 			<List.Item text="Second item" />
 			<List.Item text="Third item" />
@@ -68,19 +92,46 @@ export const WithBorder: Story = {
 			<List.Item text="Another item" />
 			<List.Item text="Third item" />
 		</List>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`border` draws a border around the whole list."
+			}
+		}
+	}
 };
 
-export const CompactDensity: Story = {
+export const Dividers: Story = {
 	render: () => (
-		<List>
-			<List.Item text="Compact item 1" />
-			<List.Item text="Compact item 2" />
-			<List.Item text="Compact item 3" />
-			<List.Item text="Compact item 4" />
-			<List.Item text="Compact item 5" />
-		</List>
-	)
+		<div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+			<div>
+				<Typography.Headline level={3}>List divider</Typography.Headline>
+				<List divider>
+					<List.Item text="Item 1" />
+					<List.Item text="Item 2" />
+					<List.Item text="Item 3" />
+				</List>
+			</div>
+
+			<div>
+				<Typography.Headline level={3}>Per-item dividers</Typography.Headline>
+				<List>
+					<List.Item text="Light divider below" divider="light" />
+					<List.Item text="Dark divider below" divider="dark" />
+					<List.Item text="No divider" />
+				</List>
+			</div>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'`divider` on the list adds a divider below every item. Individual items accept `divider` as `true`, `"light"` or `"dark"` for fine-grained control.'
+			}
+		}
+	}
 };
 
 export const WithSubHeaders: Story = {
@@ -93,7 +144,14 @@ export const WithSubHeaders: Story = {
 			<List.Item text="Item 2.1" />
 			<List.Item text="Item 2.2" />
 		</List>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`List.SubHeader` groups related items under a non-interactive heading."
+			}
+		}
+	}
 };
 
 export const WithIcons: Story = {
@@ -104,34 +162,73 @@ export const WithIcons: Story = {
 			<List.Item text="Settings" graphic={<Icon>settings</Icon>} />
 			<List.Item text="Messages" graphic={<Icon>mail</Icon>} />
 		</List>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`graphic` renders an element (typically an `Icon`) before the item text."
+			}
+		}
+	}
 };
 
-export const WithInteractionHint: Story = {
+export const RichItems: Story = {
 	render: () => (
-		<InteractionHintConfigProvider enableInteractionHint>
-			<List>
-				<List.Item text="Hover to see hint" />
-				<List.Item text="Another item with hint" />
-				<List.Item text="Third item with hint" />
-			</List>
-		</InteractionHintConfigProvider>
-	)
+		<List border>
+			<List.Item
+				text="Inbox"
+				secondaryText="12 unread messages"
+				graphic={<Icon>mail</Icon>}
+				meta={<Icon>chevron_right</Icon>}
+			/>
+			<List.Item
+				text="Drafts"
+				secondaryText="3 drafts pending"
+				graphic={<Icon>edit</Icon>}
+				meta={<Icon>chevron_right</Icon>}
+			/>
+			<List.Item
+				text="Archive"
+				secondaryText="Older conversations"
+				graphic={<Icon>archive</Icon>}
+				meta={<Icon>chevron_right</Icon>}
+			/>
+		</List>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Items combine `text`, `secondaryText`, a leading `graphic` and a trailing `meta` element for richer rows."
+			}
+		}
+	}
 };
 
-export const WithInteractionHintFollowCursor: Story = {
-	render: () => (
-		<InteractionHintConfigProvider enableInteractionHint followCursor>
-			<List>
-				<List.Item text="Home with cursor hint" graphic={<Icon>home</Icon>} />
-				<List.Item text="Profile with cursor hint" graphic={<Icon>user</Icon>} />
-				<List.Item text="Settings with cursor hint" graphic={<Icon>settings</Icon>} />
+export const ItemStates: Story = {
+	render: function ItemStatesExample() {
+		const [selectedIndex, setSelectedIndex] = useState(0);
+
+		return (
+			<List border>
+				<List.Item text="Selectable item 1" selected={selectedIndex === 0} onClick={() => setSelectedIndex(0)} />
+				<List.Item text="Selectable item 2" selected={selectedIndex === 1} onClick={() => setSelectedIndex(1)} />
+				<List.Item text="Active item" active onClick={() => setSelectedIndex(-1)} />
+				<List.Item text="Disabled item" disabled onClick={() => setSelectedIndex(-1)} />
 			</List>
-		</InteractionHintConfigProvider>
-	)
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Items with an `onClick` handler are interactive. `selected` marks the current item, `active` applies the active style and `disabled` prevents interaction."
+			}
+		}
+	}
 };
 
-export const InteractionHintVariations: Story = {
+export const InteractionHints: Story = {
 	render: () => (
 		<div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
 			<div>
@@ -167,52 +264,13 @@ export const InteractionHintVariations: Story = {
 				</InteractionHintConfigProvider>
 			</div>
 		</div>
-	)
-};
-
-export const AllVariants: Story = {
-	render: () => (
-		<div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-			<div>
-				<Typography.Headline level={3}>Default List</Typography.Headline>
-				<List>
-					<List.Item text="Item 1" />
-					<List.Item text="Item 2" />
-					<List.Item text="Item 3" />
-				</List>
-			</div>
-
-			<div>
-				<Typography.Headline level={3}>With Border</Typography.Headline>
-				<List border>
-					<List.Item text="Item 1" />
-					<List.Item text="Item 2" />
-					<List.Item text="Item 3" />
-				</List>
-			</div>
-
-			<div>
-				<Typography.Headline level={3}>Compact with Icons and Interaction Hints</Typography.Headline>
-				<InteractionHintConfigProvider enableInteractionHint followCursor>
-					<List>
-						<List.Item text="Home" graphic={<Icon>home</Icon>} />
-						<List.Item text="Profile" graphic={<Icon>user</Icon>} />
-						<List.Item text="Settings" graphic={<Icon>settings</Icon>} />
-					</List>
-				</InteractionHintConfigProvider>
-			</div>
-
-			<div>
-				<Typography.Headline level={3}>With Sub Headers</Typography.Headline>
-				<List border>
-					<List.SubHeader>Navigation</List.SubHeader>
-					<List.Item text="Home" graphic={<Icon>home</Icon>} />
-					<List.Item text="Search" graphic={<Icon>search</Icon>} />
-					<List.SubHeader>Account</List.SubHeader>
-					<List.Item text="Profile" graphic={<Icon>user</Icon>} />
-					<List.Item text="Settings" graphic={<Icon>settings</Icon>} />
-				</List>
-			</div>
-		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Wrapping a list in `InteractionHintConfigProvider` with `enableInteractionHint` shows a hover hint on items. `followCursor` lets the hint track the pointer, `hideArrow` removes the hint arrow."
+			}
+		}
+	}
 };

@@ -33,13 +33,13 @@
 import type { FunctionComponent } from "react";
 import { useRef } from "react";
 
-import { useEnterAndSpaceKeyTrigger } from "../../common/main/hooks.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
 import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { useEnterAndSpaceKeyTrigger } from "../../common/main/hooks.js";
+import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
 
-import { StyledInteractiveTile, StyledSelectedTileIcon } from "./interactive-tile.styled.js";
 import type { InteractiveTileProps } from "./interactive-tile.api.js";
+import { StyledInteractiveTile, StyledSelectedTileIcon } from "./interactive-tile.styled.js";
 
 export const InteractiveTile: FunctionComponent<InteractiveTileProps> = (props) => {
 	const {

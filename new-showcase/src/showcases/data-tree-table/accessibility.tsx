@@ -1,0 +1,203 @@
+/*
+ * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+ *
+ * Copyright (c) 2012-2026 mgm technology partners GmbH
+ *
+ * Dual License
+ * ------------
+ * This source file is part of the mgm A12 Platform and available under
+ * a choice of two different licenses:
+ *
+ * 1. Open-Source License - EUPL v1.2
+ *    You may redistribute and/or modify this file under the terms of the
+ *    European Union Public License, version 1.2 - see https://eupl.eu/.
+ *
+ * 2. Commercial License
+ *    Alternatively, you may obtain a commercial license from
+ *    mgm technology partners GmbH, that permits use of this software
+ *    under different terms (including support and maintenance services).
+ *
+ *    Please contact a12-license@mgm-tp.com for more information.
+ *
+ * You must select and comply with exactly one of the above license options.
+ *
+ * Warranty Disclaimer (applies to either option)
+ * ----------------------------------------------
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTY OF ANY KIND,
+ * WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
+ * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
+ */
+
+import type { ChangeEvent, ReactElement } from "react";
+import { useMemo, useState } from "react";
+
+import { Button, Icon, TextField } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+import { DataTreeTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+
+import { useRowSelection } from "./shared.js";
+
+/**
+ * How the Delete Button of a row gets its accessible name:
+ *
+ * - `title`: the name of the node is embedded in the Button's own `title`.
+ * - `node-ref`: the Button is linked via `aria-labelledby` to itself and to the element that the
+ *   DataTreeTable renders around the name of the node in the tree column.
+ * - `parent-ref`: the Button is linked the same way, but to the whole node title, which also holds the hidden
+ *   "belongs to ..." text. The name of the Button therefore states the parent node as well.
+ * - `input-ref`: the name of the node is rendered as a TextField, and the Button is linked to that input. A
+ *   referenced input contributes its value to the name, so the name follows every keystroke.
+ */
+type LabelPatternType = "title" | "node-ref" | "parent-ref" | "input-ref";
+
+interface FileNode {
+	id: string;
+	name: string;
+	modified: string;
+	size: string;
+	kind: "folder" | "file";
+	labelPattern: LabelPatternType;
+	children?: FileNode[];
+}
+
+const FILE_TREE: FileNode[] = [
+	{
+		id: "a11y-documents",
+		name: "Documents",
+		modified: "2026-01-04",
+		size: "",
+		kind: "folder",
+		labelPattern: "title",
+		children: [
+			{
+				id: "a11y-invoices",
+				name: "Invoices",
+				modified: "2026-02-11",
+				size: "18 KB",
+				kind: "folder",
+				labelPattern: "parent-ref"
+			},
+			{
+				id: "a11y-archive",
+				name: "Archive",
+				modified: "2025-12-30",
+				size: "",
+				kind: "folder",
+				labelPattern: "node-ref",
+				children: [
+					{
+						id: "a11y-2025-q4",
+						name: "2025-Q4.pdf",
+						modified: "2025-12-30",
+						size: "240 KB",
+						kind: "file",
+						labelPattern: "input-ref"
+					}
+				]
+			}
+		]
+	}
+];
+
+/** Id of the Delete Button of a row, which the Button links to in order to contribute its own name. */
+const deleteButtonId = (row: FileNode): string => `${row.id}-delete`;
+
+/** Id of the TextField that renders the name of a row labelled via `input-ref`. */
+const nodeInputId = (row: FileNode): string => `${row.id}-name`;
+
+/**
+ * Links the Delete Button of a row to itself and to the element that the DataTreeTable already renders in
+ * the tree column, e.g. "Delete Archive". A self reference is skipped while `aria-labelledby` is resolved,
+ * so the Button contributes its own name - the verb of the action - before the name of the node. No further
+ * element is needed to hold the verb.
+ * Rows labelled via `title` carry the name of the node on the Button itself and need no link at all.
+ */
+const labelledBy = (row: FileNode): string | undefined => {
+	switch (row.labelPattern) {
+		case "node-ref":
+			// `tree-node-name-{key}` wraps the name of the node.
+			return `${deleteButtonId(row)} tree-node-name-${row.id}`;
+		case "parent-ref":
+			// `tree-node-title-{key}` wraps the name of the node and the hidden "belongs to ..." text.
+			return `${deleteButtonId(row)} tree-node-title-${row.id}`;
+		case "input-ref":
+			// The input itself, not the cell around it - a referenced input contributes only its value, so the
+			// hidden label of the TextField stays out of the name.
+			return `${deleteButtonId(row)} ${nodeInputId(row)}`;
+		default:
+			return undefined;
+	}
+};
+
+export function AccessibilityDataTreeTable(): ReactElement {
+	const [fileName, setFileName] = useState("2025-Q4.pdf");
+	const { rowStyling, rowEventHandlers } = useRowSelection<FileNode>();
+
+	const columns = useMemo(
+		(): DataTableColumn<FileNode>[] => [
+			{
+				label: "Folder",
+				dataKey: "name",
+				width: 2,
+				verticalAlignment: "middle",
+				// The name of a row labelled via `input-ref` is rendered as an editable field instead of plain text.
+				// Only leaf nodes may do so: the DataTreeTable repeats the tree cell of a parent node inside every
+				// child row as hidden text, which would duplicate the input and its id.
+				renderCell: ({ row }) =>
+					row.labelPattern === "input-ref" ? (
+						<TextField
+							style={{ padding: 3 }}
+							id={nodeInputId(row)}
+							label="File name"
+							hideLabel
+							value={fileName}
+							onChange={(event: ChangeEvent<HTMLInputElement>): void => setFileName(event.target.value)}
+						/>
+					) : (
+						row.name
+					)
+			},
+			{ label: "Date modified", dataKey: "modified", width: 1.5, verticalAlignment: "middle" },
+			{ label: "Size", dataKey: "size", width: 1, horizontalAlignment: "right", verticalAlignment: "middle" },
+			{
+				label: "",
+				dataKey: "",
+				width: 0.5,
+				pinning: "right",
+				actionColumn: true,
+				horizontalAlignment: "center",
+				verticalAlignment: "middle",
+				renderCell: ({ row }) => (
+					<Button
+						id={deleteButtonId(row)}
+						destructive
+						icon={<Icon>delete</Icon>}
+						title={row.labelPattern === "title" ? `Delete ${row.name}` : "Delete"}
+						buttonAttributes={{ "aria-labelledby": labelledBy(row) }}
+						onClick={(event): void => {
+							event.stopPropagation();
+						}}
+					/>
+				)
+			}
+		],
+		[fileName]
+	);
+
+	return (
+		<DataTreeTable<FileNode>
+			id="accessibility-data-tree-table"
+			ariaLabel="Files"
+			tree={FILE_TREE}
+			getChildren={(row) => row.children}
+			getIcon={(row) => <Icon>{row.kind === "folder" ? "folder" : "insert_drive_file"}</Icon>}
+			columns={columns}
+			rowKey="id"
+			rowStyling={rowStyling}
+			rowEventHandlers={rowEventHandlers}
+			defaultExpandAll
+		/>
+	);
+}

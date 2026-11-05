@@ -31,13 +31,14 @@
  */
 
 import type { MouseEvent, TouchEvent, ReactElement, ChangeEvent } from "react";
-import { Children, useRef, useState, useCallback } from "react";
+import { Children, useCallback, useId, useRef, useState } from "react";
 
-import { joinClassNames, generateUid, addPrefix, noop } from "../../../common/main/utils.js";
 import type { Container } from "../../../common/main/base-props.js";
-import { InputElements } from "../../base/template/base.tpl.view.js";
-import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { joinClassNames, addPrefix, noop } from "../../../common/main/utils.js";
+import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
+import { InputElements } from "../../base/template/base.tpl.view.js";
+import { useFieldDefaultsConfig } from "../../field-default-config/main/field-default-config.utils.js";
 
 import type { BaseCheckboxProps, CheckboxProps, IndeterminateCheckboxProps } from "./checkbox.api.js";
 import { StyledCheckbox } from "./checkbox.styled.js";
@@ -68,6 +69,7 @@ function getInputClassName(fromProps: BaseCheckboxProps<HTMLElement>): string | 
 }
 
 function Wrapper(props: WrapperProps): ReactElement<WrapperProps> {
+	const { breakTooltipsToNewLine, messagePosition } = useFieldDefaultsConfig(props, false);
 	let fieldRef: HTMLElement | null = null;
 
 	const id = props.id;
@@ -84,7 +86,7 @@ function Wrapper(props: WrapperProps): ReactElement<WrapperProps> {
 	const numberOfTooltips = Children.count(props.tooltips);
 	const wrapperClassNames = joinClassNames(
 		baseFieldClassName,
-		{ [`${baseFieldClassName}--tooltips`]: numberOfTooltips && !props.breakTooltipsToNewLine },
+		{ [`${baseFieldClassName}--tooltips`]: numberOfTooltips && !breakTooltipsToNewLine },
 		{ [`${baseFieldClassName}--block`]: props.fitToParent },
 		props.className
 	);
@@ -99,20 +101,14 @@ function Wrapper(props: WrapperProps): ReactElement<WrapperProps> {
 		}
 	};
 
-	return (
-		<StyledCheckbox.StyledField
-			className={wrapperClassNames}
-			style={props.style}
-			data-role={DataRoles.Checkbox}
-			$block={props.fitToParent}
-			$hasTooltips={!!(numberOfTooltips && !props.breakTooltipsToNewLine)}
-		>
-			{props.breakTooltipsToNewLine && props.tooltips}
+	const messagesElement = (
+		<>
 			{props.errorMessage && (
 				<InputElements.Error
 					id={props.id}
 					dataRole={DataRoles.Checkbox.ErrorMessage}
 					errorMessage={props.errorMessage}
+					position={messagePosition}
 				/>
 			)}
 			{props.warningMessage && (
@@ -120,11 +116,31 @@ function Wrapper(props: WrapperProps): ReactElement<WrapperProps> {
 					id={props.id}
 					dataRole={DataRoles.Checkbox.WarningMessage}
 					warningMessage={props.warningMessage}
+					position={messagePosition}
 				/>
 			)}
 			{props.infoMessage && (
-				<InputElements.Info id={props.id} dataRole={DataRoles.Checkbox.InfoMessage} infoMessage={props.infoMessage} />
+				<InputElements.Info
+					id={props.id}
+					dataRole={DataRoles.Checkbox.InfoMessage}
+					infoMessage={props.infoMessage}
+					position={messagePosition}
+				/>
 			)}
+		</>
+	);
+
+	return (
+		<StyledCheckbox.StyledField
+			className={wrapperClassNames}
+			style={props.style}
+			data-role={DataRoles.Checkbox}
+			$block={props.fitToParent}
+			$hasTooltips={!!(numberOfTooltips && !breakTooltipsToNewLine)}
+			$tooltipPosition={breakTooltipsToNewLine}
+		>
+			{(breakTooltipsToNewLine === true || breakTooltipsToNewLine === "above") && props.tooltips}
+			{messagePosition !== "below" && messagesElement}
 			<StyledCheckbox.StyledControl
 				id={`${id}-controls`}
 				className={controlClassNames}
@@ -137,7 +153,7 @@ function Wrapper(props: WrapperProps): ReactElement<WrapperProps> {
 				onMouseOut={props.fieldControlMouseOut}
 				onTouchStart={props.fieldControlTouchStart}
 				onTouchEnd={props.fieldControlTouchEnd}
-				$hasTooltips={!!(numberOfTooltips && !props.breakTooltipsToNewLine)}
+				$hasTooltips={!!(numberOfTooltips && !breakTooltipsToNewLine)}
 				$inline={props.inline}
 				$isNonInteractive={!isInteractive}
 			>
@@ -162,8 +178,10 @@ function Wrapper(props: WrapperProps): ReactElement<WrapperProps> {
 					label={props.label}
 					graphic={props.labelGraphic}
 				/>
-				{!props.breakTooltipsToNewLine && props.tooltips}
+				{!breakTooltipsToNewLine && props.tooltips}
 			</StyledCheckbox.StyledControl>
+			{messagePosition === "below" && messagesElement}
+			{breakTooltipsToNewLine === "below" && props.tooltips}
 			{props.helperText && (
 				<StyledBaseInput.StyledFieldHelperWrapper
 					className={`${baseFieldClassName}__helper`}
@@ -186,7 +204,8 @@ function Wrapper(props: WrapperProps): ReactElement<WrapperProps> {
 Wrapper.displayName = "CheckboxWrapper";
 
 export function Checkbox({ fitToParent = true, ...props }: CheckboxProps): ReactElement<CheckboxProps> {
-	const id = props.id || generateUid();
+	const generatedId = useId();
+	const id = props.id || generatedId;
 	const { as, ...inputPropsRest } = props.inputProps ?? {};
 
 	return (
@@ -213,6 +232,7 @@ export function Checkbox({ fitToParent = true, ...props }: CheckboxProps): React
 					{ [`${id}-helperText`]: props.helperText },
 					props.ariaDescribedby
 				)}
+				aria-invalid={props.error || props.errorMessage ? true : undefined}
 				$checked={props.checked}
 				$disabled={props.disabled}
 				$readonly={props.readonly}
@@ -234,7 +254,8 @@ export namespace Checkbox {
 		const [hasEffect, setHasEffect] = useState(false);
 
 		const type = inputProps?.type;
-		const id = props.id || generateUid();
+		const generatedId = useId();
+		const id = props.id || generatedId;
 
 		const addEffectClass = useCallback(() => {
 			setHasEffect(true);
@@ -291,6 +312,7 @@ export namespace Checkbox {
 						role="checkbox"
 						aria-checked={checked}
 						aria-controls={ariaControls}
+						aria-invalid={props.error || props.errorMessage ? true : undefined}
 						onClick={onClick}
 					/>
 				</StyledCheckbox.StyledIndeterminateInput>

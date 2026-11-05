@@ -37,8 +37,8 @@
  * Encapsulates the communicates with the Pagination and is part of its {@link PaginationProps}.
  */
 
-import type { Identifiable, Styleable } from "../../common/main/base-props.js";
 import type { ButtonProps } from "../../button/main/button.api.js";
+import type { Identifiable, Styleable } from "../../common/main/base-props.js";
 
 /**
  * The props of Pagination.

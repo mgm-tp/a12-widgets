@@ -68,6 +68,22 @@ export const StyledTreeToggle = styled.span.withConfig({ displayName: "StyledDat
 `;
 
 /**
+ * Groups everything the row is named after: the leading icon, the label and the visually-hidden
+ * ", belongs to <parent>" text. Carries `tree-node-title-{key}`, so a control elsewhere in the row can
+ * point `aria-labelledby` at it and be named after the node together with its parent. The
+ * expand/collapse control deliberately stays outside, so referencing this element cannot fold the
+ * chevron's own name into the result.
+ *
+ * @internal
+ */
+export const StyledTreeTitle = styled.span.withConfig({ displayName: "StyledDataTreeTitle-sc-" })`
+	display: flex;
+	flex: 1 1 auto;
+	align-items: center;
+	min-width: 0;
+`;
+
+/**
  * Leading icon slot, sitting between the expand/collapse control and the label. Shrinks to its content
  * and centres the icon so it lines up with the chevron and the cell text.
  *

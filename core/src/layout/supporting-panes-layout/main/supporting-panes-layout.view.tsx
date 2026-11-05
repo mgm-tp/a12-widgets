@@ -34,10 +34,10 @@ import type { FC, ReactElement } from "react";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
 
-import type { SupportingPanesLayoutProps } from "./supporting-panes-layout.api.js";
-import { StyledSupportingPanesLayout } from "./supporting-panes-layout.styled.js";
 import { SPLPrimaryPane } from "./primary-pane.view.js";
 import { SPLSecondaryPane } from "./secondary-pane.view.js";
+import type { SupportingPanesLayoutProps } from "./supporting-panes-layout.api.js";
+import { StyledSupportingPanesLayout } from "./supporting-panes-layout.styled.js";
 
 export namespace SupportingPanesLayoutComponents {
 	export const SupportingPanesLayout: FC<SupportingPanesLayoutProps.LayoutProps> = (props): ReactElement => {

@@ -60,6 +60,7 @@ export function Basic(): ReactElement {
 			reportLabel="Basic"
 			configuration={
 				<Checkbox
+					id="dropdown-basic-light-background"
 					fitToParent={false}
 					checked={lightBackground}
 					label="Light Background"

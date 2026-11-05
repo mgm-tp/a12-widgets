@@ -30,15 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import ToastGroupAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/toast/main/toast-group.api.json" with { type: "json" };
+import applicationLevelCode from "!./app-level.tsx?raw";
+
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
+import ToastGroupAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/toast/main/toast-group.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../../helpers/definitions.js";
 import { StyledShowcaseBulletListInMessageBox, StyledShowcaseLink } from "../../../../helpers/showcase-styles.js";
 
 import { ApplicationLevelToastGroupShowcase } from "./app-level.js";
-
-import applicationLevelCode from "!./app-level.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

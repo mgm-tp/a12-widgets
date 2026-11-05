@@ -33,14 +33,14 @@
 import { AutoLinkNode, LinkNode } from "@lexical/link";
 import { $createParagraphNode, $createTextNode, $getRoot } from "lexical";
 import type { ReactElement, ReactNode } from "react";
-import { getAllByDataRole, getByDataRole, render, waitFor } from "test-utils";
+import { getAllByDataRole, getByDataRole, isAfter, render, waitFor } from "test-utils";
 import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
 import { Button } from "../../button/main/button.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 import { Icon } from "../../icon/main/icon.view.js";
-
+import type { MessagePosition, TooltipLineBreak } from "../../input/base/template/base.tpl.api.js";
 import type { InlineButtonProps, LinkDecoratorProps, MentionPluginProps } from "../main/plugins/index.js";
 import {
 	AlignButtonGroup,
@@ -318,7 +318,9 @@ describe("Rich Text Editor", () => {
 
 		await userEvent.click(editor);
 		await userEvent.type(editor, "@");
-		await new Promise((r) => setTimeout(r, 200)); // Wait for mention dropdown to appear
+		await waitFor(() =>
+			expect(getAllByDataRole(document.body, DataRoles.RichTextEditor.MentionSuggestion.Item)[0]).toBeVisible()
+		);
 		await userEvent.keyboard("{Enter}");
 
 		return editor.querySelector(`.${editorThemeClasses.mention}`)!;
@@ -474,6 +476,174 @@ describe("Rich Text Editor", () => {
 			const autoLink = editor.querySelector("a");
 			expect(autoLink).not.toBeNull();
 			expect(autoLink!.innerText).toEqual(url);
+		});
+	});
+
+	describe("message position", () => {
+		const messageRoles = [
+			DataRoles.RichTextEditor.ErrorMessage,
+			DataRoles.RichTextEditor.WarningMessage,
+			DataRoles.RichTextEditor.InfoMessage
+		];
+
+		const renderWithMessages = (messagePosition: MessagePosition) =>
+			render(
+				<RichTextEditor
+					id="message-position-test"
+					label="Test Label"
+					helperText="Test Helper Text"
+					errorMessage="Test error message"
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					messagePosition={messagePosition}
+					initialConfig={{ namespace: "Message Position Test" }}
+				/>
+			);
+
+		test("renders the messages above the control for above", async () => {
+			const { findByDataRole, getByDataRole } = renderWithMessages("above");
+
+			await findByDataRole(`${DataRoles.RichTextEditor.Input}`);
+
+			const control = getByDataRole(DataRoles.RichTextEditor.Input.Field);
+			const inputWrapper = getByDataRole(DataRoles.RichTextEditor.Input.Wrapper);
+			const label = getByDataRole(DataRoles.RichTextEditor.Label);
+			const helperText = getByDataRole(DataRoles.RichTextEditor.HelperText.Wrapper);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(true);
+				expect(isAfter(message, inputWrapper)).toBe(true);
+				// the message stays inside the label -> helper text envelope
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the control for below", async () => {
+			const { findByDataRole, getByDataRole } = renderWithMessages("below");
+
+			await findByDataRole(`${DataRoles.RichTextEditor.Input}`);
+
+			const control = getByDataRole(DataRoles.RichTextEditor.Input.Field);
+			const inputWrapper = getByDataRole(DataRoles.RichTextEditor.Input.Wrapper);
+			const label = getByDataRole(DataRoles.RichTextEditor.Label);
+			const helperText = getByDataRole(DataRoles.RichTextEditor.HelperText.Wrapper);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(true);
+				expect(isAfter(inputWrapper, message)).toBe(true);
+				// the message stays inside the label -> helper text envelope
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const renderWithTooltips = (breakTooltipsToNewLine: TooltipLineBreak) =>
+			render(
+				<RichTextEditor
+					id="tooltip-position-test"
+					label="Editor Label"
+					helperText="Helper text content"
+					tooltips={<div>Test tooltip</div>}
+					breakTooltipsToNewLine={breakTooltipsToNewLine}
+					initialConfig={{ namespace: "Tooltip Position Test" }}
+				/>
+			);
+
+		test("renders the tooltips inline beside the control for false", async () => {
+			const { findByDataRole, getByDataRole, getByText } = renderWithTooltips(false);
+
+			await findByDataRole(`${DataRoles.RichTextEditor.Input}`);
+
+			const control = getByDataRole(DataRoles.RichTextEditor.Input.Field);
+			const addon = getByDataRole(DataRoles.RichTextEditor.TooltipAddon);
+			const tooltip = getByText("Test tooltip");
+
+			expect(addon.contains(tooltip)).toBe(true);
+			// the addon is a sibling of the control inside the editor's main row
+			expect(control.parentElement?.contains(addon)).toBe(true);
+			expect(isAfter(control, addon)).toBe(true);
+		});
+
+		test("renders the tooltips above the control for above", async () => {
+			const { findByDataRole, getByDataRole, getByText, queryByDataRole } = renderWithTooltips("above");
+
+			await findByDataRole(`${DataRoles.RichTextEditor.Input}`);
+
+			const control = getByDataRole(DataRoles.RichTextEditor.Input.Field);
+			const inputWrapper = getByDataRole(DataRoles.RichTextEditor.Input.Wrapper);
+			const tooltip = getByText("Test tooltip");
+
+			expect(queryByDataRole(DataRoles.RichTextEditor.TooltipAddon)).toBeNull();
+			expect(control.contains(tooltip)).toBe(true);
+			expect(isAfter(tooltip, inputWrapper)).toBe(true);
+		});
+
+		test("renders the tooltips below the whole control row for below", async () => {
+			const { findByDataRole, getByDataRole, getByText, queryByDataRole } = renderWithTooltips("below");
+
+			await findByDataRole(`${DataRoles.RichTextEditor.Input}`);
+
+			const control = getByDataRole(DataRoles.RichTextEditor.Input.Field);
+			const editorMain = control.parentElement as HTMLElement;
+			const helperText = getByDataRole(DataRoles.RichTextEditor.HelperText.Wrapper);
+			const tooltip = getByText("Test tooltip");
+
+			expect(queryByDataRole(DataRoles.RichTextEditor.TooltipAddon)).toBeNull();
+			expect(editorMain.contains(tooltip)).toBe(false);
+			expect(tooltip.parentElement).toBe(getByDataRole(DataRoles.RichTextEditor.Wrapper));
+			expect(isAfter(editorMain, tooltip)).toBe(true);
+			expect(isAfter(tooltip, helperText)).toBe(true);
+		});
+	});
+
+	describe("aria-invalid", () => {
+		test("marks the input as invalid for error", async () => {
+			const { findByDataRole } = render(
+				<RichTextEditor
+					id="aria-invalid-error-test"
+					label="Editor Label"
+					error
+					initialConfig={{ namespace: "Aria Invalid Error Test" }}
+				/>
+			);
+
+			expect(await findByDataRole(`${DataRoles.RichTextEditor.Input}`)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("marks the input as invalid for errorMessage", async () => {
+			const { findByDataRole } = render(
+				<RichTextEditor
+					id="aria-invalid-error-message-test"
+					label="Editor Label"
+					errorMessage="Test error message"
+					initialConfig={{ namespace: "Aria Invalid Error Message Test" }}
+				/>
+			);
+
+			expect(await findByDataRole(`${DataRoles.RichTextEditor.Input}`)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("does not mark the input as invalid for a warning or an info", async () => {
+			const { findByDataRole } = render(
+				<RichTextEditor
+					id="aria-invalid-warning-info-test"
+					label="Editor Label"
+					warning
+					info
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					initialConfig={{ namespace: "Aria Invalid Warning Info Test" }}
+				/>
+			);
+
+			expect(await findByDataRole(`${DataRoles.RichTextEditor.Input}`)).not.toHaveAttribute("aria-invalid");
 		});
 	});
 });

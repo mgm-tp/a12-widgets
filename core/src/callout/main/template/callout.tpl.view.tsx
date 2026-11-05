@@ -33,14 +33,14 @@
 import type { ReactElement } from "react";
 import { styled, css } from "styled-components";
 
-import { provider as DeviceDetector } from "../../../common/main/device-detector.js";
-import { darkFocus } from "../../../theme/base/mixins/_interaction.js";
-import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
-import type { Orientation } from "../../../common/main/alignment.js";
-import { StyledGrid } from "../../../layout/layout-grid/main/layout-grid.styled.js";
-import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { StyledButton } from "../../../button/main/button.styled.js";
+import type { Orientation } from "../../../common/main/alignment.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { provider as DeviceDetector } from "../../../common/main/device-detector.js";
+import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
+import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
+import { StyledGrid } from "../../../layout/layout-grid/main/layout-grid.styled.js";
+import { darkFocus } from "../../../theme/base/mixins/_interaction.js";
 
 import type { CalloutTplProps } from "./callout.tpl.api.js";
 
@@ -59,10 +59,12 @@ export const StyledCalloutInner = styled.div.withConfig({ displayName: "StyledCa
 		height: 100%;
 		overflow: hidden;
 		padding: ${inner.padding};
-		${hasHeader &&
-		css`
-			padding-top: 0;
-		`}
+		${
+			hasHeader &&
+			css`
+				padding-top: 0;
+			`
+		}
 	`;
 });
 
@@ -305,32 +307,42 @@ export const StyledCalloutWrapper = styled.div.withConfig({ displayName: "Styled
 		outline: 1px solid transparent;
 		position: relative;
 		width: ${hasDefinedWidth ? theme.components.callout.width : "100%"};
-		${hasPointer &&
-		calloutOrientation &&
-		css`
-			${["top", "top-start", "top-end"].includes(calloutOrientation) &&
+		${
+			hasPointer &&
+			calloutOrientation &&
 			css`
-				margin-bottom: 15px;
-			`}
+				${
+					["top", "top-start", "top-end"].includes(calloutOrientation) &&
+					css`
+						margin-bottom: 15px;
+					`
+				}
 
-			${["bottom", "bottom-start", "bottom-end"].includes(calloutOrientation) &&
-			css`
-				margin-top: 15px;
-			`}
+				${
+					["bottom", "bottom-start", "bottom-end"].includes(calloutOrientation) &&
+					css`
+						margin-top: 15px;
+					`
+				}
 
-			${["left", "left-end", "left-start"].includes(calloutOrientation) &&
-			css`
-				margin-right: 15px;
-				max-height: calc(100vh - 16px);
-			`}
+				${
+					["left", "left-end", "left-start"].includes(calloutOrientation) &&
+					css`
+						margin-right: 15px;
+						max-height: calc(100vh - 16px);
+					`
+				}
 
-			${["right", "right-end", "right-start"].includes(calloutOrientation) &&
-			css`
-				margin-left: 15px;
-				max-height: calc(100vh - 16px);
-				transform: translateX(0);
-			`}
-		`}
+				${
+					["right", "right-end", "right-start"].includes(calloutOrientation) &&
+					css`
+						margin-left: 15px;
+						max-height: calc(100vh - 16px);
+						transform: translateX(0);
+					`
+				}
+			`
+		}
 	`;
 });
 

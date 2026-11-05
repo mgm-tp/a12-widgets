@@ -1,13 +1,12 @@
 {
 	"name": "@com.mgmtp.a12.widgets/widgets-utils",
-	"version": "39.0.3",
-	"description": "Utility widgets",
+	"version": "39.1.0",
+	"description": "DEPRECATED since 39.1.0 - utility components for the Widgets showcase; will be removed in a future major version",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {
 		"clean": "rimraf ./lib ./target",
 		"compile": "tsc",
-		"lint:eslint": "eslint --quiet",
 		"start": "tsgo --watch --preserveWatchOutput"
 	},
 	"author": "mgm technology partners",
@@ -38,6 +37,7 @@
 	"files": [
 		"lib",
 		"src",
+		"README.md",
 		"cyclonedx.json",
 		"LICENSE",
 		"NOTICE",

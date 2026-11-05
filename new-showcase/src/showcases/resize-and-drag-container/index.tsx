@@ -30,23 +30,23 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import resizeAndDragAccessibilityShowcaseCode from "!./accessibility-resize-and-drag.tsx?raw";
+import animationShowcaseCode from "!./animation.tsx?raw";
+import dragElementCode from "!./drag-element.tsx?raw";
+import multipleContainersCode from "!./multiple-containers.tsx?raw";
+import basicCode from "!./resizable-basic.tsx?raw";
+import resizeDetectingCode from "!./resize-detecting.tsx?raw";
+
 import ResizeAndDragContainerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/resize-and-drag-container/main/resize-and-drag-container.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { BasicResizableContainerShowcase } from "./resizable-basic.js";
+import { ResizeAndDragAccessibilityShowcase } from "./accessibility-resize-and-drag.js";
+import { AnimationShowcase } from "./animation.js";
 import { DragElementShowcase } from "./drag-element.js";
 import { MultipleContainers } from "./multiple-containers.js";
+import { BasicResizableContainerShowcase } from "./resizable-basic.js";
 import { ResizeDetectingShowcase } from "./resize-detecting.js";
-import { AnimationShowcase } from "./animation.js";
-import { ResizeAndDragAccessibilityShowcase } from "./accessibility-resize-and-drag.js";
-
-import basicCode from "!./resizable-basic.tsx?raw";
-import dragElementCode from "!./drag-element.tsx?raw";
-import multipleContainersCode from "!./multiple-containers.tsx?raw";
-import resizeDetectingCode from "!./resize-detecting.tsx?raw";
-import animationShowcaseCode from "!./animation.tsx?raw";
-import resizeAndDragAccessibilityShowcaseCode from "!./accessibility-resize-and-drag.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

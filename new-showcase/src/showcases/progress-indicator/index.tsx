@@ -30,24 +30,24 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import ProgressIndicatorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/progress-indicator/main/progress-indicator.api.json" with { type: "json" };
+import accessibilityCode from "!./accessibility.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import customLabelCode from "!./custom-label.tsx?raw";
+import fastAppearCode from "!./fast-appear.tsx?raw";
+import globalCode from "!./global.tsx?raw";
+import overlayVariantCode from "!./overlay-variants.tsx?raw";
+
 import { Link, BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
+import ProgressIndicatorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/progress-indicator/main/progress-indicator.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { ProgressIndicatorFastAppearShowcase } from "./fast-appear.js";
 import { AccessibilityProgressIndicator } from "./accessibility.js";
-import { GlobalProgressIndicatorShowcase } from "./global.js";
-import { CustomLabel } from "./custom-label.js";
 import { Basic } from "./basic.js";
+import { CustomLabel } from "./custom-label.js";
+import { ProgressIndicatorFastAppearShowcase } from "./fast-appear.js";
+import { GlobalProgressIndicatorShowcase } from "./global.js";
 import { OverlayVariant } from "./overlay-variants.js";
-
-import fastAppearCode from "!./fast-appear.tsx?raw";
-import accessibilityCode from "!./accessibility.tsx?raw";
-import globalCode from "!./global.tsx?raw";
-import customLabelCode from "!./custom-label.tsx?raw";
-import basicCode from "!./basic.tsx?raw";
-import overlayVariantCode from "!./overlay-variants.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

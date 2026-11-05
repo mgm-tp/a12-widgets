@@ -35,13 +35,12 @@ import { Key } from "ts-key-enum";
 import { describe, test, expect, vi } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { navigateWithTab } from "../../common/test/user-event-utils.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 import { getA11yResource } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { navigateWithTab } from "../../common/test/user-event-utils.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-
-import { HeaderTrigger } from "../main/header-trigger/header-trigger.view.js";
 import type { HeaderTriggerProps } from "../main/header-trigger/header-trigger.api.js";
+import { HeaderTrigger } from "../main/header-trigger/header-trigger.view.js";
 
 describe("com.mgmtp.a12.widgets.header-trigger", () => {
 	test("rendering header trigger", () => {

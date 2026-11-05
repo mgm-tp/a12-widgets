@@ -32,13 +32,13 @@
 
 import { styled, css } from "styled-components";
 
+import { Button } from "../../button/main/button.view.js";
 import { List } from "../../list/main/list.view.js";
 import { PopUpMenu } from "../../pop-up-menu/main/pop-up-menu.view.js";
-import { Button } from "../../button/main/button.view.js";
 import { activeAndHover } from "../../theme/base/mixins/_interaction.js";
 
-import { TabPanelTemplate } from "./template/tab-panel.tpl.view.js";
 import type { TabPanelOrientation } from "./tab-panel.api.js";
+import { TabPanelTemplate } from "./template/tab-panel.tpl.view.js";
 
 export const StyledTabPanelWrapper = styled.div.withConfig({ displayName: "StyledTabPanelWrapper-sc-" })<{
 	$orientation?: TabPanelOrientation;
@@ -70,12 +70,14 @@ export const StyledTabPanelTabs = styled.ul.withConfig({
 		width: ${isHorizontal ? "100%" : "auto"};
 		flex-direction: ${isHorizontal ? "row" : "column"};
 
-		${$isShadow &&
-		css`
-			visibility: hidden;
-			position: absolute;
-			overflow: hidden;
-		`}
+		${
+			$isShadow &&
+			css`
+				visibility: hidden;
+				position: absolute;
+				overflow: hidden;
+			`
+		}
 	`;
 });
 
@@ -105,31 +107,35 @@ export const StyledCondensedTab = styled(TabPanelTemplate.Tab)<{
 			align-self: stretch;
 		}
 
-		${$orientation === "horizontal" &&
-		css`
-			min-width: ${tab.minWidth};
-
-			&:before {
-				border: ${tab.border};
-				bottom: 0;
-				content: "";
-				left: 0;
-				position: absolute;
-				right: 0;
-				top: 0;
-			}
-
-			${$selected &&
+		${
+			$orientation === "horizontal" &&
 			css`
-				&:after {
-					height: ${tab.selected.borderTopWidth};
-					width: 100%;
-				}
+				min-width: ${tab.minWidth};
+
 				&:before {
-					border-top-width: ${tab.selected.borderTopWidth};
+					border: ${tab.border};
+					bottom: 0;
+					content: "";
+					left: 0;
+					position: absolute;
+					right: 0;
+					top: 0;
 				}
-			`}
-		`}
+
+				${
+					$selected &&
+					css`
+						&:after {
+							height: ${tab.selected.borderTopWidth};
+							width: 100%;
+						}
+						&:before {
+							border-top-width: ${tab.selected.borderTopWidth};
+						}
+					`
+				}
+			`
+		}
 	`;
 });
 
@@ -205,37 +211,39 @@ export const StyledGroupDivider = styled.li.withConfig({ displayName: "StyledGro
 			margin-top: 0;
 		}
 
-		${$orientation === "horizontal"
-			? css`
-					height: 100%;
-					margin: auto ${groupTab.divider.margin};
-					position: relative;
-					width: 0;
-					z-index: 1;
+		${
+			$orientation === "horizontal"
+				? css`
+						height: 100%;
+						margin: auto ${groupTab.divider.margin};
+						position: relative;
+						width: 0;
+						z-index: 1;
 
-					&::before {
-						background-color: ${groupTab.divider.background};
-						bottom: ${groupTab.divider.margin};
-						content: "";
-						left: 0;
-						position: absolute;
-						top: ${groupTab.divider.margin};
-						width: 1px;
-						transform: scaleX(0.9);
-					}
-				`
-			: css`
-					margin: ${groupTab.divider.margin} 0;
+						&::before {
+							background-color: ${groupTab.divider.background};
+							bottom: ${groupTab.divider.margin};
+							content: "";
+							left: 0;
+							position: absolute;
+							top: ${groupTab.divider.margin};
+							width: 1px;
+							transform: scaleX(0.9);
+						}
+					`
+				: css`
+						margin: ${groupTab.divider.margin} 0;
 
-					&::before {
-						background-color: ${groupTab.divider.background};
-						content: "";
-						display: block;
-						height: 1px;
-						margin: 0 ${groupTab.divider.margin};
-						transform: scaleY(0.9);
-					}
-				`}
+						&::before {
+							background-color: ${groupTab.divider.background};
+							content: "";
+							display: block;
+							height: 1px;
+							margin: 0 ${groupTab.divider.margin};
+							transform: scaleY(0.9);
+						}
+					`
+		}
 	`;
 });
 

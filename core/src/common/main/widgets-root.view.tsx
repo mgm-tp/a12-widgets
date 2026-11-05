@@ -35,8 +35,9 @@ import { createContext, useCallback, useEffect, useState } from "react";
 import { styled } from "styled-components";
 
 import type { Container } from "./base-props.js";
-import { isBrowser } from "./is-browser.js";
 import { DataRoles } from "./data-roles.js";
+import { isBrowser } from "./is-browser.js";
+import { installTranslationCrashGuard } from "./translation-crash-guard.js";
 
 export const PortalContext = createContext<{ portalPlaceholderRef: RefObject<HTMLElement | null> }>({
 	portalPlaceholderRef: { current: isBrowser ? document.body : null }
@@ -72,6 +73,10 @@ export const WidgetsRoot: FC<Container> = (props) => {
 	}, []);
 
 	useEffect(() => {
+		// Make React resilient to DOM mutations from in-browser translation tools (e.g. Google Translate),
+		// which otherwise crash the app with "removeChild ... not a child of this node" on update/unmount.
+		installTranslationCrashGuard();
+
 		const handleFocusOut = (event: FocusEvent): void => {
 			window.previousActiveElement = event.target as Element;
 		};

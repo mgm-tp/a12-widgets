@@ -30,6 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import accessibilityCode from "!./accessibility.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import overflowedCountCode from "!./overflowed-count.tsx?raw";
+import standaloneCode from "!./standalone.tsx?raw";
+import tinyCode from "!./tiny.tsx?raw";
+
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 import BadgeAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/badge/main/badge.api.json" with { type: "json" };
 
@@ -39,17 +45,11 @@ import {
 	StyledShowcaseLinkInMessageBox
 } from "../../../helpers/showcase-styles.js";
 
+import { AccessibilityBadgeShowcase } from "./accessibility.js";
 import { BasicBadgeShowcase } from "./basic.js";
 import { OverflowedCountBadgeShowcase } from "./overflowed-count.js";
 import { StandaloneBadgeShowcase } from "./standalone.js";
 import { TinyBadgeShowcase } from "./tiny.js";
-import { AccessibilityBadgeShowcase } from "./accessibility.js";
-
-import basicCode from "!./basic.tsx?raw";
-import overflowedCountCode from "!./overflowed-count.tsx?raw";
-import standaloneCode from "!./standalone.tsx?raw";
-import tinyCode from "!./tiny.tsx?raw";
-import accessibilityCode from "!./accessibility.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

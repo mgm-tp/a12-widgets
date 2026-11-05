@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { BaseThemeType } from "../../../schema/base-theme.js";
 import type { Duration } from "../../../../common/main/type-utilities.js";
+import type { BaseThemeType } from "../../../schema/base-theme.js";
 
 export type SupportingPanesLayoutConfigType = {
 	height: string;

@@ -30,32 +30,50 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useState, useCallback } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useState } from "react";
 import { fn } from "storybook/test";
 
 import { PopUpMenu, List, Icon, ModalOverlay, Button } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const { Item, SubHeader } = List;
 
-// ---------------------------------------------------------------------------
-// Meta
-// ---------------------------------------------------------------------------
 const meta: Meta<typeof PopUpMenu> = {
 	title: "General/PopupMenu",
 	component: PopUpMenu,
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
+		icon: {
+			control: false,
+			description: "Icon for the default trigger button"
+		},
+		triggerElement: {
+			control: false,
+			description:
+				"Custom interactive element (e.g. a button) that triggers the menu instead of the default icon button"
+		},
 		disabled: {
 			control: "boolean",
 			description: "Disables the trigger button and prevents the menu from opening"
 		},
 		orientation: {
 			control: "select",
-			options: ["bottom-left", "bottom-right", "top-left", "top-right"],
+			options: [
+				"top-start",
+				"top",
+				"top-end",
+				"right-start",
+				"right",
+				"right-end",
+				"bottom-start",
+				"bottom",
+				"bottom-end",
+				"left-start",
+				"left",
+				"left-end"
+			],
 			description: "Position of the popup relative to the trigger element"
 		},
 		closeOnEsc: {
@@ -69,6 +87,18 @@ const meta: Meta<typeof PopUpMenu> = {
 		focusOnOpen: {
 			control: "boolean",
 			description: "Whether focus is moved into the popup when it opens"
+		},
+		focusOnTriggerElementAfterClose: {
+			control: "boolean",
+			description: "Whether focus returns to the trigger element when the popup is closed"
+		},
+		triggerButtonTitle: {
+			control: "text",
+			description: "Accessible title for the trigger button while the popup is closed"
+		},
+		triggerButtonCloseTitle: {
+			control: "text",
+			description: "Accessible title for the trigger button while the popup is open"
 		}
 	},
 	args: {
@@ -80,10 +110,13 @@ const meta: Meta<typeof PopUpMenu> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// ---------------------------------------------------------------------------
-// Default — basic list of actions
-// ---------------------------------------------------------------------------
-export const Default: Story = {
+export const Playground: Story = {
+	args: {
+		disabled: false,
+		closeOnEsc: true,
+		closeOnOutsideClick: true,
+		focusOnOpen: true
+	},
 	render: (args) => (
 		<PopUpMenu {...args}>
 			<List paddedLeft>
@@ -93,47 +126,29 @@ export const Default: Story = {
 				<Item text="Remove" graphic={<Icon>delete</Icon>} />
 			</List>
 		</PopUpMenu>
-	),
-	parameters: {
-		docs: {
-			description: {
-				story:
-					"The default trigger is a three-dot icon button. Clicking it opens a List of actions. " +
-					"Press Escape or click outside to close."
-			}
-		}
-	}
+	)
 };
 
-// ---------------------------------------------------------------------------
-// Custom icon that reacts to open/closed state
-// ---------------------------------------------------------------------------
 export const CustomIcon: Story = {
-	render: (args) => {
-		function CustomIconDemo() {
-			const [active, setActive] = useState(false);
+	render: function CustomIconExample(args) {
+		const [active, setActive] = useState(false);
 
-			const onVisibilityChange = useCallback((isVisible: boolean) => {
-				setActive(isVisible);
-				args.onVisibilityChange?.(isVisible);
-			}, []);
-
-			return (
-				<PopUpMenu
-					{...args}
-					icon={<Icon>{active ? "arrow_drop_up" : "arrow_drop_down"}</Icon>}
-					onVisibilityChange={onVisibilityChange}
-				>
-					<List>
-						<Item text="Option A" />
-						<Item text="Option B" />
-						<Item text="Option C" />
-					</List>
-				</PopUpMenu>
-			);
-		}
-
-		return <CustomIconDemo />;
+		return (
+			<PopUpMenu
+				{...args}
+				icon={<Icon>{active ? "arrow_drop_up" : "arrow_drop_down"}</Icon>}
+				onVisibilityChange={(isVisible) => {
+					setActive(isVisible);
+					args.onVisibilityChange?.(isVisible);
+				}}
+			>
+				<List>
+					<Item text="Option A" />
+					<Item text="Option B" />
+					<Item text="Option C" />
+				</List>
+			</PopUpMenu>
+		);
 	},
 	parameters: {
 		docs: {
@@ -146,9 +161,30 @@ export const CustomIcon: Story = {
 	}
 };
 
-// ---------------------------------------------------------------------------
-// Grouped list with sub-headers and dividers
-// ---------------------------------------------------------------------------
+export const CustomTriggerElement: Story = {
+	args: {
+		triggerElement: <Button label="Actions" secondary />
+	},
+	render: (args) => (
+		<PopUpMenu {...args}>
+			<List paddedLeft>
+				<Item text="Edit" graphic={<Icon>edit</Icon>} />
+				<Item text="Duplicate" graphic={<Icon>content_copy</Icon>} />
+				<Item text="Delete" graphic={<Icon>delete</Icon>} />
+			</List>
+		</PopUpMenu>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`triggerElement` replaces the default three-dot icon button with a custom interactive element, " +
+					"such as a regular `Button`."
+			}
+		}
+	}
+};
+
 export const GroupedList: Story = {
 	render: (args) => (
 		<PopUpMenu {...args}>
@@ -173,9 +209,6 @@ export const GroupedList: Story = {
 	}
 };
 
-// ---------------------------------------------------------------------------
-// Disabled
-// ---------------------------------------------------------------------------
 export const Disabled: Story = {
 	args: {
 		disabled: true
@@ -197,9 +230,6 @@ export const Disabled: Story = {
 	}
 };
 
-// ---------------------------------------------------------------------------
-// Custom trigger button title (accessibility)
-// ---------------------------------------------------------------------------
 export const CustomTriggerTitle: Story = {
 	args: {
 		triggerButtonTitle: "Open actions menu",
@@ -226,9 +256,6 @@ export const CustomTriggerTitle: Story = {
 	}
 };
 
-// ---------------------------------------------------------------------------
-// A11Y: FitToParent modal opened from popup menu
-// ---------------------------------------------------------------------------
 export const WithFitToParentModal: Story = {
 	parameters: {
 		layout: "padded",
@@ -238,47 +265,44 @@ export const WithFitToParentModal: Story = {
 			}
 		}
 	},
-	render: () => {
-		const Demo = () => {
-			const [isOpen, setIsOpen] = useState(false);
+	render: function WithFitToParentModalExample() {
+		const [isOpen, setIsOpen] = useState(false);
 
-			return (
-				<div
-					style={{
-						position: "relative",
-						width: "600px",
-						height: "400px",
-						border: "2px dashed #aaa",
-						borderRadius: "4px",
-						display: "flex",
-						alignItems: "flex-start",
-						justifyContent: "flex-start",
-						padding: "16px"
-					}}
-				>
-					<PopUpMenu icon={<Icon>more_vert</Icon>} focusOnTriggerElementAfterClose={false}>
-						<List>
-							<List.Item text="Open fitToParent modal" onClick={() => setIsOpen(true)} />
-						</List>
-					</PopUpMenu>
-					{isOpen && (
-						<ModalOverlay fitToParent closeOnEsc focusBack onClose={() => setIsOpen(false)}>
-							<div style={{ padding: "24px", minWidth: "280px" }}>
-								<h2 style={{ margin: "0 0 12px 0" }}>FitToParent Modal</h2>
-								<p style={{ margin: "0 0 24px 0" }}>
-									This modal renders inline within its parent container instead of a Portal.
-								</p>
-								<div style={{ display: "flex", justifyContent: "flex-end" }}>
-									<Button label="Close" primary onClick={() => setIsOpen(false)} />
-								</div>
+		return (
+			<div
+				style={{
+					position: "relative",
+					width: "100%",
+					maxWidth: 600,
+					height: "400px",
+					border: "2px dashed #aaa",
+					borderRadius: "4px",
+					display: "flex",
+					alignItems: "flex-start",
+					justifyContent: "flex-start",
+					padding: "16px"
+				}}
+			>
+				<PopUpMenu icon={<Icon>more_vert</Icon>} focusOnTriggerElementAfterClose={false}>
+					<List>
+						<List.Item text="Open fitToParent modal" onClick={() => setIsOpen(true)} />
+					</List>
+				</PopUpMenu>
+				{isOpen && (
+					<ModalOverlay fitToParent closeOnEsc focusBack onClose={() => setIsOpen(false)}>
+						<div style={{ padding: "24px", minWidth: "280px" }}>
+							<h2 style={{ margin: "0 0 12px 0" }}>FitToParent Modal</h2>
+							<p style={{ margin: "0 0 24px 0" }}>
+								This modal renders inline within its parent container instead of a Portal.
+							</p>
+							<div style={{ display: "flex", justifyContent: "flex-end" }}>
+								<Button label="Close" primary onClick={() => setIsOpen(false)} />
 							</div>
-						</ModalOverlay>
-					)}
-				</div>
-			);
-		};
-
-		return <Demo />;
+						</div>
+					</ModalOverlay>
+				)}
+			</div>
+		);
 	}
 };
 
@@ -290,32 +314,28 @@ export const WithNormalModal: Story = {
 			}
 		}
 	},
-	render: () => {
-		const Demo = () => {
-			const [isOpen, setIsOpen] = useState(false);
+	render: function WithNormalModalExample() {
+		const [isOpen, setIsOpen] = useState(false);
 
-			return (
-				<>
-					<PopUpMenu icon={<Icon>more_vert</Icon>} focusOnTriggerElementAfterClose={false}>
-						<List>
-							<List.Item text="Open modal" onClick={() => setIsOpen(true)} />
-						</List>
-					</PopUpMenu>
-					{isOpen && (
-						<ModalOverlay closeOnEsc focusBack onClose={() => setIsOpen(false)}>
-							<div style={{ padding: "24px", minWidth: "300px" }}>
-								<h2 style={{ margin: "0 0 12px 0" }}>Normal Modal</h2>
-								<p style={{ margin: "0 0 24px 0" }}>This modal renders via a Portal and covers the entire viewport.</p>
-								<div style={{ display: "flex", justifyContent: "flex-end" }}>
-									<Button label="Close" primary onClick={() => setIsOpen(false)} />
-								</div>
+		return (
+			<>
+				<PopUpMenu icon={<Icon>more_vert</Icon>} focusOnTriggerElementAfterClose={false}>
+					<List>
+						<List.Item text="Open modal" onClick={() => setIsOpen(true)} />
+					</List>
+				</PopUpMenu>
+				{isOpen && (
+					<ModalOverlay closeOnEsc focusBack onClose={() => setIsOpen(false)}>
+						<div style={{ padding: "24px", minWidth: "300px" }}>
+							<h2 style={{ margin: "0 0 12px 0" }}>Normal Modal</h2>
+							<p style={{ margin: "0 0 24px 0" }}>This modal renders via a Portal and covers the entire viewport.</p>
+							<div style={{ display: "flex", justifyContent: "flex-end" }}>
+								<Button label="Close" primary onClick={() => setIsOpen(false)} />
 							</div>
-						</ModalOverlay>
-					)}
-				</>
-			);
-		};
-
-		return <Demo />;
+						</div>
+					</ModalOverlay>
+				)}
+			</>
+		);
 	}
 };

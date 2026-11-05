@@ -52,19 +52,20 @@ export const StyledFilterSelectorListSection = styled(Typography.Section)<{
 	$collapsed?: boolean;
 }>(({ $showHeaderActions }) => {
 	return css`
-		${$showHeaderActions &&
-		css`
-			[data-role="${DataRoles.Typography.Headline.HeaderActions}"] {
-				opacity: 1;
-			}
-		`}
+		${
+			$showHeaderActions &&
+			css`
+				[data-role="${DataRoles.Typography.Headline.HeaderActions}"] {
+					opacity: 1;
+				}
+			`
+		}
 
 		[data-role="${DataRoles.Typography.Body}"] {
 			padding: 0 12px;
 		}
 
-		[data-role="${DataRoles.Typography.Body}"],
-		[data-role="${DataRoles.Typography.Headline}"] {
+		[data-role="${DataRoles.Typography.Body}"], [data-role="${DataRoles.Typography.Headline}"] {
 			margin-top: 0;
 			margin-bottom: 0;
 			padding-top: 0;
@@ -95,9 +96,11 @@ export const StyledFilterSelectorListDivider = styled.div<{ $collapsed?: boolean
 
 	return css`
 		border-bottom: 1px solid ${divider.color};
-		margin: ${$collapsed
-			? `0 ${spacing.spacingSm}px`
-			: `${filterSelectorList.dividerTopMarginExpanded} ${spacing.spacingSm}px ${spacing.spacingSm}px`};
+		margin: ${
+			$collapsed
+				? `0 ${spacing.spacingSm}px`
+				: `${filterSelectorList.dividerTopMarginExpanded} ${spacing.spacingSm}px ${spacing.spacingSm}px`
+		};
 	`;
 });
 
@@ -107,10 +110,12 @@ export const StyledFilterSelectorListGroupDivider = styled.div<{ $collapsed?: bo
 	return css`
 		border-bottom: 1px solid ${divider.colorDark};
 
-		${!$collapsed &&
-		css`
-			margin: ${theme.spacing.spacing.spacingMd}px 0 ${theme.spacing.spacing.spacingMd}px;
-		`}
+		${
+			!$collapsed &&
+			css`
+				margin: ${theme.spacing.spacing.spacingMd}px 0 ${theme.spacing.spacing.spacingMd}px;
+			`
+		}
 	`;
 });
 

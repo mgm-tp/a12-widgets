@@ -1,0 +1,106 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Data Display/DataTreeTable/Overview" />
+
+# DataTreeTable
+
+> ⚠️ **Experimental.** `DataTreeTable` is the hierarchical wrapper over `DataTable` and the
+> consumer-row-typed counterpart to the production `TreeTable` (which is not deprecated). It ships
+> from the `/experimental` entry point and the API may still change. Consumer documentation and
+> migration notes live in the showcase; these stories are the isolated reproductions used for
+> development and QA.
+
+`DataTreeTable` flattens a hierarchy into `DataTable` rows, owns expand/collapse, decorates one
+column with an indent + chevron, and renders `role="treegrid"` ARIA. There is no node envelope:
+your columns, `rowStyling`, `slots`, sorting, resizing and virtualization all operate on your own
+row type. The hierarchy comes in as a nested `tree` (read via `getChildren`) or a flat `data` list
+(read via `getParentId`), plus a required stable `rowKey`.
+
+```tsx
+import { DataTreeTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+
+<DataTreeTable
+	ariaLabel="Files"
+	tree={rows}
+	getChildren={(r) => r.children}
+	rowKey="id"
+	columns={[
+		{ label: "Name", dataKey: "name", width: 3 },
+		{ label: "Size", dataKey: "size", width: 1 }
+	]}
+	defaultExpandedKeys={["src"]}
+/>;
+```
+
+Everything `DataTable` documents in **DataTable › Overview** applies here too, except the props the
+wrapper owns: `data`, `columns`, `rowKey`, `dragDropOptions`, `scrollToNode`, `gridRole`,
+`rowExpansion` and `cardView` are replaced or removed.
+
+## Where to look
+
+| If you want to…                                            | See the story                          |
+| ---------------------------------------------------------- | -------------------------------------- |
+| Render a tree table from nested data                       | **Basic**                              |
+| Own the expansion state                                    | **Controlled**                         |
+| Fetch children on first expand                             | **Lazy Loading**                       |
+| Page children from your own store (load more / load all)   | **Controlled Pagination**              |
+| Translate the load-more links                              | **Localized Load More**                |
+| Replace the chevron                                        | **Custom Toggle**                      |
+| Show a folder/file icon per row                            | **Leading Icons**                      |
+| Scroll a row into view by key                              | **Scroll to Node**                     |
+| Reorder or re-parent rows by dragging or keyboard          | **Drag and Drop**, **Auto-expand on Hover** |
+| Paint a layer over one row                                 | **Row Overlay**                        |
+| See everything wired together                              | **All Features Enabled**               |
+| Build a Gantt-style pane (`onVisibleRowsChange`, `rowHeight`, `horizontalScrollRef`) | **Plan Timeline** |
+
+## Tree-specific props
+
+| Prop                                          | Purpose                                                                                      |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `tree` + `getChildren` / `data` + `getParentId` | The hierarchy, nested or as an adjacency list (mutually exclusive)                        |
+| `treeColumnKey`                               | Which column carries the indent + chevron (default: the first column)                       |
+| `indentSize`                                  | Pixels of indent per level                                                                   |
+| `isLeaf`                                      | Marks rows that can never expand, so they render no chevron and are never asked to load      |
+| `loadChildren`                                | Lazy children on first expand; mutually exclusive with the pagination props                  |
+| `getPagination` / `onLoadMore` / `onLoadAll`  | Consumer-owned paging per parent, rendered as a load-more row. A parent keeps its chevron while `hasMore` is true, so an unfetched first page needs no placeholder child rows |
+| `renderExpandToggle` / `renderLoadMore`       | Replace the built-in chevron / load-more affordance                                          |
+| `getIcon`                                     | Presentational icon between chevron and cell content                                         |
+| `onVisibleRowsChange`                         | Reports the rendered rows with index, level and parent, including synthetic load-more rows   |
+| `scrollToNode`                                | Hands out a `(rowKey, { autoFocus? })` handle                                                |
+| `dragDropOptions`                             | Reorder / re-parent (`before` / `after` / `inside`), pointer and keyboard; `onDropToRoot` opens the empty area below the last row as a drop zone that moves the row to the top level |
+
+## Keyboard
+
+Rows are a single roving tab stop, as in `DataTable`. With `dragDropOptions` set, **Space** picks the
+focused row up; **Up/Down** move it among its siblings, **Home/End** to the first / last sibling
+position, **Right** nests it under the sibling above, **Left** moves it out after its parent (from a
+first-level row that is the top level, so the keyboard reaches the root without a drop zone);
+**Space** or **Enter** drop, **Escape** cancels. Each step is announced through a live region.
+
+The grab is consumed on the row, so a table that binds Space to a shortcut of its own never sees the press.
+`dragDropOptions.keyboardGrabKey: false` hands Space back, at the cost of the keyboard path to reordering —
+provide another one (row buttons, a context menu). Enter is not an alternative grab key: the `treegrid`
+pattern assigns it the row's default action.
+
+## Feature compatibility
+
+| Feature                 | Notes                                                                                                   |
+| ----------------------- | ------------------------------------------------------------------------------------------------------- |
+| `virtualScrollOptions`  | Works with drag-and-drop and column resizing, as on `DataTable`. Needs `maxHeight`.                    |
+| `loadChildren`          | Mutually exclusive with `getPagination` / `onLoadMore` / `onLoadAll`.                                   |
+| `actionColumn` width    | A width-less action column auto-sizes to its buttons and header (`actionColumnAutoSize`, default on).   |
+| `cardView`              | Not available — the tree needs the table layout.                                                        |
+| `rowExpansion`          | Not available — expansion is the tree's own.                                                            |

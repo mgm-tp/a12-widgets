@@ -48,8 +48,8 @@ import {
 	provider
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import type { Data, ListOperationType } from "./data.js";
 import * as Utils from "./common.js";
+import type { Data, ListOperationType } from "./data.js";
 import { FilterView } from "./filter-view.js";
 
 export interface MasterDetailFilterSelectorProps {

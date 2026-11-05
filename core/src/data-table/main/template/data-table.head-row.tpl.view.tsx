@@ -34,7 +34,6 @@ import type { ReactElement, ReactNode } from "react";
 import { css, styled } from "styled-components";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
 export const StyledDataTableHeadRow = styled.tr.withConfig({ displayName: "StyledDataTableHeadRow-sc-" })(
@@ -67,7 +66,7 @@ export interface DataTableHeadRowTplProps {
 export function DataTableHeadRowTpl({ ariaRowIndex, children }: DataTableHeadRowTplProps): ReactElement {
 	// (tree)grid mode overrides the table role, dropping the native `<tr>` row
 	// mapping, so restate it as `role="row"`.
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
+	const gridRole = useDataTableContext().gridRole;
 
 	return (
 		<StyledDataTableHeadRow

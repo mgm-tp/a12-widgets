@@ -34,17 +34,24 @@ import type { CSSProperties } from "react";
 import type { DefaultTheme } from "styled-components";
 import { css, styled } from "styled-components";
 
-import { addPrefix } from "../../../common/main/utils.js";
+import { addPrefix, getHorizontalSpace } from "../../../common/main/utils.js";
 import { breakWord } from "../../../theme/base/mixins/_break-word.js";
-
 import { useDataTableContext } from "../data-table.context.js";
+import { pinLeftVar, pinRightVar } from "../data-table.pin-offsets.js";
 
 export const baseClassName = addPrefix("dataTable");
 
 /**
- * Resolve a cell's sticky-pinning bits from the pin offsets in `DataTableContext`:
- * the inline style carrying the `--a12-data-table-pin-offset` custom property and
- * whether the cell sits on the freeze edge (where the separator shadow is painted).
+ * Resolve a cell's sticky-pinning bits: the inline style feeding the shared
+ * `--a12-data-table-pin-offset` channel and whether the cell sits on the freeze
+ * edge (where the separator shadow is painted).
+ *
+ * The offset value is *not* computed here — it lives in the per-leaf
+ * `--a12-pin-{left,right}-N` custom properties the orchestrator writes on the
+ * `<table>` root (see `useLeafPinOffsetCssVars`). This hook only points the cell's
+ * `--a12-data-table-pin-offset` at the var for its leaf, so a re-measure updates the
+ * offset with zero React re-renders. The `0px` fallback keeps the cell flush at the
+ * edge before the first measure (or when the var is momentarily unset).
  *
  * `leafFrom`/`leafTo` are the first/last leaf column the cell covers (`leafTo`
  * defaults to `leafFrom` for single-column cells). Left-pinned cells stick at the
@@ -56,19 +63,14 @@ export const useCellPinning = (
 	leafFrom: number,
 	leafTo: number = leafFrom
 ): { pinStyle: CSSProperties | undefined; isPinnedEdge: boolean } => {
-	const leafPinOffsets = useDataTableContext((ctx) => ctx.leafPinOffsets);
-	const leafPinningEdge = useDataTableContext((ctx) => ctx.leafPinningEdge);
-	const pinOffset =
-		pinning === "left"
-			? leafPinOffsets?.left[leafFrom]
-			: pinning === "right"
-				? leafPinOffsets?.right[leafTo]
-				: undefined;
+	const leafPinningEdge = useDataTableContext().leafPinningEdge;
+	const pinVar = pinning === "left" ? pinLeftVar(leafFrom) : pinning === "right" ? pinRightVar(leafTo) : undefined;
 	const isPinnedEdge =
 		(pinning === "left" && leafPinningEdge?.left === leafTo) ||
 		(pinning === "right" && leafPinningEdge?.right === leafFrom);
-	const pinStyle: CSSProperties | undefined =
-		pinOffset !== undefined ? { ["--a12-data-table-pin-offset" as string]: `${pinOffset}px` } : undefined;
+	const pinStyle: CSSProperties | undefined = pinVar
+		? { ["--a12-data-table-pin-offset" as string]: `var(${pinVar}, 0px)` }
+		: undefined;
 
 	return { pinStyle, isPinnedEdge };
 };
@@ -98,10 +100,12 @@ export const pinnedCell = (
 		position: sticky;
 		${$pinned === "left" ? "inset-inline-start" : "inset-inline-end"}: var(--a12-data-table-pin-offset, 0);
 		z-index: ${zIndex};
-		${$pinnedEdge &&
-		css`
-			box-shadow: ${edgeShadow}${edgeExtraShadow ? `, ${edgeExtraShadow}` : ""};
-		`}
+		${
+			$pinnedEdge &&
+			css`
+				box-shadow: ${edgeShadow}${edgeExtraShadow ? `, ${edgeExtraShadow}` : ""};
+			`
+		}
 	`;
 };
 
@@ -110,6 +114,98 @@ export const parseBorder = (border: string): { width: string; color: string } =>
 
 	return { width: parts[0], color: parts.slice(2).join(" ") };
 };
+
+/**
+ * Custom property carrying a body row's fixed height. Set inline on a `<tr>` — from the table's
+ * `rowHeight`, from a `rowStyling` `style.height`, or from a virtualizer's fixed row height — and
+ * consumed by a static rule that clamps the row's cells and their content.
+ *
+ * It exists because `height` on a `<tr>` / `<td>` is only a *minimum* in table layout: without the
+ * clamp, one wrapping cell silently makes its row taller than the rest. Routing it through a
+ * variable keeps the height per-row (a `rowStyling` height can differ row to row) while the clamp
+ * itself stays a single static rule.
+ */
+export const ROW_HEIGHT_VAR = "--a12-row-height";
+
+/**
+ * Custom property carrying a body cell's block (top + bottom) padding, as the `<td>` itself applies
+ * it. Set by every rule that declares a cell `padding` — see {@link cellPadding}.
+ *
+ * The fixed-row-height clamp subtracts it when capping cell content: the cap has to land on the
+ * cell's *content box*, not on the row height, or padding-height worth of content would overflow
+ * and push the row taller than the fixed height. Reading it from a variable keeps that one static
+ * rule correct for every padding variant instead of hard-coding one token into it.
+ */
+export const CELL_BLOCK_PADDING_VAR = "--a12-cell-block-padding";
+
+/**
+ * One value of a `padding` shorthand as a length safe for `calc()`, or `undefined` when it is not a
+ * length. A unitless `0` becomes `0px`: `calc()` rejects a bare number, and one invalid term
+ * invalidates the whole expression.
+ */
+const asLength = (value?: string): string | undefined => {
+	if (!/^-?[\d.]+[a-z%]*$/i.test(value ?? "")) {
+		return undefined;
+	}
+
+	return /^-?[\d.]+$/.test(value!) ? `${value}px` : value;
+};
+
+/**
+ * The block (top + bottom) padding of a CSS `padding` shorthand, as a single length to subtract.
+ *
+ * Handles the 1-to-4-value forms: with 1 or 2 values top and bottom are the first value, with 3 or
+ * 4 they are the first and third. Anything unparseable yields `0px`, which degrades to the previous
+ * behaviour (content capped at the full row height) rather than to a broken `calc()`.
+ */
+export const blockPadding = (padding: string): string => {
+	const parts = String(padding ?? "")
+		.trim()
+		.split(/\s+/)
+		.filter(Boolean);
+
+	const top = asLength(parts[0]);
+
+	if (top === undefined) {
+		return "0px";
+	}
+
+	const bottom = (parts.length >= 3 ? asLength(parts[2]) : undefined) ?? top;
+
+	return `calc(${top} + ${bottom})`;
+};
+
+/**
+ * The inline-start (left) padding of a CSS `padding` shorthand, as a single length to add. Parsing
+ * is `getHorizontalSpace`'s (whitespace collapsed first, since it splits on a single space);
+ * anything unparseable yields `0px` rather than a broken `calc()`.
+ */
+export const inlineStartPadding = (padding: string): string => {
+	const normalized = String(padding ?? "")
+		.trim()
+		.replace(/\s+/g, " ");
+
+	return asLength(getHorizontalSpace("left", normalized)) ?? "0px";
+};
+
+/**
+ * A cell's `padding` plus what derives from it: {@link CELL_BLOCK_PADDING_VAR}, and for the first
+ * column the `firstMarginLeft` inset (the legacy `Table`'s `setFirstCellSpacing`). Every cell
+ * padding goes through here; all are flat declarations, so a later call wins on source order.
+ *
+ * `firstCell` must come from the cell's column index, not `&:first-child`, which a `rowSpan`'d
+ * header leaf and the auto-size clone both break.
+ */
+export const cellPadding = (theme: DefaultTheme, padding: string, firstCell?: boolean): ReturnType<typeof css> => css`
+	padding: ${padding};
+	${CELL_BLOCK_PADDING_VAR}: ${blockPadding(padding)};
+	${
+		firstCell &&
+		css`
+			padding-inline-start: calc(${inlineStartPadding(padding)} + ${theme.components.table.bodyCell.firstMarginLeft});
+		`
+	}
+`;
 
 /**
  * Compose a body cell's `box-shadow` from the row's interactive state border
@@ -167,14 +263,18 @@ export const composeCellShadow = (params: {
  * `display: table-cell` so it participates in `table-layout: fixed` column sizing;
  * content alignment lives on the inner {@link StyledCellContent} wrapper instead
  * (a flex cell would drop out of table layout).
+ *
+ * `firstCell` means column index 0, not merely the first cell of its row (see {@link cellPadding}),
+ * and carries the first-column inset — so that column keeps one left edge across `thead`, `tbody`
+ * and `tfoot`. A kind that declares its own padding passes the flag to its own `cellPadding` call.
  */
-export const cellBase = (theme: DefaultTheme): ReturnType<typeof css> => {
+export const cellBase = (theme: DefaultTheme, firstCell?: boolean): ReturnType<typeof css> => {
 	const { table } = theme.components;
 
 	return css`
 		display: table-cell;
 		vertical-align: middle;
-		padding: ${table.bodyCell.padding};
+		${cellPadding(theme, table.bodyCell.padding, firstCell)}
 		border-bottom: ${table.bodyRow.borderBottom};
 		background: ${table.bodyRow.background};
 		min-width: 0;
@@ -229,20 +329,3 @@ export const StyledCellContent = styled.div.withConfig({ displayName: "StyledCel
 		}
 	`
 );
-
-/**
- * Per-cell column label shown inline in card view (where the `<thead>` is hidden).
- * Rendered as a real element, not a CSS `::before`, so `ReactNode`/JSX labels
- * display and the label is exposed to assistive technology.
- */
-export const StyledCellLabel = styled.div.withConfig({ displayName: "StyledCellLabel-sc-" })(({ theme }) => {
-	const { table } = theme.components;
-
-	return css`
-		display: block;
-		font-size: ${table.cardView.bodyCell.dataTitleFontSize};
-		color: ${table.bodyCell.dataColor};
-		margin-top: -16px;
-		margin-bottom: 4px;
-	`;
-});

@@ -33,9 +33,9 @@
 import type { AutoLinkNode } from "@lexical/link";
 import { $createAutoLinkNode, $isAutoLinkNode } from "@lexical/link";
 import type { LinkMatcher } from "@lexical/react/LexicalAutoLinkPlugin";
-import LinkifyIt from "linkify-it";
 import type { BaseSelection, LexicalNode } from "lexical";
 import { $getSelection, $isRangeSelection } from "lexical";
+import { LinkifyIt } from "linkify-it";
 
 import type { InlineStyleTextNode } from "../../nodes/inline-style-text-node.js";
 import {
@@ -524,7 +524,15 @@ const isLinkStartingWithProtocol = (text: string): boolean => {
 	return text.startsWith("http://") || text.startsWith("https://") || text.startsWith("//");
 };
 
-const linkifyIt = new LinkifyIt();
+/*
+ * linkify-it v6 flipped both of these off; set explicitly to preserve v5 matching behavior:
+ * - `fuzzyLink`: recognizes URLs without an `http(s)://` head (`www.example.com`, `example.vn`).
+ *   Was an option defaulting to `true` in v5; defaults to `false` in v6.
+ * - `urlAuth`: keeps authentication data part of the link (`http://user:pass@example.com`) instead
+ *   of truncating the match at the userinfo. Auth scanning was unconditional in v5;
+ *   v6 extracted it into this new option and defaults it to `false`.
+ */
+const linkifyIt = new LinkifyIt({ fuzzyLink: true, urlAuth: true });
 
 export function createLinkMatcherWithLinkify(): LinkMatcher {
 	return (text: string): LinkMatcherResult | null => {

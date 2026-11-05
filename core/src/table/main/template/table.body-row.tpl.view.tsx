@@ -30,39 +30,40 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { darken } from "polished";
 import type { MouseEvent, KeyboardEvent, TouchEvent, FocusEvent, ReactElement } from "react";
 import { memo, useRef, useState, useCallback, useMemo, useEffect } from "react";
-import { Key } from "ts-key-enum";
 import { styled, css } from "styled-components";
-import { darken } from "polished";
+import { Key } from "ts-key-enum";
 
-import { getNearestFocusableParent, getRole, joinClassNames } from "../../../common/main/utils.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { provider } from "../../../common/main/device-detector.js";
 import { useSelectedText } from "../../../common/main/hooks.js";
-import { active, activeAndHover, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
-import { StyledTextOutputContent } from "../../../text-output/main/text-output.view.js";
+import { getNearestFocusableParent, getRole, joinClassNames } from "../../../common/main/utils.js";
 import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-
+import { StyledTextOutputContent } from "../../../text-output/main/text-output.view.js";
+import { active, activeAndHover, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
 import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
-import type { TableTemplateProps } from "./table.tpl.api.js";
-import { StyledBaseTable, StyledTableMixins } from "./table.styled.js";
 import { StyledTableContextProvider, useOptimalTableContextValue } from "./table.context.styled.js";
 import { StyledTableExpandableWrapper } from "./table.expandable-body-row-wrapper.tpl.view.js";
+import { StyledBaseTable, StyledTableMixins } from "./table.styled.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 
 const bodyRowStates = (selected?: boolean, beforeBorder?: string, afterBorder?: string) => {
 	return css`
 		&&:before {
 			border: ${beforeBorder};
 		}
-		${selected &&
-		css`
-			&:after {
-				border-left-color: ${afterBorder};
-			}
-		`}
+		${
+			selected &&
+			css`
+				&:after {
+					border-left-color: ${afterBorder};
+				}
+			`
+		}
 	`;
 };
 
@@ -154,115 +155,137 @@ export const StyledTableBodyRow = styled(StyledBaseTable.Row).withConfig({ displ
 		${StyledTableMixins.setRowBG({ background, theme })};
 
 		// For non-interactive row
-		${!rowInteractive &&
-		!rowDisabled &&
-		!cellHighlighting &&
-		css`
-			${!(rowHighlightVariant === "info" && tabIndex === -1) &&
-			css`
-				${StyledTableMixins.setRowBG({ background: bodyRow.nonInteractive.hoverBG, theme, state: "hover" })};
-				${StyledTableMixins.setRowBG({ background: bodyRow.nonInteractive.activeBG, theme, state: "active" })};
-				${hover(css`
-					${StyledBodyRowBadgeWrapper} ${StyledIconWrapper} {
-						color: ${darken(bodyRow.subBGRatio, bodyRow.nonInteractive.hoverBG)};
-					}
-				`)}
-				&:focus {
-					${StyledBodyRowBadgeWrapper} ${StyledIconWrapper} {
-						color: ${darken(bodyRow.subBGRatio, bodyRow.nonInteractive.hoverBG)};
-					}
-				}
-			`};
-			${StyledTableMixins.setRowBG({ background: bodyRow.nonInteractive.focusBG, theme, state: "focus" })};
-		`};
-
-		${rowSelected &&
-		css`
-			&:after {
-				border-bottom: 0;
-				border-left: ${bodyRow.selected.borderLeft};
-			}
-		`}
-
-		${!rowNoEffect &&
-		css`
-			${activeAndHover(css`
-				${!rowInteractive &&
-				css`
-					box-shadow: none;
-				`}
-			`)};
-			${rowInteractive &&
+		${
+			!rowInteractive &&
 			!rowDisabled &&
+			!cellHighlighting &&
 			css`
-				${active(css`
-					${bodyRowStates(rowSelected, bodyRow.interactive.activeBorder, bodyRow.selected.activeBorderColor)};
-				`)};
-				${hover(css`
-					cursor: pointer;
-					${bodyRowStates(rowSelected, bodyRow.interactive.hoverBorder, bodyRow.selected.hoverBorderColor)};
-				`)};
-				&:focus {
-					${bodyRowStates(rowSelected, bodyRow.interactive.focusBorder, bodyRow.selected.focusBorderColor)};
-					&:before {
-						box-sizing: border-box;
-						margin: 1px;
-						${darkFocus};
-					}
-					&:after {
-						background-color: ${bodyRow.selected.focusBG};
-						background-clip: padding-box;
-						border-left-width: ${rowSelected ? bodyRow.selected.focusBorderWidth : bodyRow.interactive.borderWidth};
-						box-sizing: border-box;
-						margin: 1px 0 1px 1px;
-						width: ${bodyRow.interactive.borderWidth};
-					}
-				}
-			`}
-		`}
+				${
+					!(rowHighlightVariant === "info" && tabIndex === -1) &&
+					css`
+						${StyledTableMixins.setRowBG({ background: bodyRow.nonInteractive.hoverBG, theme, state: "hover" })};
+						${StyledTableMixins.setRowBG({ background: bodyRow.nonInteractive.activeBG, theme, state: "active" })};
+						${hover(css`
+							${StyledBodyRowBadgeWrapper} ${StyledIconWrapper} {
+								color: ${darken(bodyRow.subBGRatio, bodyRow.nonInteractive.hoverBG)};
+							}
+						`)}
+						&:focus {
+							${StyledBodyRowBadgeWrapper} ${StyledIconWrapper} {
+								color: ${darken(bodyRow.subBGRatio, bodyRow.nonInteractive.hoverBG)};
+							}
+						}
+					`
+				};
+				${StyledTableMixins.setRowBG({ background: bodyRow.nonInteractive.focusBG, theme, state: "focus" })};
+			`
+		};
 
-		${rowDisabled &&
-		css`
-			color: ${bodyRow.disabled.color};
-		`}
+		${
+			rowSelected &&
+			css`
+				&:after {
+					border-bottom: 0;
+					border-left: ${bodyRow.selected.borderLeft};
+				}
+			`
+		}
+
+		${
+			!rowNoEffect &&
+			css`
+				${activeAndHover(css`
+					${
+						!rowInteractive &&
+						css`
+							box-shadow: none;
+						`
+					}
+				`)};
+				${
+					rowInteractive &&
+					!rowDisabled &&
+					css`
+						${active(css`
+							${bodyRowStates(rowSelected, bodyRow.interactive.activeBorder, bodyRow.selected.activeBorderColor)};
+						`)};
+						${hover(css`
+							cursor: pointer;
+							${bodyRowStates(rowSelected, bodyRow.interactive.hoverBorder, bodyRow.selected.hoverBorderColor)};
+						`)};
+						&:focus {
+							${bodyRowStates(rowSelected, bodyRow.interactive.focusBorder, bodyRow.selected.focusBorderColor)};
+							&:before {
+								box-sizing: border-box;
+								margin: 1px;
+								${darkFocus};
+							}
+							&:after {
+								background-color: ${bodyRow.selected.focusBG};
+								background-clip: padding-box;
+								border-left-width: ${rowSelected ? bodyRow.selected.focusBorderWidth : bodyRow.interactive.borderWidth};
+								box-sizing: border-box;
+								margin: 1px 0 1px 1px;
+								width: ${bodyRow.interactive.borderWidth};
+							}
+						}
+					`
+				}
+			`
+		}
+
+		${
+			rowDisabled &&
+			css`
+				color: ${bodyRow.disabled.color};
+			`
+		}
 		${StyledTextOutputContent} {
 			color: inherit;
 		}
-		${cardView &&
-		css`
-			margin: 16px auto;
-			width: ${table.cardView.bodyRow.width};
-		`}
+		${
+			cardView &&
+			css`
+				margin: 16px auto;
+				width: ${table.cardView.bodyRow.width};
+			`
+		}
 
-		${!rowInteractive &&
-		css`
-			${activeAndHover(css`
-				${StyledTableMixins.setInputBG({ background: bodyRow.inputsHighlightedBG })}
-			`)}
-			&:focus {
-				${StyledTableMixins.setInputBG({ background: bodyRow.inputsHighlightedBG })}
-			}
-		`}
-		${(rowSelected || rowHighlightVariant || rowHighlighted) &&
-		css`
-			${StyledTableMixins.setInputBG({ background: bodyRow.inputsHighlightedBG })}
-		`}
-
-		${!rowNoEffect &&
-		css`
-			// Apply for additional content of expandable row
-			@media (pointer: fine) {
-				${StyledTableExpandableWrapper} > :first-child:hover + & {
-					${StyledTableMixins.setRowBG({ background: bodyRow.nonInteractive.hoverBG, theme })};
+		${
+			!rowInteractive &&
+			css`
+				${activeAndHover(css`
+					${StyledTableMixins.setInputBG({ background: bodyRow.inputsHighlightedBG })}
+				`)}
+				&:focus {
+					${StyledTableMixins.setInputBG({ background: bodyRow.inputsHighlightedBG })}
 				}
-			}
+			`
+		}
+		${
+			(rowSelected || rowHighlightVariant || rowHighlighted) &&
+			css`
+				${StyledTableMixins.setInputBG({ background: bodyRow.inputsHighlightedBG })}
+			`
+		}
 
-			@media (pointer: coarse) {
-				${StyledTableExpandableWrapper} > :first-child:active + & {
-					${StyledTableMixins.setRowBG({ background: bodyRow.nonInteractive.activeBG, theme })};
+		${
+			!rowNoEffect &&
+			css`
+				// Apply for additional content of expandable row
+				@media (pointer: fine) {
+					${StyledTableExpandableWrapper} > :first-child:hover + & {
+						${StyledTableMixins.setRowBG({ background: bodyRow.nonInteractive.hoverBG, theme })};
+					}
 				}
-			}
-		`}
+
+				@media (pointer: coarse) {
+					${StyledTableExpandableWrapper} > :first-child:active + & {
+						${StyledTableMixins.setRowBG({ background: bodyRow.nonInteractive.activeBG, theme })};
+					}
+				}
+			`
+		}
 		@media (pointer: fine) {
 			${StyledTableExpandableWrapper} > :first-child + &:hover {
 				${StyledTableMixins.setRowBG({ background: bodyRow.infoBG, theme })};
@@ -275,73 +298,85 @@ export const StyledTableBodyRow = styled(StyledBaseTable.Row).withConfig({ displ
 			}
 		}
 
-		${virtualScroll &&
-		css`
-			&:last-child:before {
-				border-bottom: ${bodyRow.borderBottom};
-			}
-		`};
+		${
+			virtualScroll &&
+			css`
+				&:last-child:before {
+					border-bottom: ${bodyRow.borderBottom};
+				}
+			`
+		};
 		// Style for touch devices with non-hover-capable pointing
 		// Non-interactive Row
-		${!rowDisabled &&
-		css`
-			${cellHighlighting &&
-			crossTabulation &&
-			provider.hasTouch() &&
+		${
+			!rowDisabled &&
 			css`
-				&:focus-within {
-					[data-role="${DataRoles.Table.Body.Row.SegmentLeft}"] {
-						&:not(:active):not(:focus-within) {
-							background-color: ${darken(bodyRow.subBGRatio, header.background)};
+				${
+					cellHighlighting &&
+					crossTabulation &&
+					provider.hasTouch() &&
+					css`
+						&:focus-within {
+							[data-role="${DataRoles.Table.Body.Row.SegmentLeft}"] {
+								&:not(:active):not(:focus-within) {
+									background-color: ${darken(bodyRow.subBGRatio, header.background)};
+								}
+							}
+						}
+					`
+				};
+				${
+					!cellHighlighting &&
+					!rowInteractive &&
+					css`
+						&:active,
+						&:focus-within {
+							background-color: ${bodyRow.nonInteractive.focusBG};
+							${StyledTableMixins.setInputBG({ background: bodyRow.inputsHighlightedBG })}
+						}
+					`
+				}
+			`
+		};
+		// Interactive Row
+		${
+			!rowNoEffect &&
+			rowInteractive &&
+			css`
+				@media (pointer: coarse) and (any-hover: none) {
+					&:not(:focus):active {
+						&:before {
+							border: none;
+							border-bottom: ${bodyRow.borderBottom};
+							box-sizing: border-box;
+						}
+						&:after {
+							border-left: ${rowSelected && bodyRow.selected.borderLeft};
+							box-sizing: border-box;
 						}
 					}
 				}
-			`};
-			${!cellHighlighting &&
-			!rowInteractive &&
+			`
+		}
+
+		${
+			cellHighlighting &&
+			crossTabulation &&
+			!rowDisabled &&
 			css`
-				&:active,
-				&:focus-within {
-					background-color: ${bodyRow.nonInteractive.focusBG};
-					${StyledTableMixins.setInputBG({ background: bodyRow.inputsHighlightedBG })}
-				}
-			`}
-		`};
-		// Interactive Row
-		${!rowNoEffect &&
-		rowInteractive &&
-		css`
-			@media (pointer: coarse) and (any-hover: none) {
-				&:not(:focus):active {
-					&:before {
-						border: none;
-						border-bottom: ${bodyRow.borderBottom};
-						box-sizing: border-box;
+				${hover(css`
+					${StyledBodyRowBadgeWrapper} ${StyledIconWrapper} {
+						color: ${darken(bodyRow.subBGRatio, header.background)};
 					}
-					&:after {
-						border-left: ${rowSelected && bodyRow.selected.borderLeft};
-						box-sizing: border-box;
-					}
-				}
-			}
-		`}
 
-		${cellHighlighting &&
-		crossTabulation &&
-		!rowDisabled &&
-		css`
-			${hover(css`
-				${StyledBodyRowBadgeWrapper} ${StyledIconWrapper} {
-					color: ${darken(bodyRow.subBGRatio, header.background)};
-				}
-
-				[data-role="${DataRoles.Table.Body.Row.SegmentLeft}"] {
-					&:not(:hover) {
-						background-color: ${darken(bodyRow.subBGRatio, header.background)};
+					[data-role="${DataRoles.Table.Body.Row.SegmentLeft}"] {
+						&:not(:hover) {
+							background-color: ${darken(bodyRow.subBGRatio, header.background)};
+						}
 					}
-				}
-			`)};
-		`}
+				`)};
+			`
+		}
 	`;
 });
 

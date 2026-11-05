@@ -34,7 +34,6 @@ import type { ReactElement } from "react";
 
 import type { Container, DataRole, Identifiable, Styleable } from "../../../common/main/base-props.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
 export interface DataTableFootTplProps extends Container, DataRole, Identifiable, Styleable {
@@ -56,11 +55,9 @@ export function DataTableFootTpl({
 	dataRole,
 	children
 }: DataTableFootTplProps): ReactElement {
-	// Card view's `role="list"` root makes a `rowgroup` an invalid child —
-	// neutralize with `role="presentation"`. Default view uses the implicit
-	// `rowgroup` role.
-	const cardView = useDataTableContext((ctx) => ctx.cardView);
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
+	// (tree)grid mode overrides the table role, dropping the native `<tfoot>` rowgroup
+	// mapping, so restate it. Default view uses the implicit `rowgroup` role.
+	const gridRole = useDataTableContext().gridRole;
 
 	return (
 		<tfoot
@@ -69,7 +66,7 @@ export function DataTableFootTpl({
 			id={id}
 			data-role={dataRole ?? DataRoles.Table.Footer}
 			aria-label={ariaLabel}
-			role={cardView ? "presentation" : gridRole ? "rowgroup" : undefined}
+			role={gridRole ? "rowgroup" : undefined}
 		>
 			{children}
 		</tfoot>

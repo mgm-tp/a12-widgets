@@ -30,21 +30,22 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 import { de } from "date-fns/locale/de";
 import { enUS } from "date-fns/locale/en-US";
+import { afterAll, beforeEach, describe, expect, test, vi } from "vitest";
 
 import { DateTimeUtils } from "../date-utils.js";
 
 describe("com.mgmtp.a12.widgets.common.utils.dateTime", () => {
 	let now: Date;
-	beforeAll(() => {
+	beforeEach(() => {
 		now = new Date(Date.UTC(2020, 1, 1));
 		vi.useFakeTimers();
 		vi.setSystemTime(now);
 	});
 
 	afterAll(() => {
+		vi.useRealTimers();
 		vi.restoreAllMocks();
 	});
 

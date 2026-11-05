@@ -38,13 +38,13 @@ import { useState } from "react";
 import type { CommonToastProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Button, ButtonGroup, Toast, Radio } from "@com.mgmtp.a12.widgets/widgets-core";
 
+import { ConfigurationView } from "../../../../helpers/configuration-view.js";
 // start code removal
 import { CodeSnippetGenerationWrapper } from "../../../../helpers/showcase-example.js";
-import { ConfigurationView } from "../../../../helpers/configuration-view.js";
 
-const fakeMessage = "Toast widget has the following variants: info (default), success, warning, and error.";
+const message = "Toast widget has the following variants: info (default), success, warning, and error.";
 
-const fakeFooter = (
+const footer = (
 	<ButtonGroup alignment="right">
 		<Button label="Update later" />
 		<Button label="Update now" primary />
@@ -65,7 +65,13 @@ export function BasicToastShowcase(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<div>
-					<Radio inline label="Toast variant" onValueChanged={changeVariant} value={variant}>
+					<Radio
+						id="toast-basic-toast-variant"
+						inline
+						label="Toast variant"
+						onValueChanged={changeVariant}
+						value={variant}
+					>
 						<Radio.Item label="Info" value="info" />
 						<Radio.Item label="Success" value="success" />
 						<Radio.Item label="Warning" value="warning" />
@@ -75,7 +81,7 @@ export function BasicToastShowcase(): ReactElement {
 			}
 		>
 			<CodeSnippetGenerationWrapper>
-				<Toast variant={variant} message={fakeMessage} header="Error" footer={fakeFooter} />
+				<Toast variant={variant} message={message} header="Error" footer={footer} />
 			</CodeSnippetGenerationWrapper>
 		</ConfigurationView>
 		// end code removal

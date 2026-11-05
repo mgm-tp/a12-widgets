@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { BaseThemeType } from "../../../schema/base-theme.js";
 import { GeneralColorsConfig } from "../../../base/colors.config.js";
+import type { BaseThemeType } from "../../../schema/base-theme.js";
 
 export type ChatConfigType = {
 	container: { inner: { padding: string } };

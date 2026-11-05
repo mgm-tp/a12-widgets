@@ -36,6 +36,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c26 {
+  color: inherit;
+}
+
 .c23 {
   align-items: center;
   border: 2px solid transparent;
@@ -78,6 +82,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c23:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c23.c23 {
@@ -234,7 +242,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   margin: 0px;
   outline: none;
 }
@@ -278,7 +286,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   margin: 0px;
   outline: none;
 }
@@ -394,6 +402,19 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   flex: 1 0 auto;
 }
 
+.c24.c24 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c24.c24:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
 .c30 {
   overflow: hidden;
 }
@@ -434,19 +455,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
 .c28 > :not(:empty):not(.c29) {
   border-bottom: 1px solid rgba(22, 25, 29, 0.22);
   border-top: 1px solid transparent;
-}
-
-.c24.c24 {
-  background: transparent;
-  color: rgb(255, 255, 255);
-}
-
-.c24.c24:not(:disabled):focus {
-  outline: rgb(255, 255, 255) dotted 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: none;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(255, 255, 255);
 }
 
 .c61 {
@@ -500,7 +508,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -529,7 +537,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -590,17 +598,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
 .c34 .c35 {
   flex: 1 1 160px;
   max-width: 100%;
-}
-
-.c38 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 0px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  width: 0px;
 }
 
 .c58 {
@@ -742,7 +739,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c59 + label > span::after {
@@ -750,7 +747,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   border-width: medium medium 2px 2px;
   border-style: none none solid solid;
   border-color: currentcolor currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
   content: "";
   display: block;
   margin: 2px 0px 0px 2px;
@@ -832,7 +829,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   padding: 8px 16px;
 }
@@ -884,7 +881,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c10 {
@@ -1009,6 +1006,17 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   height: 100%;
 }
 
+.c38 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
 .c6 {
   align-self: stretch;
   display: flex;
@@ -1064,7 +1072,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c6 [data-role="filter-selector-content-secondary"] .c41::after {
@@ -1448,6 +1456,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
                               >
                                 <span
                                   aria-hidden="true"
+                                  class="notranslate"
+                                  translate="no"
                                 >
                                   close
                                 </span>
@@ -1504,6 +1514,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
                                       >
                                         <span
                                           aria-hidden="true"
+                                          class="notranslate"
+                                          translate="no"
                                         >
                                           search
                                         </span>
@@ -1609,6 +1621,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -1699,6 +1713,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -1789,6 +1805,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -1878,6 +1896,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -1967,6 +1987,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-default 1`] = 
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -2034,6 +2056,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c26 {
+  color: inherit;
+}
+
 .c23 {
   align-items: center;
   border: 2px solid transparent;
@@ -2078,6 +2104,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c23:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c23.c23 {
   display: block;
   height: auto;
@@ -2085,18 +2115,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
 }
 
 .h_inlineBlock.h_middleAlign .c23.c23 > .c25 {
-  display: block;
-}
-
-.c47 .c25 {
-  user-select: none;
-}
-
-.c47 .c25 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c47.c47 > .c25 {
   display: block;
 }
 
@@ -2161,7 +2179,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
 }
 
-.c45 {
+.c44 {
   box-sizing: border-box;
   border-radius: 0px;
   color: rgb(77, 77, 77);
@@ -2173,35 +2191,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   padding: 0px;
 }
 
-.c45:focus {
+.c44:focus {
   outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c50 .c25 {
-  user-select: none;
-}
-
-.c51 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c51 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c52 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-  color: inherit;
-}
-
-.c52 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c53 .c25 {
-  color: inherit;
 }
 
 .c2 {
@@ -2236,7 +2227,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   outline: none;
 }
 
-.c3 .c11 .c44 {
+.c3 .c11 .c43 {
   font-size: 0.75rem;
 }
 
@@ -2264,6 +2255,19 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
 .StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--enter,
 .StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
+}
+
+.c24.c24 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c24.c24:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
 }
 
 .c30 {
@@ -2308,25 +2312,12 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   border-top: 1px solid transparent;
 }
 
-.c42 {
+.c41 {
   background-color: rgb(241, 242, 244);
   padding: 8px 24px;
 }
 
-.c24.c24 {
-  background: transparent;
-  color: rgb(255, 255, 255);
-}
-
-.c24.c24:not(:disabled):focus {
-  outline: rgb(255, 255, 255) dotted 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: none;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(255, 255, 255);
-}
-
-.c41 {
+.c40 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -2336,17 +2327,17 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   margin-left: -12px;
 }
 
-.c41:last-child {
+.c40:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c40 {
+.c39 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2364,18 +2355,18 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   width: 100%;
 }
 
-.c40::placeholder {
+.c39::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c38 {
+.c37 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -2387,11 +2378,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   height: 32px;
 }
 
-.c38 .c22 {
-  border-radius: 0px;
-}
-
-.c49 .c22 {
+.c37 .c22 {
   border-radius: 0px;
 }
 
@@ -2412,16 +2399,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   max-width: 100%;
 }
 
-.c48 .c33 {
-  display: flex;
-  width: 100%;
-}
-
-.c48[class*="h_"] .c37 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c36 {
   box-sizing: border-box;
   flex-grow: 1;
@@ -2435,17 +2412,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
 .c34 .c35 {
   flex: 1 1 160px;
   max-width: 100%;
-}
-
-.c39 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 0px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  width: 0px;
 }
 
 .c5 {
@@ -2486,7 +2452,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   padding: 8px 16px;
 }
@@ -2495,7 +2461,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   margin: 0px;
 }
 
-.c5 .c44 {
+.c5 .c43 {
   border-radius: 0px;
   display: flex;
   flex-direction: column;
@@ -2505,17 +2471,17 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   display: inline-flex;
 }
 
-.c46 {
+.c45 {
   height: 100%;
   outline: none;
   border: 1px dotted transparent;
 }
 
-.c46:focus {
+.c45:focus {
   border: 1px dotted rgb(51, 51, 51);
 }
 
-.c14 .c44 {
+.c14 .c43 {
   padding: 0px;
 }
 
@@ -2543,12 +2509,12 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
 }
 
 .c1 .c8 > .c13:only-child .c16,
-.c1 .c8 > .c13:only-child .c44,
+.c1 .c8 > .c13:only-child .c43,
 .c1 .c8 > .c13:only-child .c29 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c10 {
@@ -2563,7 +2529,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.c43 {
+.c42 {
   align-items: center;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(22, 25, 29, 0.22);
@@ -2573,19 +2539,20 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   padding: 8px 16px;
 }
 
-.c1 .c55 {
-  max-width: calc(496px);
-  margin: 0px auto;
-  width: 100%;
-}
-
-.c54 .c25 {
-  transition: transform 0.3s;
-}
-
 .c4 {
   width: 100%;
   height: 100%;
+}
+
+.c38 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
 }
 
 .c6 {
@@ -2634,14 +2601,14 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
   width: 100%;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c44 {
+.c6 [data-role="filter-selector-content-secondary"] .c43 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c44::after {
+.c6 [data-role="filter-selector-content-secondary"] .c43::after {
   content: normal;
 }
 
@@ -2704,14 +2671,14 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
 }
 
 @media (pointer: coarse) {
-  .c38:active {
+  .c37:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c38:hover {
+  .c37:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -2801,6 +2768,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
                               >
                                 <span
                                   aria-hidden="true"
+                                  class="notranslate"
+                                  translate="no"
                                 >
                                   close
                                 </span>
@@ -2832,23 +2801,23 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
                                   data-role="text-field-control"
                                 >
                                   <div
-                                    class="c37 c38 field__input"
+                                    class="c37 field__input"
                                     data-role="text-field-input-wrapper"
                                   >
                                     <span
-                                      class="c39 supported-unseen-span"
+                                      class="c38 supported-unseen-span"
                                     />
                                     <input
-                                      class="c40 field__text"
+                                      class="c39 field__text"
                                       data-role="text-field-input"
                                       type="text"
                                       value=""
                                     />
                                     <span
-                                      class="c39 supported-unseen-span"
+                                      class="c38 supported-unseen-span"
                                     />
                                     <div
-                                      class="c41 field__suffix field__suffix--first"
+                                      class="c40 field__suffix field__suffix--first"
                                       data-role="text-field-suffix-0"
                                     >
                                       <i
@@ -2857,6 +2826,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
                                       >
                                         <span
                                           aria-hidden="true"
+                                          class="notranslate"
+                                          translate="no"
                                         >
                                           search
                                         </span>
@@ -2869,11 +2840,11 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
                           </div>
                         </div>
                         <div
-                          class="c42 contentbox__subheadingSubActionBar"
+                          class="c41 contentbox__subheadingSubActionBar"
                           data-role="contentbox-action-bar"
                         >
                           <div
-                            class="c43 filter-selector__action-bar"
+                            class="c42 filter-selector__action-bar"
                             data-role="filter-selector-action-bar"
                           >
                             <div
@@ -2886,11 +2857,11 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-primary-conten
                       </div>
                     </div>
                     <div
-                      class="c44 c45 contentbox__content"
+                      class="c43 c44 contentbox__content"
                       data-role="contentbox-content"
                     >
                       <div
-                        class="c46 filter-selector__children-wrapper"
+                        class="c45 filter-selector__children-wrapper"
                       >
                         No data
                       </div>
@@ -2952,6 +2923,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c26 {
+  color: inherit;
+}
+
 .c23 {
   align-items: center;
   border: 2px solid transparent;
@@ -2996,6 +2971,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c23:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c23.c23 {
   display: block;
   height: auto;
@@ -3003,18 +2982,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
 }
 
 .h_inlineBlock.h_middleAlign .c23.c23 > .c25 {
-  display: block;
-}
-
-.c80 .c25 {
-  user-select: none;
-}
-
-.c80 .c25 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c80.c80 > .c25 {
   display: block;
 }
 
@@ -3079,7 +3046,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
 }
 
-.c43 {
+.c42 {
   box-sizing: border-box;
   border-radius: 0px;
   color: rgb(77, 77, 77);
@@ -3091,11 +3058,11 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   padding: 0px;
 }
 
-.c43:focus {
+.c42:focus {
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c44 {
+.c43 {
   background: rgb(255, 255, 255);
   font-family: "Open Sans", sans-serif;
   list-style-type: none;
@@ -3103,7 +3070,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   padding: 0px;
 }
 
-.c48 {
+.c47 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   color: rgb(77, 77, 77);
@@ -3115,7 +3082,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   border-bottom: 1px solid rgb(226, 230, 233);
 }
 
-.c52 {
+.c51 {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -3127,51 +3094,51 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   padding: 8px 16px;
 }
 
-.c52::before {
+.c51::before {
   content: "";
   inset: 0px;
   position: absolute;
   display: block;
 }
 
-.c47:not([data-role*="filter-selector"]) .c52.c52 {
+.c46:not([data-role*="filter-selector"]) .c51.c51 {
   background-color: rgb(245, 251, 255);
 }
 
-.c47:not([data-role*="filter-selector"]) .c52.c52::before {
+.c46:not([data-role*="filter-selector"]) .c51.c51::before {
   border-left: 4px solid rgb(5, 104, 174);
 }
 
-.c47:not([data-role*="filter-selector"]) .c52.c52:focus::before {
+.c46:not([data-role*="filter-selector"]) .c51.c51:focus::before {
   border-left: 4px solid rgb(213, 0, 117);
 }
 
-.c52:focus::before {
+.c51:focus::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c52:focus-within::before {
+.c51:focus-within::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c52:has(> * :focus)::before {
+.c51:has(> * :focus)::before {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   margin: 0px;
   outline: none;
 }
 
-.c52 .c65 {
+.c51 .c63 {
   outline: none;
 }
 
-.c76 {
+.c74 {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -3183,43 +3150,39 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   padding: 8px 16px;
 }
 
-.c76::before {
+.c74::before {
   content: "";
   inset: 0px;
   position: absolute;
   display: block;
 }
 
-.c76:focus::before {
+.c74:focus::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c76:focus-within::before {
+.c74:focus-within::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c76:has(> * :focus)::before {
+.c74:has(> * :focus)::before {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   margin: 0px;
   outline: none;
 }
 
-.c76 .c65 {
+.c74 .c63 {
   outline: none;
 }
 
-.c86 .c25 {
-  user-select: none;
-}
-
-.c54 {
+.c53 {
   align-items: center;
   color: inherit;
   display: inline-flex;
@@ -3228,46 +3191,36 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   position: relative;
 }
 
-.c54 .c25 {
+.c53 .c25 {
   display: inline-flex;
   font-size: 1.5rem;
 }
 
-.c54 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+.c53 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c87 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
+.c64 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  position: relative;
   color: inherit;
+  font-weight: 400;
 }
 
-.c87 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+.c77 {
   color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
 }
 
 .c66 {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  position: relative;
-  color: inherit;
-  font-weight: 400;
-}
-
-.c79 {
-  color: inherit;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  font-weight: 400;
-  position: relative;
-}
-
-.c68 {
   color: inherit;
   display: block;
   font-size: 0.75rem;
@@ -3276,15 +3229,11 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   overflow: hidden;
 }
 
-.c70 {
+.c68 {
   color: rgb(97, 111, 124);
   font-size: 0.75rem;
   position: relative;
   text-align: right;
-}
-
-.c88 .c25 {
-  color: inherit;
 }
 
 .c2 {
@@ -3319,7 +3268,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   outline: none;
 }
 
-.c3 .c11 .c42 {
+.c3 .c11 .c41 {
   font-size: 0.75rem;
 }
 
@@ -3347,6 +3296,19 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
 .StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--enter,
 .StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
+}
+
+.c24.c24 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c24.c24:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
 }
 
 .c30 {
@@ -3391,20 +3353,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   border-top: 1px solid transparent;
 }
 
-.c24.c24 {
-  background: transparent;
-  color: rgb(255, 255, 255);
-}
-
-.c24.c24:not(:disabled):focus {
-  outline: rgb(255, 255, 255) dotted 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: none;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(255, 255, 255);
-}
-
-.c64 {
+.c62 {
   color: rgb(77, 77, 77);
   display: inline-block;
   font-family: "Open Sans", sans-serif;
@@ -3426,16 +3375,16 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   margin: -1px !important;
 }
 
-.c64:empty {
+.c62:empty {
   display: none;
 }
 
-.c64 * {
+.c62 * {
   width: 1px;
   height: 1px;
 }
 
-.c41 {
+.c40 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -3445,17 +3394,17 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   margin-left: -12px;
 }
 
-.c41:last-child {
+.c40:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c40 {
+.c39 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -3473,18 +3422,18 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   width: 100%;
 }
 
-.c40::placeholder {
+.c39::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c38 {
+.c37 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -3496,11 +3445,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   height: 32px;
 }
 
-.c38 .c22 {
-  border-radius: 0px;
-}
-
-.c82 .c22 {
+.c37 .c22 {
   border-radius: 0px;
 }
 
@@ -3521,37 +3466,23 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   max-width: 100%;
 }
 
-.c81 .c33 {
-  display: flex;
-  width: 100%;
-}
-
-.c81[class*="h_"] .c37 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c81[class*="h_"] .c63 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c36 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c36 .c63 {
+.c36 .c61 {
   display: block;
   width: fit-content;
 }
 
-.c56 {
+.c54 {
   box-sizing: border-box;
   display: inline-block;
 }
 
-.c56 .c63 {
+.c54 .c61 {
   display: block;
   width: fit-content;
 }
@@ -3565,18 +3496,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   max-width: 100%;
 }
 
-.c39 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 0px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  width: 0px;
-}
-
-.c61 {
+.c59 {
   margin: 0px;
   opacity: 0;
   vertical-align: top;
@@ -3586,7 +3506,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   cursor: pointer;
 }
 
-.c61 + label {
+.c59 + label {
   align-items: center;
   cursor: pointer;
   display: inline-flex;
@@ -3595,7 +3515,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   vertical-align: top;
 }
 
-.c61 + label > span {
+.c59 + label > span {
   display: inline-block;
   height: 14px;
   margin-top: 0px;
@@ -3604,7 +3524,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   width: 14px;
 }
 
-.c61 + label > span::before {
+.c59 + label > span::before {
   content: "";
   inset: 0px;
   position: absolute;
@@ -3612,13 +3532,13 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   border: 1px solid transparent;
 }
 
-.c61:focus + label > span::before,
-.c61:focus-within + label > span::before {
+.c59:focus + label > span::before,
+.c59:focus-within + label > span::before {
   inset: -1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c77 {
+.c75 {
   margin: 0px;
   opacity: 0;
   vertical-align: top;
@@ -3628,7 +3548,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   cursor: pointer;
 }
 
-.c77 + label {
+.c75 + label {
   align-items: center;
   cursor: pointer;
   display: inline-flex;
@@ -3637,7 +3557,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   vertical-align: top;
 }
 
-.c77 + label > span {
+.c75 + label > span {
   display: inline-block;
   height: 14px;
   margin-top: 0px;
@@ -3646,7 +3566,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   width: 14px;
 }
 
-.c77 + label > span::before {
+.c75 + label > span::before {
   content: "";
   inset: 0px;
   position: absolute;
@@ -3654,20 +3574,20 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   border: 1px solid rgb(89, 102, 115);
 }
 
-.c77:focus + label > span::before,
-.c77:focus-within + label > span::before {
+.c75:focus + label > span::before,
+.c75:focus-within + label > span::before {
   inset: -1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c58 {
+.c56 {
   align-items: center;
   cursor: default;
   display: flex;
   width: 100%;
 }
 
-.c59 {
+.c57 {
   align-self: flex-start;
   display: flex;
   flex-shrink: 0;
@@ -3677,29 +3597,29 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.c59 > label {
+.c57 > label {
   height: 20px;
 }
 
-.c59 > label > span,
-.c59 > label > span::before {
+.c57 > label > span,
+.c57 > label > span::before {
   border-radius: 0px;
 }
 
-.c57 {
+.c55 {
   min-height: 32px;
   padding: 2px 0px 0px;
 }
 
-.c47 .c57 {
+.c46 .c55 {
   min-height: auto;
 }
 
-.c47 > .c57 {
+.c46 > .c55 {
   min-height: auto;
 }
 
-.c62 {
+.c60 {
   cursor: pointer;
   height: 20px;
   margin: 0px;
@@ -3707,23 +3627,23 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   vertical-align: top;
 }
 
-.c62 + label > span {
+.c60 + label > span {
   background-color: rgb(77, 77, 77);
 }
 
-.c62 + label > span::before {
+.c60 + label > span::before {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
-.c62 + label > span::after {
+.c60 + label > span::after {
   box-sizing: border-box;
   border-width: medium medium 2px 2px;
   border-style: none none solid solid;
   border-color: currentcolor currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
   content: "";
   display: block;
   margin: 2px 0px 0px 2px;
@@ -3732,21 +3652,21 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   width: 10px;
 }
 
-.c62 + label > span::before {
+.c60 + label > span::before {
   border: 1px solid transparent;
 }
 
-.c62:focus + label > span,
-.c62:focus-within + label > span {
+.c60:focus + label > span,
+.c60:focus-within + label > span {
   background-color: rgb(213, 0, 117);
 }
 
-.c62:focus + label > span::before,
-.c62:focus-within + label > span::before {
+.c60:focus + label > span::before,
+.c60:focus-within + label > span::before {
   border: 2px solid rgb(213, 0, 117);
 }
 
-.c78 {
+.c76 {
   cursor: pointer;
   height: 20px;
   margin: 0px;
@@ -3754,16 +3674,16 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   vertical-align: top;
 }
 
-.c78 + label > span {
+.c76 + label > span {
   background-color: rgb(255, 255, 255);
 }
 
-.c78 + label > span::before {
+.c76 + label > span::before {
   border: 1px solid rgb(89, 102, 115);
 }
 
-.c78:focus + label > span::before,
-.c78:focus-within + label > span::before {
+.c76:focus + label > span::before,
+.c76:focus-within + label > span::before {
   border: 2px solid rgb(213, 0, 117);
 }
 
@@ -3805,7 +3725,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   padding: 8px 16px;
 }
@@ -3814,7 +3734,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   margin: 0px;
 }
 
-.c5 .c42 {
+.c5 .c41 {
   border-radius: 0px;
   display: flex;
   flex-direction: column;
@@ -3824,7 +3744,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   display: inline-flex;
 }
 
-.c14 .c42 {
+.c14 .c41 {
   padding: 0px;
 }
 
@@ -3852,12 +3772,12 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
 }
 
 .c1 .c8 > .c13:only-child .c16,
-.c1 .c8 > .c13:only-child .c42,
+.c1 .c8 > .c13:only-child .c41,
 .c1 .c8 > .c13:only-child .c29 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c10 {
@@ -3872,50 +3792,39 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.c10 .c51 {
+.c10 .c50 {
   padding: 8px 16px 8px calc(56px);
 }
 
-.c73 {
+.c71 {
   min-width: 248px;
   width: 248px;
 }
 
-.c73:not(:first-child) .c16,
-.c73:not(:first-child) .c27,
-.c73:not(:first-child) .c42 {
+.c71:not(:first-child) .c16,
+.c71:not(:first-child) .c27,
+.c71:not(:first-child) .c41 {
   border-left: 1px solid rgba(22, 25, 29, 0.22);
 }
 
-.c73 .c47 {
+.c71 .c46 {
   background: rgb(255, 255, 255);
 }
 
-.c73 .c47 .c51 {
+.c71 .c46 .c50 {
   padding: 0px 16px;
 }
 
-.c73 .c42 {
+.c71 .c41 {
   min-height: 48px;
 }
 
-.c73 .c53 {
+.c71 .c52 {
   position: static;
   margin-left: -16px;
 }
 
-.c90 .c55 {
-  align-items: center;
-  display: inline-flex;
-}
-
-.c1 .c89 {
-  max-width: calc(496px);
-  margin: 0px auto;
-  width: 100%;
-}
-
-.c46 {
+.c45 {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -3923,17 +3832,17 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   overflow-y: auto;
 }
 
-.c46 .c47 {
+.c45 .c46 {
   flex: 0 0 auto;
   -webkit-tap-highlight-color: transparent;
 }
 
-.c46 .c47:focus::before {
+.c45 .c46:focus::before {
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c46 .c47::before,
-.c46 .c47 .c51::before {
+.c45 .c46::before,
+.c45 .c46 .c50::before {
   bottom: 0px;
   content: "";
   display: block;
@@ -3942,16 +3851,16 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   right: 0px;
 }
 
-.c46 .c47 .c51::before {
+.c45 .c46 .c50::before {
   background-color: transparent;
   top: 0px;
 }
 
-.c46 .c51 {
+.c45 .c50 {
   min-height: 48px;
 }
 
-.c46 .c53 {
+.c45 .c52 {
   bottom: 0px;
   font-size: 0px;
   height: auto;
@@ -3962,79 +3871,74 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   width: 48px;
 }
 
-.c46 .c53 .c60 {
+.c45 .c52 .c58 {
   width: 1px;
 }
 
-.c46 .c65 {
+.c45 .c63 {
   font-size: 0.75rem;
   line-height: normal;
   overflow: hidden;
 }
 
-.c72:not(:focus):not(:hover) {
+.c70:not(:focus):not(:hover) {
   color: rgb(97, 111, 124);
 }
 
-.c72 .c25 {
+.c70 .c25 {
   transition: transform 0.3s;
 }
 
-.c49 {
+.c48 {
   background: linear-gradient(to right, rgb(204, 235, 255) 48px, rgb(245, 251, 255) 48px);
 }
 
-.c49 .c51 {
+.c48 .c50 {
   background: none;
 }
 
-.c49 .c51::before {
+.c48 .c50::before {
   border-left: 4px solid rgb(5, 104, 174);
 }
 
-.c49 .c51:focus::before {
+.c48 .c50:focus::before {
   border-left: 4px solid rgb(213, 0, 117);
 }
 
-.c74 {
+.c72 {
   background: linear-gradient(to right, rgb(241, 242, 244) 48px, rgb(255, 255, 255) 48px);
 }
 
-.c74 .c51 {
+.c72 .c50 {
   background: none;
 }
 
-.c74::before {
+.c72::before {
   border-bottom: 1px solid rgb(226, 230, 233);
 }
 
-.c75 {
+.c73 {
   background: linear-gradient(to right, rgb(241, 242, 244) 48px, rgb(255, 255, 255) 48px);
 }
 
-.c75 .c51 {
-  background: transparent;
-}
-
-.c83 .c51 {
-  background: none;
-}
-
-.c83 .c51::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c84 .c51 {
-  background: none;
-}
-
-.c85 .c51 {
+.c73 .c50 {
   background: transparent;
 }
 
 .c4 {
   width: 100%;
   height: 100%;
+}
+
+.c38 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
 }
 
 .c6 {
@@ -4063,12 +3967,12 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   min-width: unset;
 }
 
-.c6 .c69 {
+.c6 .c67 {
   align-items: center;
   display: flex;
 }
 
-.c6 .c67 {
+.c6 .c65 {
   color: rgb(97, 111, 124);
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -4094,14 +3998,14 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   width: 100%;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c42 {
+.c6 [data-role="filter-selector-content-secondary"] .c41 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c42::after {
+.c6 [data-role="filter-selector-content-secondary"] .c41::after {
   content: normal;
 }
 
@@ -4113,28 +4017,28 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
   width: 4px;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47,
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47:focus {
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46,
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46:focus {
   background-color: transparent;
   background-image: none;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47::after,
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47:focus::after {
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46::after,
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46:focus::after {
   background-color: transparent;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47:last-child::before {
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46:last-child::before {
   border-bottom-width: medium;
   border-bottom-style: none;
   border-bottom-color: currentcolor;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47 .c51 {
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46 .c50 {
   padding: 0px 16px;
 }
 
-.c50 .c71 .c25 {
+.c49 .c69 .c25 {
   transform: rotate(-180deg);
 }
 
@@ -4164,65 +4068,65 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
 }
 
 @media (pointer: coarse) {
-  .c47:not([data-role*="filter-selector"]) .c52.c52:active {
+  .c46:not([data-role*="filter-selector"]) .c51.c51:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c47:not([data-role*="filter-selector"]) .c52.c52:active::before {
+  .c46:not([data-role*="filter-selector"]) .c51.c51:active::before {
     border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c47:not([data-role*="filter-selector"]) .c52.c52:hover::before {
+  .c46:not([data-role*="filter-selector"]) .c51.c51:hover::before {
     border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c52:active {
+  .c51:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c52:active::before {
+  .c51:active::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c52:hover::before {
+  .c51:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c52:hover::before {
+  .c51:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c76:active {
+  .c74:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c76:active::before {
+  .c74:active::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c76:hover::before {
+  .c74:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 
-  .c76:hover > :not([data-role="list-item-graphic"]) {
+  .c74:hover > :not([data-role="list-item-graphic"]) {
     text-decoration: none;
   }
 }
 
 @media (pointer: fine) {
-  .c76:hover::before {
+  .c74:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
@@ -4253,149 +4157,149 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
 }
 
 @media (pointer: coarse) {
-  .c38:active {
+  .c37:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c38:hover {
+  .c37:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c61:active {
+  .c59:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c61:active + label > span::before {
+  .c59:active + label > span::before {
     inset: -1px;
   }
 }
 
 @media (pointer: fine) {
-  .c61:hover + label > span::before {
+  .c59:hover + label > span::before {
     inset: -1px;
   }
 }
 
 @media (pointer: coarse) {
-  .c77:active {
+  .c75:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c77:active + label > span::before {
+  .c75:active + label > span::before {
     inset: -1px;
   }
 }
 
 @media (pointer: fine) {
-  .c77:hover + label > span::before {
+  .c75:hover + label > span::before {
     inset: -1px;
   }
 }
 
 @media (pointer: coarse) {
-  .c62:active {
+  .c60:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c62:active + label > span {
+  .c60:active + label > span {
     background-color: rgb(213, 0, 117);
   }
 
-  .c62:active + label > span::before {
+  .c60:active + label > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c62:hover + label > span {
+  .c60:hover + label > span {
     background-color: rgb(213, 0, 117);
   }
 
-  .c62:hover + label > span::before {
+  .c60:hover + label > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c62 + label:hover > span {
+  .c60 + label:hover > span {
     background-color: rgb(213, 0, 117);
   }
 
-  .c62 + label:hover > span::after {
+  .c60 + label:hover > span::after {
     background-color: rgb(213, 0, 117);
   }
 
-  .c62 + label:hover > span::before {
+  .c60 + label:hover > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c78:active {
+  .c76:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c78:active + label > span::before {
+  .c76:active + label > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c78:hover + label > span::before {
+  .c76:hover + label > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c78 + label:hover > span::after {
+  .c76 + label:hover > span::after {
     background-color: rgb(213, 0, 117);
   }
 
-  .c78 + label:hover > span::before {
+  .c76 + label:hover > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c49 .c51:active {
+  .c48 .c50:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c49 .c51:active::before {
+  .c48 .c50:active::before {
     border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c49 .c51:hover::before {
+  .c48 .c50:hover::before {
     border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c6 [data-role="filter-selector-content-secondary"] .c45 .c47:active {
+  .c6 [data-role="filter-selector-content-secondary"] .c44 .c46:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     background-image: none;
   }
 
-  .c6 [data-role="filter-selector-content-secondary"] .c45 .c47:active::after {
+  .c6 [data-role="filter-selector-content-secondary"] .c44 .c46:active::after {
     background-color: transparent;
   }
 }
 
 @media (pointer: fine) {
-  .c6 [data-role="filter-selector-content-secondary"] .c45 .c47:hover {
+  .c6 [data-role="filter-selector-content-secondary"] .c44 .c46:hover {
     background-color: transparent;
     background-image: none;
   }
 
-  .c6 [data-role="filter-selector-content-secondary"] .c45 .c47:hover::after {
+  .c6 [data-role="filter-selector-content-secondary"] .c44 .c46:hover::after {
     background-color: transparent;
   }
 }
@@ -4486,6 +4390,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                               >
                                 <span
                                   aria-hidden="true"
+                                  class="notranslate"
+                                  translate="no"
                                 >
                                   close
                                 </span>
@@ -4517,23 +4423,23 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                   data-role="text-field-control"
                                 >
                                   <div
-                                    class="c37 c38 field__input"
+                                    class="c37 field__input"
                                     data-role="text-field-input-wrapper"
                                   >
                                     <span
-                                      class="c39 supported-unseen-span"
+                                      class="c38 supported-unseen-span"
                                     />
                                     <input
-                                      class="c40 field__text"
+                                      class="c39 field__text"
                                       data-role="text-field-input"
                                       type="text"
                                       value=""
                                     />
                                     <span
-                                      class="c39 supported-unseen-span"
+                                      class="c38 supported-unseen-span"
                                     />
                                     <div
-                                      class="c41 field__suffix field__suffix--first"
+                                      class="c40 field__suffix field__suffix--first"
                                       data-role="text-field-suffix-0"
                                     >
                                       <i
@@ -4542,6 +4448,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                       >
                                         <span
                                           aria-hidden="true"
+                                          class="notranslate"
+                                          translate="no"
                                         >
                                           search
                                         </span>
@@ -4556,45 +4464,45 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                       </div>
                     </div>
                     <div
-                      class="c42 c43 contentbox__content"
+                      class="c41 c42 contentbox__content"
                       data-role="contentbox-content"
                     >
                       <ul
-                        class="c44 list c45 c46 filter-selector__list"
+                        class="c43 list c44 c45 filter-selector__list"
                         data-role="filter-selector-list"
                         style="overflow-y: auto;"
                         tabindex="-1"
                       >
                         <li
-                          class="c47 c48 list-item list-item--active list-item--selected c49 c50 list-item--expanded"
+                          class="c46 c47 list-item list-item--active list-item--selected c48 c49 list-item--expanded"
                           data-role="filter-selector-list-item"
                           id="number-filter"
                         >
                           <div
-                            class="c51 c52 list-item__content"
+                            class="c50 c51 list-item__content"
                             data-role="list-item-content"
                           >
                             <div
-                              class="c53 c54"
+                              class="c52 c53"
                               data-role="list-item-graphic"
                             >
                               <div
-                                class="c35 c55 c56 c57 field "
+                                class="c35 c54 c55 field "
                                 data-role="checkbox"
                               >
                                 <div
-                                  class="c58 field__control field__control--boolean"
+                                  class="c56 field__control field__control--boolean"
                                   data-role="checkbox-control"
                                   id="number-filter-graphic-controls"
                                 >
                                   <span
-                                    class="c59"
+                                    class="c57"
                                     data-role="checkbox-control-inner"
                                   >
                                     <input
                                       aria-checked="true"
                                       checked=""
-                                      class="c60 c61 c62 field__check field__check--checked"
+                                      class="c58 c59 c60 field__check field__check--checked"
                                       data-role="checkbox-input"
                                       id="number-filter-graphic"
                                       tabindex="-1"
@@ -4609,7 +4517,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                     </label>
                                   </span>
                                   <label
-                                    class="c63 c64 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                    class="c61 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                     data-role="checkbox-label"
                                     for="number-filter-graphic"
                                   >
@@ -4619,7 +4527,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                               </div>
                             </div>
                             <div
-                              class="c65 c66 list-item__text"
+                              class="c63 c64 list-item__text"
                               data-role="list-item-text"
                               role="button"
                               tabindex="0"
@@ -4628,21 +4536,21 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                 Number Filter
                               </span>
                               <div
-                                class="c67 c68 list-item__secondary-text"
+                                class="c65 c66 list-item__secondary-text"
                                 data-role="list-item-secondary-text"
                               >
                                 filter option
                               </div>
                             </div>
                             <div
-                              class="c69 c70 list-item__meta"
+                              class="c67 c68 list-item__meta"
                               data-role="list-item-meta"
                             >
                               test
                               <button
                                 aria-expanded="true"
                                 aria-label="Close filter options"
-                                class="c22 c23 button button--icon c71 c72 filter-selector__expand-button"
+                                class="c22 c23 button button--icon c69 c70 filter-selector__expand-button"
                                 data-role="button"
                                 data-type="icon"
                                 title="Close filter options"
@@ -4654,6 +4562,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -4663,42 +4573,42 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                           </div>
                         </li>
                         <li
-                          class="c9 c73 filter-selector__content--secondary"
+                          class="c9 c71 filter-selector__content--secondary"
                           data-role="filter-selector-content-secondary"
-                          style="overflow-y: hidden; max-height: 522px;"
+                          style="overflow-y: hidden; max-height: 520px;"
                         >
                           test
                         </li>
                         <li
-                          class="c47 c48 list-item list-item--selected c74 "
+                          class="c46 c47 list-item list-item--selected c72 "
                           data-role="filter-selector-list-item"
                           id="enumeration-filter"
                         >
                           <div
-                            class="c51 c52 list-item__content"
+                            class="c50 c51 list-item__content"
                             data-role="list-item-content"
                           >
                             <div
-                              class="c53 c54"
+                              class="c52 c53"
                               data-role="list-item-graphic"
                             >
                               <div
-                                class="c35 c55 c56 c57 field "
+                                class="c35 c54 c55 field "
                                 data-role="checkbox"
                               >
                                 <div
-                                  class="c58 field__control field__control--boolean"
+                                  class="c56 field__control field__control--boolean"
                                   data-role="checkbox-control"
                                   id="enumeration-filter-graphic-controls"
                                 >
                                   <span
-                                    class="c59"
+                                    class="c57"
                                     data-role="checkbox-control-inner"
                                   >
                                     <input
                                       aria-checked="true"
                                       checked=""
-                                      class="c60 c61 c62 field__check field__check--checked"
+                                      class="c58 c59 c60 field__check field__check--checked"
                                       data-role="checkbox-input"
                                       id="enumeration-filter-graphic"
                                       tabindex="-1"
@@ -4713,7 +4623,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                     </label>
                                   </span>
                                   <label
-                                    class="c63 c64 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                    class="c61 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                     data-role="checkbox-label"
                                     for="enumeration-filter-graphic"
                                   >
@@ -4723,7 +4633,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                               </div>
                             </div>
                             <div
-                              class="c65 c66 list-item__text"
+                              class="c63 c64 list-item__text"
                               data-role="list-item-text"
                               role="button"
                               tabindex="0"
@@ -4732,20 +4642,20 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                 Enumeration Filter
                               </span>
                               <div
-                                class="c67 c68 list-item__secondary-text"
+                                class="c65 c66 list-item__secondary-text"
                                 data-role="list-item-secondary-text"
                               >
                                 filter option
                               </div>
                             </div>
                             <div
-                              class="c69 c70 list-item__meta"
+                              class="c67 c68 list-item__meta"
                               data-role="list-item-meta"
                             >
                               <button
                                 aria-expanded="false"
                                 aria-label="Open filter options"
-                                class="c22 c23 button button--icon c71 c72 filter-selector__expand-button"
+                                class="c22 c23 button button--icon c69 c70 filter-selector__expand-button"
                                 data-role="button"
                                 data-type="icon"
                                 title="Open filter options"
@@ -4757,6 +4667,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -4766,34 +4678,34 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                           </div>
                         </li>
                         <li
-                          class="c47 c48 list-item c75 "
+                          class="c46 c47 list-item c73 "
                           data-role="filter-selector-list-item"
                           id="error-filter"
                         >
                           <div
-                            class="c51 c76 list-item__content"
+                            class="c50 c74 list-item__content"
                             data-role="list-item-content"
                           >
                             <div
-                              class="c53 c54"
+                              class="c52 c53"
                               data-role="list-item-graphic"
                             >
                               <div
-                                class="c35 c55 c56 c57 field "
+                                class="c35 c54 c55 field "
                                 data-role="checkbox"
                               >
                                 <div
-                                  class="c58 field__control field__control--boolean"
+                                  class="c56 field__control field__control--boolean"
                                   data-role="checkbox-control"
                                   id="error-filter-graphic-controls"
                                 >
                                   <span
-                                    class="c59"
+                                    class="c57"
                                     data-role="checkbox-control-inner"
                                   >
                                     <input
                                       aria-checked="false"
-                                      class="c60 c77 c78 field__check"
+                                      class="c58 c75 c76 field__check"
                                       data-role="checkbox-input"
                                       id="error-filter-graphic"
                                       tabindex="-1"
@@ -4808,7 +4720,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                     </label>
                                   </span>
                                   <label
-                                    class="c63 c64 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                    class="c61 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                     data-role="checkbox-label"
                                     for="error-filter-graphic"
                                   >
@@ -4818,7 +4730,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                               </div>
                             </div>
                             <div
-                              class="c65 c79 list-item__text"
+                              class="c63 c77 list-item__text"
                               data-role="list-item-text"
                               role="button"
                               tabindex="0"
@@ -4827,21 +4739,21 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                 Filter With Error Message
                               </span>
                               <div
-                                class="c67 c68 list-item__secondary-text"
+                                class="c65 c66 list-item__secondary-text"
                                 data-role="list-item-secondary-text"
                               >
                                 filter option
                               </div>
                             </div>
                             <div
-                              class="c69 c70 list-item__meta"
+                              class="c67 c68 list-item__meta"
                               data-role="list-item-meta"
                             >
                               test
                               <button
                                 aria-expanded="false"
                                 aria-label="Open filter options"
-                                class="c22 c23 button button--icon c71 c72 filter-selector__expand-button"
+                                class="c22 c23 button button--icon c69 c70 filter-selector__expand-button"
                                 data-role="button"
                                 data-type="icon"
                                 title="Open filter options"
@@ -4853,6 +4765,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -4862,34 +4776,34 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                           </div>
                         </li>
                         <li
-                          class="c47 c48 list-item c75 "
+                          class="c46 c47 list-item c73 "
                           data-role="filter-selector-list-item"
                           id="date-filter"
                         >
                           <div
-                            class="c51 c76 list-item__content"
+                            class="c50 c74 list-item__content"
                             data-role="list-item-content"
                           >
                             <div
-                              class="c53 c54"
+                              class="c52 c53"
                               data-role="list-item-graphic"
                             >
                               <div
-                                class="c35 c55 c56 c57 field "
+                                class="c35 c54 c55 field "
                                 data-role="checkbox"
                               >
                                 <div
-                                  class="c58 field__control field__control--boolean"
+                                  class="c56 field__control field__control--boolean"
                                   data-role="checkbox-control"
                                   id="date-filter-graphic-controls"
                                 >
                                   <span
-                                    class="c59"
+                                    class="c57"
                                     data-role="checkbox-control-inner"
                                   >
                                     <input
                                       aria-checked="false"
-                                      class="c60 c77 c78 field__check"
+                                      class="c58 c75 c76 field__check"
                                       data-role="checkbox-input"
                                       id="date-filter-graphic"
                                       tabindex="-1"
@@ -4904,7 +4818,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                     </label>
                                   </span>
                                   <label
-                                    class="c63 c64 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                    class="c61 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                     data-role="checkbox-label"
                                     for="date-filter-graphic"
                                   >
@@ -4914,7 +4828,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                               </div>
                             </div>
                             <div
-                              class="c65 c79 list-item__text"
+                              class="c63 c77 list-item__text"
                               data-role="list-item-text"
                               role="button"
                               tabindex="0"
@@ -4923,20 +4837,20 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                 Date Filter
                               </span>
                               <div
-                                class="c67 c68 list-item__secondary-text"
+                                class="c65 c66 list-item__secondary-text"
                                 data-role="list-item-secondary-text"
                               >
                                 filter option
                               </div>
                             </div>
                             <div
-                              class="c69 c70 list-item__meta"
+                              class="c67 c68 list-item__meta"
                               data-role="list-item-meta"
                             >
                               <button
                                 aria-expanded="false"
                                 aria-label="Open filter options"
-                                class="c22 c23 button button--icon c71 c72 filter-selector__expand-button"
+                                class="c22 c23 button button--icon c69 c70 filter-selector__expand-button"
                                 data-role="button"
                                 data-type="icon"
                                 title="Open filter options"
@@ -4948,6 +4862,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -4957,34 +4873,34 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                           </div>
                         </li>
                         <li
-                          class="c47 c48 list-item c75 "
+                          class="c46 c47 list-item c73 "
                           data-role="filter-selector-list-item"
                           id="time-filter"
                         >
                           <div
-                            class="c51 c76 list-item__content"
+                            class="c50 c74 list-item__content"
                             data-role="list-item-content"
                           >
                             <div
-                              class="c53 c54"
+                              class="c52 c53"
                               data-role="list-item-graphic"
                             >
                               <div
-                                class="c35 c55 c56 c57 field "
+                                class="c35 c54 c55 field "
                                 data-role="checkbox"
                               >
                                 <div
-                                  class="c58 field__control field__control--boolean"
+                                  class="c56 field__control field__control--boolean"
                                   data-role="checkbox-control"
                                   id="time-filter-graphic-controls"
                                 >
                                   <span
-                                    class="c59"
+                                    class="c57"
                                     data-role="checkbox-control-inner"
                                   >
                                     <input
                                       aria-checked="false"
-                                      class="c60 c77 c78 field__check"
+                                      class="c58 c75 c76 field__check"
                                       data-role="checkbox-input"
                                       id="time-filter-graphic"
                                       tabindex="-1"
@@ -4999,7 +4915,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                     </label>
                                   </span>
                                   <label
-                                    class="c63 c64 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                    class="c61 c62 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                     data-role="checkbox-label"
                                     for="time-filter-graphic"
                                   >
@@ -5009,7 +4925,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                               </div>
                             </div>
                             <div
-                              class="c65 c79 list-item__text"
+                              class="c63 c77 list-item__text"
                               data-role="list-item-text"
                               role="button"
                               tabindex="0"
@@ -5018,20 +4934,20 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                 Time Filter
                               </span>
                               <div
-                                class="c67 c68 list-item__secondary-text"
+                                class="c65 c66 list-item__secondary-text"
                                 data-role="list-item-secondary-text"
                               >
                                 filter option
                               </div>
                             </div>
                             <div
-                              class="c69 c70 list-item__meta"
+                              class="c67 c68 list-item__meta"
                               data-role="list-item-meta"
                             >
                               <button
                                 aria-expanded="false"
                                 aria-label="Open filter options"
-                                class="c22 c23 button button--icon c71 c72 filter-selector__expand-button"
+                                class="c22 c23 button button--icon c69 c70 filter-selector__expand-button"
                                 data-role="button"
                                 data-type="icon"
                                 title="Open filter options"
@@ -5043,6 +4959,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-secondary-cont
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -5110,6 +5028,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c26 {
+  color: inherit;
+}
+
 .c23 {
   align-items: center;
   border: 2px solid transparent;
@@ -5154,6 +5076,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c23:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c23.c23 {
   display: block;
   height: auto;
@@ -5161,18 +5087,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
 }
 
 .h_inlineBlock.h_middleAlign .c23.c23 > .c25 {
-  display: block;
-}
-
-.c75 .c25 {
-  user-select: none;
-}
-
-.c75 .c25 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c75.c75 > .c25 {
   display: block;
 }
 
@@ -5237,7 +5151,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
 }
 
-.c43 {
+.c42 {
   box-sizing: border-box;
   border-radius: 0px;
   color: rgb(77, 77, 77);
@@ -5249,11 +5163,11 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   padding: 0px;
 }
 
-.c43:focus {
+.c42:focus {
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c44 {
+.c43 {
   background: rgb(255, 255, 255);
   font-family: "Open Sans", sans-serif;
   list-style-type: none;
@@ -5261,7 +5175,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   padding: 0px;
 }
 
-.c48 {
+.c47 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   color: rgb(77, 77, 77);
@@ -5273,7 +5187,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   border-bottom: 1px solid rgb(226, 230, 233);
 }
 
-.c51 {
+.c50 {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -5285,51 +5199,51 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   padding: 8px 16px;
 }
 
-.c51::before {
+.c50::before {
   content: "";
   inset: 0px;
   position: absolute;
   display: block;
 }
 
-.c47:not([data-role*="filter-selector"]) .c51.c51 {
+.c46:not([data-role*="filter-selector"]) .c50.c50 {
   background-color: rgb(245, 251, 255);
 }
 
-.c47:not([data-role*="filter-selector"]) .c51.c51::before {
+.c46:not([data-role*="filter-selector"]) .c50.c50::before {
   border-left: 4px solid rgb(5, 104, 174);
 }
 
-.c47:not([data-role*="filter-selector"]) .c51.c51:focus::before {
+.c46:not([data-role*="filter-selector"]) .c50.c50:focus::before {
   border-left: 4px solid rgb(213, 0, 117);
 }
 
-.c51:focus::before {
+.c50:focus::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c51:focus-within::before {
+.c50:focus-within::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c51:has(> * :focus)::before {
+.c50:has(> * :focus)::before {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   margin: 0px;
   outline: none;
 }
 
-.c51 .c64 {
+.c50 .c62 {
   outline: none;
 }
 
-.c71 {
+.c69 {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -5341,43 +5255,39 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   padding: 8px 16px;
 }
 
-.c71::before {
+.c69::before {
   content: "";
   inset: 0px;
   position: absolute;
   display: block;
 }
 
-.c71:focus::before {
+.c69:focus::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c71:focus-within::before {
+.c69:focus-within::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c71:has(> * :focus)::before {
+.c69:has(> * :focus)::before {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   margin: 0px;
   outline: none;
 }
 
-.c71 .c64 {
+.c69 .c62 {
   outline: none;
 }
 
-.c81 .c25 {
-  user-select: none;
-}
-
-.c53 {
+.c52 {
   align-items: center;
   color: inherit;
   display: inline-flex;
@@ -5386,54 +5296,40 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   position: relative;
 }
 
-.c53 .c25 {
+.c52 .c25 {
   display: inline-flex;
   font-size: 1.5rem;
 }
 
-.c53 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+.c52 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c82 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
+.c63 {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  position: relative;
   color: inherit;
+  font-weight: 400;
 }
 
-.c82 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+.c72 {
   color: inherit;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 400;
+  position: relative;
 }
 
 .c65 {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  position: relative;
-  color: inherit;
-  font-weight: 400;
-}
-
-.c74 {
-  color: inherit;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  font-weight: 400;
-  position: relative;
-}
-
-.c67 {
   color: rgb(97, 111, 124);
   font-size: 0.75rem;
   position: relative;
   text-align: right;
-}
-
-.c83 .c25 {
-  color: inherit;
 }
 
 .c2 {
@@ -5468,7 +5364,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   outline: none;
 }
 
-.c3 .c11 .c42 {
+.c3 .c11 .c41 {
   font-size: 0.75rem;
 }
 
@@ -5496,6 +5392,19 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
 .StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--enter,
 .StyledMasterDetailLayoutPane-bIaFkb .c18.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
+}
+
+.c24.c24 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c24.c24:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
 }
 
 .c30 {
@@ -5540,20 +5449,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   border-top: 1px solid transparent;
 }
 
-.c24.c24 {
-  background: transparent;
-  color: rgb(255, 255, 255);
-}
-
-.c24.c24:not(:disabled):focus {
-  outline: rgb(255, 255, 255) dotted 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: none;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(255, 255, 255);
-}
-
-.c63 {
+.c61 {
   color: rgb(77, 77, 77);
   display: inline-block;
   font-family: "Open Sans", sans-serif;
@@ -5575,16 +5471,16 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   margin: -1px !important;
 }
 
-.c63:empty {
+.c61:empty {
   display: none;
 }
 
-.c63 * {
+.c61 * {
   width: 1px;
   height: 1px;
 }
 
-.c41 {
+.c40 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -5594,17 +5490,17 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   margin-left: -12px;
 }
 
-.c41:last-child {
+.c40:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c40 {
+.c39 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -5622,18 +5518,18 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   width: 100%;
 }
 
-.c40::placeholder {
+.c39::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c38 {
+.c37 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -5645,11 +5541,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   height: 32px;
 }
 
-.c38 .c22 {
-  border-radius: 0px;
-}
-
-.c77 .c22 {
+.c37 .c22 {
   border-radius: 0px;
 }
 
@@ -5670,37 +5562,23 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   max-width: 100%;
 }
 
-.c76 .c33 {
-  display: flex;
-  width: 100%;
-}
-
-.c76[class*="h_"] .c37 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c76[class*="h_"] .c62 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c36 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c36 .c62 {
+.c36 .c60 {
   display: block;
   width: fit-content;
 }
 
-.c55 {
+.c53 {
   box-sizing: border-box;
   display: inline-block;
 }
 
-.c55 .c62 {
+.c53 .c60 {
   display: block;
   width: fit-content;
 }
@@ -5714,18 +5592,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   max-width: 100%;
 }
 
-.c39 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 0px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  width: 0px;
-}
-
-.c60 {
+.c58 {
   margin: 0px;
   opacity: 0;
   vertical-align: top;
@@ -5735,7 +5602,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   cursor: pointer;
 }
 
-.c60 + label {
+.c58 + label {
   align-items: center;
   cursor: pointer;
   display: inline-flex;
@@ -5744,7 +5611,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   vertical-align: top;
 }
 
-.c60 + label > span {
+.c58 + label > span {
   display: inline-block;
   height: 14px;
   margin-top: 0px;
@@ -5753,7 +5620,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   width: 14px;
 }
 
-.c60 + label > span::before {
+.c58 + label > span::before {
   content: "";
   inset: 0px;
   position: absolute;
@@ -5761,13 +5628,13 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   border: 1px solid transparent;
 }
 
-.c60:focus + label > span::before,
-.c60:focus-within + label > span::before {
+.c58:focus + label > span::before,
+.c58:focus-within + label > span::before {
   inset: -1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c72 {
+.c70 {
   margin: 0px;
   opacity: 0;
   vertical-align: top;
@@ -5777,7 +5644,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   cursor: pointer;
 }
 
-.c72 + label {
+.c70 + label {
   align-items: center;
   cursor: pointer;
   display: inline-flex;
@@ -5786,7 +5653,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   vertical-align: top;
 }
 
-.c72 + label > span {
+.c70 + label > span {
   display: inline-block;
   height: 14px;
   margin-top: 0px;
@@ -5795,7 +5662,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   width: 14px;
 }
 
-.c72 + label > span::before {
+.c70 + label > span::before {
   content: "";
   inset: 0px;
   position: absolute;
@@ -5803,20 +5670,20 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   border: 1px solid rgb(89, 102, 115);
 }
 
-.c72:focus + label > span::before,
-.c72:focus-within + label > span::before {
+.c70:focus + label > span::before,
+.c70:focus-within + label > span::before {
   inset: -1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c57 {
+.c55 {
   align-items: center;
   cursor: default;
   display: flex;
   width: 100%;
 }
 
-.c58 {
+.c56 {
   align-self: flex-start;
   display: flex;
   flex-shrink: 0;
@@ -5826,29 +5693,29 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.c58 > label {
+.c56 > label {
   height: 20px;
 }
 
-.c58 > label > span,
-.c58 > label > span::before {
+.c56 > label > span,
+.c56 > label > span::before {
   border-radius: 0px;
 }
 
-.c56 {
+.c54 {
   min-height: 32px;
   padding: 2px 0px 0px;
 }
 
-.c47 .c56 {
+.c46 .c54 {
   min-height: auto;
 }
 
-.c47 > .c56 {
+.c46 > .c54 {
   min-height: auto;
 }
 
-.c61 {
+.c59 {
   cursor: pointer;
   height: 20px;
   margin: 0px;
@@ -5856,23 +5723,23 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   vertical-align: top;
 }
 
-.c61 + label > span {
+.c59 + label > span {
   background-color: rgb(77, 77, 77);
 }
 
-.c61 + label > span::before {
+.c59 + label > span::before {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
-.c61 + label > span::after {
+.c59 + label > span::after {
   box-sizing: border-box;
   border-width: medium medium 2px 2px;
   border-style: none none solid solid;
   border-color: currentcolor currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
   content: "";
   display: block;
   margin: 2px 0px 0px 2px;
@@ -5881,21 +5748,21 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   width: 10px;
 }
 
-.c61 + label > span::before {
+.c59 + label > span::before {
   border: 1px solid transparent;
 }
 
-.c61:focus + label > span,
-.c61:focus-within + label > span {
+.c59:focus + label > span,
+.c59:focus-within + label > span {
   background-color: rgb(213, 0, 117);
 }
 
-.c61:focus + label > span::before,
-.c61:focus-within + label > span::before {
+.c59:focus + label > span::before,
+.c59:focus-within + label > span::before {
   border: 2px solid rgb(213, 0, 117);
 }
 
-.c73 {
+.c71 {
   cursor: pointer;
   height: 20px;
   margin: 0px;
@@ -5903,16 +5770,16 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   vertical-align: top;
 }
 
-.c73 + label > span {
+.c71 + label > span {
   background-color: rgb(255, 255, 255);
 }
 
-.c73 + label > span::before {
+.c71 + label > span::before {
   border: 1px solid rgb(89, 102, 115);
 }
 
-.c73:focus + label > span::before,
-.c73:focus-within + label > span::before {
+.c71:focus + label > span::before,
+.c71:focus-within + label > span::before {
   border: 2px solid rgb(213, 0, 117);
 }
 
@@ -5954,7 +5821,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   padding: 8px 16px;
 }
@@ -5963,7 +5830,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   margin: 0px;
 }
 
-.c5 .c42 {
+.c5 .c41 {
   border-radius: 0px;
   display: flex;
   flex-direction: column;
@@ -5973,7 +5840,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   display: inline-flex;
 }
 
-.c14 .c42 {
+.c14 .c41 {
   padding: 0px;
 }
 
@@ -6001,12 +5868,12 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
 }
 
 .c1 .c8 > .c13:only-child .c16,
-.c1 .c8 > .c13:only-child .c42,
+.c1 .c8 > .c13:only-child .c41,
 .c1 .c8 > .c13:only-child .c29 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c10 {
@@ -6021,22 +5888,11 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.c10 .c50 {
+.c10 .c49 {
   padding: 8px 16px 8px calc(56px);
 }
 
-.c85 .c54 {
-  align-items: center;
-  display: inline-flex;
-}
-
-.c1 .c84 {
-  max-width: calc(496px);
-  margin: 0px auto;
-  width: 100%;
-}
-
-.c46 {
+.c45 {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -6044,17 +5900,17 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   overflow-y: auto;
 }
 
-.c46 .c47 {
+.c45 .c46 {
   flex: 0 0 auto;
   -webkit-tap-highlight-color: transparent;
 }
 
-.c46 .c47:focus::before {
+.c45 .c46:focus::before {
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c46 .c47::before,
-.c46 .c47 .c50::before {
+.c45 .c46::before,
+.c45 .c46 .c49::before {
   bottom: 0px;
   content: "";
   display: block;
@@ -6063,16 +5919,16 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   right: 0px;
 }
 
-.c46 .c47 .c50::before {
+.c45 .c46 .c49::before {
   background-color: transparent;
   top: 0px;
 }
 
-.c46 .c50 {
+.c45 .c49 {
   min-height: 48px;
 }
 
-.c46 .c52 {
+.c45 .c51 {
   bottom: 0px;
   font-size: 0px;
   height: auto;
@@ -6083,79 +5939,74 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   width: 48px;
 }
 
-.c46 .c52 .c59 {
+.c45 .c51 .c57 {
   width: 1px;
 }
 
-.c46 .c64 {
+.c45 .c62 {
   font-size: 0.75rem;
   line-height: normal;
   overflow: hidden;
 }
 
-.c68:not(:focus):not(:hover) {
+.c66:not(:focus):not(:hover) {
   color: rgb(97, 111, 124);
 }
 
-.c68 .c25 {
+.c66 .c25 {
   transition: transform 0.3s;
 }
 
-.c49 {
+.c48 {
   background: linear-gradient(to right, rgb(204, 235, 255) 48px, rgb(245, 251, 255) 48px);
 }
 
-.c49 .c50 {
+.c48 .c49 {
   background: none;
 }
 
-.c49 .c50::before {
+.c48 .c49::before {
   border-left: 4px solid rgb(5, 104, 174);
 }
 
-.c49 .c50:focus::before {
+.c48 .c49:focus::before {
   border-left: 4px solid rgb(213, 0, 117);
 }
 
-.c69 {
+.c67 {
   background: linear-gradient(to right, rgb(241, 242, 244) 48px, rgb(255, 255, 255) 48px);
 }
 
-.c69 .c50 {
+.c67 .c49 {
   background: none;
 }
 
-.c69::before {
+.c67::before {
   border-bottom: 1px solid rgb(226, 230, 233);
 }
 
-.c70 {
+.c68 {
   background: linear-gradient(to right, rgb(241, 242, 244) 48px, rgb(255, 255, 255) 48px);
 }
 
-.c70 .c50 {
-  background: transparent;
-}
-
-.c78 .c50 {
-  background: none;
-}
-
-.c78 .c50::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c79 .c50 {
-  background: none;
-}
-
-.c80 .c50 {
+.c68 .c49 {
   background: transparent;
 }
 
 .c4 {
   width: 100%;
   height: 100%;
+}
+
+.c38 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
 }
 
 .c6 {
@@ -6184,7 +6035,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   min-width: unset;
 }
 
-.c6 .c66 {
+.c6 .c64 {
   align-items: center;
   display: flex;
 }
@@ -6209,14 +6060,14 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   width: 100%;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c42 {
+.c6 [data-role="filter-selector-content-secondary"] .c41 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c42::after {
+.c6 [data-role="filter-selector-content-secondary"] .c41::after {
   content: normal;
 }
 
@@ -6228,24 +6079,24 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
   width: 4px;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47,
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47:focus {
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46,
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46:focus {
   background-color: transparent;
   background-image: none;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47::after,
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47:focus::after {
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46::after,
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46:focus::after {
   background-color: transparent;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47:last-child::before {
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46:last-child::before {
   border-bottom-width: medium;
   border-bottom-style: none;
   border-bottom-color: currentcolor;
 }
 
-.c6 [data-role="filter-selector-content-secondary"] .c45 .c47 .c50 {
+.c6 [data-role="filter-selector-content-secondary"] .c44 .c46 .c49 {
   padding: 0px 16px;
 }
 
@@ -6275,65 +6126,65 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
 }
 
 @media (pointer: coarse) {
-  .c47:not([data-role*="filter-selector"]) .c51.c51:active {
+  .c46:not([data-role*="filter-selector"]) .c50.c50:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c47:not([data-role*="filter-selector"]) .c51.c51:active::before {
+  .c46:not([data-role*="filter-selector"]) .c50.c50:active::before {
     border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c47:not([data-role*="filter-selector"]) .c51.c51:hover::before {
+  .c46:not([data-role*="filter-selector"]) .c50.c50:hover::before {
     border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c51:active {
+  .c50:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c51:active::before {
+  .c50:active::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c51:hover::before {
+  .c50:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c51:hover::before {
+  .c50:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c71:active {
+  .c69:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c71:active::before {
+  .c69:active::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c71:hover::before {
+  .c69:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 
-  .c71:hover > :not([data-role="list-item-graphic"]) {
+  .c69:hover > :not([data-role="list-item-graphic"]) {
     text-decoration: none;
   }
 }
 
 @media (pointer: fine) {
-  .c71:hover::before {
+  .c69:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
@@ -6364,149 +6215,149 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
 }
 
 @media (pointer: coarse) {
-  .c38:active {
+  .c37:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c38:hover {
+  .c37:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c60:active {
+  .c58:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c60:active + label > span::before {
+  .c58:active + label > span::before {
     inset: -1px;
   }
 }
 
 @media (pointer: fine) {
-  .c60:hover + label > span::before {
+  .c58:hover + label > span::before {
     inset: -1px;
   }
 }
 
 @media (pointer: coarse) {
-  .c72:active {
+  .c70:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c72:active + label > span::before {
+  .c70:active + label > span::before {
     inset: -1px;
   }
 }
 
 @media (pointer: fine) {
-  .c72:hover + label > span::before {
+  .c70:hover + label > span::before {
     inset: -1px;
   }
 }
 
 @media (pointer: coarse) {
-  .c61:active {
+  .c59:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c61:active + label > span {
+  .c59:active + label > span {
     background-color: rgb(213, 0, 117);
   }
 
-  .c61:active + label > span::before {
+  .c59:active + label > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c61:hover + label > span {
+  .c59:hover + label > span {
     background-color: rgb(213, 0, 117);
   }
 
-  .c61:hover + label > span::before {
+  .c59:hover + label > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c61 + label:hover > span {
+  .c59 + label:hover > span {
     background-color: rgb(213, 0, 117);
   }
 
-  .c61 + label:hover > span::after {
+  .c59 + label:hover > span::after {
     background-color: rgb(213, 0, 117);
   }
 
-  .c61 + label:hover > span::before {
+  .c59 + label:hover > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c73:active {
+  .c71:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c73:active + label > span::before {
+  .c71:active + label > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c73:hover + label > span::before {
+  .c71:hover + label > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c73 + label:hover > span::after {
+  .c71 + label:hover > span::after {
     background-color: rgb(213, 0, 117);
   }
 
-  .c73 + label:hover > span::before {
+  .c71 + label:hover > span::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c49 .c50:active {
+  .c48 .c49:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c49 .c50:active::before {
+  .c48 .c49:active::before {
     border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c49 .c50:hover::before {
+  .c48 .c49:hover::before {
     border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c6 [data-role="filter-selector-content-secondary"] .c45 .c47:active {
+  .c6 [data-role="filter-selector-content-secondary"] .c44 .c46:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     background-image: none;
   }
 
-  .c6 [data-role="filter-selector-content-secondary"] .c45 .c47:active::after {
+  .c6 [data-role="filter-selector-content-secondary"] .c44 .c46:active::after {
     background-color: transparent;
   }
 }
 
 @media (pointer: fine) {
-  .c6 [data-role="filter-selector-content-secondary"] .c45 .c47:hover {
+  .c6 [data-role="filter-selector-content-secondary"] .c44 .c46:hover {
     background-color: transparent;
     background-image: none;
   }
 
-  .c6 [data-role="filter-selector-content-secondary"] .c45 .c47:hover::after {
+  .c6 [data-role="filter-selector-content-secondary"] .c44 .c46:hover::after {
     background-color: transparent;
   }
 }
@@ -6597,6 +6448,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                               >
                                 <span
                                   aria-hidden="true"
+                                  class="notranslate"
+                                  translate="no"
                                 >
                                   close
                                 </span>
@@ -6628,23 +6481,23 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                   data-role="text-field-control"
                                 >
                                   <div
-                                    class="c37 c38 field__input"
+                                    class="c37 field__input"
                                     data-role="text-field-input-wrapper"
                                   >
                                     <span
-                                      class="c39 supported-unseen-span"
+                                      class="c38 supported-unseen-span"
                                     />
                                     <input
-                                      class="c40 field__text"
+                                      class="c39 field__text"
                                       data-role="text-field-input"
                                       type="text"
                                       value=""
                                     />
                                     <span
-                                      class="c39 supported-unseen-span"
+                                      class="c38 supported-unseen-span"
                                     />
                                     <div
-                                      class="c41 field__suffix field__suffix--first"
+                                      class="c40 field__suffix field__suffix--first"
                                       data-role="text-field-suffix-0"
                                     >
                                       <i
@@ -6653,6 +6506,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                       >
                                         <span
                                           aria-hidden="true"
+                                          class="notranslate"
+                                          translate="no"
                                         >
                                           search
                                         </span>
@@ -6667,44 +6522,44 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                       </div>
                     </div>
                     <div
-                      class="c42 c43 contentbox__content"
+                      class="c41 c42 contentbox__content"
                       data-role="contentbox-content"
                     >
                       <ul
-                        class="c44 list c45 c46 filter-selector__list"
+                        class="c43 list c44 c45 filter-selector__list"
                         data-role="filter-selector-list"
                         tabindex="-1"
                       >
                         <li
-                          class="c47 c48 list-item list-item--active list-item--selected c49 "
+                          class="c46 c47 list-item list-item--active list-item--selected c48 "
                           data-role="filter-selector-list-item"
                           id="number-filter"
                         >
                           <div
-                            class="c50 c51 list-item__content"
+                            class="c49 c50 list-item__content"
                             data-role="list-item-content"
                           >
                             <div
-                              class="c52 c53"
+                              class="c51 c52"
                               data-role="list-item-graphic"
                             >
                               <div
-                                class="c35 c54 c55 c56 field "
+                                class="c35 c53 c54 field "
                                 data-role="checkbox"
                               >
                                 <div
-                                  class="c57 field__control field__control--boolean"
+                                  class="c55 field__control field__control--boolean"
                                   data-role="checkbox-control"
                                   id="number-filter-graphic-controls"
                                 >
                                   <span
-                                    class="c58"
+                                    class="c56"
                                     data-role="checkbox-control-inner"
                                   >
                                     <input
                                       aria-checked="true"
                                       checked=""
-                                      class="c59 c60 c61 field__check field__check--checked"
+                                      class="c57 c58 c59 field__check field__check--checked"
                                       data-role="checkbox-input"
                                       id="number-filter-graphic"
                                       tabindex="-1"
@@ -6719,7 +6574,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                     </label>
                                   </span>
                                   <label
-                                    class="c62 c63 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                    class="c60 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                     data-role="checkbox-label"
                                     for="number-filter-graphic"
                                   >
@@ -6729,7 +6584,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                               </div>
                             </div>
                             <div
-                              class="c64 c65 list-item__text"
+                              class="c62 c63 list-item__text"
                               data-role="list-item-text"
                               role="button"
                               tabindex="0"
@@ -6739,14 +6594,14 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                               </span>
                             </div>
                             <div
-                              class="c66 c67 list-item__meta"
+                              class="c64 c65 list-item__meta"
                               data-role="list-item-meta"
                             >
                               test
                               <button
                                 aria-expanded="false"
                                 aria-label="Open filter options"
-                                class="c22 c23 button button--icon c68 filter-selector__expand-button"
+                                class="c22 c23 button button--icon c66 filter-selector__expand-button"
                                 data-role="button"
                                 data-type="icon"
                                 title="Open filter options"
@@ -6758,6 +6613,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -6767,35 +6624,35 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                           </div>
                         </li>
                         <li
-                          class="c47 c48 list-item list-item--selected c69 "
+                          class="c46 c47 list-item list-item--selected c67 "
                           data-role="filter-selector-list-item"
                           id="enumeration-filter"
                         >
                           <div
-                            class="c50 c51 list-item__content"
+                            class="c49 c50 list-item__content"
                             data-role="list-item-content"
                           >
                             <div
-                              class="c52 c53"
+                              class="c51 c52"
                               data-role="list-item-graphic"
                             >
                               <div
-                                class="c35 c54 c55 c56 field "
+                                class="c35 c53 c54 field "
                                 data-role="checkbox"
                               >
                                 <div
-                                  class="c57 field__control field__control--boolean"
+                                  class="c55 field__control field__control--boolean"
                                   data-role="checkbox-control"
                                   id="enumeration-filter-graphic-controls"
                                 >
                                   <span
-                                    class="c58"
+                                    class="c56"
                                     data-role="checkbox-control-inner"
                                   >
                                     <input
                                       aria-checked="true"
                                       checked=""
-                                      class="c59 c60 c61 field__check field__check--checked"
+                                      class="c57 c58 c59 field__check field__check--checked"
                                       data-role="checkbox-input"
                                       id="enumeration-filter-graphic"
                                       tabindex="-1"
@@ -6810,7 +6667,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                     </label>
                                   </span>
                                   <label
-                                    class="c62 c63 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                    class="c60 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                     data-role="checkbox-label"
                                     for="enumeration-filter-graphic"
                                   >
@@ -6820,7 +6677,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                               </div>
                             </div>
                             <div
-                              class="c64 c65 list-item__text"
+                              class="c62 c63 list-item__text"
                               data-role="list-item-text"
                               role="button"
                               tabindex="0"
@@ -6830,13 +6687,13 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                               </span>
                             </div>
                             <div
-                              class="c66 c67 list-item__meta"
+                              class="c64 c65 list-item__meta"
                               data-role="list-item-meta"
                             >
                               <button
                                 aria-expanded="false"
                                 aria-label="Open filter options"
-                                class="c22 c23 button button--icon c68 filter-selector__expand-button"
+                                class="c22 c23 button button--icon c66 filter-selector__expand-button"
                                 data-role="button"
                                 data-type="icon"
                                 title="Open filter options"
@@ -6848,6 +6705,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -6864,34 +6723,34 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                           Section 1
                         </li>
                         <li
-                          class="c47 c48 list-item c70 "
+                          class="c46 c47 list-item c68 "
                           data-role="filter-selector-list-item"
                           id="date-filter"
                         >
                           <div
-                            class="c50 c71 list-item__content"
+                            class="c49 c69 list-item__content"
                             data-role="list-item-content"
                           >
                             <div
-                              class="c52 c53"
+                              class="c51 c52"
                               data-role="list-item-graphic"
                             >
                               <div
-                                class="c35 c54 c55 c56 field "
+                                class="c35 c53 c54 field "
                                 data-role="checkbox"
                               >
                                 <div
-                                  class="c57 field__control field__control--boolean"
+                                  class="c55 field__control field__control--boolean"
                                   data-role="checkbox-control"
                                   id="date-filter-graphic-controls"
                                 >
                                   <span
-                                    class="c58"
+                                    class="c56"
                                     data-role="checkbox-control-inner"
                                   >
                                     <input
                                       aria-checked="false"
-                                      class="c59 c72 c73 field__check"
+                                      class="c57 c70 c71 field__check"
                                       data-role="checkbox-input"
                                       id="date-filter-graphic"
                                       tabindex="-1"
@@ -6906,7 +6765,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                     </label>
                                   </span>
                                   <label
-                                    class="c62 c63 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                    class="c60 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                     data-role="checkbox-label"
                                     for="date-filter-graphic"
                                   >
@@ -6916,7 +6775,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                               </div>
                             </div>
                             <div
-                              class="c64 c74 list-item__text"
+                              class="c62 c72 list-item__text"
                               data-role="list-item-text"
                               role="button"
                               tabindex="0"
@@ -6926,13 +6785,13 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                               </span>
                             </div>
                             <div
-                              class="c66 c67 list-item__meta"
+                              class="c64 c65 list-item__meta"
                               data-role="list-item-meta"
                             >
                               <button
                                 aria-expanded="false"
                                 aria-label="Open filter options"
-                                class="c22 c23 button button--icon c68 filter-selector__expand-button"
+                                class="c22 c23 button button--icon c66 filter-selector__expand-button"
                                 data-role="button"
                                 data-type="icon"
                                 title="Open filter options"
@@ -6944,6 +6803,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -6953,34 +6814,34 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                           </div>
                         </li>
                         <li
-                          class="c47 c48 list-item c70 "
+                          class="c46 c47 list-item c68 "
                           data-role="filter-selector-list-item"
                           id="time-filter"
                         >
                           <div
-                            class="c50 c71 list-item__content"
+                            class="c49 c69 list-item__content"
                             data-role="list-item-content"
                           >
                             <div
-                              class="c52 c53"
+                              class="c51 c52"
                               data-role="list-item-graphic"
                             >
                               <div
-                                class="c35 c54 c55 c56 field "
+                                class="c35 c53 c54 field "
                                 data-role="checkbox"
                               >
                                 <div
-                                  class="c57 field__control field__control--boolean"
+                                  class="c55 field__control field__control--boolean"
                                   data-role="checkbox-control"
                                   id="time-filter-graphic-controls"
                                 >
                                   <span
-                                    class="c58"
+                                    class="c56"
                                     data-role="checkbox-control-inner"
                                   >
                                     <input
                                       aria-checked="false"
-                                      class="c59 c72 c73 field__check"
+                                      class="c57 c70 c71 field__check"
                                       data-role="checkbox-input"
                                       id="time-filter-graphic"
                                       tabindex="-1"
@@ -6995,7 +6856,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                     </label>
                                   </span>
                                   <label
-                                    class="c62 c63 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                    class="c60 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                     data-role="checkbox-label"
                                     for="time-filter-graphic"
                                   >
@@ -7005,7 +6866,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                               </div>
                             </div>
                             <div
-                              class="c64 c74 list-item__text"
+                              class="c62 c72 list-item__text"
                               data-role="list-item-text"
                               role="button"
                               tabindex="0"
@@ -7015,13 +6876,13 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                               </span>
                             </div>
                             <div
-                              class="c66 c67 list-item__meta"
+                              class="c64 c65 list-item__meta"
                               data-role="list-item-meta"
                             >
                               <button
                                 aria-expanded="false"
                                 aria-label="Open filter options"
-                                class="c22 c23 button button--icon c68 filter-selector__expand-button"
+                                class="c22 c23 button button--icon c66 filter-selector__expand-button"
                                 data-role="button"
                                 data-type="icon"
                                 title="Open filter options"
@@ -7033,6 +6894,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -7049,34 +6912,34 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                           Section 2
                         </li>
                         <li
-                          class="c47 c48 list-item c70 "
+                          class="c46 c47 list-item c68 "
                           data-role="filter-selector-list-item"
                           id="boolean-filter"
                         >
                           <div
-                            class="c50 c71 list-item__content"
+                            class="c49 c69 list-item__content"
                             data-role="list-item-content"
                           >
                             <div
-                              class="c52 c53"
+                              class="c51 c52"
                               data-role="list-item-graphic"
                             >
                               <div
-                                class="c35 c54 c55 c56 field "
+                                class="c35 c53 c54 field "
                                 data-role="checkbox"
                               >
                                 <div
-                                  class="c57 field__control field__control--boolean"
+                                  class="c55 field__control field__control--boolean"
                                   data-role="checkbox-control"
                                   id="boolean-filter-graphic-controls"
                                 >
                                   <span
-                                    class="c58"
+                                    class="c56"
                                     data-role="checkbox-control-inner"
                                   >
                                     <input
                                       aria-checked="false"
-                                      class="c59 c72 c73 field__check"
+                                      class="c57 c70 c71 field__check"
                                       data-role="checkbox-input"
                                       id="boolean-filter-graphic"
                                       tabindex="-1"
@@ -7091,7 +6954,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                     </label>
                                   </span>
                                   <label
-                                    class="c62 c63 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                                    class="c60 c61 label field__label -u-unseenButRead field__label -u-unseenButRead"
                                     data-role="checkbox-label"
                                     for="boolean-filter-graphic"
                                   >
@@ -7101,7 +6964,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                               </div>
                             </div>
                             <div
-                              class="c64 c74 list-item__text"
+                              class="c62 c72 list-item__text"
                               data-role="list-item-text"
                               role="button"
                               tabindex="0"
@@ -7111,13 +6974,13 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                               </span>
                             </div>
                             <div
-                              class="c66 c67 list-item__meta"
+                              class="c64 c65 list-item__meta"
                               data-role="list-item-meta"
                             >
                               <button
                                 aria-expanded="false"
                                 aria-label="Open filter options"
-                                class="c22 c23 button button--icon c68 filter-selector__expand-button"
+                                class="c22 c23 button button--icon c66 filter-selector__expand-button"
                                 data-role="button"
                                 data-type="icon"
                                 title="Open filter options"
@@ -7129,6 +6992,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-section 1`] = 
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -7235,6 +7100,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c26 {
+  color: inherit;
+}
+
 .c23 {
   align-items: center;
   border: 2px solid transparent;
@@ -7277,6 +7146,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c23:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c23.c23 {
@@ -7448,26 +7321,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   color: rgb(169, 179, 188);
 }
 
-.c50:not([data-role*="filter-selector"]) .c85.c85 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c50:not([data-role*="filter-selector"]) .c85.c85::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c50:not([data-role*="filter-selector"]) .c85.c85:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c85 .c64 {
-  outline: none;
-}
-
-.c86 .c64 {
-  outline: none;
-}
-
 .c54 {
   align-items: center;
   box-sizing: border-box;
@@ -7491,17 +7344,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c87 .c25 {
+.c80 .c25 {
   user-select: none;
-}
-
-.c88 .c25 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c88 .c25:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
 }
 
 .c56 {
@@ -7616,6 +7460,19 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   flex: 1 0 auto;
 }
 
+.c24.c24 {
+  background: transparent;
+  color: rgb(255, 255, 255);
+}
+
+.c24.c24:not(:disabled):focus {
+  outline: rgb(255, 255, 255) dotted 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+}
+
 .c30 {
   overflow: hidden;
 }
@@ -7658,19 +7515,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
 .c28 > :not(:empty):not(.c29) {
   border-bottom: 1px solid rgba(22, 25, 29, 0.22);
   border-top: 1px solid transparent;
-}
-
-.c24.c24 {
-  background: transparent;
-  color: rgb(255, 255, 255);
-}
-
-.c24.c24:not(:disabled):focus {
-  outline: rgb(255, 255, 255) dotted 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: none;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(255, 255, 255);
 }
 
 .c38 {
@@ -7724,7 +7568,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -7748,20 +7592,11 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   opacity: 1;
 }
 
-.c81 .c22 {
-  border-radius: 0px;
-}
-
-.c76 .c81.c81,
-.c27 .c81.c81 {
-  background-color: rgb(255, 255, 255);
-}
-
 .c41 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   display: flex;
   font-family: "Open Sans", sans-serif;
@@ -7776,11 +7611,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
 
 .c41 .c22 {
   border-radius: 0px;
-}
-
-.c80 .c33 {
-  display: flex;
-  width: 100%;
 }
 
 .c32 {
@@ -7837,17 +7667,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
 .c34 .c35 {
   flex: 1 1 160px;
   max-width: 100%;
-}
-
-.c42 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 0px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  width: 0px;
 }
 
 .c62 {
@@ -7994,7 +7813,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c63 + label > span::after {
@@ -8002,7 +7821,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   border-width: medium medium 2px 2px;
   border-style: none none solid solid;
   border-color: currentcolor currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
   content: "";
   display: block;
   margin: 2px 0px 0px 2px;
@@ -8085,7 +7904,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   padding: 8px 16px;
 }
@@ -8141,7 +7960,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c10 {
@@ -8231,26 +8050,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   transition: transform 0.3s;
 }
 
-.c82 .c53 {
-  background: none;
-}
-
-.c82 .c53::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c82 .c53:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c83 .c53 {
-  background: none;
-}
-
-.c84 .c53 {
-  background: transparent;
-}
-
 .c52 {
   background: linear-gradient(to right, rgb(204, 235, 255) 48px, rgb(245, 251, 255) 48px);
   color: rgb(226, 230, 233);
@@ -8289,6 +8088,17 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
 .c4 {
   width: 100%;
   height: 100%;
+}
+
+.c42 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
 }
 
 .c6 {
@@ -8352,7 +8162,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c6 [data-role="filter-selector-content-secondary"] .c45::after {
@@ -8440,22 +8250,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
   }
 }
 
-@media (pointer: coarse) {
-  .c50:not([data-role*="filter-selector"]) .c85.c85:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c50:not([data-role*="filter-selector"]) .c85.c85:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c50:not([data-role*="filter-selector"]) .c85.c85:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
 @media only screen and (max-width: 756px) {
   .c3 {
     width: 100%;
@@ -8504,22 +8298,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
 @media (pointer: fine) {
   .c71 + label > span:hover {
     border-color: rgb(169, 179, 188);
-  }
-}
-
-@media (pointer: coarse) {
-  .c82 .c53:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c82 .c53:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c82 .c53:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
@@ -8634,6 +8412,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
                               >
                                 <span
                                   aria-hidden="true"
+                                  class="notranslate"
+                                  translate="no"
                                 >
                                   close
                                 </span>
@@ -8710,6 +8490,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
                                       >
                                         <span
                                           aria-hidden="true"
+                                          class="notranslate"
+                                          translate="no"
                                         >
                                           search
                                         </span>
@@ -8818,6 +8600,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -8911,6 +8695,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -9004,6 +8790,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -9096,6 +8884,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>
@@ -9188,6 +8978,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector.mobile > rendering-with-propertie
                                 >
                                   <span
                                     aria-hidden="true"
+                                    class="notranslate"
+                                    translate="no"
                                   >
                                     expand_more
                                   </span>

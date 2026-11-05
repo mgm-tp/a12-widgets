@@ -50,7 +50,10 @@ export * from "./widgets-root.view.js";
 
 export * from "./a11y-localization/index.js";
 export * from "./date-time/index.js";
+export * from "./dnd-flash/index.js";
 export * from "./hidden-text/index.js";
+export * from "./live-region/index.js";
 export * from "./polyfills/index.js";
 export * from "./utils/index.js";
+export * from "./resize-observer/index.js";
 export * from "./widgets-resize-detector/index.js";

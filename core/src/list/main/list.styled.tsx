@@ -32,10 +32,10 @@
 
 import { styled, css } from "styled-components";
 
+import { DataRoles } from "../../common/main/data-roles.js";
+import { StyledIconWrapper, StyledVariantIconWrapper } from "../../icon/main/icon.view.js";
 import { active, hover } from "../../theme/base/mixins/_interaction.js";
 import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
-import { StyledIconWrapper, StyledVariantIconWrapper } from "../../icon/main/icon.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
 import { createButtonSemanticStyles } from "./button-semantics-utils.js";
 
@@ -69,9 +69,9 @@ export const StyledListItemWrapper = styled.li.withConfig({ displayName: "Styled
 		if ($hasButtonSemantics) {
 			return css`
 				&:not(:last-child) {
-					border-bottom: ${$hasDivider === "light"
-						? item.buttonSemanticsDivider?.light
-						: item.buttonSemanticsDivider?.dark};
+					border-bottom: ${
+						$hasDivider === "light" ? item.buttonSemanticsDivider?.light : item.buttonSemanticsDivider?.dark
+					};
 				}
 			`;
 		}
@@ -91,34 +91,42 @@ export const StyledListItemWrapper = styled.li.withConfig({ displayName: "Styled
 		position: relative;
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
-		${$hasBorder &&
-		css`
-			&:first-of-type {
-				border-top: ${border};
-			}
+		${
+			$hasBorder &&
+			css`
+				&:first-of-type {
+					border-top: ${border};
+				}
 
-			&:last-of-type {
-				border-bottom: ${border};
-			}
+				&:last-of-type {
+					border-bottom: ${border};
+				}
 
-			border-left: ${border};
-			border-right: ${border};
-		`}
+				border-left: ${border};
+				border-right: ${border};
+			`
+		}
 
 		${getDividerStyles()}
-		
-		${($readonly || $disabled) &&
-		css`
-			cursor: default;
-		`}
-		${$disabled &&
-		css`
-			color: ${item.disabledColor};
-		`}
-		${$readonly &&
-		css`
-			color: ${item.readOnly?.color};
-		`}
+
+		${
+			($readonly || $disabled) &&
+			css`
+				cursor: default;
+			`
+		}
+		${
+			$disabled &&
+			css`
+				color: ${item.disabledColor};
+			`
+		}
+		${
+			$readonly &&
+			css`
+				color: ${item.readOnly?.color};
+			`
+		}
 	`;
 });
 
@@ -171,133 +179,153 @@ export const StyledListItemContent = styled.div.withConfig({ displayName: "Style
 				`
 			)};
 
-			${$useAsButton &&
-			css`
-				// Prevent text selection on icon when dragging the cursor.
-				${StyledIconWrapper} {
-					user-select: none;
-					-webkit-user-select: none;
-				}
-			`}
-
-			${StyledListItemWrapper}:not([data-role*="${DataRoles.FilterSelector}"]) && {
-				${!$disabled &&
-				!$readonly &&
+			${
+				$useAsButton &&
 				css`
-					${$selected &&
-					css`
-						background-color: ${item.selected.background};
-						&:before {
-							border-left: ${item.selected.leftBorder};
-						}
-						${!$noEffect &&
-						css`
-							${active(css`
-								&:before {
-									border-left: ${item.selected.activeLeftBorder};
-								}
-							`)}
-							${hover(css`
-								&:before {
-									border-left: ${item.selected.hoverLeftBorder};
-								}
-							`)}
-						&:focus:before {
-								border-left: ${item.selected.focusLeftBorder};
-							}
-						`}
-					`}
-				`}
+					// Prevent text selection on icon when dragging the cursor.
+					${StyledIconWrapper} {
+						user-select: none;
+						-webkit-user-select: none;
+					}
+				`
 			}
 
-			${!$noEffect &&
-			!$disabled &&
-			!$readonly &&
-			css`
-				${active(css`
-					&:before {
-						border: ${item.activeBorder};
-					}
-				`)}
-				${hover(css`
-					&:before {
-						border: ${item.hoverBorder};
-					}
-					${!$selected &&
+			${StyledListItemWrapper}:not([data-role*="${DataRoles.FilterSelector}"]) && {
+				${
+					!$disabled &&
+					!$readonly &&
 					css`
-						> *:not([data-role="${DataRoles.List.Item.Graphic}"]) {
-							text-decoration: ${item.hoverTextDecoration};
+						${
+							$selected &&
+							css`
+								background-color: ${item.selected.background};
+								&:before {
+									border-left: ${item.selected.leftBorder};
+								}
+								${
+									!$noEffect &&
+									css`
+										${active(css`
+											&:before {
+												border-left: ${item.selected.activeLeftBorder};
+											}
+										`)}
+										${hover(css`
+											&:before {
+												border-left: ${item.selected.hoverLeftBorder};
+											}
+										`)}
+										&:focus:before {
+											border-left: ${item.selected.focusLeftBorder};
+										}
+									`
+								}
+							`
 						}
-					`}
-				`)}
-                    
-				&:focus:before {
-					border: ${item.focusBorder};
-					margin: 1px;
-					outline: ${item.focusOutline};
+					`
 				}
+			}
 
-				${$useFocusWithinStyles &&
+			${
+				!$noEffect &&
+				!$disabled &&
+				!$readonly &&
 				css`
-					&:focus-within:before {
+					${active(css`
+						&:before {
+							border: ${item.activeBorder};
+						}
+					`)}
+					${hover(css`
+						&:before {
+							border: ${item.hoverBorder};
+						}
+						${
+							!$selected &&
+							css`
+								> *:not([data-role="${DataRoles.List.Item.Graphic}"]) {
+									text-decoration: ${item.hoverTextDecoration};
+								}
+							`
+						}
+					`)}
+
+					&:focus:before {
 						border: ${item.focusBorder};
 						margin: 1px;
 						outline: ${item.focusOutline};
 					}
 
-					&:has(> * :focus) {
-						&:before {
-							border: none;
-							margin: 0;
-							outline: none;
+					${
+						$useFocusWithinStyles &&
+						css`
+							&:focus-within:before {
+								border: ${item.focusBorder};
+								margin: 1px;
+								outline: ${item.focusOutline};
+							}
+
+							&:has(> * :focus) {
+								&:before {
+									border: none;
+									margin: 0;
+									outline: none;
+								}
+							}
+
+							${hover(css`
+								&:before {
+									border: ${item.hoverBorder};
+								}
+							`)};
+
+							${StyledListItemText} {
+								outline: none;
+							}
+						`
+					}
+				`
+			}
+
+			${
+				$disabled &&
+				css`
+					&:focus:before {
+						outline: ${item.focusOutline};
+					}
+				`
+			}
+
+			${
+				!$preserveMainActionStyles &&
+				$buttonSemantics &&
+				css`
+					${createButtonSemanticStyles({
+						buttonSemantics: $buttonSemantics,
+						disabled: $disabled,
+						theme
+					})};
+				`
+			}
+
+			// Apply button semantic styles only when $buttonSemantics is present
+			${
+				($buttonSemantics || $preserveMainActionStyles) &&
+				css`
+					${StyledListItemGraphic} {
+						${StyledIconWrapper} {
+							font-size: ${button.iconButton.fontSize};
 						}
 					}
-
-					${hover(css`
-						&:before {
-							border: ${item.hoverBorder};
-						}
-					`)};
 
 					${StyledListItemText} {
-						outline: none;
+						font-family: ${button.fontFamily};
+						font-size: ${button.fontSize};
+						font-weight: ${button.fontWeight};
+						text-transform: ${button.textTransform};
 					}
-				`}
-			`}
-
-			${$disabled &&
-			css`
-				&:focus:before {
-					outline: ${item.focusOutline};
-				}
-			`}
-            
-			${!$preserveMainActionStyles &&
-			$buttonSemantics &&
-			css`
-				${createButtonSemanticStyles({
-					buttonSemantics: $buttonSemantics,
-					disabled: $disabled,
-					theme
-				})};
-			`}
-			
-			// Apply button semantic styles only when $buttonSemantics is present
-			${($buttonSemantics || $preserveMainActionStyles) &&
-			css`
-				${StyledListItemGraphic} {
-					${StyledIconWrapper} {
-						font-size: ${button.iconButton.fontSize};
-					}
-				}
-
-				${StyledListItemText} {
-					font-family: ${button.fontFamily};
-					font-size: ${button.fontSize};
-					font-weight: ${button.fontWeight};
-					text-transform: ${button.textTransform};
-				}
-			`}
+				`
+			}
 		`;
 	}
 );
@@ -315,15 +343,17 @@ export const StyledListItemGraphic = styled.div.withConfig({ displayName: "Style
 		flex-shrink: 0;
 		justify-content: center;
 		position: relative;
-		${$iconPlaceholder &&
-		css`
-			color: ${graphic.placeholder.color};
-			background-color: ${$disabled ? disabledColor : graphic.placeholder.background};
-			font-size: ${graphic.placeholder.fontSize};
-			height: ${graphic.placeholder.height};
-			line-height: ${graphic.placeholder.lineHeight};
-			width: ${graphic.placeholder.width};
-		`}
+		${
+			$iconPlaceholder &&
+			css`
+				color: ${graphic.placeholder.color};
+				background-color: ${$disabled ? disabledColor : graphic.placeholder.background};
+				font-size: ${graphic.placeholder.fontSize};
+				height: ${graphic.placeholder.height};
+				line-height: ${graphic.placeholder.lineHeight};
+				width: ${graphic.placeholder.width};
+			`
+		}
 
 		${StyledIconWrapper} {
 			display: inline-flex;
@@ -331,10 +361,12 @@ export const StyledListItemGraphic = styled.div.withConfig({ displayName: "Style
 			&:not(${StyledVariantIconWrapper}) {
 				color: inherit;
 			}
-			${$disabled &&
-			css`
-				color: inherit;
-			`}
+			${
+				$disabled &&
+				css`
+					color: inherit;
+				`
+			}
 		}
 	`;
 });
@@ -355,23 +387,29 @@ export const StyledListItemText = styled.div.withConfig({ displayName: "StyledLi
 		font-weight: ${list.item.text.fontWeight};
 		position: relative;
 
-		${$paddedLeft &&
-		css`
-			&:first-child {
-				margin-left: ${`calc(${list.item.graphic.iconFontSize} + ${list.item.gap})`};
-			}
-		`}
-		${$paddedRight &&
-		css`
-			&:last-child {
-				margin-right: ${`calc(${list.item.meta.fontSize} + ${list.item.gap})`};
-			}
-		`}
-		${$selected &&
-		css`
-			color: ${list.item.selected.color};
-			font-weight: ${list.item.selected.fontWeight};
-		`}
+		${
+			$paddedLeft &&
+			css`
+				&:first-child {
+					margin-left: ${`calc(${list.item.graphic.iconFontSize} + ${list.item.gap})`};
+				}
+			`
+		}
+		${
+			$paddedRight &&
+			css`
+				&:last-child {
+					margin-right: ${`calc(${list.item.meta.fontSize} + ${list.item.gap})`};
+				}
+			`
+		}
+		${
+			$selected &&
+			css`
+				color: ${list.item.selected.color};
+				font-weight: ${list.item.selected.fontWeight};
+			`
+		}
 	`;
 });
 
@@ -401,12 +439,14 @@ export const StyledListItemMeta = styled.div.withConfig({ displayName: "StyledLi
 		position: relative;
 		text-align: right;
 
-		${$disabled &&
-		css`
-			${StyledIconWrapper} {
-				color: inherit;
-			}
-		`}
+		${
+			$disabled &&
+			css`
+				${StyledIconWrapper} {
+					color: inherit;
+				}
+			`
+		}
 	`;
 });
 
@@ -424,22 +464,28 @@ export const StyledListSubHeader = styled.li.withConfig({ displayName: "StyledLi
 		min-height: ${subHeader.minHeight};
 		line-height: ${subHeader.lineHeight};
 		position: relative;
-		${!$fill &&
-		css`
-			${$hasBorder &&
+		${
+			!$fill &&
 			css`
-				border-left: ${border};
-				border-right: ${border};
+				${
+					$hasBorder &&
+					css`
+						border-left: ${border};
+						border-right: ${border};
 
-				&:first-child {
-					border-top: ${border};
+						&:first-child {
+							border-top: ${border};
+						}
+					`
 				}
-			`}
-			${$hasDivider &&
-			css`
-				border-bottom: ${border};
-			`}
-		`}
+				${
+					$hasDivider &&
+					css`
+						border-bottom: ${border};
+					`
+				}
+			`
+		}
 	`;
 });
 
@@ -454,39 +500,43 @@ export const StyledListSubHeaderContentWrapper = styled.div.withConfig({
 		color: ${subHeader.color};
 		cursor: ${$interactive ? "pointer" : "default"};
 		height: 100%;
-		${$fill &&
-		css`
-			color: ${subHeader.fillColor};
-			background-color: ${subHeader.fillBG};
-		`}
-		${$interactive &&
-		css`
-			${createPseudoElement(":before")};
-			${active(css`
-				background-color: ${subHeader.active?.background};
-				color: ${item.activeBorder.split(" ")[2] || item.activeBorder};
-				&:before {
-					border: ${item.activeBorder};
+		${
+			$fill &&
+			css`
+				color: ${subHeader.fillColor};
+				background-color: ${subHeader.fillBG};
+			`
+		}
+		${
+			$interactive &&
+			css`
+				${createPseudoElement(":before")};
+				${active(css`
+					background-color: ${subHeader.active?.background};
+					color: ${item.activeBorder.split(" ")[2] || item.activeBorder};
+					&:before {
+						border: ${item.activeBorder};
+					}
+				`)};
+				${hover(css`
+					background-color: ${subHeader.hover?.background};
+					color: ${item.hoverBorder.split(" ")[2] || item.hoverBorder};
+					&:before {
+						border: ${item.hoverBorder};
+					}
+				`)};
+				&:focus {
+					outline: none;
+					background-color: ${subHeader.focus?.background};
+					color: ${item.focusBorder.split(" ")[2] || item.focusBorder};
+					&:before {
+						border: ${item.focusBorder};
+						margin: 1px;
+						outline: ${item.focusOutline};
+					}
 				}
-			`)};
-			${hover(css`
-				background-color: ${subHeader.hover?.background};
-				color: ${item.hoverBorder.split(" ")[2] || item.hoverBorder};
-				&:before {
-					border: ${item.hoverBorder};
-				}
-			`)};
-			&:focus {
-				outline: none;
-				background-color: ${subHeader.focus?.background};
-				color: ${item.focusBorder.split(" ")[2] || item.focusBorder};
-				&:before {
-					border: ${item.focusBorder};
-					margin: 1px;
-					outline: ${item.focusOutline};
-				}
-			}
-		`}
+			`
+		}
 	`;
 });
 
@@ -502,14 +552,16 @@ export const StyledListSubHeaderContent = styled.div.withConfig({ displayName: "
 		height: 100%;
 		padding: ${subHeader.padding};
 
-		${$useAsButton &&
-		css`
-			// Prevent text selection on icon when dragging the cursor.
-			${StyledIconWrapper} {
-				user-select: none;
-				-webkit-user-select: none;
-			}
-		`}
+		${
+			$useAsButton &&
+			css`
+				// Prevent text selection on icon when dragging the cursor.
+				${StyledIconWrapper} {
+					user-select: none;
+					-webkit-user-select: none;
+				}
+			`
+		}
 	`;
 });
 

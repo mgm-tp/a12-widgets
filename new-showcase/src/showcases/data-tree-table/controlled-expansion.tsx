@@ -37,9 +37,11 @@ import { Button, ButtonGroup } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DataTreeTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import type { FileNode } from "./shared.js";
-import { COLUMNS, FILE_TREE, fileIcon } from "./shared.js";
+import { COLUMNS, fileIcon, fileTree, useRowSelection } from "./shared.js";
 
-const FOLDER_KEYS: Key[] = ["src", "components", "assets"];
+const FILE_TREE = fileTree("controlled");
+
+const FOLDER_KEYS: Key[] = ["controlled-src", "controlled-components", "controlled-assets"];
 
 /**
  * Drive expansion yourself with `expandedKeys` + `onExpandedChange` instead of letting the wrapper own it.
@@ -48,7 +50,8 @@ const FOLDER_KEYS: Key[] = ["src", "components", "assets"];
  * `expandedKeys` set you hand back.
  */
 export function ControlledDataTreeTable(): ReactElement {
-	const [expanded, setExpanded] = useState<Set<Key>>(() => new Set(["src"]));
+	const [expanded, setExpanded] = useState<Set<Key>>(() => new Set(["controlled-src"]));
+	const { rowStyling, rowEventHandlers } = useRowSelection<FileNode>();
 
 	return (
 		<div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -63,6 +66,8 @@ export function ControlledDataTreeTable(): ReactElement {
 				getIcon={fileIcon}
 				columns={COLUMNS}
 				rowKey="id"
+				rowStyling={rowStyling}
+				rowEventHandlers={rowEventHandlers}
 				maxHeight={360}
 				expandedKeys={expanded}
 				onExpandedChange={setExpanded}

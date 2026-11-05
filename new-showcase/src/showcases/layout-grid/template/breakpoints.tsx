@@ -37,8 +37,8 @@ import { useState, useRef, useCallback } from "react";
 import type { SizeDetectorProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import { noop, Typography, TextField, LayoutGrid, TextOutput, HintTooltip } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { ShowcaseSlider } from "../../../helpers/showcase-slider.js";
 import { ConfigurationView } from "../../../helpers/configuration-view.js";
+import { ShowcaseSlider } from "../../../helpers/showcase-slider.js";
 
 const { Grid, Row, Column } = LayoutGrid;
 const longText = loremIpsum({ count: 50, units: "words" });

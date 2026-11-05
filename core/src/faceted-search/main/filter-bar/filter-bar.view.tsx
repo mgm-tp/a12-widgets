@@ -30,27 +30,26 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { isEmpty, isEqual } from "lodash-es";
 import type { ReactNode, ReactElement } from "react";
 import { useRef, useContext, useState, useCallback, Children, isValidElement, cloneElement, useEffect } from "react";
-import { useResizeDetector } from "react-resize-detector";
-import { isEmpty, isEqual } from "lodash-es";
 
-import { Icon } from "../../../icon/main/icon.view.js";
-import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
+import { useResizeObserver } from "../../../common/main/resize-observer/use-resize-observer.js";
+import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
+import { Icon } from "../../../icon/main/icon.view.js";
 import type { FilterProps } from "../filter/filter.api.js";
 
+import type { FilterBarProps } from "./filter-bar.api.js";
 import {
 	StyledFilterBarWrapper,
 	StyledFilterBarContent,
 	StyledFilterBarAction,
 	StyledFilterBarActionButton
 } from "./filter-bar.styled.js";
-import type { FilterBarProps } from "./filter-bar.api.js";
-import { FilterContext } from "./filter-context.js";
 import { getContentBoxWidth, handleCollapseMode, handleCompactMode } from "./filter-bar.utils.js";
+import { FilterContext } from "./filter-context.js";
 
 const baseClassName = addPrefix("filter-bar");
 const hiddenClass = addPrefix("h_hidden");
@@ -74,10 +73,7 @@ export function FilterBar({
 	const context = useContext(A11YLanguageContext);
 	const [collapsed, setCollapsed] = useState(compact || initialCollapsed);
 
-	const { ref: contentResizeRef, width: contentWidth = 0 } = useResizeDetector({
-		refreshMode: "debounce",
-		refreshRate: 0
-	});
+	const { ref: contentResizeRef, width: contentWidth = 0 } = useResizeObserver();
 
 	const setContentElementRef = useCallback((ref: HTMLElement | null) => {
 		filterContentElementRef.current = ref;

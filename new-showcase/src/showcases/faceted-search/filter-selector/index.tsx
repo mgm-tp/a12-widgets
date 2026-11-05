@@ -30,28 +30,27 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import FilterSelectorListAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/filter-selector.list-mode.api.json" with { type: "json" };
-import FilterSelectorTemplateAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/tpl/filter-selector.tpl.api.json" with { type: "json" };
-import FilterSelectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/filter-selector.api.json" with { type: "json" };
-import FilterSelectorMobileAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/filter-selector.mobile.api.json" with { type: "json" };
+import filterSelectorDockedCode from "!../filter-selector-new/docked-filter-selector.tsx?raw";
+import filterSelectorSharedCode from "!../filter-selector-new/filter-selector-showcase-template.tsx?raw";
+import filterSelectorOverlayCode from "!../filter-selector-new/overlay-filter-selector.tsx?raw";
+import dataCode from "!./data.tsx?raw";
+import filterSelectorCode from "!./filter-selector.tsx?raw";
+import filterSelectorShowcaseCode from "!./showcase.tsx?raw";
+import templateCode from "!./template.tsx?raw";
+import utilsCode from "!./utils.tsx?raw";
+
 import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import FilterSelectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/filter-selector.api.json" with { type: "json" };
+import FilterSelectorListAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/filter-selector.list-mode.api.json" with { type: "json" };
+import FilterSelectorMobileAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/filter-selector.mobile.api.json" with { type: "json" };
+import FilterSelectorTemplateAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/faceted-search/main/filter-selector/tpl/filter-selector.tpl.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../../helpers/showcase-styles.js";
-
 import { DockedFilterSelector } from "../filter-selector-new/docked-filter-selector.js";
 import { OverlayFilterSelector } from "../filter-selector-new/overlay-filter-selector.js";
 
 import { FilterSelectorShowcase } from "./showcase.js";
-
-import filterSelectorShowcaseCode from "!./showcase.tsx?raw";
-import filterSelectorCode from "!./filter-selector.tsx?raw";
-import dataCode from "!./data.tsx?raw";
-import templateCode from "!./template.tsx?raw";
-import utilsCode from "!./utils.tsx?raw";
-import filterSelectorDockedCode from "!../filter-selector-new/docked-filter-selector.tsx?raw";
-import filterSelectorOverlayCode from "!../filter-selector-new/overlay-filter-selector.tsx?raw";
-import filterSelectorSharedCode from "!../filter-selector-new/filter-selector-showcase-template.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

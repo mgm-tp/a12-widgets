@@ -52,6 +52,7 @@ export function BasedOnLineEllipsisShowcase(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<Checkbox
+					id="lines-ellipsis-based-on-split-based-on-letters"
 					fitToParent={false}
 					checked={checked}
 					label="split based on letters"

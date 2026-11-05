@@ -293,7 +293,7 @@ exports[`com.mgmtp.a12.widgets.table.body-row > disabled row 1`] = `
     border-width: medium medium 1px;
     border-style: none none solid;
     border-color: currentcolor currentcolor rgb(211, 214, 220);
-    border-image: initial;
+    border-image: none;
     box-sizing: border-box;
   }
 
@@ -543,7 +543,7 @@ exports[`com.mgmtp.a12.widgets.table.body-row > interactive row 1`] = `
     border-width: medium medium 1px;
     border-style: none none solid;
     border-color: currentcolor currentcolor rgb(211, 214, 220);
-    border-image: initial;
+    border-image: none;
     box-sizing: border-box;
   }
 
@@ -568,39 +568,9 @@ exports[`com.mgmtp.a12.widgets.table.body-row > other context values 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 2px;
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
-}
-
-.c3:not(:last-child)::before,
-.c0:not(:last-child) .c3::before {
-  border-bottom: 1px solid rgb(211, 214, 220);
-}
-
-.c4:not(:last-child)::before,
-.c0:not(:last-child) .c4::before {
-  border-bottom: 1px solid rgb(211, 214, 220);
-}
-
-.c5:not(:last-child)::before,
-.c0:not(:last-child) .c5::before {
-  border-bottom: 1px solid rgb(211, 214, 220);
-}
-
-.c6:not(:last-child)::before,
-.c0:not(:last-child) .c6::before {
-  border-bottom: 1px solid rgb(211, 214, 220);
-}
-
-.c7:not(:last-child)::before,
-.c0:not(:last-child) .c7::before {
-  border-bottom: 1px solid rgb(211, 214, 220);
-}
-
-.c8:not(:last-child)::before,
-.c0:not(:last-child) .c8::before {
-  border-bottom: 1px solid rgb(211, 214, 220);
 }
 
 .c2 {
@@ -653,150 +623,6 @@ exports[`com.mgmtp.a12.widgets.table.body-row > other context values 1`] = `
   box-sizing: border-box;
   margin: 1px 0px 1px 1px;
   width: 2px;
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child:hover + .c3 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child:active + .c3 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child + .c3:hover {
-    background-color: rgb(245, 251, 255);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child + .c3:active {
-    background-color: rgb(245, 251, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child:hover + .c4 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child:active + .c4 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child + .c4:hover {
-    background-color: rgb(245, 251, 255);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child + .c4:active {
-    background-color: rgb(245, 251, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child:hover + .c5 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child:active + .c5 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child + .c5:hover {
-    background-color: rgb(245, 251, 255);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child + .c5:active {
-    background-color: rgb(245, 251, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child:hover + .c6 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child:active + .c6 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child + .c6:hover {
-    background-color: rgb(245, 251, 255);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child + .c6:active {
-    background-color: rgb(245, 251, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child:hover + .c7 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child:active + .c7 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child + .c7:hover {
-    background-color: rgb(245, 251, 255);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child + .c7:active {
-    background-color: rgb(245, 251, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child:hover + .c8 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child:active + .c8 {
-    background-color: rgb(249, 250, 251);
-  }
-}
-
-@media (pointer: fine) {
-  .c0 > :first-child + .c8:hover {
-    background-color: rgb(245, 251, 255);
-  }
-}
-
-@media (pointer: coarse) {
-  .c0 > :first-child + .c8:active {
-    background-color: rgb(245, 251, 255);
-  }
 }
 
 @media (pointer: coarse) {
@@ -854,7 +680,7 @@ exports[`com.mgmtp.a12.widgets.table.body-row > other context values 1`] = `
     border-width: medium medium 1px;
     border-style: none none solid;
     border-color: currentcolor currentcolor rgb(211, 214, 220);
-    border-image: initial;
+    border-image: none;
     box-sizing: border-box;
   }
 

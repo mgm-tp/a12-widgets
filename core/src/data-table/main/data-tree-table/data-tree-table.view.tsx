@@ -30,35 +30,50 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ComponentType, HTMLAttributes, MouseEvent, ReactElement, ReactNode } from "react";
-import { memo, useCallback, useEffect, useMemo, useRef } from "react";
+import type { ComponentType, HTMLAttributes, Key, MouseEvent, ReactElement, ReactNode, RefCallback } from "react";
+import { memo, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useTheme } from "styled-components";
 
-import { ArrowButton } from "../../../tree/main/tpl/tree-elements.tpl.js";
+import { A11YLanguageContext } from "../../../common/main/a11y-localization/index.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
+import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { useLatestRef } from "../../../common/main/hooks.js";
+import { LiveRegion, useLiveRegion } from "../../../common/main/live-region/index.js";
+import { useKeyboardNavigationMode } from "../../../keyboard-navigation/main/keyboard-navigation-context.js";
 import { useTreeModel } from "../../../tree-view/main/model/index.js";
 import type { FlatTreeRow } from "../../../tree-view/main/model/index.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-
+import { ArrowButton } from "../../../tree/main/tpl/tree-elements.tpl.js";
+import type { DataTableCellRenderContext, DataTableColumn } from "../columns.js";
+import type { DataTableSlotProps, DataTableSlots } from "../data-table-slots.api.js";
+import type { DataTableProps, DataTableRowKeyGetter } from "../data-table.api.js";
+import { RowTabStopFallbackProvider } from "../data-table.row-tab-stop.js";
+import { getCellContent, rowKeyFor } from "../data-table.utils.js";
+import { DataTable } from "../data-table.view.js";
+import { DataTableRow } from "../default-renderers.js";
 import type { TableScrollToNodeHandler } from "../foundation/table-renderer.api.js";
 import type { TableDragDropOptions } from "../foundation/table.api.js";
 import { flattenAllColumns, isColumnGroup } from "../foundation/utils.js";
-import type { DataTableCellRenderContext, DataTableColumn } from "../columns.js";
-import type { DataTableProps, DataTableRowKeyGetter } from "../data-table.api.js";
-import type { DataTableSlotProps, DataTableSlots } from "../data-table-slots.api.js";
-import { DataTable } from "../data-table.view.js";
-import { DataTableRow } from "../default-renderers.js";
-import { rowKeyFor } from "../data-table.utils.js";
 
-import { StyledTreeCell, StyledTreeIcon, StyledTreeLabel, StyledTreeToggle } from "./data-tree-table.styled.js";
-import type { DataTreeTableExpandToggleContext, DataTreeTableProps } from "./data-tree-table.api.js";
+import type {
+	DataTreeTableExpandToggleContext,
+	DataTreeTableProps,
+	DataTreeTableRowMeta
+} from "./data-tree-table.api.js";
 import type { TreeDnDState } from "./data-tree-table.dnd.js";
-import { createTreeDnDSlots, useTreeDnDMonitor } from "./data-tree-table.dnd.js";
+import { createTreeDnDSlots, useTreeDnDMonitor, useTreeRootDropZone } from "./data-tree-table.dnd.js";
 import {
 	createLoadMoreSentinel,
 	isLoadMoreSentinel,
 	loadMoreSentinelKey,
 	TreeLoadMoreRow
 } from "./data-tree-table.load-more.js";
+import {
+	StyledTreeCell,
+	StyledTreeIcon,
+	StyledTreeLabel,
+	StyledTreeTitle,
+	StyledTreeToggle
+} from "./data-tree-table.styled.js";
 
 interface TreeCellContentProps<RowType> {
 	/** Resolved cell content for the tree column — the node label. */
@@ -66,7 +81,16 @@ interface TreeCellContentProps<RowType> {
 
 	/** Resolved leading icon, rendered between the toggle slot and the label. */
 	icon?: ReactNode;
+
+	/**
+	 * Resolved tree-column value of this row's parent. Announced to screen readers as
+	 * ", belongs to <parentLabel>" after the cell's label. `undefined` for a top-level row.
+	 */
+	parentLabel?: ReactNode;
 	row: RowType;
+
+	/** The row's `rowKey`, used to build the `tree-node-title-{key}` / `tree-node-name-{key}` anchors. */
+	nodeKey: Key;
 	level: number;
 	expandable: boolean;
 	expanded: boolean;
@@ -82,10 +106,27 @@ interface TreeCellContentProps<RowType> {
  * chevron, a consumer-supplied control, or empty space for a leaf) and the label.
  */
 function TreeCellContentInner<RowType>(props: TreeCellContentProps<RowType>): ReactElement {
-	const { label, icon, row, level, expandable, expanded, loading, indentSize, toggleSize, renderToggle, onToggle } =
-		props;
+	const {
+		label,
+		icon,
+		parentLabel,
+		row,
+		nodeKey,
+		level,
+		expandable,
+		expanded,
+		loading,
+		indentSize,
+		toggleSize,
+		renderToggle,
+		onToggle
+	} = props;
 	const theme = useTheme();
+	const treeTitles = useContext(A11YLanguageContext).treeTitles;
 	const indent = theme.components.treeTable.node.spacingLeft + level * indentSize;
+	const showParentLabel = parentLabel != null && parentLabel !== "";
+
+	const expanderTabIndex = useKeyboardNavigationMode("tree") === "arrow-only" ? -1 : undefined;
 
 	const handleToggle = useCallback(
 		(event?: MouseEvent<HTMLElement>) => {
@@ -101,19 +142,40 @@ function TreeCellContentInner<RowType>(props: TreeCellContentProps<RowType>): Re
 		toggle = renderToggle ? (
 			renderToggle({ row, expanded, isLeaf: false, level, loading, toggle: onToggle })
 		) : (
-			<ArrowButton expanded={expanded} loading={loading} onToggleExpansion={handleToggle} />
+			// Named after the node, the way the legacy `Tree` and `TreeTable` name theirs: `aria-labelledby`
+			// overrides the localized "Expand subitems" title, so the control announces the node it belongs to
+			// rather than a string every chevron in the table shares. The action itself is carried by
+			// `aria-expanded`.
+			<ArrowButton
+				id={`tree-node-arrow-${nodeKey}`}
+				expanded={expanded}
+				loading={loading}
+				onToggleExpansion={handleToggle}
+				tabIndex={expanderTabIndex}
+				htmlAttributes={{ "aria-labelledby": `tree-node-name-${nodeKey}` }}
+			/>
 		);
 	}
 
 	return (
 		<StyledTreeCell $indent={indent} data-role={DataRoles.TreeTable.Cell} data-tree-level={level}>
 			<StyledTreeToggle $size={toggleSize}>{toggle}</StyledTreeToggle>
-			{icon != null && icon !== false && (
-				<StyledTreeIcon data-role={DataRoles.TreeTable.Icon} aria-hidden="true">
-					{icon}
-				</StyledTreeIcon>
-			)}
-			<StyledTreeLabel>{label}</StyledTreeLabel>
+			<StyledTreeTitle id={`tree-node-title-${nodeKey}`} data-role={DataRoles.Tree.Node.Title}>
+				{icon != null && icon !== false && (
+					<StyledTreeIcon id={`tree-node-icon-${nodeKey}`} data-role={DataRoles.TreeTable.Icon} aria-hidden="true">
+						{icon}
+					</StyledTreeIcon>
+				)}
+				<StyledTreeLabel id={`tree-node-name-${nodeKey}`} data-role={DataRoles.Tree.Node.Name}>
+					{label}
+				</StyledTreeLabel>
+				{showParentLabel && (
+					<HiddenText htmlTag="div" htmlAttributes={{ "data-role": DataRoles.TreeTable.ParentLabel }}>
+						<HiddenText>{", " + (treeTitles?.belongTo ?? "")}</HiddenText>
+						{parentLabel}
+					</HiddenText>
+				)}
+			</StyledTreeTitle>
 		</StyledTreeCell>
 	);
 }
@@ -144,6 +206,7 @@ export function DataTreeTable<RowType = unknown>(props: DataTreeTableProps<RowTy
 		onLoadAll: _onLoadAll,
 		expandedKeys: _expandedKeys,
 		onExpandedChange: _onExpandedChange,
+		onVisibleRowsChange,
 		defaultExpandedKeys: _defaultExpandedKeys,
 		defaultExpandAll: _defaultExpandAll,
 		treeColumnKey,
@@ -206,6 +269,67 @@ export function DataTreeTable<RowType = unknown>(props: DataTreeTableProps<RowTy
 		return { data: flat, metaBySentinel: sentinels };
 	}, [rows]);
 
+	// Public projection of the model's flattened rows. Deliberately a copy of the fields consumers need
+	// rather than the model record itself, so the headless model stays free to change shape.
+	const visibleRowMeta = useMemo<DataTreeTableRowMeta<RowType>[]>(
+		() =>
+			rows.map((entry, index) => ({
+				kind: entry.kind,
+				row: entry.row,
+				key: entry.key,
+				index,
+				level: entry.level,
+				parentKey: entry.parentKey,
+				parentRow: entry.parentRow,
+				expandable: entry.expandable,
+				expanded: entry.expanded,
+				posinset: entry.posinset,
+				setsize: entry.setsize
+			})),
+		[rows]
+	);
+
+	// Held in a ref so an inline `onVisibleRowsChange` does not re-fire the effect on every render —
+	// consumers routinely store the result in state, which would otherwise loop.
+	const visibleRowsListenerRef = useRef(onVisibleRowsChange);
+	visibleRowsListenerRef.current = onVisibleRowsChange;
+
+	// Gated on the reported *values*, not on the array's identity. The model re-derives `rows` whenever
+	// an input callback (`getChildren`, `isLeaf`, …) changes identity, and an inline arrow does that on
+	// every render — so an identity-gated notification would fire every render, and a consumer storing
+	// the result in state (the intended use) would re-render forever.
+	const lastReportedRef = useRef<DataTreeTableRowMeta<RowType>[] | null>(null);
+
+	useEffect(() => {
+		const previous = lastReportedRef.current;
+		const unchanged =
+			previous !== null &&
+			previous.length === visibleRowMeta.length &&
+			previous.every((entry, index) => {
+				const next = visibleRowMeta[index];
+
+				return (
+					entry.key === next.key &&
+					entry.index === next.index &&
+					entry.level === next.level &&
+					entry.kind === next.kind &&
+					entry.expanded === next.expanded &&
+					entry.expandable === next.expandable &&
+					entry.parentKey === next.parentKey &&
+					entry.posinset === next.posinset &&
+					entry.setsize === next.setsize &&
+					entry.row === next.row
+				);
+			});
+
+		if (unchanged) {
+			return;
+		}
+
+		lastReportedRef.current = visibleRowMeta;
+		visibleRowsListenerRef.current?.(visibleRowMeta);
+	}, [visibleRowMeta]);
+
 	// Derive the row key from the consumer's `rowKey` for real rows, and from the synthetic sentinel key
 	// for load-more placeholders — keeping every key unique even though a sentinel's parent is also a row.
 	const treeRowKey = useCallback<DataTableRowKeyGetter<RowType>>(
@@ -215,6 +339,55 @@ export function DataTreeTable<RowType = unknown>(props: DataTreeTableProps<RowTy
 
 	const dragDropEnabled = !!dragDropOptions;
 
+	// Polite live region + themed flash colour + localized titles for keyboard grab-and-move; the pending
+	// flash key is claimed by the moved row's DnD slot after a drop / keyboard move re-renders.
+	const liveRegion = useLiveRegion();
+	const flashColor = theme.components.table.bodyRow.selected.background;
+	const dndTitles = useContext(A11YLanguageContext).dragAndDropTitles;
+	const pendingFlashKeyRef = useRef<Key | null>(null);
+
+	// The key of the row currently picked up for keyboard grab-and-move (`null` when none). Shared across
+	// every DnD row so only the grabbed row's arrow presses reorder.
+	const grabbedKeyRef = useRef<Key | null>(null);
+
+	// Resolve rowKey → current row index, then focus that row via the inner DataTable's captured
+	// index-based scroll handle — used to refocus a row after a keyboard move re-renders it at a new index.
+	const indexHandlerRef = useRef<TableScrollToNodeHandler | null>(null);
+	const rowsRef = useRef(rows);
+
+	rowsRef.current = rows;
+
+	// Read by the identity-stable `rowFallbackKeys` below.
+	const metaByKeyRef = useRef(metaByKey);
+
+	metaByKeyRef.current = metaByKey;
+
+	const focusRowByKey = useCallback((key: Key): void => {
+		const index = rowsRef.current.findIndex((entry) => entry.key === key);
+
+		if (index >= 0) {
+			indexHandlerRef.current?.(index, { autoFocus: true });
+		}
+	}, []);
+
+	// Where the inner table's tab stop goes when the row holding it is collapsed away: onto the
+	// folder just closed, per the ARIA `treegrid` pattern. The whole chain, since collapsing a
+	// grandparent takes the parent with it.
+	const rowFallbackKeys = useCallback((rowIndex: number): Key[] => {
+		const keys: Key[] = [];
+
+		let entry: FlatTreeRow<RowType> | undefined = rowsRef.current[rowIndex];
+
+		while (entry?.parentKey !== undefined) {
+			const parentKey: Key = entry.parentKey;
+
+			keys.push(parentKey);
+			entry = metaByKeyRef.current.get(parentKey);
+		}
+
+		return keys;
+	}, []);
+
 	// Live DnD state handed to the slot component through a ref, refreshed each render so the pragmatic
 	// adapters read current options/rows without re-binding.
 	const dndStateRef = useRef<TreeDnDState<RowType>>({
@@ -223,7 +396,12 @@ export function DataTreeTable<RowType = unknown>(props: DataTreeTableProps<RowTy
 		metaByKey,
 		rowKeyOf,
 		indentPerLevel: indentSize,
-		toggle
+		toggle,
+		titles: dndTitles,
+		announce: liveRegion.announce,
+		flashColor,
+		pendingFlashKeyRef,
+		focusRowByKey
 	});
 
 	dndStateRef.current = {
@@ -232,7 +410,12 @@ export function DataTreeTable<RowType = unknown>(props: DataTreeTableProps<RowTy
 		metaByKey,
 		rowKeyOf,
 		indentPerLevel: indentSize,
-		toggle
+		toggle,
+		titles: dndTitles,
+		announce: liveRegion.announce,
+		flashColor,
+		pendingFlashKeyRef,
+		focusRowByKey
 	};
 
 	// Set true at this tree's drag start so the monitor resolves the drop only for the source tree,
@@ -241,8 +424,23 @@ export function DataTreeTable<RowType = unknown>(props: DataTreeTableProps<RowTy
 
 	useTreeDnDMonitor<RowType>(dndStateRef, localDragRef, dragDropEnabled);
 
+	// The viewport `<div>` hosting the root drop zone (the empty area below the last row). Resolved from the
+	// inner table's `ref` — its parent, as `BaseDataTableProps.ref` documents — while the consumer's own
+	// `ref` keeps receiving the `<table>`.
+	const [viewportEl, setViewportEl] = useState<HTMLElement | null>(null);
+	const consumerTableRef = useLatestRef((tableProps as { ref?: RefCallback<HTMLTableElement> }).ref);
+	const tableRef = useCallback<RefCallback<HTMLTableElement>>(
+		(table) => {
+			consumerTableRef.current?.(table);
+			setViewportEl(table?.parentElement ?? null);
+		},
+		[consumerTableRef]
+	);
+
+	useTreeRootDropZone<RowType>(dndStateRef, viewportEl, dragDropEnabled);
+
 	const dndSlots = useMemo(
-		() => (dragDropEnabled ? createTreeDnDSlots<RowType>(dndStateRef, localDragRef) : null),
+		() => (dragDropEnabled ? createTreeDnDSlots<RowType>(dndStateRef, localDragRef, grabbedKeyRef) : null),
 		[dragDropEnabled]
 	);
 
@@ -327,11 +525,16 @@ export function DataTreeTable<RowType = unknown>(props: DataTreeTableProps<RowTy
 					return label;
 				}
 
+				const parentLabel =
+					meta.parentRow !== undefined ? getCellContent(context.column, meta.parentRow, 0) : undefined;
+
 				return (
 					<TreeCellContent
 						label={label}
 						icon={state.getIcon?.(row)}
+						parentLabel={parentLabel}
 						row={row}
+						nodeKey={meta.key}
 						level={meta.level}
 						expandable={meta.expandable}
 						expanded={meta.expanded}
@@ -458,14 +661,10 @@ export function DataTreeTable<RowType = unknown>(props: DataTreeTableProps<RowTy
 		[slots, TreeRowSlot, dndSlots]
 	);
 
-	// Bridge the key-based `scrollToNode` onto the flat DataTable's row-index handle: capture the index
-	// handler once, then resolve `rowKey → index` against the current rows at call time. A row hidden
-	// inside a collapsed ancestor is absent from `data`, so the call is a no-op.
-	const indexHandlerRef = useRef<TableScrollToNodeHandler | null>(null);
-	const rowsRef = useRef(rows);
-
-	rowsRef.current = rows;
-
+	// Capture the inner DataTable's row-index scroll handle once (declared above alongside `rowsRef`):
+	// the key-based `scrollToNode` below and the keyboard-move `focusRowByKey` both resolve
+	// `rowKey → index` against the current rows and drive this handle. A row hidden inside a collapsed
+	// ancestor is absent from `data`, so the call is a no-op.
 	const captureIndexHandler = useCallback((handler: TableScrollToNodeHandler): void => {
 		indexHandlerRef.current = handler;
 	}, []);
@@ -509,19 +708,25 @@ export function DataTreeTable<RowType = unknown>(props: DataTreeTableProps<RowTy
 	);
 
 	return (
-		<DataTable
-			{...(tableProps as DataTableProps<RowType, DataTableColumn<RowType>>)}
-			columns={treeColumns}
-			data={data}
-			rowKey={treeRowKey}
-			rowStyling={treeRowStyling}
-			cellStyling={treeCellStyling}
-			rowEventHandlers={treeRowEventHandlers}
-			gridRole="treegrid"
-			slots={mergedSlots}
-			scrollToNode={captureIndexHandler}
-			dragDropOptions={innerDragDropOptions}
-		/>
+		<>
+			<RowTabStopFallbackProvider fallbackKeys={rowFallbackKeys}>
+				<DataTable
+					{...(tableProps as DataTableProps<RowType, DataTableColumn<RowType>>)}
+					ref={tableRef}
+					columns={treeColumns}
+					data={data}
+					rowKey={treeRowKey}
+					rowStyling={treeRowStyling}
+					cellStyling={treeCellStyling}
+					rowEventHandlers={treeRowEventHandlers}
+					gridRole="treegrid"
+					slots={mergedSlots}
+					scrollToNode={captureIndexHandler}
+					dragDropOptions={innerDragDropOptions}
+				/>
+			</RowTabStopFallbackProvider>
+			{dragDropEnabled && <LiveRegion ref={liveRegion.ref} dataRole={DataRoles.TreeTable.A11yLiveRegion} />}
+		</>
 	);
 }
 

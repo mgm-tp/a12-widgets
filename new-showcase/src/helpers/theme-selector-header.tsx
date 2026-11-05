@@ -37,8 +37,8 @@ import { provider as DeviceDetector, HeaderTrigger, Icon, List, PopUpMenu } from
 
 import { ShowcaseThemes } from "../themes/themes.js";
 
-import { getLocalStorage } from "./utils.js";
 import { ThemeContext } from "./theme-selector.js";
+import { getLocalStorage } from "./utils.js";
 
 const { Item } = List;
 export function ThemeSelectorHeader(props: { isSmallView?: boolean }): ReactElement {

@@ -127,6 +127,14 @@ export interface ResizeHandlerProps extends Container, Omit<ResizeOptions, "maxW
 	layoutGap?: number;
 
 	/**
+	 * @internal
+	 * The border radius (in px) of the element adjacent to the resize handle,
+	 * used to inset the handle indicator's top/bottom so it does not overlap
+	 * rounded corners.
+	 */
+	borderRadius?: number;
+
+	/**
 	 * The reference of the resize handle element.
 	 *
 	 * This `RefObject` is used to access the DOM element associated with the resize handle.

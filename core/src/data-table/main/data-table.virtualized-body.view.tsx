@@ -32,10 +32,10 @@
 
 import type { CSSProperties, Key, ReactElement, ReactNode, Ref, RefCallback, RefObject } from "react";
 
-import type { TableScrollToNodeHandler } from "./foundation/table-renderer.api.js";
 import type { DataTableVirtualizerHandle } from "./data-table-virtualizer.api.js";
 import { useDataTableVirtualizer } from "./data-table.use-virtualizer.js";
 import { DataTableWindowedTbody } from "./data-table.windowed-tbody.view.js";
+import type { TableScrollToNodeHandler } from "./foundation/table-renderer.api.js";
 
 export interface DataTableVirtualizedRowSlot {
 	index: number;
@@ -78,13 +78,6 @@ export interface DataTableVirtualizedBodyProps {
 	 * @see DataTableWindowedTbodyProps.colSpan for why this must equal the real column count.
 	 */
 	colSpan: number;
-
-	/**
-	 * Optional extra ref onto the windowed `<tbody>` element. Forwarded to
-	 * {@link DataTableWindowedTbody} so {@link DataTreeTable} can register a
-	 * root-level drop target in virtualized mode.
-	 */
-	bodyDropRef?: RefCallback<HTMLTableSectionElement | null>;
 }
 
 /**
@@ -105,8 +98,7 @@ export function DataTableVirtualizedBody(props: DataTableVirtualizedBodyProps): 
 		virtualizerRef,
 		renderRow,
 		rowKeyFor,
-		colSpan,
-		bodyDropRef
+		colSpan
 	} = props;
 
 	const { setBodyRef, virtualItems, topSpacerHeight, bottomSpacerHeight, measureRowRefFor } = useDataTableVirtualizer({
@@ -124,7 +116,6 @@ export function DataTableVirtualizedBody(props: DataTableVirtualizedBodyProps): 
 	return (
 		<DataTableWindowedTbody
 			setBodyRef={setBodyRef}
-			bodyDropRef={bodyDropRef}
 			colSpan={colSpan}
 			topSpacerHeight={topSpacerHeight}
 			bottomSpacerHeight={bottomSpacerHeight}

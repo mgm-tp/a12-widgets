@@ -32,11 +32,11 @@
 
 import { styled, css } from "styled-components";
 
-import { active, hover } from "../../theme/base/mixins/_interaction.js";
 import { StyledIconWrapper } from "../../icon/main/icon.view.js";
-import { TextField } from "../../input/text-field/text-field.view.js";
 import { BufferedInput, HTMLInputAdapter } from "../../input/buffered/main/buffered.view.js";
+import { TextField } from "../../input/text-field/text-field.view.js";
 import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
+import { active, hover } from "../../theme/base/mixins/_interaction.js";
 
 const TimeInput = BufferedInput(HTMLInputAdapter(TextField));
 
@@ -44,12 +44,14 @@ export const StyledTimeInput = styled(TimeInput)(({ theme }) => {
 	const { input } = theme.components.timePicker;
 
 	return css`
-		${input?.focus?.customBorder &&
-		css`
-			[data-isfocused="true"] {
-				${createBoxShadow(input.focus.customBorder)}
-			}
-		`}
+		${
+			input?.focus?.customBorder &&
+			css`
+				[data-isfocused="true"] {
+					${createBoxShadow(input.focus.customBorder)}
+				}
+			`
+		}
 	`;
 });
 
@@ -176,11 +178,13 @@ export const StyledTimePickerClockPointer = styled.div.withConfig({ displayName:
 		transform-origin: left center;
 		width: ${hasSmallPointer ? "calc(50% - 60px)" : "calc(50% - 20px)"};
 
-		${initialPointer &&
-		css`
-			background-color: ${pointer.initialBackground};
-			width: ${hasSmallPointer ? "calc(50% - 72px)" : "calc(50% - 32px)"};
-		`}
+		${
+			initialPointer &&
+			css`
+				background-color: ${pointer.initialBackground};
+				width: ${hasSmallPointer ? "calc(50% - 72px)" : "calc(50% - 32px)"};
+			`
+		}
 	`;
 });
 
@@ -289,25 +293,29 @@ export const StyledTimePickerValue = styled.span.withConfig({ displayName: "Styl
 		margin: ${timeValue.margin};
 		text-align: center;
 		width: ${timeValue.size};
-		${selected
-			? css`
-					border-color: ${timeValue.selectedBorderColor};
-				`
-			: css`
-					${active(css`
-						border: ${setting.itemBorder.active};
-					`)}
+		${
+			selected
+				? css`
+						border-color: ${timeValue.selectedBorderColor};
+					`
+				: css`
+						${active(css`
+							border: ${setting.itemBorder.active};
+						`)}
 
-					${hover(css`
-						border: ${setting.itemBorder.hover};
-					`)}
-				`}
+						${hover(css`
+							border: ${setting.itemBorder.hover};
+						`)}
+					`
+		}
 
-		${initial &&
-		css`
-			font-weight: ${timeValue.fontWeight};
-			font-style: italic;
-		`}
+		${
+			initial &&
+			css`
+				font-weight: ${timeValue.fontWeight};
+				font-style: italic;
+			`
+		}
 	`;
 });
 
@@ -330,30 +338,34 @@ export const StyledTimePickerFormatSelection = styled.span.withConfig({
 		line-height: ${format.size};
 		width: ${format.size};
 
-		${selected
-			? css`
-					background-color: ${format.selected.background};
-					border: ${setting.itemBorder.default};
-					color: ${format.selected.color};
-				`
-			: css`
-					${active(css`
-						border: ${setting.itemBorder.active};
-					`)}
-					${hover(css`
-						border: ${setting.itemBorder.hover};
-					`)}
-				`}
+		${
+			selected
+				? css`
+						background-color: ${format.selected.background};
+						border: ${setting.itemBorder.default};
+						color: ${format.selected.color};
+					`
+				: css`
+						${active(css`
+							border: ${setting.itemBorder.active};
+						`)}
+						${hover(css`
+							border: ${setting.itemBorder.hover};
+						`)}
+					`
+		}
 
-		${timeFormat === "am"
-			? css`
-					margin-left: 0;
-					order: -1;
-				`
-			: timeFormat === "pm" &&
-				css`
-					margin-right: 0;
-					order: 1;
-				`}
+		${
+			timeFormat === "am"
+				? css`
+						margin-left: 0;
+						order: -1;
+					`
+				: timeFormat === "pm" &&
+					css`
+						margin-right: 0;
+						order: 1;
+					`
+		}
 	`;
 });

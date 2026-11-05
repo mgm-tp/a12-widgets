@@ -41,7 +41,6 @@ import type {
 import { DefaultTableComponentRenderers, Table, Button, Icon, provider } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { UserCard } from "../../../helpers/definitions.js";
-
 import { Utils } from "../utils.js";
 
 type RowType = UserCard & { index: number };

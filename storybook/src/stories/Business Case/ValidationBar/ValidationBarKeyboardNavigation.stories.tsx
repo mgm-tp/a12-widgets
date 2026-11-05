@@ -43,8 +43,7 @@ import {
 const meta: Meta<typeof ValidationBar> = {
 	title: "Business Case/ValidationBar/KeyboardNavigation",
 	component: ValidationBar,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;

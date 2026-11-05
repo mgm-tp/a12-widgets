@@ -33,8 +33,8 @@
 import type { ReactElement } from "react";
 import { useCallback } from "react";
 
-import { addPrefix, inputWithSuffixName, joinClassNames } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix, inputWithSuffixName, joinClassNames } from "../../common/main/utils.js";
 
 import type { TimeInputProps } from "./time-picker-input.api.js";
 import { StyledTimeInput, StyledTimePickerInput } from "./time-picker.styled.js";

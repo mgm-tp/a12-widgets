@@ -34,8 +34,8 @@ import type { MouseEvent } from "react";
 import type { LineProps, CartesianGridProps, TooltipProps, AreaProps } from "recharts";
 import type { Props as XAxisProps } from "recharts/types/cartesian/XAxis.js";
 import type { Props as YAxisProps } from "recharts/types/cartesian/YAxis.js";
-import type { DataKey } from "recharts/types/util/types.js";
 import type { CategoricalChartProps } from "recharts/types/chart/generateCategoricalChart.js";
+import type { DataKey } from "recharts/types/util/types.js";
 
 import type { Identifiable } from "../../../common/main/base-props.js";
 import type { ChartProps } from "../../main/chart.api.js";

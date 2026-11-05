@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="utf-8" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Playground preview</title>
+		<style>
+			html,
+			body {
+				margin: 0;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root" class="base"></div>
+		<% for (var chunk in htmlPlugin.files.chunks) { %>
+		<script src="<%= htmlPlugin.files.chunks[chunk].entry %>"></script>
+		<% } %>
+	</body>
+</html>

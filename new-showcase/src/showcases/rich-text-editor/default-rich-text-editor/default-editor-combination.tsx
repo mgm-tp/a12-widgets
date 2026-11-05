@@ -30,11 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
+
+import DOMPurify from "dompurify";
+import { debounce } from "lodash-es";
 import type { FC, ReactNode } from "react";
 import { useMemo, useState } from "react";
-import DOMPurify from "dompurify";
-import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
-import { debounce } from "lodash-es";
 
 import type {
 	LinkDecoratorProps,
@@ -53,10 +54,9 @@ import {
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { ConfigurationView } from "../../../helpers/configuration-view.js";
-
-import { EditorStyle } from "../style/inline-styled-editor-wrapper.styled.js";
-import { BUTTONS } from "../share/data.js";
 import { handleSpellCheck } from "../common.js";
+import { BUTTONS } from "../share/data.js";
+import { EditorStyle } from "../style/inline-styled-editor-wrapper.styled.js";
 
 export const DefaultEditorCombination: FC = () => {
 	const [editorHtml, setEditorHtml] = useState("");
@@ -155,7 +155,12 @@ export const DefaultEditorCombination: FC = () => {
 		<ConfigurationView
 			configuration={
 				<div className="-u-flex -u-flex-row -u-justify-end -u-items-center">
-					<Checkbox label="Enable Tree View Plugin" checked={enableTreeView} onChange={setEnableTreeView} />
+					<Checkbox
+						id="default-editor-combination-enable-tree-view"
+						label="Enable Tree View Plugin"
+						checked={enableTreeView}
+						onChange={setEnableTreeView}
+					/>
 				</div>
 			}
 		>

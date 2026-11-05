@@ -53,11 +53,11 @@ import {
 	provider as DeviceDetector
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { ThemeSelectorHeader } from "../theme-selector-header.js";
 import { GlobalSearchContext } from "../global-search/global-search-context.js";
-import { getDesktopOperatingSystem } from "../utils.js";
+import { ThemeSelectorHeader } from "../theme-selector-header.js";
 import type { InteractionHintSettingProps } from "../use-interaction-hint-settings.js";
 import type { KeyboardNavigationSettingProps } from "../use-keyboard-navigation-settings.js";
+import { getDesktopOperatingSystem } from "../utils.js";
 
 import { DebugInformation } from "./debug-information.view.js";
 
@@ -96,7 +96,7 @@ const ShowcaseApplicationHeader = styled(ApplicationHeader)<{ smallView?: boolea
 	}
 `;
 
-const ShowcaseLogo = styled.a<{ windowSize?: SizeDetectorProps.Size }>`
+export const ShowcaseLogo = styled.a<{ windowSize?: SizeDetectorProps.Size }>`
 	display: flex;
 	height: 2.25rem;
 	overflow: visible;

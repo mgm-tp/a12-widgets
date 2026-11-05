@@ -33,11 +33,11 @@
 import type { FC, ReactNode } from "react";
 import { Children, isValidElement } from "react";
 
-import { addPrefix, joinClassNames } from "../../common/main/utils.js";
+import { ButtonConfigContext } from "../../button/main/button-context.js";
 import type { ButtonProps } from "../../button/main/button.api.js";
 import { Button } from "../../button/main/button.view.js";
-import { ButtonConfigContext } from "../../button/main/button-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix, joinClassNames } from "../../common/main/utils.js";
 
 import { StyledPopupMenuItem } from "./popup-menu.styled.js";
 

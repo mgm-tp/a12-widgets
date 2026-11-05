@@ -34,8 +34,8 @@ import type { RefCallback, HTMLProps, ReactNode, FocusEvent } from "react";
 
 import type { BaseInputProps } from "../base/template/base.tpl.api.js";
 
-import type { YearRange, YearSelectorVariant, RelativeYearRange } from "./year-selector.api.js";
 import type { OptionalYearMonthItem } from "./month-selector.api.js";
+import type { YearRange, YearSelectorVariant, RelativeYearRange } from "./year-selector.api.js";
 
 export interface YearMonthSelectorProps extends Omit<BaseInputProps, "hideLabel"> {
 	/**

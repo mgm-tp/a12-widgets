@@ -30,13 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import pluginReact from "@vitejs/plugin-react";
 import { playwright } from "@vitest/browser-playwright";
 import { defineConfig } from "vitest/config";
-import pluginReact from "@vitejs/plugin-react";
 
 export default defineConfig({
 	test: {
-		deps: { optimizer: { web: { enabled: true } } },
 		maxWorkers: process.env.CI ? 3 : "50%",
 		pool: "forks",
 		setupFiles: "src/common/test/test-setup-browser-mode.ts",
@@ -47,6 +46,43 @@ export default defineConfig({
 		},
 		retry: process.env.CI ? 1 : 0,
 		testTimeout: 10000,
+		coverage: {
+			provider: "v8",
+			// On in CI so `test:unit` enforces the thresholds below in the same suite run
+			// rather than a second one. Locally it is opt-in via `pnpm coverage`.
+			// `COVERAGE=false` turns it off: Jenkins sets it on pull-request builds, where
+			// coverage adds about a minute, so the thresholds are enforced on master and
+			// release branches only.
+			enabled: !!process.env.CI && process.env.COVERAGE !== "false",
+			reportsDirectory: "./coverage",
+			// `text-summary` keeps the terminal short: with `all: true` a per-file `text`
+			// table is several hundred lines. Browse the details in the HTML report, or
+			// pass `--coverage.reporter=text` for a one-off table.
+			reporter: process.env.CI ? ["text-summary", "html", "lcov", "cobertura"] : ["text-summary", "html"],
+			// Report on every source file, not only the ones a test happened to import,
+			// so that untested components show up as 0% instead of disappearing.
+			all: true,
+			include: ["src/**/*.{ts,tsx}"],
+			exclude: [
+				"src/**/__tests__/**",
+				"src/**/*.test.{ts,tsx}",
+				"src/common/test/**",
+				"src/@types/**",
+				// Props interfaces and barrels: type-only or re-export-only, no runtime logic.
+				"src/**/*.api.ts",
+				"src/**/index.ts",
+				"src/experimental-entry.ts"
+			],
+			// A ratchet, not a target: set a little under the baseline measured when
+			// coverage was introduced (87.7 / 79.9 / 88.6 / 87.6) so that ordinary
+			// variance passes but a real drop fails. Raise them as coverage grows.
+			thresholds: {
+				statements: 85,
+				branches: 77,
+				functions: 86,
+				lines: 85
+			}
+		},
 		browser: {
 			provider: playwright({
 				contextOptions: {
@@ -66,7 +102,6 @@ export default defineConfig({
 	},
 
 	define: {
-		global: "window",
 		SC_DISABLE_SPEEDY: false
 	},
 	resolve: { tsconfigPaths: true },

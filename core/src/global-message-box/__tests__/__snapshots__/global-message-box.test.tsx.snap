@@ -1,6 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`com.mgmtp.a12.widgets.global-message-box > rendering ACTIONS global-message-box 1`] = `
+.c8 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .c6 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
@@ -48,11 +55,8 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering ACTIONS global-mes
   max-width: unset;
 }
 
-.c8 {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
 }
 
 .c10 {
@@ -74,7 +78,7 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering ACTIONS global-mes
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: none;
   background: transparent;
   color: rgb(255, 255, 255);
@@ -194,6 +198,7 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering ACTIONS global-mes
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
+  align-items: center;
 }
 
 .c2 {
@@ -204,12 +209,6 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering ACTIONS global-mes
 .c2 .c3 {
   display: block;
   color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c12 .c3 {
-  display: block;
-  color: rgb(22, 25, 29);
   font-size: 1.25rem;
 }
 
@@ -230,49 +229,6 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering ACTIONS global-mes
 }
 
 .c7 .c9[data-type="icon"] {
-  border-radius: 50%;
-}
-
-.c13 .c9 {
-  color: rgb(22, 25, 29);
-}
-
-.c13 .c9[data-type="icon"] {
-  border-radius: 50%;
-}
-
-.c13 .c9:not(:disabled):focus {
-  border-color: rgb(22, 25, 29);
-  color: rgb(22, 25, 29);
-  outline-color: rgb(22, 25, 29);
-}
-
-.c13 .c9[data-variant-type="primary"] {
-  background-color: rgb(22, 25, 29);
-  color: rgb(249, 191, 48);
-}
-
-.c13 .c9[data-variant-type="primary"]:focus {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.c13 .c9[data-variant-type="primary"]:hover::before,
-.c13 .c9[data-variant-type="primary"]:active::before,
-.c13 .c9[data-variant-type="primary"]:focus::before {
-  border-color: rgb(22, 25, 29);
-}
-
-.c13 .c9[data-variant-type="secondary"]::before {
-  border-color: rgb(22, 25, 29);
-}
-
-.c13 .c9[data-variant-type="secondary"]:hover::before,
-.c13 .c9[data-variant-type="secondary"]:active::before,
-.c13 .c9[data-variant-type="secondary"]:focus::before {
-  border-color: rgb(22, 25, 29);
-}
-
-.c14 .c9[data-type="icon"] {
   border-radius: 50%;
 }
 
@@ -351,34 +307,6 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering ACTIONS global-mes
   }
 }
 
-@media (pointer: coarse) {
-  .c13 .c9:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    border-color: rgb(22, 25, 29);
-    color: rgb(22, 25, 29);
-  }
-}
-
-@media (pointer: fine) {
-  .c13 .c9:not(:disabled):hover {
-    border-color: rgb(22, 25, 29);
-    color: rgb(22, 25, 29);
-  }
-}
-
-@media (pointer: coarse) {
-  .c13 .c9[data-variant-type="primary"]:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-}
-
-@media (pointer: fine) {
-  .c13 .c9[data-variant-type="primary"]:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-}
-
 <div
   class="c0 global-message-box global-message-box--info"
   data-role="global-message-box"
@@ -397,6 +325,8 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering ACTIONS global-mes
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
@@ -503,6 +433,10 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering CONTENT global-mes
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   align-items: center;
   box-sizing: border-box;
@@ -521,6 +455,7 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering CONTENT global-mes
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
+  align-items: center;
 }
 
 .c2 {
@@ -531,12 +466,6 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering CONTENT global-mes
 .c2 .c3 {
   display: block;
   color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c8 .c3 {
-  display: block;
-  color: rgb(22, 25, 29);
   font-size: 1.25rem;
 }
 
@@ -574,6 +503,8 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering CONTENT global-mes
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
@@ -649,6 +580,10 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering ERROR global-messa
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   align-items: center;
   box-sizing: border-box;
@@ -667,6 +602,7 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering ERROR global-messa
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
+  align-items: center;
 }
 
 .c2 {
@@ -677,12 +613,6 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering ERROR global-messa
 .c2 .c3 {
   display: block;
   color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c8 .c3 {
-  display: block;
-  color: rgb(22, 25, 29);
   font-size: 1.25rem;
 }
 
@@ -720,6 +650,8 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering ERROR global-messa
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           error
         </span>
@@ -794,6 +726,10 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering INFO global-messag
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   align-items: center;
   box-sizing: border-box;
@@ -812,6 +748,7 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering INFO global-messag
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
+  align-items: center;
 }
 
 .c2 {
@@ -859,6 +796,8 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering INFO global-messag
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
@@ -933,6 +872,10 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering SUCCESS global-mes
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   align-items: center;
   box-sizing: border-box;
@@ -951,6 +894,7 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering SUCCESS global-mes
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
+  align-items: center;
 }
 
 .c2 {
@@ -998,6 +942,8 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering SUCCESS global-mes
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           check_circle
         </span>
@@ -1072,6 +1018,10 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering WARNING global-mes
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   align-items: center;
   box-sizing: border-box;
@@ -1090,12 +1040,7 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering WARNING global-mes
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
-}
-
-.c8 .c3 {
-  display: block;
-  color: rgb(255, 255, 255);
-  font-size: 1.25rem;
+  align-items: center;
 }
 
 .c2 {
@@ -1143,6 +1088,8 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering WARNING global-mes
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           warning
         </span>
@@ -1217,6 +1164,10 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering base global-messag
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   align-items: center;
   box-sizing: border-box;
@@ -1235,6 +1186,7 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering base global-messag
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
+  align-items: center;
 }
 
 .c2 {
@@ -1245,12 +1197,6 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering base global-messag
 .c2 .c3 {
   display: block;
   color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c8 .c3 {
-  display: block;
-  color: rgb(22, 25, 29);
   font-size: 1.25rem;
 }
 
@@ -1288,6 +1234,8 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering base global-messag
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
@@ -1363,6 +1311,10 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering false-ellipsis (mu
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   align-items: center;
   box-sizing: border-box;
@@ -1381,6 +1333,7 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering false-ellipsis (mu
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
+  align-items: center;
   padding: 8px 0px;
 }
 
@@ -1392,12 +1345,6 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering false-ellipsis (mu
 .c2 .c3 {
   display: block;
   color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c8 .c3 {
-  display: block;
-  color: rgb(22, 25, 29);
   font-size: 1.25rem;
 }
 
@@ -1438,6 +1385,8 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering false-ellipsis (mu
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
@@ -1512,6 +1461,10 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering global-message-box
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   align-items: center;
   box-sizing: border-box;
@@ -1530,6 +1483,7 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering global-message-box
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
+  align-items: center;
 }
 
 .c2 {
@@ -1540,12 +1494,6 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering global-message-box
 .c2 .c3 {
   display: block;
   color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c8 .c3 {
-  display: block;
-  color: rgb(22, 25, 29);
   font-size: 1.25rem;
 }
 
@@ -1583,6 +1531,8 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering global-message-box
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           speaker_notes
         </span>
@@ -1657,6 +1607,10 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering global-message-box
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c0 {
   align-items: center;
   box-sizing: border-box;
@@ -1675,6 +1629,7 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering global-message-box
   display: flex;
   flex: 1 1 auto;
   overflow: hidden;
+  align-items: center;
 }
 
 .c2 {
@@ -1685,12 +1640,6 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering global-message-box
 .c2 .c3 {
   display: block;
   color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c8 .c3 {
-  display: block;
-  color: rgb(22, 25, 29);
   font-size: 1.25rem;
 }
 
@@ -1730,6 +1679,8 @@ exports[`com.mgmtp.a12.widgets.global-message-box > rendering global-message-box
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>

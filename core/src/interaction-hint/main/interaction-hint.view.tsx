@@ -30,19 +30,21 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Key } from "ts-key-enum";
 import type { ReactElement, MouseEvent as ReactMouseEvent } from "react";
-import { useMemo, useCallback, useEffect, useRef, useState } from "react";
+import { useContext, useMemo, useCallback, useEffect, useRef, useState } from "react";
+import { Key } from "ts-key-enum";
 
-import type { Orientation } from "../../common/main/alignment.js";
-import { provider } from "../../common/main/device-detector.js";
 import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
-import { IntersectionObserverHelper, getIframeOffset } from "../../common/main/utils.js";
+import type { Orientation } from "../../common/main/alignment.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { provider } from "../../common/main/device-detector.js";
+import { IntersectionObserverHelper, getIframeOffset } from "../../common/main/utils.js";
 
+import { InteractionHintConfigContext } from "./interaction-hint-context.js";
 import type { InteractionHintProps } from "./interaction-hint.api.js";
 import { StyledInteractionHintContainer, StyledInteractionHintContent } from "./interaction-hint.styled.js";
 
+/** Default delay before the hint appears. Overridable per instance via the `showDelay` prop. */
 const DELAY_TIME = 500;
 const CURSOR_OFFSET = { x: 15, y: 15 };
 
@@ -64,8 +66,13 @@ export function InteractionHint(props: InteractionHintProps): ReactElement | nul
 		focusable = true,
 		position,
 		followCursor = false,
-		hideArrow = false
+		hideArrow = false,
+		showDelay: showDelayProp
 	} = props;
+
+	const hintConfig = useContext(InteractionHintConfigContext);
+	// Instance prop wins, then any application-wide configuration, then the built-in default.
+	const showDelay = showDelayProp ?? hintConfig.showDelay ?? DELAY_TIME;
 
 	const [orientation, setOrientation] = useState<Orientation>("top");
 	const [containerRect, setContainerRect] = useState<DOMRect>();
@@ -93,6 +100,24 @@ export function InteractionHint(props: InteractionHintProps): ReactElement | nul
 			timeoutId.current = null;
 		}
 	};
+
+	/**
+	 * Tells whether pointer or keyboard focus went from the reference element into the hint itself.
+	 *
+	 * `relatedTarget` is `null` whenever focus or the pointer leaves the document altogether, and both
+	 * refs are momentarily `null` while the hint re-renders, so the hint must only be kept open for a
+	 * target that is verifiably inside it. Otherwise a hint can survive its reference element losing
+	 * focus and stay on screen next to the hint of the element that has the focus now.
+	 */
+	const movedIntoHint = useCallback((relatedTarget: EventTarget | null): boolean => {
+		if (!relatedTarget) {
+			return false;
+		}
+
+		const hintElements = [portalElement.current, interactionHintRef.current];
+
+		return hintElements.some((element) => element === relatedTarget || element?.contains(relatedTarget as Node));
+	}, []);
 
 	const handleMouseMove = useCallback(
 		(event: MouseEvent): void => {
@@ -126,9 +151,9 @@ export function InteractionHint(props: InteractionHintProps): ReactElement | nul
 			timeoutId.current = window.setTimeout(() => {
 				event.stopPropagation();
 				setShowHint(true);
-			}, DELAY_TIME);
+			}, showDelay);
 		},
-		[referenceElementRef, followCursor]
+		[referenceElementRef, followCursor, showDelay]
 	);
 
 	const handleHintMouseLeave = useCallback((): void => {
@@ -208,13 +233,18 @@ export function InteractionHint(props: InteractionHintProps): ReactElement | nul
 		};
 
 		const handleMouseOut = (event: MouseEvent): void => {
-			// Clear any pending show timeout when mouse leaves
-			clearTimeout();
 			const relatedTarget = event.relatedTarget as Node | null;
 
-			const shouldCloseHint = followCursor
-				? !referenceElement.contains(relatedTarget)
-				: relatedTarget !== portalElement.current && relatedTarget !== interactionHintRef.current;
+			// `mouseout` also fires while moving between descendants of the reference element. The pointer has
+			// not actually left it, so leave a pending or visible hint alone.
+			if (referenceElement.contains(relatedTarget)) {
+				return;
+			}
+
+			// Clear any pending show timeout when mouse leaves
+			clearTimeout();
+
+			const shouldCloseHint = followCursor || !movedIntoHint(relatedTarget);
 
 			if (shouldCloseHint) {
 				handleHintMouseLeave();
@@ -222,9 +252,7 @@ export function InteractionHint(props: InteractionHintProps): ReactElement | nul
 		};
 
 		const handleFocusOut = (event: FocusEvent): void => {
-			const relatedTarget = event.relatedTarget;
-
-			if (relatedTarget !== portalElement.current && relatedTarget !== interactionHintRef.current) {
+			if (!movedIntoHint(event.relatedTarget)) {
 				setShowHint(false);
 				setShouldFollowCursor(followCursor);
 			}
@@ -280,6 +308,7 @@ export function InteractionHint(props: InteractionHintProps): ReactElement | nul
 		handleMouseMove,
 		followCursor,
 		isDesktop,
+		movedIntoHint,
 		referenceElementRef,
 		title
 	]);
@@ -341,7 +370,7 @@ export function InteractionHint(props: InteractionHintProps): ReactElement | nul
 				if (document.activeElement === referenceElementRef.current) {
 					setShowHint(true);
 				}
-			}, DELAY_TIME);
+			}, showDelay);
 		};
 
 		window.addEventListener("resize", handleResize);
@@ -353,7 +382,7 @@ export function InteractionHint(props: InteractionHintProps): ReactElement | nul
 				window.clearTimeout(resizeTimeout);
 			}
 		};
-	}, [title, referenceElementRef]);
+	}, [title, referenceElementRef, showDelay]);
 
 	// Reset orientation when hint is hidden so the next open always triggers a fresh orientation
 	// calculation in AttachedPortal, ensuring correct positioning for large content.

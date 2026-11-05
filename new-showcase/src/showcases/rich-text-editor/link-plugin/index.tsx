@@ -30,9 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC } from "react";
-import { AutoLinkNode, LinkNode } from "@lexical/link";
 import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
+
+import { AutoLinkNode, LinkNode } from "@lexical/link";
+import type { FC } from "react";
 
 import {
 	Icon,

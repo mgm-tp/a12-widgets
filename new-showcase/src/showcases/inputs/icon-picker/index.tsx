@@ -30,17 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import IconPickerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/icon-picker/main/icon-picker.api.json" with { type: "json" };
+import basicCode from "!./basic.tsx?raw";
+import saveSpaceModeCode from "!./save-space-mode.tsx?raw";
+
 import { ExternalLink, Link, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
+import IconPickerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/icon-picker/main/icon-picker.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../../helpers/showcase-styles.js";
 
-import { IconPickerSaveSpaceModeShowcase } from "./save-space-mode.js";
 import { IconPickerShowcase } from "./basic.js";
-
-import saveSpaceModeCode from "!./save-space-mode.tsx?raw";
-import basicCode from "!./basic.tsx?raw";
+import { IconPickerSaveSpaceModeShowcase } from "./save-space-mode.js";
 
 const showcases: Showcase[] = [
 	{

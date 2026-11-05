@@ -1,0 +1,67 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ToastsStories from "./Toasts.stories";
+
+<Meta of={ToastsStories} />
+
+<Title />
+
+The `Toast` widget shows a short, non-blocking notification about the outcome of an action or a
+system event. Each toast has a `variant` (`info`, `success`, `warning`, `error`) that controls its
+color and icon, an optional `header`, a `message` and an optional `footer` for action buttons.
+
+- A `temporary` toast (the default) invokes `onClose` automatically after `duration` milliseconds;
+  a `permanent` toast stays visible until the user closes it.
+- Wrap toasts in a `ToastGroup` to stack them at a screen corner (`position`), animate them in and
+  out, and get focus handling plus Esc-to-close for free.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ToastsStories.Playground} />
+
+## Examples
+
+### Variants
+
+<Canvas of={ToastsStories.Variants} />
+
+### Footer actions
+
+<Canvas of={ToastsStories.WithFooterActions} />
+
+### Without Header Element
+
+<Canvas of={ToastsStories.WithoutHeaderElement} />
+
+### Custom icon
+
+<Canvas of={ToastsStories.CustomIcon} />
+
+### Permanent toast
+
+<Canvas of={ToastsStories.Permanent} />
+
+### Temporary toasts
+
+<Canvas of={ToastsStories.TemporaryToasts} />
+
+### Toast group
+
+<Canvas of={ToastsStories.InteractiveToastGroup} />

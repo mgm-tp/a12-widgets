@@ -85,10 +85,32 @@ export interface TreeViewDragDrop<RowType = unknown> {
 	onDrop?(params: { source: RowType; target: RowType; position: TreeViewDropPosition }): void;
 
 	/**
+	 * Fired when the dragged node is dropped onto the tree's empty area — below the last node (visible when
+	 * the tree has a bounded height, e.g. `fitToParent` in a sized container) or an empty tree. Move
+	 * `source` to the top level here. Providing this enables the root drop zone. Nodes stay the innermost
+	 * targets, so a drop on a node is always reported through {@link onDrop} instead.
+	 */
+	onDropToRoot?(params: { source: RowType }): void;
+
+	/**
+	 * Whether `source` may be dropped onto the root zone. Defaults to `true`. A forbidden zone still shows
+	 * feedback (and a `not-allowed` cursor) while hovered, but reports no drop.
+	 */
+	canDropToRoot?(params: { source: RowType }): boolean;
+
+	/**
 	 * The drag kind. Two trees sharing an `acceptType` accept each other's nodes. Defaults to the shared
 	 * tree default.
 	 */
 	acceptType?: string;
+
+	/**
+	 * Whether Space picks the focused node up for keyboard drag-and-drop. Defaults to `"Space"`, which is
+	 * why a selectable tree with `dragDrop` set selects with Enter alone. `false` gives Space back to
+	 * selection, at the cost of the keyboard path to reordering — provide another one (node actions, a
+	 * context menu). Enter is not an alternative: the `tree` pattern assigns it the node's default action.
+	 */
+	keyboardGrabKey?: "Space" | false;
 }
 
 /**

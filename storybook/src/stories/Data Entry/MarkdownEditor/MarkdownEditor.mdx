@@ -1,0 +1,295 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as MarkdownEditorStories from "./MarkdownEditor.stories";
+import * as CustomExtensionStories from "./CustomExtension.stories";
+import * as ImageUploadStories from "./ImageUpload.stories";
+import * as InfoPanelStories from "./InfoPanel.stories";
+
+<Meta of={MarkdownEditorStories} />
+
+<Title />
+
+The `MarkdownEditor` widget is a form field whose value is Markdown. Users write rich text with a
+toolbar or type Markdown directly, and the host always receives a Markdown string. It is built on
+the [Lexical](https://lexical.dev/) editor framework, reads and writes CommonMark plus the GitHub
+Flavored Markdown extensions, and shares the common input field anatomy (`label`, `helperText`,
+`error`, `warning`, `info`, `disabled`, `readonly`).
+
+- Fully controlled — pass `value` and update it in `onChange`. `emitMode` decides when `onChange`
+  fires: debounced (default), on blur, or on every change.
+- Three modes: `edit` (rich text), `source` (highlighted Markdown) and `view` (read-only). Only
+  `edit` is offered until `allowedModes` lists more; then a mode menu appears in the toolbar.
+- `features` switches the optional syntax: GFM strikethrough, task lists, tables and autolinks are
+  on by default; the `<mark>`, `<u>`, `<sub>` and `<sup>` formats are off.
+- The `toolbar` prop replaces the built-in toolbar with a composition of `MarkdownEditor.*`
+  controls plus your own `MarkdownEditor.ToolbarButton`.
+- `extensions` adds Lexical extensions that teach the editor new content; `plugins` mounts React
+  components inside the editor for behavior. `editorRef` hands the host a `MarkdownEditorHandle`.
+- The editor is experimental and imported from `@com.mgmtp.a12.widgets/widgets-core/experimental`.
+
+The consumer guides with copy-paste examples live in the showcase under **Experimental / Markdown
+Editor**. The stories here isolate one state or mechanism each; the
+[Writing an extension](#writing-an-extension) section below walks through the custom extension
+story step by step.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={MarkdownEditorStories.Playground} />
+
+## Examples
+
+### Source mode
+
+<Canvas of={MarkdownEditorStories.SourceMode} />
+
+### Without toolbar
+
+<Canvas of={MarkdownEditorStories.WithoutToolbar} />
+
+### Custom toolbar
+
+<Canvas of={MarkdownEditorStories.CustomToolbar} />
+
+### Editor handle
+
+<Canvas of={MarkdownEditorStories.EditorHandle} />
+
+### Helper text and error
+
+<Canvas of={MarkdownEditorStories.WithHelperAndError} />
+
+### Disabled
+
+<Canvas of={MarkdownEditorStories.Disabled} />
+
+### Readonly
+
+<Canvas of={MarkdownEditorStories.Readonly} />
+
+### Mode round trip
+
+<Canvas of={MarkdownEditorStories.ModeRoundTrip} />
+
+### Large documents
+
+The sidebar entry **MarkdownEditor/LargeDocument** loads a document of a chosen size and shows the
+cost of a keystroke and of a mode switch. It is not embedded here because it builds a document of
+up to 200,000 characters on demand.
+
+## Extensions
+
+An extension bundles a Lexical node with the rules that read it from Markdown and write it back, so
+custom content is parsed, rendered and serialized like the built-in kind. Two ship with the library
+and are switched on by registering them in `extensions`; the third group shows an extension and a
+plugin written from scratch.
+
+### Info panels
+
+`MdastInfoPanelExtension` adds `:::info`, `:::note`, `:::success`, `:::warning` and `:::error`
+panels and hands its own toolbar menu to the host through `useExtensionComponent`.
+`InfoPanelHostContext` limits which panel types a user may insert.
+
+<Canvas of={InfoPanelStories.Basics} />
+
+<Canvas of={InfoPanelStories.HostControl} />
+
+### Image upload
+
+`ImageUploadExtension` in `extensions` and `ImageUploadPlugin` in `plugins` add drag and drop,
+paste and a file picker for images. The host provides the `onImageUpload` handler; the library has
+no backend of its own. `ImageUploadButton` replaces the built-in image button, whose dialog takes a
+URL only.
+
+<Canvas of={ImageUploadStories.DragPasteAndPick} />
+
+### Your own extension and plugin
+
+A `TextNode` subclass claims the `:spoiler[…]` directive through `directiveImportType`; everything
+nobody claims stays a read-only placeholder that survives the round trip. A `plugins` component
+reads both surfaces with `useMarkdownEditorSurfaces()` and stays mounted across mode switches.
+
+<Canvas of={CustomExtensionStories.DirectiveClaim} />
+
+<Canvas of={CustomExtensionStories.WithoutTheExtension} />
+
+<Canvas of={CustomExtensionStories.Plugin} />
+
+## Writing an extension
+
+The spoiler above is the smallest extension that does something useful, and its source is the
+`CustomExtension.stories.tsx` file next to this page. This section walks through it. The editor
+holds the document as Lexical nodes and converts to and from Markdown through an
+[mdast](https://github.com/syntax-tree/mdast) tree, so new content always needs three parts: a
+node, an import rule and an export rule. An extension bundles them and goes into `extensions`.
+
+Before writing one, check that an extension is what you need. Content that has to survive the trip
+through Markdown is an extension. Reacting to edits, registering a command or talking to your app is
+a plugin in `plugins`, like the word counter above. A button that inserts or formats something is a
+`MarkdownEditor.ToolbarButton` in a custom `toolbar`.
+
+### 1. Pick the syntax
+
+Markdown has no spare syntax for your content, so the editor reads
+[generic directives](https://github.com/micromark/micromark-extension-directive#syntax) in three
+shapes. Pick the one that matches your content:
+
+```md
+:::callout
+A block directive. It contains other blocks.
+:::
+
+::toc[optional label]{key="value"}
+
+Some text with a :spoiler[inline] directive.
+```
+
+The grammar is switched on once per editor by `MdastUnknownDirectiveExtension`. Any directive
+nobody claims is rendered as a read-only placeholder and written back unchanged. That is what the
+**Without the extension** story shows: same Markdown, no extension, three placeholders, and the
+value panel still matches the input after a mode round trip.
+
+### 2. Write the node
+
+The node is what the content is while it is being edited. Subclass `TextNode` for inline text,
+`ElementNode` for a block that contains other blocks, or `DecoratorNode` to render a React
+component. Give the type a prefix of your own so it cannot collide with a built-in one, and style
+through a class or the Lexical theme, not inline styles.
+
+```ts
+class SpoilerNode extends TextNode {
+	static getType(): string {
+		return "my-app-spoiler";
+	}
+
+	static clone(node: SpoilerNode): SpoilerNode {
+		return new SpoilerNode(node.__text, node.__key);
+	}
+
+	static importJSON(serializedNode: SerializedTextNode): SpoilerNode {
+		return $createSpoilerNode(serializedNode.text).updateFromJSON(serializedNode);
+	}
+
+	createDOM(config: EditorConfig): HTMLElement {
+		const dom = super.createDOM(config);
+		dom.classList.add("my-app-spoiler");
+		return dom;
+	}
+
+	// Keep the spoiler one run: no merging with neighbours, no typing into its edges.
+	isUnmergeable(): boolean {
+		return true;
+	}
+	canInsertTextBefore(): boolean {
+		return false;
+	}
+	canInsertTextAfter(): boolean {
+		return false;
+	}
+}
+
+function $createSpoilerNode(text: string): SpoilerNode {
+	return $applyNodeReplacement(new SpoilerNode(text));
+}
+
+function $isSpoilerNode(node: unknown): node is SpoilerNode {
+	return node instanceof SpoilerNode;
+}
+```
+
+### 3. Write the import and export rules
+
+The import rule turns the mdast directive into your node when Markdown is read. The export rule
+does the reverse when Markdown is written. Both are typed by `@lexical/mdast`; the directive types
+come from the experimental entry point.
+
+```ts
+import type { MdastExportHandler, MdastImportHandler } from "@lexical/mdast";
+import type { TextDirective } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+
+const $importSpoiler: MdastImportHandler<TextDirective> = (node) =>
+	$createSpoilerNode(node.children.map((child) => (child.type === "text" ? child.value : "")).join(""));
+
+const $exportSpoiler: MdastExportHandler = (node) =>
+	$isSpoilerNode(node)
+		? { type: "textDirective", name: "spoiler", children: [{ type: "text", value: node.getTextContent() }] }
+		: null;
+```
+
+For a block directive, `mdastImportContext.importChildren(node)` converts the children into Lexical
+nodes for you and `mdastExportContext.exportChildren(nodes)` does the reverse. Do not skip the
+export rule: without it the content reads in fine and turns into plain text the next time the editor
+writes Markdown.
+
+### 4. Bundle them with `defineExtension`
+
+Import rules are keyed by the **mdast** type, which `directiveImportType(shape, name)` builds for
+you. Export rules are keyed by the **Lexical** node type. Block and inline are separate claims:
+claiming `:spoiler[…]` does not claim `:::spoiler`.
+
+```ts
+import { MdastImportExtension } from "@lexical/mdast";
+import { configExtension, defineExtension } from "lexical";
+import { directiveImportType, MdastUnknownDirectiveExtension } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+
+export const SpoilerExtension = defineExtension({
+	name: "my-app/Spoiler",
+	nodes: [SpoilerNode],
+	dependencies: [
+		// Turns the directive grammar on and routes a claimed name to its import rule.
+		MdastUnknownDirectiveExtension,
+		configExtension(MdastImportExtension, {
+			importRules: [{ type: directiveImportType("textDirective", "spoiler"), $import: $importSpoiler }],
+			exportRules: [{ type: SpoilerNode.getType(), $export: $exportSpoiler }]
+		})
+	]
+});
+```
+
+### 5. Register it
+
+Keep the array stable. A new array on every render builds a new editor and drops any edit that
+`onChange` has not seen yet, so declare it at module scope or in `useMemo`.
+
+```tsx
+const EXTENSIONS = [SpoilerExtension];
+
+<MarkdownEditor value={markdown} onChange={setMarkdown} extensions={EXTENSIONS} />;
+```
+
+That is the whole **Directive claim** story. Edit inside the spoiler, switch to **Source**, and the
+run comes back out as `:spoiler[…]` while `:::chart` and `::toc` come out character for character.
+
+### Going further
+
+- **A toolbar control.** Either add a `MarkdownEditor.ToolbarButton` to a custom `toolbar`, whose
+  `onClick` receives the toolbar context, or return a component from the extension's `build` and
+  pick it up with `useExtensionComponent`. The info panel extension does the latter, see
+  **Info panels** above. Whichever you choose, handle source mode: read `isSourceMode` and
+  `sourceCommands` from `useMarkdownEditorSurfaces()` and insert Markdown text instead of a node.
+- **Application data inside a node.** A node builds its DOM outside React and cannot read a
+  context. `defineHostBridgeExtension` turns a context into signals the extension can read
+  anywhere; the **Host control** story above limits the panel types that way.
+- **Values that change at runtime** belong in a plugin prop or a host bridge, not in
+  `configExtension`, which is read once when the editor is built.
+
+The two shipped extensions are the reference implementations: `core/src/markdown-editor/main/extras/info-panel/`
+is a block directive with its own menu, commands and host data, and `core/src/markdown-editor/main/extras/image-upload/`
+is a node replacement plus a plugin that carries runtime config. The showcase guide under
+**Experimental / Markdown Editor / Extensions** covers the same ground with runnable playgrounds.

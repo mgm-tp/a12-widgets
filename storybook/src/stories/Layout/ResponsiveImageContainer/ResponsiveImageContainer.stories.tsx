@@ -45,7 +45,6 @@ const meta: Meta<typeof ResponsiveImageContainer> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		src: {
 			control: "text",
@@ -53,7 +52,7 @@ const meta: Meta<typeof ResponsiveImageContainer> = {
 		},
 		alt: {
 			control: "text",
-			description: "Alternate text for the image"
+			description: "Alternate text for the image if it cannot be displayed"
 		},
 		title: {
 			control: "text",
@@ -75,14 +74,14 @@ const meta: Meta<typeof ResponsiveImageContainer> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		src: PLACEHOLDER_IMAGE,
 		alt: "A landscape photo"
 	},
 	decorators: [
 		(Story) => (
-			<div style={{ width: 600 }}>
+			<div style={{ width: "100%", maxWidth: 600 }}>
 				<Story />
 			</div>
 		)
@@ -97,39 +96,39 @@ export const WithTitle: Story = {
 	},
 	decorators: [
 		(Story) => (
-			<div style={{ width: 600 }}>
+			<div style={{ width: "100%", maxWidth: 600 }}>
 				<Story />
 			</div>
 		)
-	]
+	],
+	parameters: {
+		docs: {
+			description: {
+				story: "The `title` prop sets the image's title attribute, shown as a native tooltip on hover."
+			}
+		}
+	}
 };
 
-export const WideImage: Story = {
-	args: {
-		src: WIDE_IMAGE,
-		alt: "A very wide panoramic image"
-	},
-	decorators: [
-		(Story) => (
-			<div style={{ width: 400 }}>
-				<Story />
+export const AspectRatios: Story = {
+	render: (args) => (
+		<div style={{ display: "flex", gap: "32px", alignItems: "flex-start", flexWrap: "wrap" }}>
+			<div style={{ flex: "0 1 400px", maxWidth: 400 }}>
+				<ResponsiveImageContainer {...args} src={WIDE_IMAGE} alt="A very wide panoramic image" />
 			</div>
-		)
-	]
-};
-
-export const TallImage: Story = {
-	args: {
-		src: TALL_IMAGE,
-		alt: "A tall portrait image"
-	},
-	decorators: [
-		(Story) => (
-			<div style={{ width: 300 }}>
-				<Story />
+			<div style={{ flex: "0 1 300px", maxWidth: 300 }}>
+				<ResponsiveImageContainer {...args} src={TALL_IMAGE} alt="A tall portrait image" />
 			</div>
-		)
-	]
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Images of any aspect ratio — wide panoramas or tall portraits — scale down to fit their container while keeping their proportions (`object-fit: contain`)."
+			}
+		}
+	}
 };
 
 export const NarrowContainer: Story = {
@@ -143,5 +142,12 @@ export const NarrowContainer: Story = {
 				<Story />
 			</div>
 		)
-	]
+	],
+	parameters: {
+		docs: {
+			description: {
+				story: "The image never overflows its parent: in a narrow container it shrinks to the available width."
+			}
+		}
+	}
 };

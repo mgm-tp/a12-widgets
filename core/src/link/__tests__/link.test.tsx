@@ -34,10 +34,9 @@ import { render, fireEvent } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { Icon } from "../../icon/main/icon.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-
 import { ExternalLink } from "../main/external-link/external-link.view.js";
 import { Link } from "../main/link/link.view.js";
 import { MailtoLink } from "../main/mailto-link/mailto-link.view.js";

@@ -32,17 +32,20 @@
 
 import type { KeyboardEvent, ReactElement } from "react";
 import { useContext, useState, useCallback, useMemo, useRef, createRef } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { styled, css } from "styled-components";
 import { Key } from "ts-key-enum";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import { moveItemFocusBack, moveItemFocusNext, Button, ButtonGroup, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 import type { SourceCode } from "@com.mgmtp.a12.widgets/widgets-utils";
-import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils";
+import { LICENSE_HEADER, SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils";
 
-import { getCurrentTheme } from "./theme-selector.js";
+import { buildPlaygroundHref } from "../playground/share-code.js";
+
+import { extractDisplayCode } from "./code-transformer.js";
 import type { Section } from "./definitions.js";
 import { ShowcaseExampleContext } from "./showcase-example-context.js";
+import { getCurrentTheme } from "./theme-selector.js";
 
 declare const __A12_VERSION__: string;
 const codeSectionClassName = "code-section";
@@ -64,10 +67,12 @@ const StyledSourceCodeTransitionGroup = styled(TransitionGroup)<{ $multipleCode?
 	theme
 }) => {
 	return css`
-		${$multipleCode &&
-		css`
-			padding-top: ${theme.spacing.verticalSpacing.vertWhiteSpacingxs}px;
-		`}
+		${
+			$multipleCode &&
+			css`
+				padding-top: ${theme.spacing.verticalSpacing.vertWhiteSpacingxs}px;
+			`
+		}
 		.${codeSectionClassName}-enter {
 			max-height: 0;
 			opacity: 0;
@@ -90,7 +95,10 @@ const StyledSourceCodeTransitionGroup = styled(TransitionGroup)<{ $multipleCode?
 });
 
 export const ShowcaseExampleToolbar = (
-	props: Pick<Section, "label" | "code" | "toggleBetweenPartialAndFullCode"> & {
+	props: Pick<
+		Section,
+		"label" | "code" | "toggleBetweenPartialAndFullCode" | "hidePlaygroundButton" | "useDarkBackground"
+	> & {
 		hideResetButton?: boolean;
 		inFullLayoutMode?: boolean;
 	}
@@ -99,6 +107,9 @@ export const ShowcaseExampleToolbar = (
 		useContext(ShowcaseExampleContext);
 	const [showCode, setShowCode] = useState(false);
 	const [isSkeletonMode, setIsSkeletonCodeMode] = useState(true);
+
+	// "Open in playground" only makes sense for a single-file snippet.
+	const isSingleFileCode = !!props.code && !Array.isArray(props.code);
 
 	const removeSelectedLinesOfCode = useCallback(
 		(code: SourceCode): SourceCode => {
@@ -145,8 +156,9 @@ export const ShowcaseExampleToolbar = (
 				}
 			}
 
-			// the replacement removes all the text related to mgm copyright at the top of each file.
-			return { code: resultAsLineArray.join("\r\n").replace(/\/\*[\s\S]*?\*\/(?:[\t ]*(?:\r?\n|\r))+/g, "") };
+			// Only the mgm copyright header at the top of the file is stripped; block comments further
+			// down, such as the JSDoc explaining an example, stay visible in the displayed code.
+			return { code: resultAsLineArray.join("\r\n").replace(LICENSE_HEADER, "") };
 		},
 		[generatedCodeSnippet]
 	);
@@ -236,6 +248,18 @@ export const ShowcaseExampleToolbar = (
 		setIsSkeletonCodeMode(!isSkeletonMode);
 	}, [isSkeletonMode]);
 
+	const handleOpenInPlayground = useCallback(() => {
+		// isSingleFileCode guarantees props.code is a single SourceCode (not array, not undefined)
+		const source = props.code as SourceCode;
+
+		void import("./source-path-registry.js").then(({ findSourcePath }) => {
+			const sourcePath = findSourcePath(source.code);
+			const href = buildPlaygroundHref(extractDisplayCode(source), undefined, sourcePath, props.useDarkBackground);
+
+			window.open(href, "_blank");
+		});
+	}, [props.code, props.useDarkBackground]);
+
 	return (
 		<>
 			<StyledShowcaseExampleToolbar
@@ -243,6 +267,18 @@ export const ShowcaseExampleToolbar = (
 				onKeyDown={handleKeyDown}
 				$inFullLayoutMode={props.inFullLayoutMode}
 			>
+				{isSingleFileCode && !props.hidePlaygroundButton && (
+					<ButtonGroup alignment="left">
+						<Button
+							label="Open in Playground"
+							icon={<Icon>open_in_new</Icon>}
+							onClick={handleOpenInPlayground}
+							title="Open in playground"
+							tabIndex={-1}
+							className="-u-text-black -u-background-transparent -u-normal-case"
+						/>
+					</ButtonGroup>
+				)}
 				<ButtonGroup alignment="right">
 					{codeToShow && (
 						<Button
@@ -261,7 +297,6 @@ export const ShowcaseExampleToolbar = (
 							tabIndex={currentFocusedItemIndex === 2 ? 0 : -1}
 						/>
 					)}
-
 					<Button
 						icon={<Icon>bug_report</Icon>}
 						onClick={handleReportBugButtonClick}

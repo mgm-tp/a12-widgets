@@ -35,14 +35,14 @@ import { useContext, Children, isValidElement, createRef, cloneElement } from "r
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { styled } from "styled-components";
 
-import { addPrefix, joinClassNames } from "../../common/main/utils.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix, joinClassNames } from "../../common/main/utils.js";
 
-import { StyledTagWrapper, Tag } from "./tag/tag.view.js";
 import type { TagGroupProps } from "./tag-group.api.js";
 import type { TagProps } from "./tag/tag.api.js";
+import { StyledTagWrapper, Tag } from "./tag/tag.view.js";
 
 const baseClassName = addPrefix("tag");
 

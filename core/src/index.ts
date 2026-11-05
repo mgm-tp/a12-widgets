@@ -44,6 +44,7 @@ export * from "./chart/index.js";
 export * from "./chat/index.js";
 export * from "./clearfix/index.js";
 export * from "./collapsible-panel/index.js";
+export * from "./column-visibility-panel/index.js";
 export * from "./comment/index.js";
 export * from "./common/index.js";
 export * from "./contentbox/index.js";

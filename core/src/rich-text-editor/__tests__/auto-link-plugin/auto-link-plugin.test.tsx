@@ -30,19 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, expect, test } from "vitest";
 import { findByDataRole, render } from "test-utils";
+import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
-import type { SpellCheckPluginConfig } from "../../main/wrapper/default-rich-text-editor.api.js";
-import type { TooltipPluginConfig } from "../../main/plugins/tooltip-plugin/tooltip-plugin.api.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { AutoLinkPlugin, BoldButton, type ButtonType, createInlineButton } from "../../main/plugins/index.js";
 import type { TextMatcher, TextMatcherResult } from "../../main/plugins/plugin.internal.api.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-import { prepopulatedRichText } from "../../main/utils/common.js";
+import type { TooltipPluginConfig } from "../../main/plugins/tooltip-plugin/tooltip-plugin.api.js";
 import { editorThemeClasses } from "../../main/themes/themes.js";
-
+import { prepopulatedRichText } from "../../main/utils/common.js";
+import type { SpellCheckPluginConfig } from "../../main/wrapper/default-rich-text-editor.api.js";
+import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
 import {
 	EMAILS,
 	FUZZY_LINKS,

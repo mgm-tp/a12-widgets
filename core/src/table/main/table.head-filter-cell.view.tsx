@@ -32,11 +32,11 @@
 
 import { memo, useMemo } from "react";
 
-import { TableTemplate } from "./template/index.js";
-import type { TableRenderPropsType } from "./table-renderer.api.js";
 import type { BaseColumnType } from "./column.api.js";
+import type { TableRenderPropsType } from "./table-renderer.api.js";
 import { useTableContext } from "./table.context.js";
 import { isColumnGroup, TableInternalUtils } from "./table.utils.js";
+import { TableTemplate } from "./template/index.js";
 
 /** @internal */
 export const HeadFilterCell = memo(function HeadFilterCell(props: TableRenderPropsType.HeadCellProps<BaseColumnType>) {

@@ -329,18 +329,6 @@ exports[`com.mgmtp.a12.widgets.modal-overlay > test render fullscreen modal-over
   width: 100%;
 }
 
-.c11 .c3 {
-  outline: none;
-}
-
-.c11 .c3 .c9 {
-  font-size: 0.75rem;
-}
-
-.c11 .c3 {
-  width: calc(-48px + 100vw);
-}
-
 .c2 {
   -webkit-tap-highlight-color: transparent;
   display: flex;
@@ -566,30 +554,6 @@ exports[`com.mgmtp.a12.widgets.modal-overlay > test render fullscreen with gutte
   position: fixed;
   top: 0px;
   width: 100%;
-}
-
-.c11 .c3 {
-  outline: none;
-}
-
-.c11 .c3 .c9 {
-  font-size: 0.75rem;
-}
-
-.c11 .c3 {
-  width: calc(-48px + 100vw);
-}
-
-.c12 .c3 {
-  outline: none;
-}
-
-.c12 .c3 .c9 {
-  font-size: 0.75rem;
-}
-
-.c12 .c3 {
-  border-radius: 0px;
 }
 
 .c2 {

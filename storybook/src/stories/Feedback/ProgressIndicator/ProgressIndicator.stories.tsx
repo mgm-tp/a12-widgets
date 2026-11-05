@@ -43,7 +43,6 @@ const meta: Meta<typeof ProgressIndicator> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		label: {
 			control: "text",
@@ -69,7 +68,7 @@ const meta: Meta<typeof ProgressIndicator> = {
 		},
 		useLoadingDots: {
 			control: "boolean",
-			description: "Show animated loading dots after the label"
+			description: "Show animated loading dots after the label (requires a label)"
 		},
 		singleOverlay: {
 			control: "boolean",
@@ -84,6 +83,18 @@ const meta: Meta<typeof ProgressIndicator> = {
 			control: "select",
 			options: ["bright", "transparent"],
 			description: "Variant for the inner overlay"
+		},
+		fastAppear: {
+			control: "boolean",
+			description: "The circle and label appear immediately, without the fade-in delay"
+		},
+		openingDelay: {
+			control: { type: "number", min: 0, max: 5000 },
+			description: "Delay time in milliseconds before the progress indicator opens"
+		},
+		global: {
+			control: "boolean",
+			description: "Cover the entire screen instead of the nearest positioned container"
 		}
 	}
 };
@@ -91,14 +102,18 @@ const meta: Meta<typeof ProgressIndicator> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
+	args: {
+		label: "Loading",
+		size: "big",
+		type: "vertical"
+	},
 	render: (args) => (
 		<div style={{ position: "relative", height: "200px" }}>
 			<p style={{ margin: 0 }}>{sampleContent}</p>
 			<ProgressIndicator {...args} />
 		</div>
-	),
-	args: {}
+	)
 };
 
 export const Basic: Story = {
@@ -113,7 +128,7 @@ export const Basic: Story = {
 		docs: {
 			description: {
 				story:
-					"Basic progress indicator overlaying a content area. The indicator covers the container while content loads."
+					"Basic progress indicator overlaying a content area. The indicator covers the nearest `position: relative` container while content loads."
 			}
 		}
 	}
@@ -133,7 +148,7 @@ export const WithLabel: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Progress indicator with a label displayed below the spinner."
+				story: "The `label` prop displays a text below the spinner inside the inner overlay."
 			}
 		}
 	}
@@ -154,7 +169,8 @@ export const WithLoadingDots: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Progress indicator showing animated loading dots after the label instead of a spinner circle."
+				story:
+					"`useLoadingDots` appends animated dots to the `label`; combined with `hideLoadingCircle` it replaces the spinner entirely."
 			}
 		}
 	}
@@ -175,7 +191,7 @@ export const HorizontalLayout: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Progress indicator with label and spinner arranged horizontally side by side."
+				story: '`type="horizontal"` arranges the label and spinner side by side instead of stacked.'
 			}
 		}
 	}
@@ -195,7 +211,7 @@ export const Sizes: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Comparison of all available sizes: small, medium, and big (default)."
+				story: "The `size` prop scales the inner overlay: `small`, `medium` or `big` (default)."
 			}
 		}
 	}
@@ -215,39 +231,29 @@ export const CustomColor: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Progress indicator with a custom color applied to both the spinner and the label."
+				story: "The `color` prop applies a custom color to both the spinner and the label."
 			}
 		}
 	}
 };
 
-export const TransparentOverlays: Story = {
+export const OverlayVariants: Story = {
 	render: () => (
-		<div style={{ position: "relative", height: "200px" }}>
-			<p style={{ margin: 0 }}>{sampleContent}</p>
-			<ProgressIndicator label="Loading" outerOverlayVariant="transparent" innerOverlayVariant="transparent" />
+		<div style={{ display: "flex", gap: "48px" }}>
+			{(["bright", "transparent"] as const).map((variant) => (
+				<div key={variant} style={{ position: "relative", height: "200px", flex: 1, border: "1px solid #ccc" }}>
+					<p style={{ margin: "8px", fontSize: "12px" }}>{variant}</p>
+					<p style={{ margin: "8px" }}>{sampleContent}</p>
+					<ProgressIndicator label="Loading" outerOverlayVariant={variant} innerOverlayVariant={variant} />
+				</div>
+			))}
 		</div>
 	),
 	parameters: {
 		docs: {
 			description: {
-				story: "Both inner and outer overlays set to transparent — only the spinner and label are visible."
-			}
-		}
-	}
-};
-
-export const BrightOverlay: Story = {
-	render: () => (
-		<div style={{ position: "relative", height: "200px" }}>
-			<p style={{ margin: 0 }}>{sampleContent}</p>
-			<ProgressIndicator label="Loading" outerOverlayVariant="bright" innerOverlayVariant="bright" />
-		</div>
-	),
-	parameters: {
-		docs: {
-			description: {
-				story: "Both overlays set to the bright variant, providing a light-colored blocking overlay."
+				story:
+					"`outerOverlayVariant` and `innerOverlayVariant` accept `bright` or `transparent`. With `transparent` only the spinner and label remain visible; `bright` adds a light blocking overlay."
 			}
 		}
 	}

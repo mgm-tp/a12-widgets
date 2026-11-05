@@ -277,12 +277,19 @@ export function useTreeModel<RowType>(props: TreeModelOptions<RowType>): TreeMod
 				return (overlay.get(key)?.length ?? 0) > 0;
 			}
 
+			// Controlled pagination: a parent whose next page is still outstanding is expandable even with
+			// no loaded children, so an unfetched first page needs no placeholder child rows. `hasMore`
+			// turning false retracts the chevron on its own.
+			if (controlledPagination && getPagination?.(key)?.hasMore) {
+				return true;
+			}
+
 			const children = childrenBase(row);
 
 			// Unknown children (undefined) are expandable only when they can be lazily loaded.
 			return children !== undefined ? children.length > 0 : !!loadChildren;
 		},
-		[isLeaf, overlay, childrenBase, loadChildren]
+		[isLeaf, overlay, controlledPagination, getPagination, childrenBase, loadChildren]
 	);
 
 	const isControlled = controlledExpandedKeys !== undefined;
@@ -365,7 +372,10 @@ export function useTreeModel<RowType>(props: TreeModelOptions<RowType>): TreeMod
 		(key: Key, row: RowType): void => {
 			const expanding = !expandedRef.current.has(key);
 
-			if (expanding && loadChildren && !overlay.has(key) && childrenBase(row) === undefined && !isLeaf?.(row)) {
+			// First expand of a row whose children are unknown (`undefined`) fetches them once.
+			const unloaded = childrenBase(row) === undefined;
+
+			if (expanding && loadChildren && !overlay.has(key) && unloaded && !isLeaf?.(row)) {
 				setLoadingKeys((prev) => new Set(prev).add(key));
 
 				loadChildren(row)

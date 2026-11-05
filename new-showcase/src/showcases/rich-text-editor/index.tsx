@@ -30,19 +30,33 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import configurationView from "!../../helpers/configuration-view.tsx?raw";
+import commonCode from "!./common.ts?raw";
+import creatingTextColorPluginEditorCode from "!./create-a-plugin/creating-text-color-plugin-editor.tsx?raw";
+import hyphenToEnDashPluginEditorCode from "!./create-a-plugin/hyphen-to-en-dash-plugin-editor.tsx?raw";
+import basicCode from "!./default-rich-text-editor/basic.tsx?raw";
+import HTMLOutputCode from "!./default-rich-text-editor/default-editor-combination.tsx?raw";
+import linkPluginCode from "!./link-plugin/index.js?raw";
+import mentionPluginCode from "!./mention-plugin/index.js?raw";
+import toolbarButton from "!./share/data.tsx?raw";
+import spellCheckPluginEditorCode from "!./spell-check-plugin/index.js?raw";
+import staticToolbarGroupPluginCode from "!./static-toolbar-plugin/index.js?raw";
+import styleWrapper from "!./style/inline-styled-editor-wrapper.styled.tsx?raw";
+import tooltipPluginEditorCode from "!./tooltip-plugin/index.js?raw";
+
 import { ExternalLink, Link, BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
-import RichTextEditorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/rich-text-editor.api.json" with { type: "json" };
-import DefaultRichTextEditorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/wrapper/default-rich-text-editor.api.json" with { type: "json" };
 import AutoLinkPluginAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/auto-link-plugin/auto-link.api.json" with { type: "json" };
 import FollowLinkPopupPluginAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/follow-link-popup-plugin/follow-link-popup-plugin.api.json" with { type: "json" };
 import MentionPluginAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/mentions-plugin/mention-plugin.api.json" with { type: "json" };
 import OutputPluginAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/output-plugin/output-plugin.api.json" with { type: "json" };
 import SpellCheckPluginAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/spell-check-plugin/spell-check-plugin.api.json" with { type: "json" };
-import TooltipPluginAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/tooltip-plugin/tooltip-plugin.api.json" with { type: "json" };
-import ToolbarButtonAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/static-toolbar-plugin/toolbar-button/toolbar-button.api.json" with { type: "json" };
+import BlockButtonAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/static-toolbar-plugin/block-button/block-button.api.json" with { type: "json" };
 import GroupButtonAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/static-toolbar-plugin/group-button/group-button.api.json" with { type: "json" };
 import InlineButtonAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/static-toolbar-plugin/inline-button/inline-button.api.json" with { type: "json" };
-import BlockButtonAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/static-toolbar-plugin/block-button/block-button.api.json" with { type: "json" };
+import ToolbarButtonAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/static-toolbar-plugin/toolbar-button/toolbar-button.api.json" with { type: "json" };
+import TooltipPluginAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/plugins/tooltip-plugin/tooltip-plugin.api.json" with { type: "json" };
+import RichTextEditorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/rich-text-editor.api.json" with { type: "json" };
+import DefaultRichTextEditorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/rich-text-editor/main/wrapper/default-rich-text-editor.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import {
@@ -51,29 +65,15 @@ import {
 	StyledShowcaseLink
 } from "../../helpers/showcase-styles.js";
 
+import { CreatingTextColorChangePluginEditor } from "./create-a-plugin/creating-text-color-plugin-editor.js";
+import { HyphenToEnDashPluginEditor } from "./create-a-plugin/hyphen-to-en-dash-plugin-editor.js";
 import { Basic } from "./default-rich-text-editor/basic.js";
 import { DefaultEditorCombination } from "./default-rich-text-editor/default-editor-combination.js";
-import { StaticToolbarGroupPlugin } from "./static-toolbar-plugin/index.js";
-import { MentionPluginShowcase } from "./mention-plugin/index.js";
 import { LinkPlugin } from "./link-plugin/index.js";
+import { MentionPluginShowcase } from "./mention-plugin/index.js";
 import { SpellCheckPluginEditor } from "./spell-check-plugin/index.js";
+import { StaticToolbarGroupPlugin } from "./static-toolbar-plugin/index.js";
 import { TooltipPluginEditor } from "./tooltip-plugin/index.js";
-import { HyphenToEnDashPluginEditor } from "./create-a-plugin/hyphen-to-en-dash-plugin-editor.js";
-import { CreatingTextColorChangePluginEditor } from "./create-a-plugin/creating-text-color-plugin-editor.js";
-
-import configurationView from "!../../helpers/configuration-view.tsx?raw";
-import commonCode from "!./common.ts?raw";
-import styleWrapper from "!./style/inline-styled-editor-wrapper.styled.tsx?raw";
-import toolbarButton from "!./share/data.tsx?raw";
-import basicCode from "!./default-rich-text-editor/basic.tsx?raw";
-import HTMLOutputCode from "!./default-rich-text-editor/default-editor-combination.tsx?raw";
-import staticToolbarGroupPluginCode from "!./static-toolbar-plugin/index.js?raw";
-import mentionPluginCode from "!./mention-plugin/index.js?raw";
-import linkPluginCode from "!./link-plugin/index.js?raw";
-import spellCheckPluginEditorCode from "!./spell-check-plugin/index.js?raw";
-import tooltipPluginEditorCode from "!./tooltip-plugin/index.js?raw";
-import hyphenToEnDashPluginEditorCode from "!./create-a-plugin/hyphen-to-en-dash-plugin-editor.tsx?raw";
-import creatingTextColorPluginEditorCode from "!./create-a-plugin/creating-text-color-plugin-editor.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

@@ -32,8 +32,8 @@
 
 import { rgba } from "polished";
 
-import type { BaseThemeCore } from "../../schema.js";
 import type { CustomBorder } from "../../../base/mixins/_borderEffects.js";
+import type { BaseThemeCore } from "../../schema.js";
 import { mergeConfig } from "../../utils/merge-config.js";
 
 export type TimePickerConfigType = {

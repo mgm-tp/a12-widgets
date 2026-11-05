@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
-import { useState, useEffect, useMemo, useCallback } from "react";
-import { parse } from "date-fns/parse";
 import { TZDate } from "@date-fns/tz";
 import { isValid } from "date-fns/isValid";
+import { parse } from "date-fns/parse";
+import type { ReactElement } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 
 import type { DateInputProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import {

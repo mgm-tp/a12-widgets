@@ -587,7 +587,7 @@ exports[`com.mgmtp.a12.widgets.model-graph-diagram > render selected Link Node 2
   border-width: 2px 2px 2px 4px;
   border-style: dashed dashed dashed solid;
   border-color: rgb(0, 88, 159);
-  border-image: initial;
+  border-image: none;
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.85rem;
@@ -642,7 +642,7 @@ exports[`com.mgmtp.a12.widgets.model-graph-diagram > render selected Node 1`] = 
   border-width: 2px 2px 2px 4px;
   border-style: solid;
   border-color: rgb(0, 88, 159);
-  border-image: initial;
+  border-image: none;
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.85rem;

@@ -49,8 +49,7 @@ const meta: Meta<typeof FlyoutMenu> = {
 	component: FlyoutMenu,
 	parameters: {
 		layout: "padded"
-	},
-	tags: ["autodocs"]
+	}
 };
 
 export default meta;
@@ -109,23 +108,6 @@ const variantItems: MenuItem[] = [
 	{ label: "Done", variant: "done", title: "Successfully completed" }
 ];
 
-export const Default: Story = {
-	render: () => {
-		return (
-			<div style={{ padding: "20px" }}>
-				<Typography.Headline level={3} style={{ marginBottom: "20px" }}>
-					Vertical Menu — Hints Position Left
-				</Typography.Headline>
-				<InteractionHintConfigProvider componentConfigs={{ verticalFlyoutMenu: { enabled: true, position: "left" } }}>
-					<div style={{ width: "250px" }}>
-						<FlyoutMenu type="vertical" items={itemsWithSubmenus} />
-					</div>
-				</InteractionHintConfigProvider>
-			</div>
-		);
-	}
-};
-
 export const WithInteractionHintPositionLeft: Story = {
 	render: () => {
 		return (
@@ -136,7 +118,7 @@ export const WithInteractionHintPositionLeft: Story = {
 				<Typography.Body style={{ color: "#666", marginBottom: "10px" }}>
 					Hints positioned on the left side (only affects vertical menus)
 				</Typography.Body>
-				<div style={{ display: "flex", gap: "40px" }}>
+				<div style={{ display: "flex", gap: "40px", flexWrap: "wrap" }}>
 					<div>
 						<Typography.Headline level={4} style={{ marginTop: "20px", marginBottom: "10px" }}>
 							With Submenus — Position Left
@@ -145,7 +127,7 @@ export const WithInteractionHintPositionLeft: Story = {
 							componentConfigs={{ verticalFlyoutMenu: { enabled: true, position: "left" } }}
 						>
 							<div style={{ width: "250px" }}>
-								<FlyoutMenu type="vertical" items={itemsWithSubmenus} />
+								<FlyoutMenu id="flyout-menu-hint-left-submenus" type="vertical" items={itemsWithSubmenus} />
 							</div>
 						</InteractionHintConfigProvider>
 					</div>
@@ -157,7 +139,7 @@ export const WithInteractionHintPositionLeft: Story = {
 							componentConfigs={{ verticalFlyoutMenu: { enabled: true, position: "left" } }}
 						>
 							<div style={{ width: "250px" }}>
-								<FlyoutMenu type="vertical" items={variantItems} />
+								<FlyoutMenu id="flyout-menu-hint-left-variants" type="vertical" items={variantItems} />
 							</div>
 						</InteractionHintConfigProvider>
 					</div>
@@ -169,7 +151,7 @@ export const WithInteractionHintPositionLeft: Story = {
 							componentConfigs={{ verticalFlyoutMenu: { enabled: true, position: "left" } }}
 						>
 							<div style={{ width: "250px" }}>
-								<FlyoutMenu type="vertical" items={itemsWithBadges} />
+								<FlyoutMenu id="flyout-menu-hint-left-badges" type="vertical" items={itemsWithBadges} />
 							</div>
 						</InteractionHintConfigProvider>
 					</div>
@@ -188,7 +170,7 @@ export const WithInteractionHintPositionRight: Story = {
 				</Typography.Headline>
 				<InteractionHintConfigProvider componentConfigs={{ verticalFlyoutMenu: { enabled: true, position: "right" } }}>
 					<div style={{ width: "250px" }}>
-						<FlyoutMenu type="vertical" items={itemsWithSubmenus} />
+						<FlyoutMenu id="flyout-menu-hint-right-submenus" type="vertical" items={itemsWithSubmenus} />
 					</div>
 				</InteractionHintConfigProvider>
 
@@ -197,7 +179,7 @@ export const WithInteractionHintPositionRight: Story = {
 				</Typography.Headline>
 				<InteractionHintConfigProvider componentConfigs={{ verticalFlyoutMenu: { enabled: true, position: "right" } }}>
 					<div style={{ width: "250px" }}>
-						<FlyoutMenu type="vertical" items={variantItems} />
+						<FlyoutMenu id="flyout-menu-hint-right-variants" type="vertical" items={variantItems} />
 					</div>
 				</InteractionHintConfigProvider>
 
@@ -206,7 +188,7 @@ export const WithInteractionHintPositionRight: Story = {
 				</Typography.Headline>
 				<InteractionHintConfigProvider componentConfigs={{ verticalFlyoutMenu: { enabled: true, position: "right" } }}>
 					<div style={{ width: "250px" }}>
-						<FlyoutMenu type="vertical" items={itemsWithBadges} />
+						<FlyoutMenu id="flyout-menu-hint-right-badges" type="vertical" items={itemsWithBadges} />
 					</div>
 				</InteractionHintConfigProvider>
 			</div>
@@ -224,14 +206,14 @@ export const WithInteractionHintAllPositions: Story = {
 				<Typography.Body style={{ color: "#666", marginBottom: "10px" }}>
 					Note: vertical.position configuration only affects vertical flyout menus
 				</Typography.Body>
-				<div style={{ display: "flex", gap: "40px" }}>
+				<div style={{ display: "flex", gap: "40px", flexWrap: "wrap" }}>
 					<div>
 						<Typography.Headline level={4} style={{ marginTop: "30px", marginBottom: "15px" }}>
 							Default Position
 						</Typography.Headline>
 						<InteractionHintConfigProvider componentConfigs={{ verticalFlyoutMenu: true }}>
 							<div style={{ width: "250px" }}>
-								<FlyoutMenu type="vertical" items={itemsWithSubmenus} />
+								<FlyoutMenu id="flyout-menu-hint-positions-default" type="vertical" items={itemsWithSubmenus} />
 							</div>
 						</InteractionHintConfigProvider>
 					</div>
@@ -243,7 +225,7 @@ export const WithInteractionHintAllPositions: Story = {
 							componentConfigs={{ verticalFlyoutMenu: { enabled: true, position: "left" } }}
 						>
 							<div style={{ width: "250px" }}>
-								<FlyoutMenu type="vertical" items={itemsWithSubmenus} />
+								<FlyoutMenu id="flyout-menu-hint-positions-left" type="vertical" items={itemsWithSubmenus} />
 							</div>
 						</InteractionHintConfigProvider>
 					</div>
@@ -255,7 +237,7 @@ export const WithInteractionHintAllPositions: Story = {
 							componentConfigs={{ verticalFlyoutMenu: { enabled: true, position: "right" } }}
 						>
 							<div style={{ width: "250px" }}>
-								<FlyoutMenu type="vertical" items={itemsWithSubmenus} />
+								<FlyoutMenu id="flyout-menu-hint-positions-right" type="vertical" items={itemsWithSubmenus} />
 							</div>
 						</InteractionHintConfigProvider>
 					</div>
@@ -266,7 +248,7 @@ export const WithInteractionHintAllPositions: Story = {
 };
 
 export const CollapsedWithInteractionHint: Story = {
-	render: () => {
+	render: function CollapsedWithInteractionHintExample() {
 		const [collapsed, setCollapsed] = useState(true);
 
 		return (
@@ -275,19 +257,29 @@ export const CollapsedWithInteractionHint: Story = {
 					Collapsed Vertical Menu with Interaction Hints
 				</Typography.Headline>
 				<div style={{ marginBottom: "20px" }}>
-					<Checkbox label="Collapsed" checked={collapsed} onChange={(checked) => setCollapsed(checked)} />
+					<Checkbox
+						id="flyout-menu-advanced-collapsed"
+						label="Collapsed"
+						checked={collapsed}
+						onChange={(checked) => setCollapsed(checked)}
+					/>
 				</div>
 				<Typography.Body style={{ color: "#666", marginBottom: "10px" }}>
 					Hints especially useful in collapsed mode.
 				</Typography.Body>
-				<div style={{ display: "flex", gap: "40px" }}>
+				<div style={{ display: "flex", gap: "40px", flexWrap: "wrap" }}>
 					<div>
 						<Typography.Headline level={4} style={{ marginTop: "20px", marginBottom: "10px" }}>
 							Default Position
 						</Typography.Headline>
 						<InteractionHintConfigProvider componentConfigs={{ verticalFlyoutMenu: true }}>
 							<div style={{ width: collapsed ? "fit-content" : "300px" }}>
-								<FlyoutMenu type="vertical" items={itemsWithSubmenus} collapsed={collapsed} />
+								<FlyoutMenu
+									id="flyout-menu-hint-collapsed-default"
+									type="vertical"
+									items={itemsWithSubmenus}
+									collapsed={collapsed}
+								/>
 							</div>
 						</InteractionHintConfigProvider>
 					</div>
@@ -299,7 +291,12 @@ export const CollapsedWithInteractionHint: Story = {
 							componentConfigs={{ verticalFlyoutMenu: { enabled: true, position: "right", followCursor: true } }}
 						>
 							<div style={{ width: collapsed ? "fit-content" : "300px" }}>
-								<FlyoutMenu type="vertical" items={itemsWithSubmenus} collapsed={collapsed} />
+								<FlyoutMenu
+									id="flyout-menu-hint-collapsed-right"
+									type="vertical"
+									items={itemsWithSubmenus}
+									collapsed={collapsed}
+								/>
 							</div>
 						</InteractionHintConfigProvider>
 					</div>

@@ -35,7 +35,13 @@ const withGlobalStylesAndBaseClass: Decorator = (Story) => (
 );
 
 const preview: Preview = {
-	parameters: {options: {
+	parameters: {
+		docs: {
+			// Show the story's source snippet as a panel on the canvas too (same snippet as the
+			// docs page's Source block), so "Show code" is one click away without opening Docs.
+			codePanel: true
+		},
+		options: {
 			storySort: {
 				order: [
 						"General",

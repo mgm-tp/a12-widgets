@@ -30,8 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import ChatAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/chat/main/chat.api.json" with { type: "json" };
+import basicCode from "!./basic.tsx?raw";
+import dateMarkerAndNotificationsCode from "!./date-marker-and-notifications.tsx?raw";
+import scrollHandlingCode from "!./scroll-handling.tsx?raw";
+import typingCode from "!./typing.tsx?raw";
+
 import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import ChatAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/chat/main/chat.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
@@ -39,11 +44,6 @@ import { BasicChatShowcase } from "./basic.js";
 import { DateMarkerAndNotificationsChatShowcase } from "./date-marker-and-notifications.js";
 import { ScrollHandlingChatShowcase } from "./scroll-handling.js";
 import { TypingChatShowcase } from "./typing.js";
-
-import basicCode from "!./basic.tsx?raw";
-import dateMarkerAndNotificationsCode from "!./date-marker-and-notifications.tsx?raw";
-import scrollHandlingCode from "!./scroll-handling.tsx?raw";
-import typingCode from "!./typing.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

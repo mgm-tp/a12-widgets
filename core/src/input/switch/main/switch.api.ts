@@ -38,11 +38,7 @@ import type { BaseInputEventHandler, BaseInputProps, InputDOMProps } from "../..
 export type SwitchLabelPosition = "top" | "left" | "right" | "bottom";
 
 export interface SwitchProps
-	extends
-		Omit<BaseInputProps, "breakTooltipsToNewLine">,
-		Omit<BaseInputEventHandler<HTMLInputElement>, "onChange">,
-		InputDOMProps,
-		Container {
+	extends BaseInputProps, Omit<BaseInputEventHandler<HTMLInputElement>, "onChange">, InputDOMProps, Container {
 	/**
 	 * Switch state
 	 * @default false

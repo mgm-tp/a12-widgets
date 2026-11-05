@@ -30,134 +30,146 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode } from "react";
-import { Component } from "react";
 import { remove } from "lodash-es";
+import { useCallback, useEffect, useRef, useState, type ReactElement } from "react";
 
-import { bindMethods } from "../../../../common/main/utils.js";
 import type { SizeDetectorProps } from "../../../../layout/size-detector/main/size-detector.api.js";
-
-import { MasterDetail } from "../master-detail.view.js";
 import type { VisibleView, Animation } from "../master-detail.api.js";
 import { MasterDetailLayout } from "../master-detail.api.js";
 import { FocusLastLayout } from "../master-detail.default-model.js";
+import { MasterDetail } from "../master-detail.view.js";
 
 import type { ManagedMasterDetailType, ManagedMasterDetailView } from "./managed-master-detail.api.js";
 
-type InternalManagedMasterDetailView = ManagedMasterDetailView & {
+export type InternalManagedMasterDetailView = ManagedMasterDetailView & {
 	openedByElementId?: string;
 	fullscreenButtonId?: string;
 };
 
-export interface ManagedMasterDetailState {
+interface PaneState {
 	index: number;
 	prevIndex?: number;
 	fullScreen?: boolean;
 	fullScreenToggled?: boolean;
 	lastVisibleView?: ManagedMasterDetailView;
-	latestAddedView?: InternalManagedMasterDetailView; // The latest view has been added or replaced
-	latestClosedView?: InternalManagedMasterDetailView; // The latest view has been closed
+	latestAddedView?: InternalManagedMasterDetailView;
+	latestClosedView?: InternalManagedMasterDetailView;
 	addedViews: InternalManagedMasterDetailView[];
-	smallView?: boolean;
 }
 
-export class ManagedMasterDetail extends Component<ManagedMasterDetailType, ManagedMasterDetailState> {
-	static displayName = "ManagedMasterDetail";
+/** @deprecated Internal component state. No replacement. */
+export type ManagedMasterDetailState = PaneState & { smallView?: boolean };
 
-	constructor(props: ManagedMasterDetailType) {
-		super(props);
+export function ManagedMasterDetail(props: ManagedMasterDetailType): ReactElement {
+	const { views, startIndex, fullScreenable, fullscreen, columnCount, viewTabIndex, animation, onSizeChange } = props;
 
-		this.state = {
-			index: this.props.startIndex || 0,
-			addedViews: [],
-			fullScreen: this.props.fullScreenable ? this.props.fullscreen : this.props.fullScreenable,
-			lastVisibleView: undefined
-		};
+	const [smallView, setSmallView] = useState(false);
+	const [paneState, setPaneState] = useState<PaneState>(() => ({
+		index: startIndex || 0,
+		addedViews: [],
+		fullScreen: fullScreenable ? fullscreen : false,
+		lastVisibleView: undefined
+	}));
 
-		bindMethods(this);
-	}
+	const pendingFocusRef = useRef<string | null>(null);
 
-	componentDidMount(): void {
-		this.setState((state) => {
-			const index =
-				this.props.fullScreenable && !this.props.fullscreen && this.props.startIndex !== 0 && !state.smallView
-					? this.props.startIndex || 1
-					: state.index;
+	useEffect(() => {
+		setPaneState((prev) => {
+			const index = fullScreenable && !fullscreen && startIndex !== 0 && !smallView ? startIndex || 1 : prev.index;
 
 			return {
+				...prev,
 				index,
-				fullScreenToggled: state.fullScreen,
-				latestAddedView: this.props.views[index],
-				addedViews: this.props.views.filter((_, i) => i <= index)
+				fullScreenToggled: prev.fullScreen,
+				latestAddedView: views[index],
+				addedViews: views.filter((_, i) => i <= index)
 			};
 		});
-	}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
-	private focusOnElement(expectedID?: string): void {
-		const currentViewId = expectedID ?? this.state.addedViews[this.state.index]?.id;
-
-		if (currentViewId) {
-			document.getElementById(currentViewId)?.focus();
+	useEffect(() => {
+		if (pendingFocusRef.current) {
+			document.getElementById(pendingFocusRef.current)?.focus();
+			pendingFocusRef.current = null;
 		}
-	}
+	});
 
-	private handleSizeChanged(breakPoint: SizeDetectorProps.BreakPoint): void {
-		this.setState({ smallView: breakPoint.size === "sm" || breakPoint.size === "xs" });
-		this.props.onSizeChange?.(breakPoint);
-	}
+	const focusOnElement = useCallback(
+		(expectedID?: string) => {
+			const currentViewId = expectedID ?? paneState.addedViews[paneState.index]?.id;
 
-	private getAnimation(): Animation | undefined {
-		if (!this.state.smallView && !this.state.fullScreen && this.props.columnCount && this.props.columnCount > 1) {
-			return this.props.animation;
+			if (currentViewId) {
+				pendingFocusRef.current = currentViewId;
+			}
+		},
+		[paneState.addedViews, paneState.index]
+	);
+
+	const handleSizeChanged = useCallback(
+		(breakPoint: SizeDetectorProps.BreakPoint) => {
+			setSmallView(breakPoint.size === "sm" || breakPoint.size === "xs");
+			onSizeChange?.(breakPoint);
+		},
+		[onSizeChange]
+	);
+
+	const getAnimation = (): Animation | undefined => {
+		if (!smallView && !paneState.fullScreen && columnCount && columnCount > 1) {
+			return animation;
 		}
+
+		const isGoingToPrevious = paneState.prevIndex !== undefined && paneState.index < paneState.prevIndex;
 
 		return {
-			...this.props.animation,
-			animateSingleItem: this.state.prevIndex && this.state.index < this.state.prevIndex ? "ltr" : "rtl"
+			...animation,
+			animateSingleItem: isGoingToPrevious ? "ltr" : "rtl"
 		};
-	}
+	};
 
-	private onPrevious(currentView: ManagedMasterDetailView, isFirstView: boolean): void {
+	const handlePrevious = (currentView: ManagedMasterDetailView, isFirstView: boolean): void => {
 		if (!isFirstView) {
-			const currentViewIndex = this.props.views.indexOf(currentView);
+			const currentViewIndex = views.indexOf(currentView);
 			const previousViewIndex = currentViewIndex - 1;
-			const previousView = this.props.views[previousViewIndex];
-			this.setState(
-				(state) => {
-					return {
-						index: previousViewIndex,
-						prevIndex: state.index,
-						fullScreen: this.props.views.indexOf(previousView) === 0 ? true : state.fullScreen,
-						fullScreenToggled: state.fullScreenToggled && state.fullScreen,
-						lastVisibleView: previousView,
-						latestAddedView: state.addedViews[previousViewIndex],
-						latestClosedView: state.addedViews[currentViewIndex],
-						// Remove view has been closed
-						addedViews: remove(state.addedViews, (view, idx) => idx <= previousViewIndex)
-					};
-				},
-				() => {
-					const triggerElementVisible =
-						this.state.latestClosedView?.openedByElementId &&
-						document.getElementById(this.state.latestClosedView.openedByElementId);
+			const previousView = views[previousViewIndex];
 
-					this.focusOnElement(triggerElementVisible ? this.state.latestClosedView?.openedByElementId : undefined);
-				}
-			);
+			setPaneState((prev) => {
+				const newAddedViews = remove([...prev.addedViews], (_view, idx) => idx <= previousViewIndex);
+				const closedView = prev.addedViews[currentViewIndex];
+
+				const triggerElementVisible =
+					closedView?.openedByElementId && document.getElementById(closedView.openedByElementId);
+
+				pendingFocusRef.current = triggerElementVisible
+					? closedView.openedByElementId!
+					: (newAddedViews[previousViewIndex]?.id ?? null);
+
+				return {
+					...prev,
+					index: previousViewIndex,
+					prevIndex: prev.index,
+					fullScreen: views.indexOf(previousView) === 0 ? true : prev.fullScreen,
+					fullScreenToggled: prev.fullScreenToggled && prev.fullScreen,
+					lastVisibleView: previousView,
+					latestAddedView: prev.addedViews[previousViewIndex],
+					latestClosedView: closedView,
+					addedViews: newAddedViews
+				};
+			});
 		}
-	}
+	};
 
-	private onNext(options?: { triggerElementId?: string }): void {
-		const i = this.state.index < this.props.views.length - 1 ? this.state.index + 1 : this.state.index;
-		this.setState((state) => {
-			const matchedView = this.props.views.find((value) => value.id === this.props.views[i].id);
-			let newAddedViews = [...state.addedViews];
+	const handleNext = (options?: { triggerElementId?: string }): void => {
+		setPaneState((prev) => {
+			const i = prev.index < views.length - 1 ? prev.index + 1 : prev.index;
+			const matchedView = views.find((value) => value.id === views[i].id);
+			let newAddedViews = [...prev.addedViews];
 
 			if (matchedView) {
-				const viewToBeUpdated = state.addedViews.find((value) => value.id === matchedView.id);
+				const viewToBeUpdated = prev.addedViews.find((value) => value.id === matchedView.id);
 
 				if (viewToBeUpdated) {
-					newAddedViews = state.addedViews.map((view) =>
+					newAddedViews = prev.addedViews.map((view) =>
 						viewToBeUpdated.id === view.id
 							? {
 									...view,
@@ -170,169 +182,165 @@ export class ManagedMasterDetail extends Component<ManagedMasterDetailType, Mana
 				}
 			}
 
+			pendingFocusRef.current = newAddedViews[i]?.id ?? null;
+
 			return {
+				...prev,
 				index: i,
-				prevIndex: state.index,
-				fullScreen: state.fullScreenToggled && state.fullScreen,
-				fullScreenToggled: state.fullScreenToggled && state.fullScreen,
+				prevIndex: prev.index,
+				fullScreen: prev.fullScreenToggled && prev.fullScreen,
+				fullScreenToggled: prev.fullScreenToggled && prev.fullScreen,
 				latestAddedView: newAddedViews[newAddedViews.length - 1],
 				latestClosedView: undefined,
 				addedViews: newAddedViews
 			};
-		}, this.focusOnElement);
-	}
+		});
+	};
 
-	private onGoTo(index: number): void {
-		if (index < this.props.views.length) {
-			this.setState(
-				(state) => ({
+	const handleGoTo = (index: number): void => {
+		if (index < views.length) {
+			setPaneState((prev) => {
+				pendingFocusRef.current = prev.addedViews[index]?.id ?? null;
+
+				return {
+					...prev,
 					index,
-					prevIndex: state.index,
+					prevIndex: prev.index,
 					fullScreenToggled: false
-				}),
-				this.focusOnElement
-			);
+				};
+			});
 		}
-	}
+	};
 
-	private onFullScreenToggled(
+	const handleFullScreenToggled = (
 		index: number,
-		lastVisibleView: ManagedMasterDetailView,
+		lastVisible: ManagedMasterDetailView,
 		fullscreenButtonId?: string
-	): void {
-		this.setState(
-			(state) => {
-				const indexOfLastVisibleView = state.lastVisibleView ? this.props.views.indexOf(state.lastVisibleView) : -1;
-				const addedViews = state.addedViews.map((view, idx) =>
-					idx === index ? { ...view, fullscreenButtonId } : view
-				);
+	): void => {
+		setPaneState((prev) => {
+			const indexOfLastVisibleView = prev.lastVisibleView ? views.indexOf(prev.lastVisibleView) : -1;
+			const addedViews = prev.addedViews.map((view, idx) => (idx === index ? { ...view, fullscreenButtonId } : view));
 
-				if (
-					index === addedViews.length - 1 &&
-					state.fullScreen &&
-					state.lastVisibleView &&
-					!state.addedViews.some((view) => view.id === state.lastVisibleView?.id)
-				) {
-					addedViews.push(state.lastVisibleView);
-				}
-
-				const { views } = this.props;
-				const columnCount = this.props.columnCount ?? 1;
-				const isMinimizingFirstView = index === 0 && state.fullScreen;
-				const newIndex =
-					index < indexOfLastVisibleView && state.fullScreen
-						? indexOfLastVisibleView
-						: isMinimizingFirstView
-							? columnCount
-								? columnCount - 1
-								: 1
-							: index;
-
-				// Update addedViews after minimizing the first view in order to display the next views
-				if (isMinimizingFirstView && state.addedViews.length === 1) {
-					const newViewsToPush = views.filter((view, idx) => view.id !== views[0].id && idx > 0 && idx <= newIndex);
-
-					if (newViewsToPush.length > 0) {
-						addedViews.push(...newViewsToPush);
-					}
-				}
-
-				return {
-					lastVisibleView,
-					index: newIndex,
-					prevIndex: state.index,
-					fullScreen: !state.fullScreen,
-					fullScreenToggled: true,
-					latestAddedView: addedViews[addedViews.length - 1],
-					latestClosedView: undefined,
-					addedViews
-				};
-			},
-			() => {
-				// Focus on the fullscreen button after maximizing/minimizing
-				this.focusOnElement(this.state.addedViews.find((_value, idx) => idx === index)?.fullscreenButtonId);
+			if (
+				index === addedViews.length - 1 &&
+				prev.fullScreen &&
+				prev.lastVisibleView &&
+				!prev.addedViews.some((view) => view.id === prev.lastVisibleView?.id)
+			) {
+				addedViews.push(prev.lastVisibleView);
 			}
-		);
-	}
 
-	private onReplace(currentId: string, replacerId: string): void {
-		this.setState(
-			(state) => {
-				const replacer = this.props.views.find((view) => view.id === replacerId);
-				const currentView = state.addedViews.find((view) => view.id === currentId);
-				const existedReplacer = state.addedViews.find((view) => view.id === replacerId);
-				const updatedViews = state.addedViews.map<InternalManagedMasterDetailView>((view) => {
-					if (view.id === currentId && replacer) {
-						return {
-							...replacer,
-							openedByElementId: existedReplacer?.openedByElementId
-						};
-					}
+			const colCount = columnCount ?? 1;
+			const isMinimizingFirstView = index === 0 && prev.fullScreen;
+			const newIndex =
+				index < indexOfLastVisibleView && prev.fullScreen
+					? indexOfLastVisibleView
+					: isMinimizingFirstView
+						? colCount
+							? colCount - 1
+							: 1
+						: index;
 
-					if (view.id === replacerId && currentView) {
-						return currentView;
-					}
+			// Update addedViews after minimizing the first view in order to display the next views
+			if (isMinimizingFirstView && prev.addedViews.length === 1) {
+				const newViewsToPush = views.filter((view, idx) => view.id !== views[0].id && idx > 0 && idx <= newIndex);
 
-					return view;
-				});
-
-				return {
-					latestAddedView: replacer,
-					latestClosedView: undefined,
-					addedViews: updatedViews
-				};
-			},
-			() => {
-				this.focusOnElement(replacerId);
+				if (newViewsToPush.length > 0) {
+					addedViews.push(...newViewsToPush);
+				}
 			}
-		);
-	}
 
-	render(): ReactNode {
-		// initialize and run layout manager
-		const layoutManager = new FocusLastLayout<ManagedMasterDetailView>(this.props.views);
-		layoutManager.goto(this.props.views[this.state.index]);
-		layoutManager.columnCount = (this.state.fullScreen || this.state.smallView ? 1 : this.props.columnCount) || 1;
-
-		const layout = layoutManager.layout();
-		const lastVisibleView = layout.items[layout.items.length - 1].layoutable;
-		const visibleSlots = MasterDetailLayout.visible(layout);
-
-		const visibleViews: VisibleView[] = visibleSlots.map((view, i) => {
-			const isFirstView = this.props.views.indexOf(view.layoutable) === 0;
+			pendingFocusRef.current = addedViews.find((_value, idx) => idx === index)?.fullscreenButtonId ?? null;
 
 			return {
-				id: view.layoutable.id,
-				width: view.width,
-				key: view.layoutable.key,
-				element: (
-					<view.layoutable.content
-						key={view.layoutable.key || `content_${i}`}
-						onPrevious={() => this.onPrevious(view.layoutable, isFirstView)}
-						onNext={this.onNext}
-						onGoTo={this.onGoTo}
-						onFullscreenToggled={(index: number, fullscreenButtonId): void =>
-							this.onFullScreenToggled(index, lastVisibleView, fullscreenButtonId)
-						}
-						onReplace={this.onReplace}
-						fullScreen={this.state.fullScreen}
-						fullScreenable={this.props.fullScreenable}
-						tabIndex={this.props.viewTabIndex || -1}
-					/>
-				),
-				resizableOptions: view.layoutable.resizableOptions
+				...prev,
+				lastVisibleView: lastVisible,
+				index: newIndex,
+				prevIndex: prev.index,
+				fullScreen: !prev.fullScreen,
+				fullScreenToggled: true,
+				latestAddedView: addedViews[addedViews.length - 1],
+				latestClosedView: undefined,
+				addedViews
 			};
 		});
+	};
 
-		return (
-			<MasterDetail
-				{...this.props}
-				title={this.props.title}
-				visibleViews={visibleViews}
-				animation={this.getAnimation()}
-				onSizeChange={this.handleSizeChanged}
-				onComponentMounted={this.focusOnElement}
-			/>
-		);
-	}
+	const handleReplace = (currentId: string, replacerId: string): void => {
+		setPaneState((prev) => {
+			const replacer = views.find((view) => view.id === replacerId);
+			const currentView = prev.addedViews.find((view) => view.id === currentId);
+			const existedReplacer = prev.addedViews.find((view) => view.id === replacerId);
+			const updatedViews = prev.addedViews.map<InternalManagedMasterDetailView>((view) => {
+				if (view.id === currentId && replacer) {
+					return {
+						...replacer,
+						openedByElementId: existedReplacer?.openedByElementId
+					};
+				}
+
+				if (view.id === replacerId && currentView) {
+					return currentView;
+				}
+
+				return view;
+			});
+
+			pendingFocusRef.current = replacerId;
+
+			return {
+				...prev,
+				latestAddedView: replacer,
+				latestClosedView: undefined,
+				addedViews: updatedViews
+			};
+		});
+	};
+
+	const layoutManager = new FocusLastLayout<ManagedMasterDetailView>(views);
+	layoutManager.goto(views[paneState.index]);
+	layoutManager.columnCount = (paneState.fullScreen || smallView ? 1 : columnCount) || 1;
+
+	const layout = layoutManager.layout();
+	const lastVisibleView = layout.items[layout.items.length - 1].layoutable;
+	const visibleSlots = MasterDetailLayout.visible(layout);
+
+	const visibleViews: VisibleView[] = visibleSlots.map((view, i) => {
+		const isFirstView = views.indexOf(view.layoutable) === 0;
+
+		return {
+			id: view.layoutable.id,
+			width: view.width,
+			key: view.layoutable.key ?? view.layoutable.id,
+			element: (
+				<view.layoutable.content
+					key={view.layoutable.key || `content_${i}`}
+					onPrevious={() => handlePrevious(view.layoutable, isFirstView)}
+					onNext={handleNext}
+					onGoTo={handleGoTo}
+					onFullscreenToggled={(index: number, fullscreenButtonId): void =>
+						handleFullScreenToggled(index, lastVisibleView, fullscreenButtonId)
+					}
+					onReplace={handleReplace}
+					fullScreen={paneState.fullScreen}
+					fullScreenable={fullScreenable}
+					tabIndex={viewTabIndex || -1}
+				/>
+			),
+			resizableOptions: view.layoutable.resizableOptions
+		};
+	});
+
+	return (
+		<MasterDetail
+			{...props}
+			title={props.title}
+			visibleViews={visibleViews}
+			animation={getAnimation()}
+			onSizeChange={handleSizeChanged}
+			onComponentMounted={focusOnElement}
+		/>
+	);
 }
+
+ManagedMasterDetail.displayName = "ManagedMasterDetail";

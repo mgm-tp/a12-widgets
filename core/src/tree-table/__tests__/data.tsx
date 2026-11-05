@@ -35,7 +35,6 @@ import { vi } from "vitest";
 
 import { Range } from "../../common/main/utils.js";
 import { Icon } from "../../icon/main/icon.view.js";
-
 import type { BaseTreeTableColumnType, BaseTreeTableNode } from "../main/tree-table.api.js";
 
 export interface FileNodeData {
@@ -150,17 +149,15 @@ export const COMPLEX_TREE_TABLE_NODE_CREATOR: () => FileNode = () => ({
 						}
 					]
 				},
-				...Array.from(new Range(3)).map(
-					(index): FileNode => ({
-						id: 6 + index + 1,
-						icon: Icons.FILE,
-						data: {
-							type: "file",
-							name: "",
-							otherCells: createComplexTableData()
-						}
-					})
-				),
+				...Array.from(new Range(3)).map((index): FileNode => ({
+					id: 6 + index + 1,
+					icon: Icons.FILE,
+					data: {
+						type: "file",
+						name: "",
+						otherCells: createComplexTableData()
+					}
+				})),
 				{
 					id: 10,
 					icon: Icons.FILE,
@@ -209,17 +206,15 @@ export const COMPLEX_TREE_TABLE_NODE_CREATOR: () => FileNode = () => ({
 						otherCells: createComplexTableData()
 					}
 				},
-				...Array.from(new Range(10)).map(
-					(index): FileNode => ({
-						id: 14 + index + 1,
-						icon: Icons.FILE,
-						data: {
-							type: "file",
-							name: "",
-							otherCells: createComplexTableData()
-						}
-					})
-				)
+				...Array.from(new Range(10)).map((index): FileNode => ({
+					id: 14 + index + 1,
+					icon: Icons.FILE,
+					data: {
+						type: "file",
+						name: "",
+						otherCells: createComplexTableData()
+					}
+				}))
 			]
 		}
 	]

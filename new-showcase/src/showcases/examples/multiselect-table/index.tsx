@@ -30,16 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
-
-import { BasicMultiselectTable } from "./basic-multiselect.js";
-import { MultiselectTableWithValuesInActionBar } from "./advanced-multiselect.js";
-
-import basicMultiselectTableCode from "!./basic-multiselect.tsx?raw";
 import multiselectTableWithValuesInActionBarCode from "!./advanced-multiselect.tsx?raw";
+import basicMultiselectTableCode from "!./basic-multiselect.tsx?raw";
 import utilsDataCode from "!./utils/data.tsx?raw";
 import utilsElementsCode from "!./utils/elements.tsx?raw";
 import utilsTableCode from "!./utils/table.tsx?raw";
+
+import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+
+import { MultiselectTableWithValuesInActionBar } from "./advanced-multiselect.js";
+import { BasicMultiselectTable } from "./basic-multiselect.js";
 
 const utils = [
 	{ name: "utils/data.tsx", code: utilsDataCode },

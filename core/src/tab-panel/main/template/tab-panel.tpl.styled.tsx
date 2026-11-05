@@ -32,10 +32,9 @@
 
 import { styled, css } from "styled-components";
 
+import { StyledButton } from "../../../button/main/button.styled.js";
 import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { active, hover, brightFocus } from "../../../theme/base/mixins/_interaction.js";
-import { StyledButton } from "../../../button/main/button.styled.js";
-
 import type { TabPanelOrientation } from "../tab-panel.api.js";
 
 export interface TabPanelTabStyledProps {
@@ -70,10 +69,12 @@ export const BaseTabPanelTab = styled.li.withConfig({ displayName: "BaseTabPanel
 				font-size: inherit;
 			}
 
-			${isHorizontal &&
-			css`
-				min-width: ${tab.minWidth};
-			`}
+			${
+				isHorizontal &&
+				css`
+					min-width: ${tab.minWidth};
+				`
+			}
 
 			&:before {
 				border: ${tab.border};
@@ -85,170 +86,188 @@ export const BaseTabPanelTab = styled.li.withConfig({ displayName: "BaseTabPanel
 				top: 0;
 			}
 
-			${!$disabled &&
-			css`
-				cursor: pointer;
+			${
+				!$disabled &&
+				css`
+					cursor: pointer;
 
-				${active(css`
-					background-color: ${tab.active.background};
-					color: ${tab.active.color};
+					${active(css`
+						background-color: ${tab.active.background};
+						color: ${tab.active.color};
+
+						&:before {
+							border-color: ${tab.active.borderColor};
+						}
+					`)}
+
+					${hover(css`
+						background-color: ${tab.hover.background};
+						color: ${tab.hover.color};
+
+						&:before {
+							border-color: ${tab.hover.borderColor};
+						}
+					`)}
+
+					&:focus {
+						background-color: ${tab.focus.background};
+						color: ${tab.focus.color};
+						margin: ${isVertical && tab.focus.margin};
+						${brightFocus}
+
+						&:before {
+							border-color: ${tab.focus.borderColor};
+						}
+					}
+				`
+			}
+
+			${
+				isHighlightedItem &&
+				css`
+					background-color: ${tab.highlighted.background};
+					color: ${tab.highlighted.color};
+
+					&:after {
+						background-color: ${tab.highlighted.afterBackground};
+						bottom: 0;
+						content: "";
+						left: 0;
+						position: absolute;
+						top: 0;
+						${
+							isHorizontal
+								? css`
+										height: ${tab.highlighted.borderTopWidth};
+										width: 100%;
+									`
+								: css`
+										width: ${tab.highlighted.borderLeftWidth};
+										height: 100%;
+									`
+						}
+					}
 
 					&:before {
-						border-color: ${tab.active.borderColor};
+						${
+							isHorizontal
+								? css`
+										border-top-width: ${tab.highlighted.borderTopWidth};
+									`
+								: css`
+										border-left-width: ${tab.highlighted.borderLeftWidth};
+									`
+						};
 					}
-				`)}
 
-				${hover(css`
-					background-color: ${tab.hover.background};
-					color: ${tab.hover.color};
+					${StyledIconWrapper} {
+						font-size: ${isVertical && tab.highlighted.fontSize};
+					}
+
+					${active(css`
+						background-color: ${tab.highlighted.activeBackground};
+					`)}
+
+					${hover(css`
+						background-color: ${tab.highlighted.hoverBackground};
+						&:after {
+							width: 0;
+						}
+					`)}
+
+					&:focus {
+						background-color: ${tab.highlighted.focusBackground};
+						&:after {
+							width: 0;
+						}
+					}
+				`
+			}
+
+			${
+				$selected &&
+				css`
+					background-color: ${tab.selected.background};
+					color: ${tab.selected.color};
+
+					&:after {
+						background-color: ${tab.selected.afterBackground};
+						bottom: 0;
+						content: "";
+						left: 0;
+						position: absolute;
+						top: 0;
+						${
+							isHorizontal
+								? css`
+										height: ${tab.selected.borderTopWidth};
+										width: 100%;
+									`
+								: css`
+										width: ${tab.selected.borderLeftWidth};
+										height: 100%;
+									`
+						}
+					}
 
 					&:before {
-						border-color: ${tab.hover.borderColor};
+						${
+							isHorizontal
+								? css`
+										border-top-width: ${tab.selected.borderTopWidth};
+									`
+								: css`
+										border-left-width: ${tab.selected.borderLeftWidth};
+									`
+						};
 					}
-				`)}
-				
-        	&:focus {
-					background-color: ${tab.focus.background};
-					color: ${tab.focus.color};
-					margin: ${isVertical && tab.focus.margin};
-					${brightFocus}
 
-					&:before {
-						border-color: ${tab.focus.borderColor};
+					${StyledIconWrapper} {
+						font-size: ${isVertical && tab.selected.fontSize};
 					}
-				}
-			`}
 
-			${isHighlightedItem &&
-			css`
-				background-color: ${tab.highlighted.background};
-				color: ${tab.highlighted.color};
+					${active(css`
+						background-color: ${tab.selected.activeBackground};
+					`)}
 
-				&:after {
-					background-color: ${tab.highlighted.afterBackground};
-					bottom: 0;
-					content: "";
-					left: 0;
-					position: absolute;
-					top: 0;
-					${isHorizontal
-						? css`
-								height: ${tab.highlighted.borderTopWidth};
-								width: 100%;
-							`
-						: css`
-								width: ${tab.highlighted.borderLeftWidth};
-								height: 100%;
-							`}
-				}
+					${hover(css`
+						background-color: ${tab.selected.hoverBackground};
+						&:after {
+							width: 0;
+						}
+					`)}
 
-				&:before {
-					${isHorizontal
-						? css`
-								border-top-width: ${tab.highlighted.borderTopWidth};
-							`
-						: css`
-								border-left-width: ${tab.highlighted.borderLeftWidth};
-							`};
-				}
-
-				${StyledIconWrapper} {
-					font-size: ${isVertical && tab.highlighted.fontSize};
-				}
-
-				${active(css`
-					background-color: ${tab.highlighted.activeBackground};
-				`)}
-
-				${hover(css`
-					background-color: ${tab.highlighted.hoverBackground};
-					&:after {
-						width: 0;
+					&:focus {
+						background-color: ${tab.selected.focusBackground};
+						&:after {
+							width: 0;
+						}
 					}
-				`)}
-				
-        &:focus {
-					background-color: ${tab.highlighted.focusBackground};
-					&:after {
-						width: 0;
+				`
+			}
+
+			${
+				$disabled &&
+				css`
+					background: ${tab.disabled.background};
+					color: ${tab.disabled.color};
+				`
+			}
+
+			${
+				$mobileSubListLayout &&
+				css`
+					font-size: ${groupTab.subItem.labelFontSize};
+					justify-content: flex-start;
+					padding: 0;
+					margin: ${groupTab.subItem.margin};
+
+					${StyledIconWrapper} {
+						font-size: ${groupTab.subItem.iconFontSize};
+						min-width: ${groupTab.subItem.iconMinWidth};
 					}
-				}
-			`}
-
-		${$selected &&
-			css`
-				background-color: ${tab.selected.background};
-				color: ${tab.selected.color};
-
-				&:after {
-					background-color: ${tab.selected.afterBackground};
-					bottom: 0;
-					content: "";
-					left: 0;
-					position: absolute;
-					top: 0;
-					${isHorizontal
-						? css`
-								height: ${tab.selected.borderTopWidth};
-								width: 100%;
-							`
-						: css`
-								width: ${tab.selected.borderLeftWidth};
-								height: 100%;
-							`}
-				}
-
-				&:before {
-					${isHorizontal
-						? css`
-								border-top-width: ${tab.selected.borderTopWidth};
-							`
-						: css`
-								border-left-width: ${tab.selected.borderLeftWidth};
-							`};
-				}
-
-				${StyledIconWrapper} {
-					font-size: ${isVertical && tab.selected.fontSize};
-				}
-
-				${active(css`
-					background-color: ${tab.selected.activeBackground};
-				`)}
-
-				${hover(css`
-					background-color: ${tab.selected.hoverBackground};
-					&:after {
-						width: 0;
-					}
-				`)}
-			
-			&:focus {
-					background-color: ${tab.selected.focusBackground};
-					&:after {
-						width: 0;
-					}
-				}
-			`}
-			
-		${$disabled &&
-			css`
-				background: ${tab.disabled.background};
-				color: ${tab.disabled.color};
-			`}
-
-		${$mobileSubListLayout &&
-			css`
-				font-size: ${groupTab.subItem.labelFontSize};
-				justify-content: flex-start;
-				padding: 0;
-				margin: ${groupTab.subItem.margin};
-
-				${StyledIconWrapper} {
-					font-size: ${groupTab.subItem.iconFontSize};
-					min-width: ${groupTab.subItem.iconMinWidth};
-				}
-			`}
+				`
+			}
 		`;
 	}
 );
@@ -304,15 +323,17 @@ export const BaseTabPanelTabContent = styled.div.withConfig({ displayName: "Base
 		display: inline-flex;
 		justify-content: center;
 
-		${$mobileSubListLayout &&
-		css`
-			align-items: center;
-			display: flex;
-			gap: ${groupTab.subItem.gap};
-			justify-content: flex-start;
-			padding: ${groupTab.subItem.padding};
-			width: 100%;
-		`}
+		${
+			$mobileSubListLayout &&
+			css`
+				align-items: center;
+				display: flex;
+				gap: ${groupTab.subItem.gap};
+				justify-content: flex-start;
+				padding: ${groupTab.subItem.padding};
+				width: 100%;
+			`
+		}
 	`;
 });
 

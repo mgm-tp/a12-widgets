@@ -33,13 +33,13 @@
 import type { ReactElement } from "react";
 import { useCallback, useMemo, useState } from "react";
 
+import { Button, ButtonGroup, Checkbox, Icon, MailtoLink, Status } from "@com.mgmtp.a12.widgets/widgets-core";
 import type {
 	DataTableColumn,
 	DataTableSortOrder,
 	DataTableSortState,
 	DataTableRowStyles
 } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
-import { Button, ButtonGroup, Checkbox, Icon, MailtoLink, Status } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import { Utils } from "./utils.js";
@@ -153,6 +153,7 @@ export function BasicTableShowcase(): ReactElement {
 				hiddenText: "",
 				renderHeader: () => (
 					<Checkbox.Indeterminate
+						id="data-table-basic-table-select-all"
 						label="Select all/ Deselect all"
 						hideLabel
 						checked={checkedRows.length === data.length ? true : checkedRows.length > 0 ? "mixed" : false}
@@ -161,6 +162,7 @@ export function BasicTableShowcase(): ReactElement {
 				),
 				renderCell: ({ row }) => (
 					<Checkbox
+						id={`data-table-select-${row.id}`}
 						label={`Select ${row.id}`}
 						hideLabel
 						checked={checkedRows.includes(row)}

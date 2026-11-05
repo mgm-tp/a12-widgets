@@ -33,7 +33,9 @@
 import type { CollapsibleTreeNodeModel, SelectableTreeNodeModel } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Tree, TreeAdapter, Collapsible, Selectable, walkTreeNode, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 
-export default {};
+const noStories = {};
+
+export default noStories;
 export interface FileNode extends CollapsibleTreeNodeModel, SelectableTreeNodeModel {
 	type: "computer" | "drive" | "folder" | "file";
 	children?: FileNode[];

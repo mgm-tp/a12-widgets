@@ -106,6 +106,7 @@ export function MarginUtilClassShowcase(): ReactElement {
 			configuration={
 				<div className="-u-flex -u-flex-col">
 					<Checkbox
+						id="util-classes-margin-negative-margin"
 						label="Negative Margin"
 						fitToParent={false}
 						onChange={setNegative}

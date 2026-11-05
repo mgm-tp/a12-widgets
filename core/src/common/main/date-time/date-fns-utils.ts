@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { isValid, parse } from "date-fns";
 import { TZDate } from "@date-fns/tz";
+import { isValid, parse } from "date-fns";
 
 import type { TimePickerProps } from "../../../time-picker/main/time-picker.api.js";
 

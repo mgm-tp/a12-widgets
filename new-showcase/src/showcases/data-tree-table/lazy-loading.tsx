@@ -35,13 +35,13 @@ import type { ReactElement } from "react";
 import { DataTreeTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import type { FileNode } from "./shared.js";
-import { COLUMNS, fileIcon, file, folder } from "./shared.js";
+import { COLUMNS, fileIcon, file, folder, useRowSelection } from "./shared.js";
 
 // Children are left `undefined` (not `[]`) so the model treats them as unloaded and lazy-loadable — an
 // empty array would mean "known to have zero children" and the folder would render without a chevron.
 const ROOTS: FileNode[] = [
-	folder("remote", "remote", "2026-06-12", undefined),
-	folder("cache", "cache", "2026-06-12", undefined)
+	folder("lazy-remote", "remote", "2026-06-12", undefined),
+	folder("lazy-cache", "cache", "2026-06-12", undefined)
 ];
 
 /** Simulates a network round-trip for a folder's children. */
@@ -64,6 +64,8 @@ function fetchChildren(row: FileNode): Promise<FileNode[]> {
  * wrapper which rows can never expand, so files render without a chevron and are never asked to load.
  */
 export function LazyDataTreeTable(): ReactElement {
+	const { rowStyling, rowEventHandlers } = useRowSelection<FileNode>();
+
 	return (
 		<DataTreeTable<FileNode>
 			ariaLabel="Lazy files"
@@ -72,6 +74,8 @@ export function LazyDataTreeTable(): ReactElement {
 			getIcon={fileIcon}
 			columns={COLUMNS}
 			rowKey="id"
+			rowStyling={rowStyling}
+			rowEventHandlers={rowEventHandlers}
 			maxHeight={360}
 			loadChildren={fetchChildren}
 			isLeaf={(row) => row.kind === "file"}

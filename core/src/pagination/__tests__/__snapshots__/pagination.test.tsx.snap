@@ -29,20 +29,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render all disabled default paginati
   max-width: unset;
 }
 
-.c19 .c3 {
-  user-select: none;
-}
-
-.c19 .c3 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
   color: inherit;
-}
-
-.c19 .c3 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c3 {
-  display: block;
 }
 
 .c2 {
@@ -86,6 +74,13 @@ exports[`com.mgmtp.a12.widgets.pagination > render all disabled default paginati
   color: inherit;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c2.c2) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
 .h_inlineBlock.h_middleAlign .c2.c2 {
   display: block;
   height: auto;
@@ -127,11 +122,6 @@ exports[`com.mgmtp.a12.widgets.pagination > render all disabled default paginati
   height: 1px;
 }
 
-.c20 .c7 {
-  display: block;
-  width: fit-content;
-}
-
 .c6 {
   box-sizing: border-box;
   flex-grow: 1;
@@ -152,7 +142,7 @@ exports[`com.mgmtp.a12.widgets.pagination > render all disabled default paginati
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -195,7 +185,7 @@ exports[`com.mgmtp.a12.widgets.pagination > render all disabled default paginati
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -252,47 +242,7 @@ exports[`com.mgmtp.a12.widgets.pagination > render all disabled default paginati
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
-}
-
-.c18 .c1 {
-  font-size: 1.5rem;
-}
-
-.c18 .c5 {
-  display: block;
-  margin: 0px 3px 0px 5px;
-  position: relative;
-  width: calc(32px + 3.25rem);
-}
-
-.c18 .c5 .c9 {
-  height: auto;
-}
-
-.c18 .c5 .c9 .c11 {
-  box-shadow: none;
-  outline-offset: unset;
-}
-
-.c18 .c5 .c9 .c16::after {
-  color: rgb(89, 102, 115);
-  content: "";
-  font-size: 1.5rem;
-  width: 24px;
-}
-
-.c18 .c5 .c9 .c13 {
-  background-color: rgb(241, 242, 244);
-  border: 2px solid transparent;
-  border-radius: 2px;
-  box-shadow: none;
-  height: calc(8px + 1rem);
-  padding: 0px 24px 0px 6px;
-}
-
-.c18 .c5 .c9 .c13:not(:disabled):focus {
-  border: 2px solid rgb(213, 0, 117);
+  border-image: none;
 }
 
 .c0 {
@@ -358,25 +308,6 @@ exports[`com.mgmtp.a12.widgets.pagination > render all disabled default paginati
 }
 
 @media (forced-colors: active) {
-  .c18 .c5 .c9 .c13 {
-    background-color: transparent;
-  }
-}
-
-@media (pointer: coarse) {
-  .c18 .c5 .c9 .c13:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    border: 2px solid rgb(181, 76, 23);
-  }
-}
-
-@media (pointer: fine) {
-  .c18 .c5 .c9 .c13:not(:disabled):hover {
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (forced-colors: active) {
   .c0 .c5 .c9 .c13 {
     background-color: transparent;
   }
@@ -416,6 +347,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render all disabled default paginati
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         first_page
       </span>
@@ -437,6 +370,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render all disabled default paginati
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_before
       </span>
@@ -527,6 +462,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render all disabled default paginati
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_next
       </span>
@@ -548,6 +485,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render all disabled default paginati
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         last_page
       </span>
@@ -583,6 +522,10 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination 1`] = `
 
 .c4.c4 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
 }
 
 .c2 {
@@ -627,6 +570,10 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination 1`] = `
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c2.c2 {
@@ -687,7 +634,7 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -724,7 +671,7 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -786,7 +733,7 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0 {
@@ -929,6 +876,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         first_page
       </span>
@@ -950,6 +899,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_before
       </span>
@@ -1036,6 +987,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_next
       </span>
@@ -1057,6 +1010,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         last_page
       </span>
@@ -1092,6 +1047,68 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
 
 .c4.c4 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
+.c2 {
+  align-items: center;
+  border: 2px solid transparent;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c2 .c3 {
+  user-select: none;
+}
+
+.c2 .c3 {
+  color: inherit;
+}
+
+.c2 .c3 {
+  font-size: inherit;
+}
+
+.c2.c2 .c3 {
+  color: inherit;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c2.c2) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
+  display: block;
 }
 
 .c18 {
@@ -1138,6 +1155,10 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c18:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c18.c18 {
   display: block;
   height: auto;
@@ -1145,57 +1166,6 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
 }
 
 .h_inlineBlock.h_middleAlign .c18.c18 > .c3 {
-  display: block;
-}
-
-.c2 {
-  align-items: center;
-  border: 2px solid transparent;
-  display: inline-flex;
-  justify-content: center;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700;
-  gap: 4px;
-  outline: none;
-  position: relative;
-  text-transform: uppercase;
-  vertical-align: middle;
-  border-radius: 50%;
-  flex-shrink: 0;
-  font-size: 1.125rem;
-  height: 2rem;
-  min-height: 0px;
-  padding: 0px;
-  width: 2rem;
-  background: transparent;
-  box-shadow: none;
-  color: rgb(169, 179, 188);
-  cursor: default;
-}
-
-.c2 .c3 {
-  user-select: none;
-}
-
-.c2 .c3 {
-  color: inherit;
-}
-
-.c2 .c3 {
-  font-size: inherit;
-}
-
-.c2.c2 .c3 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c2.c2 {
-  display: block;
-  height: auto;
-  min-height: 0px;
-}
-
-.h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
   display: block;
 }
 
@@ -1241,22 +1211,13 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
   width: fit-content;
 }
 
-.c20 .c7 {
-  display: block;
-  width: fit-content;
-}
-
-.c20[class*="h_"] .c7 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c14 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1287,17 +1248,13 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
   opacity: 1;
 }
 
-.c5[class*="h_"] .c21.c21 {
-  background-color: inherit !important;
-}
-
 .c10 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1359,7 +1316,7 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0 {
@@ -1406,46 +1363,6 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
 }
 
 .c0 .c5 .c9 .c13:not(:disabled):focus {
-  border: 2px solid rgb(213, 0, 117);
-}
-
-.c19 .c1 {
-  font-size: 1.5rem;
-}
-
-.c19 .c5 {
-  display: block;
-  margin: 0px 3px 0px 5px;
-  position: relative;
-  width: calc(32px + 3.25rem);
-}
-
-.c19 .c5 .c9 {
-  height: auto;
-}
-
-.c19 .c5 .c9 .c11 {
-  box-shadow: none;
-  outline-offset: unset;
-}
-
-.c19 .c5 .c9 .c16::after {
-  color: rgb(169, 179, 188);
-  content: "";
-  font-size: 1.5rem;
-  width: 24px;
-}
-
-.c19 .c5 .c9 .c13 {
-  background-color: rgb(241, 242, 244);
-  border: 2px solid transparent;
-  border-radius: 2px;
-  box-shadow: none;
-  height: calc(8px + 1rem);
-  padding: 0px 24px 0px 6px;
-}
-
-.c19 .c5 .c9 .c13:not(:disabled):focus {
   border: 2px solid rgb(213, 0, 117);
 }
 
@@ -1521,25 +1438,6 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
   }
 }
 
-@media (forced-colors: active) {
-  .c19 .c5 .c9 .c13 {
-    background-color: transparent;
-  }
-}
-
-@media (pointer: coarse) {
-  .c19 .c5 .c9 .c13:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    border: 2px solid rgb(181, 76, 23);
-  }
-}
-
-@media (pointer: fine) {
-  .c19 .c5 .c9 .c13:not(:disabled):hover {
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
 <div
   class="c0 pagination"
   data-role="pagination"
@@ -1561,6 +1459,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         first_page
       </span>
@@ -1582,6 +1482,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_before
       </span>
@@ -1668,6 +1570,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_next
       </span>
@@ -1689,6 +1593,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         last_page
       </span>
@@ -1724,6 +1630,10 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
 
 .c4.c4 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
 }
 
 .c2 {
@@ -1768,6 +1678,10 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c2.c2 {
@@ -1819,6 +1733,13 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
 
 .c18.c18 .c3 {
   color: inherit;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c18.c18) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
 }
 
 .h_inlineBlock.h_middleAlign .c18.c18 {
@@ -1873,22 +1794,13 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
   width: fit-content;
 }
 
-.c20 .c7 {
-  display: block;
-  width: fit-content;
-}
-
-.c20[class*="h_"] .c7 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c14 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1919,17 +1831,13 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
   opacity: 1;
 }
 
-.c5[class*="h_"] .c21.c21 {
-  background-color: inherit !important;
-}
-
 .c10 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1991,7 +1899,7 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0 {
@@ -2038,46 +1946,6 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
 }
 
 .c0 .c5 .c9 .c13:not(:disabled):focus {
-  border: 2px solid rgb(213, 0, 117);
-}
-
-.c19 .c1 {
-  font-size: 1.5rem;
-}
-
-.c19 .c5 {
-  display: block;
-  margin: 0px 3px 0px 5px;
-  position: relative;
-  width: calc(32px + 3.25rem);
-}
-
-.c19 .c5 .c9 {
-  height: auto;
-}
-
-.c19 .c5 .c9 .c11 {
-  box-shadow: none;
-  outline-offset: unset;
-}
-
-.c19 .c5 .c9 .c16::after {
-  color: rgb(169, 179, 188);
-  content: "";
-  font-size: 1.5rem;
-  width: 24px;
-}
-
-.c19 .c5 .c9 .c13 {
-  background-color: rgb(241, 242, 244);
-  border: 2px solid transparent;
-  border-radius: 2px;
-  box-shadow: none;
-  height: calc(8px + 1rem);
-  padding: 0px 24px 0px 6px;
-}
-
-.c19 .c5 .c9 .c13:not(:disabled):focus {
   border: 2px solid rgb(213, 0, 117);
 }
 
@@ -2153,25 +2021,6 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
   }
 }
 
-@media (forced-colors: active) {
-  .c19 .c5 .c9 .c13 {
-    background-color: transparent;
-  }
-}
-
-@media (pointer: coarse) {
-  .c19 .c5 .c9 .c13:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    border: 2px solid rgb(181, 76, 23);
-  }
-}
-
-@media (pointer: fine) {
-  .c19 .c5 .c9 .c13:not(:disabled):hover {
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
 <div
   class="c0 pagination"
   data-role="pagination"
@@ -2193,6 +2042,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         first_page
       </span>
@@ -2214,6 +2065,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_before
       </span>
@@ -2300,6 +2153,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_next
       </span>
@@ -2321,6 +2176,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render default pagination with disab
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         last_page
       </span>
@@ -2356,6 +2213,10 @@ exports[`com.mgmtp.a12.widgets.pagination > render left aligned default paginati
 
 .c4.c4 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
 }
 
 .c2 {
@@ -2402,6 +2263,10 @@ exports[`com.mgmtp.a12.widgets.pagination > render left aligned default paginati
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c2.c2 {
   display: block;
   height: auto;
@@ -2409,26 +2274,6 @@ exports[`com.mgmtp.a12.widgets.pagination > render left aligned default paginati
 }
 
 .h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
-  display: block;
-}
-
-.c20 .c3 {
-  user-select: none;
-}
-
-.c20 .c3 {
-  color: inherit;
-}
-
-.c20 .c3 {
-  font-size: inherit;
-}
-
-.c20.c20 .c3 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c3 {
   display: block;
 }
 
@@ -2474,22 +2319,13 @@ exports[`com.mgmtp.a12.widgets.pagination > render left aligned default paginati
   width: fit-content;
 }
 
-.c21 .c7 {
-  display: block;
-  width: fit-content;
-}
-
-.c21[class*="h_"] .c7 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c14 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2520,17 +2356,13 @@ exports[`com.mgmtp.a12.widgets.pagination > render left aligned default paginati
   opacity: 1;
 }
 
-.c5[class*="h_"] .c22.c22 {
-  background-color: inherit !important;
-}
-
 .c10 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2592,87 +2424,7 @@ exports[`com.mgmtp.a12.widgets.pagination > render left aligned default paginati
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
-}
-
-.c18 .c1 {
-  font-size: 1.5rem;
-}
-
-.c18 .c5 {
-  display: block;
-  margin: 0px 3px 0px 5px;
-  position: relative;
-  width: calc(32px + 3.25rem);
-}
-
-.c18 .c5 .c9 {
-  height: auto;
-}
-
-.c18 .c5 .c9 .c11 {
-  box-shadow: none;
-  outline-offset: unset;
-}
-
-.c18 .c5 .c9 .c16::after {
-  color: rgb(89, 102, 115);
-  content: "";
-  font-size: 1.5rem;
-  width: 24px;
-}
-
-.c18 .c5 .c9 .c13 {
-  background-color: rgb(241, 242, 244);
-  border: 2px solid transparent;
-  border-radius: 2px;
-  box-shadow: none;
-  height: calc(8px + 1rem);
-  padding: 0px 24px 0px 6px;
-}
-
-.c18 .c5 .c9 .c13:not(:disabled):focus {
-  border: 2px solid rgb(213, 0, 117);
-}
-
-.c19 .c1 {
-  font-size: 1.5rem;
-}
-
-.c19 .c5 {
-  display: block;
-  margin: 0px 3px 0px 5px;
-  position: relative;
-  width: calc(32px + 3.25rem);
-}
-
-.c19 .c5 .c9 {
-  height: auto;
-}
-
-.c19 .c5 .c9 .c11 {
-  box-shadow: none;
-  outline-offset: unset;
-}
-
-.c19 .c5 .c9 .c16::after {
-  color: rgb(169, 179, 188);
-  content: "";
-  font-size: 1.5rem;
-  width: 24px;
-}
-
-.c19 .c5 .c9 .c13 {
-  background-color: rgb(241, 242, 244);
-  border: 2px solid transparent;
-  border-radius: 2px;
-  box-shadow: none;
-  height: calc(8px + 1rem);
-  padding: 0px 24px 0px 6px;
-}
-
-.c19 .c5 .c9 .c13:not(:disabled):focus {
-  border: 2px solid rgb(213, 0, 117);
+  border-image: none;
 }
 
 .c0 {
@@ -2779,44 +2531,6 @@ exports[`com.mgmtp.a12.widgets.pagination > render left aligned default paginati
 }
 
 @media (forced-colors: active) {
-  .c18 .c5 .c9 .c13 {
-    background-color: transparent;
-  }
-}
-
-@media (pointer: coarse) {
-  .c18 .c5 .c9 .c13:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    border: 2px solid rgb(181, 76, 23);
-  }
-}
-
-@media (pointer: fine) {
-  .c18 .c5 .c9 .c13:not(:disabled):hover {
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (forced-colors: active) {
-  .c19 .c5 .c9 .c13 {
-    background-color: transparent;
-  }
-}
-
-@media (pointer: coarse) {
-  .c19 .c5 .c9 .c13:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    border: 2px solid rgb(181, 76, 23);
-  }
-}
-
-@media (pointer: fine) {
-  .c19 .c5 .c9 .c13:not(:disabled):hover {
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (forced-colors: active) {
   .c0 .c5 .c9 .c13 {
     background-color: transparent;
   }
@@ -2856,6 +2570,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render left aligned default paginati
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         first_page
       </span>
@@ -2877,6 +2593,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render left aligned default paginati
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_before
       </span>
@@ -2963,6 +2681,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render left aligned default paginati
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_next
       </span>
@@ -2984,6 +2704,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render left aligned default paginati
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         last_page
       </span>
@@ -3019,6 +2741,10 @@ exports[`com.mgmtp.a12.widgets.pagination > render right aligned default paginat
 
 .c4.c4 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
 }
 
 .c2 {
@@ -3065,6 +2791,10 @@ exports[`com.mgmtp.a12.widgets.pagination > render right aligned default paginat
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c2.c2 {
   display: block;
   height: auto;
@@ -3072,26 +2802,6 @@ exports[`com.mgmtp.a12.widgets.pagination > render right aligned default paginat
 }
 
 .h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
-  display: block;
-}
-
-.c21 .c3 {
-  user-select: none;
-}
-
-.c21 .c3 {
-  color: inherit;
-}
-
-.c21 .c3 {
-  font-size: inherit;
-}
-
-.c21.c21 .c3 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 > .c3 {
   display: block;
 }
 
@@ -3137,22 +2847,13 @@ exports[`com.mgmtp.a12.widgets.pagination > render right aligned default paginat
   width: fit-content;
 }
 
-.c22 .c7 {
-  display: block;
-  width: fit-content;
-}
-
-.c22[class*="h_"] .c7 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c14 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -3183,17 +2884,13 @@ exports[`com.mgmtp.a12.widgets.pagination > render right aligned default paginat
   opacity: 1;
 }
 
-.c5[class*="h_"] .c23.c23 {
-  background-color: inherit !important;
-}
-
 .c10 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3255,127 +2952,7 @@ exports[`com.mgmtp.a12.widgets.pagination > render right aligned default paginat
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
-}
-
-.c18 .c1 {
-  font-size: 1.5rem;
-}
-
-.c18 .c5 {
-  display: block;
-  margin: 0px 3px 0px 5px;
-  position: relative;
-  width: calc(32px + 3.25rem);
-}
-
-.c18 .c5 .c9 {
-  height: auto;
-}
-
-.c18 .c5 .c9 .c11 {
-  box-shadow: none;
-  outline-offset: unset;
-}
-
-.c18 .c5 .c9 .c16::after {
-  color: rgb(89, 102, 115);
-  content: "";
-  font-size: 1.5rem;
-  width: 24px;
-}
-
-.c18 .c5 .c9 .c13 {
-  background-color: rgb(241, 242, 244);
-  border: 2px solid transparent;
-  border-radius: 2px;
-  box-shadow: none;
-  height: calc(8px + 1rem);
-  padding: 0px 24px 0px 6px;
-}
-
-.c18 .c5 .c9 .c13:not(:disabled):focus {
-  border: 2px solid rgb(213, 0, 117);
-}
-
-.c19 .c1 {
-  font-size: 1.5rem;
-}
-
-.c19 .c5 {
-  display: block;
-  margin: 0px 3px 0px 5px;
-  position: relative;
-  width: calc(32px + 3.25rem);
-}
-
-.c19 .c5 .c9 {
-  height: auto;
-}
-
-.c19 .c5 .c9 .c11 {
-  box-shadow: none;
-  outline-offset: unset;
-}
-
-.c19 .c5 .c9 .c16::after {
-  color: rgb(169, 179, 188);
-  content: "";
-  font-size: 1.5rem;
-  width: 24px;
-}
-
-.c19 .c5 .c9 .c13 {
-  background-color: rgb(241, 242, 244);
-  border: 2px solid transparent;
-  border-radius: 2px;
-  box-shadow: none;
-  height: calc(8px + 1rem);
-  padding: 0px 24px 0px 6px;
-}
-
-.c19 .c5 .c9 .c13:not(:disabled):focus {
-  border: 2px solid rgb(213, 0, 117);
-}
-
-.c20 .c1 {
-  font-size: 1.5rem;
-}
-
-.c20 .c5 {
-  display: block;
-  margin: 0px 3px 0px 5px;
-  position: relative;
-  width: calc(32px + 3.25rem);
-}
-
-.c20 .c5 .c9 {
-  height: auto;
-}
-
-.c20 .c5 .c9 .c11 {
-  box-shadow: none;
-  outline-offset: unset;
-}
-
-.c20 .c5 .c9 .c16::after {
-  color: rgb(89, 102, 115);
-  content: "";
-  font-size: 1.5rem;
-  width: 24px;
-}
-
-.c20 .c5 .c9 .c13 {
-  background-color: rgb(241, 242, 244);
-  border: 2px solid transparent;
-  border-radius: 2px;
-  box-shadow: none;
-  height: calc(8px + 1rem);
-  padding: 0px 24px 0px 6px;
-}
-
-.c20 .c5 .c9 .c13:not(:disabled):focus {
-  border: 2px solid rgb(213, 0, 117);
+  border-image: none;
 }
 
 .c0 {
@@ -3482,63 +3059,6 @@ exports[`com.mgmtp.a12.widgets.pagination > render right aligned default paginat
 }
 
 @media (forced-colors: active) {
-  .c18 .c5 .c9 .c13 {
-    background-color: transparent;
-  }
-}
-
-@media (pointer: coarse) {
-  .c18 .c5 .c9 .c13:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    border: 2px solid rgb(181, 76, 23);
-  }
-}
-
-@media (pointer: fine) {
-  .c18 .c5 .c9 .c13:not(:disabled):hover {
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (forced-colors: active) {
-  .c19 .c5 .c9 .c13 {
-    background-color: transparent;
-  }
-}
-
-@media (pointer: coarse) {
-  .c19 .c5 .c9 .c13:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    border: 2px solid rgb(181, 76, 23);
-  }
-}
-
-@media (pointer: fine) {
-  .c19 .c5 .c9 .c13:not(:disabled):hover {
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (forced-colors: active) {
-  .c20 .c5 .c9 .c13 {
-    background-color: transparent;
-  }
-}
-
-@media (pointer: coarse) {
-  .c20 .c5 .c9 .c13:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    border: 2px solid rgb(181, 76, 23);
-  }
-}
-
-@media (pointer: fine) {
-  .c20 .c5 .c9 .c13:not(:disabled):hover {
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (forced-colors: active) {
   .c0 .c5 .c9 .c13 {
     background-color: transparent;
   }
@@ -3578,6 +3098,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render right aligned default paginat
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         first_page
       </span>
@@ -3599,6 +3121,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render right aligned default paginat
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_before
       </span>
@@ -3685,6 +3209,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render right aligned default paginat
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         navigate_next
       </span>
@@ -3706,6 +3232,8 @@ exports[`com.mgmtp.a12.widgets.pagination > render right aligned default paginat
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         last_page
       </span>

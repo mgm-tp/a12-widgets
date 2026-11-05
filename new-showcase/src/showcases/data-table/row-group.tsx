@@ -35,12 +35,12 @@ import { useState, useCallback } from "react";
 import { styled } from "styled-components";
 
 import type { RowEventHandlerGetter, RowsGroup } from "@com.mgmtp.a12.widgets/widgets-core";
+import { Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 import type {
 	DataTableColumn,
 	DataTableSlotProps,
 	DataTableRowStyleGetter
 } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
-import { Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DataTableRowsGroup } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 interface DataType {

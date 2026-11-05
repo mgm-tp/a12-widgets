@@ -1,0 +1,64 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as TagInputStories from "./TagInput.stories";
+
+<Meta of={TagInputStories} />
+
+<Title />
+
+The `TagInput` widget is a tag editor that lets the user create and remove multiple tags inside a
+single input field, using both mouse and keyboard. Tags are created by typing text and pressing one
+of the configured trigger characters (`keys`, comma by default).
+
+- `popularTags` are offered in a dropdown when the input is focused (controlled via `openOnFocus`);
+  `suggestionTags` are matched against the text the user is typing.
+- Duplicate tags are rejected with a localized message, overridable via `duplicatedTagMessage`.
+- `onAddedTag` and `onRemoveTag` report every change; `comparator` controls the sort order of tags.
+- Supports the common input states: `label`, `helperText`, `errorMessage`, `disabled` and `readonly`.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={TagInputStories.Playground} />
+
+## Examples
+
+### With initial tags
+
+<Canvas of={TagInputStories.WithInitialTags} />
+
+### Popular tags and suggestions
+
+<Canvas of={TagInputStories.WithPopularAndSuggestions} />
+
+### Disabled
+
+<Canvas of={TagInputStories.Disabled} />
+
+### Readonly
+
+<Canvas of={TagInputStories.Readonly} />
+
+### Helper text and duplicate message
+
+<Canvas of={TagInputStories.WithHelperText} />
+
+### Error state
+
+<Canvas of={TagInputStories.WithError} />

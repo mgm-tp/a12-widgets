@@ -31,60 +31,20 @@
  */
 
 import type { ReactElement } from "react";
-import { useMemo, useContext, useCallback } from "react";
-import { styled, css } from "styled-components";
+import { useCallback, useContext, useMemo } from "react";
+import { styled } from "styled-components";
 
-import { provider, createPseudoElement } from "@com.mgmtp.a12.widgets/widgets-core";
+import { provider } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Section } from "./definitions.js";
-import { ThemeSelector } from "./theme-selector.js";
-import { ShowcaseExampleToolbar } from "./showcase-example-toolbar.js";
 import { ShowcaseExampleContext } from "./showcase-example-context.js";
+import { ShowcaseExampleToolbar } from "./showcase-example-toolbar.js";
+import { StyledShowcaseExampleWrapper } from "./showcase-example-wrapper.js";
+import { ThemeSelector } from "./theme-selector.js";
 
 type ShowcaseExampleContentProps = Section & {
 	isInConfigurationMode?: boolean;
 };
-
-export const StyledShowcaseExampleWrapper = styled.div<{
-	$isInConfigurationMode?: boolean;
-	$useDarkBackground?: boolean;
-	$fullSize?: boolean;
-	$isOnMobile?: boolean;
-}>(({ theme, $isInConfigurationMode, $useDarkBackground, $fullSize, $isOnMobile }) => {
-	const { colors, spacing } = theme;
-
-	return css`
-		align-items: center;
-		background-color: ${$useDarkBackground ? "#dbdfe8" : colors.background.secondaryBackground};
-		border: 1px solid #dbdfe8;
-		border-bottom: 0;
-		border-radius: 4px 4px 0 0;
-		display: flex;
-		justify-content: center;
-		margin-top: 32px;
-		padding: ${$isOnMobile ? spacing.spacing.spacingSm : spacing.spacing.spacingXl}px;
-		position: relative;
-		${createPseudoElement(":before")}
-
-		&:focus:before {
-			outline: 2px solid ${colors.interaction.focus.color};
-		}
-
-		& > * {
-			position: relative;
-		}
-
-		${$isInConfigurationMode &&
-		css`
-			border-radius: unset;
-		`}
-		${$fullSize &&
-		css`
-			display: block;
-			padding: 0;
-		`}
-	`;
-});
 
 const StyledShowcaseExampleContentWrapper = styled.div`
 	display: flex;
@@ -112,7 +72,8 @@ export function ShowcaseExampleContent(
 		fitToSection,
 		fullSize,
 		useDarkBackground,
-		toggleBetweenPartialAndFullCode
+		toggleBetweenPartialAndFullCode,
+		hidePlaygroundButton
 	} = props;
 	const isOnMobile = useMemo(() => {
 		return provider.isPhone();
@@ -162,6 +123,8 @@ export function ShowcaseExampleContent(
 					code={code}
 					label={label}
 					toggleBetweenPartialAndFullCode={toggleBetweenPartialAndFullCode}
+					hidePlaygroundButton={hidePlaygroundButton}
+					useDarkBackground={useDarkBackground}
 				/>
 			)}
 		</>

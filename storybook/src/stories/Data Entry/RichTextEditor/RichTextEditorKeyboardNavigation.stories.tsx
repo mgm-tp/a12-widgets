@@ -30,6 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
+
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import {
@@ -44,13 +46,10 @@ import {
 	KeyboardNavigationConfigProvider
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
-
 const meta: Meta<typeof DefaultRichTextEditor> = {
 	title: "Data Entry/RichTextEditor/KeyboardNavigation",
 	component: DefaultRichTextEditor,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;

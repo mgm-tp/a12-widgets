@@ -94,6 +94,10 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-collapsed 1`
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c0 {
   outline: transparent solid 1px;
   overflow-x: hidden;
@@ -141,27 +145,6 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-collapsed 1`
   flex-direction: column;
   height: 100%;
   overflow: hidden auto;
-}
-
-.c13 {
-  box-sizing: border-box;
-  cursor: default;
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  flex-shrink: 0;
-  line-height: 1.45;
-  outline: none;
-  position: relative;
-}
-
-.c13::before {
-  inset: 0px;
-  content: "";
-  position: absolute;
-}
-
-.c13::before {
-  border-bottom: 1px solid rgb(226, 230, 233);
 }
 
 .c3 {
@@ -239,6 +222,27 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-collapsed 1`
   border-left: 4px solid rgb(213, 0, 117);
 }
 
+.c13 {
+  box-sizing: border-box;
+  cursor: default;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c13::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c13::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
 .c16 {
   box-sizing: border-box;
   cursor: pointer;
@@ -287,11 +291,6 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-collapsed 1`
   flex-grow: 0;
   gap: 0px;
   min-width: 0px;
-}
-
-.c17 .c6 {
-  color: inherit;
-  font-size: inherit;
 }
 
 .c5 {
@@ -507,6 +506,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-collapsed 1`
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   dvr
                 </span>
@@ -743,6 +744,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-collapsed 1`
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   screen_lock_portrait
                 </span>
@@ -815,6 +818,10 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-not-collapse
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c0 {
   outline: transparent solid 1px;
   overflow-x: hidden;
@@ -1213,6 +1220,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-not-collapse
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   dvr
                 </span>
@@ -1239,6 +1248,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-not-collapse
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -1293,6 +1304,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-not-collapse
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -1380,6 +1393,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-not-collapse
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -1479,6 +1494,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-not-collapse
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   screen_lock_portrait
                 </span>
@@ -1551,6 +1568,10 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-old-chi
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c0 {
   outline: transparent solid 1px;
   overflow-x: hidden;
@@ -1949,6 +1970,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-old-chi
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   dvr
                 </span>
@@ -1975,6 +1998,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-old-chi
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -2029,6 +2054,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-old-chi
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -2116,6 +2143,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-old-chi
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -2215,6 +2244,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-old-chi
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   screen_lock_portrait
                 </span>
@@ -2287,6 +2318,10 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-variant
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c13 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -2313,6 +2348,10 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-variant
 
 .c13.c13 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c13 {
+  color: inherit;
 }
 
 .c0 {
@@ -2406,16 +2445,6 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-variant
   outline: none;
   width: 100%;
   padding: 8px 16px;
-}
-
-.c16 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c17 .c6 {
-  color: inherit;
-  font-size: inherit;
 }
 
 .c5 {
@@ -2579,6 +2608,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-variant
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   radio_button_unchecked
                 </span>
@@ -2627,6 +2658,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-variant
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   info
                 </span>
@@ -2675,6 +2708,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-variant
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   
                 </span>
@@ -2723,6 +2758,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-variant
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   warning
                 </span>
@@ -2771,6 +2808,8 @@ exports[`com.mgmtp.a12.widgets.menu.sliding > vertical-sliding-menu-with-variant
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   check_circle
                 </span>

@@ -101,16 +101,6 @@ exports[`com.mgmtp.a12.widgets.table.placeholder-body-cell > column group 1`] = 
   left: unset;
 }
 
-@keyframes k0 {
-  0% {
-    background-position: -250px 0px;
-  }
-
-  100% {
-    background-position: 250px 0px;
-  }
-}
-
 <div
   class="c0 c1 table__content-group"
   data-role="table-body-cell-group"

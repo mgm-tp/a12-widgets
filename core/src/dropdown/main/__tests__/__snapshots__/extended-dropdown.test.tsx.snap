@@ -72,7 +72,7 @@ exports[`com.mgmtp.a12.widgets.extended-dropdown > extended-dropdown 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;

@@ -32,8 +32,8 @@
 
 import { rgba } from "polished";
 
-import type { BaseThemeType } from "../../../schema/base-theme.js";
 import { GeneralColorsConfig } from "../../../base/colors.config.js";
+import type { BaseThemeType } from "../../../schema/base-theme.js";
 
 export type ProgressIndicatorConfigType = {
 	brightBG: string;

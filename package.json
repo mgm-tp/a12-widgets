@@ -1,49 +1,44 @@
 {
 	"name": "root",
 	"private": true,
-	"packageManager": "pnpm@11.0.9+sha512.34ce82e6780233cf9cad8685029a8f81d2e06196c5a9bad98879f7424940c6817c4e4524fb7d38b8553ceed48b9758b8ebaf1abd3600c232c4c8cf7366086f38",
+	"packageManager": "pnpm@11.22.0+sha512.1ff870c4c6133dfd88fb2afc46dd13d47f09c9794b438c6fdb47ca98caf3bc16381ee0be93a091b8e3824cf01f889f46d7d9e20910fb0be1ab0fb5baa80dd621",
 	"scripts": {
 		"compile": "pnpm -r compile",
 		"clean": "pnpm run -r clean",
 		"start": "pnpm -r --parallel start",
 		"test": "pnpm -r test",
 		"lint": "pnpm \"/^lint:.*/\"",
-		"lint:eslint": "pnpm -r --parallel --no-bail lint:eslint",
-		"lint:prettier": "prettier . --check --experimental-cli --parallel-workers 2",
-		"lint:detect-cycle": "devtools detect-cycles \"./{core,utils,new-showcase}/src/**/*.@(ts|tsx)\"",
+		"lint:oxlint": "oxlint --type-aware --quiet --disable-nested-config",
+		"lint:oxfmt": "oxfmt --check",
+		"lint:live-modules": "pnpm -F @com.mgmtp.a12.widgets/widgets-showcase-redesign check:live-modules",
 		"format": "pnpm \"/format:/\"",
-		"format:eslint": "pnpm lint:eslint --fix",
-		"format:prettier": "prettier . --write --experimental-cli --parallel-workers 2",
+		"format:oxlint": "oxlint --quiet --fix --disable-nested-config",
+		"format:oxfmt": "oxfmt",
 		"prepare": "husky"
 	},
 	"devDependencies": {
-		"@com.mgmtp.a12.devtools/build-tools": "^1.1.2",
-		"@com.mgmtp.a12.devtools/eslint-config": "^3.1.2",
-		"@com.mgmtp.a12.devtools/prettier-config": "^1.1.1",
 		"@com.mgmtp.a12.devtools/tsconfig": "^2.0.1",
 		"@stylistic/eslint-plugin": "^5.10.0",
+		"@tony.ganchev/eslint-plugin-header": "^3.4.4",
 		"@types/node": "catalog:",
 		"@types/unzipper": "^0.10.11",
-		"eslint": "^9.39.4",
-		"eslint-plugin-jsx-a11y": "^6.10.2",
-		"eslint-plugin-notice": "^1.0.0",
-		"eslint-plugin-react-refresh": "^0.5.3",
-		"eslint-plugin-storybook": "^10.4.4",
-		"globals": "^17.6.0",
+		"eslint": "^10.10.0",
+		"eslint-plugin-storybook": "^10.6.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^17.0.7",
-		"prettier": "^3.8.4",
+		"lint-staged": "^17.5.1",
+		"oxfmt": "^0.68.0",
+		"oxlint": "^1.83.0",
+		"oxlint-tsgolint": "^7.0.2001",
 		"typescript": "catalog:",
-		"typescript-eslint": "^8.61.0",
-		"unzipper": "^0.12.3"
+		"unzipper": "^0.12.5"
 	},
 	"lint-staged": {
 		"*.{ts,tsx}": [
-			"prettier --write",
-			"eslint --fix"
+			"oxfmt",
+			"oxlint --quiet --fix --disable-nested-config"
 		]
 	},
-	"version": "39.0.3",
-	"a12Version": "2026.06-ext1",
+	"version": "39.1.0",
+	"a12Version": "2026.06-ext2",
 	"type": "module"
 }

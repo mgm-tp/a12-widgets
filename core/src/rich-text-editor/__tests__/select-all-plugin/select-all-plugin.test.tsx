@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, expect, test, vi, beforeEach, afterEach } from "vitest";
-import { render, waitFor } from "test-utils";
 import { $createParagraphNode, $createTextNode, $getRoot } from "lexical";
+import { render, waitFor } from "test-utils";
+import { describe, expect, test, vi, beforeEach, afterEach } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
 
 describe("com.mgmtp.a12.widgets.rich-text-editor.select-all-plugin", () => {
 	const prepopulatedRichText = () => {

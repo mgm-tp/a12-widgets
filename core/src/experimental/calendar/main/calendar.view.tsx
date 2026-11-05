@@ -32,9 +32,9 @@
 
 import type { ReactElement } from "react";
 
-import { CalendarMonthView } from "./view/index.js";
 import type { CalendarDay, CalendarProps } from "./calendar.api.js";
 import { CalendarWeekView } from "./view/calendar-week-view/calendar-week-view.js";
+import { CalendarMonthView } from "./view/index.js";
 
 export const Calendar = <T extends CalendarDay<E>, E>(props: CalendarProps<T, E>): ReactElement => {
 	const { view, ...rest } = props;

@@ -33,10 +33,9 @@
 import type { ReactNode } from "react";
 
 import type { Identifiable, Styleable } from "../../../common/main/base-props.js";
-
-import type { TableTemplateProps } from "../template/table.tpl.api.js";
 import type { BaseColumnType } from "../column.api.js";
 import type { BaseTableProps } from "../table.api.js";
+import type { TableTemplateProps } from "../template/table.tpl.api.js";
 
 export interface BaseRowsGroup extends Styleable, Identifiable, TableTemplateProps.TableDataAttribute {
 	/**

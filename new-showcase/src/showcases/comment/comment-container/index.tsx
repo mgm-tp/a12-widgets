@@ -30,20 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import accessibilityCommentContainerCode from "!./accessibility-comment-container.tsx?raw";
+import addingAndEditingCommentCode from "!./add-and-edit.tsx?raw";
+import replyToACommentCode from "!./reply-to-a-comment?raw";
+import resizeAndDragCommentContainerCode from "!./resize-and-drag.tsx?raw";
+
 import { provider } from "@com.mgmtp.a12.widgets/widgets-core";
 import CommentContainerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/comment/comment-container/main/comment-container.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 
-import { AddingAndEditingComment } from "./add-and-edit.js";
-import { ResizeAndDragCommentContainer } from "./resize-and-drag.js";
-import { ReplyToAComment } from "./reply-to-a-comment.js";
 import { AccessibilityCommentContainer } from "./accessibility-comment-container.js";
-
-import addingAndEditingCommentCode from "!./add-and-edit.tsx?raw";
-import resizeAndDragCommentContainerCode from "!./resize-and-drag.tsx?raw";
-import replyToACommentCode from "!./reply-to-a-comment?raw";
-import accessibilityCommentContainerCode from "!./accessibility-comment-container.tsx?raw";
+import { AddingAndEditingComment } from "./add-and-edit.js";
+import { ReplyToAComment } from "./reply-to-a-comment.js";
+import { ResizeAndDragCommentContainer } from "./resize-and-drag.js";
 
 const isNotPhone = !provider.isPhone();
 

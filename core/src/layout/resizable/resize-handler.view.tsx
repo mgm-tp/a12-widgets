@@ -30,62 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { RefObject, FC } from "react";
-import { useState, useEffect, useRef, isValidElement, cloneElement } from "react";
-import { useTheme } from "styled-components";
+import type { FC } from "react";
+import { useRef, isValidElement, cloneElement } from "react";
 
-import { DataRoles } from "../../common/main/data-roles.js";
 import type { Container } from "../../common/main/base-props.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 
 import { useRegisterResizeEvents } from "./resize-event.js";
 import type { ResizeHandlerProps } from "./resize-handler.api.js";
 import { StyledResizeHandler, StyledResizeHandlerWrapper } from "./resize-handler.styled.js";
-
-function useComputeLayoutStyle(params: {
-	targetRef: RefObject<HTMLElement | null>;
-	position: ResizeHandlerProps["position"];
-	resizable?: boolean;
-	resizeHandleRef: RefObject<HTMLElement | null>;
-}): { gap: number; borderRadius: number } {
-	const { targetRef, resizable, resizeHandleRef, position } = params;
-	const targetElement = targetRef.current;
-	const resizeHandleElement = resizeHandleRef.current;
-	const [gap, setGap] = useState(0);
-	const [borderRadius, setBorderRadius] = useState(0);
-
-	const { spacing } = useTheme(); // make sure to update the border-radius when the theme changes
-
-	useEffect(() => {
-		if (!resizable) {
-			return;
-		}
-
-		const parentElement = targetElement?.parentElement;
-		const isRightPosition = position === "right";
-
-		const siblingElement = isRightPosition ? targetElement?.nextElementSibling : targetElement?.previousElementSibling;
-
-		if (parentElement && siblingElement) {
-			const parentGap = parseFloat(getComputedStyle(parentElement).gap.split(" ")[0]) || 0;
-			const siblingMargin = parseFloat(
-				getComputedStyle(siblingElement)[isRightPosition ? "marginLeft" : "marginRight"]
-			);
-			const targetMargin = parseFloat(getComputedStyle(targetElement)[isRightPosition ? "marginRight" : "marginLeft"]);
-			setGap(parentGap + siblingMargin + targetMargin);
-		}
-
-		if (resizeHandleRef.current && resizeHandleRef.current.previousElementSibling) {
-			const previousElement = resizeHandleRef.current.previousElementSibling as HTMLElement;
-			const computedStyle = getComputedStyle(previousElement);
-			setBorderRadius(parseFloat(computedStyle.borderRadius.split(" ")[0] || "0") || 0);
-		}
-	}, [targetElement, spacing, resizable, resizeHandleElement, position, resizeHandleRef]);
-
-	return {
-		gap,
-		borderRadius
-	};
-}
 
 export const ResizeHandler: FC<ResizeHandlerProps> = ({
 	children,
@@ -98,10 +51,10 @@ export const ResizeHandler: FC<ResizeHandlerProps> = ({
 	targetRef,
 	position = "right",
 	layoutGap,
+	borderRadius,
 	wrapperRef
 }) => {
 	const resizeHandleRef = useRef<HTMLDivElement | null>(null);
-	const { gap, borderRadius } = useComputeLayoutStyle({ targetRef, position, resizeHandleRef, resizable });
 
 	const handleRef = (element: HTMLDivElement | null): void => {
 		resizeHandleRef.current = element;
@@ -138,8 +91,8 @@ export const ResizeHandler: FC<ResizeHandlerProps> = ({
 					<StyledResizeHandler
 						data-role={DataRoles.ResizableHandler}
 						ref={handleRef}
-						$layoutGap={layoutGap ?? gap}
-						$borderRadius={borderRadius}
+						$layoutGap={layoutGap ?? 0}
+						$borderRadius={borderRadius ?? 0}
 						$position={position}
 					/>
 				)}

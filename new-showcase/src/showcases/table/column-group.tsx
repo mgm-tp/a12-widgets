@@ -46,8 +46,8 @@ import { DefaultTableComponentRenderers, Table, ExternalLink, MailtoLink } from 
 
 import type { ContextualCard } from "../../helpers/definitions.js";
 
-import { Utils } from "./utils.js";
 import { COLUMNS } from "./data.js";
+import { Utils } from "./utils.js";
 
 type RowType = ContextualCard;
 type ColumnType = BaseColumnType<RowType>;

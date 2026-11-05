@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import collapsibleSidebarCode from "!./collapsible-sidebar.tsx?raw";
+
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { CollapsibleSidebar } from "./collapsible-sidebar.js";
-
-import collapsibleSidebarCode from "!./collapsible-sidebar.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

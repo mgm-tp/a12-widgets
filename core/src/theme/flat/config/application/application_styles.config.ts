@@ -31,7 +31,6 @@
  */
 
 import { GeneralColorsConfig } from "../../../base/colors.config.js";
-
 import { GeneralFlatColorsConfig, FlatColorsConfig } from "../base/colors.config.js";
 
 import type { HoverFlatStyles } from "./hover.config.js";

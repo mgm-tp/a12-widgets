@@ -32,12 +32,12 @@
 
 import { styled, css } from "styled-components";
 
-import { Button } from "../../button/main/button.view.js";
 import { getBaseButtonVariantStyles, StyledButton } from "../../button/main/button.styled.js";
+import { Button } from "../../button/main/button.view.js";
 import { StyledIconWrapper } from "../../icon/main/icon.view.js";
+import { createBorder } from "../../theme/base/mixins/_borderEffects.js";
 import { hover, active } from "../../theme/base/mixins/_interaction.js";
 import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
-import { createBorder } from "../../theme/base/mixins/_borderEffects.js";
 
 const resetBorderRadius = (right?: boolean) => {
 	return right
@@ -73,98 +73,114 @@ export const StyledQuickAccessButton = styled.div.withConfig({ displayName: "Sty
 			box-shadow: none;
 			position: relative;
 
-			${$invert &&
-			css`
-				${$primary &&
+			${
+				$invert &&
 				css`
-					${getBaseButtonVariantStyles(button.invertPrimary, true)}
-				`}
-				${$secondary &&
-				css`
-					background: ${button.invertSecondary.background};
-					border: none;
-					box-shadow: ${button.invertSecondary.boxShadow};
-					color: ${button.invertSecondary.color};
-					${createPseudoElement(
-						":before",
+					${
+						$primary &&
 						css`
-							border: ${button.invertSecondary.border};
-							border-radius: ${button.invertSecondary.borderRadius};
+							${getBaseButtonVariantStyles(button.invertPrimary, true)}
 						`
-					)}
-					${getBaseButtonVariantStyles(button.invertSecondary, true, true)}
-					&:not(:disabled):focus {
-						border: none;
-						outline: none;
 					}
-					&:not(:disabled):active,
-					&:not(:disabled):hover {
-						border: none;
-					}
-				`}
-			`}
-
-			${!$secondary &&
-			$invert &&
-			css`
-				background-color: ${!$secondary ? button.invertPrimary.background : button.invertSecondary.background};
-				color: inherit;
-			`}
-
-			${$secondary &&
-			css`
-				position: relative;
-
-				&:before {
-					border-radius: ${quickAccessButton.borderRadius};
-				}
-
-				&:focus {
-					${button.secondary.interaction.focus.customBorder
-						? css`
-								${createBorder(button.secondary.interaction.focus.customBorder)}
-							`
-						: $invert && button.invertSecondary.interaction.focus.customBorder
-							? css`
-									${createBorder(button.invertSecondary.interaction.focus.customBorder)}
+					${
+						$secondary &&
+						css`
+							background: ${button.invertSecondary.background};
+							border: none;
+							box-shadow: ${button.invertSecondary.boxShadow};
+							color: ${button.invertSecondary.color};
+							${createPseudoElement(
+								":before",
+								css`
+									border: ${button.invertSecondary.border};
+									border-radius: ${button.invertSecondary.borderRadius};
 								`
-							: css`
-									&:before {
-										bottom: 0;
-										border: ${$invert
-											? button.invertSecondary.interaction.focus.border
-											: button.secondary.interaction.focus.border};
-										left: 0;
-										right: -${quickAccessButton.divider.width};
-										position: absolute;
-										top: 0;
-										z-index: 1;
-									}
-								`}
-					&:before {
-						outline: ${$invert
-							? button.invertSecondary.interaction.focus.outline
-							: button.secondary.interaction.focus.outline};
-					}
-				}
-
-				${!$invert &&
-				css`
-					&:focus + ${StyledQuickAccessButtonDivider}, &:focus:after {
-						background-color: ${button.secondary.interaction.focus.customBorder
-							? "none"
-							: quickAccessButton.divider.secondaryFocusBG};
-					}
-
-					&:not(:disabled) {
-						${hover(css`
-							& + ${StyledQuickAccessButtonDivider}, &:after {
-								background-color: ${quickAccessButton.divider.secondaryHoverBG};
+							)}
+							${getBaseButtonVariantStyles(button.invertSecondary, true, true)}
+							&:not(:disabled):focus {
+								border: none;
+								outline: none;
 							}
-						`)}
+							&:not(:disabled):active,
+							&:not(:disabled):hover {
+								border: none;
+							}
+						`
 					}
-				`}
-			`}
+				`
+			}
+
+			${
+				!$secondary &&
+				$invert &&
+				css`
+					background-color: ${!$secondary ? button.invertPrimary.background : button.invertSecondary.background};
+					color: inherit;
+				`
+			}
+
+			${
+				$secondary &&
+				css`
+					position: relative;
+
+					&:before {
+						border-radius: ${quickAccessButton.borderRadius};
+					}
+
+					&:focus {
+						${
+							button.secondary.interaction.focus.customBorder
+								? css`
+										${createBorder(button.secondary.interaction.focus.customBorder)}
+									`
+								: $invert && button.invertSecondary.interaction.focus.customBorder
+									? css`
+											${createBorder(button.invertSecondary.interaction.focus.customBorder)}
+										`
+									: css`
+											&:before {
+												bottom: 0;
+												border: ${
+													$invert
+														? button.invertSecondary.interaction.focus.border
+														: button.secondary.interaction.focus.border
+												};
+												left: 0;
+												right: -${quickAccessButton.divider.width};
+												position: absolute;
+												top: 0;
+												z-index: 1;
+											}
+										`
+						}
+						&:before {
+							outline: ${
+								$invert ? button.invertSecondary.interaction.focus.outline : button.secondary.interaction.focus.outline
+							};
+						}
+					}
+
+					${
+						!$invert &&
+						css`
+							&:focus + ${StyledQuickAccessButtonDivider}, &:focus:after {
+								background-color: ${
+									button.secondary.interaction.focus.customBorder ? "none" : quickAccessButton.divider.secondaryFocusBG
+								};
+							}
+
+							&:not(:disabled) {
+								${hover(css`
+									& + ${StyledQuickAccessButtonDivider}, &:after {
+										background-color: ${quickAccessButton.divider.secondaryHoverBG};
+									}
+								`)}
+							}
+						`
+					}
+				`
+			}
 		}
 
 		// Main Action Button
@@ -172,79 +188,87 @@ export const StyledQuickAccessButton = styled.div.withConfig({ displayName: "Sty
 			margin: 0; //Fix bug on safari
 			min-width: ${$touch ? quickAccessButton.touch.minWidth : quickAccessButton.minWidth};
 			${resetBorderRadius(true)}
-			${$secondary &&
-			css`
-				border: none;
-
-				${createPseudoElement(
-					":before",
-					css`
-						border: ${$invert ? button.invertSecondary.border : quickAccessButton.secondary.border};
-					`
-				)}
-
-				&,
-				&:before {
-					border-right: none !important; // Use divider as border-right
-				}
-
-				&:before,
-				&:focus:before {
-					${resetBorderRadius(true)}
-				}
-
-				${hover(css`
-					border: none;
-				`)}
-
-				&:not(:disabled):focus {
-					outline: none;
-					border: none;
-				}
-
-				${!$invert &&
+			${
+				$secondary &&
 				css`
-					&:not(:disabled) {
-						${hover(css`
-							&:before {
-								border: ${button.secondary.interaction.hover.border};
-							}
-						`)}
+					border: none;
 
-						${$isMobile &&
+					${createPseudoElement(
+						":before",
 						css`
-							${active(css`
-								border: none;
+							border: ${$invert ? button.invertSecondary.border : quickAccessButton.secondary.border};
+						`
+					)}
 
-								&:before {
-									border: ${button.secondary.interaction.focus.border};
-									border-right: ${button.secondary.interaction.focus.border} !important;
-								}
-							`)}
-
-							${hover(css`
-								&:before {
-									border: none;
-								}
-							`)}
-						`}
-
-						${active(css`
-							& + ${StyledQuickAccessButtonDivider}, &:after {
-								background-color: ${$isMobile
-									? quickAccessButton.divider.secondaryBG
-									: quickAccessButton.divider.secondaryActiveBG};
-							}
-						`)}
+					&,
+					&:before {
+						border-right: none !important; // Use divider as border-right
 					}
-				`}
-			`}
+
+					&:before,
+					&:focus:before {
+						${resetBorderRadius(true)}
+					}
+
+					${hover(css`
+						border: none;
+					`)}
+
+					&:not(:disabled):focus {
+						outline: none;
+						border: none;
+					}
+
+					${
+						!$invert &&
+						css`
+							&:not(:disabled) {
+								${hover(css`
+									&:before {
+										border: ${button.secondary.interaction.hover.border};
+									}
+								`)}
+
+								${
+									$isMobile &&
+									css`
+										${active(css`
+											border: none;
+
+											&:before {
+												border: ${button.secondary.interaction.focus.border};
+												border-right: ${button.secondary.interaction.focus.border} !important;
+											}
+										`)}
+
+										${hover(css`
+											&:before {
+												border: none;
+											}
+										`)}
+									`
+								}
+
+								${active(css`
+									& + ${StyledQuickAccessButtonDivider}, &:after {
+										background-color: ${
+											$isMobile ? quickAccessButton.divider.secondaryBG : quickAccessButton.divider.secondaryActiveBG
+										};
+									}
+								`)}
+							}
+						`
+					}
+				`
+			}
 		}
 
-		${$disabled &&
-		css`
-			box-shadow: none;
-		`}
+		${
+			$disabled &&
+			css`
+				box-shadow: none;
+			`
+		}
 	`;
 });
 
@@ -266,69 +290,83 @@ export const StyledQuickAccessButtonTriggerElement = styled(Button).withConfig({
 
 		&& {
 			${resetBorderRadius()}
-			${$open &&
-			css`
-				&,
-				&:before {
-					border-radius: 0;
-				}
-			`}
+			${
+				$open &&
+				css`
+					&,
+					&:before {
+						border-radius: 0;
+					}
+				`
+			}
 		}
 
-		${$touch &&
-		css`
-			min-width: ${quickAccessButton.touch.triggerMinWidth};
-		`}
-		${secondary &&
-		css`
-			${disabled &&
+		${
+			$touch &&
 			css`
-				background-color: ${quickAccessButton.secondary.disabled.background};
-			`}
-			&,
-				&:before {
-				border-left: none !important; // Use divider as border-left
-			}
-			&& {
-				&:focus:before,
-				&:before {
-					${resetBorderRadius()};
-				}
-			}
-			${!invert &&
+				min-width: ${quickAccessButton.touch.triggerMinWidth};
+			`
+		}
+		${
+			secondary &&
 			css`
-				&:after {
-					bottom: 0;
-					content: "";
-					left: 0;
-					position: absolute;
-					top: 0;
-					width: ${quickAccessButton.divider.width};
+				${
+					disabled &&
+					css`
+						background-color: ${quickAccessButton.secondary.disabled.background};
+					`
 				}
-
+				&,
+				&:before {
+					border-left: none !important; // Use divider as border-left
+				}
 				&& {
-					&:focus:before {
-						outline: none;
+					&:focus:before,
+					&:before {
+						${resetBorderRadius()};
 					}
 				}
+				${
+					!invert &&
+					css`
+						&:after {
+							bottom: 0;
+							content: "";
+							left: 0;
+							position: absolute;
+							top: 0;
+							width: ${quickAccessButton.divider.width};
+						}
 
-				${$isMobile &&
-				css`
-					&:not(:disabled) {
-						${active(css`
-							border: none;
-						`)}
-					}
-				`}
-			`}
-			${invert &&
-			css`
-				&&&:before {
-					left: -${quickAccessButton.divider.width};
-					right: 0;
+						&& {
+							&:focus:before {
+								outline: none;
+							}
+						}
+
+						${
+							$isMobile &&
+							css`
+								&:not(:disabled) {
+									${active(css`
+										border: none;
+									`)}
+								}
+							`
+						}
+					`
 				}
-			`}
-		`}
+				${
+					invert &&
+					css`
+						&&&:before {
+							left: -${quickAccessButton.divider.width};
+							right: 0;
+						}
+					`
+				}
+			`
+		}
 	`;
 });
 
@@ -347,26 +385,34 @@ export const StyledQuickAccessButtonDivider = styled.div.withConfig({
 		align-items: stretch;
 		width: ${divider.width};
 
-		${$primary &&
-		css`
-			background-color: ${$invert ? divider.invertBG : divider.primaryBG};
-			opacity: ${$invert ? divider.invertOpacity : divider.primaryOpacity};
-		`}
+		${
+			$primary &&
+			css`
+				background-color: ${$invert ? divider.invertBG : divider.primaryBG};
+				opacity: ${$invert ? divider.invertOpacity : divider.primaryOpacity};
+			`
+		}
 
-		${!$secondary &&
-		$destructive &&
-		css`
-			background-color: ${divider.primaryDestructiveBG};
-		`}
-		
-		${$secondary &&
-		css`
-			background-color: ${$invert ? divider.invertSecondaryBG : divider.secondaryBG};
-		`}
-		
-		${$disabled &&
-		css`
-			background-color: ${$secondary ? divider.secondaryBG : divider.disabledBG};
-		`}
+		${
+			!$secondary &&
+			$destructive &&
+			css`
+				background-color: ${divider.primaryDestructiveBG};
+			`
+		}
+
+		${
+			$secondary &&
+			css`
+				background-color: ${$invert ? divider.invertSecondaryBG : divider.secondaryBG};
+			`
+		}
+
+		${
+			$disabled &&
+			css`
+				background-color: ${$secondary ? divider.secondaryBG : divider.disabledBG};
+			`
+		}
 	`;
 });

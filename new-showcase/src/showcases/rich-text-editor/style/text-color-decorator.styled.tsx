@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { styled, css } from "styled-components";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
+import { styled, css } from "styled-components";
 
 export const TextColorDecoratorStyleWrapper = styled.div(() => {
 	return css`

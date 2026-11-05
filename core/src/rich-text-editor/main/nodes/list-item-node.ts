@@ -30,6 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { SerializedListItemNode } from "@lexical/list";
+import { ListItemNode as LexicalListItemNode } from "@lexical/list";
 import type {
 	DOMConversionMap,
 	DOMConversionOutput,
@@ -39,8 +41,6 @@ import type {
 	NodeKey
 } from "lexical";
 import { $applyNodeReplacement } from "lexical";
-import type { SerializedListItemNode } from "@lexical/list";
-import { ListItemNode as LexicalListItemNode } from "@lexical/list";
 
 export class ListItemNode extends LexicalListItemNode {
 	static getType(): string {
@@ -62,7 +62,9 @@ export class ListItemNode extends LexicalListItemNode {
 	}
 
 	static importDOM(): DOMConversionMap | null {
-		const converters = LexicalListItemNode.importDOM?.();
+		// Since Lexical 0.49 the built-in nodes declare their conversions through the `$config()`
+		// protocol instead of a static `importDOM()`, so read the base map from there.
+		const converters = LexicalListItemNode.prototype.$config().listitem?.importDOM;
 
 		return {
 			...converters,

@@ -37,9 +37,9 @@ import { useCallback, useRef, useState } from "react";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
 
-import { StyledSecondaryPane, StyledSecondaryPaneContent } from "./supporting-panes-layout.styled.js";
-import type { SupportingPanesLayoutProps, CustomAnimationConfig } from "./supporting-panes-layout.api.js";
 import { useSPLAnimationConfig } from "./supporting-pane-layout-hook.js";
+import type { SupportingPanesLayoutProps, CustomAnimationConfig } from "./supporting-panes-layout.api.js";
+import { StyledSecondaryPane, StyledSecondaryPaneContent } from "./supporting-panes-layout.styled.js";
 
 export interface SecondaryPaneAnimationProps {
 	children: ReactNode;

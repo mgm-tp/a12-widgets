@@ -92,6 +92,7 @@ export function CollapsibleSidebar(): ReactElement {
 				{collapsed ? "Expand Menu" : "Collapse Menu"}
 			</Button>
 			<FlyoutMenu
+				id="collapsible-sidebar-menu"
 				type="vertical"
 				items={createMenuItems(collapsed)}
 				collapsed={collapsed}

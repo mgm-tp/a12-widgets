@@ -32,10 +32,10 @@
 
 import { styled, css } from "styled-components";
 
-import { StyledIconWrapper } from "../../icon/main/icon.view.js";
-import { active, activeAndHover, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
-import { breakWord } from "../../theme/base/mixins/_break-word.js";
 import { getHorizontalSpace } from "../../common/main/utils.js";
+import { StyledIconWrapper } from "../../icon/main/icon.view.js";
+import { breakWord } from "../../theme/base/mixins/_break-word.js";
+import { active, activeAndHover, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
 
 import type { IconVerticalAlignment } from "./typography.api.js";
 
@@ -109,13 +109,15 @@ export const StyledTypographyGraphic = styled.div.withConfig({ displayName: "Sty
 		height: ${typography[`headline${$level}`].height};
 		margin: ${typography.graphic.margin};
 
-		${$hasHeaderActions
-			? css`
-					align-self: center;
-				`
-			: css`
-					${iconAlignmentStyle($iconVerticalAlignment)}
-				`}
+		${
+			$hasHeaderActions
+				? css`
+						align-self: center;
+					`
+				: css`
+						${iconAlignmentStyle($iconVerticalAlignment)}
+					`
+		}
 
 		${StyledIconWrapper} {
 			align-items: center;
@@ -153,95 +155,101 @@ export const StyledTypographyHeadline = styled.div.withConfig({ displayName: "St
 		padding: ${headlineLevel.padding};
 		text-transform: ${headlineLevel.textTransform};
 
-		${$collapsible &&
-		!$noEffect &&
-		!$compact &&
-		css`
-			cursor: pointer;
-			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-			${active(css`
-				color: ${typography.collapsible.activeColor};
-				${StyledTypographyWrapper} {
-					background-color: ${typography.collapsible.activeBG};
-				}
-			`)}
-			${hover(css`
-				color: ${typography.collapsible.hoverColor};
-				${StyledTypographyWrapper} {
-					background-color: ${typography.collapsible.hoverBG};
-				}
-			`)}
-		  ${activeAndHover(css`
-				${StyledTypographyDivider} {
-					border-top-color: transparent;
-				}
-				${StyledTypographyGraphic} ${StyledIconWrapper} {
-					background-color: transparent;
-				}
-			`)}
-		`}
-
-		${$collapsible &&
-		!$noEffect &&
-		$compact &&
-		css`
-			${StyledIconWrapper} {
-				background-color: transparent;
-			}
-
-			cursor: pointer;
-			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-			${active(css`
-				${StyledTypographyWrapper} {
-					background-color: ${compactStyle?.activeBackgroundColor};
-					box-shadow: ${compactStyle?.activeBoxShadow};
-				}
-			`)}
-			${hover(css`
-				${StyledTypographyWrapper} {
-					background-color: ${compactStyle?.hoverBackgroundColor};
-					box-shadow: ${compactStyle?.hoverBoxShadow};
-				}
-			`)}
-			&:has(${StyledTypographyHeaderActions}:hover) {
-				${StyledTypographyWrapper} {
-					box-shadow: none;
-				}
-			}
-		`}
-
-		${$collapsible &&
-		!$noFocus &&
-		($compact
-			? css`
-					&:focus-within {
-						${StyledTypographyWrapper} {
-							background-color: transparent;
-							box-shadow: ${compactStyle?.activeBoxShadow};
-						}
-					}
-
-					&:has(${StyledTypographyHeaderActions}:focus-within) {
-						${StyledTypographyWrapper} {
-							box-shadow: none;
-						}
-					}
-				`
-			: css`
-					&:focus-within {
-						color: ${typography.collapsible.focusColor};
-						${StyledTypographyWrapper} {
-							background-color: ${typography.collapsible.focusBG};
-							${darkFocus}
-						}
-						${StyledTypographyDivider} {
-							border-top-color: transparent;
-						}
-						${StyledTypographyGraphic} ${StyledIconWrapper} {
-							background-color: transparent;
-						}
+		${
+			$collapsible &&
+			!$noEffect &&
+			!$compact &&
+			css`
+				cursor: pointer;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+				${active(css`
+					color: ${typography.collapsible.activeColor};
+					${StyledTypographyWrapper} {
+						background-color: ${typography.collapsible.activeBG};
 					}
 				`)}
+				${hover(css`
+					color: ${typography.collapsible.hoverColor};
+					${StyledTypographyWrapper} {
+						background-color: ${typography.collapsible.hoverBG};
+					}
+				`)}
+				${activeAndHover(css`
+					${StyledTypographyDivider} {
+						border-top-color: transparent;
+					}
+					${StyledTypographyGraphic} ${StyledIconWrapper} {
+						background-color: transparent;
+					}
+				`)}
+			`
+		}
+
+		${
+			$collapsible &&
+			!$noEffect &&
+			$compact &&
+			css`
+				${StyledIconWrapper} {
+					background-color: transparent;
+				}
+
+				cursor: pointer;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+				${active(css`
+					${StyledTypographyWrapper} {
+						background-color: ${compactStyle?.activeBackgroundColor};
+						box-shadow: ${compactStyle?.activeBoxShadow};
+					}
+				`)}
+				${hover(css`
+					${StyledTypographyWrapper} {
+						background-color: ${compactStyle?.hoverBackgroundColor};
+						box-shadow: ${compactStyle?.hoverBoxShadow};
+					}
+				`)}
+				&:has(${StyledTypographyHeaderActions}:hover) {
+					${StyledTypographyWrapper} {
+						box-shadow: none;
+					}
+				}
+			`
+		}
+
+		${
+			$collapsible &&
+			!$noFocus &&
+			($compact
+				? css`
+						&:focus-within {
+							${StyledTypographyWrapper} {
+								background-color: transparent;
+								box-shadow: ${compactStyle?.activeBoxShadow};
+							}
+						}
+
+						&:has(${StyledTypographyHeaderActions}:focus-within) {
+							${StyledTypographyWrapper} {
+								box-shadow: none;
+							}
+						}
+					`
+				: css`
+						&:focus-within {
+							color: ${typography.collapsible.focusColor};
+							${StyledTypographyWrapper} {
+								background-color: ${typography.collapsible.focusBG};
+								${darkFocus}
+							}
+							${StyledTypographyDivider} {
+								border-top-color: transparent;
+							}
+							${StyledTypographyGraphic} ${StyledIconWrapper} {
+								background-color: transparent;
+							}
+						}
+					`)
+		}
 	`;
 });
 
@@ -264,13 +272,15 @@ export const StyledTypographyTitle = styled.div.withConfig({ displayName: "Style
 		position: relative;
 		text-align: ${$alignment};
 
-		${$swapAddonsPosition
-			? css`
-					justify-content: space-between;
-				`
-			: css`
-					justify-content: ${$alignment === "center" ? "center" : $alignment === "right" ? "flex-end" : undefined};
-				`}
+		${
+			$swapAddonsPosition
+				? css`
+						justify-content: space-between;
+					`
+				: css`
+						justify-content: ${$alignment === "center" ? "center" : $alignment === "right" ? "flex-end" : undefined};
+					`
+		}
 	`;
 });
 
@@ -333,12 +343,14 @@ export const StyledTypographyAddons = styled.div.withConfig({ displayName: "Styl
 
 		${iconAlignmentStyle($iconVerticalAlignment)}
 
-		${$swapAddonsPosition &&
-		css`
-			${StyledTypographyAddon}:first-child {
-				margin-left: ${parseFloat(marginLeft || "0") != 0 ? marginLeft : marginRight};
-			}
-		`}
+		${
+			$swapAddonsPosition &&
+			css`
+				${StyledTypographyAddon}:first-child {
+					margin-left: ${parseFloat(marginLeft || "0") != 0 ? marginLeft : marginRight};
+				}
+			`
+		}
 	`;
 });
 

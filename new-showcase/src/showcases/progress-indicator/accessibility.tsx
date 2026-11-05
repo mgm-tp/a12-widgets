@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 import { useState, useRef, useCallback } from "react";
-import { loremIpsum } from "lorem-ipsum";
 import { styled } from "styled-components";
 
 import { Button, ProgressIndicator, Radio, Typography } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -74,6 +74,7 @@ export function AccessibilityProgressIndicator(): ReactElement {
 				<>
 					<Typography.Body>
 						<Radio
+							id="progress-indicator-accessibility-accessibility-options"
 							className="-u-margin-b-sm"
 							label="Accessibility Options"
 							onValueChanged={handleChangeOption}

@@ -1,0 +1,86 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as DropdownStories from "./Dropdown.stories";
+
+<Meta of={DropdownStories} />
+
+<Title />
+
+The `DropDown` widget renders an open list of selectable items — it is the selection panel used as
+a building block for select boxes, autocomplete fields and similar overlays. Selection is fully
+controlled: pass the current `selectedItem` and react to `onSelectedItemChange`.
+
+- Items are plain `DropDownItem` objects and support `disabled`, `isEmptyValue`, a `graphic`
+  element, a `secondaryText` line and grouping via `children`.
+- The list is keyboard-accessible: Arrow keys move the pre-selection, Enter (configurable via
+  `keysToSelectItem`) selects the pre-selected item.
+- Use `hint` to announce how many items match a search, `lightBackground` on light surfaces,
+  `horizontal` for toolbar-style layouts and `footer` for extended functionality such as loading
+  more items.
+- `selectionMode="multiple"` makes it a multi-select listbox: it renders the checkboxes, states each
+  option's selection, toggles instead of replacing, and reports the result through
+  `onSelectionChange`. An option carries the value it stands for as `data`, and `getItemKey`
+  identifies it.
+- `virtualize` renders only the options in view, for lists long enough that rendering all of them
+  would be felt. Sections are windowed along with their options.
+- `useDropdownNavigation` holds the active option outside the list, for a combobox whose field keeps
+  the focus — the list is handed the result as its `navigation` prop.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={DropdownStories.Playground} />
+
+## Examples
+
+### Basic
+
+<Canvas of={DropdownStories.Basic} />
+
+### Light background
+
+<Canvas of={DropdownStories.LightBackground} />
+
+### With graphics
+
+<Canvas of={DropdownStories.WithGraphics} />
+
+### Horizontal layout
+
+<Canvas of={DropdownStories.Horizontal} />
+
+### Grouped items
+
+<Canvas of={DropdownStories.WithGroups} />
+
+### Secondary text
+
+<Canvas of={DropdownStories.WithSecondaryText} />
+
+### Multi-select
+
+<Canvas of={DropdownStories.MultiSelect} />
+
+### Long lists
+
+<Canvas of={DropdownStories.LongList} />
+
+### Navigation from outside the list
+
+<Canvas of={DropdownStories.ExternalKeyboardNavigation} />

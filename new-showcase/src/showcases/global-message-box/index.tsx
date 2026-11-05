@@ -30,20 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import globalMessageBoxAccessibilityCode from "!./accessibility.tsx?raw";
+import globalMessageBoxBasicCode from "!./basic.tsx?raw";
+import globalMessageBoxCustomizationCode from "!./customization.tsx?raw";
+import globalMessageBoxVariantCode from "!./variants.tsx?raw";
+
 import GlobalMessageBoxAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/global-message-box/main/global-message-box.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
 
-import { GlobalMessageBoxBasicShowcase } from "./basic.js";
-import { GlobalMessageBoxVariantShowcase } from "./variants.js";
-import { GlobalMessageBoxCustomizationShowcase } from "./customization.js";
 import { GlobalMessageBoxAccessibility } from "./accessibility.js";
-
-import globalMessageBoxBasicCode from "!./basic.tsx?raw";
-import globalMessageBoxVariantCode from "!./variants.tsx?raw";
-import globalMessageBoxCustomizationCode from "!./customization.tsx?raw";
-import globalMessageBoxAccessibilityCode from "!./accessibility.tsx?raw";
+import { GlobalMessageBoxBasicShowcase } from "./basic.js";
+import { GlobalMessageBoxCustomizationShowcase } from "./customization.js";
+import { GlobalMessageBoxVariantShowcase } from "./variants.js";
 
 const showcases: Showcase[] = [
 	{

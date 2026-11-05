@@ -30,21 +30,21 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import filterSelectorCode from "!./filter-selector.tsx?raw";
+import filterDataCode from "!./filter/data.tsx?raw";
+import filterBarCode from "!./filter/filter-bar.tsx?raw";
+import filterConfigurationCode from "!./filter/filter-configuration.tsx?raw";
+import filterContextCode from "!./filter/filter-context.tsx?raw";
+import filterItemActionsCode from "!./filter/filter-item-actions.tsx?raw";
+import filterOptionsCode from "!./filter/filter-options.tsx?raw";
+import filterPaneContentCode from "!./filter/filter-pane-content.tsx?raw";
+import filterStyledCode from "!./filter/filter.styled.tsx?raw";
+import sharedFilterSectionsCode from "!./filter/shared-filter-sections.tsx?raw";
+import filterTypeCode from "!./filter/type.ts?raw";
+
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { FilterSelector } from "./filter-selector.js";
-
-import filterSelectorCode from "!./filter-selector.tsx?raw";
-import filterBarCode from "!./filter/filter-bar.tsx?raw";
-import filterPaneContentCode from "!./filter/filter-pane-content.tsx?raw";
-import filterContextCode from "!./filter/filter-context.tsx?raw";
-import filterConfigurationCode from "!./filter/filter-configuration.tsx?raw";
-import filterItemActionsCode from "!./filter/filter-item-actions.tsx?raw";
-import filterOptionsCode from "!./filter/filter-options.tsx?raw";
-import filterStyledCode from "!./filter/filter.styled.tsx?raw";
-import sharedFilterSectionsCode from "!./filter/shared-filter-sections.tsx?raw";
-import filterDataCode from "!./filter/data.tsx?raw";
-import filterTypeCode from "!./filter/type.ts?raw";
 
 const showcases: Showcase[] = [
 	{

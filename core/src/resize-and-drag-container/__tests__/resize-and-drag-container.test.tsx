@@ -30,7 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { afterEach, beforeEach, describe, expect, test } from "vitest";
+import { useState, useRef, useCallback } from "react";
+import type { ReactNode } from "react";
 import {
 	createReferenceElement,
 	fireEvent,
@@ -40,15 +41,14 @@ import {
 	render,
 	waitFor
 } from "test-utils";
+import { afterEach, beforeEach, describe, expect, test } from "vitest";
 import { page, userEvent } from "vitest/browser";
-import { useState, useRef, useCallback } from "react";
-import type { ReactNode } from "react";
 
 import { Button } from "../../button/main/button.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix } from "../../common/main/utils.js";
 import { ContentBox, ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
 import { Icon } from "../../icon/main/icon.view.js";
-
 import type { ResizeAndDragContainerProps } from "../main/resize-and-drag-container.api.js";
 import { ResizeAndDragContainer } from "../main/resize-and-drag-container.view.js";
 
@@ -102,6 +102,81 @@ describe("com.mgmtp.a12.widgets.resize-and-drag-container", () => {
 		fireEvent.click(triggerElement);
 		const content = getByDataRole(container, DataRoles.Portal);
 		expect(content).toMatchSnapshot();
+	});
+
+	describe("text-selection suppression on document.body", () => {
+		const userSelectNoneClass = addPrefix("-u-user-select-none");
+
+		const renderDraggable = () =>
+			render(
+				<ResizeAndDragContainer
+					key="container"
+					referenceElement={triggerElement}
+					minHeight={200}
+					disableResizing
+					minWidth={200}
+					initialSize={{ width: 300, height: 400 }}
+				>
+					<Button invert title="Move" className="handle" />
+				</ResizeAndDragContainer>
+			);
+
+		const startDragging = (container: HTMLElement): void => {
+			const draggable = getByDataRole(container, DataRoles.Portal).getElementsByClassName(
+				"react-draggable"
+			)[0] as HTMLElement;
+
+			fireEvent.mouseDown(draggable, { clientX: 0, clientY: 0 });
+			fireEvent.mouseMove(draggable, { clientX: 40, clientY: 40 });
+		};
+
+		test("suppresses text selection while dragging and restores it on drag stop", () => {
+			const { container } = renderDraggable();
+			fireEvent.click(triggerElement);
+
+			expect(document.body).not.toHaveClass(userSelectNoneClass);
+
+			const draggable = getByDataRole(container, DataRoles.Portal).getElementsByClassName(
+				"react-draggable"
+			)[0] as HTMLElement;
+
+			startDragging(container);
+			expect(document.body).toHaveClass(userSelectNoneClass);
+
+			fireEvent.mouseUp(draggable, { clientX: 40, clientY: 40 });
+			expect(document.body).not.toHaveClass(userSelectNoneClass);
+		});
+
+		test("restores text selection when the container unmounts mid-drag", () => {
+			const { container, unmount } = renderDraggable();
+			fireEvent.click(triggerElement);
+
+			startDragging(container);
+			expect(document.body).toHaveClass(userSelectNoneClass);
+
+			// The drag never stops — the container goes away underneath it. Without an unmount
+			// cleanup the class stays on <body> forever and text is unselectable app-wide.
+			unmount();
+
+			expect(document.body).not.toHaveClass(userSelectNoneClass);
+		});
+
+		test("unmounting an idle container leaves another container's active drag untouched", () => {
+			const idle = renderDraggable();
+			const dragging = renderDraggable();
+			fireEvent.click(triggerElement);
+
+			startDragging(dragging.container);
+			expect(document.body).toHaveClass(userSelectNoneClass);
+
+			// Only the dragging instance owns the suppression, so the idle one must not lift it.
+			idle.unmount();
+
+			expect(document.body).toHaveClass(userSelectNoneClass);
+
+			dragging.unmount();
+			expect(document.body).not.toHaveClass(userSelectNoneClass);
+		});
 	});
 
 	test('Render ResizeAndDragContainer with "auto" as the value for initialSize height and width', () => {

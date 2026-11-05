@@ -30,20 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import utilsCode from "!../../showcases/table/utils.ts?raw";
+import basicCode from "!./basic.tsx?raw";
+import withDndCode from "!./with-dnd.tsx?raw";
+import withSortingCode from "!./with-sorting.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
-import TableAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table.api.json" with { type: "json" };
 import ColumnAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/column.api.json" with { type: "json" };
+import TableAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { BasicShowcase } from "./basic.js";
-import { WithSortingShowcase } from "./with-sorting.js";
 import { WithDndShowcase } from "./with-dnd.js";
-
-import utilsCode from "!../../showcases/table/utils.ts?raw";
-import basicCode from "!./basic.tsx?raw";
-import withSortingCode from "!./with-sorting.tsx?raw";
-import withDndCode from "!./with-dnd.tsx?raw";
+import { WithSortingShowcase } from "./with-sorting.js";
 
 const showcases: Showcase[] = [
 	{

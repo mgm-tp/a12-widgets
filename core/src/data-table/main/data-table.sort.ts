@@ -223,7 +223,7 @@ export function getNextSortState(
 	columnId: string,
 	current: DataTableSortState,
 	options: { isMulti?: boolean; maxMultiSortColCount?: number } = {}
-): { next: DataTableSortState; order: DataTableSortOrder } {
+): { next: DataTableSortState; order: DataTableSortOrder; ignored?: boolean } {
 	const cycle = column.sortDirections && column.sortDirections.length > 0 ? column.sortDirections : DEFAULT_SORT_CYCLE;
 	const currentOrder = getColumnSortOrder(columnId, current);
 	const cycleIndex = cycle.indexOf(currentOrder);
@@ -240,8 +240,10 @@ export function getNextSortState(
 	}
 
 	if (!isExisting && options.maxMultiSortColCount !== undefined && current.length >= options.maxMultiSortColCount) {
-		// At the multi-sort cap and this is a new column — ignore the append (chosen policy).
-		return { next: current, order: currentOrder };
+		// At the multi-sort cap and this is a new column — ignore the append (chosen
+		// policy). Flagged `ignored` so the caller neither announces a (nonexistent)
+		// change nor fires `onSort` with a misleading `order: undefined` payload.
+		return { next: current, order: currentOrder, ignored: true };
 	}
 
 	const next = isExisting

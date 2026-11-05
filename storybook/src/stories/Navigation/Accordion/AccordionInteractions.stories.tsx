@@ -45,15 +45,14 @@ const meta: Meta<typeof Accordion.Container> = {
 	component: Accordion.Container,
 	parameters: {
 		layout: "centered"
-	},
-	tags: ["autodocs"]
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 const accordionItems = (
-	<div style={{ width: "400px" }}>
+	<div style={{ width: "min(400px, calc(100vw - 32px))" }}>
 		<Accordion.Container>
 			<Accordion.Section>
 				<Accordion.Summary>Personal Information</Accordion.Summary>

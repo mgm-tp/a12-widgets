@@ -30,12 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render, waitFor } from "test-utils";
+import { getAllByDataRole, getByDataRole, render, waitFor } from "test-utils";
 import { describe, expect, test } from "vitest";
 
-import { ActionContentbox } from "../../../contentbox/main/action-contentbox/action-contentbox.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
+import { ActionContentbox } from "../../../contentbox/main/action-contentbox/action-contentbox.view.js";
+import type { SizeDetectorProps } from "../../size-detector/main/size-detector.api.js";
 import { ManagedMasterDetail } from "../main/managed-master-detail/managed-master-detail.view.js";
 
 async function moveResize(handler: HTMLElement, options: { x?: number; steps?: number }): Promise<void> {
@@ -54,6 +54,8 @@ async function moveResize(handler: HTMLElement, options: { x?: number; steps?: n
 
 	document.dispatchEvent(new MouseEvent("mouseup", { bubbles: true, clientX: startX + x, clientY: startY }));
 }
+
+const visibleViewDataRole = "visibile-view-test";
 
 const VIEWS = [
 	{ id: "managed-pane_1", label: "Pane 1" },
@@ -86,17 +88,142 @@ function ManagedMasterDetailExample({
 	);
 }
 
-function getFirstPane(container: HTMLElement): HTMLElement {
-	return container.querySelectorAll(`[data-role="${DataRoles.MasterDetail.Layout.Pane}"]`)[0] as HTMLElement;
-}
+describe("com.mgmtp.a12.widgets.layout.managed-master-detail", () => {
+	test("fullscreenView", () => {
+		const { container } = render(
+			<ManagedMasterDetail
+				title="title"
+				columnCount={2}
+				startIndex={2}
+				views={[
+					{
+						label: "View 1",
+						content: () => <p>View 1</p>
+					},
+					{
+						label: "View 2",
+						content: () => <p>View 2</p>
+					},
+					{
+						label: "View 3",
+						content: () => <p>View 3</p>
+					},
+					{
+						label: "View 4",
+						content: () => <p>View 4</p>
+					}
+				]}
+				fullScreenable
+				fullscreen
+			/>
+		);
+		expect(container.firstChild).toMatchSnapshot();
+		const pane = getByDataRole(container, DataRoles.MasterDetail.Layout.Pane);
+		const contents = pane.querySelectorAll("p");
+		expect(contents.length).toEqual(1);
+		expect(contents[0].textContent).toEqual("View 3");
+	});
 
-function getSecondPane(container: HTMLElement): HTMLElement {
-	return container.querySelectorAll(`[data-role="${DataRoles.MasterDetail.Layout.Pane}"]`)[1] as HTMLElement;
-}
+	test("normal-view-without-fullscreen", () => {
+		const { container } = render(
+			<ManagedMasterDetail
+				title="title"
+				columnCount={2}
+				startIndex={2}
+				views={[
+					{
+						label: "View 1",
+						content: () => <p data-role={visibleViewDataRole}>View 1</p>
+					},
+					{
+						label: "View 2",
+						content: () => <p data-role={visibleViewDataRole}>View 2</p>
+					},
+					{
+						label: "View 3",
+						content: () => <p data-role={visibleViewDataRole}>View 3</p>
+					},
+					{
+						label: "View 4",
+						content: () => <p data-role={visibleViewDataRole}>View 4</p>
+					}
+				]}
+			/>
+		);
+		expect(container.firstChild).toMatchSnapshot();
+		const contents = getAllByDataRole(container, visibleViewDataRole);
+		expect(contents.length).toEqual(2);
+	});
 
-function getResizeHandler(container: HTMLElement): HTMLElement {
-	return container.querySelector(`[data-role="${DataRoles.ResizableHandler}"]`) as HTMLElement;
-}
+	test("resizable-for-the-first-view", () => {
+		const { container } = render(
+			<ManagedMasterDetail
+				title="title"
+				columnCount={2}
+				fullScreenable
+				views={[
+					{
+						label: "View 1",
+						content: () => <p data-role={visibleViewDataRole}>View 1</p>,
+						resizableOptions: {
+							minWidth: "100px",
+							maxWidth: "70%"
+						}
+					},
+					{
+						label: "View 2",
+						content: () => <p data-role={visibleViewDataRole}>View 2</p>
+					}
+				]}
+			/>
+		);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	test("resizable-for-the-second-view", () => {
+		const { container } = render(
+			<ManagedMasterDetail
+				title="title"
+				columnCount={2}
+				fullScreenable
+				views={[
+					{
+						id: "view1",
+						label: "View 1",
+						content: () => <p data-role={visibleViewDataRole}>View 1</p>
+					},
+					{
+						id: "view2",
+						label: "View 2",
+						content: () => <p data-role={visibleViewDataRole}>View 2</p>,
+						resizableOptions: {
+							minWidth: "100px",
+							maxWidth: "70%"
+						}
+					}
+				]}
+			/>
+		);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+
+	test("custom-breakpoints", () => {
+		const breakpoints: SizeDetectorProps.BreakPoint[] = [{ width: 900, size: "lg" }];
+		const { container } = render(
+			<ManagedMasterDetail
+				title="title"
+				views={[
+					{
+						label: "View 1",
+						content: () => <p>View 1</p>
+					}
+				]}
+				breakPoints={breakpoints}
+			/>
+		);
+		expect(container.firstChild).toMatchSnapshot();
+	});
+});
 
 describe("com.mgmtp.a12.widgets.layout.managed-master-detail.resize", () => {
 	test("Should resize to maxWidth on first attempt without issues", async () => {
@@ -104,10 +231,12 @@ describe("com.mgmtp.a12.widgets.layout.managed-master-detail.resize", () => {
 			<ManagedMasterDetailExample resizeOptions={{ maxWidth: "2000px", minWidth: "300px" }} />
 		);
 
-		await waitFor(() => expect(getFirstPane(container)).toBeTruthy(), { timeout: 2000 });
+		await waitFor(() => expect(getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0]).toBeTruthy(), {
+			timeout: 2000
+		});
 
-		const firstPane = getFirstPane(container);
-		const resizeHandler = getResizeHandler(container);
+		const firstPane = getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0];
+		const resizeHandler = getByDataRole(container, DataRoles.ResizableHandler);
 		const initialWidth = firstPane.getBoundingClientRect().width;
 
 		await moveResize(resizeHandler, { x: 2000 - initialWidth, steps: 10 });
@@ -127,10 +256,12 @@ describe("com.mgmtp.a12.widgets.layout.managed-master-detail.resize", () => {
 			<ManagedMasterDetailExample resizeOptions={{ maxWidth: "1500px", minWidth: "300px" }} />
 		);
 
-		await waitFor(() => expect(getFirstPane(container)).toBeTruthy(), { timeout: 2000 });
+		await waitFor(() => expect(getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0]).toBeTruthy(), {
+			timeout: 2000
+		});
 
-		const firstPane = getFirstPane(container);
-		const resizeHandler = getResizeHandler(container);
+		const firstPane = getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0];
+		const resizeHandler = getByDataRole(container, DataRoles.ResizableHandler);
 
 		const firstMoveDistance = 400;
 		await moveResize(resizeHandler, { x: firstMoveDistance, steps: 5 });
@@ -157,10 +288,12 @@ describe("com.mgmtp.a12.widgets.layout.managed-master-detail.resize", () => {
 			<ManagedMasterDetailExample resizeOptions={{ maxWidth: "70%", minWidth: `${minWidth}px` }} />
 		);
 
-		await waitFor(() => expect(getFirstPane(container)).toBeTruthy(), { timeout: 2000 });
+		await waitFor(() => expect(getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0]).toBeTruthy(), {
+			timeout: 2000
+		});
 
-		const firstPane = getFirstPane(container);
-		const resizeHandler = getResizeHandler(container);
+		const firstPane = getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0];
+		const resizeHandler = getByDataRole(container, DataRoles.ResizableHandler);
 		const initialWidth = firstPane.getBoundingClientRect().width;
 
 		await moveResize(resizeHandler, { x: -(initialWidth - 100), steps: 10 });
@@ -179,10 +312,12 @@ describe("com.mgmtp.a12.widgets.layout.managed-master-detail.resize", () => {
 			<ManagedMasterDetailExample resizeOptions={{ maxWidth: `${maxWidth}px`, minWidth: "200px" }} />
 		);
 
-		await waitFor(() => expect(getFirstPane(container)).toBeTruthy(), { timeout: 2000 });
+		await waitFor(() => expect(getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0]).toBeTruthy(), {
+			timeout: 2000
+		});
 
-		const firstPane = getFirstPane(container);
-		const resizeHandler = getResizeHandler(container);
+		const firstPane = getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0];
+		const resizeHandler = getByDataRole(container, DataRoles.ResizableHandler);
 
 		await moveResize(resizeHandler, { x: maxWidth + 500, steps: 10 });
 
@@ -197,14 +332,14 @@ describe("com.mgmtp.a12.widgets.layout.managed-master-detail.resize", () => {
 	test("Should handle percentage-based maxWidth correctly", async () => {
 		const { container } = render(<ManagedMasterDetailExample resizeOptions={{ maxWidth: "60%", minWidth: "250px" }} />);
 
-		await waitFor(() => expect(getFirstPane(container)).toBeTruthy(), { timeout: 2000 });
+		await waitFor(() => expect(getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0]).toBeTruthy(), {
+			timeout: 2000
+		});
 
-		const firstPane = getFirstPane(container);
-		const resizeHandler = getResizeHandler(container);
+		const firstPane = getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0];
+		const resizeHandler = getByDataRole(container, DataRoles.ResizableHandler);
 
-		const parentContainer = container.querySelector(
-			`[data-role="${DataRoles.MasterDetail.Layout.Body}"]`
-		) as HTMLElement;
+		const parentContainer = getByDataRole(container, DataRoles.MasterDetail.Layout.Body);
 		const parentWidth = parentContainer.getBoundingClientRect().width;
 		const expectedMaxWidth = parentWidth * 0.6;
 
@@ -224,11 +359,13 @@ describe("com.mgmtp.a12.widgets.layout.managed-master-detail.resize", () => {
 			<ManagedMasterDetailExample resizeOptions={{ maxWidth: "1200px", minWidth: "300px" }} />
 		);
 
-		await waitFor(() => expect(getFirstPane(container)).toBeTruthy(), { timeout: 2000 });
+		await waitFor(() => expect(getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0]).toBeTruthy(), {
+			timeout: 2000
+		});
 
-		const firstPane = getFirstPane(container);
-		const secondPane = getSecondPane(container);
-		const resizeHandler = getResizeHandler(container);
+		const firstPane = getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[0];
+		const secondPane = getAllByDataRole(container, DataRoles.MasterDetail.Layout.Pane)[1];
+		const resizeHandler = getByDataRole(container, DataRoles.ResizableHandler);
 
 		const initialFirstWidth = firstPane.getBoundingClientRect().width;
 		const initialSecondWidth = secondPane.getBoundingClientRect().width;

@@ -32,12 +32,12 @@
 
 import { memo, useCallback } from "react";
 
-import { TableTemplate } from "./template/index.js";
+import { HeadGridRow } from "./head-grid-row.view.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
-import { isColumnGroup } from "./table.utils.js";
 import { useTableContext } from "./table.context.js";
 import { RowSegments } from "./table.row-segments.view.js";
-import { HeadGridRow } from "./head-grid-row.view.js";
+import { isColumnGroup } from "./table.utils.js";
+import { TableTemplate } from "./template/index.js";
 
 /** @internal */
 export const HeadRow = memo(function HeadRow(props: TableRenderPropsType.HeadRowProps) {

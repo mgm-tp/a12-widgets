@@ -34,11 +34,11 @@ import type { ReactNode } from "react";
 import { Children } from "react";
 import { styled, css } from "styled-components";
 
-import { breakWord } from "../../theme/base/mixins/_break-word.js";
-import { joinClassNames, addPrefix } from "../../common/main/utils.js";
-import { DataRoles } from "../../common/main/data-roles.js";
-import { StyledButton } from "../../button/main/button.styled.js";
 import { StyledBadgeWrapper, StyledTinyBadgeWrapper } from "../../badge/main/badge.view.js";
+import { StyledButton } from "../../button/main/button.styled.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { joinClassNames, addPrefix } from "../../common/main/utils.js";
+import { breakWord } from "../../theme/base/mixins/_break-word.js";
 
 import type { ApplicationHeaderProps } from "./application-header.api.js";
 
@@ -110,15 +110,17 @@ export const StyledApplicationHeaderSlotWrapper = styled.div.withConfig({
 			}
 		}
 
-		${slotPosition === "right" &&
-		css`
-			${StyledApplicationHeaderSlot} {
-				min-width: 0;
-				&:last-child {
-					margin-right: 0;
+		${
+			slotPosition === "right" &&
+			css`
+				${StyledApplicationHeaderSlot} {
+					min-width: 0;
+					&:last-child {
+						margin-right: 0;
+					}
 				}
-			}
-		`}
+			`
+		}
 	`;
 });
 

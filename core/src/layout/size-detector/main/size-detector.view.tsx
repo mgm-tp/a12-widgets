@@ -30,12 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { debounce } from "lodash-es";
 import type { FC } from "react";
 import { useState, useRef, useCallback, useEffect, useMemo } from "react";
-import { debounce } from "lodash-es";
-import type { ResizePayload, OnResizeCallback } from "react-resize-detector";
-import { useResizeDetector } from "react-resize-detector";
 
+import type { OnResizeCallback, ResizePayload } from "../../../common/main/resize-observer/resize-observer.api.js";
+import { useResizeObserver } from "../../../common/main/resize-observer/use-resize-observer.js";
 import { ScrollbarWidthResolver } from "../../../common/main/utils.js";
 
 import type {
@@ -200,11 +200,9 @@ export const useElementSizeDetector = (
 		[updateBreakPoint]
 	);
 
-	useResizeDetector({
+	useResizeObserver({
 		handleHeight: params.handleHeight ?? false,
 		handleWidth: params.handleWidth ?? true,
-		refreshMode: "debounce",
-		refreshRate: 0,
 		onResize,
 		targetRef: params.targetRef
 	});

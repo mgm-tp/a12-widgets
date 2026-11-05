@@ -32,15 +32,17 @@
 
 import type { MouseEvent, TouchEvent, ReactNode, FocusEvent, ReactElement } from "react";
 import { useRef, useState, useCallback, useMemo, Children, isValidElement, cloneElement } from "react";
-import { useResizeDetector } from "react-resize-detector";
-import { type ResizePayload } from "react-resize-detector";
 
-import { joinClassNames, addPrefix, getAllFocusableElements } from "../../../../common/main/utils.js";
-import { InputElements } from "../../../base/template/base.tpl.view.js";
-import { StyledBaseInput } from "../../../base-input-styled/base.styled.js";
-import { HiddenText } from "../../../../common/main/hidden-text/hidden-text.view.js";
-import type { Identifiable, Styleable } from "../../../../common/main/base-props.js";
+import type { Identifiable } from "../../../../common/main/base-props.js";
 import { DataRoles } from "../../../../common/main/data-roles.js";
+import { HiddenText } from "../../../../common/main/hidden-text/hidden-text.view.js";
+import type { ResizePayload } from "../../../../common/main/resize-observer/resize-observer.api.js";
+import { useResizeObserver } from "../../../../common/main/resize-observer/use-resize-observer.js";
+import { renderTooltips } from "../../../../common/main/tooltip-utils.js";
+import { joinClassNames, addPrefix, getAllFocusableElements } from "../../../../common/main/utils.js";
+import { StyledBaseInput } from "../../../base-input-styled/base.styled.js";
+import { InputElements } from "../../../base/template/base.tpl.view.js";
+import { useFieldDefaultsConfig } from "../../../field-default-config/main/field-default-config.utils.js";
 
 import type { TextAreaStatelessProps } from "./text-area.tpl.api.js";
 import { StyledTextAreaAddon, StyledTextAreaInput, StyledTextAreaInputWrapper } from "./text-area.tpl.styled.js";
@@ -105,6 +107,7 @@ export function TextAreaStateless(props: TextAreaStatelessProps): ReactElement<T
 		suffixes,
 		tooltips
 	} = props;
+	const { breakTooltipsToNewLine, messagePosition } = useFieldDefaultsConfig(props, "above");
 	const fieldClasses = joinClassNames(
 		baseInputClassName,
 		`${baseInputClassName}--textarea`,
@@ -382,6 +385,7 @@ export function TextAreaStateless(props: TextAreaStatelessProps): ReactElement<T
 							!prefixes
 					}
 				)}
+				aria-invalid={error || errorMessage ? true : undefined}
 				aria-autocomplete={ariaAutocomplete}
 				aria-haspopup={ariaHaspopup}
 				aria-activedescendant={ariaActivedescendant}
@@ -410,6 +414,7 @@ export function TextAreaStateless(props: TextAreaStatelessProps): ReactElement<T
 		style,
 		infoMessage,
 		warningMessage,
+		error,
 		errorMessage,
 		ariaDescribedby,
 		label,
@@ -427,27 +432,47 @@ export function TextAreaStateless(props: TextAreaStatelessProps): ReactElement<T
 		handleInput
 	]);
 
-	const tooltipsElement = useMemo(
-		() =>
-			tooltips &&
-			Children.map(
-				tooltips,
-				(element, index) =>
-					isValidElement<Styleable>(element) &&
-					cloneElement(element, {
-						key: "element-" + index,
-						className: joinClassNames(element.props.className, `${baseFieldClassName}__tooltip`)
-					})
-			),
-		[tooltips]
+	const tooltipsElement = useMemo(() => renderTooltips(tooltips, `${baseFieldClassName}__tooltip`), [tooltips]);
+
+	const messagesElement = useMemo(
+		(): ReactNode => (
+			<>
+				{errorMessage && (
+					<InputElements.Error
+						className={`${baseFieldClassName}__message`}
+						id={id}
+						errorMessage={errorMessage}
+						dataRole={DataRoles.Textarea.ErrorMessage}
+						position={messagePosition}
+					/>
+				)}
+				{warningMessage && (
+					<InputElements.Warning
+						className={`${baseFieldClassName}__message`}
+						id={id}
+						warningMessage={warningMessage}
+						dataRole={DataRoles.Textarea.WarningMessage}
+						position={messagePosition}
+					/>
+				)}
+				{infoMessage && (
+					<InputElements.Info
+						className={`${baseFieldClassName}__message`}
+						id={id}
+						infoMessage={infoMessage}
+						dataRole={DataRoles.Textarea.InfoMessage}
+						position={messagePosition}
+					/>
+				)}
+			</>
+		),
+		[errorMessage, id, infoMessage, messagePosition, warningMessage]
 	);
 
-	useResizeDetector({
+	useResizeObserver({
 		handleWidth: false,
 		targetRef: inputWrapperElement,
-		onResize: handleInput,
-		refreshMode: "debounce",
-		refreshRate: 0
+		onResize: handleInput
 	});
 
 	return (
@@ -462,6 +487,7 @@ export function TextAreaStateless(props: TextAreaStatelessProps): ReactElement<T
 			data-role={DataRoles.Textarea}
 			role={wrapperRole}
 			$block={fitToParent}
+			$tooltipPosition={breakTooltipsToNewLine}
 			$disabled={disabled}
 		>
 			<StyledBaseInput.StyledFieldMain className={`${baseFieldClassName}__main`}>
@@ -473,31 +499,8 @@ export function TextAreaStateless(props: TextAreaStatelessProps): ReactElement<T
 					$block={fitToParent}
 				>
 					{renderLabel}
-					{tooltipsElement}
-					{errorMessage && (
-						<InputElements.Error
-							className={`${baseFieldClassName}__message`}
-							id={id}
-							errorMessage={errorMessage}
-							dataRole={DataRoles.Textarea.ErrorMessage}
-						/>
-					)}
-					{warningMessage && (
-						<InputElements.Warning
-							className={`${baseFieldClassName}__message`}
-							id={id}
-							warningMessage={warningMessage}
-							dataRole={DataRoles.Textarea.WarningMessage}
-						/>
-					)}
-					{infoMessage && (
-						<InputElements.Info
-							className={`${baseFieldClassName}__message`}
-							id={id}
-							infoMessage={infoMessage}
-							dataRole={DataRoles.Textarea.InfoMessage}
-						/>
-					)}
+					{(breakTooltipsToNewLine === true || breakTooltipsToNewLine === "above") && tooltipsElement}
+					{messagePosition !== "below" && messagesElement}
 					<StyledTextAreaInputWrapper
 						className={fieldClasses}
 						ref={handleInputWrapperRef}
@@ -519,9 +522,16 @@ export function TextAreaStateless(props: TextAreaStatelessProps): ReactElement<T
 						{textAreaElement}
 						{suffixesElement}
 					</StyledTextAreaInputWrapper>
+					{messagePosition === "below" && messagesElement}
 				</StyledBaseInput.StyledField>
 				{renderAddonAfter()}
+				{!breakTooltipsToNewLine && tooltipsElement && (
+					<StyledTextAreaAddon $position="after" data-role={DataRoles.Textarea.TooltipAddon}>
+						{tooltipsElement}
+					</StyledTextAreaAddon>
+				)}
 			</StyledBaseInput.StyledFieldMain>
+			{breakTooltipsToNewLine === "below" && tooltipsElement}
 			{helperText && (
 				<StyledBaseInput.StyledFieldHelperWrapper className={`${baseFieldClassName}__helper`}>
 					{renderAddonBefore(false)}

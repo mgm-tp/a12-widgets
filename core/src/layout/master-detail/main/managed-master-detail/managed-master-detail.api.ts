@@ -54,7 +54,6 @@
 import type { ComponentType } from "react";
 
 import type { Identifiable, Styleable } from "../../../../common/main/base-props.js";
-
 import type { Layoutable, MasterDetailProps, VisibleView } from "../master-detail.api.js";
 
 /**

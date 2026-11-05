@@ -34,19 +34,19 @@ import type { ReactElement, ReactNode } from "react";
 import { useMemo, useState, useCallback } from "react";
 
 import type { RowEventHandlerGetter } from "@com.mgmtp.a12.widgets/widgets-core";
+import { ExternalLink, MailtoLink } from "@com.mgmtp.a12.widgets/widgets-core";
 import type {
 	DataTableSlotProps,
 	DataTableSortOrder,
 	DataTableSortState,
 	DataTableRowStyleGetter
 } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
-import { ExternalLink, MailtoLink } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import type { ContextualCard } from "../../helpers/definitions.js";
 
-import { Utils } from "./utils.js";
 import { COLUMNS } from "./data.js";
+import { Utils } from "./utils.js";
 
 type RowType = ContextualCard;
 

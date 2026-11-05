@@ -33,9 +33,8 @@
 import { memo, useRef, useCallback, useMemo, useEffect } from "react";
 import { styled } from "styled-components";
 
-import { getParentElement, joinClassNames } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
+import { getParentElement, joinClassNames } from "../../../common/main/utils.js";
 import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME, RowScrollManager } from "../table.internal.js";
 

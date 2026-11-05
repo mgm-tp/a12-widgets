@@ -42,7 +42,6 @@ const meta: Meta<typeof Toast> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		variant: {
 			control: "select",
@@ -66,6 +65,14 @@ const meta: Meta<typeof Toast> = {
 			control: "text",
 			description: "Optional header text displayed above the message"
 		},
+		footer: {
+			control: false,
+			description: "Optional footer content, e.g. action buttons"
+		},
+		icon: {
+			control: false,
+			description: "Custom icon replacing the variant's default icon"
+		},
 		onClose: {
 			description: "Callback invoked when the toast is closed"
 		}
@@ -75,48 +82,41 @@ const meta: Meta<typeof Toast> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		variant: "info",
+		type: "temporary",
 		header: "Info",
 		message: "Your session will expire in 5 minutes.",
 		onClose: fn()
-	}
+	},
+	render: (args) => (
+		<div style={{ maxWidth: "400px" }}>
+			<Toast {...args} />
+		</div>
+	)
 };
 
-export const Info: Story = {
-	args: {
-		variant: "info",
-		header: "Info",
-		message: "Your session will expire in 5 minutes.",
-		onClose: fn()
-	}
-};
-
-export const Success: Story = {
-	args: {
-		variant: "success",
-		header: "Success",
-		message: "Your changes have been saved successfully.",
-		onClose: fn()
-	}
-};
-
-export const Warning: Story = {
-	args: {
-		variant: "warning",
-		header: "Warning",
-		message: "Your storage is almost full. Consider removing unused files.",
-		onClose: fn()
-	}
-};
-
-export const Error: Story = {
-	args: {
-		variant: "error",
-		header: "Error",
-		message: "Failed to save changes. Please try again.",
-		onClose: fn()
+export const Variants: Story = {
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "400px" }}>
+			<Toast variant="info" header="Info" message="Your session will expire in 5 minutes." onClose={fn()} />
+			<Toast variant="success" header="Success" message="Your changes have been saved successfully." onClose={fn()} />
+			<Toast
+				variant="warning"
+				header="Warning"
+				message="Your storage is almost full. Consider removing unused files."
+				onClose={fn()}
+			/>
+			<Toast variant="error" header="Error" message="Failed to save changes. Please try again." onClose={fn()} />
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "The `variant` prop selects color and icon: `info`, `success`, `warning` or `error`."
+			}
+		}
 	}
 };
 
@@ -132,125 +132,171 @@ export const WithFooterActions: Story = {
 			</div>
 		),
 		onClose: fn()
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "The `footer` prop accepts arbitrary content below the message — typically action buttons."
+			}
+		}
 	}
 };
 
-export const PermanentToast: Story = {
+export const WithoutHeaderElement: Story = {
+	args: {
+		variant: "info",
+		message: "This Toast has no header. The content and close button are displayed in a same container.",
+		footer: (
+			<div style={{ display: "flex", gap: "8px", justifyContent: "flex-end" }}>
+				<Button label="Later" />
+				<Button label="Update now" primary />
+			</div>
+		),
+		onClose: fn()
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"When the `header` is not provided, the Toast automatically arranges the `message` and action element on a same row to improve the semantic reading order for screen readers."
+			}
+		}
+	}
+};
+
+export const CustomIcon: Story = {
+	args: {
+		variant: "info",
+		header: "Deployment started",
+		message: "Your application is being deployed to production.",
+		icon: <Icon>rocket_launch</Icon>,
+		onClose: fn()
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "The `icon` prop replaces the default icon of the chosen `variant`."
+			}
+		}
+	}
+};
+
+export const Permanent: Story = {
 	args: {
 		variant: "warning",
 		type: "permanent",
 		header: "Action Required",
 		message: "Please review and confirm the pending changes before proceeding.",
 		onClose: fn()
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'With `type="permanent"` the toast never auto-dismisses — it stays until `onClose` is triggered by the close button or programmatically.'
+			}
+		}
 	}
 };
 
-export const AllVariants: Story = {
-	render: () => (
-		<div style={{ display: "flex", flexDirection: "column", gap: "12px", maxWidth: "400px" }}>
-			<Toast variant="info" header="Info" message="This is an informational message." onClose={fn()} />
-			<Toast variant="success" header="Success" message="The operation completed successfully." onClose={fn()} />
-			<Toast
-				variant="warning"
-				header="Warning"
-				message="Please check the following before continuing."
-				onClose={fn()}
-			/>
-			<Toast variant="error" header="Error" message="Something went wrong. Please try again." onClose={fn()} />
-		</div>
-	)
+export const TemporaryToasts: Story = {
+	render: function TemporaryToastsExample() {
+		const [toasts, setToasts] = useState<Array<{ key: string; message: string }>>([]);
+
+		const addTemporaryToast = () => {
+			const key = `toast-${Date.now()}`;
+			setToasts((prev) => [...prev, { key, message: "This toast will disappear in 3 seconds." }]);
+		};
+
+		const removeToast = (key: string) => {
+			setToasts((prev) => prev.filter((t) => t.key !== key));
+		};
+
+		return (
+			<div style={{ minHeight: "150px", position: "relative" }}>
+				<Button label="Show temporary toast" primary icon={<Icon>notifications</Icon>} onClick={addTemporaryToast} />
+
+				<ToastGroup position="top-right">
+					{toasts.map((toast) => (
+						<Toast
+							key={toast.key}
+							variant="info"
+							header="Notification"
+							message={toast.message}
+							type="temporary"
+							duration={3000}
+							onClose={() => removeToast(toast.key)}
+						/>
+					))}
+				</ToastGroup>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'With `type="temporary"` the toast invokes `onClose` automatically after `duration` milliseconds — the handler must remove the toast from state.'
+			}
+		}
+	}
 };
 
 export const InteractiveToastGroup: Story = {
-	render: () => {
-		const InteractiveDemo = () => {
-			const [toasts, setToasts] = useState<
-				Array<{ key: string; variant: "info" | "success" | "warning" | "error"; message: string }>
-			>([]);
-			const counterRef = useRef<number>(toasts.length);
+	render: function InteractiveToastGroupExample() {
+		const [toasts, setToasts] = useState<
+			Array<{ key: string; variant: "info" | "success" | "warning" | "error"; message: string }>
+		>([]);
+		const counterRef = useRef<number>(toasts.length);
 
-			const addToast = (variant: "info" | "success" | "warning" | "error") => {
-				const messages: Record<string, string> = {
-					info: "Your report is being generated.",
-					success: "Changes saved successfully.",
-					warning: "Disk space is running low.",
-					error: "Connection to server lost."
-				};
-				counterRef.current += 1;
-				setToasts((prev) => [
-					...prev,
-					{ key: `toast-${Date.now()}-${counterRef.current}`, variant, message: messages[variant] }
-				]);
+		const addToast = (variant: "info" | "success" | "warning" | "error") => {
+			const messages: Record<string, string> = {
+				info: "Your report is being generated.",
+				success: "Changes saved successfully.",
+				warning: "Disk space is running low.",
+				error: "Connection to server lost."
 			};
-
-			const removeToast = (key: string) => {
-				setToasts((prev) => prev.filter((t) => t.key !== key));
-			};
-
-			return (
-				<div style={{ minHeight: "200px", position: "relative" }}>
-					<div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
-						<Button label="Info toast" onClick={() => addToast("info")} />
-						<Button label="Success toast" onClick={() => addToast("success")} />
-						<Button label="Warning toast" onClick={() => addToast("warning")} />
-						<Button label="Error toast" destructive onClick={() => addToast("error")} />
-					</div>
-
-					<ToastGroup position="top-right">
-						{toasts.map((toast) => (
-							<Toast
-								key={toast.key}
-								variant={toast.variant}
-								header={toast.variant.charAt(0).toUpperCase() + toast.variant.slice(1)}
-								message={toast.message}
-								type="permanent"
-								onClose={() => removeToast(toast.key)}
-							/>
-						))}
-					</ToastGroup>
-				</div>
-			);
+			counterRef.current += 1;
+			setToasts((prev) => [
+				...prev,
+				{ key: `toast-${Date.now()}-${counterRef.current}`, variant, message: messages[variant] }
+			]);
 		};
 
-		return <InteractiveDemo />;
-	}
-};
-
-export const TemporaryToastDemo: Story = {
-	render: () => {
-		const TemporaryDemo = () => {
-			const [toasts, setToasts] = useState<Array<{ key: string; message: string }>>([]);
-
-			const addTemporaryToast = () => {
-				const key = `toast-${Date.now()}`;
-				setToasts((prev) => [...prev, { key, message: "This toast will disappear in 3 seconds." }]);
-			};
-
-			const removeToast = (key: string) => {
-				setToasts((prev) => prev.filter((t) => t.key !== key));
-			};
-
-			return (
-				<div style={{ minHeight: "150px", position: "relative" }}>
-					<Button label="Show temporary toast" primary icon={<Icon>notifications</Icon>} onClick={addTemporaryToast} />
-
-					<ToastGroup position="top-right">
-						{toasts.map((toast) => (
-							<Toast
-								key={toast.key}
-								variant="info"
-								header="Notification"
-								message={toast.message}
-								type="temporary"
-								duration={3000}
-								onClose={() => removeToast(toast.key)}
-							/>
-						))}
-					</ToastGroup>
-				</div>
-			);
+		const removeToast = (key: string) => {
+			setToasts((prev) => prev.filter((t) => t.key !== key));
 		};
 
-		return <TemporaryDemo />;
+		return (
+			<div style={{ minHeight: "200px", position: "relative" }}>
+				<div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
+					<Button label="Info toast" onClick={() => addToast("info")} />
+					<Button label="Success toast" onClick={() => addToast("success")} />
+					<Button label="Warning toast" onClick={() => addToast("warning")} />
+					<Button label="Error toast" destructive onClick={() => addToast("error")} />
+				</div>
+
+				<ToastGroup position="top-right">
+					{toasts.map((toast) => (
+						<Toast
+							key={toast.key}
+							variant={toast.variant}
+							header={toast.variant.charAt(0).toUpperCase() + toast.variant.slice(1)}
+							message={toast.message}
+							type="permanent"
+							onClose={() => removeToast(toast.key)}
+						/>
+					))}
+				</ToastGroup>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`ToastGroup` stacks multiple toasts at a screen corner (`position`) and handles enter/leave transitions, focus and Esc-to-close."
+			}
+		}
 	}
 };

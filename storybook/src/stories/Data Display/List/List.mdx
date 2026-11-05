@@ -1,0 +1,66 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas, Description } from "@storybook/addon-docs/blocks";
+
+import * as ListStories from "./List.stories";
+
+<Meta of={ListStories} />
+
+<Title />
+
+The `List` widget renders a vertical collection of items using the compound components
+`List.Item` and `List.SubHeader`. Each item can combine a `graphic` (e.g. an icon), primary
+`text`, `secondaryText` and a trailing `meta` element.
+
+- Items become interactive when given an `onClick` handler and support `selected`, `active`, `disabled` and `readonly` states.
+- `border` frames the whole list; `divider` adds separators below items (per-item also as `"light"` or `"dark"`).
+- `flipped` swaps the position of `text` and `secondaryText`; `paddedLeft`/`paddedRight` align items with and without graphics or meta elements.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ListStories.Playground} />
+
+## Examples
+
+### With border
+
+<Canvas of={ListStories.WithBorder} />
+
+### Dividers
+
+<Canvas of={ListStories.Dividers} />
+
+### With sub-headers
+
+<Canvas of={ListStories.WithSubHeaders} />
+
+### With icons
+
+<Canvas of={ListStories.WithIcons} />
+
+### Rich items
+
+<Canvas of={ListStories.RichItems} />
+
+### Item states
+
+<Canvas of={ListStories.ItemStates} />
+
+### Interaction hints
+
+<Canvas of={ListStories.InteractionHints} />

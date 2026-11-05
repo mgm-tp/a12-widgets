@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render, fireEvent, getAllByDataRole } from "test-utils";
+import { render, fireEvent, getAllByDataRole, isAfter } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import { Icon } from "../../../icon/main/icon.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { getByDataRole } from "../../../common/test/test-utils.js";
-
+import { Icon } from "../../../icon/main/icon.view.js";
+import type { MessagePosition, TooltipLineBreak } from "../../base/template/base.tpl.api.js";
 import { CheckboxGroup } from "../main/checkbox-group.view.js";
 
 describe("com.mgmtp.a12.widgets.checkbox-group", () => {
@@ -210,5 +210,110 @@ describe("com.mgmtp.a12.widgets.checkbox-group", () => {
 		const checkboxInputs = getAllByDataRole(container, DataRoles.Checkbox.Input);
 		fireEvent.click(checkboxInputs[0], { currentTarget: { checked: true } });
 		expect(onValueChangedSpy).toHaveBeenCalledTimes(1);
+	});
+
+	describe("message position", () => {
+		const messageRoles = [
+			DataRoles.CheckboxGroup.ErrorMessage,
+			DataRoles.CheckboxGroup.WarningMessage,
+			DataRoles.CheckboxGroup.InfoMessage
+		];
+
+		const renderWithMessages = (messagePosition: MessagePosition) =>
+			render(
+				<CheckboxGroup
+					label="Test Label"
+					helperText="Test Helper Text"
+					id="test-checkbox-group"
+					errorMessage="Test error message"
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					messagePosition={messagePosition}
+				>
+					<CheckboxGroup.Item label="Option 1" value="1" id="item-1" />
+					<CheckboxGroup.Item label="Option 2" value="2" id="item-2" />
+				</CheckboxGroup>
+			);
+
+		test("renders the messages above the group for above", () => {
+			const { getAllByDataRole, getByDataRole } = renderWithMessages("above");
+			const items = getAllByDataRole(DataRoles.Checkbox.Control);
+			const label = getByDataRole(DataRoles.CheckboxGroup.Label);
+			const helperText = getByDataRole(DataRoles.Checkbox.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(isAfter(message, items[0])).toBe(true);
+				// stays inside the label -> helper text envelope
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the group for below", () => {
+			const { getAllByDataRole, getByDataRole } = renderWithMessages("below");
+			const items = getAllByDataRole(DataRoles.Checkbox.Control);
+			const lastItem = items[items.length - 1];
+			const label = getByDataRole(DataRoles.CheckboxGroup.Label);
+			const helperText = getByDataRole(DataRoles.Checkbox.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(isAfter(lastItem, message)).toBe(true);
+				// stays inside the label -> helper text envelope
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const renderWithTooltips = (breakTooltipsToNewLine: TooltipLineBreak, helperText?: string) =>
+			render(
+				<CheckboxGroup
+					label="Checkbox Group"
+					id="test-checkbox-group"
+					helperText={helperText}
+					tooltips={<div>Test tooltip</div>}
+					breakTooltipsToNewLine={breakTooltipsToNewLine}
+				>
+					<CheckboxGroup.Item label="Option 1" value="1" id="item-1" />
+					<CheckboxGroup.Item label="Option 2" value="2" id="item-2" />
+				</CheckboxGroup>
+			);
+
+		test("renders the tooltips above the group for false, having no inline placement", () => {
+			const { getAllByDataRole, getByDataRole, getByText } = renderWithTooltips(false);
+			const items = getAllByDataRole(DataRoles.Checkbox.Control);
+			const tooltip = getByText("Test tooltip");
+
+			expect(items.some((item) => item.contains(tooltip))).toBe(false);
+			// the very slot "above" uses: after the group label, before the group itself
+			expect(isAfter(getByDataRole(DataRoles.CheckboxGroup.Label), tooltip)).toBe(true);
+			expect(isAfter(tooltip, items[0])).toBe(true);
+		});
+
+		test("renders the tooltips above the group for above", () => {
+			const { getAllByDataRole, getByDataRole, getByText } = renderWithTooltips("above");
+			const items = getAllByDataRole(DataRoles.Checkbox.Control);
+			const tooltip = getByText("Test tooltip");
+
+			expect(items.some((item) => item.contains(tooltip))).toBe(false);
+			expect(isAfter(getByDataRole(DataRoles.CheckboxGroup.Label), tooltip)).toBe(true);
+			expect(isAfter(tooltip, items[0])).toBe(true);
+		});
+
+		test("renders the tooltips below the group for below", () => {
+			const { getAllByDataRole, getByDataRole, getByText } = renderWithTooltips("below", "Test Helper Text");
+			const items = getAllByDataRole(DataRoles.Checkbox.Control);
+			const helperText = getByDataRole(DataRoles.Checkbox.HelperText);
+			const tooltip = getByText("Test tooltip");
+
+			expect(items.some((item) => item.contains(tooltip))).toBe(false);
+			expect(isAfter(items[items.length - 1], tooltip)).toBe(true);
+			expect(isAfter(tooltip, helperText)).toBe(true);
+		});
 	});
 });

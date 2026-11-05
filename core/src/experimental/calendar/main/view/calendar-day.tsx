@@ -30,32 +30,31 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { format, getDay, isSameDay } from "date-fns";
+import type { Locale } from "date-fns/locale";
+import isEqual from "lodash-es/isEqual.js";
 import type { ReactNode, KeyboardEvent, MouseEvent } from "react";
 import { useCallback, useRef } from "react";
-import { format, getDay, isSameDay } from "date-fns";
-import isEqual from "lodash-es/isEqual.js";
-import type { Locale } from "date-fns/locale";
 
 import { DataRoles } from "../../../../common/main/data-roles.js";
-
 import type { CalendarDay, CalendarDayProps, SelectedItem } from "../calendar.api.js";
 
-import {
-	StyledCalendarWeekViewDayContent,
-	StyledCalendarWeekViewEmptyDay
-} from "./calendar-week-view/calendar-week-view.styled.js";
-import {
-	StyledCalendarMonthViewDayContent,
-	StyledCalendarMonthViewDayHeader,
-	StyledCalendarMonthViewEmptyDay
-} from "./calendar-month-view/calendar-month-view.styled.js";
-import { useIsChildHovered } from "./calendar-hook.internal.js";
 import {
 	StyledCalendarDayContent,
 	StyledCalendarDayItem,
 	StyledCalendarDayWrapper,
 	StyledPlaceholderCalendarDayCell
 } from "./calendar-day.styled.js";
+import { useIsChildHovered } from "./calendar-hook.internal.js";
+import {
+	StyledCalendarMonthViewDayContent,
+	StyledCalendarMonthViewDayHeader,
+	StyledCalendarMonthViewEmptyDay
+} from "./calendar-month-view/calendar-month-view.styled.js";
+import {
+	StyledCalendarWeekViewDayContent,
+	StyledCalendarWeekViewEmptyDay
+} from "./calendar-week-view/calendar-week-view.styled.js";
 
 const variantComponentMap = {
 	week: {

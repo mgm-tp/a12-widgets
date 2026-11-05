@@ -42,8 +42,7 @@ import {
 const meta: Meta<typeof ButtonGroupContainer> = {
 	title: "General/Buttons/ButtonGroupContainer/KeyboardNavigation",
 	component: ButtonGroupContainer,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;

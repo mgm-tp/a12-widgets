@@ -31,8 +31,8 @@
  */
 
 import type { Styleable, Identifiable, Container } from "../../../common/main/base-props.js";
-import type { ResizeOptions as ResizeHandlerOptions } from "../../resizable/resize-handler.api.js";
 import type { MakeRequired } from "../../../common/main/type-utilities.js";
+import type { ResizeOptions as ResizeHandlerOptions } from "../../resizable/resize-handler.api.js";
 
 export interface SplitViewProps extends Styleable, Identifiable, Container {}
 

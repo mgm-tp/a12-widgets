@@ -1,0 +1,59 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ModalNotificationStories from "./ModalNotification.stories";
+
+<Meta of={ModalNotificationStories} />
+
+<Title />
+
+The `ModalNotification` widget displays a notification inside a modal overlay that blocks the rest
+of the page until it is dismissed. Use it for messages that require the user's immediate attention
+or an explicit decision before continuing.
+
+- The `variant` prop (`info`, `success`, `warning`, `error`) controls the color scheme and default icon; a custom `icon` can be supplied instead.
+- Dismissal is opt-in via `onClose` combined with `enableCloseButton`, `closeOnEsc` and/or `closeOnOutsideClick`.
+- `footer` and `headingButtons` add action areas below the content and in the header.
+- Focus moves into the modal on open and back to the trigger on close (`focusOnOpen`, `focusBack`).
+
+## Playground
+
+Use the controls below to explore all props interactively. Click "Show Modal" to open the notification.
+
+<Primary />
+
+<Controls of={ModalNotificationStories.Playground} />
+
+## Examples
+
+### Variants
+
+<Canvas of={ModalNotificationStories.Variants} />
+
+### Custom icon
+
+<Canvas of={ModalNotificationStories.WithCustomIcon} />
+
+### Footer actions
+
+<Canvas of={ModalNotificationStories.WithFooterActions} />
+
+### Heading buttons
+
+<Canvas of={ModalNotificationStories.WithHeadingButtons} />
+
+### Closing on outside click or Escape
+
+<Canvas of={ModalNotificationStories.CloseOnOutsideClick} />

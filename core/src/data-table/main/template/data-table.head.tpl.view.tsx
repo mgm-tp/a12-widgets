@@ -33,7 +33,6 @@
 import type { ReactElement } from "react";
 
 import type { Container, DataRole, Identifiable, Styleable } from "../../../common/main/base-props.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
 export interface DataTableHeadTplProps extends Container, DataRole, Identifiable, Styleable {
@@ -57,7 +56,7 @@ export function DataTableHeadTpl({
 }: DataTableHeadTplProps): ReactElement {
 	// (tree)grid mode overrides the table role, dropping the native `<thead>`
 	// rowgroup mapping, so restate it as `role="rowgroup"`.
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
+	const gridRole = useDataTableContext().gridRole;
 
 	return (
 		<thead

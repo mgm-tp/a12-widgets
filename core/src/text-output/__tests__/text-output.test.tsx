@@ -30,12 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { queryByDataRole, render } from "test-utils";
+import { isAfter, queryByDataRole, render } from "test-utils";
 import { describe, expect, test } from "vitest";
 
+import { DataRoles } from "../../common/main/data-roles.js";
+import type { MessagePosition } from "../../input/base/template/base.tpl.api.js";
+import type { TooltipPosition } from "../../input/field-default-config/main/field-default-config.api.js";
 import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
 import { WarningTooltip } from "../../tooltip/warning/main/warning.view.js";
-
 import { TextOutput } from "../main/text-output.view.js";
 
 describe("com.mgmtp.a12.widgets.text-output", () => {
@@ -188,5 +190,112 @@ describe("com.mgmtp.a12.widgets.text-output", () => {
 
 		const { container: centerContainer } = render(<TextOutput alignment="center">Content</TextOutput>);
 		expect(centerContainer.firstChild).toMatchSnapshot();
+	});
+
+	describe("message position", () => {
+		const messageRoles = [DataRoles.Error.Message, DataRoles.Warning.Message, DataRoles.Info.Message];
+
+		const renderWithMessages = (messagePosition?: MessagePosition) =>
+			render(
+				<TextOutput
+					label="Test Label"
+					errorMessage="Test error message"
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					messagePosition={messagePosition}
+				>
+					Content
+				</TextOutput>
+			);
+
+		test("renders the messages above the content by default", () => {
+			const { getByDataRole } = renderWithMessages();
+			const label = getByDataRole(`${DataRoles.Label}`);
+			const content = getByDataRole(DataRoles.TextOutput.Content);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, content)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the content for below", () => {
+			const { getByDataRole } = renderWithMessages("below");
+			const content = getByDataRole(DataRoles.TextOutput.Content);
+
+			for (const role of messageRoles) {
+				expect(isAfter(content, getByDataRole(role))).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const renderWithTooltips = (tooltipPosition?: TooltipPosition) =>
+			render(
+				<TextOutput
+					label="Test Label"
+					errorMessage="Test error message"
+					tooltips={<div>Test tooltip</div>}
+					tooltipPosition={tooltipPosition}
+				>
+					Content
+				</TextOutput>
+			);
+
+		test("renders the tooltips between the label and the content by default", () => {
+			const { getByDataRole, getByText } = renderWithTooltips();
+			const label = getByDataRole(`${DataRoles.Label}`);
+			const content = getByDataRole(DataRoles.TextOutput.Content);
+			const tooltip = getByText("Test tooltip");
+
+			expect(isAfter(label, tooltip)).toBe(true);
+			expect(isAfter(tooltip, content)).toBe(true);
+		});
+
+		/**
+		 * "beside" and "above" place the tooltips in the same slot - the two differ only in the label
+		 * turning into a block, which pushes the tooltips onto their own line. The assertions here are
+		 * therefore the same as for the default, and guard that "above" keeps the tooltips ahead of the
+		 * content rather than moving them the way "below" does.
+		 */
+		test("keeps the tooltips between the label and the content for above", () => {
+			const { getByDataRole, getByText } = renderWithTooltips("above");
+			const label = getByDataRole(`${DataRoles.Label}`);
+			const content = getByDataRole(DataRoles.TextOutput.Content);
+			const tooltip = getByText("Test tooltip");
+
+			expect(isAfter(label, tooltip)).toBe(true);
+			expect(isAfter(tooltip, content)).toBe(true);
+		});
+
+		test("renders the tooltips under the content for below", () => {
+			const { getByDataRole, getByText } = renderWithTooltips("below");
+			const content = getByDataRole(DataRoles.TextOutput.Content);
+			const tooltip = getByText("Test tooltip");
+
+			expect(isAfter(content, tooltip)).toBe(true);
+		});
+
+		test("renders the tooltips after the messages when both are below", () => {
+			const { getByDataRole, getByText } = render(
+				<TextOutput
+					label="Test Label"
+					errorMessage="Test error message"
+					tooltips={<div>Test tooltip</div>}
+					messagePosition="below"
+					tooltipPosition="below"
+				>
+					Content
+				</TextOutput>
+			);
+			const content = getByDataRole(DataRoles.TextOutput.Content);
+			const message = getByDataRole(DataRoles.Error.Message);
+			const tooltip = getByText("Test tooltip");
+
+			expect(isAfter(content, message)).toBe(true);
+			expect(isAfter(message, tooltip)).toBe(true);
+		});
 	});
 });

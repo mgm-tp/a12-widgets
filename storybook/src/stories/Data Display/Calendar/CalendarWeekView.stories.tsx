@@ -31,9 +31,9 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { ReactNode } from "react";
+import { format, isSameDay, parseISO } from "date-fns";
+import type { ReactElement, ReactNode } from "react";
 import { useCallback, useState } from "react";
-import { isSameDay, parseISO } from "date-fns";
 import styled from "styled-components";
 
 import { Calendar, Status } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -118,12 +118,45 @@ interface CalendarWeekViewArgs {
 	disabledDays: string[];
 }
 
+function WeekViewExample(args: CalendarWeekViewArgs): ReactElement {
+	const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+	const [selectedItem, setSelectedItem] = useState<SelectedItem<DayEvent> | undefined>(undefined);
+
+	const dayItemContentRenderer = useCallback((_date: Date, event?: DayEvent): ReactNode => {
+		return event && <WeekViewContent {...event} />;
+	}, []);
+
+	const holidays = args.publicHolidays.map((holiday) => parseISO(holiday));
+	const disabled = args.disabledDays.map((day) => parseISO(day));
+
+	return (
+		<div style={{ width: "min(900px, calc(100vw - 32px))", overflowX: "auto", height: "600px" }}>
+			<Calendar
+				view="week"
+				weekStartsOn={args.weekStartsOn}
+				highlightedWeekends={args.highlightedWeekends}
+				highlightedPublicHolidays={args.highlightedPublicHolidays}
+				date={new Date(args.date)}
+				publicHolidays={holidays}
+				calendarDateItems={calendarDays}
+				selectedDate={selectedDate}
+				onDayClick={setSelectedDate}
+				selectedItem={selectedItem}
+				onItemClick={setSelectedItem}
+				componentRenderers={{
+					dayItemContentRenderer
+				}}
+				isDisabledDay={(date) => !!disabled.find((d) => isSameDay(d, date))}
+			/>
+		</div>
+	);
+}
+
 const meta: Meta<CalendarWeekViewArgs> = {
 	title: "Data Display/Calendar/Week View",
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	args: {
 		weekStartsOn: 1,
 		highlightedWeekends: true,
@@ -164,28 +197,37 @@ const meta: Meta<CalendarWeekViewArgs> = {
 export default meta;
 type Story = StoryObj<CalendarWeekViewArgs>;
 
-export const Default: Story = {
-	args: {
-		weekStartsOn: 1,
-		highlightedWeekends: true,
-		highlightedPublicHolidays: true,
-		date: new Date(2026, 0, 6).toISOString(),
-		publicHolidays: ["2026-01-01", "2026-01-06"],
-		disabledDays: ["2026-01-10"]
-	},
-	render: (args) => {
-		const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
-		const [selectedItem, setSelectedItem] = useState<SelectedItem<DayEvent> | undefined>(undefined);
+export const Playground: Story = {
+	render: WeekViewExample
+};
 
+export const WeekStartsOnSunday: Story = {
+	args: {
+		weekStartsOn: 0
+	},
+	render: WeekViewExample,
+	parameters: {
+		docs: {
+			description: {
+				story: "`weekStartsOn` sets the first day column of the week view (`0` = Sunday, `1` = Monday, etc.)."
+			}
+		}
+	}
+};
+
+export const CustomWeekdayFormat: Story = {
+	render: function CustomWeekdayFormatExample(args) {
 		const dayItemContentRenderer = useCallback((_date: Date, event?: DayEvent): ReactNode => {
 			return event && <WeekViewContent {...event} />;
 		}, []);
 
+		const weekDayFormatter = useCallback((date: Date) => format(date, "EEEE"), []);
+		const dateFormatter = useCallback((date: Date) => format(date, "dd.MM."), []);
+
 		const holidays = args.publicHolidays.map((holiday) => parseISO(holiday));
-		const disabled = args.disabledDays.map((day) => parseISO(day));
 
 		return (
-			<div style={{ width: "900px", height: "600px" }}>
+			<div style={{ width: "min(900px, calc(100vw - 32px))", overflowX: "auto", height: "600px" }}>
 				<Calendar
 					view="week"
 					weekStartsOn={args.weekStartsOn}
@@ -194,16 +236,21 @@ export const Default: Story = {
 					date={new Date(args.date)}
 					publicHolidays={holidays}
 					calendarDateItems={calendarDays}
-					selectedDate={selectedDate}
-					onDayClick={setSelectedDate}
-					selectedItem={selectedItem}
-					onItemClick={setSelectedItem}
+					weekDayFormatter={weekDayFormatter}
+					dateFormatter={dateFormatter}
 					componentRenderers={{
 						dayItemContentRenderer
 					}}
-					isDisabledDay={(date) => !!disabled.find((d) => isSameDay(d, date))}
 				/>
 			</div>
 		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`weekDayFormatter` and `dateFormatter` customize the day header labels — here full weekday names (`EEEE`) and a `dd.MM.` date format."
+			}
+		}
 	}
 };

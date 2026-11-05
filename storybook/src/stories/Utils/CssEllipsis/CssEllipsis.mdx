@@ -1,0 +1,55 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as CssEllipsisStories from "./CssEllipsis.stories";
+
+<Meta of={CssEllipsisStories} />
+
+<Title />
+
+The `CssEllipsis` widget truncates overflowing text with an ellipsis using performant CSS line
+clamping. Use it wherever long, user-generated content must fit a constrained layout, such as
+table cells, cards or list items.
+
+- Use `maxLine` to clamp the content to a fixed number of lines.
+- Without `maxLine`, the line count is calculated automatically — the parent element must have a
+  fixed height for this to work.
+- Use `useTooltip` to reveal the full content on hover; `tooltipVariant` selects the tooltip style.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={CssEllipsisStories.Playground} />
+
+## Examples
+
+### Max lines
+
+<Canvas of={CssEllipsisStories.MaxLines} />
+
+### Auto-calculated lines
+
+<Canvas of={CssEllipsisStories.AutoCalculatedLines} />
+
+### With tooltip
+
+<Canvas of={CssEllipsisStories.WithTooltip} />
+
+### Short text
+
+<Canvas of={CssEllipsisStories.ShortText} />

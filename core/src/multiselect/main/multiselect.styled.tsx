@@ -32,13 +32,13 @@
 
 import { styled, css } from "styled-components";
 
-import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
-import { StyledCounter } from "../../counter/main/counter.view.js";
-import { ModalOverlay, StyledModalOverlayContainer } from "../../modal-overlay/main/modal-overlay.view.js";
 import { StyledContentBoxContent } from "../../contentbox/main/template/contentbox.tpl.styled.js";
+import { StyledCounter } from "../../counter/main/counter.view.js";
 import { DropDown } from "../../dropdown/main/template/dropdown.tpl.view.js";
-import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
+import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
 import { TextField } from "../../input/text-field/text-field.view.js";
+import { ModalOverlay, StyledModalOverlayContainer } from "../../modal-overlay/main/modal-overlay.view.js";
+import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
 
 import StyledFieldInput = StyledBaseInput.StyledFieldInput;
 
@@ -86,12 +86,14 @@ export const StyledMultiselectInput = styled(TextField).withConfig({
 	const isVariant = warning || error || info || !!warningMessage || !!errorMessage || !!infoMessage;
 
 	return css`
-		${input?.focus?.customBorder &&
-		!isVariant &&
-		css`
-			${StyledFieldInput}[data-isfocused="true"] {
-				${createBoxShadow(input.focus.customBorder)}
-			}
-		`}
+		${
+			input?.focus?.customBorder &&
+			!isVariant &&
+			css`
+				${StyledFieldInput}[data-isfocused="true"] {
+					${createBoxShadow(input.focus.customBorder)}
+				}
+			`
+		}
 	`;
 });

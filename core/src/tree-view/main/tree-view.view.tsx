@@ -41,19 +41,23 @@
  */
 
 import type { Key, ReactElement, ReactNode, RefObject } from "react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useId, useRef, useState } from "react";
 import { useTheme } from "styled-components";
 
+import { A11YLanguageContext } from "../../common/main/a11y-localization/index.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-import { addPrefix, generateUid, getRole, joinClassNames } from "../../common/main/utils.js";
-import { StyledTreeContainer, StyledTreeNodesContainer } from "../../tree/main/tpl/tree-elements.styled.js";
+import { LiveRegion, useLiveRegion } from "../../common/main/live-region/index.js";
+import { addPrefix, getRole, joinClassNames } from "../../common/main/utils.js";
+import { useKeyboardNavigationMode } from "../../keyboard-navigation/main/keyboard-navigation-context.js";
+import { StyledTreeNodesContainer } from "../../tree/main/tpl/tree-elements.styled.js";
 
 import { useTreeModel } from "./model/index.js";
-import { TreeViewNode } from "./tree-view-node.view.js";
-import { useTreeViewKeyboard } from "./use-tree-view-keyboard.js";
 import type { TreeViewDnDState } from "./tree-view-dnd.js";
-import { useTreeViewDnDMonitor } from "./tree-view-dnd.js";
+import { useTreeViewDnDMonitor, useTreeViewRootDropZone } from "./tree-view-dnd.js";
+import { TreeViewNode } from "./tree-view-node.view.js";
 import type { TreeViewNodeMeta, TreeViewProps, TreeViewScrollToNodeHandler } from "./tree-view.api.js";
+import { StyledTreeViewContainer } from "./tree-view.styled.js";
+import { useTreeViewKeyboard } from "./use-tree-view-keyboard.js";
 
 const baseClassName = addPrefix("treeWidget");
 
@@ -90,17 +94,43 @@ export function TreeView<RowType>(props: TreeViewProps<RowType>): ReactElement<T
 	const selectable = selectionMode !== "none";
 
 	const dndEnabled = dragDrop !== undefined;
-	const indentPerLevel = useTheme().components.tree.node.indentPaddingLeft;
+	const theme = useTheme();
+	const indentPerLevel = theme.components.tree.node.indentPaddingLeft;
+	const flashColor = theme.components.tree.nodeContent.selected.background;
 	const localDragRef = useRef(false);
+	const dndTitles = useContext(A11YLanguageContext).dragAndDropTitles;
+	// Whether the expand/collapse control of a node is its own tab stop, as in the legacy `Tree`: in
+	// `"default"` mode Tab visits it after the node content, in `"arrow-only"` mode the node content is the
+	// only tab stop and the arrows drive expansion instead.
+	const expanderTabIndex = useKeyboardNavigationMode("tree") === "arrow-only" ? -1 : undefined;
+	// Polite live region for screen-reader move announcements, driven imperatively so an announcement
+	// re-renders only the region, not the whole tree.
+	const liveRegion = useLiveRegion();
+	// Key of the node to flash on the next commit (set by a keyboard/pointer move, claimed by that node).
+	const pendingFlashKeyRef = useRef<Key | null>(null);
 	// Live DnD state, refreshed every render so the pragmatic adapters (bound once) read current values.
 	const dndStateRef = useRef<TreeViewDnDState<RowType>>({
 		options: dragDrop ?? {},
 		rows,
 		metaByKey,
 		rowKeyOf: model.rowKeyOf,
-		indentPerLevel
+		indentPerLevel,
+		titles: dndTitles,
+		announce: liveRegion.announce,
+		flashColor,
+		pendingFlashKeyRef
 	});
-	dndStateRef.current = { options: dragDrop ?? {}, rows, metaByKey, rowKeyOf: model.rowKeyOf, indentPerLevel };
+	dndStateRef.current = {
+		options: dragDrop ?? {},
+		rows,
+		metaByKey,
+		rowKeyOf: model.rowKeyOf,
+		indentPerLevel,
+		titles: dndTitles,
+		announce: liveRegion.announce,
+		flashColor,
+		pendingFlashKeyRef
+	};
 
 	useTreeViewDnDMonitor(dndStateRef, localDragRef, dndEnabled);
 
@@ -116,11 +146,21 @@ export function TreeView<RowType>(props: TreeViewProps<RowType>): ReactElement<T
 		activeKeyState !== undefined && metaByKey.has(activeKeyState) ? activeKeyState : rows[0]?.key;
 
 	const rootRef = useRef<HTMLDivElement>(null);
-	const id = idProp || `tree-view-${generateUid()}`;
+	// State-backed copies of the container and nodes list so the root drop zone rebinds on mount.
+	const [rootEl, setRootEl] = useState<HTMLDivElement | null>(null);
+	const [nodesEl, setNodesEl] = useState<HTMLDivElement | null>(null);
+	const setRoot = useCallback((node: HTMLDivElement | null): void => {
+		rootRef.current = node;
+		setRootEl(node);
+	}, []);
+	const generatedId = useId();
+	const id = idProp || `tree-view-${generatedId}`;
 
 	useEffect(() => {
 		wrapperRef?.(rootRef.current);
 	}, [wrapperRef]);
+
+	useTreeViewRootDropZone({ stateRef: dndStateRef, containerEl: rootEl, nodesEl, enabled: dndEnabled });
 
 	const onSelect = useCallback(
 		(key: Key, row: RowType): void => {
@@ -147,7 +187,10 @@ export function TreeView<RowType>(props: TreeViewProps<RowType>): ReactElement<T
 		activeKey: resolvedActiveKey,
 		setActiveKey: setActiveKeyState,
 		selectable,
-		onSelect
+		onSelect,
+		dndEnabled,
+		dndStateRef,
+		dndTitles
 	});
 
 	const scrollToNodeHandler = useCallback<TreeViewScrollToNodeHandler>((rowKey, options) => {
@@ -177,8 +220,8 @@ export function TreeView<RowType>(props: TreeViewProps<RowType>): ReactElement<T
 	const classNames = joinClassNames(baseClassName, { [`${baseClassName}--fit`]: fitToParent }, className);
 
 	return (
-		<StyledTreeContainer
-			ref={rootRef}
+		<StyledTreeViewContainer
+			ref={setRoot}
 			id={id}
 			className={classNames}
 			style={style}
@@ -186,6 +229,7 @@ export function TreeView<RowType>(props: TreeViewProps<RowType>): ReactElement<T
 			$fit={fitToParent}
 		>
 			<StyledTreeNodesContainer
+				ref={setNodesEl}
 				className={`${baseClassName}__nodes`}
 				id={`tree-view-root-${id}`}
 				data-role={DataRoles.Tree.Nodes}
@@ -194,7 +238,7 @@ export function TreeView<RowType>(props: TreeViewProps<RowType>): ReactElement<T
 				onKeyDown={handleKeyDown}
 			>
 				{rows.map((flatRow, index) => {
-					const { row, key, level, expandable, expanded, loading, parentKey, posinset, setsize } = flatRow;
+					const { row, key, level, expandable, expanded, loading, parentKey, parentRow, posinset, setsize } = flatRow;
 
 					const meta: TreeViewNodeMeta = {
 						key,
@@ -222,11 +266,13 @@ export function TreeView<RowType>(props: TreeViewProps<RowType>): ReactElement<T
 							disabled={!!isDisabled?.(row)}
 							active={key === resolvedActiveKey}
 							label={renderNode ? renderNode({ row, meta }) : resolveLabel(row)}
+							parentLabel={parentRow !== undefined ? resolveLabel(parentRow) : undefined}
 							icon={renderNode ? undefined : getIcon?.(row)}
 							actions={getActions?.(row)}
 							onToggleExpand={() => toggle(key, row)}
 							onSelect={() => onSelect(key, row)}
 							onActivate={() => setActiveKeyState(key)}
+							expanderTabIndex={expanderTabIndex}
 							rowIndex={index}
 							dndEnabled={dndEnabled}
 							dndStateRef={dndStateRef as unknown as RefObject<TreeViewDnDState>}
@@ -235,7 +281,8 @@ export function TreeView<RowType>(props: TreeViewProps<RowType>): ReactElement<T
 					);
 				})}
 			</StyledTreeNodesContainer>
-		</StyledTreeContainer>
+			{dndEnabled && <LiveRegion ref={liveRegion.ref} dataRole={DataRoles.Tree.A11yLiveRegion} />}
+		</StyledTreeViewContainer>
 	);
 }
 

@@ -8,6 +8,7 @@
 		"incremental": true,
 		"noEmit": true,
 		"noUncheckedSideEffectImports": false,
+		"skipLibCheck": true,
 		"rootDir": ".",
 		"tsBuildInfoFile": "target/tsconfig.tsbuildinfo",
 		"lib": ["DOM", "ESNext"],

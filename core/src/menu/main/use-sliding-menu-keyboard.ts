@@ -34,8 +34,8 @@ import type { KeyboardEvent } from "react";
 import { useCallback } from "react";
 import { Key } from "ts-key-enum";
 
-import { getNextWrappedIndex, findFirstFocusableOutside, isLastFocusableElement } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { getNextWrappedIndex, findFirstFocusableOutside, isLastFocusableElement } from "../../common/main/utils.js";
 import type { KeyboardNavigationMode } from "../../keyboard-navigation/main/keyboard-navigation.api.js";
 
 import type { MenuUtils } from "./menu.internal.js";

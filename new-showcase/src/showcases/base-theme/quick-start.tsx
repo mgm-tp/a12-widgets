@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { MarkdownViewer } from "../../helpers/markdown-viewer.js";
+import QuickStartMD from "!./quick-start.md?raw";
+import ThemePreviewDemoCode from "!./theme-preview-demo.tsx?raw";
+
 import type { Showcase } from "../../helpers/definitions.js";
+import { MarkdownViewer } from "../../helpers/markdown-viewer.js";
 
 import { ThemePreviewDemo } from "./theme-preview-demo.js";
-
-import ThemePreviewDemoCode from "!./theme-preview-demo.tsx?raw";
-import QuickStartMD from "!./quick-start.md?raw";
 
 const showcases: Showcase[] = [
 	{

@@ -30,19 +30,26 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, expect, test } from "vitest";
 import { findByDataRole, getByDataRole, render, waitFor } from "test-utils";
+import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
-import type { TextMatcher, TextMatcherResult } from "../../main/plugins/plugin.internal.api.js";
-import type { SpellCheckPluginConfig } from "../../main/wrapper/default-rich-text-editor.api.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-import { prepopulatedRichText } from "../../main/utils/common.js";
-import { editorThemeClasses } from "../../main/themes/themes.js";
 import { AutoLinkPlugin } from "../../index.js";
-
+import type { TextMatcher, TextMatcherResult } from "../../main/plugins/plugin.internal.api.js";
+import { editorThemeClasses } from "../../main/themes/themes.js";
+import { prepopulatedRichText } from "../../main/utils/common.js";
+import type { SpellCheckPluginConfig } from "../../main/wrapper/default-rich-text-editor.api.js";
+import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
 import { misspelledWordsSampleText } from "../data.js";
+
+/**
+ * An editor that mounts unfocused stays non-editable until the next frame (it suppresses autofocus),
+ * and keystrokes typed before that are dropped.
+ */
+async function waitUntilEditable(editorInput: HTMLElement): Promise<void> {
+	await waitFor(() => expect(editorInput).toHaveAttribute("contenteditable", "true"));
+}
 
 describe("com.mgmtp.a12.widgets.rich-text-editor.spell-check-plugin", () => {
 	describe("Partial word tests", () => {
@@ -118,6 +125,7 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.spell-check-plugin", () => {
 			);
 
 			const editorInput = getByDataRole(container, DataRoles.RichTextEditor.Input);
+			await waitUntilEditable(editorInput);
 			editorInput.focus();
 
 			await userEvent.type(editorInput, "developr");
@@ -239,6 +247,7 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.spell-check-plugin", () => {
 			const { container } = renderSpellCheckWithAutoLink("Spell Check AutoLink");
 
 			const editorInput = getByDataRole(container, DataRoles.RichTextEditor.Input);
+			await waitUntilEditable(editorInput);
 			await userEvent.click(editorInput);
 
 			// Type: "A12W-123: abc developr def"
@@ -277,6 +286,7 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.spell-check-plugin", () => {
 			const { container } = renderSpellCheckWithAutoLink("Spell Check AutoLink Paste");
 
 			const editorInput = getByDataRole(container, DataRoles.RichTextEditor.Input);
+			await waitUntilEditable(editorInput);
 			await userEvent.click(editorInput);
 
 			// Simulate pasting text that contains a link pattern and a misspelled word
@@ -301,6 +311,7 @@ describe("com.mgmtp.a12.widgets.rich-text-editor.spell-check-plugin", () => {
 			const { container } = renderSpellCheckWithAutoLink("Spell Check AutoLink Retype");
 
 			const editorInput = getByDataRole(container, DataRoles.RichTextEditor.Input);
+			await waitUntilEditable(editorInput);
 			await userEvent.click(editorInput);
 
 			// Type: "A12W-123: abc developr def"

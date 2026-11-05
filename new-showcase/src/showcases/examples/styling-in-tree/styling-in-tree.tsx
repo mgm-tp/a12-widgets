@@ -61,13 +61,15 @@ const StyledLabel = styled.span<{
 	const { typography, colors } = theme;
 
 	return css`
-		color: ${$disabled
-			? colors.interaction.disabled.color
-			: flagged
-				? GeneralColorsConfig.yellow
-				: disconnected
-					? colors.variant.errorColor
-					: undefined};
+		color: ${
+			$disabled
+				? colors.interaction.disabled.color
+				: flagged
+					? GeneralColorsConfig.yellow
+					: disconnected
+						? colors.variant.errorColor
+						: undefined
+		};
 		font-weight: ${subFolder ? typography.fontWeight.regularFontWeight : typography.fontWeight.boldFontWeight};
 	`;
 });
@@ -76,11 +78,9 @@ const StyledCounter = styled.span<{ warning?: boolean; flagged?: boolean }>(({ t
 	const { colors, typography } = theme;
 
 	return css`
-		color: ${flagged
-			? GeneralColorsConfig.yellow
-			: warning
-				? colors.variant.warningColor
-				: colors.text.secondaryColorDark};
+		color: ${
+			flagged ? GeneralColorsConfig.yellow : warning ? colors.variant.warningColor : colors.text.secondaryColorDark
+		};
 		font-weight: ${warning ? typography.fontWeight.boldFontWeight : typography.fontWeight.regularFontWeight};
 	`;
 });

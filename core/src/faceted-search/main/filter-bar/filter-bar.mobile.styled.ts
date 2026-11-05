@@ -32,9 +32,8 @@
 
 import { styled, css } from "styled-components";
 
-import { StyledCounter } from "../../../counter/main/counter.view.js";
 import { StyledButton } from "../../../button/main/button.styled.js";
-
+import { StyledCounter } from "../../../counter/main/counter.view.js";
 import { StyledFilterContent, StyledFilterWrapper } from "../filter/filter.styled.js";
 
 import { StyledFilterBarWrapper, StyledFilterBarContent, StyledFilterBarAction } from "./filter-bar.styled.js";
@@ -60,11 +59,13 @@ export const StyledMobileFilterBarWrapper = styled(StyledFilterBarWrapper).withC
 		${StyledCounter} {
 			margin: ${counter.margin};
 
-			${disabled &&
-			css`
-				background: ${counter.disabled.background};
-				color: ${counter.disabled.color};
-			`}
+			${
+				disabled &&
+				css`
+					background: ${counter.disabled.background};
+					color: ${counter.disabled.color};
+				`
+			}
 		}
 	`;
 });

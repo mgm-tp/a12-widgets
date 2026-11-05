@@ -40,13 +40,20 @@ const meta: Meta<typeof ApplicationHeader> = {
 	parameters: {
 		layout: "fullscreen"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		leftSlots: {
-			description: "Elements placed on the left side — typically the application logo and name"
+			control: false,
+			description:
+				"Elements placed on the left side — typically the application logo, application name or a hamburger menu in mobile mode"
 		},
 		rightSlots: {
-			description: "Elements placed on the right side — typically version info, user info, or action buttons"
+			control: false,
+			description:
+				"Elements placed on the right side — typically version info, user info, action buttons or a popup menu on small screens"
+		},
+		role: {
+			control: "text",
+			description: 'ARIA role of the header element (defaults to `"banner"`)'
 		}
 	}
 };
@@ -54,25 +61,10 @@ const meta: Meta<typeof ApplicationHeader> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		leftSlots: [<span key="logo">Logo</span>, <span key="name">My Application</span>],
 		rightSlots: [<span key="version">Version: 1.0.0</span>]
-	}
-};
-
-export const Basic: Story = {
-	args: {
-		leftSlots: [<span key="logo">Logo</span>, <span key="name">My Application</span>],
-		rightSlots: [<span key="version">Version: 1.0.0</span>]
-	},
-	parameters: {
-		docs: {
-			description: {
-				story:
-					"Basic application header with a logo and application name on the left, and a version indicator on the right."
-			}
-		}
 	}
 };
 
@@ -94,7 +86,8 @@ export const WithActions: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Application header with a hamburger menu button and user info with a logout action."
+				story:
+					"A hamburger menu button in `leftSlots` and user info with a logout action in `rightSlots`. Any `ReactNode` can be placed in either slot."
 			}
 		}
 	}
@@ -107,13 +100,13 @@ export const LogoOnly: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Minimal application header with only a logo in the left slot and no right slots."
+				story: "Minimal application header with only a logo in `leftSlots` — both slots are optional."
 			}
 		}
 	}
 };
 
-export const WithMultipleActions: Story = {
+export const MultipleActions: Story = {
 	args: {
 		leftSlots: [
 			<Button key="menu" icon={<Icon>menu</Icon>} title="Toggle navigation" invert />,
@@ -131,7 +124,8 @@ export const WithMultipleActions: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Application header with multiple action buttons in the right slot, typical for enterprise applications."
+				story:
+					"Multiple action buttons in `rightSlots`, typical for enterprise applications. Slots lay out their children horizontally with consistent spacing."
 			}
 		}
 	}

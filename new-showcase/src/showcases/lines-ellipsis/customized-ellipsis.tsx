@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 import { useState } from "react";
 import { styled } from "styled-components";
-import { loremIpsum } from "lorem-ipsum";
 
 import { LinesEllipsis, Link, Button } from "@com.mgmtp.a12.widgets/widgets-core";
 

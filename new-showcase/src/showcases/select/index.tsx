@@ -30,22 +30,28 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import SelectAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/select/main/select.api.json" with { type: "json" };
-import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
-
-import type { Showcase } from "../../helpers/definitions.js";
-import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
-
-import { BasicSelect } from "./native-select/basic.js";
-import { AdditionalCustomizations } from "./native-select/additional-customizations.js";
-import { StatesAndMessagesSelect } from "./native-select/states-and-messages.js";
-import { BasicCustomSelect } from "./custom-select/basic.js";
-
-import basicSelectCode from "!./native-select/basic.tsx?raw";
-import additionalCustomizationsCode from "!./native-select/additional-customizations.tsx?raw";
-import statesAndMessagesCode from "!./native-select/states-and-messages.tsx?raw";
 import basicCustomSelectCode from "!./custom-select/basic.tsx?raw";
 import dataCode from "!./data.ts?raw";
+import additionalCustomizationsCode from "!./native-select/additional-customizations.tsx?raw";
+import basicSelectCode from "!./native-select/basic.tsx?raw";
+import messagePositionCode from "!./native-select/message-position.tsx?raw";
+import statesAndMessagesCode from "!./native-select/states-and-messages.tsx?raw";
+
+import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import SelectAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/select/main/select.api.json" with { type: "json" };
+
+import type { Showcase } from "../../helpers/definitions.js";
+import {
+	StyledShowcaseBulletListInMessageBox,
+	StyledShowcaseLink,
+	StyledShowcaseLinkInMessageBox
+} from "../../helpers/showcase-styles.js";
+
+import { BasicCustomSelect } from "./custom-select/basic.js";
+import { AdditionalCustomizations } from "./native-select/additional-customizations.js";
+import { BasicSelect } from "./native-select/basic.js";
+import { MessagePosition } from "./native-select/message-position.js";
+import { StatesAndMessagesSelect } from "./native-select/states-and-messages.js";
 
 const showcases: Showcase[] = [
 	{
@@ -147,6 +153,46 @@ const showcases: Showcase[] = [
 						</p>
 					</>
 				)
+			},
+			{
+				label: "Message and Tooltip Position",
+				content: <MessagePosition />,
+				description: {
+					info: (
+						<>
+							<p>
+								Use <code>messagePosition</code> to render the <code>errorMessage</code>, <code>warningMessage</code>{" "}
+								and <code>infoMessage</code> boxes either <code>above</code> the control, between the label and the
+								control, or <code>below</code> it.
+							</p>
+							<p>
+								<code>breakTooltipsToNewLine</code> does the same for the tooltips: <code>false</code> keeps them beside
+								the control, <code>"above"</code> and <code>"below"</code> move them onto their own line.
+							</p>
+						</>
+					),
+					note: (
+						<StyledShowcaseBulletListInMessageBox>
+							<BulletList.Item>
+								Despite the name, <code>breakTooltipsToNewLine</code> sets a position rather than a yes/no line break.
+								It will be renamed to <code>tooltipPosition</code> in the next breaking release.
+							</BulletList.Item>
+							<BulletList.Item>
+								<code>FieldDefaultConfigProvider</code> sets <code>messagePosition</code> and{" "}
+								<code>tooltipPosition</code> for every data entry widget and every Text Output in a subtree at once. A
+								property on a single widget still wins, and nested providers merge. <code>tooltipPosition</code> takes{" "}
+								<code>"beside"</code>, <code>"above"</code> or <code>"below"</code>, where <code>"beside"</code> is{" "}
+								<code>breakTooltipsToNewLine</code>'s <code>false</code>. See{" "}
+								<StyledShowcaseLinkInMessageBox href="#/examples/message-and-tooltip-position">
+									Examples {">"} Message and Tooltip Position
+								</StyledShowcaseLinkInMessageBox>{" "}
+								for a runnable example.
+							</BulletList.Item>
+						</StyledShowcaseBulletListInMessageBox>
+					)
+				},
+				useConfiguration: true,
+				code: { name: "message-position.tsx", code: messagePositionCode }
 			},
 			{
 				label: "Custom Select",

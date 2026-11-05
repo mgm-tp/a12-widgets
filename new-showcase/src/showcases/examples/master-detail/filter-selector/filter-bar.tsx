@@ -46,10 +46,10 @@ import {
 	getAllFocusableElements
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import type { FilterInFilterBarData, ListOperationType } from "./data.js";
 import { handleRemoveFilter } from "./common.js";
-import { isValid, parseFilterInBarToFilter } from "./utils.js";
+import type { FilterInFilterBarData, ListOperationType } from "./data.js";
 import { FilterView } from "./filter-view.js";
+import { isValid, parseFilterInBarToFilter } from "./utils.js";
 
 interface MasterDetailFilterBarProps {
 	isSmallSize?: boolean;

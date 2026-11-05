@@ -32,26 +32,27 @@
 
 import type { HTMLProps, ReactElement, ReactNode } from "react";
 import { useState } from "react";
+import { ThemeProvider } from "styled-components";
 import { fireEvent, getAllByDataRole, getByDataRole, queryAllByDataRole, queryByDataRole, render } from "test-utils";
-import { userEvent } from "vitest/browser";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
+import { userEvent } from "vitest/browser";
 
 import { DataRoles } from "../../common/main/data-roles.js";
 import { provider } from "../../common/main/device-detector.js";
-
-import type { BaseColumnType } from "../main/foundation/column.api.js";
-import type { ColumnResizeEventHandler } from "../main/foundation/table.api.js";
-import type { RowsGroup } from "../main/foundation/table-row-group.api.js";
-import type { DataTableScrollToNodeHandler } from "../main/data-table-renderer.api.js";
-import type { DataTableSlotProps } from "../main/data-table-slots.api.js";
+import { getBaseTheme } from "../../theme/base-theme/base-theme.js";
 import type { DataTableColumn } from "../main/columns.js";
-import type { DataTableVirtualizerHandle } from "../main/data-table.api.js";
+import { DataTableRowsGroup } from "../main/data-table-rows-group/data-table-rows-group.view.js";
+import type { DataTableSlotProps } from "../main/data-table-slots.api.js";
+import type { DataTableHorizontalScrollHandle, DataTableVirtualizerHandle } from "../main/data-table.api.js";
+import { getColumnWidths, getMinTableWidth, isAutoSizeActionColumn, toAriaSort } from "../main/data-table.utils.js";
+import { DataTable } from "../main/data-table.view.js";
+import { DataTableDnDBodyRow, landingIndexForGap } from "../main/dnd/index.js";
+import type { BaseColumnType } from "../main/foundation/column.api.js";
+import type { TableScrollToNodeHandler } from "../main/foundation/table-renderer.api.js";
+import type { RowsGroup } from "../main/foundation/table-row-group.api.js";
+import type { ColumnResizeEventHandler, TableDragDropOptions } from "../main/foundation/table.api.js";
 import { DataTableBodyRowTpl } from "../main/template/data-table.body-row.tpl.view.js";
 import { DataTableTemplate } from "../main/template/index.js";
-import { DataTable } from "../main/data-table.view.js";
-import { DataTableDnDDropTarget } from "../main/data-table.dnd.js";
-import { DataTableRowsGroup } from "../main/data-table-rows-group/data-table-rows-group.view.js";
-import { getColumnWidths, getMinTableWidth, toAriaSort } from "../main/data-table.utils.js";
 
 interface RowType {
 	id: number;
@@ -84,15 +85,16 @@ describe("com.mgmtp.a12.widgets.data-table", () => {
 	});
 
 	test("applies fixed-layout column widths via native <col> elements", () => {
-		const { container } = render(<DataTable data={data} columns={columns} />);
+		// Disable action-column auto-size so the <col> tracks are the raw computed widths
+		// (auto-size would var()-wrap the width-less action column — covered separately).
+		const { container } = render(<DataTable data={data} columns={columns} actionColumnAutoSize={false} />);
 		const table = container.querySelector("table") as HTMLTableElement;
 		const cols = Array.from(table.querySelectorAll<HTMLTableColElement>("colgroup col"));
 		expect(cols.length).toBe(columns.length);
 		// ID: fixedWidth 0.5 → 75px absolute
 		expect(cols[0].style.width).toBe("75px");
-		// Name: sole flex column fills the space left after the absolute columns
-		// (75px ID + 150px action fallback = 225px)
-		expect(cols[1].style.width).toBe("calc(100% - 225px)");
+		// Name: sole flex column → the whole flex share
+		expect(cols[1].style.width).toBe("100%");
 		// Action column (no width) → 150px default fallback
 		expect(cols[2].style.width).toBe("150px");
 	});
@@ -181,7 +183,8 @@ describe("com.mgmtp.a12.widgets.data-table", () => {
 			/>
 		);
 		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
-		const expectedTitles = ["Disable", "Success", "Info"];
+		// Titles come from A11YLanguageContext (English defaults here).
+		const expectedTitles = ["Disabled", "Success", "Info"];
 
 		rows.forEach((row, rowIndex) => {
 			const bodyCells = getAllByDataRole(row, DataRoles.Table.Body.Cell);
@@ -301,13 +304,46 @@ describe("data-table.utils", () => {
 				{ label: "C", width: 1.5 } as BaseColumnType,
 				{ label: "D" } as BaseColumnType
 			],
+			false,
+			// Disable action-column auto-size so this asserts the raw computed widths.
 			false
 		);
-		// A (actionColumn, no width) → 150px fallback; B (fixedWidth) → 2*150px.
-		// Absolute total = 150+300 = 450px. C (width 1.5) and D (no width → default
-		// width 1) flex over the rest: flex units = 1.5 + 1 = 2.5, so C reserves 0.6
-		// and D reserves 0.4 of `100% - 450px`.
-		expect(widths).toEqual(["150px", "300px", "calc((100% - 450px) * 0.6)", "calc((100% - 450px) * 0.4)"]);
+		// A (actionColumn, no width) → 150px fallback; B (fixedWidth) → 2*150px. C (width 1.5)
+		// and D (no width → default width 1) split the flex total: units = 1.5 + 1 = 2.5.
+		expect(widths).toEqual(["150px", "300px", "60%", "40%"]);
+	});
+
+	test("isAutoSizeActionColumn is true only for a width-less, non-fixed action column when enabled", () => {
+		// Width-less action column, auto-size enabled → measured.
+		expect(isAutoSizeActionColumn({ label: "", actionColumn: true } as BaseColumnType, true)).toBe(true);
+
+		// Auto-size globally disabled → never measured.
+		expect(isAutoSizeActionColumn({ label: "", actionColumn: true } as BaseColumnType, false)).toBe(false);
+
+		// Explicit width / fixedWidth wins over auto-size.
+		expect(isAutoSizeActionColumn({ label: "", actionColumn: true, width: 2 } as BaseColumnType, true)).toBe(false);
+		expect(isAutoSizeActionColumn({ label: "", actionColumn: true, fixedWidth: true } as BaseColumnType, true)).toBe(
+			false
+		);
+
+		// Non-action columns are never auto-sized through this path.
+		expect(isAutoSizeActionColumn({ label: "A" } as BaseColumnType, true)).toBe(false);
+	});
+
+	test("getColumnWidths var()-wraps auto-size action columns even when resize is off", () => {
+		const widths = getColumnWidths(
+			[{ label: "A" } as BaseColumnType, { label: "", actionColumn: true } as BaseColumnType],
+			// resize off …
+			false,
+			// … but auto-size on.
+			true
+		);
+
+		// The flex column takes the whole flex share; the action column is wrapped so the
+		// measurement hook can write its fitted px into the same `--a12-col-N-width` channel,
+		// with the computed `150px` fallback as the var default.
+		expect(widths[0]).toBe("100%");
+		expect(widths[1]).toBe("var(--a12-col-1-width, 150px)");
 	});
 
 	test("width-less columns default to `width: 1` flex, matching the production Table", () => {
@@ -322,7 +358,7 @@ describe("data-table.utils", () => {
 				[{ label: "A", width: 0.5, fixedWidth: true }, { label: "B" }, { label: "C", width: 3 }] as BaseColumnType[],
 				false
 			)
-		).toEqual(["75px", "calc((100% - 75px) * 0.25)", "calc((100% - 75px) * 0.75)"]);
+		).toEqual(["75px", "25%", "75%"]);
 	});
 
 	test("getMinTableWidth sums each column's pixel floor (width * 150)", () => {
@@ -480,7 +516,7 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 1 features", () => {
 		});
 
 		test("invokes scrollIntoView with { block: 'center' } on the targeted row", () => {
-			let handler: DataTableScrollToNodeHandler | undefined;
+			let handler: TableScrollToNodeHandler | undefined;
 			render(
 				<DataTable
 					data={data}
@@ -497,7 +533,7 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 1 features", () => {
 		});
 
 		test("autoFocus: true also focuses the targeted row", () => {
-			let handler: DataTableScrollToNodeHandler | undefined;
+			let handler: TableScrollToNodeHandler | undefined;
 			render(
 				<DataTable
 					data={data}
@@ -512,7 +548,7 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 1 features", () => {
 		});
 
 		test("out-of-range nodeIndex is a no-op", () => {
-			let handler: DataTableScrollToNodeHandler | undefined;
+			let handler: TableScrollToNodeHandler | undefined;
 			render(
 				<DataTable
 					data={data}
@@ -578,6 +614,41 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 1 features", () => {
 			const headCells = getAllByDataRole(container, DataRoles.Table.Header.Cell);
 			expect(headCells[0].getAttribute("data-col-index")).toBe("1");
 		});
+
+		test("spreads non-conflicting attrs onto footer and filter cells", () => {
+			function TotalFootContent({ column }: DataTableSlotProps.FootContent<RowType>): ReactNode {
+				return column.dataKey === "id" ? <span>Total</span> : null;
+			}
+
+			function InputFilterContent(): ReactElement {
+				return <input aria-label="filter" />;
+			}
+
+			const columnsWithAttrs: BaseColumnType<RowType>[] = [
+				{
+					label: "ID",
+					dataKey: "id",
+					width: 0.5,
+					fixedWidth: true,
+					htmlAttributes: { "data-foo": "bar", style: { textTransform: "uppercase" } }
+				},
+				{ label: "Name", dataKey: "name", width: 1 }
+			];
+			const { container } = render(
+				<DataTable
+					data={data}
+					columns={columnsWithAttrs}
+					slots={{ footContent: TotalFootContent, filterContent: InputFilterContent }}
+				/>
+			);
+			const footCells = getAllByDataRole(container, DataRoles.Table.Footer.Cell);
+			const filterCells = getAllByDataRole(container, DataRoles.Table.Filter.Cell);
+			expect(footCells[0].getAttribute("data-foo")).toBe("bar");
+			expect(filterCells[0].getAttribute("data-foo")).toBe("bar");
+			// The consumer style must survive the template's own pin-offset style.
+			expect(footCells[0].style.textTransform).toBe("uppercase");
+			expect(filterCells[0].style.textTransform).toBe("uppercase");
+		});
 	});
 
 	describe("a11y", () => {
@@ -590,14 +661,16 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 1 features", () => {
 			expect(liveRegion.textContent).toBe("Sorted ascending");
 		});
 
-		test("action column without label/hiddenText falls back to the localized default aria-label", () => {
+		test("action column without label/hiddenText renders the localized default hidden text", () => {
 			const onlyActionColumns: BaseColumnType<RowType>[] = [
 				{ label: "ID", dataKey: "id", width: 0.5, fixedWidth: true },
 				{ label: "", actionColumn: true, pinning: "right" }
 			];
 			const { container } = render(<DataTable data={data} columns={onlyActionColumns} />);
 			const headCells = getAllByDataRole(container, DataRoles.Table.Header.Cell);
-			expect(headCells[1].getAttribute("aria-label")).toBe("Actions");
+
+			expect(headCells[1].getAttribute("aria-label")).toBeNull();
+			expect(getByDataRole(headCells[1], DataRoles.HiddenText).textContent).toBe("Action");
 		});
 
 		test("sortable headers keep interactive semantics on the <th> and enrich the title", () => {
@@ -804,32 +877,55 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 2: column groups", () => {
 		];
 
 		const { container } = render(<DataTable data={peopleData} columns={groupedColumns} />);
+		const table = container.querySelector("table") as HTMLTableElement;
 
-		// Wait for the ResizeObserver in the orchestrator to deliver measured widths.
+		// The orchestrator writes each pinned leaf's cumulative offset onto the table
+		// root as `--a12-pin-{left,right}-N` (measured via ResizeObserver); cells feed
+		// that var through the shared `--a12-data-table-pin-offset` channel. Wait for
+		// the second left-pinned leaf's offset to be written.
 		await vi.waitFor(() => {
-			const headCells = getAllByDataRole(container, DataRoles.Table.Header.Cell);
-			const last = headCells.find((c) => c.textContent === "Last") as HTMLElement | undefined;
-			expect(last?.style.getPropertyValue("--a12-data-table-pin-offset")).not.toBe("");
+			expect(table.style.getPropertyValue("--a12-pin-left-1")).not.toBe("");
 		});
 
 		const headCells = getAllByDataRole(container, DataRoles.Table.Header.Cell);
-		const first = headCells.find((c) => c.textContent === "First") as HTMLElement;
 		const last = headCells.find((c) => c.textContent === "Last") as HTMLElement;
-		const companyName = headCells.find(
-			(c) => c.getAttribute("data-pinned") === "right" && c.textContent === "Name"
-		) as HTMLElement;
-		const business = headCells.find((c) => c.textContent === "Business") as HTMLElement;
 
-		const offsetPx = (el: HTMLElement): number =>
-			Number.parseFloat(el.style.getPropertyValue("--a12-data-table-pin-offset") || "0");
+		// Cell channel is a reference to its leaf's root var, not a computed px.
+		expect(last.style.getPropertyValue("--a12-data-table-pin-offset")).toBe("var(--a12-pin-left-1, 0px)");
 
-		// Leftmost pinned-left leaf sits at 0; the next one is offset by the first's width.
-		expect(offsetPx(first)).toBe(0);
-		expect(offsetPx(last)).toBeGreaterThan(0);
+		const rootOffsetPx = (name: string): number => Number.parseFloat(table.style.getPropertyValue(name) || "0");
 
-		// Rightmost pinned-right leaf sits at 0; the one to its left is offset by Business's width.
-		expect(offsetPx(business)).toBe(0);
-		expect(offsetPx(companyName)).toBeGreaterThan(0);
+		// Leaf order: First(0) Last(1) City(2) Company>Name(3) Company>Business(4).
+		// Leftmost pinned-left leaf sits at 0; the next is offset by the first's width.
+		expect(rootOffsetPx("--a12-pin-left-0")).toBe(0);
+		expect(rootOffsetPx("--a12-pin-left-1")).toBeGreaterThan(0);
+
+		// Rightmost pinned-right leaf (Business, 4) sits at 0; the one to its left (Name, 3) is offset by its width.
+		expect(rootOffsetPx("--a12-pin-right-4")).toBe(0);
+		expect(rootOffsetPx("--a12-pin-right-3")).toBeGreaterThan(0);
+	});
+
+	test("stacked pinned columns cascade their inset offsets with hideHeader (measured from body cells)", async () => {
+		const columns: BaseColumnType<PersonRow>[] = [
+			{ label: "First", dataKey: "firstName", width: 100, pinning: "left" },
+			{ label: "Last", dataKey: "lastName", width: 100, pinning: "left" },
+			{ label: "City", dataKey: "city", width: 200 }
+		];
+
+		const { container } = render(<DataTable data={peopleData} columns={columns} hideHeader ariaLabel="No header" />);
+		const table = container.querySelector("table") as HTMLTableElement;
+
+		// No <thead> exists, so pin offsets fall back to measuring the first body row's
+		// cells. Before the fix nothing was written and both pinned columns stuck at 0.
+		expect(table.querySelector("thead")).toBeNull();
+
+		await vi.waitFor(() => {
+			expect(table.style.getPropertyValue("--a12-pin-left-1")).not.toBe("");
+		});
+
+		const rootOffsetPx = (name: string): number => Number.parseFloat(table.style.getPropertyValue(name) || "0");
+		expect(rootOffsetPx("--a12-pin-left-0")).toBe(0);
+		expect(rootOffsetPx("--a12-pin-left-1")).toBeGreaterThan(0);
 	});
 
 	test("virtualized body row aria-rowindex offsets by header depth", () => {
@@ -1045,16 +1141,141 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 2: cross-axis highlighting"
 });
 
 describe("com.mgmtp.a12.widgets.data-table — Phase 2: card view", () => {
-	test('sets data-card-view="true" on <table> when cardView prop is set', () => {
+	test('sets data-card-view="true" on the layout root when cardView prop is set', () => {
 		const { container } = render(<DataTable data={data} columns={columns} cardView />);
-		const table = container.querySelector("table") as HTMLTableElement;
-		expect(table.getAttribute("data-card-view")).toBe("true");
+		const root = getByDataRole(container, DataRoles.Table);
+		expect(root.getAttribute("data-card-view")).toBe("true");
 	});
 
 	test("does not set data-card-view when cardView is false or omitted", () => {
 		const { container } = render(<DataTable data={data} columns={columns} />);
 		const table = container.querySelector("table") as HTMLTableElement;
 		expect(table.getAttribute("data-card-view")).toBeNull();
+	});
+
+	test("renders no table DOM at all in card view — the two layouts are separate subtrees", () => {
+		const { container } = render(<DataTable data={data} columns={columns} cardView />);
+
+		expect(container.querySelector("table")).toBeNull();
+		expect(container.querySelector("thead")).toBeNull();
+		expect(container.querySelector("tbody")).toBeNull();
+		expect(container.querySelector("colgroup")).toBeNull();
+		expect(container.querySelector("td")).toBeNull();
+	});
+
+	test("cards are listitems inside a list, with no presentation roles to suppress table semantics", () => {
+		const { container } = render(<DataTable data={data} columns={columns} cardView />);
+		const list = getByDataRole(container, DataRoles.Table.Card.List);
+		const cards = getAllByDataRole(container, DataRoles.Table.Body.Row);
+
+		expect(list.getAttribute("role")).toBe("list");
+		expect(cards).toHaveLength(data.length);
+		cards.forEach((card) => {
+			expect(card.getAttribute("role")).toBe("listitem");
+			expect(card.parentElement).toBe(list);
+		});
+		expect(container.querySelectorAll('[role="presentation"]')).toHaveLength(0);
+	});
+
+	test("gridRole is ignored in card view — no grid/row/gridcell roles leak in", () => {
+		const { container } = render(<DataTable data={data} columns={columns} cardView gridRole="grid" />);
+		const root = getByDataRole(container, DataRoles.Table);
+
+		expect(root.getAttribute("role")).toBeNull();
+		expect(container.querySelectorAll('[role="row"]')).toHaveLength(0);
+		expect(container.querySelectorAll('[role="gridcell"]')).toHaveLength(0);
+	});
+
+	test("renders the empty-state card when data is empty", () => {
+		const { container } = render(<DataTable data={[]} columns={columns} cardView />);
+		const placeholder = getByDataRole(container, DataRoles.Table.Body.Content.Placeholder);
+
+		expect(placeholder.textContent).toBe("No data");
+		expect(getByDataRole(container, DataRoles.Table.Body.Row).getAttribute("role")).toBe("listitem");
+	});
+
+	test("row click and selection still work in card view", async () => {
+		const onClick = vi.fn();
+		const { container } = render(
+			<DataTable
+				data={data}
+				columns={columns}
+				cardView
+				rowEventHandlers={() => ({ onClick })}
+				rowStyling={({ rowIndex }) => ({ selected: rowIndex === 1 })}
+			/>
+		);
+		const cards = getAllByDataRole(container, DataRoles.Table.Body.Row);
+
+		expect(cards[1].getAttribute("data-selected")).toBe("true");
+		expect(cards[0].getAttribute("data-selected")).toBeNull();
+
+		await userEvent.click(cards[0]);
+		expect(onClick).toHaveBeenCalledTimes(1);
+	});
+
+	test("card state is announced as text, not as ARIA a listitem cannot carry", () => {
+		const { container } = render(
+			<DataTable
+				data={data}
+				columns={columns}
+				cardView
+				rowStyling={({ rowIndex }) => ({
+					selected: rowIndex === 0,
+					disabled: rowIndex === 1,
+					highlightVariant: rowIndex === 2 ? "success" : undefined
+				})}
+			/>
+		);
+		const cards = getAllByDataRole(container, DataRoles.Table.Body.Row);
+
+		expect(cards[0].textContent).toContain("Selected row");
+		expect(cards[1].textContent).toContain("Disabled");
+		expect(cards[2].textContent).toContain("Success");
+
+		// `listitem` supports none of these, so they must not be emitted at all.
+		cards.forEach((card) => {
+			expect(card.hasAttribute("aria-selected")).toBe(false);
+			expect(card.hasAttribute("aria-disabled")).toBe(false);
+			expect(card.hasAttribute("aria-expanded")).toBe(false);
+		});
+
+		// A stateless card announces no state at all.
+		const plain = render(<DataTable data={data} columns={columns} cardView />);
+		getAllByDataRole(plain.container, DataRoles.Table.Body.Row).forEach((card) => {
+			expect(card.textContent).not.toContain("Selected row");
+			expect(card.textContent).not.toContain("Disabled");
+			expect(card.textContent).not.toContain("Collapsed");
+		});
+	});
+
+	test("expandable cards announce their expansion state and expose it as data-expanded", () => {
+		const { container } = render(
+			<DataTable
+				data={data}
+				columns={columns}
+				cardView
+				rowExpansion={{ render: ({ rowIndex }) => (rowIndex === 0 ? <div>details</div> : null) }}
+			/>
+		);
+		const cards = getAllByDataRole(container, DataRoles.Table.Body.Row);
+
+		expect(cards[0].getAttribute("data-expanded")).toBe("true");
+		expect(cards[0].textContent).toContain("Expanded");
+		expect(cards[1].getAttribute("data-expanded")).toBe("false");
+		expect(cards[1].textContent).toContain("Collapsed");
+	});
+
+	test("arrow-key navigation moves focus between cards", async () => {
+		const { container } = render(<DataTable data={data} columns={columns} cardView />);
+		const cards = getAllByDataRole(container, DataRoles.Table.Body.Row);
+
+		expect(cards[0].getAttribute("tabindex")).toBe("0");
+
+		cards[0].focus();
+		await userEvent.keyboard("{ArrowDown}");
+
+		expect(cards[1]).toHaveFocus();
 	});
 
 	test("every body cell renders its column's label in card view", () => {
@@ -1086,18 +1307,27 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 2: card view", () => {
 
 	test("cellHighlighting is force-disabled when cardView is true (no data-highlight-col-leaf set on hover)", async () => {
 		const { container } = render(<DataTable data={data} columns={columns} cellHighlighting cardView />);
-		const table = container.querySelector("table") as HTMLTableElement;
-		const cells = getAllByDataRole(container, DataRoles.Table.Body.Cell);
+		const root = getByDataRole(container, DataRoles.Table);
+		const fields = getAllByDataRole(container, DataRoles.Table.Body.Cell);
 
-		await userEvent.hover(cells[0]);
+		await userEvent.hover(fields[0]);
 
-		expect(table.dataset.highlightColLeaf).toBeUndefined();
+		expect(root.dataset.highlightColLeaf).toBeUndefined();
 	});
 
-	test("thead is hidden (display: none) in card mode", () => {
-		const { container } = render(<DataTable data={data} columns={columns} cardView />);
-		const thead = container.querySelector("thead") as HTMLElement;
-		expect(getComputedStyle(thead).display).toBe("none");
+	test("renders no footer in card view, matching the production Table", () => {
+		const footContent = ({ columnIndex }: { columnIndex: number }) => <span>{`sum-${columnIndex}`}</span>;
+		const cardResult = render(<DataTable data={data} columns={columns} cardView slots={{ footContent }} />);
+
+		expect(queryByDataRole(cardResult.container, DataRoles.Table.Footer)).toBeNull();
+		expect(queryAllByDataRole(cardResult.container, DataRoles.Table.Footer.Cell)).toHaveLength(0);
+		expect(cardResult.container.textContent).not.toContain("sum-0");
+
+		// The same table without `cardView` still renders it — card view suppresses the
+		// footer, it does not disable the feature.
+		const tableResult = render(<DataTable data={data} columns={columns} slots={{ footContent }} />);
+
+		expect(getByDataRole(tableResult.container, DataRoles.Table.Footer).textContent).toContain("sum-0");
 	});
 });
 
@@ -1364,6 +1594,38 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 2: context menus", () => {
 
 		const portalAfterClose = document.body.querySelector(`[data-role="${DataRoles.Table.ContextMenu}"]`);
 		expect(portalAfterClose).toBeNull();
+	});
+
+	test("opening the context menu does not re-render the memoized body rows", async () => {
+		// A pure interaction-state tick (context-menu open) re-renders <DataTable>, but
+		// the memoized row boundary must bail for every row: their data, columns and
+		// render context are unchanged, so no cell content is rebuilt. `renderCell` is
+		// the observable proxy for "this row re-rendered".
+		const renderCell = vi.fn(({ value }: { value: ReactNode }) => value);
+		const spiedColumns: DataTableColumn<RowType>[] = [
+			{ label: "ID", dataKey: "id" },
+			{ label: "Name", dataKey: "name", renderCell }
+		];
+
+		function BodyContextMenu({ row }: DataTableSlotProps.ContextMenu<RowType>): ReactElement {
+			return <div data-testid="ctx">{row.name}</div>;
+		}
+
+		const { container } = render(
+			<DataTable data={data} columns={spiedColumns} slots={{ contextMenu: BodyContextMenu }} />
+		);
+
+		// Sanity: the spy ran for the initial mount (once per row).
+		expect(renderCell).toHaveBeenCalled();
+		renderCell.mockClear();
+
+		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
+		fireEvent.contextMenu(rows[0], { clientX: 10, clientY: 10 });
+
+		// The menu opened (the table did re-render) …
+		expect(document.body.querySelector(`[data-role="${DataRoles.Table.ContextMenu}"]`)).not.toBeNull();
+		// … but no row rebuilt its cells.
+		expect(renderCell).not.toHaveBeenCalled();
 	});
 
 	test("disabledRightClickContextMenu in rowStyling suppresses the context menu trigger", () => {
@@ -2041,11 +2303,10 @@ describe("com.mgmtp.a12.widgets.data-table.column-resize", () => {
 
 	test("getColumnWidths wraps every column with CSS custom properties when resizable", () => {
 		const widths = getColumnWidths(resizableColumns, true);
-		// ID (fixedWidth) → 75px; Actions (no width) → 150px fallback; absolute total = 225px.
-		// Name (sole flex) reserves the rest. The width-less action column is wrapped too,
-		// with its 150px fallback as the var default.
+		// ID (fixedWidth) → 75px; Actions (no width) → 150px fallback; Name (sole flex) → the
+		// whole flex share. Every column is wrapped, with its computed width as the var default.
 		expect(widths[0]).toBe("var(--a12-col-0-width, 75px)");
-		expect(widths[1]).toBe("var(--a12-col-1-width, calc(100% - 225px))");
+		expect(widths[1]).toBe("var(--a12-col-1-width, 100%)");
 		expect(widths[2]).toBe("var(--a12-col-2-width, 150px)");
 	});
 
@@ -2067,14 +2328,19 @@ describe("com.mgmtp.a12.widgets.data-table.column-resize", () => {
 		const pinnedHead = table.querySelector('thead th[data-col-index="1"]') as HTMLElement;
 		const nonPinnedHead = table.querySelector('thead th[data-col-index="2"]') as HTMLElement;
 
-		const nonPinnedZ = getComputedStyle(nonPinnedHead).zIndex;
-		const pinnedZ = getComputedStyle(pinnedHead).zIndex;
+		const handle = nonPinnedHead.querySelector<HTMLElement>(
+			`[data-role="${DataRoles.Table.Column.ResizeHandler}"]`
+		) as HTMLElement;
+		const handleZ = Number(getComputedStyle(handle).zIndex);
+		const pinnedZ = Number(getComputedStyle(pinnedHead).zIndex);
 
-		// The non-pinned cell must form its own stacking context (not "auto"), so the
-		// resize handle it hosts (a higher z-index child) is contained within it...
-		expect(nonPinnedZ).not.toBe("auto");
-		// ...and that context must sit below the pinned head cell.
-		expect(Number(pinnedZ)).toBeGreaterThan(Number(nonPinnedZ));
+		// The non-pinned cell must NOT form a stacking context — that would trap the
+		// handle it hosts and let the next head cell paint over its straddling half...
+		expect(getComputedStyle(nonPinnedHead).zIndex).toBe("auto");
+		// ...so the handle competes in the <thead> context, where the pinned cell still
+		// outranks it and hides handles scrolled behind it.
+		expect(handleZ).toBeGreaterThan(0);
+		expect(pinnedZ).toBeGreaterThan(handleZ);
 	});
 
 	test("dragging a column's resize handle does not change the other columns' widths", () => {
@@ -2225,6 +2491,297 @@ describe("com.mgmtp.a12.widgets.data-table.column-resize", () => {
 	});
 });
 
+describe("com.mgmtp.a12.widgets.data-table — action column auto-size", () => {
+	// An action column whose cells hold `buttonCount` real buttons, so its natural
+	// content width grows with the number of buttons.
+	const actionCol = (buttonCount: number, extra?: Partial<DataTableColumn<RowType>>): DataTableColumn<RowType> => ({
+		label: "",
+		actionColumn: true,
+		hiddenText: "Actions",
+		renderCell: (): ReactNode => (
+			<>
+				{Array.from({ length: buttonCount }, (_, i) => (
+					<button key={i} type="button">
+						Action {i + 1}
+					</button>
+				))}
+			</>
+		),
+		...extra
+	});
+
+	const makeColumns = (buttonCount: number, extra?: Partial<DataTableColumn<RowType>>): DataTableColumn<RowType>[] => [
+		{ label: "Name", dataKey: "name", width: 1 },
+		actionCol(buttonCount, extra)
+	];
+
+	// Action column is the 2nd (last) leaf → leaf index 1 → `--a12-col-1-width`.
+	const actionWidth = (table: HTMLTableElement): number =>
+		parseFloat(table.style.getPropertyValue("--a12-col-1-width"));
+
+	test("a width-less action column auto-sizes wider with more buttons", async () => {
+		const { container: c1 } = render(<DataTable data={data} columns={makeColumns(1)} ariaLabel="One action button" />);
+		const { container: c3 } = render(
+			<DataTable data={data} columns={makeColumns(3)} ariaLabel="Three action buttons" />
+		);
+
+		const table1 = c1.querySelector("table") as HTMLTableElement;
+		const table3 = c3.querySelector("table") as HTMLTableElement;
+
+		await vi.waitFor(() => {
+			expect(actionWidth(table1)).toBeGreaterThan(0);
+			expect(actionWidth(table3)).toBeGreaterThan(actionWidth(table1));
+		});
+	});
+
+	test("an explicit width / fixedWidth action column is NOT measured", () => {
+		const { container } = render(
+			<DataTable data={data} columns={makeColumns(3, { width: 2, fixedWidth: true })} ariaLabel="Fixed action column" />
+		);
+
+		const table = container.querySelector("table") as HTMLTableElement;
+		// Never measured → no custom property, and the <col> keeps its absolute width.
+		expect(table.style.getPropertyValue("--a12-col-1-width")).toBe("");
+
+		const cols = table.querySelectorAll("colgroup col");
+		expect((cols[1] as HTMLElement).style.width).toBe("300px");
+	});
+
+	test("actionColumnAutoSize=false reverts to the flat 150px fallback (no custom property)", () => {
+		const { container } = render(
+			<DataTable data={data} columns={makeColumns(3)} actionColumnAutoSize={false} ariaLabel="Auto-size disabled" />
+		);
+
+		const table = container.querySelector("table") as HTMLTableElement;
+		expect(table.style.getPropertyValue("--a12-col-1-width")).toBe("");
+
+		const cols = table.querySelectorAll("colgroup col");
+		// Not var-wrapped — the action column keeps its flat 150px track.
+		expect((cols[1] as HTMLElement).style.width).toBe("150px");
+	});
+
+	test("a labelled action header is captured by the clone (header not clipped)", async () => {
+		const { container: cLabelled } = render(
+			<DataTable
+				data={data}
+				columns={makeColumns(1, { label: "Manage entry actions", hiddenText: undefined })}
+				ariaLabel="Labelled action header"
+			/>
+		);
+		const { container: cEmpty } = render(
+			<DataTable data={data} columns={makeColumns(1)} ariaLabel="Empty action header" />
+		);
+
+		const tLabelled = cLabelled.querySelector("table") as HTMLTableElement;
+		const tEmpty = cEmpty.querySelector("table") as HTMLTableElement;
+
+		// The wide header forces a wider column than the lone button alone would.
+		await vi.waitFor(() => {
+			expect(actionWidth(tLabelled)).toBeGreaterThan(actionWidth(tEmpty));
+		});
+	});
+
+	test("a footer action cell is tagged for measurement", () => {
+		const { container } = render(
+			<DataTable
+				data={data}
+				columns={makeColumns(1, { renderFooter: (): ReactNode => <button type="button">Add a new entry</button> })}
+				ariaLabel="Footer action tagging"
+			/>
+		);
+
+		const table = container.querySelector("table") as HTMLTableElement;
+		// The footer cell must be visible to the auto-size measure query, like head and body cells.
+		expect(table.querySelectorAll('tfoot [data-auto-size-col="1"]')).toHaveLength(1);
+	});
+
+	test("a wide footer action renderer widens the column (footer content is measured)", async () => {
+		const { container: cFooter } = render(
+			<DataTable
+				data={data}
+				columns={makeColumns(1, {
+					renderFooter: (): ReactNode => <button type="button">Add a new entry</button>
+				})}
+				ariaLabel="Wide footer action"
+			/>
+		);
+		const { container: cNarrow } = render(
+			<DataTable data={data} columns={makeColumns(1)} ariaLabel="No footer action" />
+		);
+
+		const tFooter = cFooter.querySelector("table") as HTMLTableElement;
+		const tNarrow = cNarrow.querySelector("table") as HTMLTableElement;
+
+		// The footer button is wider than the lone body button, so it must drive the fitted width —
+		// otherwise the footer is clipped (the footer is where a table puts its "Add row" action).
+		await vi.waitFor(() => {
+			expect(actionWidth(tFooter)).toBeGreaterThan(actionWidth(tNarrow));
+		});
+	});
+
+	test("a pinned-right action column auto-sizes and stays pinned", async () => {
+		const { container } = render(
+			<DataTable data={data} columns={makeColumns(3, { pinning: "right" })} ariaLabel="Pinned action column" />
+		);
+
+		const table = container.querySelector("table") as HTMLTableElement;
+		const actionHead = table.querySelector('thead th[data-col-index="2"]') as HTMLElement;
+
+		await vi.waitFor(() => {
+			expect(actionWidth(table)).toBeGreaterThan(0);
+		});
+
+		// Clone strips sticky positioning for measurement, but the live cell stays pinned.
+		expect(actionHead.getAttribute("data-pinned")).toBe("right");
+	});
+
+	test("re-measures when the theme changes (action-cell metrics differ per theme)", async () => {
+		// A theme whose action cells carry much wider horizontal padding — switching to it
+		// must grow the measured action-column track.
+		const widePaddingTheme = getBaseTheme({ components: { table: { actionCell: { padding: "0 80px" } } } });
+
+		function ThemeSwitchHarness(): ReactElement {
+			const [wide, setWide] = useState(false);
+
+			return (
+				<ThemeProvider theme={wide ? widePaddingTheme : getBaseTheme()}>
+					<button type="button" data-role="toggle-theme" onClick={(): void => setWide(true)}>
+						switch theme
+					</button>
+					<DataTable data={data} columns={makeColumns(1)} ariaLabel="Theme re-measure" />
+				</ThemeProvider>
+			);
+		}
+
+		const { container } = render(<ThemeSwitchHarness />);
+		const table = container.querySelector("table") as HTMLTableElement;
+
+		let widthBefore = 0;
+		await vi.waitFor(() => {
+			widthBefore = actionWidth(table);
+			expect(widthBefore).toBeGreaterThan(0);
+		});
+
+		await userEvent.click(getByDataRole(container, "toggle-theme"));
+
+		// The wider action-cell padding feeds straight into the re-measured width.
+		await vi.waitFor(() => {
+			expect(actionWidth(table)).toBeGreaterThan(widthBefore);
+		});
+	});
+
+	// An action column whose per-row button count tracks `row.id`, so changing the data
+	// changes the widest rendered cell.
+	const dynamicColumns: DataTableColumn<RowType>[] = [
+		{ label: "Name", dataKey: "name", width: 1 },
+		{
+			label: "",
+			actionColumn: true,
+			hiddenText: "Actions",
+			renderCell: ({ row }): ReactNode => (
+				<>
+					{Array.from({ length: row.id }, (_, i) => (
+						<button key={i} type="button">
+							Act {i + 1}
+						</button>
+					))}
+				</>
+			)
+		}
+	];
+
+	test("re-measures when row data changes (a row gains buttons → column grows)", async () => {
+		const { container, rerender } = render(
+			<DataTable data={[{ id: 1, name: "A" }]} columns={dynamicColumns} ariaLabel="Dynamic actions" />
+		);
+		const table = container.querySelector("table") as HTMLTableElement;
+
+		let widthBefore = 0;
+		await vi.waitFor(() => {
+			widthBefore = actionWidth(table);
+			expect(widthBefore).toBeGreaterThan(0);
+		});
+
+		rerender(<DataTable data={[{ id: 4, name: "A" }]} columns={dynamicColumns} ariaLabel="Dynamic actions" />);
+
+		await vi.waitFor(() => {
+			expect(actionWidth(table)).toBeGreaterThan(widthBefore);
+		});
+	});
+
+	test("a manually resized action column is not overwritten by a later re-measure", async () => {
+		const { container, rerender } = render(
+			<DataTable
+				data={[{ id: 1, name: "A" }]}
+				columns={dynamicColumns}
+				columnResizingOptions={{ onEndResize: vi.fn() }}
+				ariaLabel="Resize then re-measure"
+			/>
+		);
+		const table = container.querySelector("table") as HTMLTableElement;
+
+		// Drag the action column's handle (the 2nd leaf) to pin it manually.
+		const handle = getAllByDataRole(container, DataRoles.Table.Column.ResizeHandler)[1];
+		const startX = handle.getBoundingClientRect().left;
+		fireEvent.pointerDown(handle, { clientX: startX, pointerId: 1 });
+		fireEvent.pointerMove(document, { clientX: startX + 90, pointerId: 1 });
+		fireEvent.pointerUp(document, { clientX: startX + 90, pointerId: 1 });
+
+		const draggedWidth = table.style.getPropertyValue("--a12-col-1-width");
+		expect(draggedWidth).toMatch(/px$/);
+
+		// A data change would normally re-measure; the manually pinned index is skipped.
+		rerender(
+			<DataTable
+				data={[{ id: 6, name: "A" }]}
+				columns={dynamicColumns}
+				columnResizingOptions={{ onEndResize: vi.fn() }}
+				ariaLabel="Resize then re-measure"
+			/>
+		);
+
+		await vi.waitFor(() => {
+			expect(table.style.getPropertyValue("--a12-col-1-width")).toBe(draggedWidth);
+		});
+	});
+
+	test("Escape reset re-fits the action column instead of stranding it on the fallback", async () => {
+		const { container } = render(
+			<DataTable
+				data={[{ id: 1, name: "A" }]}
+				columns={dynamicColumns}
+				columnResizingOptions={{ onEndResize: vi.fn() }}
+				ariaLabel="Escape re-measure"
+			/>
+		);
+		const table = container.querySelector("table") as HTMLTableElement;
+
+		// Auto-size fits the action column first.
+		let fittedWidth = 0;
+		await vi.waitFor(() => {
+			fittedWidth = actionWidth(table);
+			expect(fittedWidth).toBeGreaterThan(0);
+		});
+
+		// Manually resize the action column (2nd leaf) via keyboard so it is pinned and
+		// its override diverges from the fitted width.
+		const handle = getAllByDataRole(container, DataRoles.Table.Column.ResizeHandler)[1];
+		handle.focus();
+		await userEvent.keyboard("{ArrowRight}");
+		expect(table.style.getPropertyValue("--a12-col-1-width")).toMatch(/px$/);
+
+		// Escape clears every override — including auto-size's fitted width — and drops the
+		// manual pin. The re-measure signal must re-fire auto-size so the action column
+		// re-fits rather than stranding on the `getColumnWidths` 150px fallback (which the
+		// bare, now-cleared custom property would leave it on).
+		await userEvent.keyboard("{Escape}");
+
+		await vi.waitFor(() => {
+			expect(actionWidth(table)).toBeGreaterThan(0);
+		});
+	});
+});
+
 describe("com.mgmtp.a12.widgets.data-table — Phase 3: drag and drop", () => {
 	const dndColumns: BaseColumnType<RowType>[] = [
 		{ label: "ID", dataKey: "id", width: 0.5 },
@@ -2248,17 +2805,32 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 3: drag and drop", () => {
 		return new Promise((resolve) => requestAnimationFrame(() => resolve()));
 	}
 
+	// A pointer coordinate inside a row's top or bottom half. The row itself is the
+	// drop target now (the drop-indicator bands are gone); the release point's half
+	// decides the projected insertion gap — top half inserts before the row, bottom
+	// half after it.
+	function pointInRowHalf(row: HTMLElement, half: "top" | "bottom"): { clientX: number; clientY: number } {
+		const rect = row.getBoundingClientRect();
+
+		return {
+			clientX: Math.round(rect.left + rect.width / 2),
+			clientY: Math.round(half === "top" ? rect.top + rect.height * 0.25 : rect.top + rect.height * 0.75)
+		};
+	}
+
 	// pragmatic-drag-and-drop holds one global drag at a time and ignores new
 	// `dragstart` events while one is active — every test that starts a drag must
-	// also end it (`drop` or `dragend`), or it poisons the following tests.
-	async function simulateDragAndDrop(source: HTMLElement, target: HTMLElement): Promise<void> {
+	// also end it (`drop` or `dragend`), or it poisons the following tests. `half`
+	// selects which side of the target row the release lands on (insert before/after).
+	async function simulateDragAndDrop(source: HTMLElement, target: HTMLElement, half: "top" | "bottom"): Promise<void> {
 		const dataTransfer = startDrag(source);
 
 		await nextFrame();
-		fireEvent.dragEnter(target, { dataTransfer });
-		fireEvent.dragOver(target, { dataTransfer });
-		fireEvent.drop(target, { dataTransfer });
-		fireEvent.dragEnd(source, { dataTransfer });
+		const point = pointInRowHalf(target, half);
+		fireEvent.dragEnter(target, { dataTransfer, ...point });
+		fireEvent.dragOver(target, { dataTransfer, ...point });
+		fireEvent.drop(target, { dataTransfer, ...point });
+		fireEvent.dragEnd(source, { dataTransfer, ...point });
 	}
 
 	test("body rows are draggable when dragDropOptions is provided", () => {
@@ -2287,33 +2859,79 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 3: drag and drop", () => {
 		}
 	});
 
-	test("drop hints render between rows when dragDropOptions is provided", () => {
+	test("the floating drag preview mounts with the dragged row's snapshot and unmounts on drag end", async () => {
 		const { container } = render(
 			<DataTable data={data} columns={dndColumns} dragDropOptions={{}} ariaLabel="DnD table" />
 		);
 
-		// Each row gets a drop target after it, plus the first row also gets one before it.
-		// Total hints = data.length + 1 (one before first row + one after each row)
-		const hints = getAllByDataRole(container, DataRoles.Table.DnDHint);
-		expect(hints.length).toBe(data.length + 1);
+		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
+		const dataTransfer = startDrag(rows[0]);
+
+		try {
+			await nextFrame();
+
+			// The preview receives the drag through the `dragPreview` slot's `activeDrag`
+			// prop; it renders a clone of the source row, so the dragged row's content is
+			// what proves the prop arrived.
+			const preview = await vi.waitFor(() => {
+				const el = container.querySelector(`[data-role="${DataRoles.Table.DragPreview}"]`);
+				expect(el).not.toBeNull();
+
+				return el as HTMLElement;
+			});
+			expect(preview.textContent).toContain(data[0].name);
+		} finally {
+			fireEvent.dragEnd(rows[0], { dataTransfer });
+		}
+
+		await vi.waitFor(() => {
+			expect(container.querySelector(`[data-role="${DataRoles.Table.DragPreview}"]`)).toBeNull();
+		});
 	});
 
-	test("drop hint spans the full row width via a colSpan cell", () => {
+	test("dragging a row turns it into a drop-slot placeholder and shifts intervening rows", async () => {
 		const { container } = render(
 			<DataTable data={data} columns={dndColumns} dragDropOptions={{}} ariaLabel="DnD table" />
 		);
 
-		// The hint is a zero-height <tr> wrapping a single <td colSpan={leafCount}>.
-		// Spanning all columns is what gives the drop indicator (and its hit-test
-		// surface) the full row width — without it the hint collapses to a single
-		// column and most of each row gap stops accepting drops (regression guard).
-		const hint = getAllByDataRole(container, DataRoles.Table.DnDHint)[0];
-		const cell = hint.querySelector("td");
-		expect(cell).not.toBeNull();
-		expect(cell?.colSpan).toBe(dndColumns.length);
+		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
+		const last = rows.length - 1;
+		const point = pointInRowHalf(rows[last], "bottom");
+		const dataTransfer = startDrag(rows[0]);
 
-		const bodyRow = getAllByDataRole(container, DataRoles.Table.Body.Row)[0];
-		expect(cell?.getBoundingClientRect().width).toBeCloseTo(bodyRow.getBoundingClientRect().width, 0);
+		let slottedWhileDragging = false;
+		let shiftWhileDragging = "";
+
+		// Guarded so a failed expectation can't leave a dangling drag that poisons
+		// later tests (pragmatic allows only one active drag at a time).
+		try {
+			await nextFrame();
+			// The dragged row becomes the dashed drop-slot placeholder — it keeps its box
+			// (marked with `data-drop-slot`) while the floating preview stands in for it.
+			await vi.waitFor(() => expect(rows[0].hasAttribute("data-drop-slot")).toBe(true));
+			slottedWhileDragging = rows[0].hasAttribute("data-drop-slot");
+
+			// Hovering the bottom half of the last row projects the gap after it; the rows
+			// between the source (0) and that gap slide up by the dragged row's height to
+			// migrate the opened slot.
+			fireEvent.dragEnter(rows[last], { dataTransfer, ...point });
+			fireEvent.dragOver(rows[last], { dataTransfer, ...point });
+
+			await vi.waitFor(() => expect(rows[1].style.translate).not.toBe(""));
+			shiftWhileDragging = rows[1].style.translate;
+		} finally {
+			fireEvent.dragEnd(rows[0], { dataTransfer, ...point });
+		}
+
+		expect(slottedWhileDragging).toBe(true);
+		// A negative offset — the intervening row slides up toward the source's slot.
+		expect(shiftWhileDragging).toContain("-");
+
+		// Drag end restores every row: the drop-slot marker and transforms are cleared.
+		await vi.waitFor(() => {
+			expect(rows[0].hasAttribute("data-drop-slot")).toBe(false);
+			expect(rows[1].style.translate).toBe("");
+		});
 	});
 
 	test("onBeginDrag fires when dragging starts", async () => {
@@ -2358,10 +2976,10 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 3: drag and drop", () => {
 		);
 
 		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
-		const hints = getAllByDataRole(container, DataRoles.Table.DnDHint);
 
-		// hints[2] sits after the second row → drop position rowIndex 2.
-		await simulateDragAndDrop(rows[0], hints[2]);
+		// Releasing over the bottom half of row 1 projects the gap after it → insertion
+		// index 2, with the hovered row (`data[1]`) reported as the drop result's row.
+		await simulateDragAndDrop(rows[0], rows[1], "bottom");
 
 		await vi.waitFor(() => expect(onDrop).toHaveBeenCalledTimes(1));
 		expect(onDrop.mock.calls[0][0].dragItem.rowIndex).toBe(0);
@@ -2401,39 +3019,44 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 3: drag and drop", () => {
 		);
 
 		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
-		const hints = getAllByDataRole(container, DataRoles.Table.DnDHint);
 
-		await simulateDragAndDrop(rows[0], hints[2]);
+		await simulateDragAndDrop(rows[0], rows[1], "bottom");
 
 		await nextFrame();
 		expect(canDrop).toHaveBeenCalled();
 		expect(onDrop).not.toHaveBeenCalled();
 	});
 
-	test("drop hints open for valid targets while a drag is in progress", async () => {
+	test("rows never part for a drop that canDrop rejects", async () => {
+		// Reject every drop: the gap must never open, so no row is ever shifted.
+		const canDrop = vi.fn().mockReturnValue(false);
 		const { container } = render(
-			<DataTable data={data} columns={dndColumns} dragDropOptions={{}} ariaLabel="DnD table" />
+			<DataTable data={data} columns={dndColumns} dragDropOptions={{ canDrop }} ariaLabel="DnD table" />
 		);
 
 		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
-		const hints = getAllByDataRole(container, DataRoles.Table.DnDHint);
 		const dataTransfer = startDrag(rows[0]);
 
-		// The default `canDrop` rejects the dragged row itself: the hints directly
-		// around row 0 (carrying `row === data[0]`) stay closed, every other gap
-		// opens. The "open" state is observable via the hint cell's hit-test
-		// surface (`pointer-events`).
-		await vi.waitFor(() => {
-			expect(getComputedStyle(hints[2].querySelector("td") as HTMLTableCellElement).pointerEvents).toBe("auto");
-		});
-		expect(getComputedStyle(hints[0].querySelector("td") as HTMLTableCellElement).pointerEvents).toBe("none");
-		expect(getComputedStyle(hints[1].querySelector("td") as HTMLTableCellElement).pointerEvents).toBe("none");
+		await nextFrame();
+		// The source still lifts out into its drop-slot placeholder regardless, but
+		// hovering a rejected target keeps every other row in place — `canDrop` gates
+		// the shift preview.
+		await vi.waitFor(() => expect(rows[0].hasAttribute("data-drop-slot")).toBe(true));
 
-		// Drag end closes all hints again.
-		fireEvent.dragEnd(rows[0], { dataTransfer });
-		await vi.waitFor(() => {
-			expect(getComputedStyle(hints[2].querySelector("td") as HTMLTableCellElement).pointerEvents).toBe("none");
-		});
+		const point = pointInRowHalf(rows[2], "bottom");
+		fireEvent.dragEnter(rows[2], { dataTransfer, ...point });
+		fireEvent.dragOver(rows[2], { dataTransfer, ...point });
+
+		await vi.waitFor(() => expect(canDrop).toHaveBeenCalled());
+		// Snapshot the transforms, then end the drag *before* asserting — a failed
+		// assertion must not leave a dangling drag that poisons later tests (pragmatic
+		// allows only one active drag at a time).
+		const translatesWhileRejected = [rows[1].style.translate, rows[2].style.translate];
+
+		fireEvent.dragEnd(rows[0], { dataTransfer, ...point });
+		await vi.waitFor(() => expect(rows[0].hasAttribute("data-drop-slot")).toBe(false));
+
+		expect(translatesWhileRejected).toEqual(["", ""]);
 	});
 
 	test("body rows and cells still render correctly when DnD is enabled", () => {
@@ -2472,7 +3095,16 @@ describe("com.mgmtp.a12.widgets.data-table — drag-and-drop + virtualization", 
 		return new Promise((resolve) => requestAnimationFrame(() => resolve()));
 	}
 
-	test("draggable rows and drop hints render inside the virtualized tbody", () => {
+	function pointInRowHalf(row: HTMLElement, half: "top" | "bottom"): { clientX: number; clientY: number } {
+		const rect = row.getBoundingClientRect();
+
+		return {
+			clientX: Math.round(rect.left + rect.width / 2),
+			clientY: Math.round(half === "top" ? rect.top + rect.height * 0.25 : rect.top + rect.height * 0.75)
+		};
+	}
+
+	test("draggable rows render inside the virtualized tbody", () => {
 		const { container } = render(
 			<DataTable
 				data={vData}
@@ -2497,10 +3129,6 @@ describe("com.mgmtp.a12.widgets.data-table — drag-and-drop + virtualization", 
 		for (const row of rows) {
 			expect(row.getAttribute("draggable")).toBe("true");
 		}
-
-		// Drop hints are emitted inside the windowed tbody, around the rendered rows.
-		const hints = getAllByDataRole(tbody, DataRoles.Table.DnDHint);
-		expect(hints.length).toBeGreaterThan(0);
 	});
 
 	test("a drop within the rendered window fires onDrop with true data indices", async () => {
@@ -2519,17 +3147,18 @@ describe("com.mgmtp.a12.widgets.data-table — drag-and-drop + virtualization", 
 
 		const tbody = container.querySelector(`[data-role="${DataRoles.Table.Body.VirtualizedContainer}"]`) as HTMLElement;
 		const rows = getAllByDataRole(tbody, DataRoles.Table.Body.Row);
-		const hints = getAllByDataRole(tbody, DataRoles.Table.DnDHint);
 
-		// At scrollTop 0 the window starts at data index 0: hints[0] is the top edge of
-		// row 0, hints[2] sits after row 1 → drop position rowIndex 2 (true data index).
+		// At scrollTop 0 the window starts at data index 0: releasing over the bottom
+		// half of row 1 projects the gap after it → drop position rowIndex 2 (true data
+		// index).
 		const dataTransfer = startDrag(rows[0]);
 
 		await nextFrame();
-		fireEvent.dragEnter(hints[2], { dataTransfer });
-		fireEvent.dragOver(hints[2], { dataTransfer });
-		fireEvent.drop(hints[2], { dataTransfer });
-		fireEvent.dragEnd(rows[0], { dataTransfer });
+		const point = pointInRowHalf(rows[1], "bottom");
+		fireEvent.dragEnter(rows[1], { dataTransfer, ...point });
+		fireEvent.dragOver(rows[1], { dataTransfer, ...point });
+		fireEvent.drop(rows[1], { dataTransfer, ...point });
+		fireEvent.dragEnd(rows[0], { dataTransfer, ...point });
 
 		await vi.waitFor(() => expect(onDrop).toHaveBeenCalledTimes(1));
 		expect(onDrop.mock.calls[0][0].dragItem.rowIndex).toBe(0);
@@ -2567,12 +3196,13 @@ describe("com.mgmtp.a12.widgets.data-table — drag-and-drop + virtualization", 
 
 		await vi.waitFor(() => expect(sourceRow.isConnected).toBe(false));
 
-		// Drop on a hint that is now in view; the drag's identity is still data row 0.
-		const hint = getAllByDataRole(tbody, DataRoles.Table.DnDHint)[1];
-		fireEvent.dragEnter(hint, { dataTransfer });
-		fireEvent.dragOver(hint, { dataTransfer });
-		fireEvent.drop(hint, { dataTransfer });
-		fireEvent.dragEnd(sourceRow, { dataTransfer });
+		// Drop on a row that is now in view; the drag's identity is still data row 0.
+		const targetRow = getAllByDataRole(tbody, DataRoles.Table.Body.Row)[1];
+		const point = pointInRowHalf(targetRow, "bottom");
+		fireEvent.dragEnter(targetRow, { dataTransfer, ...point });
+		fireEvent.dragOver(targetRow, { dataTransfer, ...point });
+		fireEvent.drop(targetRow, { dataTransfer, ...point });
+		fireEvent.dragEnd(sourceRow, { dataTransfer, ...point });
 
 		await vi.waitFor(() => expect(onDrop).toHaveBeenCalledTimes(1));
 		expect(onDrop.mock.calls[0][0].dragItem.rowIndex).toBe(0);
@@ -2645,6 +3275,76 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 4: virtualization", () => {
 		expect(rowCount).toBeLessThan(1000);
 	});
 
+	test("virtualized table with no rows renders the empty-state placeholder", () => {
+		const { container } = render(
+			<DataTable
+				data={makeRows(0)}
+				columns={vColumns}
+				maxHeight={200}
+				virtualScrollOptions={{ rowHeight: 30 }}
+				ariaLabel="Empty virtualized table"
+			/>
+		);
+
+		// Before the fix the virtualized branch rendered no rows and no placeholder.
+		expect(getByDataRole(container, DataRoles.Table.Body.Content.Placeholder)).toHaveTextContent("No data");
+	});
+
+	test("infinite-scroll table with rowCount 0 renders the empty-state placeholder", () => {
+		const { container } = render(
+			<DataTable
+				data={[]}
+				columns={vColumns}
+				maxHeight={200}
+				infiniteScrollOptions={{
+					rowCount: 0,
+					rowHeight: 30,
+					rowLoadingStatus: () => undefined,
+					loadData: async () => {}
+				}}
+				ariaLabel="Empty infinite table"
+			/>
+		);
+
+		expect(getByDataRole(container, DataRoles.Table.Body.Content.Placeholder)).toHaveTextContent("No data");
+	});
+
+	test("roving tab stop survives the focused row scrolling out of the rendered window", async () => {
+		const { container } = render(
+			<DataTable
+				data={makeRows(500)}
+				columns={vColumns}
+				maxHeight={200}
+				virtualScrollOptions={{ rowHeight: 30 }}
+				ariaLabel="Virtualized table"
+			/>
+		);
+
+		const viewport = getByDataRole(container, DataRoles.Table.Viewport);
+		const tbody = container.querySelector(`[data-role="${DataRoles.Table.Body.VirtualizedContainer}"]`) as HTMLElement;
+		const stops = (): NodeListOf<HTMLTableRowElement> =>
+			tbody.querySelectorAll<HTMLTableRowElement>(`tr[data-role="${DataRoles.Table.Body.Row}"][tabindex="0"]`);
+
+		// The tab stop starts on data row 0 (the default focused row).
+		expect(stops().length).toBe(1);
+		const initialStop = stops()[0];
+
+		// Scroll the focused row out of the rendered window so its <tr> unmounts.
+		viewport.scrollTop = 6000;
+		fireEvent.scroll(viewport);
+		await vi.waitFor(() => expect(initialStop.isConnected).toBe(false));
+
+		// Exactly one rendered row must still carry the tab stop — before the fix
+		// every rendered row had tabindex=-1 and Tab skipped the entire body.
+		await vi.waitFor(() => expect(stops().length).toBe(1));
+
+		// Scrolling back re-renders row 0 as the single tab stop (fallback retired).
+		viewport.scrollTop = 0;
+		fireEvent.scroll(viewport);
+		await vi.waitFor(() => expect(initialStop.isConnected || stops().length === 1).toBe(true));
+		await vi.waitFor(() => expect(stops().length).toBe(1));
+	});
+
 	test("virtualized column tracks use explicit widths (no max-content for action)", () => {
 		const columnsWithAction: BaseColumnType<VRow>[] = [
 			{ label: "ID", dataKey: "id", width: 80, fixedWidth: true },
@@ -2658,6 +3358,8 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 4: virtualization", () => {
 				columns={columnsWithAction}
 				maxHeight={200}
 				virtualScrollOptions={{ rowHeight: 30 }}
+				// Isolate the computed fallback track from action-column auto-size.
+				actionColumnAutoSize={false}
 				ariaLabel="Virtualized table"
 			/>
 		);
@@ -2698,7 +3400,7 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 4: virtualization", () => {
 	});
 
 	test("scrollToNode is wired in virtualized mode (regression: must not silently drop the handler)", () => {
-		let handler: DataTableScrollToNodeHandler | undefined;
+		let handler: TableScrollToNodeHandler | undefined;
 		render(
 			<DataTable
 				data={makeRows(500)}
@@ -2788,6 +3490,97 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 4: virtualization", () => {
 		});
 	});
 
+	describe("expandable rows + virtualization", () => {
+		const expandableRowSelector = `[data-role="${DataRoles.Table.Expandable.Row}"]`;
+
+		test("dynamic-height virtualization renders the expansion panel inline in the window", async () => {
+			const { container } = render(
+				<DataTable
+					data={makeRows(100)}
+					columns={vColumns}
+					rowKey="id"
+					maxHeight={200}
+					virtualScrollOptions={{ estimatedRowHeight: 50 }}
+					rowExpansion={{
+						render: ({ rowIndex }) =>
+							rowIndex === 0 ? (
+								<DataTableTemplate.ExpandableRow>Detail for {makeRows(1)[0].label}</DataTableTemplate.ExpandableRow>
+							) : null
+					}}
+					ariaLabel="Virtualized expandable"
+				/>
+			);
+
+			const tbody = container.querySelector(
+				`[data-role="${DataRoles.Table.Body.VirtualizedContainer}"]`
+			) as HTMLElement;
+
+			// The expanded panel for the first (in-window) row appears inside the windowed body.
+			await expect.poll(() => tbody.querySelectorAll(expandableRowSelector).length).toBe(1);
+			expect((tbody.querySelector(expandableRowSelector) as HTMLElement).textContent).toContain("Detail for Row 0");
+		});
+
+		test("fixed-height virtualization suppresses the expansion panel (would desync spacer math)", () => {
+			const { container } = render(
+				<DataTable
+					data={makeRows(100)}
+					columns={vColumns}
+					rowKey="id"
+					maxHeight={200}
+					virtualScrollOptions={{ rowHeight: 30 }}
+					rowExpansion={{
+						render: ({ rowIndex }) =>
+							rowIndex === 0 ? <DataTableTemplate.ExpandableRow>Detail</DataTableTemplate.ExpandableRow> : null
+					}}
+					ariaLabel="Fixed virtualized expandable"
+				/>
+			);
+
+			// Fixed-height mode never measures rows, so the unmeasured panel stays off the
+			// windowed path — expanding requires dynamic-height virtualization.
+			expect(queryByDataRole(container, DataRoles.Table.Expandable.Row)).toBeNull();
+		});
+
+		test("an expanded panel enlarges the measured total size (the virtualizer reserves its height)", async () => {
+			const PANEL_HEIGHT = 150;
+
+			const renderWith = (expanded: boolean): { current: DataTableVirtualizerHandle | null } => {
+				const handleRef: { current: DataTableVirtualizerHandle | null } = { current: null };
+
+				render(
+					<DataTable
+						data={makeRows(40)}
+						columns={vColumns}
+						rowKey="id"
+						maxHeight={200}
+						virtualScrollOptions={{ estimatedRowHeight: 50, virtualizerRef: handleRef }}
+						rowExpansion={{
+							render: () =>
+								expanded ? (
+									<DataTableTemplate.ExpandableRow>
+										<div style={{ height: PANEL_HEIGHT }}>Panel</div>
+									</DataTableTemplate.ExpandableRow>
+								) : null
+						}}
+						ariaLabel={`Total size ${expanded ? "expanded" : "collapsed"}`}
+					/>
+				);
+
+				return handleRef;
+			};
+
+			const collapsed = renderWith(false);
+			const expandedHandle = renderWith(true);
+
+			await expect.poll(() => collapsed.current?.getTotalSize() ?? 0).toBeGreaterThan(0);
+			await expect.poll(() => expandedHandle.current?.getTotalSize() ?? 0).toBeGreaterThan(0);
+
+			// `measureRowWithExpansion` folds each in-window expanded panel into its row's
+			// measured height, so the expanded table's scrollable total is strictly larger.
+			expect(expandedHandle.current?.getTotalSize() ?? 0).toBeGreaterThan(collapsed.current?.getTotalSize() ?? 0);
+		});
+	});
+
 	describe("virtualizerRef imperative handle", () => {
 		test("receives a handle on mount and null on unmount", () => {
 			const received: (DataTableVirtualizerHandle | null)[] = [];
@@ -2796,7 +3589,12 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 4: virtualization", () => {
 					data={makeRows(100)}
 					columns={vColumns}
 					maxHeight={200}
-					virtualScrollOptions={{ rowHeight: 30, virtualizerRef: (handle) => received.push(handle) }}
+					virtualScrollOptions={{
+						rowHeight: 30,
+						virtualizerRef: (handle) => {
+							received.push(handle);
+						}
+					}}
 					ariaLabel="Handle table"
 				/>
 			);
@@ -2885,7 +3683,7 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 4: virtualization", () => {
 	test("infinite scroll accepts sparse data with undefined holes", () => {
 		const sparse: (VRow | undefined)[] = [{ id: 0, label: "Row 0" }, undefined, undefined];
 		const { container } = render(
-			<DataTable
+			<DataTable<VRow>
 				data={sparse}
 				columns={vColumns}
 				maxHeight={200}
@@ -2907,7 +3705,7 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 4: virtualization", () => {
 
 describe("com.mgmtp.a12.widgets.data-table — production Table API compatibility", () => {
 	test("data is optional and renders the empty state", () => {
-		const { container } = render(<DataTable columns={columns} ariaLabel="No data table" />);
+		const { container } = render(<DataTable<RowType> columns={columns} ariaLabel="No data table" />);
 
 		expect(container.querySelector("table")).not.toBeNull();
 		expect(getAllByDataRole(container, DataRoles.Table.Header.Cell).length).toBe(columns.length);
@@ -2939,14 +3737,6 @@ describe("com.mgmtp.a12.widgets.data-table — production Table API compatibilit
 		expect(getAllByDataRole(container, DataRoles.Table.Body.Row).length).toBe(data.length);
 		expect(warn).not.toHaveBeenCalledWith(expect.stringContaining("virtualScrollOptions"));
 		warn.mockRestore();
-	});
-
-	test("enableColumnGroupA11y is accepted as a no-op", () => {
-		const { container } = render(
-			<DataTable data={data} columns={columns} enableColumnGroupA11y ariaLabel="A11y shim table" />
-		);
-
-		expect(getAllByDataRole(container, DataRoles.Table.Body.Row).length).toBe(data.length);
 	});
 
 	test("domProps, ariaLabelledby and ariaHidden land on the <table> element", () => {
@@ -3000,6 +3790,218 @@ describe("com.mgmtp.a12.widgets.data-table — production Table API compatibilit
 
 		await userEvent.click(getAllByDataRole(container, DataRoles.Table.Header.Cell)[0]);
 		expect(seenFilterKeys).toEqual(["id-filter"]);
+	});
+});
+
+describe("com.mgmtp.a12.widgets.data-table — horizontalScrollRef", () => {
+	interface WideRow {
+		id: string;
+		a: string;
+		b: string;
+		c: string;
+		d: string;
+	}
+
+	const WIDE_DATA: WideRow[] = [{ id: "1", a: "a", b: "b", c: "c", d: "d" }];
+
+	// Each column is 2 × 150 = 300px, so the table is 1200px wide inside a 300px viewport.
+	const WIDE_COLUMNS: DataTableColumn<WideRow>[] = [
+		{ id: "col-a", label: "A", dataKey: "a", pinning: "left", fixedWidth: true, width: 2 },
+		{ id: "col-b", label: "B", dataKey: "b", fixedWidth: true, width: 2 },
+		{ id: "col-c", label: "C", dataKey: "c", fixedWidth: true, width: 2 },
+		{ id: "col-d", label: "D", dataKey: "d", fixedWidth: true, width: 2 }
+	];
+
+	function renderWide(): {
+		handle: { current: DataTableHorizontalScrollHandle | null };
+		viewport: HTMLElement;
+	} {
+		const handle: { current: DataTableHorizontalScrollHandle | null } = { current: null };
+		const { container } = render(
+			<div style={{ width: 300 }}>
+				<DataTable data={WIDE_DATA} columns={WIDE_COLUMNS} rowKey="id" ariaLabel="Wide" horizontalScrollRef={handle} />
+			</div>
+		);
+
+		return { handle, viewport: getByDataRole(container, DataRoles.Table.Viewport) };
+	}
+
+	test("getScrollState reports the viewport's horizontal geometry", () => {
+		const { handle, viewport } = renderWide();
+
+		const state = handle.current?.getScrollState();
+
+		expect(state?.scrollLeft).toBe(0);
+		expect(state?.clientWidth).toBe(viewport.clientWidth);
+		// The table overflows its container, which is the premise of the whole handle.
+		expect(state?.scrollWidth).toBeGreaterThan(state?.clientWidth ?? 0);
+	});
+
+	test("scrollToOffset moves the viewport and clamps to the scrollable range", () => {
+		const { handle, viewport } = renderWide();
+
+		handle.current?.scrollToOffset(200);
+		expect(viewport.scrollLeft).toBe(200);
+
+		// Beyond the end clamps rather than throwing or overscrolling.
+		handle.current?.scrollToOffset(99_999);
+		expect(viewport.scrollLeft).toBe(viewport.scrollWidth - viewport.clientWidth);
+
+		handle.current?.scrollToOffset(-50);
+		expect(viewport.scrollLeft).toBe(0);
+	});
+
+	test("scrollToColumn reveals an off-screen column", () => {
+		const { handle, viewport } = renderWide();
+
+		expect(viewport.scrollLeft).toBe(0);
+
+		handle.current?.scrollToColumn("col-d");
+
+		expect(viewport.scrollLeft).toBeGreaterThan(0);
+	});
+
+	test("scrollToColumn keeps the target clear of the sticky pinned column", () => {
+		const { handle, viewport } = renderWide();
+
+		handle.current?.scrollToColumn("col-d", { align: "start" });
+
+		const pinned = viewport.querySelector<HTMLElement>(
+			`thead [data-role="${DataRoles.Table.Header.Cell}"][data-pinned="left"]`
+		);
+		const target = viewport.querySelector<HTMLElement>(
+			`thead [data-role="${DataRoles.Table.Header.Cell}"][data-col-index="4"]`
+		);
+
+		// `align: "start"` must mean "flush against the pinned band", not "under it".
+		expect(Math.round(target!.getBoundingClientRect().left)).toBeGreaterThanOrEqual(
+			Math.round(pinned!.getBoundingClientRect().right) - 1
+		);
+	});
+
+	test("an unknown column id is a no-op", () => {
+		const { handle, viewport } = renderWide();
+
+		handle.current?.scrollToOffset(150);
+		handle.current?.scrollToColumn("does-not-exist");
+
+		expect(viewport.scrollLeft).toBe(150);
+	});
+});
+
+describe("com.mgmtp.a12.widgets.data-table — rowHeight", () => {
+	interface WordyRow {
+		id: string;
+		text: string;
+	}
+
+	const WORDY: WordyRow[] = [
+		{ id: "1", text: "short" },
+		// Long enough to wrap in a narrow column, which is what silently grows a row.
+		{ id: "2", text: "a considerably longer cell value that will wrap onto several lines when narrow" },
+		{ id: "3", text: "short again" }
+	];
+
+	const WORDY_COLUMNS: DataTableColumn<WordyRow>[] = [{ label: "Text", dataKey: "text", fixedWidth: true, width: 0.6 }];
+
+	function rowHeights(container: HTMLElement): number[] {
+		return getAllByDataRole(container, DataRoles.Table.Body.Row).map((row) =>
+			Math.round(row.getBoundingClientRect().height)
+		);
+	}
+
+	/** The column has to be narrow for the long value to wrap; a lone column just fills the table. */
+	function renderNarrow(node: ReactElement): { container: HTMLElement } {
+		return render(<div style={{ width: 220 }}>{node}</div>);
+	}
+
+	test("without rowHeight, a wrapping cell makes its row taller than the others", () => {
+		const { container } = renderNarrow(
+			<DataTable data={WORDY} columns={WORDY_COLUMNS} rowKey="id" ariaLabel="Wordy" />
+		);
+
+		const heights = rowHeights(container);
+
+		// Establishes the baseline the prop exists to fix — not a requirement in itself.
+		expect(new Set(heights).size).toBeGreaterThan(1);
+	});
+
+	test("rowHeight makes every row exactly that tall, even when a cell would wrap", () => {
+		const { container } = renderNarrow(
+			<DataTable data={WORDY} columns={WORDY_COLUMNS} rowKey="id" rowHeight={40} ariaLabel="Wordy" />
+		);
+
+		expect(rowHeights(container)).toEqual([40, 40, 40]);
+	});
+
+	test("a rowStyling style.height pins the row, matching the production Table", () => {
+		const { container } = renderNarrow(
+			<DataTable
+				data={WORDY}
+				columns={WORDY_COLUMNS}
+				rowKey="id"
+				ariaLabel="Wordy"
+				rowStyling={() => ({ style: { height: 40 } })}
+			/>
+		);
+
+		// The div-based production Table obeyed this outright; the semantic <table> needs the
+		// clamp, or a ported `rowStyling` height silently stops holding.
+		expect(rowHeights(container)).toEqual([40, 40, 40]);
+	});
+
+	test("rowStyling can give different rows different heights", () => {
+		const { container } = renderNarrow(
+			<DataTable
+				data={WORDY}
+				columns={WORDY_COLUMNS}
+				rowKey="id"
+				ariaLabel="Wordy"
+				rowStyling={({ rowIndex }) => ({ style: { height: rowIndex === 1 ? 60 : 40 } })}
+			/>
+		);
+
+		// Per-row, not table-wide — the variable is set on each <tr>, not generated per value.
+		expect(rowHeights(container)).toEqual([40, 60, 40]);
+	});
+
+	test("a per-row rowStyling height overrides the table-wide rowHeight", () => {
+		const { container } = renderNarrow(
+			<DataTable
+				data={WORDY}
+				columns={WORDY_COLUMNS}
+				rowKey="id"
+				ariaLabel="Wordy"
+				rowHeight={40}
+				rowStyling={({ rowIndex }) => (rowIndex === 1 ? { style: { height: 64 } } : {})}
+			/>
+		);
+
+		expect(rowHeights(container)).toEqual([40, 64, 40]);
+	});
+
+	test("rows without an explicit height are untouched", () => {
+		const { container } = renderNarrow(
+			<DataTable
+				data={WORDY}
+				columns={WORDY_COLUMNS}
+				rowKey="id"
+				ariaLabel="Wordy"
+				rowStyling={() => ({ style: { fontWeight: "bold" } })}
+			/>
+		);
+
+		// A rowStyling that sets no height must not opt the table into clamping.
+		expect(new Set(rowHeights(container)).size).toBeGreaterThan(1);
+	});
+
+	test("cardView keeps cells growing, so rowHeight does not clip stacked content", () => {
+		const { container } = renderNarrow(
+			<DataTable data={WORDY} columns={WORDY_COLUMNS} rowKey="id" rowHeight={40} cardView ariaLabel="Wordy" />
+		);
+
+		// Card cells stack label above value and must not be pinned to the row height.
+		expect(rowHeights(container).some((height) => height > 40)).toBe(true);
 	});
 });
 
@@ -3120,7 +4122,7 @@ describe("com.mgmtp.a12.widgets.data-table — slot integrity", () => {
 	});
 
 	test("custom row slot rows still work with scrollToNode autoFocus (row ref is forwarded)", () => {
-		let scrollHandler: DataTableScrollToNodeHandler | undefined;
+		let scrollHandler: TableScrollToNodeHandler | undefined;
 		const { container } = render(
 			<div style={{ height: 120, overflow: "auto" }}>
 				<DataTable
@@ -3142,11 +4144,17 @@ describe("com.mgmtp.a12.widgets.data-table — slot integrity", () => {
 		expect(document.activeElement).toBe(rows[2]);
 	});
 
-	test("DataTableDnDDropTarget renders null outside a DataTable (no dragDropOptions in context)", () => {
+	test("DataTableDnDBodyRow renders nothing outside a DataTable (no dragDropOptions in context)", () => {
 		const { container } = render(
 			<table>
 				<tbody>
-					<DataTableDnDDropTarget rowIndex={0} row={{ id: 1, name: "Alpha" }} />
+					<DataTableDnDBodyRow rowIndex={0} row={{ id: 1, name: "Alpha" }} columns={[]}>
+						{() => (
+							<tr data-role="should-not-render">
+								<td>Alpha</td>
+							</tr>
+						)}
+					</DataTableDnDBodyRow>
 				</tbody>
 			</table>
 		);
@@ -3242,7 +4250,7 @@ describe("com.mgmtp.a12.widgets.data-table — slot architecture", () => {
 		);
 
 		const headCells = getAllByDataRole(container, DataRoles.Table.Header.Cell);
-		expect(headCells[0]).toHaveTextContent("H:ID:asc");
+		expect(headCells[0]).toMatchTextContent("H:ID:asc");
 
 		await userEvent.click(headCells[0]);
 		expect(onSort).toHaveBeenCalledWith([{ columnId: "id", order: "desc" }], { columnId: "id", order: "desc" });
@@ -3347,7 +4355,7 @@ describe("com.mgmtp.a12.widgets.data-table — slot architecture", () => {
 		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
 		expect(rows[0].getAttribute("aria-expanded")).toBe("false");
 		expect(rows[1].getAttribute("aria-expanded")).toBe("true");
-		expect(container.querySelector("tbody")).toHaveTextContent("Expansion for Bravo");
+		expect(container.querySelector("tbody")).toMatchTextContent("Expansion for Bravo");
 	});
 });
 
@@ -3596,5 +4604,147 @@ describe("com.mgmtp.a12.widgets.data-table — Phase 5: body-cell colSpan", () =
 
 		await userEvent.keyboard("{ArrowUp}");
 		expect(document.activeElement).toBe(rows[0]);
+	});
+});
+
+describe("DataTable keyboard drag-and-drop", () => {
+	interface Item {
+		name: string;
+	}
+
+	const columns: DataTableColumn<Item>[] = [{ label: "Name", dataKey: "name" }];
+
+	type DropParams = Parameters<NonNullable<TableDragDropOptions<Item>["onDrop"]>>[0];
+
+	function Harness({
+		onDrop,
+		keyboardGrabKey
+	}: {
+		onDrop: (params: DropParams) => void;
+		keyboardGrabKey?: TableDragDropOptions<Item>["keyboardGrabKey"];
+	}): ReactElement {
+		const [rows, setRows] = useState<Item[]>([{ name: "A" }, { name: "B" }, { name: "C" }]);
+
+		return (
+			<DataTable<Item>
+				data={rows}
+				columns={columns}
+				ariaLabel="DnD kbd"
+				dragDropOptions={{
+					keyboardGrabKey,
+					onDrop: (params) => {
+						onDrop(params);
+
+						const next = [...rows];
+						const [moved] = next.splice(params.dragItem.rowIndex, 1);
+						const target =
+							params.dragItem.rowIndex < params.dropResult.rowIndex
+								? params.dropResult.rowIndex - 1
+								: params.dropResult.rowIndex;
+						next.splice(target, 0, moved!);
+						setRows(next);
+					}
+				}}
+			/>
+		);
+	}
+
+	test("gap→landing index arithmetic mirrors the consumer reorder (pure)", () => {
+		// Dragging row 0 into gap 2 lands at index 1 (removing the source shifts later gaps down).
+		expect(landingIndexForGap(0, 2)).toBe(1);
+		// Dragging row 2 up into gap 0 lands at index 0.
+		expect(landingIndexForGap(2, 0)).toBe(0);
+	});
+
+	test("grab (Space) + ArrowDown fires onDrop with the gap-index dropResult a pointer drop would produce", async () => {
+		const onDrop = vi.fn();
+		const { container } = render(<Harness onDrop={onDrop} />);
+
+		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
+		(rows[0] as HTMLElement).focus();
+
+		// Grab the first row, then move it down one slot.
+		await userEvent.keyboard(" ");
+		await userEvent.keyboard("{ArrowDown}");
+
+		expect(onDrop).toHaveBeenCalledTimes(1);
+		const params = onDrop.mock.calls[0]![0];
+		expect(params.dragItem.rowIndex).toBe(0);
+		// Moving row 0 down one slot targets insertion gap 2 (see landingIndexForGap).
+		expect(params.dropResult.rowIndex).toBe(2);
+	});
+
+	test("a keyboard move flashes the landed row on its cells (the row's own background is hidden behind them)", async () => {
+		const onDrop = vi.fn();
+		const { container } = render(<Harness onDrop={onDrop} />);
+
+		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
+		(rows[0] as HTMLElement).focus();
+
+		await userEvent.keyboard(" ");
+		await userEvent.keyboard("{ArrowDown}");
+		// The flash is queued on the frame after the consumer's reorder re-renders.
+		await new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
+
+		const landed = getAllByDataRole(container, DataRoles.Table.Body.Row)[1] as HTMLTableRowElement;
+
+		expect(landed.textContent).toContain("A");
+		expect(Array.from(landed.cells).every((cell) => cell.getAnimations().length > 0)).toBe(true);
+	});
+
+	test("arrows move focus (not rows) until a row is grabbed", async () => {
+		const onDrop = vi.fn();
+		const { container } = render(<Harness onDrop={onDrop} />);
+
+		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
+		(rows[0] as HTMLElement).focus();
+
+		// Not grabbed: ArrowDown just moves focus, no reorder.
+		await userEvent.keyboard("{ArrowDown}");
+		expect(onDrop).not.toHaveBeenCalled();
+		expect(document.activeElement).toBe(rows[1]);
+	});
+
+	test("keyboardGrabKey:false leaves Space alone: no grab, and the arrow just moves focus", async () => {
+		const onDrop = vi.fn();
+		const { container } = render(<Harness onDrop={onDrop} keyboardGrabKey={false} />);
+
+		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
+		(rows[0] as HTMLElement).focus();
+
+		await userEvent.keyboard(" ");
+		await userEvent.keyboard("{ArrowDown}");
+
+		expect(onDrop).not.toHaveBeenCalled();
+		expect(getByDataRole(container, DataRoles.Table.A11yLiveRegion).textContent ?? "").not.toMatch(/grabbed/i);
+		expect(document.activeElement).toBe(rows[1]);
+	});
+
+	test("grab is disabled when dragDropOptions carries no onDrop", async () => {
+		// Keyboard reorder commits through `onDrop`; with none there is nothing to move to, so Space must
+		// not grab (otherwise it would announce/flash a move that never happens). ArrowDown then just
+		// moves focus. Guards the gate DataTreeTable relies on — it powers the inner table's pointer DnD
+		// with `{ acceptType }` only and keeps its reparenting onDrop in its own monitor.
+		const { container } = render(
+			<DataTable<Item>
+				data={[{ name: "A" }, { name: "B" }, { name: "C" }]}
+				columns={columns}
+				dragDropOptions={{}}
+				ariaLabel="DnD without onDrop"
+			/>
+		);
+
+		const rows = getAllByDataRole(container, DataRoles.Table.Body.Row);
+		(rows[0] as HTMLElement).focus();
+
+		await userEvent.keyboard(" ");
+		await userEvent.keyboard("{ArrowDown}");
+
+		// A grab would announce "Grabbed…" / "Moved to position…" through the live region; gated off, it
+		// stays silent and ArrowDown simply moves focus. (Focus alone can't tell the two apart — a
+		// one-slot move happens to refocus the same row — so assert the announcement is absent.)
+		const liveRegion = getByDataRole(container, DataRoles.Table.A11yLiveRegion);
+		expect(liveRegion.textContent ?? "").not.toMatch(/grabbed|moved to position/i);
+		expect(document.activeElement).toBe(rows[1]);
 	});
 });

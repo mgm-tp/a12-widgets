@@ -33,20 +33,20 @@
 import type { CSSProperties, KeyboardEvent, ReactElement, ReactNode } from "react";
 import { useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useTheme } from "styled-components";
-import { useResizeDetector } from "react-resize-detector";
 
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
-import { Icon } from "../../../icon/main/icon.view.js";
-import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
-import { getMobileOperatingSystem, provider } from "../../../common/main/device-detector.js";
-import { ResizeHandler } from "../../resizable/resize-handler.view.js";
-import type { ResizeEventHandler } from "../../resizable/resize-handler.api.js";
-import { useElementDimensions } from "../../resizable/resize-hook.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { getMobileOperatingSystem, provider } from "../../../common/main/device-detector.js";
+import { useResizeObserver } from "../../../common/main/resize-observer/use-resize-observer.js";
+import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
+import { Icon } from "../../../icon/main/icon.view.js";
+import type { ResizeEventHandler } from "../../resizable/resize-handler.api.js";
+import { ResizeHandler } from "../../resizable/resize-handler.view.js";
+import { useElementDimensions } from "../../resizable/resize-hook.js";
 
 import type { ApplicationFrameProps, StyledSlot } from "./application-frame.api.js";
-import { StyledApplicationFrame } from "./application-frame.styled.js";
 import { useSideBarExpandedWidth } from "./application-frame.hook.internal.js";
+import { StyledApplicationFrame } from "./application-frame.styled.js";
 
 const {
 	StyledHeader,
@@ -142,6 +142,8 @@ export function ApplicationFrame(props: ApplicationFrameProps): ReactElement<App
 	const [showIcon, setShowIcon] = useState(!!useToggleButton);
 	const [showScrollbar, setShowScrollbar] = useState(false);
 	const [sidebarWidth, setSidebarWidth] = useState(() => getSidebarWidth());
+	const [resizeHandleLayoutGap, setResizeHandleLayoutGap] = useState(0);
+	const [resizeHandleBorderRadius, setResizeHandleBorderRadius] = useState(0);
 
 	const hasStickyFooter = stickyFooterProp || (!isPhone && !!sub);
 	const contentClassNames = joinClassNames(
@@ -165,6 +167,32 @@ export function ApplicationFrame(props: ApplicationFrameProps): ReactElement<App
 
 	const shouldShowContent =
 		!!content && (!sub || props.subExpanded === false ? true : subExpandedState !== "maximized");
+
+	const isSubResizable = !!subResizableOptions && shouldShowContent && !!props.subExpanded;
+
+	useLayoutEffect(() => {
+		if (!isSubResizable) {
+			return;
+		}
+
+		const target = sideBarRef.current;
+		const parent = target?.parentElement;
+		const sibling = target?.nextElementSibling;
+
+		if (target && parent && sibling) {
+			const parentGap = parseFloat(getComputedStyle(parent).gap.split(" ")[0]) || 0;
+			const siblingMargin = parseFloat(getComputedStyle(sibling).marginLeft) || 0;
+			const targetMargin = parseFloat(getComputedStyle(target).marginRight) || 0;
+			setResizeHandleLayoutGap(parentGap + siblingMargin + targetMargin);
+		}
+
+		const content = target?.firstElementChild?.firstElementChild;
+
+		if (content) {
+			const { borderRadius } = getComputedStyle(content);
+			setResizeHandleBorderRadius(parseFloat(borderRadius.split(" ")[0] || "0") || 0);
+		}
+	}, [isSubResizable, sidebar]);
 
 	const getToggleButtonWrapperRef = (ref: HTMLElement | null): void => {
 		toggleButtonWrapperRef.current = ref;
@@ -295,10 +323,9 @@ export function ApplicationFrame(props: ApplicationFrameProps): ReactElement<App
 		}
 	});
 
-	useResizeDetector({
+	useResizeObserver({
 		onResize: handleResizeSidebar,
 		targetRef: sideBarContainerRef,
-		refreshMode: "debounce",
 		refreshRate: 50
 	});
 
@@ -340,8 +367,10 @@ export function ApplicationFrame(props: ApplicationFrameProps): ReactElement<App
 						maxWidth={absoluteMaxWidth}
 						minWidth={absoluteMinWidth}
 						onResizeStop={handleResizeStop}
-						resizable={!!subResizableOptions && shouldShowContent && props.subExpanded}
+						resizable={isSubResizable}
 						targetRef={sideBarRef}
+						layoutGap={resizeHandleLayoutGap}
+						borderRadius={resizeHandleBorderRadius}
 					>
 						<StyledSidebar
 							className={subClassNames}

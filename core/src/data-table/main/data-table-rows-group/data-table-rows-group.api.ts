@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { BaseDataTableProps } from "../data-table.api.js";
 import type { BaseColumnType } from "../foundation/column.api.js";
 import type { RowsGroup } from "../foundation/table-row-group.api.js";
-import type { BaseDataTableProps } from "../data-table.api.js";
 
 /**
  * Props for the {@link DataTableRowsGroup} component.

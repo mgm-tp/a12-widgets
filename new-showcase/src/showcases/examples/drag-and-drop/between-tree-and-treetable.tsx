@@ -30,15 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { faker as Faker } from "@faker-js/faker/locale/en";
 import type { FC, ReactNode } from "react";
 import { useState, useCallback } from "react";
-import { faker as Faker } from "@faker-js/faker/locale/en";
 
 import { LayoutGrid, TreeTableNodeDropPosition, joinClassNames, provider } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { DragAndDrop } from "./main/showcase-drag-and-drop.api.js";
-import type { DragAndDropTreeProps } from "./main/tree.js";
-import { DragAndDropTree, isTreeDragItem, isTreeDropTarget } from "./main/tree.js";
 import type { DragAndDropTreeTableProps } from "./main/tree-table.js";
 import {
 	DragAndDropTreeTable,
@@ -46,8 +44,10 @@ import {
 	isTreeTableDropResult,
 	isTreeTableHoveredObject
 } from "./main/tree-table.js";
-import { updateTreeNode, useTreeNodeData } from "./shared/tree.js";
+import type { DragAndDropTreeProps } from "./main/tree.js";
+import { DragAndDropTree, isTreeDragItem, isTreeDropTarget } from "./main/tree.js";
 import { updateTreeTableNode, useTreeTableData } from "./shared/tree-table.js";
+import { updateTreeNode, useTreeNodeData } from "./shared/tree.js";
 
 const isPhone = provider.isPhone();
 

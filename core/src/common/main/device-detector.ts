@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import MobileDetect from "mobile-detect";
 import { deviceType } from "detect-it";
+import MobileDetect from "mobile-detect";
 
 import { isBrowser } from "./is-browser.js";
 

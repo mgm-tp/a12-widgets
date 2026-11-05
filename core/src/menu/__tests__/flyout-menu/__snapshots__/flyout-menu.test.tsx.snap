@@ -43,7 +43,7 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > Interaction Hint > flyout menu show
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(181, 76, 23) currentcolor currentcolor rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -123,6 +123,10 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c0 {
   outline: transparent solid 1px;
   overflow: hidden;
@@ -174,7 +178,7 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
   border-width: 1px 1px 4px;
   border-style: dotted dotted solid;
   border-color: rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
 }
 
 .c11 {
@@ -205,21 +209,21 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
   border-width: 1px 1px 4px;
   border-style: dotted dotted solid;
   border-color: rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
 }
 
 .c11::before {
   border-width: medium medium 4px;
   border-style: none none solid;
   border-color: currentcolor currentcolor rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
 }
 
 .c11:focus-within::before {
   border-width: 1px 1px 4px;
   border-style: dotted dotted solid;
   border-color: rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
 }
 
 .c14 {
@@ -382,6 +386,7 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
   class="c0 nav nav--horizontal nav--expanded nav--condensible"
   data-role="menu"
   id="test-flyout"
+  style="width: 400px;"
   tabindex="-1"
 >
   <div>
@@ -418,6 +423,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   dvr
                 </span>
@@ -444,6 +451,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   expand_more
                 </span>
@@ -491,6 +500,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   expand_more
                 </span>
@@ -531,85 +542,13 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
           </div>
         </li>
         <li
-          class="c3 nav__item nav__item--has-children"
-          data-role="menu-item"
-          id="item-4"
-          tabindex="0"
-        >
-          <div
-            aria-current="false"
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="c4 nav__link"
-            role="link"
-          >
-            <div
-              class="c8 nav__label"
-              data-role="menu-item-label"
-            >
-              <div
-                class="c9 nav__text"
-                data-role="menu-item-text"
-              >
-                4 with very long label that will not fit in there
-              </div>
-            </div>
-            <div
-              class="c5 nav__icon"
-              data-role="menu-item-icon"
-            >
-              <i
-                class="c6 c7 plasma-icon"
-                data-role="plasma-icon"
-              >
-                <span
-                  aria-hidden="true"
-                >
-                  expand_more
-                </span>
-                <span
-                  class="c10 -u-unseenButRead"
-                  data-role="hidden-text"
-                >
-                   Open submenu 
-                </span>
-              </i>
-            </div>
-          </div>
-        </li>
-        <li
-          class="c11 nav__item nav__item--is-selected"
-          data-role="menu-item"
-          id="item-X"
-          tabindex="0"
-        >
-          <div
-            aria-current="page"
-            aria-haspopup="false"
-            class="c4 nav__link"
-            role="link"
-          >
-            <div
-              class="c8 nav__label"
-              data-role="menu-item-label"
-            >
-              <div
-                class="c12 nav__text"
-                data-role="menu-item-text"
-              >
-                X Menu
-              </div>
-            </div>
-          </div>
-        </li>
-        <li
-          class="c3 nav__item nav__item--has-children nav__item--condensed"
+          class="c11 nav__item nav__item--is-selected nav__item--has-children nav__item--condensed"
           data-role="menu-item"
           id="test-flyout_condensed-item"
           tabindex="0"
         >
           <div
-            aria-current="false"
+            aria-current="page"
             aria-expanded="false"
             aria-haspopup="true"
             aria-label=" Further menuitems"
@@ -617,7 +556,7 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
             role="link"
           >
             <div
-              class="c5 nav__icon"
+              class="c13 nav__icon"
               data-role="menu-item-icon"
               title=" Further menuitems"
             >
@@ -627,6 +566,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   more_horiz
                 </span>
@@ -637,7 +578,7 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-condensed 1`
               data-role="menu-item-label"
             >
               <div
-                class="c9 nav__text"
+                class="c12 nav__text"
                 data-role="menu-item-text"
               />
             </div>
@@ -704,7 +645,7 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
   max-width: unset;
 }
 
-.c12 .c7 {
+:where(.c12) .c7 {
   color: inherit;
 }
 
@@ -759,7 +700,29 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
   border-width: 1px 1px 4px;
   border-style: dotted dotted solid;
   border-color: rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
+}
+
+.c15 {
+  box-sizing: border-box;
+  cursor: default;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+  margin: 0px 8px;
+}
+
+.c15::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c15:first-child {
+  margin-left: 0px;
 }
 
 .c17 {
@@ -790,43 +753,21 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
   border-width: 1px 1px 4px;
   border-style: dotted dotted solid;
   border-color: rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
 }
 
 .c17::before {
   border-width: medium medium 4px;
   border-style: none none solid;
   border-color: currentcolor currentcolor rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
 }
 
 .c17:focus-within::before {
   border-width: 1px 1px 4px;
   border-style: dotted dotted solid;
   border-color: rgb(255, 255, 255);
-  border-image: initial;
-}
-
-.c15 {
-  box-sizing: border-box;
-  cursor: default;
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  flex-shrink: 0;
-  line-height: 1.45;
-  outline: none;
-  position: relative;
-  margin: 0px 8px;
-}
-
-.c15::before {
-  inset: 0px;
-  content: "";
-  position: absolute;
-}
-
-.c15:first-child {
-  margin-left: 0px;
+  border-image: none;
 }
 
 .c4 {
@@ -874,16 +815,6 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
   font-size: inherit;
 }
 
-.c20 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c21 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
 .c8 {
   align-items: center;
   display: flex;
@@ -911,18 +842,6 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
   display: none;
 }
 
-.c18 {
-  position: relative;
-  align-items: center;
-  display: flex;
-  height: 20px;
-  color: rgb(255, 255, 255);
-}
-
-.c18:empty {
-  display: none;
-}
-
 .c16 {
   position: relative;
   align-items: center;
@@ -932,6 +851,18 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
 }
 
 .c16:empty {
+  display: none;
+}
+
+.c18 {
+  position: relative;
+  align-items: center;
+  display: flex;
+  height: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.c18:empty {
   display: none;
 }
 
@@ -1042,6 +973,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   dvr
                 </span>
@@ -1068,6 +1001,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   expand_more
                 </span>
@@ -1180,6 +1115,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   expand_more
                 </span>
@@ -1231,6 +1168,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   settings
                 </span>
@@ -1273,23 +1212,60 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
           </div>
         </li>
         <li
-          class="c3 nav__item nav__item--has-children nav__item--condensed"
+          class="c11"
+        >
+          <span
+            class="c12 c13 tooltip tooltip--hint"
+            data-role="group-tooltip-hint"
+            role="tooltip"
+            title=""
+          >
+            <span
+              class="c14"
+            />
+          </span>
+        </li>
+        <li
+          class="c3 nav__item"
           data-role="menu-item"
-          id="test-flyout_condensed-item"
+          id="test-flyout_mainmenu.y-menu"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Y Menu
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c3 nav__item nav__item--has-children"
+          data-role="menu-item"
+          id="test-flyout_mainmenu.z-menu"
           tabindex="0"
         >
           <div
             aria-current="false"
             aria-expanded="false"
             aria-haspopup="true"
-            aria-label=" Further menuitems"
             class="c4 nav__link"
             role="link"
           >
             <div
               class="c5 nav__icon"
               data-role="menu-item-icon"
-              title=" Further menuitems"
             >
               <i
                 class="c6 c7 plasma-icon"
@@ -1297,8 +1273,10 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
-                  more_horiz
+                  screen_lock_portrait
                 </span>
               </i>
             </div>
@@ -1309,7 +1287,32 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-group 1
               <div
                 class="c9 nav__text"
                 data-role="menu-item-text"
-              />
+              >
+                Z Menu
+              </div>
+            </div>
+            <div
+              class="c5 nav__icon"
+              data-role="menu-item-icon"
+            >
+              <i
+                class="c6 c7 plasma-icon"
+                data-role="plasma-icon"
+              >
+                <span
+                  aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
+                >
+                  expand_more
+                </span>
+                <span
+                  class="c10 -u-unseenButRead"
+                  data-role="hidden-text"
+                >
+                   Open submenu 
+                </span>
+              </i>
             </div>
           </div>
         </li>
@@ -1367,6 +1370,10 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-old-chi
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c0 {
   outline: transparent solid 1px;
   overflow: hidden;
@@ -1418,7 +1425,7 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-old-chi
   border-width: 1px 1px 4px;
   border-style: dotted dotted solid;
   border-color: rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
 }
 
 .c11 {
@@ -1449,21 +1456,21 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-old-chi
   border-width: 1px 1px 4px;
   border-style: dotted dotted solid;
   border-color: rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
 }
 
 .c11::before {
   border-width: medium medium 4px;
   border-style: none none solid;
   border-color: currentcolor currentcolor rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
 }
 
 .c11:focus-within::before {
   border-width: 1px 1px 4px;
   border-style: dotted dotted solid;
   border-color: rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
 }
 
 .c14 {
@@ -1662,6 +1669,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-old-chi
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   dvr
                 </span>
@@ -1688,6 +1697,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-old-chi
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   expand_more
                 </span>
@@ -1735,6 +1746,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-old-chi
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   expand_more
                 </span>
@@ -1808,6 +1821,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-old-chi
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   expand_more
                 </span>
@@ -1847,23 +1862,45 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-old-chi
           </div>
         </li>
         <li
-          class="c3 nav__item nav__item--has-children nav__item--condensed"
+          class="c3 nav__item"
           data-role="menu-item"
-          id="test-flyout_condensed-item"
+          id="item-Y"
           tabindex="0"
         >
           <div
             aria-current="false"
-            aria-expanded="false"
-            aria-haspopup="true"
-            aria-label=" Further menuitems"
+            aria-haspopup="false"
+            class="c4 nav__link"
+            role="link"
+          >
+            <div
+              class="c8 nav__label"
+              data-role="menu-item-label"
+            >
+              <div
+                class="c9 nav__text"
+                data-role="menu-item-text"
+              >
+                Y Menu
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="c3 nav__item"
+          data-role="menu-item"
+          id="item-Z"
+          tabindex="0"
+        >
+          <div
+            aria-current="false"
+            aria-haspopup="false"
             class="c4 nav__link"
             role="link"
           >
             <div
               class="c5 nav__icon"
               data-role="menu-item-icon"
-              title=" Further menuitems"
             >
               <i
                 class="c6 c7 plasma-icon"
@@ -1871,8 +1908,10 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-old-chi
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
-                  more_horiz
+                  screen_lock_portrait
                 </span>
               </i>
             </div>
@@ -1883,7 +1922,9 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-old-chi
               <div
                 class="c9 nav__text"
                 data-role="menu-item-text"
-              />
+              >
+                Z Menu
+              </div>
             </div>
           </div>
         </li>
@@ -1941,6 +1982,10 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c11 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -1967,6 +2012,10 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
 
 .c11.c11 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
+  color: inherit;
 }
 
 .c0 {
@@ -2020,7 +2069,7 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
   border-width: 1px 1px 4px;
   border-style: dotted dotted solid;
   border-color: rgb(255, 255, 255);
-  border-image: initial;
+  border-image: none;
 }
 
 .c4 {
@@ -2036,26 +2085,6 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
   width: 100%;
 }
 
-.c12 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c13 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c14 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c15 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
 .c5 {
   align-items: center;
   color: rgb(255, 255, 255);
@@ -2069,6 +2098,11 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
 
 .c5 .c6 {
   color: rgb(255, 255, 255);
+  font-size: inherit;
+}
+
+.c12 .c6 {
+  color: inherit;
   font-size: inherit;
 }
 
@@ -2154,6 +2188,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   radio_button_unchecked
                 </span>
@@ -2202,6 +2238,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   info
                 </span>
@@ -2250,6 +2288,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   
                 </span>
@@ -2298,6 +2338,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   warning
                 </span>
@@ -2346,6 +2388,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > horizontal-flyout-menu-with-variant
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   check_circle
                 </span>
@@ -2425,6 +2469,10 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-collapsed 1`] 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c0 {
   outline: transparent solid 1px;
 }
@@ -2443,27 +2491,6 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-collapsed 1`] 
   flex-direction: column;
   height: 100%;
   overflow: hidden auto;
-}
-
-.c13 {
-  box-sizing: border-box;
-  cursor: default;
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  flex-shrink: 0;
-  line-height: 1.45;
-  outline: none;
-  position: relative;
-}
-
-.c13::before {
-  inset: 0px;
-  content: "";
-  position: absolute;
-}
-
-.c13::before {
-  border-bottom: 1px solid rgb(226, 230, 233);
 }
 
 .c3 {
@@ -2541,6 +2568,27 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-collapsed 1`] 
   border-left: 4px solid rgb(213, 0, 117);
 }
 
+.c13 {
+  box-sizing: border-box;
+  cursor: default;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-shrink: 0;
+  line-height: 1.45;
+  outline: none;
+  position: relative;
+}
+
+.c13::before {
+  inset: 0px;
+  content: "";
+  position: absolute;
+}
+
+.c13::before {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
 .c16 {
   box-sizing: border-box;
   cursor: pointer;
@@ -2589,21 +2637,6 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-collapsed 1`] 
   flex-grow: 0;
   gap: 0px;
   min-width: 0px;
-}
-
-.c17 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c18 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c19 .c6 {
-  color: inherit;
-  font-size: inherit;
 }
 
 .c5 {
@@ -2819,6 +2852,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-collapsed 1`] 
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   dvr
                 </span>
@@ -3055,6 +3090,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-collapsed 1`] 
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   screen_lock_portrait
                 </span>
@@ -3127,6 +3164,10 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-not-collapsed-
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c0 {
   outline: transparent solid 1px;
 }
@@ -3285,16 +3326,6 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-not-collapsed-
   outline: none;
   width: 100%;
   padding: 8px 16px;
-}
-
-.c17 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c18 .c6 {
-  color: inherit;
-  font-size: inherit;
 }
 
 .c5 {
@@ -3506,6 +3537,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-not-collapsed-
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   dvr
                 </span>
@@ -3532,6 +3565,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-not-collapsed-
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -3586,6 +3621,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-not-collapsed-
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -3673,6 +3710,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-not-collapsed-
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -3772,6 +3811,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-not-collapsed-
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   screen_lock_portrait
                 </span>
@@ -3844,6 +3885,10 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-old-child
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c0 {
   outline: transparent solid 1px;
 }
@@ -4002,16 +4047,6 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-old-child
   outline: none;
   width: 100%;
   padding: 8px 16px;
-}
-
-.c17 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c18 .c6 {
-  color: inherit;
-  font-size: inherit;
 }
 
 .c5 {
@@ -4223,6 +4258,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-old-child
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   dvr
                 </span>
@@ -4249,6 +4286,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-old-child
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -4303,6 +4342,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-old-child
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -4390,6 +4431,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-old-child
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   chevron_right
                 </span>
@@ -4489,6 +4532,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-old-child
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   screen_lock_portrait
                 </span>
@@ -4561,6 +4606,10 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-variants 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c13 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -4587,6 +4636,10 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-variants 
 
 .c13.c13 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c13 {
+  color: inherit;
 }
 
 .c0 {
@@ -4651,31 +4704,6 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-variants 
   outline: none;
   width: 100%;
   padding: 8px 16px;
-}
-
-.c16 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c17 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c18 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c19 .c6 {
-  color: inherit;
-  font-size: inherit;
-}
-
-.c20 .c6 {
-  color: rgb(255, 255, 255);
-  font-size: inherit;
 }
 
 .c5 {
@@ -4839,6 +4867,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-variants 
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   radio_button_unchecked
                 </span>
@@ -4887,6 +4917,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-variants 
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   info
                 </span>
@@ -4935,6 +4967,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-variants 
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   
                 </span>
@@ -4983,6 +5017,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-variants 
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   warning
                 </span>
@@ -5031,6 +5067,8 @@ exports[`com.mgmtp.a12.widgets.menu.flyout > vertical-flyout-menu-with-variants 
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   check_circle
                 </span>

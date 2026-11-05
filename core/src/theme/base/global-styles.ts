@@ -35,7 +35,6 @@ import { createGlobalStyle } from "styled-components";
 import { addPrefix } from "../../common/main/utils.js";
 
 import { helperClasses } from "./helpers/helper-classes.js";
-import { utilClasses } from "./utils/util-classes.js";
 import {
 	formLegacyStyles,
 	formLegacyStylesForFormEngine,
@@ -43,6 +42,7 @@ import {
 	formSectionStyles,
 	formTextCellStyles
 } from "./legacy/form.js";
+import { utilClasses } from "./utils/util-classes.js";
 
 export const GlobalStyles = createGlobalStyle`
   html, body {

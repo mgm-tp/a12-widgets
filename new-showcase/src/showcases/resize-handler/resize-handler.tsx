@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import { useRef, useState } from "react";
 import { css, styled } from "styled-components";
-import { loremIpsum } from "lorem-ipsum";
 
 import { ResizeHandler } from "@com.mgmtp.a12.widgets/widgets-core";
 
@@ -48,14 +48,16 @@ const ShowcaseStyledPaneWrapper = styled.div<{ $width?: number }>(
 		border-radius: 8px;
 		background-color: #ffff;
 
-		${$width
-			? css`
-					width: ${$width}px;
-				`
-			: css`
-					flex: 1;
-					min-width: 0;
-				`}
+		${
+			$width
+				? css`
+						width: ${$width}px;
+					`
+				: css`
+						flex: 1;
+						min-width: 0;
+					`
+		}
 	`
 );
 

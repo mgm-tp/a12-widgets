@@ -34,15 +34,14 @@ import type { ReactElement } from "react";
 import { memo } from "react";
 import { styled, css } from "styled-components";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { joinClassNames } from "../../../common/main/utils.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
-import type { TableTemplateProps } from "./table.tpl.api.js";
 import { StyledBaseTable } from "./table.styled.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 
 const StyledTableHeaderGroupChildren = styled.div.withConfig({ displayName: "StyledTableHeaderGroupChildren-sc-" })(
 	({ theme }) => {
@@ -88,20 +87,22 @@ export const StyledTableHeadCellGroup = styled(StyledBaseTable.Group).withConfig
 			flex-grow: 1;
 			width: auto;
 		}
-		${!resizable &&
-		css`
-			${createPseudoElement(
-				":after",
-				css`
-					display: block;
-					left: unset;
-					border-right: ${headCellGroup.gapForGroup};
-				`
-			)}
-			&:focus:after {
-				border-color: transparent;
-			}
-		`}
+		${
+			!resizable &&
+			css`
+				${createPseudoElement(
+					":after",
+					css`
+						display: block;
+						left: unset;
+						border-right: ${headCellGroup.gapForGroup};
+					`
+				)}
+				&:focus:after {
+					border-color: transparent;
+				}
+			`
+		}
 	`;
 });
 

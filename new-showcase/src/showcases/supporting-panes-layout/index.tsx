@@ -30,17 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import SupportingPanesLayoutAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/supporting-panes-layout/main/supporting-panes-layout.api.json" with { type: "json" };
+import basicCode from "!./basic.tsx?raw";
+import nestedLayoutCode from "!./nested-layout.tsx?raw";
+import secondaryPaneCode from "!./secondary-pane.tsx?raw";
+
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
+import SupportingPanesLayoutAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/supporting-panes-layout/main/supporting-panes-layout.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { Basic } from "./basic.js";
 import { NestedLayout } from "./nested-layout.js";
-
-import basicCode from "!./basic.tsx?raw";
-import nestedLayoutCode from "!./nested-layout.tsx?raw";
-import secondaryPaneCode from "!./secondary-pane.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

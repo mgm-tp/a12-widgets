@@ -30,10 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
+
 import type { FC } from "react";
 import { useState } from "react";
 
-import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
 import { Icon, createSpellCheckPlugin, RichTextEditor, Button } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { handleSpellCheck } from "../common.js";

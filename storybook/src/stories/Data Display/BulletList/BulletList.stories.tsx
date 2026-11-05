@@ -34,22 +34,44 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 
-const meta: Meta = {
+const meta: Meta<typeof BulletList.Unordered> = {
 	title: "Data Display/BulletList",
 	component: BulletList.Unordered,
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"]
+	argTypes: {
+		type: {
+			control: "select",
+			options: ["disc", "circle", "square", "none"],
+			description: "Bullet marker style of the unordered list"
+		},
+		inline: {
+			control: "boolean",
+			description: "Renders the list items in a single horizontal row"
+		},
+		indent: {
+			control: "boolean",
+			description: "Whether the list is indented (unordered lists only)"
+		},
+		children: {
+			control: false,
+			description: "List items, typically `BulletList.Item` elements"
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	name: "Unordered List",
-	render: () => (
-		<BulletList.Unordered type="disc">
+export const Playground: Story = {
+	args: {
+		type: "disc",
+		inline: false,
+		indent: true
+	},
+	render: (args) => (
+		<BulletList.Unordered {...args}>
 			<BulletList.Item>First item</BulletList.Item>
 			<BulletList.Item>Second item</BulletList.Item>
 			<BulletList.Item>Third item</BulletList.Item>
@@ -57,44 +79,54 @@ export const Default: Story = {
 	)
 };
 
-export const UnorderedDisc: Story = {
+export const UnorderedTypes: Story = {
 	render: () => (
-		<BulletList.Unordered type="disc">
-			<BulletList.Item>First item</BulletList.Item>
-			<BulletList.Item>Second item</BulletList.Item>
-			<BulletList.Item>Third item</BulletList.Item>
-		</BulletList.Unordered>
-	)
+		<div style={{ display: "flex", gap: "48px", flexWrap: "wrap" }}>
+			{(["disc", "circle", "square", "none"] as const).map((type) => (
+				<div key={type}>
+					<strong>{type}</strong>
+					<BulletList.Unordered type={type}>
+						<BulletList.Item>First item</BulletList.Item>
+						<BulletList.Item>Second item</BulletList.Item>
+						<BulletList.Item>Third item</BulletList.Item>
+					</BulletList.Unordered>
+				</div>
+			))}
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`BulletList.Unordered` supports the marker `type` values `disc` (default), `circle`, `square` and `none`."
+			}
+		}
+	}
 };
 
-export const UnorderedCircle: Story = {
+export const OrderedTypes: Story = {
 	render: () => (
-		<BulletList.Unordered type="circle">
-			<BulletList.Item>Alpha</BulletList.Item>
-			<BulletList.Item>Beta</BulletList.Item>
-			<BulletList.Item>Gamma</BulletList.Item>
-		</BulletList.Unordered>
-	)
-};
-
-export const OrderedDecimal: Story = {
-	render: () => (
-		<BulletList.Ordered type="decimal">
-			<BulletList.Item>Step one</BulletList.Item>
-			<BulletList.Item>Step two</BulletList.Item>
-			<BulletList.Item>Step three</BulletList.Item>
-		</BulletList.Ordered>
-	)
-};
-
-export const OrderedLowerAlpha: Story = {
-	render: () => (
-		<BulletList.Ordered type="lower-alpha">
-			<BulletList.Item>Option a</BulletList.Item>
-			<BulletList.Item>Option b</BulletList.Item>
-			<BulletList.Item>Option c</BulletList.Item>
-		</BulletList.Ordered>
-	)
+		<div style={{ display: "flex", gap: "48px", flexWrap: "wrap" }}>
+			{(["decimal", "decimal-leading-zero", "lower-roman", "upper-roman", "lower-alpha"] as const).map((type) => (
+				<div key={type}>
+					<strong>{type}</strong>
+					<BulletList.Ordered type={type}>
+						<BulletList.Item>Step one</BulletList.Item>
+						<BulletList.Item>Step two</BulletList.Item>
+						<BulletList.Item>Step three</BulletList.Item>
+					</BulletList.Ordered>
+				</div>
+			))}
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`BulletList.Ordered` renders a numbered list. The `type` prop selects the numbering scheme: `decimal` (default), `decimal-leading-zero`, `lower-roman`, `upper-roman` or `lower-alpha`."
+			}
+		}
+	}
 };
 
 export const Inline: Story = {
@@ -104,7 +136,44 @@ export const Inline: Story = {
 			<BulletList.Item>Products</BulletList.Item>
 			<BulletList.Item>About</BulletList.Item>
 		</BulletList.Unordered>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'`inline` lays the items out horizontally — combined with `type="none"` this is useful for navigation-style lists.'
+			}
+		}
+	}
+};
+
+export const WithoutIndent: Story = {
+	render: () => (
+		<div style={{ display: "flex", gap: "48px" }}>
+			<div>
+				<strong>indent (default)</strong>
+				<BulletList.Unordered type="disc">
+					<BulletList.Item>First item</BulletList.Item>
+					<BulletList.Item>Second item</BulletList.Item>
+				</BulletList.Unordered>
+			</div>
+			<div>
+				<strong>indent=false</strong>
+				<BulletList.Unordered type="disc" indent={false}>
+					<BulletList.Item>First item</BulletList.Item>
+					<BulletList.Item>Second item</BulletList.Item>
+				</BulletList.Unordered>
+			</div>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Setting `indent={false}` on `BulletList.Unordered` removes the default left indentation so the list aligns with surrounding content."
+			}
+		}
+	}
 };
 
 export const Nested: Story = {

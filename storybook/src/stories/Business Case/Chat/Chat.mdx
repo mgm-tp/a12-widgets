@@ -1,0 +1,63 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ChatStories from "./Chat.stories";
+
+<Meta of={ChatStories} />
+
+<Title />
+
+The `Chat` widget is a compound component for building chat UIs. `Chat.Container` is the scrollable
+message area — it keeps the view pinned to the newest message and exposes scroll callbacks
+(`onScroll`, `onScrollStart`, `onScrollEnd`) for implementing features like loading older messages.
+
+- Group consecutive messages from one user with `Chat.MessageGroup`; its `position` (`left`/`right`)
+  aligns the whole group.
+- Render individual messages with `Chat.Message`; the `status` prop shows metadata such as
+  timestamps or read receipts below the bubble.
+- Identify the sender via `Chat.UserInfo` with an optional `Chat.Avatar` (falls back to a generic
+  account icon).
+- Structure the stream with `Chat.DateMarker`, announce events inline with `Chat.Notification`, and
+  signal activity with `Chat.TypingMarker`.
+
+## Playground
+
+Use the controls below to explore the `Chat.Container` props interactively.
+
+<Primary />
+
+<Controls of={ChatStories.Playground} />
+
+## Examples
+
+### Conversation
+
+<Canvas of={ChatStories.Conversation} />
+
+### Message status
+
+<Canvas of={ChatStories.MessageStatus} />
+
+### Typing indicator
+
+<Canvas of={ChatStories.TypingIndicator} />
+
+### Date markers and notifications
+
+<Canvas of={ChatStories.DateMarkersAndNotifications} />
+
+### Fixed notification
+
+<Canvas of={ChatStories.FixedNotification} />

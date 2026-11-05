@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
 import { TZDate } from "@date-fns/tz";
+import type { ReactElement } from "react";
 
 import { DatePickerInput } from "./date-picker-input.js";
 

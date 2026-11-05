@@ -34,7 +34,6 @@ import { fireEvent, getByDataRole, render, getByRole } from "test-utils";
 import { describe, test, expect, vi, beforeAll, afterAll } from "vitest";
 
 import { DataRoles } from "../../common/main/data-roles.js";
-
 import { DatePickerDialog } from "../main/date-picker.mobile.view.js";
 import { PickerHeaderCloseButton } from "../main/date-picker.tpl.view.js";
 

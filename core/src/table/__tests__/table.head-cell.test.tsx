@@ -34,18 +34,17 @@ import { fireEvent, getByDataRole, render } from "test-utils";
 import { Key } from "ts-key-enum";
 import { describe, vi, expect, test } from "vitest";
 
-import { noop } from "../../common/main/utils.js";
 import { Button } from "../../button/main/button.view.js";
-import { Icon } from "../../icon/main/icon.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { noop } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { Switch } from "../../input/switch/main/switch.view.js";
 import { Status } from "../../status/main/status.view.js";
 import { Tag } from "../../tag/main/tag/tag.view.js";
-
 import type { BaseColumnType, Column } from "../main/column.api.js";
-import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
-import { TableInternalUtils } from "../main/table.utils.js";
 import { HeadCell } from "../main/table.head-cell.view.js";
+import { TableInternalUtils } from "../main/table.utils.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
 
 describe("com.mgmtp.a12.widgets.table.head-cell", () => {
 	type ColumnType = BaseColumnType;

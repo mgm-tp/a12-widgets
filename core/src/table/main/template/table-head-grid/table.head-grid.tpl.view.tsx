@@ -34,11 +34,10 @@ import type { FocusEvent, ReactElement } from "react";
 import { useCallback, useRef } from "react";
 
 import { DataRoles } from "../../../../common/index.js";
-
 import { useRowScrollManager } from "../table.tpl.utils.js";
 
-import { StyledTableHeadGrid, StyledTableHeadGridRow } from "./table.head-grid.tpl.styled.js";
 import type { HeadGridRowTplProps, HeadGridTplProps } from "./table.head-grid.api.js";
+import { StyledTableHeadGrid, StyledTableHeadGridRow } from "./table.head-grid.tpl.styled.js";
 
 export function HeadGridTpl(props: HeadGridTplProps): ReactElement {
 	const { children, columnWidths, totalRows, className, style } = props;

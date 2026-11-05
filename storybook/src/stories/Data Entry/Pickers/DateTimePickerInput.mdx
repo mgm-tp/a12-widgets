@@ -1,0 +1,57 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as DateTimePickerInputStories from "./DateTimePickerInput.stories";
+
+<Meta of={DateTimePickerInputStories} />
+
+<Title />
+
+`DateTimePickerInput` is a higher-order component that attaches a text input to a
+`DateTimePicker` (or to `DateTimePickerTimeInput`, a picker variant with a dedicated time input
+on the time screen). Users can type a date and time directly or open the picker popup from the
+input's button.
+
+- The wrapped picker is configured through `pickerProps` (everything `DateTimePicker` supports:
+  `timeMode`, `timezone`, `disabled` matchers, `yearRange`, …).
+- Typed input is parsed with `dateTimeInputFormat` or fully custom
+  `dateTimeFormatter`/`dateTimeConverter` functions; invalid input is reported via
+  `onInputValidationError` and surfaced with `inputErrorMessage`.
+- `inputLabel`, `placeholder`, `helperText`, `inputWarningMessage` and `inputTooltips` cover the
+  usual form-field anatomy.
+
+The controls in the Playground map to picker props and are forwarded via `pickerProps`.
+
+## Playground
+
+Use the controls below to explore the picker props interactively.
+
+<Primary />
+
+<Controls of={DateTimePickerInputStories.Playground} />
+
+## Examples
+
+### Time input
+
+<Canvas of={DateTimePickerInputStories.TimeInput} />
+
+### Timezone
+
+<Canvas of={DateTimePickerInputStories.Timezone} />
+
+### Additional properties
+
+<Canvas of={DateTimePickerInputStories.AdditionalProperties} />

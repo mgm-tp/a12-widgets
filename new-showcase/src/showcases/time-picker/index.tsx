@@ -30,25 +30,25 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import TimePickerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/time-picker/main/time-picker.api.json" with { type: "json" };
+import accessibilityCode from "!./accessibility-time-picker.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import contextTimeModeCode from "!./context-time-mode.tsx?raw";
+import customFormatCode from "!./custom-format.tsx?raw";
+import customHeaderCode from "!./custom-header.tsx?raw";
+import timezoneCode from "!./timezone.tsx?raw";
+import useTimePickerPropsCode from "!./use-time-picker-props.tsx?raw";
+
 import { BulletList, ExternalLink, Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import TimePickerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/time-picker/main/time-picker.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
+import { AccessibilityShowcase } from "./accessibility-time-picker.js";
 import { BasicShowcase } from "./basic.js";
 import { ContextTimeModeShowcase } from "./context-time-mode.js";
+import { CustomFormatShowcase } from "./custom-format.js";
 import { CustomHeader } from "./custom-header.js";
 import { TimezoneShowcase } from "./timezone.js";
-import { CustomFormatShowcase } from "./custom-format.js";
-import { AccessibilityShowcase } from "./accessibility-time-picker.js";
-
-import basicCode from "!./basic.tsx?raw";
-import contextTimeModeCode from "!./context-time-mode.tsx?raw";
-import customHeaderCode from "!./custom-header.tsx?raw";
-import timezoneCode from "!./timezone.tsx?raw";
-import customFormatCode from "!./custom-format.tsx?raw";
-import accessibilityCode from "!./accessibility-time-picker.tsx?raw";
-import useTimePickerPropsCode from "!./use-time-picker-props.tsx?raw";
 
 const timePickerPropsCode = {
 	name: "use-time-picker-props.tsx",

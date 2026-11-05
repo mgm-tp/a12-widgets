@@ -30,46 +30,46 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import TableAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table.api.json" with { type: "json" };
-import ColumnAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/column.api.json" with { type: "json" };
-import TableRowsGroupAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table-rows-group/table-row-group.api.json" with { type: "json" };
-import TableRendererAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table-renderer.api.json" with { type: "json" };
+import resizableCode from "!././advanced/resizable-column.tsx?raw";
+import accessibilityCode from "!./accessibility.tsx?raw";
+import contextMenuCode from "!./advanced/context-menu.tsx?raw";
+import dnDCode from "!./advanced/dnd.tsx?raw";
+import resizableFlatCode from "!./advanced/resizable-column-flat.tsx?raw";
+import virtualizedCode from "!./advanced/virtualized.tsx?raw";
+import basicCode from "!./basic-table.tsx?raw";
+import columnGroupAccessibilityCode from "!./column-group-accessibility.tsx?raw";
+import columnGroupCode from "!./column-group.tsx?raw";
+import crossTabulationCode from "!./cross-tabulation.tsx?raw";
+import customizationCode from "!./customization.tsx?raw";
+import dataCode from "!./data.ts?raw";
+import expandableCode from "!./expandable-table.tsx?raw";
+import rowGroupCode from "!./row-group.tsx?raw";
+import scrollToNodeCode from "!./scroll-to-node.tsx?raw";
+import utilsCode from "!./utils.ts?raw";
+
 import { BulletList, ExternalLink, Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import ColumnAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/column.api.json" with { type: "json" };
+import TableRendererAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table-renderer.api.json" with { type: "json" };
+import TableRowsGroupAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table-rows-group/table-row-group.api.json" with { type: "json" };
+import TableAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/table.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseBulletListInMessageBox, StyledShowcaseLinkInMessageBox } from "../../helpers/showcase-styles.js";
 
-import { BasicTableShowcase } from "./basic-table.js";
-import { ExpandableTableShowcase } from "./expandable-table.js";
-import { ColumnGroupTableShowcase } from "./column-group.js";
-import { RowGroupTableShowcase } from "./row-group.js";
-import { ResizableTableShowcase } from "./advanced/resizable-column.js";
+import { Accessibility } from "./accessibility.js";
+import { ContextMenuTableShowcase } from "./advanced/context-menu.js";
+import { DnDTableShowcase } from "./advanced/dnd.js";
 import { ResizableTableFlatShowcase } from "./advanced/resizable-column-flat.js";
+import { ResizableTableShowcase } from "./advanced/resizable-column.js";
+import { VirtualizedTableShowcase } from "./advanced/virtualized.js";
+import { BasicTableShowcase } from "./basic-table.js";
+import { ColumnGroupAccessibility } from "./column-group-accessibility.js";
+import { ColumnGroupTableShowcase } from "./column-group.js";
 import { CrossTabulationShowcase } from "./cross-tabulation.js";
 import { CustomizationTableShowcase } from "./customization.js";
-import { DnDTableShowcase } from "./advanced/dnd.js";
-import { ContextMenuTableShowcase } from "./advanced/context-menu.js";
-import { VirtualizedTableShowcase } from "./advanced/virtualized.js";
+import { ExpandableTableShowcase } from "./expandable-table.js";
+import { RowGroupTableShowcase } from "./row-group.js";
 import { ScrollToNodeTableShowcase } from "./scroll-to-node.js";
-import { ColumnGroupAccessibility } from "./column-group-accessibility.js";
-import { Accessibility } from "./accessibility.js";
-
-import basicCode from "!./basic-table.tsx?raw";
-import expandableCode from "!./expandable-table.tsx?raw";
-import columnGroupCode from "!./column-group.tsx?raw";
-import columnGroupAccessibilityCode from "!./column-group-accessibility.tsx?raw";
-import rowGroupCode from "!./row-group.tsx?raw";
-import resizableCode from "!././advanced/resizable-column.tsx?raw";
-import resizableFlatCode from "!./advanced/resizable-column-flat.tsx?raw";
-import crossTabulationCode from "!./cross-tabulation.tsx?raw";
-import customizationCode from "!./customization.tsx?raw";
-import dnDCode from "!./advanced/dnd.tsx?raw";
-import contextMenuCode from "!./advanced/context-menu.tsx?raw";
-import virtualizedCode from "!./advanced/virtualized.tsx?raw";
-import scrollToNodeCode from "!./scroll-to-node.tsx?raw";
-import utilsCode from "!./utils.ts?raw";
-import accessibilityCode from "!./accessibility.tsx?raw";
-import dataCode from "!./data.ts?raw";
 
 const showcases: Showcase[] = [
 	{
@@ -421,7 +421,7 @@ const showcases: Showcase[] = [
 									as the horizontal header, so it could only be sorted vertically.
 								</p>
 								<p>
-									It is recommended to also use the <code>cellHiglighting</code> property for Cross Tabulation to make
+									It is recommended to also use the <code>cellHighlighting</code> property for Cross Tabulation to make
 									the corresponding Header Cells highlighted when hovering over the Body Cells.
 								</p>
 							</>
@@ -462,21 +462,36 @@ const showcases: Showcase[] = [
 						code: { name: "accessibility.tsx", code: accessibilityCode },
 						fitToSection: true,
 						fullSize: true,
-						description: (
-							<>
+						description: {
+							info: (
+								<>
+									<p>
+										<code>componentRenderers</code> lets you replace the content of the cells. Custom content has to
+										keep the table accessible: the selection Checkbox and the Buttons of the Action Column carry no row
+										data on their own, so name them after the row. Each row below shows one way to do it:
+									</p>
+									<BulletList.Unordered>
+										<BulletList.Item>
+											<strong>Row 1</strong> puts the row data in the Action Button's <code>title</code>.
+										</BulletList.Item>
+										<BulletList.Item>
+											<strong>Row 2</strong> links the Action Button to the ID cell via <code>aria-labelledby</code>.
+										</BulletList.Item>
+										<BulletList.Item>
+											<strong>Row 3</strong> links the Action Buttons to the TextField of the ID cell via{" "}
+											<code>aria-labelledby</code>, so the name follows the value that is currently typed in.
+										</BulletList.Item>
+									</BulletList.Unordered>
+								</>
+							),
+							note: (
 								<p>
-									<code>componentRenderers</code> property lets you customize the table's rendered. When providing
-									custom components, ensure accessibility is preserved by including the appropriate ARIA attributes and
-									roles.
+									In rows 2 and 3 the <code>aria-labelledby</code> of a Button points to the Button itself as well as to
+									the ID cell. That self reference pulls in the Button's own <code>aria-label</code> (<em>Edit</em> or{" "}
+									<em>Delete</em>), so there is no need for a hidden text element just to hold it.
 								</p>
-								<p>
-									To expose row data to the screen reader (e.g. reading the row ID when an action button is focused),
-									include it in the button's <code>title</code> or use a <code>HiddenText</code> linked via button's{" "}
-									<code>aria-describedby</code>/<code>aria-labelledby</code>. See the Checkbox and Action Column in the
-									example below.
-								</p>
-							</>
-						)
+							)
+						}
 					}
 				]
 			},

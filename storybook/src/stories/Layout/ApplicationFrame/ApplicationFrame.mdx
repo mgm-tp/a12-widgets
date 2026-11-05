@@ -1,0 +1,78 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ApplicationFrameStories from "./ApplicationFrame.stories";
+import * as ApplicationFrameAdvancedStories from "./ApplicationFrame.Advanced.stories";
+
+<Meta of={ApplicationFrameStories} />
+
+<Title />
+
+The `ApplicationFrame` widget is the responsive top-level layout of an A12 application. It arranges
+an application header (`main`), an optional collapsible sidebar (`sub`), the `content` area and an
+optional `footer`, and adapts to desktop, tablet and smartphone screen sizes.
+
+- On desktop the sidebar sits next to the content; on tablet it partially overlaps it; on
+  smartphones it is hidden initially and can be opened via a toggle (`useToggleButton`).
+- Sidebar expansion is controlled with `subExpanded` / `onExpansionChange`, and the expanded
+  sidebar can be `minimized` or `maximized` via `subExpandedState`.
+- `subToolbar` and `contentToolbar` add toolbars above the sidebar and the content, and
+  `subResizableOptions` lets users resize the boundary between sidebar and content.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ApplicationFrameStories.Playground} />
+
+## Examples
+
+### Default
+
+<Canvas of={ApplicationFrameStories.Default} />
+
+### With sidebar
+
+<Canvas of={ApplicationFrameStories.WithSidebar} />
+
+### Mobile toggle button
+
+<Canvas of={ApplicationFrameStories.MobileToggleButton} />
+
+### Toolbars
+
+<Canvas of={ApplicationFrameStories.Toolbars} />
+
+### Master-detail content
+
+<Canvas of={ApplicationFrameStories.WithMasterDetailLayout} />
+
+### With footer
+
+<Canvas of={ApplicationFrameStories.WithFooter} />
+
+### Full layout
+
+<Canvas of={ApplicationFrameStories.FullLayout} />
+
+## Advanced compositions
+
+The `Advanced` sidebar entry shows the frame combined with a vertical `TabPanel` in the `sub`
+slot — including collapsing the sidebar by re-selecting the active tab, minimize/maximize via
+`subExpandedState`, a resizable sidebar boundary and a sticky footer.
+
+<Canvas of={ApplicationFrameAdvancedStories.WithSettingsInfoPanel} />

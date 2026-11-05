@@ -44,13 +44,14 @@ export const CheckboxStatesShowcase: FC = () => {
 
 	return (
 		<div className="-u-width-full">
-			<Checkbox label="Info state" checked={checked} onChange={handleChange} info />
-			<Checkbox label="Warning state" checked={checked} onChange={handleChange} warning />
-			<Checkbox label="Error state" checked={checked} onChange={handleChange} error />
+			<Checkbox id="checkbox-state-info" label="Info state" checked={checked} onChange={handleChange} info />
+			<Checkbox id="checkbox-state-warning" label="Warning state" checked={checked} onChange={handleChange} warning />
+			<Checkbox id="checkbox-state-error" label="Error state" checked={checked} onChange={handleChange} error />
 			<p>
 				<strong>With message:</strong>
 			</p>
 			<Checkbox
+				id="checkbox-state-info-message"
 				label="Info state with message"
 				checked={checked}
 				onChange={handleChange}
@@ -58,6 +59,7 @@ export const CheckboxStatesShowcase: FC = () => {
 			/>
 			<br />
 			<Checkbox
+				id="checkbox-state-warning-message"
 				label="Warning state with message"
 				checked={checked}
 				onChange={handleChange}
@@ -65,6 +67,7 @@ export const CheckboxStatesShowcase: FC = () => {
 			/>
 			<br />
 			<Checkbox
+				id="checkbox-state-error-message"
 				label="Error state with message"
 				checked={checked}
 				onChange={handleChange}
@@ -76,6 +79,7 @@ export const CheckboxStatesShowcase: FC = () => {
 				<strong>With tooltips (recommended when showing state's messages in a limited space):</strong>
 			</p>
 			<Checkbox
+				id="checkbox-state-info-tooltip"
 				label="Info state with tooltip"
 				checked={checked}
 				onChange={handleChange}
@@ -84,6 +88,7 @@ export const CheckboxStatesShowcase: FC = () => {
 				ariaDescribedby="checkbox-tooltip-1"
 			/>
 			<Checkbox
+				id="checkbox-state-warning-tooltip"
 				label="Warning state with tooltip"
 				checked={checked}
 				onChange={handleChange}
@@ -92,6 +97,7 @@ export const CheckboxStatesShowcase: FC = () => {
 				ariaDescribedby="checkbox-tooltip-2"
 			/>
 			<Checkbox
+				id="checkbox-state-error-tooltip"
 				label="Error state with tooltip"
 				checked={checked}
 				onChange={handleChange}
@@ -102,13 +108,37 @@ export const CheckboxStatesShowcase: FC = () => {
 			<p>
 				<strong>Readonly:</strong>
 			</p>
-			<Checkbox label="Readonly state" checked={false} onChange={(): void => {}} readonly />
-			<Checkbox label="Readonly state (checked)" checked={true} onChange={(): void => {}} readonly />
+			<Checkbox
+				id="checkbox-state-readonly"
+				label="Readonly state"
+				checked={false}
+				onChange={(): void => {}}
+				readonly
+			/>
+			<Checkbox
+				id="checkbox-state-readonly-checked"
+				label="Readonly state (checked)"
+				checked={true}
+				onChange={(): void => {}}
+				readonly
+			/>
 			<p>
 				<strong>Disabled:</strong>
 			</p>
-			<Checkbox label="Disabled state" checked={false} onChange={(): void => {}} disabled />
-			<Checkbox label="Disabled state (checked)" checked={true} onChange={(): void => {}} disabled />
+			<Checkbox
+				id="checkbox-state-disabled"
+				label="Disabled state"
+				checked={false}
+				onChange={(): void => {}}
+				disabled
+			/>
+			<Checkbox
+				id="checkbox-state-disabled-checked"
+				label="Disabled state (checked)"
+				checked={true}
+				onChange={(): void => {}}
+				disabled
+			/>
 		</div>
 	);
 };

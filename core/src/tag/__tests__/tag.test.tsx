@@ -33,14 +33,16 @@
 import { fireEvent, getByDataRole, render } from "test-utils";
 import { describe, expect, test, vi } from "vitest";
 
+import { DataRoles } from "../../common/index.js";
+import { A11yResourceDefinitions } from "../../common/main/a11y-localization/a11y-resources.js";
 import { Icon } from "../../icon/main/icon.view.js";
 import { getCompactTheme } from "../../theme/index.js";
-
 import type { TagProps } from "../main/tag/tag.api.js";
 import { Tag } from "../main/tag/tag.view.js";
 
 describe("com.mgmtp.a12.widgets.tag", () => {
 	const baseDataRole = "tag";
+	const deleteTagButtonTitle = A11yResourceDefinitions.en.tagTitles?.deleteTagButton;
 	const baseProps: Partial<TagProps> = {
 		id: "test-id",
 		className: "test-class",
@@ -90,9 +92,19 @@ describe("com.mgmtp.a12.widgets.tag", () => {
 
 		expect(container.firstChild).toMatchSnapshot();
 
-		const removeButton = getByDataRole(container, "button");
+		const removeButton = getByDataRole(container, DataRoles.Button);
 		fireEvent.click(removeButton);
 		expect(onRemoveSpy).toHaveBeenCalledTimes(1);
+	});
+
+	test("Remove button's title/aria-label combine the delete label with the tag's content", () => {
+		const { getByDataRole } = render(<Tag removable>{tagContent}</Tag>);
+
+		const removeButton = getByDataRole(DataRoles.Button);
+		const fullLabel = `${deleteTagButtonTitle} ${tagContent}`;
+
+		expect(removeButton.getAttribute("title")).toBe(fullLabel);
+		expect(removeButton.getAttribute("aria-label")).toBe(fullLabel);
 	});
 
 	describe("Compact theme", () => {

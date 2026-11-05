@@ -33,11 +33,11 @@
 import type { ReactNode } from "react";
 import { createElement, isValidElement, cloneElement } from "react";
 
-import { getHorizontalSpacing } from "../../../common/main/responsive-handler.js";
-import { QuickAccessButton } from "../../../quick-access-button/main/quick-access-button.view.js";
 import type { ButtonProps } from "../../../button/main/button.api.js";
 import { Button } from "../../../button/main/button.view.js";
+import { getHorizontalSpacing } from "../../../common/main/responsive-handler.js";
 import { List } from "../../../list/main/list.view.js";
+import { QuickAccessButton } from "../../../quick-access-button/main/quick-access-button.view.js";
 
 import { ButtonGroupContainerProps } from "./button-group-container.api.js";
 

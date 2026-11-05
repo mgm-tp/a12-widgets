@@ -34,20 +34,19 @@ import type { ReactElement, ReactNode } from "react";
 import { Children, Fragment, useMemo, useRef } from "react";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
-import { flattenAllColumns } from "../foundation/utils.js";
-import { DataTableRowGroupHeader } from "../default-renderers.js";
-import type { BaseDataTableProps } from "../data-table.api.js";
 import type { DataTableSlotProps, DataTableSlots } from "../data-table-slots.api.js";
+import type { BaseDataTableProps } from "../data-table.api.js";
 import { DataTable } from "../data-table.view.js";
+import { DataTableRowGroupHeader } from "../default-renderers.js";
+import { flattenAllColumns } from "../foundation/utils.js";
 import { StyledCellContent } from "../template/data-table.styled-utils.js";
 
+import type { DataTableRowsGroupProps } from "./data-table-rows-group.api.js";
 import {
 	StyledGroupHeaderButton,
 	StyledGroupHeaderCell,
 	StyledGroupHeaderRow
 } from "./data-table-rows-group.styled.js";
-import type { DataTableRowsGroupProps } from "./data-table-rows-group.api.js";
 
 interface GroupMeta {
 	groupIndex: number;

@@ -30,9 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FlatThemeType } from "../../../schema.js";
 import { commonButtonConfigs } from "../../../default/config/components/button.config.js";
-
+import type { FlatThemeType } from "../../../schema.js";
 import { GeneralFlatColorsConfig } from "../base/colors.config.js";
 
 export const applicationFrameFlatConfig = (theme: FlatThemeType) => {

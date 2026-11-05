@@ -32,7 +32,6 @@
 
 import { css } from "styled-components";
 
-import { StyledBaseBoolean } from "../../../input/base-input-styled/base-boolean.styled.js";
 import { StyledButton } from "../../../button/main/button.styled.js";
 import {
 	StyledCollapsiblePanelTitle,
@@ -40,15 +39,15 @@ import {
 } from "../../../collapsible-panel/main/collapsible-panel.view.js";
 import { addPrefix } from "../../../common/main/utils.js";
 import { StyledAutocompleteWrapper } from "../../../input/autocomplete/main/autocomplete.styled.js";
+import { StyledBaseBoolean } from "../../../input/base-input-styled/base-boolean.styled.js";
 import { StyledBaseInput } from "../../../input/base-input-styled/base.styled.js";
-import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
-import { StyledTextOutputContent } from "../../../text-output/main/text-output.view.js";
-import { StyledMultiselectWrapper } from "../../../multiselect/main/multiselect.styled.js";
 import { StyledIconPickerWrapper } from "../../../input/icon-picker/main/icon-picker.styled.js";
-import { StyledTagGroup } from "../../../tag/main/tag-group.view.js";
-import { StyledTimePickerWrapper } from "../../../time-picker/main/time-picker.styled.js";
+import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
 import { StyledYearMonthSelector } from "../../../input/year-month-selector/year-month-selector.styled.js";
-
+import { StyledMultiselectWrapper } from "../../../multiselect/main/multiselect.styled.js";
+import { StyledTagGroup } from "../../../tag/main/tag-group.view.js";
+import { StyledTextOutputContent } from "../../../text-output/main/text-output.view.js";
+import { StyledTimePickerWrapper } from "../../../time-picker/main/time-picker.styled.js";
 import { MAPPED_COLORS } from "../utils/utils.js";
 
 const { StyledFieldWrapper, StyledField, StyledFieldInput } = StyledBaseInput;
@@ -73,18 +72,18 @@ export const backgroundColorHelper = css`
 
 						// Text Field, Text Area, Text Output, Time Picker, Autocomplete, Select, Multiselect, Icon Picker, Year and Month Selector, Radio, Checkbox, Checkbox Group
 						> ${StyledFieldWrapper},
-							> ${StyledField},
-							> ${StyledAutocompleteWrapper},
-							> ${StyledMultiselectWrapper},
-							> ${StyledIconPickerWrapper},
-							> ${StyledTimePickerWrapper},
-							> ${StyledYearMonthSelector} {
+						> ${StyledField},
+						> ${StyledAutocompleteWrapper},
+						> ${StyledMultiselectWrapper},
+						> ${StyledIconPickerWrapper},
+						> ${StyledTimePickerWrapper},
+						> ${StyledYearMonthSelector} {
+							${StyledTextOutputContent},
 							${StyledFieldInput}:not([data-disabled="true"]),
-							${StyledFieldSelectControl}:not([data-disabled="true"]), 
-							${StyledSelectInput}:not(:disabled), 
-							${StyledTextOutputContent}, 
-							${StyledFieldGroup}, 
-							${StyledFieldControl}, 
+							${StyledFieldSelectControl}:not([data-disabled="true"]),
+							${StyledSelectInput}:not(:disabled),
+							${StyledFieldGroup},
+							${StyledFieldControl},
 							${StyledTagGroup} {
 								background-color: ${bgValue};
 							}

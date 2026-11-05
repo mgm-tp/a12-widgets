@@ -30,18 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { waitFor } from "@testing-library/dom";
 import type { FC, ReactNode } from "react";
 import { render } from "test-utils";
 import { describe, expect, test } from "vitest";
-import { waitFor } from "@testing-library/dom";
 
-import { DataRoles } from "../../../../common/main/data-roles.js";
-import { Autocomplete } from "../../../../input/autocomplete/main/autocomplete.view.js";
-import { Button } from "../../../../button/main/button.view.js";
 import { ButtonGroup } from "../../../../button-group/main/button-group.view.js";
-import { Icon } from "../../../../icon/main/icon.view.js";
-import { TextOutput } from "../../../../text-output/main/text-output.view.js";
+import { Button } from "../../../../button/main/button.view.js";
 import type { Styleable } from "../../../../common/main/base-props.js";
+import { DataRoles } from "../../../../common/main/data-roles.js";
+import { Icon } from "../../../../icon/main/icon.view.js";
+import { Autocomplete } from "../../../../input/autocomplete/main/autocomplete.view.js";
+import { TextOutput } from "../../../../text-output/main/text-output.view.js";
 import { GlobalStyles } from "../../global-styles.js";
 
 const AutocompleteExample: FC<Styleable> = ({ className }): ReactNode => {

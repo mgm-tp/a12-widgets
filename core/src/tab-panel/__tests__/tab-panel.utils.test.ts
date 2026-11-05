@@ -32,8 +32,8 @@
 
 import { describe, expect, test } from "vitest";
 
-import type { TabPanelTemplateProps } from "../main/template/index.js";
 import { filterGroupedTabs, flattenTabs, isGroupedTabList } from "../main/tab-panel.utils.js";
+import type { TabPanelTemplateProps } from "../main/template/index.js";
 
 const tab1: TabPanelTemplateProps.TabProps = { value: "navigation", id: "tab-navigation", title: "Navigation" };
 const tab2: TabPanelTemplateProps.TabProps = { value: "search", id: "tab-search", title: "Search" };

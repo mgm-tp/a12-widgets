@@ -33,12 +33,12 @@
 import { render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import { FilterSelector } from "../../main/filter-selector/filter-selector.view.js";
-import { FilterSelectorTemplate } from "../../main/filter-selector/tpl/filter-selector.tpl.view.js";
-import type { FilterItemData, FilterSectionData } from "../../main/filter-selector/filter-selector.list-mode.api.js";
-import { filterData, filterSectionData } from "../../test/setup.js";
 import { DataRoles } from "../../../common/index.js";
 import { A11yResourceDefinitions } from "../../../common/main/a11y-localization/a11y-resources.js";
+import type { FilterItemData, FilterSectionData } from "../../main/filter-selector/filter-selector.list-mode.api.js";
+import { FilterSelector } from "../../main/filter-selector/filter-selector.view.js";
+import { FilterSelectorTemplate } from "../../main/filter-selector/tpl/filter-selector.tpl.view.js";
+import { filterData, filterSectionData } from "../../test/setup.js";
 
 const sampleItems: FilterItemData[] = [
 	{

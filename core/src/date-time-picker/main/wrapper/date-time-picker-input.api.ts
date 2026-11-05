@@ -33,12 +33,11 @@
 import type { ReactNode, RefCallback } from "react";
 
 import type { BaseInputProps } from "../../../input/base/template/base.tpl.api.js";
-
 import type { DateTimePickerProps } from "../date-time-picker.api.js";
 
 export interface DateTimePickerInputProps<T extends DateTimePickerProps> extends Omit<
 	BaseInputProps,
-	"breakTooltipsToNewLine" | "fitToParent" | "label" | "errorMessage" | "warningMessage" | "tooltips"
+	"fitToParent" | "label" | "errorMessage" | "warningMessage" | "tooltips"
 > {
 	/**
 	 * Initial text of the datetime input field.

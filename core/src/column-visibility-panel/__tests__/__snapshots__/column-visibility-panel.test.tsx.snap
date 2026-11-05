@@ -1,0 +1,991 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`com.mgmtp.a12.widgets.columnVisibilityPanel > render the panel 1`] = `
+.c30 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c30 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c33 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c33 > span {
+  display: inline-block;
+}
+
+.c33.c33 {
+  max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c33 {
+  color: inherit;
+}
+
+.c34 .c32 {
+  user-select: none;
+}
+
+.c34 .c32 {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c34.c34 > .c32 {
+  display: block;
+}
+
+.c31 {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  box-shadow: none;
+  color: rgb(169, 179, 188);
+  cursor: default;
+}
+
+.c31 .c32 {
+  user-select: none;
+}
+
+.c31 .c32 {
+  color: inherit;
+}
+
+.c31.c31 .c32 {
+  color: inherit;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c31.c31) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
+.c31[data-role="quick-access-button-main-action"] {
+  background-color: transparent;
+}
+
+.h_inlineBlock.h_middleAlign .c31.c31 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c31.c31 > .c32 {
+  display: block;
+}
+
+.c4 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
+  min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-fvsTKU .c4.c4 {
+  padding: 0px 24px;
+}
+
+.c29 {
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgb(241, 242, 244);
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-radius: 0px;
+  border-top: 1px solid rgba(22, 25, 29, 0.22);
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+  min-height: 48px;
+  padding: 4px 24px;
+}
+
+.c3 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c6 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex: 1 1 0%;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: none;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c1 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c8 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px;
+}
+
+.c8:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c5 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-bIaFkb .c5.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c5.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c24 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c24:empty {
+  display: none;
+}
+
+.c24 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c17 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c17 .c23 {
+  display: block;
+  width: fit-content;
+}
+
+.c21 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c21 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c21 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c21 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid transparent;
+}
+
+.c21:focus + label > span::before,
+.c21:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c26 {
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+  position: absolute;
+  width: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.c26 + label {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+
+.c26 + label > span {
+  display: inline-block;
+  height: 14px;
+  margin-top: 0px;
+  position: relative;
+  vertical-align: top;
+  width: 14px;
+}
+
+.c26 + label > span::before {
+  content: "";
+  inset: 0px;
+  position: absolute;
+  display: block;
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c26:focus + label > span::before,
+.c26:focus-within + label > span::before {
+  inset: -1px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c19 {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  width: 100%;
+}
+
+.c20 {
+  align-self: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  isolation: isolate;
+  padding: 0px 2px;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.c20 > label {
+  height: 20px;
+}
+
+.c20 > label > span,
+.c20 > label > span::before {
+  border-radius: 0px;
+}
+
+.c18 {
+  min-height: 32px;
+  padding: 2px 0px 0px;
+}
+
+.c22 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c22 + label > span {
+  background-color: rgb(77, 77, 77);
+}
+
+.c22 + label > span::before {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+}
+
+.c22 + label > span::after {
+  box-sizing: border-box;
+  border-width: medium medium 2px 2px;
+  border-style: none none solid solid;
+  border-color: currentcolor currentcolor rgb(255, 255, 255) rgb(255, 255, 255);
+  border-image: none;
+  content: "";
+  display: block;
+  margin: 2px 0px 0px 2px;
+  height: 7px;
+  transform: rotate(-55deg);
+  width: 10px;
+}
+
+.c22 + label > span::before {
+  border: 1px solid transparent;
+}
+
+.c22:focus + label > span,
+.c22:focus-within + label > span {
+  background-color: rgb(213, 0, 117);
+}
+
+.c22:focus + label > span::before,
+.c22:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c27 {
+  cursor: pointer;
+  height: 20px;
+  margin: 0px;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.c27 + label > span {
+  background-color: rgb(255, 255, 255);
+}
+
+.c27 + label > span::before {
+  border: 1px solid rgb(89, 102, 115);
+}
+
+.c27:focus + label > span::before,
+.c27:focus-within + label > span::before {
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.c10 {
+  background-color: rgb(241, 242, 244);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  outline: rgb(211, 214, 220) solid 1px;
+  width: 100%;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c12 {
+  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
+  display: flex;
+  flex-direction: column;
+  max-height: 252px;
+  overflow-y: auto;
+}
+
+.c25 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c14 {
+  align-items: center;
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+}
+
+.c14::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c14:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c14[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c14[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c14[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c15 {
+  align-items: center;
+  display: flex;
+  height: 16px;
+  margin: 4px 8px 4px 0px;
+}
+
+.c15 .c32 {
+  color: inherit;
+}
+
+.c15 .c16 {
+  min-height: auto;
+}
+
+.c0 {
+  display: flex;
+  min-width: 320px;
+  max-width: 560px;
+}
+
+.c0:focus,
+.c0:focus-visible {
+  outline: none;
+}
+
+.c0 .c2 {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c0 .c2 > * {
+  padding-inline: 16px;
+}
+
+.c0 .c7 {
+  max-height: 468px;
+}
+
+.c0 .c28 {
+  justify-content: flex-end;
+  padding-inline: 16px;
+}
+
+.c0 .c9 {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.c0 .c11 {
+  max-height: none;
+  overflow-y: visible;
+}
+
+.c0 .c13 {
+  padding-inline: 16px;
+}
+
+@media (pointer: coarse) {
+  .c21:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c21:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c21:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c26:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c26:active + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: fine) {
+  .c26:hover + label > span::before {
+    inset: -1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c22:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c22:active + label > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c22:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c22:hover + label > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c22:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c22 + label:hover > span {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c22 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c22 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c27:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c27:active + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c27:hover + label > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c27 + label:hover > span::after {
+    background-color: rgb(213, 0, 117);
+  }
+
+  .c27 + label:hover > span::before {
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:not([data-type="icon-selected"]):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c14:not([data-type="icon-selected"]):active::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: fine) {
+  .c14:not([data-type="icon-selected"]):hover {
+    cursor: pointer;
+  }
+
+  .c14:not([data-type="icon-selected"]):hover::after {
+    border: 2px solid rgb(213, 0, 117);
+    content: "";
+  }
+}
+
+@media (pointer: coarse) {
+  .c14[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .c14[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c14[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+    border-bottom: 2px solid rgb(213, 0, 117);
+  }
+}
+
+<div
+  aria-labelledby="_r_0_-title"
+  class="c0"
+  data-role="column-visibility-panel"
+  role="dialog"
+  tabindex="-1"
+>
+  <div
+    class="c1 contentbox"
+    data-role="contentbox"
+    tabindex="-1"
+  >
+    <div
+      class="c2 c3 contentbox__header"
+      data-role="contentbox-header"
+    >
+      <div
+        class="c4 contentbox__heading"
+        data-role="contentbox-heading"
+      >
+        <div
+          class="c5"
+        >
+          <div
+            aria-level="2"
+            class="c6 contentbox__title"
+            data-role="contentbox-title"
+            id="_r_0_-title"
+            role="heading"
+          >
+            Columns
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c7 c8 contentbox__content"
+      data-role="contentbox-content"
+    >
+      <div
+        class="c9 c10 dropdown"
+        data-role="dropdown"
+        role="presentation"
+        tabindex="-1"
+      >
+        <div
+          aria-labelledby="_r_0_-title"
+          aria-multiselectable="true"
+          class="c11 c12 dropdown__content"
+          data-role="dropdown-content"
+          role="listbox"
+        >
+          <div
+            aria-checked="true"
+            aria-selected="true"
+            class="c13 c14 dropdown__item dropdown__item--focus-preselected"
+            data-preselect="false"
+            data-role="dropdown-item"
+            id="name"
+            role="option"
+            tabindex="0"
+          >
+            <div
+              class="c15 dropdown__graphic"
+              data-role="dropdown-graphic"
+            >
+              <div
+                class="c16 c17 c18 field field--block"
+                data-role="checkbox"
+              >
+                <div
+                  class="c19 field__control field__control--boolean"
+                  data-role="checkbox-control"
+                  id="name-checkbox-controls"
+                >
+                  <span
+                    class="c20"
+                    data-role="checkbox-control-inner"
+                  >
+                    <input
+                      aria-checked="true"
+                      checked=""
+                      class="c21 c22 field__check field__check--checked"
+                      data-role="checkbox-input"
+                      id="name-checkbox"
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                    <label
+                      aria-hidden="true"
+                      data-role="checkbox-control-inner-hidden-label"
+                      for="name-checkbox"
+                    >
+                      <span />
+                    </label>
+                  </span>
+                  <label
+                    class="c23 c24 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                    data-role="checkbox-label"
+                    for="name-checkbox"
+                  >
+                    Name
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              class="c25 dropdown__text"
+              data-role="dropdown-text"
+            >
+              Name
+            </div>
+          </div>
+          <div
+            aria-checked="true"
+            aria-selected="true"
+            class="c13 c14 dropdown__item dropdown__item--focus-preselected"
+            data-preselect="false"
+            data-role="dropdown-item"
+            id="role"
+            role="option"
+            tabindex="0"
+          >
+            <div
+              class="c15 dropdown__graphic"
+              data-role="dropdown-graphic"
+            >
+              <div
+                class="c16 c17 c18 field field--block"
+                data-role="checkbox"
+              >
+                <div
+                  class="c19 field__control field__control--boolean"
+                  data-role="checkbox-control"
+                  id="role-checkbox-controls"
+                >
+                  <span
+                    class="c20"
+                    data-role="checkbox-control-inner"
+                  >
+                    <input
+                      aria-checked="true"
+                      checked=""
+                      class="c21 c22 field__check field__check--checked"
+                      data-role="checkbox-input"
+                      id="role-checkbox"
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                    <label
+                      aria-hidden="true"
+                      data-role="checkbox-control-inner-hidden-label"
+                      for="role-checkbox"
+                    >
+                      <span />
+                    </label>
+                  </span>
+                  <label
+                    class="c23 c24 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                    data-role="checkbox-label"
+                    for="role-checkbox"
+                  >
+                    Role
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              class="c25 dropdown__text"
+              data-role="dropdown-text"
+            >
+              Role
+            </div>
+          </div>
+          <div
+            aria-checked="false"
+            aria-selected="false"
+            class="c13 c14 dropdown__item"
+            data-preselect="false"
+            data-role="dropdown-item"
+            id="notes"
+            role="option"
+            tabindex="0"
+          >
+            <div
+              class="c15 dropdown__graphic"
+              data-role="dropdown-graphic"
+            >
+              <div
+                class="c16 c17 c18 field field--block"
+                data-role="checkbox"
+              >
+                <div
+                  class="c19 field__control field__control--boolean"
+                  data-role="checkbox-control"
+                  id="notes-checkbox-controls"
+                >
+                  <span
+                    class="c20"
+                    data-role="checkbox-control-inner"
+                  >
+                    <input
+                      aria-checked="false"
+                      class="c26 c27 field__check"
+                      data-role="checkbox-input"
+                      id="notes-checkbox"
+                      tabindex="-1"
+                      type="checkbox"
+                    />
+                    <label
+                      aria-hidden="true"
+                      data-role="checkbox-control-inner-hidden-label"
+                      for="notes-checkbox"
+                    >
+                      <span />
+                    </label>
+                  </span>
+                  <label
+                    class="c23 c24 label field__label -u-unseenButRead field__label -u-unseenButRead"
+                    data-role="checkbox-label"
+                    for="notes-checkbox"
+                  >
+                    Notes
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              class="c25 dropdown__text"
+              data-role="dropdown-text"
+            >
+              Notes
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c28 c29 contentbox__footer"
+      data-role="contentbox-footer"
+    >
+      <span
+        aria-level="3"
+        class="c30 -u-unseenButRead"
+        data-role="hidden-text"
+        role="heading"
+      >
+        Action Section
+      </span>
+      <button
+        class="c31 button button--secondary"
+        data-role="column-visibility-panel-reset-button"
+        data-variant-type="secondary"
+        disabled=""
+        title=""
+        type="button"
+      >
+        <i
+          class="c32 c33 plasma-icon"
+          data-role="plasma-icon"
+        >
+          <span
+            aria-hidden="true"
+            class="notranslate"
+            translate="no"
+          >
+            replay
+          </span>
+        </i>
+        <span
+          data-role="column-visibility-panel-reset-button-label"
+        >
+          Reset to default
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

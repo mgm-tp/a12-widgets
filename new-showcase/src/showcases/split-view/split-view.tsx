@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { FC } from "react";
 import { useState, useCallback } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import { SplitView, ActionContentbox, ContentBoxElements, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 

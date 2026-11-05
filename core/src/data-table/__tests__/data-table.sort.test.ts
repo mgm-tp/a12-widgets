@@ -173,6 +173,17 @@ describe("getNextSortState — multi column", () => {
 		];
 		const next = getNextSortState({ dataKey: "c" }, "c", start, { isMulti: true, maxMultiSortColCount: 2 });
 		expect(next.next).toBe(start); // unchanged
+		// Flagged so the caller stays silent and skips `onSort` (no misleading no-op payload).
+		expect(next.ignored).toBe(true);
+	});
+
+	test("does not flag `ignored` when updating an existing column at the cap", () => {
+		const start: DataTableSortState = [
+			{ columnId: "a", order: "asc" },
+			{ columnId: "b", order: "asc" }
+		];
+		const next = getNextSortState({ dataKey: "b" }, "b", start, { isMulti: true, maxMultiSortColCount: 2 });
+		expect(next.ignored).toBeUndefined();
 	});
 
 	test("still updates an existing column when at the cap", () => {

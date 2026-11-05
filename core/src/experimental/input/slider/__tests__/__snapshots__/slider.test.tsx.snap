@@ -341,30 +341,6 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   width: 100%;
 }
 
-.c23:focus .c4 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c23:focus .c7 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c23:focus .c21 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c24:focus .c4 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c24:focus .c7 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c24:focus .c21 {
-  background-color: rgb(213, 0, 117);
-}
-
 .c2 {
   box-sizing: border-box;
   height: 24px;
@@ -382,7 +358,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   gap: 4px;
 }
 
-.c22 {
+.c19 {
   border-radius: 50% 50% 18%;
   height: 18px;
   position: relative;
@@ -393,7 +369,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   background-color: rgb(226, 230, 233);
 }
 
-.c15 {
+.c13 {
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
@@ -401,6 +377,30 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   top: 16px;
   transform: translate(-50%, 0px);
   left: 0%;
+  color: rgb(226, 230, 233);
+  cursor: not-allowed;
+}
+
+.c14 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 20%;
+  color: rgb(226, 230, 233);
+  cursor: not-allowed;
+}
+
+.c15 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 40%;
   color: rgb(226, 230, 233);
   cursor: not-allowed;
 }
@@ -412,7 +412,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   position: absolute;
   top: 16px;
   transform: translate(-50%, 0px);
-  left: 20%;
+  left: 60%;
   color: rgb(226, 230, 233);
   cursor: not-allowed;
 }
@@ -424,7 +424,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   position: absolute;
   top: 16px;
   transform: translate(-50%, 0px);
-  left: 40%;
+  left: 80%;
   color: rgb(226, 230, 233);
   cursor: not-allowed;
 }
@@ -436,36 +436,12 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   position: absolute;
   top: 16px;
   transform: translate(-50%, 0px);
-  left: 60%;
-  color: rgb(226, 230, 233);
-  cursor: not-allowed;
-}
-
-.c19 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  position: absolute;
-  top: 16px;
-  transform: translate(-50%, 0px);
-  left: 80%;
-  color: rgb(226, 230, 233);
-  cursor: not-allowed;
-}
-
-.c20 {
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  position: absolute;
-  top: 16px;
-  transform: translate(-50%, 0px);
   left: 100%;
   color: rgb(226, 230, 233);
   cursor: not-allowed;
 }
 
-.c8 {
+.c6 {
   border-radius: 1px;
   height: 12px;
   position: absolute;
@@ -476,7 +452,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   background-color: rgb(226, 230, 233);
 }
 
-.c10 {
+.c8 {
   border-radius: 1px;
   height: 12px;
   position: absolute;
@@ -487,7 +463,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   background-color: rgb(226, 230, 233);
 }
 
-.c11 {
+.c9 {
   border-radius: 1px;
   height: 12px;
   position: absolute;
@@ -498,7 +474,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   background-color: rgb(226, 230, 233);
 }
 
-.c12 {
+.c10 {
   border-radius: 1px;
   height: 12px;
   position: absolute;
@@ -509,7 +485,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   background-color: rgb(226, 230, 233);
 }
 
-.c13 {
+.c11 {
   border-radius: 1px;
   height: 12px;
   position: absolute;
@@ -520,7 +496,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   background-color: rgb(226, 230, 233);
 }
 
-.c14 {
+.c12 {
   border-radius: 1px;
   height: 12px;
   position: absolute;
@@ -531,7 +507,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   background-color: rgb(226, 230, 233);
 }
 
-.c9 {
+.c7 {
   background-color: rgb(169, 179, 188);
 }
 
@@ -539,7 +515,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   position: relative;
 }
 
-.c5 {
+.c4 {
   inset: 0px 0px 0px 0%;
   height: 2px;
   position: absolute;
@@ -547,65 +523,9 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
   background-color: rgb(226, 230, 233);
 }
 
-.c6 {
+.c5 {
   left: 0px;
   width: 0%;
-}
-
-@media (pointer: coarse) {
-  .c23:active .c4 {
-    background-color: rgb(5, 104, 174);
-  }
-
-  .c23:active .c7 {
-    background-color: rgb(5, 104, 174);
-  }
-
-  .c23:active .c21 {
-    background-color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .c23:hover .c4 {
-    background-color: rgb(213, 0, 117);
-  }
-
-  .c23:hover .c7 {
-    background-color: rgb(213, 0, 117);
-  }
-
-  .c23:hover .c21 {
-    background-color: rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: coarse) {
-  .c24:active .c4 {
-    background-color: rgb(5, 104, 174);
-  }
-
-  .c24:active .c7 {
-    background-color: rgb(5, 104, 174);
-  }
-
-  .c24:active .c21 {
-    background-color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .c24:hover .c4 {
-    background-color: rgb(213, 0, 117);
-  }
-
-  .c24:hover .c7 {
-    background-color: rgb(213, 0, 117);
-  }
-
-  .c24:hover .c21 {
-    background-color: rgb(213, 0, 117);
-  }
 }
 
 <div
@@ -624,15 +544,23 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
         class="c3 field__sliderBar"
       >
         <div
-          class="c4 c5 c6 field__sliderBarFill field__sliderBarFill--left"
+          class="c4 c5 field__sliderBarFill field__sliderBarFill--left"
           data-role="field-slider-bar-fill-left"
         />
         <div
-          class="c5 field__sliderBarFill field__sliderBarFill--right"
+          class="c4 field__sliderBarFill field__sliderBarFill--right"
           data-role="field-slider-bar-fill-right"
         />
         <div
-          class="c7 c8 c9 field__sliderBarTick field__sliderBarTick--left"
+          class="c6 c7 field__sliderBarTick field__sliderBarTick--left"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c8 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c9 field__sliderBarTick field__sliderBarTick--right"
           data-role="field-slider-bar-tick"
         />
         <div
@@ -648,52 +576,44 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--disabled 1`] = `
           data-role="field-slider-bar-tick"
         />
         <div
-          class="c13 field__sliderBarTick field__sliderBarTick--right"
-          data-role="field-slider-bar-tick"
-        />
-        <div
-          class="c14 field__sliderBarTick field__sliderBarTick--right"
-          data-role="field-slider-bar-tick"
-        />
-        <div
-          class="c15 field__sliderBarLabel"
+          class="c13 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           1
         </div>
         <div
-          class="c16 field__sliderBarLabel"
+          class="c14 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           2
         </div>
         <div
-          class="c17 field__sliderBarLabel"
+          class="c15 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           3
         </div>
         <div
-          class="c18 field__sliderBarLabel"
+          class="c16 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           4
         </div>
         <div
-          class="c19 field__sliderBarLabel"
+          class="c17 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           5
         </div>
         <div
-          class="c20 field__sliderBarLabel"
+          class="c18 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           6
         </div>
       </div>
       <div
-        class="c21 c22 field__sliderThumb"
+        class="c19 field__sliderThumb"
         data-role="field-slider-thumb"
       />
     </div>
@@ -706,30 +626,6 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c23:focus .c4 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c23:focus .c7 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c23:focus .c21 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c24:focus .c4 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c24:focus .c7 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c24:focus .c21 {
-  background-color: rgb(213, 0, 117);
 }
 
 .c2 {
@@ -749,7 +645,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   gap: 4px;
 }
 
-.c22 {
+.c19 {
   border-radius: 50% 50% 18%;
   height: 18px;
   position: relative;
@@ -760,7 +656,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   background-color: rgb(169, 179, 188);
 }
 
-.c15 {
+.c13 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -769,6 +665,28 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   top: 16px;
   transform: translate(-50%, 0px);
   left: 0%;
+}
+
+.c14 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 20%;
+}
+
+.c15 {
+  color: rgb(77, 77, 77);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  position: absolute;
+  top: 16px;
+  transform: translate(-50%, 0px);
+  left: 40%;
 }
 
 .c16 {
@@ -779,7 +697,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   position: absolute;
   top: 16px;
   transform: translate(-50%, 0px);
-  left: 20%;
+  left: 60%;
 }
 
 .c17 {
@@ -790,7 +708,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   position: absolute;
   top: 16px;
   transform: translate(-50%, 0px);
-  left: 40%;
+  left: 80%;
 }
 
 .c18 {
@@ -801,32 +719,10 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   position: absolute;
   top: 16px;
   transform: translate(-50%, 0px);
-  left: 60%;
-}
-
-.c19 {
-  color: rgb(77, 77, 77);
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  position: absolute;
-  top: 16px;
-  transform: translate(-50%, 0px);
-  left: 80%;
-}
-
-.c20 {
-  color: rgb(77, 77, 77);
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  position: absolute;
-  top: 16px;
-  transform: translate(-50%, 0px);
   left: 100%;
 }
 
-.c8 {
+.c6 {
   background-color: rgb(226, 230, 233);
   border-radius: 1px;
   height: 12px;
@@ -837,7 +733,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   left: 0%;
 }
 
-.c10 {
+.c8 {
   background-color: rgb(226, 230, 233);
   border-radius: 1px;
   height: 12px;
@@ -848,7 +744,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   left: 20%;
 }
 
-.c11 {
+.c9 {
   background-color: rgb(226, 230, 233);
   border-radius: 1px;
   height: 12px;
@@ -859,7 +755,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   left: 40%;
 }
 
-.c12 {
+.c10 {
   background-color: rgb(226, 230, 233);
   border-radius: 1px;
   height: 12px;
@@ -870,7 +766,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   left: 60%;
 }
 
-.c13 {
+.c11 {
   background-color: rgb(226, 230, 233);
   border-radius: 1px;
   height: 12px;
@@ -881,7 +777,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   left: 80%;
 }
 
-.c14 {
+.c12 {
   background-color: rgb(226, 230, 233);
   border-radius: 1px;
   height: 12px;
@@ -892,7 +788,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   left: 100%;
 }
 
-.c9 {
+.c7 {
   background-color: rgb(169, 179, 188);
 }
 
@@ -900,7 +796,7 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   position: relative;
 }
 
-.c5 {
+.c4 {
   background-color: rgb(226, 230, 233);
   inset: 0px 0px 0px 0%;
   height: 2px;
@@ -908,66 +804,10 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
   width: 100%;
 }
 
-.c6 {
+.c5 {
   background-color: rgb(169, 179, 188);
   left: 0px;
   width: 0%;
-}
-
-@media (pointer: coarse) {
-  .c23:active .c4 {
-    background-color: rgb(5, 104, 174);
-  }
-
-  .c23:active .c7 {
-    background-color: rgb(5, 104, 174);
-  }
-
-  .c23:active .c21 {
-    background-color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .c23:hover .c4 {
-    background-color: rgb(213, 0, 117);
-  }
-
-  .c23:hover .c7 {
-    background-color: rgb(213, 0, 117);
-  }
-
-  .c23:hover .c21 {
-    background-color: rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: coarse) {
-  .c24:active .c4 {
-    background-color: rgb(5, 104, 174);
-  }
-
-  .c24:active .c7 {
-    background-color: rgb(5, 104, 174);
-  }
-
-  .c24:active .c21 {
-    background-color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .c24:hover .c4 {
-    background-color: rgb(213, 0, 117);
-  }
-
-  .c24:hover .c7 {
-    background-color: rgb(213, 0, 117);
-  }
-
-  .c24:hover .c21 {
-    background-color: rgb(213, 0, 117);
-  }
 }
 
 <div
@@ -986,15 +826,23 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
         class="c3 field__sliderBar"
       >
         <div
-          class="c4 c5 c6 field__sliderBarFill field__sliderBarFill--left"
+          class="c4 c5 field__sliderBarFill field__sliderBarFill--left"
           data-role="field-slider-bar-fill-left"
         />
         <div
-          class="c5 field__sliderBarFill field__sliderBarFill--right"
+          class="c4 field__sliderBarFill field__sliderBarFill--right"
           data-role="field-slider-bar-fill-right"
         />
         <div
-          class="c7 c8 c9 field__sliderBarTick field__sliderBarTick--left"
+          class="c6 c7 field__sliderBarTick field__sliderBarTick--left"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c8 field__sliderBarTick field__sliderBarTick--right"
+          data-role="field-slider-bar-tick"
+        />
+        <div
+          class="c9 field__sliderBarTick field__sliderBarTick--right"
           data-role="field-slider-bar-tick"
         />
         <div
@@ -1010,52 +858,44 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering--readonly 1`] = `
           data-role="field-slider-bar-tick"
         />
         <div
-          class="c13 field__sliderBarTick field__sliderBarTick--right"
-          data-role="field-slider-bar-tick"
-        />
-        <div
-          class="c14 field__sliderBarTick field__sliderBarTick--right"
-          data-role="field-slider-bar-tick"
-        />
-        <div
-          class="c15 field__sliderBarLabel"
+          class="c13 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           1
         </div>
         <div
-          class="c16 field__sliderBarLabel"
+          class="c14 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           2
         </div>
         <div
-          class="c17 field__sliderBarLabel"
+          class="c15 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           3
         </div>
         <div
-          class="c18 field__sliderBarLabel"
+          class="c16 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           4
         </div>
         <div
-          class="c19 field__sliderBarLabel"
+          class="c17 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           5
         </div>
         <div
-          class="c20 field__sliderBarLabel"
+          class="c18 field__sliderBarLabel"
           data-role="field-slider-bar-label"
         >
           6
         </div>
       </div>
       <div
-        class="c21 c22 field__sliderThumb"
+        class="c19 field__sliderThumb"
         data-role="field-slider-thumb"
       />
     </div>
@@ -1111,6 +951,10 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering-error-message 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c5.c5 {
   color: rgb(201, 29, 29);
 }
@@ -1144,18 +988,6 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering-error-message 1`] = `
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c30:focus .c11 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c30:focus .c14 {
-  background-color: rgb(213, 0, 117);
-}
-
-.c30:focus .c28 {
-  background-color: rgb(213, 0, 117);
 }
 
 .c9 {
@@ -1357,34 +1189,6 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering-error-message 1`] = `
 }
 
 @media (pointer: coarse) {
-  .c30:active .c11 {
-    background-color: rgb(5, 104, 174);
-  }
-
-  .c30:active .c14 {
-    background-color: rgb(5, 104, 174);
-  }
-
-  .c30:active .c28 {
-    background-color: rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .c30:hover .c11 {
-    background-color: rgb(213, 0, 117);
-  }
-
-  .c30:hover .c14 {
-    background-color: rgb(213, 0, 117);
-  }
-
-  .c30:hover .c28 {
-    background-color: rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: coarse) {
   .c9:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     cursor: pointer;
@@ -1439,6 +1243,8 @@ exports[`com.mgmtp.a12.widgets.input.slider > rendering-error-message 1`] = `
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           
         </span>

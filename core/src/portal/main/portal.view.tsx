@@ -32,9 +32,10 @@
 
 import type { SyntheticEvent, ReactPortal } from "react";
 import { useRef, useContext, useEffect, useCallback } from "react";
-import { Key } from "ts-key-enum";
 import { createPortal } from "react-dom";
+import { Key } from "ts-key-enum";
 
+import { DataRoles } from "../../common/main/data-roles.js";
 import {
 	addPrefix,
 	getElementDocument,
@@ -43,7 +44,6 @@ import {
 	joinClassNames
 } from "../../common/main/utils.js";
 import { PortalContext, WidgetsRoot } from "../../common/main/widgets-root.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
 import type { PortalProps } from "./portal.api.js";
 

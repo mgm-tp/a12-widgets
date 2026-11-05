@@ -36,8 +36,8 @@
  */
 import type { ReactNode } from "react";
 
-import type { ModalOverlayProps } from "../../modal-overlay/main/modal-overlay.api.js";
 import type { ActionContentboxProps } from "../../contentbox/main/action-contentbox/action-contentbox.api.js";
+import type { ModalOverlayProps } from "../../modal-overlay/main/modal-overlay.api.js";
 
 export interface ModalNotificationProps
 	extends

@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`com.mgmtp.a12.widgets.table.head-cell > action column 1`] = `
-.c4 {
+.c3 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -15,7 +15,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > action column 1`] = `
   margin: -1px !important;
 }
 
-.c4 * {
+.c3 * {
   width: 1px;
   height: 1px;
 }
@@ -44,17 +44,13 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > action column 1`] = `
   margin-bottom: 0px;
 }
 
-.c3 {
+.c2 {
   align-items: center;
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
   line-height: normal;
   min-height: 22px;
-}
-
-.c2 .c5.c5 {
-  overflow: hidden;
 }
 
 .c1 {
@@ -79,11 +75,11 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > action column 1`] = `
   role="columnheader"
 >
   <div
-    class="c2 c3 table__contentHeaderCell"
+    class="c2 table__contentHeaderCell"
     data-role="table-header-cell-content"
   />
   <span
-    class="c4 -u-unseenButRead"
+    class="c3 -u-unseenButRead"
     data-role="hidden-text"
   >
     Action
@@ -122,14 +118,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 1`] = `
   flex-wrap: wrap;
   line-height: normal;
   min-height: 22px;
-}
-
-.c2 .c4.c4 {
-  overflow: hidden;
-}
-
-.c2 .c5.c5 {
-  overflow: hidden;
 }
 
 .c1 {
@@ -221,10 +209,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 2`] = `
   overflow: hidden;
 }
 
-.c2 .c5.c5 {
-  overflow: hidden;
-}
-
 <div
   class="c0 c1 table__headerCell table__headerCell--10"
   data-role="table-header-cell"
@@ -277,10 +261,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 3`] = `
 }
 
 .c2 .c5.c5 {
-  overflow: hidden;
-}
-
-.c2 .c6.c6 {
   overflow: hidden;
 }
 
@@ -352,14 +332,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 4`] = `
   text-align: center;
 }
 
-.c2 .c4.c4 {
-  overflow: hidden;
-}
-
-.c2 .c5.c5 {
-  overflow: hidden;
-}
-
 .c1 {
   color: rgb(77, 77, 77);
   cursor: default;
@@ -379,7 +351,11 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 4`] = `
   overflow: hidden;
 }
 
-.c2 .c6.c6 {
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
   overflow: hidden;
 }
 
@@ -459,10 +435,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 5`] = `
   overflow: hidden;
 }
 
-.c2 .c6.c6 {
-  overflow: hidden;
-}
-
 <div
   class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--align-center"
   data-role="table-header-cell"
@@ -517,10 +489,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 6`] = `
 }
 
 .c2 .c5.c5 {
-  overflow: hidden;
-}
-
-.c2 .c6.c6 {
   overflow: hidden;
 }
 
@@ -592,14 +560,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 7`] = `
   text-align: right;
 }
 
-.c2 .c4.c4 {
-  overflow: hidden;
-}
-
-.c2 .c5.c5 {
-  overflow: hidden;
-}
-
 .c1 {
   color: rgb(77, 77, 77);
   cursor: default;
@@ -619,7 +579,11 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 7`] = `
   overflow: hidden;
 }
 
-.c2 .c6.c6 {
+.c2 .c4.c4 {
+  overflow: hidden;
+}
+
+.c2 .c5.c5 {
   overflow: hidden;
 }
 
@@ -699,10 +663,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 8`] = `
   overflow: hidden;
 }
 
-.c2 .c6.c6 {
-  overflow: hidden;
-}
-
 <div
   class="c0 c1 table__headerCell table__headerCell--10 table__headerCell--align-right"
   data-role="table-header-cell"
@@ -757,10 +717,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > alignment 9`] = `
 }
 
 .c2 .c5.c5 {
-  overflow: hidden;
-}
-
-.c2 .c6.c6 {
   overflow: hidden;
 }
 
@@ -831,10 +787,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > cardView 1`] = `
   min-height: 22px;
 }
 
-.c2 .c4.c4 {
-  overflow: hidden;
-}
-
 .c1 {
   align-items: center;
   color: rgb(77, 77, 77);
@@ -902,10 +854,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > column group 1`] = `
   text-align: center;
 }
 
-.c2 .c4.c4 {
-  overflow: hidden;
-}
-
 .c1 {
   align-items: center;
   color: rgb(77, 77, 77);
@@ -922,14 +870,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > column group 1`] = `
 }
 
 .c2 .c1.c1 {
-  overflow: hidden;
-}
-
-.c2 .c5.c5 {
-  overflow: hidden;
-}
-
-.c2 .c6.c6 {
   overflow: hidden;
 }
 
@@ -984,10 +924,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing colu
   min-height: 22px;
 }
 
-.c2 .c4.c4 {
-  overflow: hidden;
-}
-
 .c1 {
   align-items: center;
   color: rgb(77, 77, 77);
@@ -1004,14 +940,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing colu
 }
 
 .c2 .c1.c1 {
-  overflow: hidden;
-}
-
-.c2 .c5.c5 {
-  overflow: hidden;
-}
-
-.c2 .c6.c6 {
   overflow: hidden;
 }
 
@@ -1067,10 +995,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing colu
   min-height: 22px;
 }
 
-.c2 .c4.c4 {
-  overflow: hidden;
-}
-
 .c1 {
   align-items: center;
   color: rgb(77, 77, 77);
@@ -1090,14 +1014,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing colu
   overflow: hidden;
 }
 
-.c2 .c5.c5 {
-  overflow: hidden;
-}
-
-.c2 .c6.c6 {
-  overflow: hidden;
-}
-
 <div
   class="c0 c1 table__headerCell table__headerCell--10"
   data-role="table-header-cell"
@@ -1114,7 +1030,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing colu
 `;
 
 exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing columns > should not for action column 1`] = `
-.c4 {
+.c3 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -1128,7 +1044,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing colu
   margin: -1px !important;
 }
 
-.c4 * {
+.c3 * {
   width: 1px;
   height: 1px;
 }
@@ -1161,17 +1077,13 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing colu
   background-color: transparent;
 }
 
-.c3 {
+.c2 {
   align-items: center;
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
   line-height: normal;
   min-height: 22px;
-}
-
-.c2 .c5.c5 {
-  overflow: hidden;
 }
 
 .c1 {
@@ -1188,18 +1100,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing colu
   outline: none;
 }
 
-.c2 .c6.c6 {
-  overflow: hidden;
-}
-
-.c2 .c7.c7 {
-  overflow: hidden;
-}
-
-.c2 .c8.c8 {
-  overflow: hidden;
-}
-
 <div
   class="c0 c1 table__headerCell table__actionCell"
   data-role="table-header-cell"
@@ -1207,13 +1107,13 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > with resizing colu
   role="columnheader"
 >
   <div
-    class="c2 c3 table__contentHeaderCell"
+    class="c2 table__contentHeaderCell"
     data-role="table-header-cell-content"
   >
     label test
   </div>
   <span
-    class="c4 -u-unseenButRead"
+    class="c3 -u-unseenButRead"
     data-role="hidden-text"
   >
     Action
@@ -1254,10 +1154,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing c
   min-height: 22px;
 }
 
-.c2 .c4.c4 {
-  overflow: hidden;
-}
-
 .c1 {
   align-items: center;
   color: rgb(77, 77, 77);
@@ -1274,14 +1170,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing c
 }
 
 .c2 .c1.c1 {
-  overflow: hidden;
-}
-
-.c2 .c5.c5 {
-  overflow: hidden;
-}
-
-.c2 .c6.c6 {
   overflow: hidden;
 }
 
@@ -1332,10 +1220,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing c
   min-height: 22px;
 }
 
-.c2 .c4.c4 {
-  overflow: hidden;
-}
-
 .c1 {
   align-items: center;
   color: rgb(77, 77, 77);
@@ -1352,14 +1236,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing c
 }
 
 .c2 .c1.c1 {
-  overflow: hidden;
-}
-
-.c2 .c5.c5 {
-  overflow: hidden;
-}
-
-.c2 .c6.c6 {
   overflow: hidden;
 }
 
@@ -1411,10 +1287,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing c
   min-height: 22px;
 }
 
-.c2 .c4.c4 {
-  overflow: hidden;
-}
-
 .c1 {
   align-items: center;
   color: rgb(77, 77, 77);
@@ -1434,14 +1306,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing c
   overflow: hidden;
 }
 
-.c2 .c5.c5 {
-  overflow: hidden;
-}
-
-.c2 .c6.c6 {
-  overflow: hidden;
-}
-
 <div
   class="c0 c1 table__headerCell table__headerCell--10"
   data-role="table-header-cell"
@@ -1458,7 +1322,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing c
 `;
 
 exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing columns > should not for action column 1`] = `
-.c4 {
+.c3 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -1472,7 +1336,7 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing c
   margin: -1px !important;
 }
 
-.c4 * {
+.c3 * {
   width: 1px;
   height: 1px;
 }
@@ -1501,17 +1365,13 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing c
   margin-bottom: 0px;
 }
 
-.c3 {
+.c2 {
   align-items: center;
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
   line-height: normal;
   min-height: 22px;
-}
-
-.c2 .c5.c5 {
-  overflow: hidden;
 }
 
 .c1 {
@@ -1528,18 +1388,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing c
   outline: none;
 }
 
-.c2 .c6.c6 {
-  overflow: hidden;
-}
-
-.c2 .c7.c7 {
-  overflow: hidden;
-}
-
-.c2 .c8.c8 {
-  overflow: hidden;
-}
-
 <div
   class="c0 c1 table__headerCell table__actionCell"
   data-role="table-header-cell"
@@ -1547,13 +1395,13 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > fixedWidth > without resizing c
   role="columnheader"
 >
   <div
-    class="c2 c3 table__contentHeaderCell"
+    class="c2 table__contentHeaderCell"
     data-role="table-header-cell-content"
   >
     label test
   </div>
   <span
-    class="c4 -u-unseenButRead"
+    class="c3 -u-unseenButRead"
     data-role="hidden-text"
   >
     Action
@@ -1588,6 +1436,10 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with button icons 1`]
 
 .c3.c3 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
 }
 
 .c1 {
@@ -1642,6 +1494,10 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with button icons 1`]
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c1:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .c1:not(:disabled):focus {
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -1682,50 +1538,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with button icons 1`]
 }
 
 .c4 .c0[data-type="icon"]:not([data-role="tag"] .c0) {
-  font-size: 1.5rem;
-  height: 22px;
-  min-height: 22px;
-  width: 22px;
-}
-
-.c5 > .c2:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c5 [data-role="status-icon"] .c2 {
-  display: inherit;
-}
-
-.c5 .c2 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
-.c5 .c0[data-type="icon"]:not([data-role="tag"] .c0) {
-  font-size: 1.5rem;
-  height: 22px;
-  min-height: 22px;
-  width: 22px;
-}
-
-.c6 > .c2:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c6 [data-role="status-icon"] .c2 {
-  display: inherit;
-}
-
-.c6 .c2 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
-.c6 .c0[data-type="icon"]:not([data-role="tag"] .c0) {
   font-size: 1.5rem;
   height: 22px;
   min-height: 22px;
@@ -1829,6 +1641,8 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with button icons 1`]
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       delete
     </span>
@@ -1865,6 +1679,10 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with removable tag 1`
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c1 {
+  color: inherit;
+}
+
 .c5 .c0 {
   user-select: none;
 }
@@ -1881,38 +1699,12 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with removable tag 1`
   display: block;
 }
 
-.c6 .c0 {
-  user-select: none;
-}
-
-.c6 .c0 {
-  color: inherit;
-}
-
-.c6 .c0 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c0 {
-  display: block;
-}
-
-.c7 .c0 {
-  align-self: center;
-  color: rgb(5, 104, 174);
-  font-size: 12px;
-}
-
-.c8 .c0 {
-  line-height: 18px;
-}
-
-.c9 .c0 {
+.c3 .c0 {
   color: rgb(255, 255, 255);
   font-size: 0.875rem;
 }
 
-.c10 > .c0 {
+.c4 > .c0 {
   vertical-align: top;
 }
 
@@ -1925,36 +1717,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with removable tag 1`
 }
 
 .c2 .c0 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
-.c3 > .c0:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c3 [data-role="status-icon"] .c0 {
-  display: inherit;
-}
-
-.c3 .c0 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
-.c4 > .c0:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 [data-role="status-icon"] .c0 {
-  display: inherit;
-}
-
-.c4 .c0 {
   align-items: center;
   display: inline-flex;
   font-size: 1.25rem;
@@ -1977,6 +1739,8 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with removable tag 1`
 >
   <span
     aria-hidden="true"
+    class="notranslate"
+    translate="no"
   >
     laptop
   </span>
@@ -2012,29 +1776,11 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with status 1`] = `
   max-width: unset;
 }
 
-.c5 .c0 {
-  user-select: none;
-}
-
-.c5 .c0 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c1 {
   color: inherit;
 }
 
-.c5 .c0 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c0 {
-  display: block;
-}
-
-.c6 .c0 {
-  align-self: center;
-  color: rgb(5, 104, 174);
-  font-size: 12px;
-}
-
-.c7 .c0 {
+.c3 .c0 {
   line-height: 18px;
 }
 
@@ -2053,42 +1799,14 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with status 1`] = `
   height: 22px;
 }
 
-.c3 > .c0:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c3 [data-role="status-icon"] .c0 {
-  display: inherit;
-}
-
-.c3 .c0 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
-.c4 > .c0:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 [data-role="status-icon"] .c0 {
-  display: inherit;
-}
-
-.c4 .c0 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
 <i
   class="c0 c1 plasma-icon"
   data-role="plasma-icon"
 >
   <span
     aria-hidden="true"
+    class="notranslate"
+    translate="no"
   >
     delete
   </span>
@@ -2124,20 +1842,8 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
   max-width: unset;
 }
 
-.c18 .c12 {
-  user-select: none;
-}
-
-.c18 .c12 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c13 {
   color: inherit;
-}
-
-.c18 .c12 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c12 {
-  display: block;
 }
 
 .c2 {
@@ -2267,36 +1973,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
   height: 22px;
 }
 
-.c16 > .c12:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c16 [data-role="status-icon"] .c12 {
-  display: inherit;
-}
-
-.c16 .c12 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
-.c17 > .c12:not(.StyledTableHeadCellSortingIcon-sc-boaane):not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c17 [data-role="status-icon"] .c12 {
-  display: inherit;
-}
-
-.c17 .c12 {
-  align-items: center;
-  display: inline-flex;
-  font-size: 1.25rem;
-  height: 22px;
-}
-
 @media (pointer: coarse) {
   .c5:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -2379,6 +2055,8 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > head cell with switch 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               remove
             </span>
@@ -2525,6 +2203,10 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > sortable 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c6 {
+  color: inherit;
+}
+
 .c0 {
   box-sizing: border-box;
   display: flex;
@@ -2570,10 +2252,6 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > sortable 1`] = `
   display: inline-flex;
   font-size: 1.25rem;
   height: 22px;
-}
-
-.c3 .c7.c7 {
-  overflow: hidden;
 }
 
 .c1 {
@@ -2665,6 +2343,8 @@ exports[`com.mgmtp.a12.widgets.table.head-cell > sortable 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         arrow_drop_down
       </span>

@@ -30,27 +30,28 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import delaysCode from "!./delays.tsx?raw";
+import desktopViewOnMobileCode from "!./desktop-view-on-mobile?raw";
+import invertCode from "!./invert.tsx?raw";
+import basicCode from "!./tooltip.tsx?raw";
+import typeCode from "!./type.tsx?raw";
 import type { JSONOutput } from "typedoc";
 
-import TooltipAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tooltip/main/tooltip.api.json" with { type: "json" };
+import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import ErrorTooltipAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tooltip/error/main/error.api.json" with { type: "json" };
 import HintTooltipAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tooltip/hint/main/hint.api.json" with { type: "json" };
+import TooltipAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tooltip/main/tooltip.api.json" with { type: "json" };
 import SuccessTooltipAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tooltip/success/main/success.api.json" with { type: "json" };
 import WarningTooltipAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tooltip/warning/main/warning.api.json" with { type: "json" };
-import ErrorTooltipAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tooltip/error/main/error.api.json" with { type: "json" };
-import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
 
-import { BasicTooltipShowcase } from "./tooltip.js";
-import { InvertTooltipShowcase } from "./invert.js";
-import { TooltipTypeShowcase } from "./type.js";
+import { TooltipDelaysShowcase } from "./delays.js";
 import { DesktopViewOnMobileShowcase } from "./desktop-view-on-mobile.js";
-
-import basicCode from "!./tooltip.tsx?raw";
-import invertCode from "!./invert.tsx?raw";
-import typeCode from "!./type.tsx?raw";
-import desktopViewOnMobileCode from "!./desktop-view-on-mobile?raw";
+import { InvertTooltipShowcase } from "./invert.js";
+import { BasicTooltipShowcase } from "./tooltip.js";
+import { TooltipTypeShowcase } from "./type.js";
 
 const showcases: Showcase[] = [
 	{
@@ -96,6 +97,28 @@ const showcases: Showcase[] = [
 					</p>
 				),
 				code: { name: "type.tsx", code: typeCode }
+			},
+			{
+				label: "Show and Hide Delays",
+				content: <TooltipDelaysShowcase />,
+				description: (
+					<>
+						<p>
+							A tooltip waits <code>showDelay</code> milliseconds before appearing on hover, and <code>hideDelay</code>{" "}
+							milliseconds before disappearing once the pointer leaves. The hide delay is what lets users move the
+							pointer onto the tooltip itself without it closing. Both default to <code>200</code>.
+						</p>
+						<p>
+							Set them on a single tooltip, or wrap a subtree in <code>TooltipConfigProvider</code> to apply them to
+							every tooltip inside — including the variant tooltips. A value set on an instance wins over the provider.
+						</p>
+						<p>
+							Very small values are not recommended: a tooltip is positioned from its trigger&apos;s measured rectangle,
+							and showing it before that measurement lands can skip the tooltip entirely.
+						</p>
+					</>
+				),
+				code: { name: "delays.tsx", code: delaysCode }
 			},
 			{
 				label: "Invert Tooltip",

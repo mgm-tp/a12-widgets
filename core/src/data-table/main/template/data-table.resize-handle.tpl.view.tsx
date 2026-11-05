@@ -42,52 +42,65 @@ import { DataTableZIndex } from "./data-table.z-index.js";
  * Absolutely positioned against the cell's right edge (the cell is its
  * containing block), so the bar lines up with the column boundary.
  */
-export const StyledDataTableResizeHandle = styled.div.withConfig({ displayName: "StyledDataTableResizeHandle-sc-" })(
-	({ theme }) => {
-		const { table } = theme.components;
+export const StyledDataTableResizeHandle = styled.div.withConfig({ displayName: "StyledDataTableResizeHandle-sc-" })<{
+	$isLastLeaf?: boolean;
+	$pinned?: boolean;
+}>(({ theme, $isLastLeaf, $pinned }) => {
+	const { table } = theme.components;
 
-		return css`
+	/* Hosts that must not be overhung: the last leaf (an overhang would poke past the
+	 * table and force a permanent horizontal scrollbar) and any pinned cell (a stacking
+	 * context, so the next pinned cell would paint over the overhang). Both sit flush at
+	 * [boundary - 6px, boundary]. */
+	const noOverhang = !!$isLastLeaf || !!$pinned;
+
+	return css`
+		position: absolute;
+		top: 0;
+		/* The host cell paints its column divider as an inset shadow, not a border, so
+		 * its padding box — this element's containing block — ends on the true column
+		 * boundary and \`right: 0\` needs no compensation. */
+		right: 0;
+		width: 6px;
+		height: 100%;
+		cursor: col-resize;
+		pointer-events: auto;
+		z-index: ${DataTableZIndex.resizeHandle};
+		user-select: none;
+		touch-action: none;
+		/* Centre on the boundary: 3px of grab zone in each column. */
+		transform: ${noOverhang ? "none" : "translateX(50%)"};
+
+		&::after {
+			content: "";
 			position: absolute;
 			top: 0;
-			right: 0;
-			width: 6px;
+			/* The translated box is centred on the boundary, so its 50% line IS the
+				 * boundary: the bar lands flush at [boundary-2px, boundary]. Untranslated
+				 * hosts anchor it at the cell's right edge instead. */
+			right: ${noOverhang ? "0" : "50%"};
+			width: 2px;
 			height: 100%;
-			cursor: col-resize;
-			pointer-events: auto;
-			z-index: ${DataTableZIndex.resizeHandle};
-			user-select: none;
-			touch-action: none;
-			transform: translateX(50%);
+			/* Transparent at rest so the bar does not paint over the header cell's
+			 * own right-edge divider (that border is the persistent column separator,
+			 * consistent across resizable and non-resizable tables). The handle only
+			 * reveals an accent bar on hover / keyboard focus as the resize affordance. */
+			background: transparent;
+			border-radius: 1px;
+			transition: background 0.15s;
+		}
 
-			&::after {
-				content: "";
-				position: absolute;
-				top: 0;
-				/* The translated handle is centered on the column boundary, so its
-				 * 50% line IS the boundary. Anchoring the bar's right edge there makes
-				 * it sit flush at [boundary-2px, boundary], aligned with the pinned
-				 * inset separator and the group dividers — not straddling the boundary
-				 * 1px to the right (which misaligned the pinned line between header and body). */
-				right: 50%;
-				width: 2px;
-				height: 100%;
-				background: ${table.headCellGroup?.borderColor ?? "transparent"};
-				border-radius: 1px;
-				transition: background 0.15s;
-			}
+		&:hover::after,
+		&:focus-visible::after {
+			background: ${table.resizeHandler?.background ?? table.headCell.sortable.activeColor};
+		}
 
-			&:hover::after,
-			&:focus-visible::after {
-				background: ${table.resizeHandler?.background ?? table.headCell.sortable.activeColor};
-			}
-
-			&:focus-visible {
-				outline: 2px solid ${table.headCell.sortable.focusBorder ? table.headCell.sortable.activeColor : "currentColor"};
-				outline-offset: -2px;
-			}
-		`;
-	}
-);
+		&:focus-visible {
+			outline: 2px solid ${table.headCell.sortable.focusBorder ? table.headCell.sortable.activeColor : "currentColor"};
+			outline-offset: -2px;
+		}
+	`;
+});
 
 export interface DataTableResizeHandleTplProps {
 	/**
@@ -96,6 +109,21 @@ export interface DataTableResizeHandleTplProps {
 	 * `role`, `aria-label`, `aria-orientation`).
 	 */
 	handleProps?: HTMLAttributes<HTMLDivElement>;
+
+	/**
+	 * Whether this handle belongs to the last leaf column. The last column's right
+	 * edge is the table's right edge, so the default boundary-straddling overhang
+	 * would poke past the table and trigger a permanent horizontal scrollbar; when
+	 * set, the handle stays flush inside the cell instead.
+	 */
+	isLastLeaf?: boolean;
+
+	/**
+	 * Whether the host head cell is pinned. A pinned cell is a stacking context, so the
+	 * next pinned cell would paint over a straddling handle; when set, the handle stays
+	 * flush inside the cell. Either this or `isLastLeaf` suppresses the overhang.
+	 */
+	pinned?: boolean;
 }
 
 /**
@@ -104,11 +132,17 @@ export interface DataTableResizeHandleTplProps {
  *
  * @experimental
  */
-export function DataTableResizeHandleTpl({ handleProps }: DataTableResizeHandleTplProps): ReactElement {
+export function DataTableResizeHandleTpl({
+	handleProps,
+	isLastLeaf,
+	pinned
+}: DataTableResizeHandleTplProps): ReactElement {
 	return (
 		<StyledDataTableResizeHandle
 			data-role={DataRoles.Table.Column.ResizeHandler}
 			aria-orientation="vertical"
+			$isLastLeaf={isLastLeaf}
+			$pinned={pinned}
 			{...handleProps}
 		/>
 	);

@@ -50,6 +50,7 @@ export function ModalNotificationVariantsShowcase(): ReactElement {
 			<ConfigurationView
 				configuration={
 					<Radio
+						id="modal-notification-variants-choose-variant"
 						label="Choose variant"
 						onValueChanged={(value) => setVariant(value as any)}
 						value={variant}

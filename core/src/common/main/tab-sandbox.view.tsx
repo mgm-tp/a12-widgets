@@ -33,9 +33,9 @@
 import type { FC } from "react";
 import { useRef, useCallback, useLayoutEffect, useEffect } from "react";
 
-import { addPrefix, getAllFocusableElements, getParentElement } from "./utils.js";
-import type { TabSandboxProps } from "./tab-sandbox.api.js";
 import { DataRoles } from "./data-roles.js";
+import type { TabSandboxProps } from "./tab-sandbox.api.js";
+import { addPrefix, getAllFocusableElements, getParentElement } from "./utils.js";
 
 const TAB_SANDBOX_SUPPORTER = addPrefix("tab-sandbox-supporter");
 

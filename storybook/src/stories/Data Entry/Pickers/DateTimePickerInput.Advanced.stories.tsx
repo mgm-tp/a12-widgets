@@ -31,8 +31,8 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useState, useCallback } from "react";
 import { enUS } from "date-fns/locale";
+import { useState, useCallback } from "react";
 
 import {
 	DateTimePicker,
@@ -50,8 +50,7 @@ const DateTimePickerField = DateTimePickerInput(DateTimePicker);
 const meta: Meta<typeof DateTimePicker> = {
 	title: "Data Entry/Pickers/DateTimePicker/Advanced",
 	component: DateTimePicker,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;
@@ -66,7 +65,7 @@ export const ContextTimeMode: Story = {
 
 			return (
 				<DateTimeContext.Provider value={{ locale: enUS, timeMode: "24h" }}>
-					<div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: 400 }}>
+					<div style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%", maxWidth: 400 }}>
 						<DateTimePickerWithTimeInput
 							inputLabel="Date Time Picker using 24h mode from context"
 							pickerProps={{ id: "context-time-mode-24h", value: date24h, onAccept: setDate24h }}
@@ -124,7 +123,7 @@ export const CustomFormat: Story = {
 			}, []);
 
 			return (
-				<div style={{ width: 360 }}>
+				<div style={{ width: "100%", maxWidth: 360 }}>
 					<DateTimePickerField
 						inputLabel={`Custom format with ${TIMEZONE} timezone`}
 						placeholder={DATE_TIME_FORMAT}
@@ -161,7 +160,7 @@ export const Accessibility: Story = {
 				useDateTimePickerState();
 
 			return (
-				<div style={{ width: 360 }}>
+				<div style={{ width: "100%", maxWidth: 360 }}>
 					<DateTimePickerField
 						inputLabel="Accessible Date Time Picker"
 						placeholder="MM/DD/YYYY h:mm A"

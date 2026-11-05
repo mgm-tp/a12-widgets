@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { produce } from "immer";
 import type { ReactElement } from "react";
 import { useState, useCallback } from "react";
-import { produce } from "immer";
 
 import type {
 	CollapsibleTreeNodeModel,

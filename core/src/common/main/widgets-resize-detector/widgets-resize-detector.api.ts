@@ -30,8 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { useResizeDetectorProps } from "react-resize-detector";
-
 import type { Container } from "../base-props.js";
+import type { UseResizeObserverOptions } from "../resize-observer/resize-observer.api.js";
 
-export type WidgetsResizeDetectorProps<T extends HTMLElement = HTMLElement> = useResizeDetectorProps<T> & Container;
+export interface WidgetsResizeDetectorProps<T extends HTMLElement = HTMLElement>
+	extends UseResizeObserverOptions<T>, Container {
+	/**
+	 * @deprecated Ignored. Resize notifications are always debounced by
+	 * `refreshRate` milliseconds (default `0`).
+	 */
+	refreshMode?: "throttle" | "debounce";
+
+	/**
+	 * @deprecated Ignored. Resize notifications are always debounced by
+	 * `refreshRate` milliseconds (default `0`).
+	 */
+	refreshOptions?: { leading?: boolean; trailing?: boolean };
+}

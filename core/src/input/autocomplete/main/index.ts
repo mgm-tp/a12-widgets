@@ -30,9 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-export * from "./autocomplete-utils.js";
 export * from "./autocomplete.api.js";
-export * from "./autocomplete.default.view.js";
-export * from "./autocomplete.mobile.view.js";
+// Deprecated shims for the two device-specific implementations a single component replaced.
+export * from "./autocomplete.compat.view.js";
 export * from "./autocomplete.styled.js";
+// autocomplete.utils.js is deliberately not re-exported: its helpers are internal (formerly
+// autocomplete.internal.ts) and must not leak into the package's public API. The one public symbol it
+// used to carry, `getDropDownItemsLength`, now lives with the other DropDownItem helpers in
+// dropdown/main/template/dropdown.utils.ts and reaches the package root from there.
 export * from "./autocomplete.view.js";

@@ -32,9 +32,9 @@
 
 import { memo } from "react";
 
-import { TableTemplate } from "./template/index.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
 import { useTableContext } from "./table.context.js";
+import { TableTemplate } from "./template/index.js";
 
 /** @internal */
 export const Head = memo(function Head(props: TableRenderPropsType.HeadProps) {

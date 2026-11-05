@@ -33,7 +33,6 @@
 import type { RefCallback, FocusEvent } from "react";
 
 import type { DataRole } from "../../common/main/base-props.js";
-
 import type { BaseInputProps, InputDOMProps } from "../base/template/base.tpl.api.js";
 
 import type { OptionalYearMonthItem } from "./month-selector.api.js";

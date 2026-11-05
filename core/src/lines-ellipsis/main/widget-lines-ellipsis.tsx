@@ -34,9 +34,10 @@
  * @fileoverview This file contains the WidgetLinesEllipsis and WidgetHtmlLinesEllipsis components, which are temporary fixes for issues caused by updating to React 19. These components will be removed once the issue is resolved.
  * To watch the issue, refer to https://github.com/xiaody/react-lines-ellipsis/issues/139
  */
+
+import { isEqual } from "lodash-es";
 import ReactLinesEllipsis from "react-lines-ellipsis";
 import ReactHtmlLinesEllipsis from "react-lines-ellipsis/lib/html.js";
-import { isEqual } from "lodash-es";
 
 /** @internal */
 export class WidgetLinesEllipsis extends ReactLinesEllipsis {

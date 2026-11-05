@@ -32,15 +32,14 @@
 
 import type { ReactNode } from "react";
 import { useState } from "react";
-import { Key } from "ts-key-enum";
 import { render, fireEvent, getByDataRole, getAllByDataRole, queryByDataRole, waitFor } from "test-utils";
+import { Key } from "ts-key-enum";
 import { describe, test, expect, vi } from "vitest";
 import { page, userEvent } from "vitest/browser";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { isNotFullyOverlapped, noop } from "../../../common/main/utils.js";
 import { HintTooltip } from "../../../tooltip/hint/main/hint.view.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-
 import type { IconPickerProps } from "../main/icon-picker.api.js";
 import { IconPicker } from "../main/icon-picker.view.js";
 

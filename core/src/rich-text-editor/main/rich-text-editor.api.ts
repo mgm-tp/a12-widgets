@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode } from "react";
 import type { EditorState, LexicalEditor } from "lexical";
+import type { ReactNode } from "react";
 
 import type { Container, Identifiable, Styleable } from "../../common/main/base-props.js";
 import type { BaseInputProps } from "../../input/base/template/base.tpl.api.js";
@@ -39,10 +39,7 @@ import type { BaseInputProps } from "../../input/base/template/base.tpl.api.js";
 import type { StaticToolbarProps } from "./plugins/static-toolbar-plugin/static-toolbar.api.js";
 import type { RichTextEditorComposerProps } from "./template/rich-text-editor.tpl.api.js";
 
-type OmittedInputBaseProps = Omit<
-	BaseInputProps,
-	"fitToParent" | "ariaDescribedby" | "breakTooltipsToNewLine" | "onChange"
->;
+type OmittedInputBaseProps = Omit<BaseInputProps, "fitToParent" | "ariaDescribedby" | "onChange">;
 
 export interface RichTextEditorProps
 	extends

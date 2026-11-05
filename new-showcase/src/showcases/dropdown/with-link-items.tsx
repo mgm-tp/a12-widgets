@@ -60,6 +60,7 @@ export function WithLinkItems(): ReactElement {
 			reportLabel="WithLinkItems"
 			configuration={
 				<Checkbox
+					id="dropdown-with-link-items-light-background"
 					fitToParent={false}
 					checked={lightBackground}
 					label="Light Background"

@@ -102,6 +102,10 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with hideable legend 1`
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c1 {
   align-items: center;
   border: 2px solid transparent;
@@ -147,6 +151,10 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with hideable legend 1`
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c1:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .c1:not(:disabled):focus {
   background-color: rgb(255, 255, 255);
   box-shadow: none;
@@ -162,19 +170,6 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with hideable legend 1`
 
 .h_inlineBlock.h_middleAlign .c1.c1 > .c2 {
   display: block;
-}
-
-.c4 .c2 {
-  user-select: none;
-}
-
-.c5 .c2 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c5 .c2:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
 }
 
 .c0 .recharts-default-tooltip,
@@ -293,6 +288,8 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with hideable legend 1`
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
@@ -624,321 +621,6 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with horizontal legend 
 </div>
 `;
 
-exports[`com.mgmtp.a12.widgets.charts > render pie chart with unsorted legend 1`] = `
-.c1 {
-  background: rgb(255, 255, 255);
-  font-family: "Open Sans", sans-serif;
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c4 {
-  box-sizing: border-box;
-  background-color: rgb(255, 255, 255);
-  color: rgb(77, 77, 77);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.c5 {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-start;
-  gap: 16px;
-  min-height: 48px;
-  outline: 0px;
-  padding: 8px 16px;
-}
-
-.c5::before {
-  content: "";
-  inset: 0px;
-  position: absolute;
-  display: block;
-}
-
-.c5:focus::before {
-  border: 2px solid rgb(213, 0, 117);
-  margin: 1px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c7 {
-  align-items: center;
-  color: inherit;
-  display: inline-flex;
-  flex-shrink: 0;
-  justify-content: center;
-  position: relative;
-}
-
-.c8 {
-  color: inherit;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  font-size: 0.875rem;
-  font-weight: 400;
-  position: relative;
-}
-
-.c9 {
-  color: rgb(97, 111, 124);
-  font-size: 0.75rem;
-  position: relative;
-  text-align: right;
-}
-
-.c10 .c3 {
-  flex-grow: 1;
-  flex-shrink: 0;
-}
-
-.c10 .c6 {
-  border-radius: 50%;
-  height: 12px;
-  width: 12px;
-}
-
-.c11 .c6 {
-  border-radius: 50%;
-  height: 12px;
-  width: 12px;
-}
-
-.c2 {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(181, 76, 23);
-  font-family: "Open Sans", sans-serif;
-  overflow: auto;
-}
-
-.c2.chart-legend--top,
-.c2.chart-legend--above {
-  margin-bottom: 16px;
-}
-
-.c2.chart-legend--bottom,
-.c2.chart-legend--below {
-  margin-top: 16px;
-}
-
-.c2.chart-legend--right {
-  margin-left: 16px;
-}
-
-.c2.chart-legend--left {
-  margin-right: 16px;
-}
-
-.c2 .c6 {
-  border-radius: 50%;
-  height: 12px;
-  width: 12px;
-}
-
-.c0 .recharts-default-tooltip,
-.c0 .recharts-pie:focus {
-  outline: none;
-}
-
-@media (pointer: coarse) {
-  .c5:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c5:active::before {
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c5:hover::before {
-    border: 2px solid rgb(213, 0, 117);
-  }
-
-  .c5:hover > :not([data-role="list-item-graphic"]) {
-    text-decoration: none;
-  }
-}
-
-<div
-  class="recharts-wrapper c0 pie-chart"
-  style="position: relative; cursor: default; width: 600px; height: 400px;"
->
-  <svg
-    class="recharts-surface"
-    cx="50%"
-    cy="50%"
-    height="400"
-    style="width: 100%; height: 100%;"
-    viewBox="0 0 600 400"
-    width="600"
-  >
-    <title />
-    <desc />
-    <defs>
-      <clippath
-        id="recharts11-clip"
-      >
-        <rect
-          height="400"
-          width="469"
-          x="0"
-          y="0"
-        />
-      </clippath>
-    </defs>
-    <g
-      class="recharts-layer recharts-pie"
-      tabindex="0"
-    >
-      <g
-        class="recharts-layer"
-      >
-        <g
-          class="recharts-layer recharts-pie-sector"
-          tabindex="-1"
-        />
-        <g
-          class="recharts-layer recharts-pie-sector"
-          tabindex="-1"
-        />
-        <g
-          class="recharts-layer recharts-pie-sector"
-          tabindex="-1"
-        />
-      </g>
-    </g>
-  </svg>
-  <div
-    class="recharts-legend-wrapper"
-    style="position: absolute; width: auto; height: auto; right: 0px; top: 0px;"
-  >
-    <ul
-      class="c1 list c2 chart-legend chart-legend--top chart-legend--right"
-      data-role="pie-chart-legend"
-      style="max-height: 400px; max-width: 300px;"
-    >
-      <li
-        class="c3 c4 list-item "
-        data-role="list-item"
-      >
-        <div
-          aria-disabled="false"
-          class="c5 list-item__content"
-          data-role="list-item-content"
-          role="button"
-          tabindex="0"
-        >
-          <div
-            aria-hidden="true"
-            class="c6 c7"
-            data-role="list-item-graphic"
-            style="background-color: rgb(5, 98, 148);"
-          />
-          <div
-            class="c8 list-item__text"
-            data-role="list-item-text"
-          >
-            Mar
-          </div>
-          <div
-            class="c9 list-item__meta"
-            data-role="list-item-meta"
-          >
-            23
-          </div>
-        </div>
-      </li>
-      <li
-        class="c3 c4 list-item "
-        data-role="list-item"
-      >
-        <div
-          aria-disabled="false"
-          class="c5 list-item__content"
-          data-role="list-item-content"
-          role="button"
-          tabindex="0"
-        >
-          <div
-            aria-hidden="true"
-            class="c6 c7"
-            data-role="list-item-graphic"
-            style="background-color: rgb(255, 205, 41);"
-          />
-          <div
-            class="c8 list-item__text"
-            data-role="list-item-text"
-          >
-            Jan
-          </div>
-          <div
-            class="c9 list-item__meta"
-            data-role="list-item-meta"
-          >
-            20
-          </div>
-        </div>
-      </li>
-      <li
-        class="c3 c4 list-item "
-        data-role="list-item"
-      >
-        <div
-          aria-disabled="false"
-          class="c5 list-item__content"
-          data-role="list-item-content"
-          role="button"
-          tabindex="0"
-        >
-          <div
-            aria-hidden="true"
-            class="c6 c7"
-            data-role="list-item-graphic"
-            style="background-color: rgb(25, 103, 25);"
-          />
-          <div
-            class="c8 list-item__text"
-            data-role="list-item-text"
-          >
-            Feb
-          </div>
-          <div
-            class="c9 list-item__meta"
-            data-role="list-item-meta"
-          >
-            14
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div
-    class="recharts-tooltip-wrapper recharts-tooltip-wrapper-right recharts-tooltip-wrapper-bottom"
-    style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px; transform: translate(10px, 10px);"
-    tabindex="-1"
-  >
-    <div
-      class="recharts-default-tooltip"
-      style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"
-    >
-      <p
-        class="recharts-tooltip-label"
-        style="margin: 0px;"
-      />
-    </div>
-  </div>
-</div>
-`;
-
 exports[`com.mgmtp.a12.widgets.charts > render pie chart with vertical legend 1`] = `
 .c1 {
   background: rgb(255, 255, 255);
@@ -948,7 +630,7 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with vertical legend 1`
   padding: 0px;
 }
 
-.c4 {
+.c3 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   color: rgb(77, 77, 77);
@@ -959,7 +641,7 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with vertical legend 1`
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.c5 {
+.c4 {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -971,20 +653,20 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with vertical legend 1`
   padding: 8px 16px;
 }
 
-.c5::before {
+.c4::before {
   content: "";
   inset: 0px;
   position: absolute;
   display: block;
 }
 
-.c5:focus::before {
+.c4:focus::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c7 {
+.c6 {
   align-items: center;
   color: inherit;
   display: inline-flex;
@@ -993,7 +675,7 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with vertical legend 1`
   position: relative;
 }
 
-.c8 {
+.c7 {
   color: inherit;
   display: flex;
   flex: 1 1 auto;
@@ -1003,22 +685,11 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with vertical legend 1`
   position: relative;
 }
 
-.c9 {
+.c8 {
   color: rgb(97, 111, 124);
   font-size: 0.75rem;
   position: relative;
   text-align: right;
-}
-
-.c10 .c3 {
-  flex-grow: 1;
-  flex-shrink: 0;
-}
-
-.c10 .c6 {
-  border-radius: 50%;
-  height: 12px;
-  width: 12px;
 }
 
 .c2 {
@@ -1047,7 +718,7 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with vertical legend 1`
   margin-right: 16px;
 }
 
-.c2 .c6 {
+.c2 .c5 {
   border-radius: 50%;
   height: 12px;
   width: 12px;
@@ -1059,21 +730,21 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with vertical legend 1`
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c5:active::before {
+  .c4:active::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c5:hover::before {
+  .c4:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 
-  .c5:hover > :not([data-role="list-item-graphic"]) {
+  .c4:hover > :not([data-role="list-item-graphic"]) {
     text-decoration: none;
   }
 }
@@ -1137,30 +808,30 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with vertical legend 1`
       style="max-height: 400px; max-width: 300px;"
     >
       <li
-        class="c3 c4 list-item "
+        class="c3 list-item "
         data-role="list-item"
       >
         <div
           aria-disabled="false"
-          class="c5 list-item__content"
+          class="c4 list-item__content"
           data-role="list-item-content"
           role="button"
           tabindex="0"
         >
           <div
             aria-hidden="true"
-            class="c6 c7"
+            class="c5 c6"
             data-role="list-item-graphic"
             style="background-color: rgb(5, 98, 148);"
           />
           <div
-            class="c8 list-item__text"
+            class="c7 list-item__text"
             data-role="list-item-text"
           >
             Mar
           </div>
           <div
-            class="c9 list-item__meta"
+            class="c8 list-item__meta"
             data-role="list-item-meta"
           >
             23
@@ -1168,30 +839,30 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with vertical legend 1`
         </div>
       </li>
       <li
-        class="c3 c4 list-item "
+        class="c3 list-item "
         data-role="list-item"
       >
         <div
           aria-disabled="false"
-          class="c5 list-item__content"
+          class="c4 list-item__content"
           data-role="list-item-content"
           role="button"
           tabindex="0"
         >
           <div
             aria-hidden="true"
-            class="c6 c7"
+            class="c5 c6"
             data-role="list-item-graphic"
             style="background-color: rgb(255, 205, 41);"
           />
           <div
-            class="c8 list-item__text"
+            class="c7 list-item__text"
             data-role="list-item-text"
           >
             Jan
           </div>
           <div
-            class="c9 list-item__meta"
+            class="c8 list-item__meta"
             data-role="list-item-meta"
           >
             20
@@ -1199,30 +870,30 @@ exports[`com.mgmtp.a12.widgets.charts > render pie chart with vertical legend 1`
         </div>
       </li>
       <li
-        class="c3 c4 list-item "
+        class="c3 list-item "
         data-role="list-item"
       >
         <div
           aria-disabled="false"
-          class="c5 list-item__content"
+          class="c4 list-item__content"
           data-role="list-item-content"
           role="button"
           tabindex="0"
         >
           <div
             aria-hidden="true"
-            class="c6 c7"
+            class="c5 c6"
             data-role="list-item-graphic"
             style="background-color: rgb(25, 103, 25);"
           />
           <div
-            class="c8 list-item__text"
+            class="c7 list-item__text"
             data-role="list-item-text"
           >
             Feb
           </div>
           <div
-            class="c9 list-item__meta"
+            class="c8 list-item__meta"
             data-role="list-item-meta"
           >
             14

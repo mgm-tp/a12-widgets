@@ -33,11 +33,10 @@
 import { getAllByDataRole, render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import { Range } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
-import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { Range } from "../../common/main/utils.js";
 import { InfiniteScrollBody } from "../main/table.infinite-scroll-body.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
 
 describe("com.mgmtp.a12.widgets.table.infinite-scroll-body", () => {
 	const COLUMN_COUNT = 4;

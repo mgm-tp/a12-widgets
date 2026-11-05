@@ -1,0 +1,70 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ProgressIndicatorStories from "./ProgressIndicator.stories";
+
+<Meta of={ProgressIndicatorStories} />
+
+<Title />
+
+The `ProgressIndicator` widget overlays a loading spinner on top of a content area to signal an
+ongoing operation. Place it inside a `position: relative` container — it covers that container with
+an outer overlay (blocking interaction) and centers a spinner in an inner overlay; use `global` to
+cover the whole screen instead.
+
+- An optional `label` is shown below the spinner (or beside it with `type="horizontal"`), and
+  `useLoadingDots` appends animated dots to it.
+- `outerOverlayVariant` / `innerOverlayVariant` (`bright` or `transparent`) control how strongly the
+  underlying content is dimmed; `singleOverlay` collapses both into one.
+- `focusOnOpen` and `scrollIntoView` help bring the indicator into view, and `openingDelay` /
+  `fastAppear` tune when it becomes visible.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ProgressIndicatorStories.Playground} />
+
+## Examples
+
+### Basic
+
+<Canvas of={ProgressIndicatorStories.Basic} />
+
+### With label
+
+<Canvas of={ProgressIndicatorStories.WithLabel} />
+
+### Loading dots
+
+<Canvas of={ProgressIndicatorStories.WithLoadingDots} />
+
+### Horizontal layout
+
+<Canvas of={ProgressIndicatorStories.HorizontalLayout} />
+
+### Sizes
+
+<Canvas of={ProgressIndicatorStories.Sizes} />
+
+### Custom color
+
+<Canvas of={ProgressIndicatorStories.CustomColor} />
+
+### Overlay variants
+
+<Canvas of={ProgressIndicatorStories.OverlayVariants} />

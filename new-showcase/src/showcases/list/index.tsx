@@ -30,20 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import combinationCode from "!./combination.tsx?raw";
+import itemWithProgressBarCode from "!./item-with-progress-bar.tsx?raw";
+import listElementsCode from "!./list-elements.tsx?raw";
+
 import { Link, BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 import ListAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/list/main/list.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { Basic } from "./basic.js";
-import { ListElements } from "./list-elements.js";
 import { Combination } from "./combination.js";
 import { ItemWithProgressBar } from "./item-with-progress-bar.js";
-
-import basicCode from "!./basic.tsx?raw";
-import listElementsCode from "!./list-elements.tsx?raw";
-import combinationCode from "!./combination.tsx?raw";
-import itemWithProgressBarCode from "!./item-with-progress-bar.tsx?raw";
+import { ListElements } from "./list-elements.js";
 
 const { Unordered, Item } = BulletList;
 

@@ -40,8 +40,7 @@ const meta: Meta<typeof Wizard> = {
 	component: Wizard,
 	parameters: {
 		layout: "padded"
-	},
-	tags: ["autodocs"]
+	}
 };
 
 export default meta;

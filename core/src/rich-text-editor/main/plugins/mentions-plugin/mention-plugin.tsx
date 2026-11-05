@@ -30,8 +30,6 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC, ReactElement } from "react";
-import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import type { MenuRenderFn, MenuTextMatch } from "@lexical/react/LexicalTypeaheadMenuPlugin";
 import {
@@ -41,15 +39,18 @@ import {
 } from "@lexical/react/LexicalTypeaheadMenuPlugin";
 import type { TextNode } from "lexical";
 import { $getSelection, $isRangeSelection } from "lexical";
+import type { FC, ReactElement } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
-import { $createEditorMentionNode } from "../../nodes/mention-node.js";
-import { $createInlineStyleTextNode, $isInlineStyleTextNode } from "../../nodes/inline-style-text-node.js";
-import { StyledEditorMentionSuggestion, StyledEditorMentionSuggestionItem } from "../../rich-text-editor.styled.js";
 import { AttachedPortal } from "../../../../attached-portal/main/attached-portal.view.js";
-import { editorThemeClasses } from "../../themes/themes.js";
 import { DataRoles } from "../../../../common/main/data-roles.js";
+import { $createInlineStyleTextNode, $isInlineStyleTextNode } from "../../nodes/inline-style-text-node.js";
+import { $createEditorMentionNode } from "../../nodes/mention-node.js";
+import { StyledEditorMentionSuggestion, StyledEditorMentionSuggestionItem } from "../../rich-text-editor.styled.js";
+import { editorThemeClasses } from "../../themes/themes.js";
 
 import type { MentionPluginProps } from "./mention-plugin.api.js";
+import { anchorRectOfSelection } from "./mention-position.internal.js";
 
 class MentionOption extends MenuOption {
 	name: string;
@@ -209,21 +210,15 @@ export const MentionPlugin: FC<MentionPluginProps> = (props) => {
 	}, []);
 
 	const getClientCoordinatesOfSelection = useCallback((): { top: number; left: number } | null => {
-		let position: { top: number; left: number } | null = null;
-
 		const domSelection = window.getSelection();
 
-		if (domSelection && domSelection.rangeCount > 0) {
-			const range = domSelection.getRangeAt(0);
-			const rects = range.getClientRects();
-
-			if (rects.length > 0) {
-				const rect = rects[0];
-				position = { top: rect.top, left: rect.left };
-			}
+		if (!domSelection || domSelection.rangeCount === 0) {
+			return null;
 		}
 
-		return position;
+		const rect = anchorRectOfSelection(domSelection.getRangeAt(0).getClientRects());
+
+		return rect ? { top: rect.top, left: rect.left } : null;
 	}, []);
 
 	const menuRenderFn: MenuRenderFn<MentionOption> = useCallback(

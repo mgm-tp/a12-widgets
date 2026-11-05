@@ -36,7 +36,9 @@ import { useState } from "react";
 import { DataTreeTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import type { FileNode } from "./shared.js";
-import { FILE_TREE, COLUMNS, fileIcon } from "./shared.js";
+import { COLUMNS, fileIcon, fileTree, useRowSelection } from "./shared.js";
+
+const FILE_TREE = fileTree("dnd");
 
 /** Deep-clones the forest so each drop produces a fresh, mutation-safe tree. */
 function cloneForest(nodes: FileNode[]): FileNode[] {
@@ -101,60 +103,79 @@ function findSiblings(nodes: FileNode[], id: Key): FileNode[] | undefined {
 }
 
 /**
- * Pass `dragDropOptions` to make rows draggable — powered by `@atlaskit/pragmatic-drag-and-drop` and its
+ * Pass `dragDropOptions` to make rows draggable — powered by `@com.mgmtp.a12.widgets/pragmatic-drag-and-drop` and its
  * tree-item hitbox, no provider required. Drop near a row's top/bottom edge to reorder it
  * (`before` / `after`), or over the middle of a folder to reparent it (`inside`). The self/descendant
  * cycle guard is built in; `onDrop` reports `{ source, target, position }` and the consumer mutates its
- * own tree in response.
+ * own tree in response. The same `onDrop` also receives keyboard moves: Space picks the focused row up,
+ * the arrows and Home/End move or re-parent it, Space/Enter drop and Escape cancels. `keyboardGrabKey: false`
+ * switches the pick-up off when the rows need Space for a shortcut of their own.
+ *
+ * With `onDropToRoot` provided, the empty area below the last row (the table here is shorter than its
+ * host) becomes a drop zone that moves the row to the top level — the counterpart of the legacy
+ * `TreeTable`'s `hideRoot` drop onto the body. `canDropToRoot` can forbid it per row.
  */
 export function DragAndDropDataTreeTable(): ReactElement {
 	const [forest, setForest] = useState<FileNode[]>(() => cloneForest(FILE_TREE));
+	const { rowStyling, rowEventHandlers } = useRowSelection<FileNode>();
 
 	return (
-		<DataTreeTable<FileNode>
-			ariaLabel="Files (drag to reorder / reparent)"
-			tree={forest}
-			getChildren={(row) => row.children}
-			getIcon={fileIcon}
-			columns={COLUMNS}
-			rowKey="id"
-			maxHeight={360}
-			defaultExpandAll
-			dragDropOptions={{
-				onDrop: ({ source, target, position }) => {
-					setForest((current) => {
-						const next = cloneForest(current);
+		<div style={{ height: 480 }}>
+			<DataTreeTable<FileNode>
+				ariaLabel="Files (drag to reorder / reparent)"
+				tree={forest}
+				getChildren={(row) => row.children}
+				getIcon={fileIcon}
+				columns={COLUMNS}
+				rowKey="id"
+				rowStyling={rowStyling}
+				rowEventHandlers={rowEventHandlers}
+				maxHeight={480}
+				defaultExpandAll
+				dragDropOptions={{
+					canDropToRoot: ({ source }) => forest[forest.length - 1]?.id !== source.id,
+					// Dropped on the empty area below the last row: the node becomes the last top-level row.
+					onDropToRoot: ({ source }) =>
+						setForest((current) => {
+							const next = cloneForest(current);
 
-						if (!detach(next, source.id)) {
-							return current;
-						}
+							return detach(next, source.id) ? [...next, { ...source }] : current;
+						}),
+					onDrop: ({ source, target, position }) => {
+						setForest((current) => {
+							const next = cloneForest(current);
 
-						// Re-create the dragged node from `source` (detach mutated the clone's structure).
-						const dragged: FileNode = { ...source };
-
-						if (position === "inside") {
-							const into = find(next, target.id);
-
-							if (into) {
-								into.children = [...(into.children ?? []), dragged];
+							if (!detach(next, source.id)) {
+								return current;
 							}
 
+							// Re-create the dragged node from `source` (detach mutated the clone's structure).
+							const dragged: FileNode = { ...source };
+
+							if (position === "inside") {
+								const into = find(next, target.id);
+
+								if (into) {
+									into.children = [...(into.children ?? []), dragged];
+								}
+
+								return next;
+							}
+
+							const siblings = findSiblings(next, target.id);
+
+							if (!siblings) {
+								return current;
+							}
+
+							const index = siblings.findIndex((node) => node.id === target.id);
+							siblings.splice(position === "before" ? index : index + 1, 0, dragged);
+
 							return next;
-						}
-
-						const siblings = findSiblings(next, target.id);
-
-						if (!siblings) {
-							return current;
-						}
-
-						const index = siblings.findIndex((node) => node.id === target.id);
-						siblings.splice(position === "before" ? index : index + 1, 0, dragged);
-
-						return next;
-					});
-				}
-			}}
-		/>
+						});
+					}
+				}}
+			/>
+		</div>
 	);
 }

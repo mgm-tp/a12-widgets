@@ -34,7 +34,7 @@ import type { ReactElement } from "react";
 
 import { LineChart, ResponsiveChartContainer } from "@com.mgmtp.a12.widgets/widgets-core";
 
-export function TriangleDot(props: any): ReactElement {
+function TriangleDot(props: any): ReactElement {
 	const { cx, cy, fill, opacity } = props;
 
 	return (
@@ -44,7 +44,7 @@ export function TriangleDot(props: any): ReactElement {
 	);
 }
 
-export function SquareDot(props: any): ReactElement {
+function SquareDot(props: any): ReactElement {
 	const { cx, cy, fill, opacity } = props;
 
 	return (
@@ -54,7 +54,7 @@ export function SquareDot(props: any): ReactElement {
 	);
 }
 
-export function Rhombus(props: any): ReactElement {
+function Rhombus(props: any): ReactElement {
 	const { cx, cy, fill, opacity } = props;
 
 	return (

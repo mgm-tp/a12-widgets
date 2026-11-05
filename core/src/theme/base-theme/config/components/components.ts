@@ -37,8 +37,8 @@
  * Each component config file handles its own default + overrides merging internally.
  */
 
-import type { BaseThemeCore } from "../../schema.js";
 import type { BaseThemeComponentsType } from "../../../schema/components.api.js";
+import type { BaseThemeCore } from "../../schema.js";
 
 import { accordionConfig } from "./accordion.config.js";
 import { applicationFrameConfig } from "./application-frame.config.js";
@@ -57,6 +57,7 @@ import { chartsConfig } from "./charts.config.js";
 import { chatConfig } from "./chat.config.js";
 import { checkboxConfig } from "./checkbox.config.js";
 import { collapsiblePanelConfig } from "./collapsible-panel.config.js";
+import { columnVisibilityPanelConfig } from "./column-visibility-panel.config.js";
 import { commentListConfig } from "./comment-list.config.js";
 import { commentConfig } from "./comment.config.js";
 import { connectedToastConfig } from "./connected-toast.config.js";
@@ -83,6 +84,7 @@ import { formConfig } from "./legacy/form.config.js";
 import { linkConfig } from "./link.config.js";
 import { listConfig } from "./list.config.js";
 import { loginLayoutConfig } from "./login-layout.config.js";
+import { markdownEditorConfig } from "./markdown-editor.config.js";
 import { masterDetailLayoutConfig } from "./master-detail-layout.config.js";
 import { menuConfig } from "./menu.config.js";
 import { messageBoxConfig } from "./message-box.config.js";
@@ -135,6 +137,7 @@ export const BaseThemeComponentsConfigs = (theme: BaseThemeCore): BaseThemeCompo
 		calendar: calendarConfig(t),
 		checkbox: checkboxConfig(t),
 		collapsiblePanel: collapsiblePanelConfig(t),
+		columnVisibilityPanel: columnVisibilityPanelConfig(t),
 		contentBox: contentBoxConfig(t),
 		datePicker: datePickerConfig(t),
 		dateTimePicker: dateTimePickerConfig(t),
@@ -150,6 +153,7 @@ export const BaseThemeComponentsConfigs = (theme: BaseThemeCore): BaseThemeCompo
 		layoutGrid: layoutGridConfig(t),
 		link: linkConfig(t),
 		list: listConfig(t),
+		markdownEditor: markdownEditorConfig(t),
 		masterDetailLayout: masterDetailLayoutConfig(t),
 		menu: menuConfig(t),
 		modalOverlay: modalOverlayConfig(t),

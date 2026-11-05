@@ -33,9 +33,10 @@
 import type { ComponentType } from "react";
 import { useMemo } from "react";
 
-import type { BaseColumnType } from "./foundation/column.api.js";
+import { DataTableCardViewSlots } from "./card-view/card-view-slots.js";
 import type { DataTableSlots, ResolvedDataTableSlots } from "./data-table-slots.api.js";
 import { DataTableDefaultSlots } from "./default-renderers.js";
+import type { BaseColumnType } from "./foundation/column.api.js";
 
 /**
  * Resolution result for the orchestrator: the merged slot map plus a presence
@@ -54,7 +55,14 @@ export interface UseDataTableSlotsResult<
 }
 
 /**
- * Merge the consumer {@link DataTableSlots} over {@link DataTableDefaultSlots}.
+ * Merge the consumer {@link DataTableSlots} over the base slot set for the active
+ * layout: {@link DataTableDefaultSlots} for the `<table>` layout,
+ * {@link DataTableCardViewSlots} when `cardView` is set.
+ *
+ * This is where the two layouts diverge. They are alternative structural
+ * implementations of the same model, not one implementation with a variant flag, so
+ * the choice is made once here rather than re-decided inside each template — which
+ * is why no template below this point branches on `cardView`.
  *
  * Special case: group head cells keep the leaf-cell fallback — a consumer
  * providing only `headCell` customizes group cells too, unless a dedicated
@@ -67,11 +75,13 @@ export interface UseDataTableSlotsResult<
  * @internal
  */
 export function useDataTableSlots<RowType, ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>>(
-	consumerSlots: DataTableSlots<RowType, ColumnType> | undefined
+	consumerSlots: DataTableSlots<RowType, ColumnType> | undefined,
+	cardView?: boolean
 ): UseDataTableSlotsResult<RowType, ColumnType> {
 	return useMemo<UseDataTableSlotsResult<RowType, ColumnType>>(() => {
 		const consumerMap = consumerSlots as Record<string, ComponentType<any> | undefined> | undefined;
-		const slots = { ...DataTableDefaultSlots } as unknown as Record<string, ComponentType<any> | undefined>;
+		const baseSlots = cardView ? DataTableCardViewSlots : DataTableDefaultSlots;
+		const slots = { ...baseSlots } as unknown as Record<string, ComponentType<any> | undefined>;
 
 		if (consumerMap) {
 			for (const key of Object.keys(consumerMap)) {
@@ -93,5 +103,5 @@ export function useDataTableSlots<RowType, ColumnType extends BaseColumnType<Row
 			slots: slots as unknown as ResolvedDataTableSlots<RowType, ColumnType>,
 			hasConsumerSlot
 		};
-	}, [consumerSlots]);
+	}, [consumerSlots, cardView]);
 }

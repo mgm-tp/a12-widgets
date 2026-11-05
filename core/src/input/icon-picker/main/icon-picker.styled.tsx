@@ -33,10 +33,10 @@
 import { styled, css } from "styled-components";
 
 import { StyledDropdownGraphic, StyledDropdownItem } from "../../../dropdown/main/template/dropdown.tpl.styled.js";
-import { Icon } from "../../../icon/main/icon.view.js";
 import { DropDown } from "../../../dropdown/main/template/dropdown.tpl.view.js";
-import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
+import { Icon } from "../../../icon/main/icon.view.js";
 import { createBoxShadow } from "../../../theme/base/mixins/_borderEffects.js";
+import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
 
 import StyledFieldInput = StyledBaseInput.StyledFieldInput;
 
@@ -55,12 +55,14 @@ export const StyledIconPickerWrapper = styled.div.withConfig({ displayName: "Sty
 			color: ${$disabled ? "inherit" : theme.components.iconPicker.inputSelectedIconColor};
 		}
 
-		${input?.focus?.customBorder &&
-		css`
-			${StyledFieldInput}[data-isfocused="true"] {
-				${createBoxShadow(input.focus.customBorder)}
-			}
-		`}
+		${
+			input?.focus?.customBorder &&
+			css`
+				${StyledFieldInput}[data-isfocused="true"] {
+					${createBoxShadow(input.focus.customBorder)}
+				}
+			`
+		}
 	`;
 });
 
@@ -82,11 +84,13 @@ export const StyledIconPickerDropdown = styled(DropDown).withConfig({ displayNam
 			}
 		}
 
-		${$saveSpace &&
-		css`
-			${StyledDropdownItem} {
-				padding: ${iconPicker.smallContainerIconPadding};
-			}
-		`}
+		${
+			$saveSpace &&
+			css`
+				${StyledDropdownItem} {
+					padding: ${iconPicker.smallContainerIconPadding};
+				}
+			`
+		}
 	`;
 });

@@ -34,7 +34,6 @@ import { getByDataRole, render } from "test-utils";
 import { describe, expect, test } from "vitest";
 
 import type { SizeDetectorProps } from "../../size-detector/main/size-detector.api.js";
-
 import { LayoutGrid } from "../main/layout-grid.view.js";
 
 const { Grid, Column, Row, LayoutGridTemplate } = LayoutGrid;

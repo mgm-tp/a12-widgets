@@ -68,6 +68,10 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
+  color: inherit;
+}
+
 .c16 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -94,6 +98,10 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 
 .c16.c16 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c16 {
+  color: inherit;
 }
 
 .c12.c12 {
@@ -146,6 +154,10 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c21:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c21.c21 {
@@ -260,7 +272,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -289,7 +301,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -444,6 +456,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               
             </span>
@@ -477,6 +491,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               warning
             </span>
@@ -519,6 +535,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 event
               </span>
@@ -537,6 +555,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
         />
         <input
           aria-describedby="test-id-input-warning test-id-input-error test-id-input-label"
+          aria-invalid="true"
           class="c23 field__text"
           data-role="text-field-input"
           id="test-id-input"
@@ -622,6 +641,17 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   height: 1px;
 }
 
+.c32 {
+  display: flex;
+  max-height: 100vh;
+  outline: transparent solid 0px;
+  position: absolute;
+}
+
+.c32 > * {
+  max-height: inherit;
+}
+
 .c12 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -648,6 +678,10 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
 
 .c12.c12 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c12 {
+  color: inherit;
 }
 
 .c17 {
@@ -678,23 +712,16 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c17 {
+  color: inherit;
+}
+
 .c13.c13 {
   color: rgb(201, 29, 29);
 }
 
 .c18.c18 {
   color: rgb(175, 121, 2);
-}
-
-.c32 {
-  display: flex;
-  max-height: 100vh;
-  outline: transparent solid 0px;
-  position: absolute;
-}
-
-.c32 > * {
-  max-height: inherit;
 }
 
 .c24 {
@@ -739,6 +766,10 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c24:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c24.c24 {
@@ -1060,7 +1091,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1089,7 +1120,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1110,7 +1141,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -1174,19 +1205,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   width: 0px;
 }
 
-.c61 {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
 .c49 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1223,7 +1248,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1290,7 +1315,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c40:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -1520,6 +1545,12 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   width: 32px;
 }
 
+.c61 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .c33 {
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
   display: flex;
@@ -1547,7 +1578,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c62 {
@@ -1850,6 +1881,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 
               </span>
@@ -1883,6 +1916,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 warning
               </span>
@@ -1925,6 +1960,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   event
                 </span>
@@ -1943,6 +1980,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
           />
           <input
             aria-describedby="test-id-input-warning test-id-input-error test-id-input-label"
+            aria-invalid="true"
             class="c26 field__text"
             data-role="text-field-input"
             id="test-id-input"
@@ -2034,6 +2072,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                       >
                         <span
                           aria-hidden="true"
+                          class="notranslate"
+                          translate="no"
                         >
                           navigate_before
                         </span>
@@ -2194,7 +2234,7 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                                       class="c25 supported-unseen-span"
                                     />
                                     <input
-                                      aria-autocomplete="list"
+                                      aria-autocomplete="both"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
                                       autocomplete="off"
@@ -2222,6 +2262,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                                       >
                                         <span
                                           aria-hidden="true"
+                                          class="notranslate"
+                                          translate="no"
                                         >
                                           expand_more
                                         </span>
@@ -2231,6 +2273,13 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                                 </div>
                               </div>
                             </div>
+                            <span
+                              aria-atomic="true"
+                              aria-live="polite"
+                              class="c14 -u-unseenButRead"
+                              data-role="autocomplete-live-region"
+                              role="status"
+                            />
                           </div>
                         </div>
                       </div>
@@ -2249,6 +2298,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                       >
                         <span
                           aria-hidden="true"
+                          class="notranslate"
+                          translate="no"
                         >
                           navigate_next
                         </span>
@@ -3020,6 +3071,8 @@ exports[`com.mgmtp.a12.widgets.date-time-picker-input > render date time picker 
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       schedule
                     </span>

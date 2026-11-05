@@ -30,12 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { fireEvent, render } from "test-utils";
 import { afterEach, assert, beforeEach, describe, expect, test, vi } from "vitest";
 import { page } from "vitest/browser";
-import { fireEvent, render } from "test-utils";
 
 import { DataRoles } from "../../../common/index.js";
 import { Range } from "../../../common/main/utils.js";
+import type { BaseColumnType } from "../../main/index.js";
+import { Table } from "../../main/index.js";
 import {
 	calculateHeadGridLayout,
 	flattenColumnsWithGridPosition,
@@ -43,8 +45,6 @@ import {
 	getDistanceToFarthestLeaf,
 	getMaxColumnDepth
 } from "../../main/template/table-head-grid/table-head-grid.utils.js";
-import type { BaseColumnType } from "../../main/index.js";
-import { Table } from "../../main/index.js";
 
 import type { Employee, ContextualCard } from "./head-grid-test-data.js";
 import { EMPLOYEES, GROUPED_COLUMNS, CONTEXTUAL_CARD_COLUMNS } from "./head-grid-test-data.js";

@@ -30,6 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import alignmentCode from "!./alignment.tsx?raw";
+import breakpointsCode from "!./breakpoints.tsx?raw";
+import optionalBreakpointsCode from "!./optional-breakpoints.tsx?raw";
+import spanAndOffsetCode from "!./span-offset.tsx?raw";
 import type { JSONOutput } from "typedoc";
 
 import { BulletList, provider } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -39,15 +43,10 @@ import SizeDetectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/la
 import type { Showcase } from "../../../helpers/definitions.js";
 import { StyledShowcaseBulletListInMessageBox } from "../../../helpers/showcase-styles.js";
 
+import { Alignment } from "./alignment.js";
 import { Breakpoints } from "./breakpoints.js";
 import { OptionalBreakpointsShowcase } from "./optional-breakpoints.js";
-import { Alignment } from "./alignment.js";
 import { SpanAndOffset } from "./span-offset.js";
-
-import breakpointsCode from "!./breakpoints.tsx?raw";
-import optionalBreakpointsCode from "!./optional-breakpoints.tsx?raw";
-import alignmentCode from "!./alignment.tsx?raw";
-import spanAndOffsetCode from "!./span-offset.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

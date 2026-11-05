@@ -145,6 +145,10 @@ exports[`com.mgmtp.a12.widgets.counter > render counter with addon 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c0 {
   align-items: center;
   background-color: rgb(183, 192, 199);
@@ -198,16 +202,6 @@ exports[`com.mgmtp.a12.widgets.counter > render counter with addon 1`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k2 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -242,6 +236,8 @@ exports[`com.mgmtp.a12.widgets.counter > render counter with addon 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         done
       </span>
@@ -277,6 +273,8 @@ exports[`com.mgmtp.a12.widgets.counter > render counter with addon 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         error
       </span>
@@ -329,22 +327,12 @@ exports[`com.mgmtp.a12.widgets.counter > render counter with placeholder 1`] = `
   line-height: 1rem;
   margin: 0px;
   padding: 0px;
-  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k2;
-}
-
-@keyframes k2 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
+  animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
 @keyframes k1 {
   0% {
-    transform: translate3d(0px, 3px, 0px);
+    transform: translate3d(0px, -3px, 0px);
   }
 
   100% {
@@ -454,16 +442,6 @@ exports[`com.mgmtp.a12.widgets.counter > render interactive counter 1`] = `
   }
 }
 
-@keyframes k2 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -561,16 +539,6 @@ exports[`com.mgmtp.a12.widgets.counter > render overflowed counter 1`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k2 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -664,16 +632,6 @@ exports[`com.mgmtp.a12.widgets.counter > render secondary counter 1`] = `
   margin: 0px;
   padding: 0px;
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
-}
-
-@keyframes k2 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
 }
 
 @keyframes k1 {
@@ -771,16 +729,6 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 1`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k2 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -874,16 +822,6 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 2`] = `
   margin: 0px;
   padding: 0px;
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
-}
-
-@keyframes k2 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
 }
 
 @keyframes k1 {
@@ -981,16 +919,6 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 3`] = `
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
 }
 
-@keyframes k2 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
-}
-
 @keyframes k1 {
   0% {
     transform: translate3d(0px, 3px, 0px);
@@ -1084,16 +1012,6 @@ exports[`com.mgmtp.a12.widgets.counter > render variant counter 4`] = `
   margin: 0px;
   padding: 0px;
   animation: 0.5s ease 0s 1 normal none running k0, 0.5s ease 0s 1 normal none running k1;
-}
-
-@keyframes k2 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
 }
 
 @keyframes k1 {

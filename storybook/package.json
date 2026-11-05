@@ -1,42 +1,48 @@
 {
 	"name": "@com.mgmtp.a12.widgets/widgets-storybook",
 	"private": true,
-	"version": "39.0.3",
+	"version": "39.1.0",
 	"type": "module",
 	"scripts": {
-		"lint:eslint": "eslint --quiet --cache --cache-location target/.eslintcache",
 		"start": "storybook dev -p 6006",
 		"compile": "pnpm \"/^compile:.*/\"",
 		"compile:storybook-build": "storybook build",
-		"compile:typescript": "tsgo -b"
+		"compile:typescript": "tsgo -b",
+		"test:stories": "vitest --run"
 	},
 	"dependencies": {
 		"@com.mgmtp.a12.widgets/widgets-core": "workspace:*",
 		"@date-fns/tz": "catalog:",
+		"@lexical/mdast": "catalog:",
+		"@lexical/react": "catalog:",
 		"date-fns": "catalog:",
+		"lexical": "catalog:",
 		"lodash-es": "catalog:",
 		"react": "catalog:",
 		"react-dnd": "catalog:",
-		"react-dnd-html5-backend": "catalog:",
 		"react-dom": "catalog:",
 		"styled-components": "catalog:"
 	},
 	"devDependencies": {
-		"@storybook/addon-a11y": "^10.4.4",
-		"@storybook/addon-docs": "^10.4.4",
-		"@storybook/addon-themes": "^10.4.4",
-		"@storybook/addon-vitest": "^10.4.4",
-		"@storybook/react": "^10.4.4",
-		"@storybook/react-vite": "^10.4.4",
+		"@storybook/addon-a11y": "^10.6.0",
+		"@storybook/addon-docs": "^10.6.0",
+		"@storybook/addon-themes": "^10.6.0",
+		"@storybook/addon-vitest": "^10.6.0",
+		"@storybook/react": "^10.6.0",
+		"@storybook/react-vite": "^10.6.0",
 		"@types/lodash-es": "catalog:",
 		"@types/node": "catalog:",
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"@typescript/native-preview": "latest",
 		"@vitejs/plugin-react": "catalog:",
+		"@vitest/browser": "catalog:",
+		"@vitest/browser-playwright": "catalog:",
+		"playwright": "catalog:",
 		"remark-gfm": "^4.0.1",
-		"storybook": "^10.4.4",
+		"storybook": "^10.6.0",
 		"typescript": "catalog:",
-		"vite": "catalog:"
+		"vite": "catalog:",
+		"vitest": "catalog:"
 	}
 }

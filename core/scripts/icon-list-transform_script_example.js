@@ -32,10 +32,10 @@
 
 /* eslint-disable no-console */
 
-import fs from "node:fs";
 import { execSync } from "node:child_process";
-import path from "node:path";
+import fs from "node:fs";
 import os from "node:os";
+import path from "node:path";
 
 /**
  * Script to update the MATERIAL_ICONS list from the material-symbols npm package.

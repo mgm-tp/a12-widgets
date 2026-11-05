@@ -31,9 +31,9 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
 import type { FocusEvent } from "react";
 import { useState, useCallback } from "react";
+import { fn } from "storybook/test";
 
 import { DateTimePicker } from "@com.mgmtp.a12.widgets/widgets-core";
 
@@ -45,7 +45,6 @@ const meta: Meta<typeof DateTimePicker> = {
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		timeMode: {
 			control: "select",
@@ -61,6 +60,10 @@ const meta: Meta<typeof DateTimePicker> = {
 			control: "select",
 			options: ["date", "time", "hour", "minute"],
 			description: "The initial screen shown when the picker opens."
+		},
+		timeRequired: {
+			control: "boolean",
+			description: "Specifies whether the time is mandatory."
 		}
 	},
 	args: {
@@ -79,11 +82,32 @@ const meta: Meta<typeof DateTimePicker> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-// Default uses the textbox variant (no yearRange supplied).
-// Includes live year validation on blur.
-export const Default: Story = {
-	name: "Default (12h time)",
-	render: (args) => {
+
+export const Playground: Story = {
+	args: {
+		timeMode: "12h",
+		yearSelectorVariant: "select"
+	},
+	render: function PlaygroundExample(args) {
+		const [value, setValue] = useState<Date | undefined>(new Date());
+
+		return (
+			<DateTimePicker
+				{...args}
+				id="date-time-picker-playground"
+				value={value}
+				onAccept={(date) => {
+					setValue(date);
+					args.onAccept?.(date);
+				}}
+			/>
+		);
+	}
+};
+
+export const YearSelectorTextbox: Story = {
+	name: "Year selector as textbox",
+	render: function YearSelectorTextboxExample(args) {
 		const [value, setValue] = useState<Date | undefined>(new Date());
 		const [yearErrorMessage, setYearErrorMessage] = useState<string | undefined>();
 
@@ -94,7 +118,7 @@ export const Default: Story = {
 		return (
 			<DateTimePicker
 				{...args}
-				id="date-time-picker-default"
+				id="date-time-picker-textbox-year"
 				value={value}
 				yearSelectorVariant="textbox"
 				onYearSelectorBlur={handleYearBlur}
@@ -105,12 +129,55 @@ export const Default: Story = {
 				}}
 			/>
 		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'`yearSelectorVariant="textbox"` renders the year as a free-text input. Combine `onYearSelectorBlur` with `yearErrorMessage` to validate the typed year and show an inline error.'
+			}
+		}
+	}
+};
+
+export const YearSelectorVariants: Story = {
+	name: "Year selector as select and autocomplete",
+	render: function YearSelectorVariantsExample() {
+		const [selectValue, setSelectValue] = useState<Date | undefined>(new Date());
+		const [autocompleteValue, setAutocompleteValue] = useState<Date | undefined>(new Date());
+
+		return (
+			<div style={{ display: "flex", gap: "32px", flexWrap: "wrap" }}>
+				<DateTimePicker
+					id="date-time-picker-select-year"
+					value={selectValue}
+					yearSelectorVariant="select"
+					yearRange={{ start: 2015, end: 2035 }}
+					onAccept={setSelectValue}
+				/>
+				<DateTimePicker
+					id="date-time-picker-autocomplete-year"
+					value={autocompleteValue}
+					yearSelectorVariant="autocomplete"
+					yearRange={{ start: 2015, end: 2035 }}
+					onAccept={setAutocompleteValue}
+				/>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `select` variant (left) renders a native dropdown, the `autocomplete` variant (right) a filterable combobox. `yearRange` limits the selectable years."
+			}
+		}
 	}
 };
 
 export const With24hTimeMode: Story = {
 	name: "With 24-hour time mode",
-	render: (args) => {
+	render: function With24hTimeModeExample(args) {
 		const [value, setValue] = useState<Date | undefined>(new Date());
 
 		return (
@@ -128,62 +195,19 @@ export const With24hTimeMode: Story = {
 	},
 	args: {
 		timeMode: "24h"
-	}
-};
-
-export const WithYearSelectorSelect: Story = {
-	name: "With year selector as select",
-	render: (args) => {
-		const [value, setValue] = useState<Date | undefined>(new Date());
-
-		return (
-			<DateTimePicker
-				{...args}
-				id="date-time-picker-select-year"
-				value={value}
-				yearSelectorVariant="select"
-				yearRange={{ start: 2015, end: 2035 }}
-				onAccept={(date) => {
-					setValue(date);
-					args.onAccept?.(date);
-				}}
-			/>
-		);
 	},
-	args: {
-		yearSelectorVariant: "select",
-		yearRange: { start: 2015, end: 2035 }
-	}
-};
-
-export const WithYearSelectorAutocomplete: Story = {
-	name: "With year selector as autocomplete",
-	render: (args) => {
-		const [value, setValue] = useState<Date | undefined>(new Date());
-
-		return (
-			<DateTimePicker
-				{...args}
-				id="date-time-picker-autocomplete-year"
-				value={value}
-				yearSelectorVariant="autocomplete"
-				yearRange={{ start: 2015, end: 2035 }}
-				onAccept={(date) => {
-					setValue(date);
-					args.onAccept?.(date);
-				}}
-			/>
-		);
-	},
-	args: {
-		yearSelectorVariant: "autocomplete",
-		yearRange: { start: 2015, end: 2035 }
+	parameters: {
+		docs: {
+			description: {
+				story: '`timeMode="24h"` switches the time screen and clock face to the 24-hour format.'
+			}
+		}
 	}
 };
 
 export const WithDisabledDates: Story = {
 	name: "With disabled dates (weekends)",
-	render: (args) => {
+	render: function WithDisabledDatesExample(args) {
 		const [value, setValue] = useState<Date | undefined>(new Date());
 
 		return (
@@ -198,12 +222,20 @@ export const WithDisabledDates: Story = {
 				}}
 			/>
 		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `disabled` prop accepts react-day-picker `Matcher`s — here `{ dayOfWeek: [0, 6] }` disables all weekends."
+			}
+		}
 	}
 };
 
 export const TimeRequired: Story = {
 	name: "Time required",
-	render: (args) => {
+	render: function TimeRequiredExample(args) {
 		const [value, setValue] = useState<Date | undefined>(new Date());
 
 		return (
@@ -221,5 +253,12 @@ export const TimeRequired: Story = {
 	},
 	args: {
 		timeRequired: true
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "With `timeRequired`, a value can only be accepted after a time has been chosen in addition to the date."
+			}
+		}
 	}
 };

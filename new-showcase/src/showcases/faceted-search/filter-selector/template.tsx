@@ -61,13 +61,13 @@ export namespace FilterViewTemplate {
 				<FilterSelectorTemplate.Section useDivTag>Start</FilterSelectorTemplate.Section>
 				<Row>
 					<Column size={{ sm: 12, md: 12, lg: 12 }}>
-						<DatePickerInput />
+						<DatePickerInput id="filter-date-start" />
 					</Column>
 				</Row>
 				<FilterSelectorTemplate.Section useDivTag>End</FilterSelectorTemplate.Section>
 				<Row>
 					<Column size={{ sm: 12, md: 12, lg: 12 }}>
-						<DatePickerInput />
+						<DatePickerInput id="filter-date-end" />
 					</Column>
 				</Row>
 			</Grid>
@@ -127,7 +127,13 @@ export namespace FilterViewTemplate {
 		}, []);
 
 		return (
-			<Radio name="radiogroup" className="-u-padding-base" value={value} onValueChanged={onValueChanged}>
+			<Radio
+				id="filter-selector-template-radio"
+				name="radiogroup"
+				className="-u-padding-base"
+				value={value}
+				onValueChanged={onValueChanged}
+			>
 				<Radio.Item label="Yes" value="1" />
 				<Radio.Item label="No" value="0" />
 			</Radio>

@@ -34,15 +34,14 @@ import { fireEvent, render, waitFor } from "test-utils";
 import { Key } from "ts-key-enum";
 import { describe, test, expect, vi } from "vitest";
 
-import { Icon } from "../../icon/main/icon.view.js";
-import { Badge } from "../../badge/main/badge.view.js";
 import { getBadgeTitle } from "../../badge/main/badge-utils.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { Badge } from "../../badge/main/badge.view.js";
 import { getA11yResource } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-
-import { Button } from "../main/button.view.js";
 import type { ButtonProps } from "../main/button.api.js";
+import { Button } from "../main/button.view.js";
 
 describe("com.mgmtp.a12.widgets.button", () => {
 	test("rendering-secondary", () => {

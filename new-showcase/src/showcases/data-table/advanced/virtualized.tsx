@@ -33,8 +33,8 @@
 import type { ReactElement } from "react";
 import { useMemo } from "react";
 
-import type { DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { ResponsiveImageContainer, provider } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import { Utils } from "../utils.js";

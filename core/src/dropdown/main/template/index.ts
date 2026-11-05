@@ -30,7 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+// Only the provider is public — it is what a caller rendering its own options wraps them in.
+// The context and its default value serve the option components in this folder and stay internal.
+export { DropdownContextProvider } from "./dropdown.context.js";
+export type { DropdownContextValue } from "./dropdown.context.js";
+// Only the flattening itself is public — it is what the deprecated `flattenItems` is replaced by.
+// The stepping helpers around it serve `useDropdownNavigation` and stay internal.
+export { buildNavigationModel } from "./dropdown.navigation.js";
+export type { NavigationEntry, NavigationModel } from "./dropdown.navigation.js";
 export * from "./dropdown.tpl.api.js";
 export * from "./dropdown.tpl.styled.js";
 export * from "./dropdown.tpl.view.js";
 export * from "./dropdown.utils.js";
+export * from "./use-dropdown-navigation.js";

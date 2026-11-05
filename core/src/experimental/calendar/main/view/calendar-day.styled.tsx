@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { css, keyframes, styled } from "styled-components";
 import { rgba } from "polished";
+import { css, keyframes, styled } from "styled-components";
 
 import { activeAndHover, darkFocus } from "../../../../theme/base/mixins/_interaction.js";
 
@@ -226,10 +226,12 @@ export const StyledCalendarDayWrapper = styled.div.withConfig({
 			}
 
 			${focusStyles}
-			${!$isChildHovered &&
-			css`
-				${activeAndHoverStyles}
-			`}
+			${
+				!$isChildHovered &&
+				css`
+					${activeAndHoverStyles}
+				`
+			}
 			${weekendStyles}
 			${currentDateStyles}
 			${publicHolidayStyles}
@@ -274,12 +276,14 @@ export const StyledCalendarDayItem = styled("div").withConfig({
 			border: ${hoverBorder};
 		}
 
-		${$selected &&
-		css`
-			&:before {
-				border-left: ${selected?.hoverBorderLeft};
-			}
-		`}
+		${
+			$selected &&
+			css`
+				&:before {
+					border-left: ${selected?.hoverBorderLeft};
+				}
+			`
+		}
 	`);
 
 	const focusStyles = css`
@@ -288,10 +292,12 @@ export const StyledCalendarDayItem = styled("div").withConfig({
 				border: ${focusBorder};
 				${darkFocus};
 				margin: 1px;
-				${$selected &&
-				css`
-					border-left: ${selected?.focusBorderLeft};
-				`}
+				${
+					$selected &&
+					css`
+						border-left: ${selected?.focusBorderLeft};
+					`
+				}
 			}
 		}
 	`;

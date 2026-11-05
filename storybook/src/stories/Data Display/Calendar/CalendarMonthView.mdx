@@ -1,0 +1,51 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as CalendarMonthViewStories from "./CalendarMonthView.stories";
+
+<Meta of={CalendarMonthViewStories} />
+
+<Title />
+
+The `Calendar` widget with `view="month"` displays a full month as a grid of days, where each day
+can carry data items (events) supplied via `calendarDateItems`. Use it to give users an overview of
+scheduled events, deadlines or appointments for a whole month.
+
+- Day and item selection are controlled via `selectedDate`/`onDayClick` and `selectedItem`/`onItemClick`.
+- Item rendering is fully customizable through `componentRenderers` (e.g. `dayItemContentRenderer`).
+- Weekends and `publicHolidays` can be highlighted, and individual days can be disabled with `isDisabledDay`.
+- Days belonging to adjacent months are controlled with `outsideDayDisplay` (`none`, `disabled` or `active`).
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={CalendarMonthViewStories.Playground} />
+
+## Examples
+
+### Outside days
+
+<Canvas of={CalendarMonthViewStories.OutsideDays} />
+
+### Week starts on Sunday
+
+<Canvas of={CalendarMonthViewStories.WeekStartsOnSunday} />
+
+### Custom day styling
+
+<Canvas of={CalendarMonthViewStories.CustomDayStyling} />

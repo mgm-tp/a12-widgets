@@ -33,35 +33,16 @@
 /**
  * This is an internal module extracted for automated testing. Do not use.
  */
-import { TransitionGroup } from "react-transition-group";
-import type { CSSTransitionProps } from "react-transition-group/CSSTransition.js";
-import { css, keyframes, styled } from "styled-components";
+import { motion } from "motion/react";
+import { css, styled } from "styled-components";
 
-import { addPrefix } from "../../../common/main/utils.js";
 import type { DefaultThemeType } from "../../../theme/schema.js";
 
-import { useTransitionContext } from "./master-detail.context.js";
-
-const basePaneClassName = addPrefix("masterDetailLayoutPane");
-
-const sliceLeftToRightAnimation = keyframes`
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-`;
-
-const sliceRightToLeftAnimation = keyframes`
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-`;
-
+/**
+ * @deprecated No longer used internally; the placeholder pane has been removed from the layout.
+ * Use {@link StyledMasterDetailLayoutBody} directly if you need a full-size container. Retained for
+ * backward compatibility.
+ */
 export const StyledMasterDetailPlaceholder = styled.div.withConfig({ displayName: "StyledMasterDetailPlaceholder" })`
 	width: 100%;
 	height: 100%;
@@ -95,99 +76,74 @@ export const StyledMasterDetailTitle = styled.p.withConfig({ displayName: "Style
 	`;
 });
 
-export const StyledMasterDetailLayoutPane = styled.div.withConfig({ displayName: "StyledMasterDetailLayoutPane" })<
-	{
-		$smallView?: boolean;
-		$isRtl: boolean;
-		$numOfColumns: number;
-		$columnsCount: number;
-		$width?: number | string;
-		$maxWidth?: number | string;
-		$isResizable: boolean;
-	} & Partial<CSSTransitionProps>
->(({ theme, $numOfColumns, $smallView, $isRtl, $width, $columnsCount, $isResizable }) => {
+export const StyledMasterDetailLayoutPane = styled(motion.div).withConfig({
+	displayName: "StyledMasterDetailLayoutPane"
+})<{
+	$width?: number | string;
+	$flexGrow?: number;
+	$isResizable: boolean;
+	$isTransitioning?: boolean;
+
+	/** @deprecated No longer used; the pane no longer needs the small-view flag. */
+	$smallView?: boolean;
+
+	/** @deprecated No longer used; animation direction is handled internally via Motion. */
+	$isRtl?: boolean;
+
+	/** @deprecated No longer used; column layout is derived from flex sizing. */
+	$numOfColumns?: number;
+
+	/** @deprecated No longer used; column layout is derived from flex sizing. */
+	$columnsCount?: number;
+
+	/** @deprecated No longer used. */
+	$maxWidth?: number | string;
+}>(({ theme, $width, $flexGrow, $isResizable, $isTransitioning }) => {
 	const masterDetailLayout = theme.components.masterDetailLayout;
-	const isTransitioning = useTransitionContext().isTransitioning;
-	const smallViewAnimation = $isRtl ? sliceRightToLeftAnimation : sliceLeftToRightAnimation;
+	// `$width` accepts a number (treated as px) for backward compatibility; internally we use a string.
 	const widthValue = typeof $width === "number" ? `${$width}px` : $width;
-	const newWidth =
-		widthValue && $isResizable
-			? `width: ${$columnsCount > 1 ? widthValue : "100%"}`
-			: $smallView
-				? "width: 100%"
-				: `flex: ${$numOfColumns};`;
-	const resetWidth = widthValue ? "width: 0" : "flex: 0";
-	const animationDuration = masterDetailLayout.pane.animationDuration;
+
+	const sizing = $isResizable
+		? css`
+				${
+					widthValue &&
+					css`
+						width: ${widthValue};
+					`
+				}
+			`
+		: css`
+				${
+					$flexGrow !== undefined &&
+					css`
+						flex: ${$flexGrow} 1 0%;
+					`
+				}
+				min-width: 0;
+			`;
 
 	return css`
 		box-sizing: border-box;
 		display: flex;
 		padding: ${masterDetailLayout.spacingForBoxShadow} ${masterDetailLayout.spacingBetweenPanes};
 		overflow: hidden;
-		will-change: max-width, flex, width;
 
-		&.${basePaneClassName}--enter, &.${basePaneClassName}--exit {
-			min-width: ${$smallView ? "100%" : "initial"};
-		}
+		${sizing}
 
 		&:not(:first-child) {
 			border-left: ${masterDetailLayout.pane.nonFirstChildLeftBorder};
 		}
 
-		&:not(.${basePaneClassName}--enter):not(.${basePaneClassName}--exit) {
-			${newWidth};
-			${$width &&
-			css`
-				transition: all ${animationDuration};
-			`}
-		}
-
-		&.${basePaneClassName}--enter {
-			${resetWidth};
-			max-width: 0;
-			${$smallView &&
-			css`
-				&,
-				+ .${basePaneClassName}--exit {
-					animation: ${smallViewAnimation} ${animationDuration};
-				}
-			`}
-		}
-
-		&.${basePaneClassName}--enter-active {
-			${newWidth};
-			transition:
-				max-width ${animationDuration},
-				order 0s;
-			max-width: 100%;
-		}
-
-		&.${basePaneClassName}--exit {
-			${newWidth};
-			${!widthValue &&
-			css`
-				flex-grow: 12;
-			`}
-			max-width: 100%
-		}
-		&.${basePaneClassName}--exit-active {
-			${resetWidth};
-			max-width: 0;
-			// The ease-in transition is needed to make the flex animation slower than the max-width animation, which helps prevent the pane from jumping when animating out.
-			transition:
-				all ${animationDuration},
-				flex ${animationDuration} ease-in,
-				order 0s;
-		}
-
 		&:first-child {
 			padding-left: ${masterDetailLayout.spacingForBoxShadow};
 
-			${!isTransitioning &&
-			$isResizable &&
-			css`
-				overflow: visible;
-			`}
+			${
+				!$isTransitioning &&
+				$isResizable &&
+				css`
+					overflow: visible;
+				`
+			}
 		}
 		&:last-child {
 			padding-right: ${masterDetailLayout.spacingForBoxShadow};
@@ -195,49 +151,72 @@ export const StyledMasterDetailLayoutPane = styled.div.withConfig({ displayName:
 	`;
 });
 
-const layoutBodyCSS = (theme: DefaultThemeType, smallView: boolean, isRtl: boolean) => {
+export const StyledMasterDetailLayoutPaneContentWrapper = styled.div.withConfig({
+	displayName: "StyledMasterDetailLayoutPaneContentWrapper"
+})(({ theme }) => {
+	const { content } = theme.components.masterDetailLayout.pane;
+
+	return css`
+		background: ${content?.background};
+		border-radius: ${content?.borderRadius}px;
+		display: flex;
+		flex: 1 1 auto;
+		min-width: 0;
+		width: 100%;
+		height: 100%;
+	`;
+});
+
+export const StyledMasterDetailLayoutPaneContent = styled(motion.div).withConfig({
+	displayName: "StyledMasterDetailLayoutPaneContent"
+})`
+	display: flex;
+	flex: 1 1 auto;
+	min-width: 0;
+	width: 100%;
+	height: 100%;
+`;
+
+const layoutBodyCSS = (theme: DefaultThemeType, smallView: boolean, isSingleView?: boolean): ReturnType<typeof css> => {
 	const { body } = theme.components.masterDetailLayout;
 
 	return css`
 		display: flex;
-		flex-direction: ${isRtl ? `row-reverse` : `row`};
 		flex: 1 1 auto;
 		margin: ${body.margin};
-		overflow: ${smallView ? "hidden" : "auto"};
-
-		${isRtl &&
-		css`
-			.${basePaneClassName}--exit:not(.${basePaneClassName}--rtl)
-				+ .${basePaneClassName}--rtl,
-				.${basePaneClassName}--rtl
-				+ .${basePaneClassName}--exit:not(.${basePaneClassName}--rtl) {
-				order: -1;
-			}
-			.${basePaneClassName}--enter + .${basePaneClassName}--exit:not(.${basePaneClassName}--rtl) {
-				order: 1;
-			}
-		`}
+		overflow: ${smallView || isSingleView ? "hidden" : "auto"};
 	`;
 };
 
+export const StyledMasterDetailLayoutBody = styled.div.withConfig({
+	displayName: "StyledMasterDetailLayoutBody"
+})<{
+	$smallView: boolean;
+	$isSingleView?: boolean;
+
+	/** @deprecated No longer used; the body no longer wraps a TransitionGroup and does not animate. */
+	$isAnimateRtl?: boolean;
+
+	/** @deprecated No longer used; the body no longer wraps a TransitionGroup and does not animate. */
+	$animation?: boolean;
+}>(({ $smallView, $isSingleView, theme }) => {
+	return layoutBodyCSS(theme, $smallView, $isSingleView);
+});
+
+/**
+ * @deprecated The Master-Detail body no longer wraps a `TransitionGroup`, so there is no longer a
+ * separate "without animation" variant. Use {@link StyledMasterDetailLayoutBody} directly instead.
+ * Retained for backward compatibility; behaves identically to `StyledMasterDetailLayoutBody`, and
+ * the `$isAnimateRtl` and `$animation` props are ignored.
+ */
 export const StyledMasterDetailLayoutBodyWithoutAnimation = styled.div.withConfig({
 	displayName: "StyledMasterDetailLayoutBodyWithoutAnimation"
 })<{
 	$smallView: boolean;
-	$isAnimateRtl: boolean;
-	$animation: boolean;
-}>(({ $smallView, $isAnimateRtl, theme }) => {
-	return layoutBodyCSS(theme, $smallView, $isAnimateRtl);
-});
-
-export const StyledMasterDetailLayoutBody = styled(
-	({ $smallView, $isAnimateRtl: $isAnimateRtl, $animation, ...rest }) => <TransitionGroup {...rest} />
-).withConfig({ displayName: "StyledMasterDetailLayoutBody" })<{
-	$smallView: boolean;
-	$isAnimateRtl: boolean;
-	$animation: boolean;
-}>(({ $smallView, $isAnimateRtl, theme }) => {
-	return layoutBodyCSS(theme, $smallView, $isAnimateRtl);
+	$isAnimateRtl?: boolean;
+	$animation?: boolean;
+}>(({ $smallView, theme }) => {
+	return layoutBodyCSS(theme, $smallView);
 });
 
 export const StyledMasterDetailLayoutView = styled.div.withConfig({ displayName: "StyledMasterDetailLayoutView" })<{
@@ -254,11 +233,13 @@ export const StyledMasterDetailLayoutView = styled.div.withConfig({ displayName:
 		height: 100%;
 		overflow: hidden;
 
-		${smallView &&
-		css`
-			${StyledMasterDetailLayoutBody} ${StyledMasterDetailLayoutPane} {
-				padding: 0;
-			}
-		`}
+		${
+			smallView &&
+			css`
+				${StyledMasterDetailLayoutBody} ${StyledMasterDetailLayoutPane} {
+					padding: 0;
+				}
+			`
+		}
 	`;
 });

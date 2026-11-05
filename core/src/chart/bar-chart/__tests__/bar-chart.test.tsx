@@ -30,9 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render } from "test-utils";
+import { getByDataRole, getByRole, queryByDataRole, render } from "test-utils";
 import { describe, expect, test } from "vitest";
+import { userEvent } from "vitest/browser";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { BarChart, ResponsiveChartContainer } from "../main/bar-chart.view.js";
 
 const data = [
@@ -49,6 +51,14 @@ const barPropsMap = {
 		color: "#0088FE"
 	}
 };
+
+/**
+ * The legend renders one child element per bar, each labelled `<name>:`. Reading those labels keeps these
+ * assertions clear of the chart's SVG geometry, which recharts derives from measured legend text and which
+ * therefore differs by a pixel between platforms.
+ */
+const legendLabelsIn = (legend: HTMLElement): string[] =>
+	[...legend.children].map((item) => item.textContent?.replace(/:$/, "") ?? "");
 
 describe("com.mgmtp.a12.widgets.charts", () => {
 	test("render responsive chart container with bar chart", () => {
@@ -126,7 +136,10 @@ describe("com.mgmtp.a12.widgets.charts", () => {
 				legendProps={{ layout: "horizontal" }}
 			/>
 		);
-		expect(container.firstChild).toMatchSnapshot();
+
+		const legend = getByDataRole(container, DataRoles.BarChart.Legend);
+		expect(legend.className).toContain("chart__legend--layout-horizontal");
+		expect(legendLabelsIn(legend)).toEqual(data.map((entry) => entry.month));
 	});
 
 	test("render bar chart with vertical legend", () => {
@@ -144,10 +157,13 @@ describe("com.mgmtp.a12.widgets.charts", () => {
 				legendProps={{ layout: "vertical" }}
 			/>
 		);
-		expect(container.firstChild).toMatchSnapshot();
+
+		const legend = getByDataRole(container, DataRoles.BarChart.Legend);
+		expect(legend.className).toContain("chart__legend--layout-vertical");
+		expect(legendLabelsIn(legend)).toEqual(data.map((entry) => entry.month));
 	});
 
-	test("render bar chart with hideable legend", () => {
+	test("render bar chart with hideable legend", async () => {
 		const { container } = render(
 			<BarChart
 				width={600}
@@ -162,6 +178,14 @@ describe("com.mgmtp.a12.widgets.charts", () => {
 				legendProps={{ hideable: true }}
 			/>
 		);
-		expect(container.firstChild).toMatchSnapshot();
+
+		// A hideable legend starts collapsed behind a toggle and only then opens in a portal.
+		expect(queryByDataRole(container, DataRoles.BarChart.Legend)).toBeNull();
+
+		await userEvent.click(getByRole(container, "button"));
+
+		const legend = getByDataRole(document.body, DataRoles.BarChart.Legend);
+		expect(legend.className).toContain("chart__legend--hideable");
+		expect(legendLabelsIn(legend)).toEqual(data.map((entry) => entry.month));
 	});
 });

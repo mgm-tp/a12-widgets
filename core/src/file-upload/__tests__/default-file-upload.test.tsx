@@ -30,6 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { ReactNode } from "react";
+import { useState } from "react";
 import {
 	getByDataRole,
 	getByText,
@@ -45,23 +47,20 @@ import {
 	fireEvent
 } from "test-utils";
 import { Key } from "ts-key-enum";
-import type { ReactNode } from "react";
-import { useState } from "react";
-import { describe, vi, expect, test, beforeAll } from "vitest";
+import { describe, vi, expect, test, afterEach, beforeEach } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
-import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-import { Icon } from "../../icon/index.js";
 import { getA11yResource } from "../../common/main/a11y-localization/index.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { Icon } from "../../icon/index.js";
+import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
+import { LayoutGrid } from "../../layout/layout-grid/main/layout-grid.view.js";
 import { List } from "../../list/index.js";
 import { PopUpMenu } from "../../pop-up-menu/index.js";
 import { ResponsiveImageContainer } from "../../responsive-image-container/index.js";
-import { LayoutGrid } from "../../layout/layout-grid/main/layout-grid.view.js";
-
-import { DefaultFileUpload } from "../main/default/default-file-upload.view.js";
+import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
 import type { DefaultFileUploadProps } from "../main/default/default-file-upload.api.js";
+import { DefaultFileUpload } from "../main/default/default-file-upload.view.js";
 
 const properties = {
 	id: "test-id",
@@ -552,10 +551,12 @@ describe("com.mgmtp.a12.widgets.default-file-upload", () => {
 			});
 		});
 		describe("File Upload on phone device", () => {
-			beforeAll(() => {
+			beforeEach(() => {
 				setupDevice();
 			});
-
+			afterEach(() => {
+				vi.restoreAllMocks();
+			});
 			test("default-file-upload onUploadAreaClick event in readOnly mode", () => {
 				const onUploadAreaClickSpy = vi.fn();
 				const { container } = render(

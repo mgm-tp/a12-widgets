@@ -34,13 +34,12 @@ import type { ReactElement } from "react";
 import { styled, css } from "styled-components";
 
 import { joinClassNames, getHorizontalSpace, getRole } from "../../../common/main/utils.js";
-
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
-import type { TableTemplateProps } from "./table.tpl.api.js";
-import { StyledTableExpandableRowFooter } from "./table.expandable-row-footer.tpl.view.js";
 import { StyledTableBodyRowSegment } from "./table.body-row-segment.tpl.view.js";
+import { StyledTableExpandableRowFooter } from "./table.expandable-row-footer.tpl.view.js";
 import { StyledTableMixins } from "./table.styled.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 
 export const StyledTableExpandableRowBody = styled.div.withConfig({ displayName: "StyledTableExpandableRowBody-sc-" })(
 	({ theme }) => {

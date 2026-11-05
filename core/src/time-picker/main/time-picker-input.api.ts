@@ -35,8 +35,7 @@ import type { ReactNode, HTMLProps, RefCallback } from "react";
 import type { Identifiable, Styleable } from "../../common/main/base-props.js";
 import type { BaseInputProps, InputDOMProps } from "../../input/base/template/base.tpl.api.js";
 
-export interface TimeInputBaseProps
-	extends InputDOMProps, Omit<BaseInputProps, "breakTooltipsToNewLine" | "fitToParent"> {
+export interface TimeInputBaseProps extends InputDOMProps, Omit<BaseInputProps, "fitToParent"> {
 	/**
 	 * Specifies addons will be placed before time picker input wrapper
 	 */

@@ -36,9 +36,9 @@ import type { ListProps as ReactVirtualizedProps, List as ReactVirtualizedList }
 
 import type { Container, Identifiable, Ref, Styleable } from "../../common/main/base-props.js";
 
-import type { TableTemplateProps } from "./template/table.tpl.api.js";
 import type { BaseColumnType } from "./column.api.js";
 import type { InfiniteScrollOptions } from "./infinite-scroll.api.js";
+import type { TableTemplateProps } from "./template/table.tpl.api.js";
 
 /**
  * A handler function that scrolls to a specific node (row) in the table.

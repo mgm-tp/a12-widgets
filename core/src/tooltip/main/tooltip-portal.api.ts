@@ -32,12 +32,14 @@
 
 import type { ReactNode, RefObject } from "react";
 
+import type { TooltipBehavior } from "./tooltip.api.js";
+
 /**
  * Props for the TooltipPortal component.
  *
  * This is an internal component used for rendering tooltips in a positioned overlay.
  */
-export interface TooltipPortalProps {
+export interface TooltipPortalProps extends TooltipBehavior {
 	/**
 	 * Reference to the element to attach the tooltip to
 	 */

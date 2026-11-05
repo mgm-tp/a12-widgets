@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkGfm from "remark-gfm";
 import type { Blockquote, Code, List, ListItem, PhrasingContent, Root, RootContent, Table, TableRow } from "mdast";
+import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
+import { unified } from "unified";
 
 const HARD_BREAK_OUTPUT = " +\n";
 const HTML_PASSTHROUGH_OPEN = "++++";

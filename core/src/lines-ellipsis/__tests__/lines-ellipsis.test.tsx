@@ -33,8 +33,8 @@
 import { render } from "test-utils";
 import { describe, expect, test } from "vitest";
 
-import { LinesEllipsis } from "../main/lines-ellipsis.view.js";
 import type { LinesEllipsisProps } from "../main/lines-ellipsis.api.js";
+import { LinesEllipsis } from "../main/lines-ellipsis.view.js";
 
 describe("com.mgmtp.a12.widgets.line-ellipsis", () => {
 	const testProps: LinesEllipsisProps = {

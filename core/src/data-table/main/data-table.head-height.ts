@@ -31,9 +31,10 @@
  */
 
 import type { RefObject } from "react";
-import { useEffect } from "react";
 
 import { DataRoles } from "../../common/main/data-roles.js";
+
+import { useTheadMeasure } from "./data-table.thead-measure.js";
 
 export interface UseFilterRowHeadHeightParams {
 	tableRef: RefObject<HTMLTableElement | null>;
@@ -45,38 +46,26 @@ export interface UseFilterRowHeadHeightParams {
  * Publishes the header height *above* the filter row as the
  * `--a12-data-table-head-height` CSS custom property, so the sticky filter row can
  * offset itself to sit directly beneath the column headers. Tracks header
- * resizing via a `ResizeObserver` on the `<thead>`.
+ * resizing via a `ResizeObserver` on the `<thead>` (see {@link useTheadMeasure}),
+ * deferring the measure while a column-resize drag is active — a horizontal resize
+ * churns the header every frame without changing this vertical offset.
  *
  * No-op when there is no filter row to position.
  */
 export function useFilterRowHeadHeight(params: UseFilterRowHeadHeightParams): void {
 	const { tableRef, hasFilterRowRenderer, headerDepth } = params;
 
-	useEffect(() => {
-		const tableEl = tableRef.current;
-
-		if (!hasFilterRowRenderer || !tableEl) {
-			return;
-		}
-
-		const theadEl = tableEl.querySelector<HTMLTableSectionElement>("thead");
-
-		if (!theadEl) {
-			return;
-		}
-
-		const updateHeadHeight = (): void => {
+	useTheadMeasure({
+		tableRef,
+		enabled: hasFilterRowRenderer,
+		deferDuringResize: true,
+		measure: (tableEl, theadEl): void => {
 			const filterCell = theadEl.querySelector<HTMLTableCellElement>(`[data-role="${DataRoles.Table.Filter.Cell}"]`);
 			const filterCellHeight = filterCell?.getBoundingClientRect().height ?? 0;
 			const headHeight = theadEl.getBoundingClientRect().height;
 			const offset = Math.max(0, headHeight - filterCellHeight);
 			tableEl.style.setProperty("--a12-data-table-head-height", `${offset}px`);
-		};
-
-		updateHeadHeight();
-		const observer = new ResizeObserver(updateHeadHeight);
-		observer.observe(theadEl);
-
-		return (): void => observer.disconnect();
-	}, [tableRef, hasFilterRowRenderer, headerDepth]);
+		},
+		deps: [tableRef, hasFilterRowRenderer, headerDepth]
+	});
 }

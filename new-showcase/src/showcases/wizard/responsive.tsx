@@ -35,8 +35,8 @@ import { useState, useCallback } from "react";
 
 import { Wizard, Icon, Radio, Checkbox } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 import { ConfigurationView } from "../../helpers/configuration-view.js";
+import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 
 const responsiveBehaviours = [
 	{ nextStepFirst: false, focusOnBoundary: false },
@@ -77,6 +77,7 @@ export function ResponsiveShowcase(): ReactElement {
 						className="-u-width-1-3"
 					/>
 					<Radio
+						id="wizard-responsive-responsive-behaviour"
 						value={behaviourIndex.toString()}
 						label="Responsive Behaviour"
 						onValueChanged={(value) => {
@@ -90,6 +91,7 @@ export function ResponsiveShowcase(): ReactElement {
 						<Radio.Item value="3" label="Next steps will be hidden first - focus on start, end and current step" />
 					</Radio>
 					<Checkbox
+						id="wizard-responsive-show-navigation-buttons"
 						label="Show navigation buttons"
 						checked={showNavigationButtons}
 						onChange={setShowNavigationButtons}

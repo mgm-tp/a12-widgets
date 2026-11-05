@@ -33,7 +33,6 @@
 import { css } from "styled-components";
 
 import { addPrefix } from "../../../common/main/utils.js";
-
 import { breakWord } from "../mixins/_break-word.js";
 
 export const hyphens = css`

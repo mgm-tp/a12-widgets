@@ -30,14 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 import { useState } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import { Typography, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { fixedRandomNumber } from "../../helpers/utils.js";
-
 import { Multilingual } from "../pop-up-menu/multilingual.js";
 
 const { Body, Headline, Section } = Typography;

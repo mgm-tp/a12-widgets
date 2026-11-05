@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { FC, ReactElement } from "react";
 import { useState, useMemo, useCallback } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import type { ValidationBarVariant } from "@com.mgmtp.a12.widgets/widgets-core";
 import {

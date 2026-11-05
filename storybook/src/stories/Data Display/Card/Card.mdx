@@ -1,0 +1,65 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas, Description } from "@storybook/addon-docs/blocks";
+
+import * as CardStories from "./Card.stories";
+
+<Meta of={CardStories} />
+
+<Title />
+
+The `Card` widget is a surface container that groups related content and actions about a single
+subject. Compose it from its section subcomponents:
+
+- `Card.Content` — the textual body of the card.
+- `Card.Media` — a dedicated area for images or videos, usually placed at the top.
+- `Card.ActionArea` — wraps sections to make the whole card clickable; it is keyboard focusable,
+  fires `onClick` on Enter and shows hover/focus effects. The effect is suppressed automatically
+  while hovering nested interactive elements.
+
+Cards stretch to the full height of their container, which keeps them evenly sized in grid layouts.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={CardStories.Playground} />
+
+## Examples
+
+### With media
+
+<Canvas of={CardStories.WithMedia} />
+
+### With action area
+
+<Canvas of={CardStories.WithActionArea} />
+
+### With buttons
+
+<Canvas of={CardStories.WithButtons} />
+
+### Product card
+
+<Canvas of={CardStories.ProductCard} />
+
+### Profile card
+
+<Canvas of={CardStories.ProfileCard} />
+
+### Card grid
+
+<Canvas of={CardStories.CardGrid} />

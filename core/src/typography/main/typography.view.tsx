@@ -34,17 +34,17 @@ import type { ReactElement, SyntheticEvent, MouseEvent, TouchEvent, FocusEvent, 
 import { useContext, useState, useRef, useMemo, useCallback, Children } from "react";
 import { Key } from "ts-key-enum";
 
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { provider } from "../../common/main/device-detector.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import {
 	joinClassNames,
 	addPrefix,
 	getAllFocusableElements,
 	getNearestFocusableParent
 } from "../../common/main/utils.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { provider } from "../../common/main/device-detector.js";
 import { Icon } from "../../icon/main/icon.view.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
 import type { HeadlineProps, BodyProps, SectionProps } from "./typography.api.js";
 import {

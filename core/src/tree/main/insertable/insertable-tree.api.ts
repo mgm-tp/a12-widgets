@@ -31,7 +31,6 @@
  */
 
 import type { Identifiable, Styleable } from "../../../common/main/base-props.js";
-
 import type { TreeNodeModel as DefaultTreeNodeModel } from "../behavior/tree.behavior.api.js";
 import type {
 	TreeNodeTemplateModel as DefaultTreeNodeTemplateModel,

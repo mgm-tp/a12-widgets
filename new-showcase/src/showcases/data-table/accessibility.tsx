@@ -30,12 +30,31 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
+import type { ChangeEvent, ReactElement } from "react";
 import { useCallback, useMemo, useState } from "react";
 
+import {
+	Button,
+	ButtonGroup,
+	Checkbox,
+	Icon,
+	MailtoLink,
+	Status,
+	TextField
+} from "@com.mgmtp.a12.widgets/widgets-core";
 import type { DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
-import { Button, ButtonGroup, Checkbox, Icon, MailtoLink, Status } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+
+/**
+ * How the generic controls of a row (checkbox, action buttons) get their accessible name:
+ *
+ * - `title`: the row data is embedded in the control's own `title`/`label`.
+ * - `cell-ref`: the control is linked via `aria-labelledby` to itself and to the element rendered in the ID cell.
+ * - `input-ref`: the control is linked via `aria-labelledby` the same way, but the ID cell renders a TextField.
+ *   A referenced input contributes its value to the name, so the name resolves to the ID that is currently
+ *   typed in and follows every edit.
+ */
+type LabelPatternType = "title" | "cell-ref" | "input-ref";
 
 interface UserDataType {
 	id: number;
@@ -43,48 +62,59 @@ interface UserDataType {
 	lastName: string;
 	email: string;
 	status: string;
+	labelPattern: LabelPatternType;
 }
 
 const data: UserDataType[] = [
 	{
-		id: 2,
-		firstName: "Paul",
-		lastName: "Walters",
-		email: " paul.walters@yahoo.com",
-		status: "Active"
-	},
-	{
 		id: 1,
 		firstName: "Lola",
 		lastName: "Sporer",
-		email: " lola.sporer@gmail.com",
-		status: "Active"
+		email: "lola.sporer@gmail.com",
+		status: "Active",
+		labelPattern: "title"
+	},
+	{
+		id: 2,
+		firstName: "Paul",
+		lastName: "Walters",
+		email: "paul.walters@yahoo.com",
+		status: "Active",
+		labelPattern: "cell-ref"
 	},
 	{
 		id: 3,
 		firstName: "Malcolm",
 		lastName: "Spencer",
-		email: " malcolm.spencer@hotmail.com",
-		status: "Active"
-	},
-	{
-		id: 5,
-		firstName: "Naomi",
-		lastName: "Jones",
-		email: " naomi.jones@yahoo.com",
-		status: "Active"
-	},
-	{
-		id: 4,
-		firstName: "Christopher",
-		lastName: "Kunde",
-		email: " christopher.kunde@gmail.com",
-		status: "Active"
+		email: "malcolm.spencer@hotmail.com",
+		status: "Active",
+		labelPattern: "input-ref"
 	}
 ];
 
+type ControlActionType = "select" | "edit" | "delete";
+
+/** The ID of a row as it is displayed, e.g. `USR-001`. */
+const userId = (row: UserDataType): string => `USR-${String(row.id).padStart(3, "0")}`;
+
+/** Id of the element rendered in the ID cell of a row, which the controls of that row are linked to. */
+const idCellId = (row: UserDataType): string => `a11y-data-table-${row.id}-id`;
+
+/** Id of a control of a row, which the control links to in order to contribute its own name. */
+const controlId = (row: UserDataType, action: ControlActionType): string => `a11y-data-table-${row.id}-${action}`;
+
+/**
+ * Links a control to itself and to the content of the ID cell, e.g. "Edit USR-002". A self reference is
+ * skipped while `aria-labelledby` is resolved, so the control contributes its own name - the verb of the
+ * action - before the content of the cell. No further element is needed to hold the verb.
+ * Rows labelled via `title` carry the row data on the control itself and need no link at all.
+ */
+const labelledBy = (row: UserDataType, action: ControlActionType): string | undefined =>
+	row.labelPattern === "title" ? undefined : `${controlId(row, action)} ${idCellId(row)}`;
+
 export function Accessibility(): ReactElement {
 	const [checkedRows, setCheckedRows] = useState<UserDataType[]>([]);
+	const [editedId, setEditedId] = useState("USR-003");
 
 	const handleSelectAll = useCallback(() => {
 		if (checkedRows.length === data.length) {
@@ -117,29 +147,62 @@ export function Accessibility(): ReactElement {
 				hiddenText: "",
 				renderHeader: () => (
 					<Checkbox.Indeterminate
+						id="data-table-accessibility-select-all"
 						label="Select all/ Deselect all"
 						hideLabel
 						checked={checkedRows.length === data.length ? true : checkedRows.length > 0 ? "mixed" : false}
 						onChange={handleSelectAll}
 					/>
 				),
-				renderCell: ({ row }) => (
-					<Checkbox
-						label={`Select ${row.id}`}
-						hideLabel
-						checked={checkedRows.includes(row)}
-						fitToParent
-						onChange={(): void => toggleRowChecked(row)}
-					/>
-				)
+				renderCell: ({ row }) => {
+					const labelledByTitle = row.labelPattern === "title";
+
+					return (
+						<Checkbox
+							id={controlId(row, "select")}
+							label={labelledByTitle ? `Select ${userId(row)}` : undefined}
+							hideLabel
+							checked={checkedRows.includes(row)}
+							fitToParent
+							// A Checkbox has no `title` to fall back on, so the verb is given as the `aria-label` of the input.
+							inputProps={
+								labelledByTitle ? undefined : { "aria-label": "Select", "aria-labelledby": labelledBy(row, "select") }
+							}
+							onChange={(): void => toggleRowChecked(row)}
+						/>
+					);
+				}
 			},
 			{
 				label: "ID",
 				dataKey: "id",
-				width: 0.55,
+				width: 1.5,
 				sortable: true,
 				sortDirections: ["desc", "asc"],
-				verticalAlignment: "middle"
+				verticalAlignment: "middle",
+				// The content of the ID cell is what the controls of the row are named after.
+				renderCell: ({ row }) => {
+					switch (row.labelPattern) {
+						case "cell-ref":
+							return (
+								<Status id={idCellId(row)} variant="info">
+									{userId(row)}
+								</Status>
+							);
+						case "input-ref":
+							return (
+								<TextField
+									id={idCellId(row)}
+									label="ID"
+									hideLabel
+									value={editedId}
+									onChange={(event: ChangeEvent<HTMLInputElement>): void => setEditedId(event.target.value)}
+								/>
+							);
+						default:
+							return userId(row);
+					}
+				}
 			},
 			{
 				label: "First name",
@@ -187,28 +250,36 @@ export function Accessibility(): ReactElement {
 				pinning: "right",
 				actionColumn: true,
 				horizontalAlignment: "center",
-				renderCell: ({ row }) => (
-					<ButtonGroup>
-						<Button
-							icon={<Icon>edit</Icon>}
-							title={`Edit ${row.id}`}
-							onClick={(event): void => {
-								event.stopPropagation();
-							}}
-						/>
-						<Button
-							destructive
-							icon={<Icon>delete</Icon>}
-							title={`Delete ${row.id}`}
-							onClick={(event): void => {
-								event.stopPropagation();
-							}}
-						/>
-					</ButtonGroup>
-				)
+				renderCell: ({ row }) => {
+					const labelledByTitle = row.labelPattern === "title";
+
+					return (
+						<ButtonGroup>
+							<Button
+								id={controlId(row, "edit")}
+								icon={<Icon>edit</Icon>}
+								title={labelledByTitle ? `Edit ${userId(row)}` : "Edit"}
+								buttonAttributes={{ "aria-labelledby": labelledBy(row, "edit") }}
+								onClick={(event): void => {
+									event.stopPropagation();
+								}}
+							/>
+							<Button
+								id={controlId(row, "delete")}
+								destructive
+								icon={<Icon>delete</Icon>}
+								title={labelledByTitle ? `Delete ${userId(row)}` : "Delete"}
+								buttonAttributes={{ "aria-labelledby": labelledBy(row, "delete") }}
+								onClick={(event): void => {
+									event.stopPropagation();
+								}}
+							/>
+						</ButtonGroup>
+					);
+				}
 			}
 		],
-		[checkedRows, handleSelectAll, toggleRowChecked]
+		[checkedRows, editedId, handleSelectAll, toggleRowChecked]
 	);
 
 	return <DataTable<UserDataType> data={data} columns={columns} />;

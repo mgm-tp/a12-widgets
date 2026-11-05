@@ -1,0 +1,77 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as TreeStories from "./Tree.stories";
+import * as TreeKeyboardNavigationStories from "./TreeKeyboardNavigation.stories";
+
+<Meta of={TreeStories} />
+
+<Title />
+
+> ⚠️ **Deprecated since 39.0.0.** The `Tree` template and its behavior HOCs (`TreeAdapter`,
+> `Collapsible`, `Selectable`, `DragDrop`, `Insertable`) keep working but will be removed in a future
+> release. New trees should use **Data Display › TreeView**, a single headless-model-driven component
+> from the `/experimental` entry point; the migration notes live in the showcase under
+> _Get Started › Migration Instructions › New Table and Tree Components_. The low-level `TreeContainer`
+> / `TreeNode` primitives are not deprecated.
+
+The `Tree` widget renders hierarchical data such as file systems or navigation structures. It is
+composed via a behavior chain: `TreeAdapter` adapts the plain template to a model-driven API and
+must come first, while `Collapsible` and `Selectable` add expand/collapse and selection behavior
+on top (e.g. `Selectable(Collapsible(TreeAdapter(Tree)))`).
+
+- Nodes are described by `TreeNodeModel` objects (`id`, `label`, `icon`, `children`, `disabled`, `highlightVariant`).
+- `tplTreeNode` maps every node to its template, e.g. to attach `actionButtons` or custom content.
+- `hideRoot` hides the top-level node; `scrollToNode` provides programmatic scrolling to a node by id.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={TreeStories.Playground} />
+
+## Examples
+
+### Basic tree
+
+<Canvas of={TreeStories.Default} />
+
+### Node highlighting
+
+<Canvas of={TreeStories.NodeHighlighting} />
+
+### Action buttons
+
+<Canvas of={TreeStories.WithActionButtons} />
+
+### Hiding the root node
+
+<Canvas of={TreeStories.HideRoot} />
+
+### Scroll to node
+
+<Canvas of={TreeStories.ScrollToNode} />
+
+## Keyboard navigation
+
+The tree supports full keyboard navigation: **↑ / ↓** move between nodes, **→** expands a node or
+moves to its first child, **←** collapses a node or moves to its parent, and **Enter** / **Space**
+select the focused node. The `KeyboardNavigation` sidebar entry additionally covers the
+`arrow-only` mode (configured via `KeyboardNavigationConfigProvider`) and navigation across node
+action buttons.
+
+<Canvas of={TreeKeyboardNavigationStories.DefaultMode} />

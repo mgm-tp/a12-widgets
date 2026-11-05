@@ -30,12 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
-import { createRef } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { NodeEventPlugin } from "@lexical/react/LexicalNodeEventPlugin";
 import type { LexicalEditor } from "lexical";
 import { $getNodeByKey } from "lexical";
-import { NodeEventPlugin } from "@lexical/react/LexicalNodeEventPlugin";
+import type { ReactElement } from "react";
+import { createRef } from "react";
 
 import { $isInlineStyleTextNode, InlineStyleTextNode } from "../../nodes/inline-style-text-node.js";
 import { editorThemeClasses } from "../../themes/themes.js";
@@ -43,8 +43,8 @@ import { decorateComponentWithProps } from "../../utils/decorate-component-with-
 import { useAddClassToTextMatchers } from "../../utils/hooks.js";
 
 import type { SpellCheckConfig, SpellCheckPlugin, SpellCheckPopupProps } from "./spell-check-plugin.api.js";
-import { SpellCheckPopupInternal } from "./view/spell-check-popup.view.js";
 import type { SpellCheckPopupInternalProps } from "./view/spell-check-popup.api.js";
+import { SpellCheckPopupInternal } from "./view/spell-check-popup.view.js";
 
 export function createSpellCheckPlugin(config: SpellCheckConfig): SpellCheckPlugin {
 	let changeVisibilityOfSpellPopup: (misspelledWord: string, pageX: number, pageY: number) => void | undefined;

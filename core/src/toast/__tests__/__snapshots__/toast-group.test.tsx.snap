@@ -36,7 +36,11 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
   max-width: unset;
 }
 
-.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
+.c15 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -60,19 +64,19 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
   color: rgb(5, 104, 174);
 }
 
-.c13 .c7 {
+.c15 .c7 {
   user-select: none;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   color: inherit;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   font-size: inherit;
 }
 
-.c13:not(:disabled):focus {
+.c15:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -80,13 +84,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c15:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+.h_inlineBlock.h_middleAlign .c15.c15 > .c7 {
   display: block;
 }
 
@@ -117,7 +125,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -136,7 +144,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
   display: flex;
 }
 
-.c12 {
+.c14 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -145,31 +153,21 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
   width: 48px;
 }
 
-.c14 {
+.c16 {
   font-size: 1.5rem;
 }
 
-.c15 {
+.c12 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c16 {
+.c13 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   line-height: 1.45;
-}
-
-.c17 .c4 {
-  margin: 4px 0px;
-  pointer-events: auto;
-  width: 100%;
-}
-
-.c17 .c9 {
-  flex: 1 1 0%;
 }
 
 .c1 {
@@ -215,7 +213,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
 }
 
 .c2 .toast-exit {
-  animation: 0.35s ease 0s 1 normal none running k2;
+  animation: 0.35s ease 0s 1 normal none running k1;
   opacity: 0;
   transition-delay: 0.35s;
   visibility: hidden;
@@ -230,7 +228,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
 }
 
 @media (pointer: coarse) {
-  .c13:not(:disabled):active {
+  .c15:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -240,7 +238,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
 }
 
 @media (pointer: fine) {
-  .c13:not(:disabled):hover {
+  .c15:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -249,20 +247,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c15:hover {
     outline: transparent solid 1px;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    max-height: 9999px;
-    opacity: 1;
-  }
-
-  100% {
-    max-height: 0px;
-    opacity: 0;
   }
 }
 
@@ -276,7 +262,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
   }
 }
 
-@keyframes k2 {
+@keyframes k1 {
   0% {
     opacity: 1;
   }
@@ -327,6 +313,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -337,16 +325,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 1
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -358,22 +357,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 1
                     </div>
                   </div>
                 </div>
@@ -399,6 +389,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -409,16 +401,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 2
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -430,22 +433,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 2
                     </div>
                   </div>
                 </div>
@@ -471,6 +465,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -481,16 +477,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 3
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -502,22 +509,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render mobile Toast Group 1`] = `
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 3
                     </div>
                   </div>
                 </div>
@@ -576,58 +574,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
   max-width: unset;
 }
 
-.c19 {
-  align-items: center;
-  border: 2px solid transparent;
-  cursor: pointer;
-  display: inline-flex;
-  justify-content: center;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700;
-  gap: 4px;
-  outline: none;
-  position: relative;
-  text-transform: uppercase;
-  vertical-align: middle;
-  border-radius: 50%;
-  flex-shrink: 0;
-  font-size: 1.125rem;
-  height: 2rem;
-  min-height: 0px;
-  padding: 0px;
-  width: 2rem;
-  background: transparent;
-  color: rgb(5, 104, 174);
-}
-
-.c19 .c13 {
-  user-select: none;
-}
-
-.c19 .c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c14 {
   color: inherit;
-}
-
-.c19 .c13 {
-  font-size: inherit;
-}
-
-.c19:not(:disabled):focus {
-  outline: rgb(51, 51, 51) dotted 1px;
-  background-color: transparent;
-  box-shadow: none;
-  color: rgb(213, 0, 117);
-  border: 2px solid rgb(213, 0, 117);
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 {
-  display: block;
-  height: auto;
-  min-height: 0px;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c13 {
-  display: block;
 }
 
 .c5 {
@@ -678,6 +626,64 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
   display: block;
 }
 
+.c21 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c21 .c13 {
+  user-select: none;
+}
+
+.c21 .c13 {
+  color: inherit;
+}
+
+.c21 .c13 {
+  font-size: inherit;
+}
+
+.c21:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c21:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c13 {
+  display: block;
+}
+
 .c4 {
   align-items: center;
   display: flex;
@@ -712,7 +718,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -731,7 +737,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
   display: flex;
 }
 
-.c18 {
+.c20 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -740,49 +746,21 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
   width: 48px;
 }
 
-.c20 {
+.c22 {
   font-size: 1.5rem;
 }
 
-.c21 {
+.c18 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c22 {
+.c19 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   line-height: 1.45;
-}
-
-.c23 .c9 {
-  margin: 4px 0px;
-  pointer-events: auto;
-  width: 100%;
-}
-
-.c23 .c15 {
-  flex: 1 1 0%;
-}
-
-.c24 .c9 {
-  margin: 4px 0px;
-  pointer-events: auto;
-  width: 100%;
-}
-
-.c24 .c15 {
-  flex: 1 1 0%;
-}
-
-.c24 .c9 {
-  bottom: 0px;
-  opacity: 1;
-  left: 0px;
-  position: absolute;
-  visibility: visible;
 }
 
 .c1 {
@@ -876,7 +854,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -892,7 +870,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -945,31 +923,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
 }
 
 @media (pointer: coarse) {
-  .c19:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: transparent;
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c19:not(:disabled):hover {
-    background-color: transparent;
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c19:hover {
-    outline: transparent solid 1px;
-  }
-}
-
-@media (pointer: coarse) {
   .c5:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(255, 255, 255);
@@ -992,6 +945,31 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
 
 @media (pointer: fine) {
   .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c21:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c21:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c21:hover {
     outline: transparent solid 1px;
   }
 }
@@ -1049,16 +1027,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
 
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes k2 {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
   }
 }
 
@@ -1136,6 +1104,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         info
                       </span>
@@ -1146,16 +1116,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
                     data-role="toast-right"
                   >
                     <div
-                      class="c17 toast__header"
-                      data-role="toast-header"
+                      class="c17"
+                      data-role="toast-body-content"
                     >
                       <div
-                        class="c18 toast__actions"
+                        class="c18 toast__content"
+                        data-role="toast-content"
+                      >
+                        <div
+                          class="c19 toast__message"
+                          data-role="toast-message"
+                        >
+                          message 3
+                        </div>
+                      </div>
+                      <div
+                        class="c20 toast__actions"
                         data-role="toast-action"
                       >
                         <button
                           aria-label="Close"
-                          class="c19 button button--icon c20"
+                          class="c21 button button--icon c22"
                           data-role="button"
                           data-type="icon"
                           title="Close"
@@ -1167,22 +1148,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 1`] = 
                           >
                             <span
                               aria-hidden="true"
+                              class="notranslate"
+                              translate="no"
                             >
                               close
                             </span>
                           </i>
                         </button>
-                      </div>
-                    </div>
-                    <div
-                      class="c21 toast__content"
-                      data-role="toast-content"
-                    >
-                      <div
-                        class="c22 toast__message"
-                        data-role="toast-message"
-                      >
-                        message 3
                       </div>
                     </div>
                   </div>
@@ -1242,58 +1214,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
   max-width: unset;
 }
 
-.c19 {
-  align-items: center;
-  border: 2px solid transparent;
-  cursor: pointer;
-  display: inline-flex;
-  justify-content: center;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700;
-  gap: 4px;
-  outline: none;
-  position: relative;
-  text-transform: uppercase;
-  vertical-align: middle;
-  border-radius: 50%;
-  flex-shrink: 0;
-  font-size: 1.125rem;
-  height: 2rem;
-  min-height: 0px;
-  padding: 0px;
-  width: 2rem;
-  background: transparent;
-  color: rgb(5, 104, 174);
-}
-
-.c19 .c13 {
-  user-select: none;
-}
-
-.c19 .c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c14 {
   color: inherit;
-}
-
-.c19 .c13 {
-  font-size: inherit;
-}
-
-.c19:not(:disabled):focus {
-  outline: rgb(51, 51, 51) dotted 1px;
-  background-color: transparent;
-  box-shadow: none;
-  color: rgb(213, 0, 117);
-  border: 2px solid rgb(213, 0, 117);
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 {
-  display: block;
-  height: auto;
-  min-height: 0px;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c13 {
-  display: block;
 }
 
 .c5 {
@@ -1344,6 +1266,64 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
   display: block;
 }
 
+.c21 {
+  align-items: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  height: 2rem;
+  min-height: 0px;
+  padding: 0px;
+  width: 2rem;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c21 .c13 {
+  user-select: none;
+}
+
+.c21 .c13 {
+  color: inherit;
+}
+
+.c21 .c13 {
+  font-size: inherit;
+}
+
+.c21:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: transparent;
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c21:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c13 {
+  display: block;
+}
+
 .c4 {
   align-items: center;
   display: flex;
@@ -1378,7 +1358,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -1397,7 +1377,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
   display: flex;
 }
 
-.c18 {
+.c20 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -1406,49 +1386,21 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
   width: 48px;
 }
 
-.c20 {
+.c22 {
   font-size: 1.5rem;
 }
 
-.c21 {
+.c18 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c22 {
+.c19 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   line-height: 1.45;
-}
-
-.c23 .c9 {
-  margin: 4px 0px;
-  pointer-events: auto;
-  width: 100%;
-}
-
-.c23 .c15 {
-  flex: 1 1 0%;
-}
-
-.c24 .c9 {
-  margin: 4px 0px;
-  pointer-events: auto;
-  width: 100%;
-}
-
-.c24 .c15 {
-  flex: 1 1 0%;
-}
-
-.c24 .c9 {
-  bottom: 0px;
-  opacity: 1;
-  left: 0px;
-  position: absolute;
-  visibility: visible;
 }
 
 .c1 {
@@ -1542,7 +1494,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -1558,7 +1510,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -1611,31 +1563,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
 }
 
 @media (pointer: coarse) {
-  .c19:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: transparent;
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c19:not(:disabled):hover {
-    background-color: transparent;
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c19:hover {
-    outline: transparent solid 1px;
-  }
-}
-
-@media (pointer: coarse) {
   .c5:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(255, 255, 255);
@@ -1658,6 +1585,31 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
 
 @media (pointer: fine) {
   .c5:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c21:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c21:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c21:hover {
     outline: transparent solid 1px;
   }
 }
@@ -1715,16 +1667,6 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
 
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes k2 {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
   }
 }
 
@@ -1802,6 +1744,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         info
                       </span>
@@ -1812,16 +1756,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
                     data-role="toast-right"
                   >
                     <div
-                      class="c17 toast__header"
-                      data-role="toast-header"
+                      class="c17"
+                      data-role="toast-body-content"
                     >
                       <div
-                        class="c18 toast__actions"
+                        class="c18 toast__content"
+                        data-role="toast-content"
+                      >
+                        <div
+                          class="c19 toast__message"
+                          data-role="toast-message"
+                        >
+                          message 3
+                        </div>
+                      </div>
+                      <div
+                        class="c20 toast__actions"
                         data-role="toast-action"
                       >
                         <button
                           aria-label="Close"
-                          class="c19 button button--icon c20"
+                          class="c21 button button--icon c22"
                           data-role="button"
                           data-type="icon"
                           title="Close"
@@ -1833,22 +1788,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render stackable Toast Group 2`] = 
                           >
                             <span
                               aria-hidden="true"
+                              class="notranslate"
+                              translate="no"
                             >
                               close
                             </span>
                           </i>
                         </button>
-                      </div>
-                    </div>
-                    <div
-                      class="c21 toast__content"
-                      data-role="toast-content"
-                    >
-                      <div
-                        class="c22 toast__message"
-                        data-role="toast-message"
-                      >
-                        message 3
                       </div>
                     </div>
                   </div>
@@ -1908,7 +1854,11 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
   max-width: unset;
 }
 
-.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
+.c15 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -1932,19 +1882,19 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
   color: rgb(5, 104, 174);
 }
 
-.c13 .c7 {
+.c15 .c7 {
   user-select: none;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   color: inherit;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   font-size: inherit;
 }
 
-.c13:not(:disabled):focus {
+.c15:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -1952,13 +1902,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c15:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+.h_inlineBlock.h_middleAlign .c15.c15 > .c7 {
   display: block;
 }
 
@@ -1989,7 +1943,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -2008,7 +1962,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
   display: flex;
 }
 
-.c12 {
+.c14 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -2017,17 +1971,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
   width: 48px;
 }
 
-.c14 {
+.c16 {
   font-size: 1.5rem;
 }
 
-.c15 {
+.c12 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c16 {
+.c13 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2073,7 +2027,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -2089,7 +2043,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -2114,7 +2068,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
 }
 
 @media (pointer: coarse) {
-  .c13:not(:disabled):active {
+  .c15:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -2124,7 +2078,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
 }
 
 @media (pointer: fine) {
-  .c13:not(:disabled):hover {
+  .c15:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -2133,7 +2087,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c15:hover {
     outline: transparent solid 1px;
   }
 }
@@ -2201,6 +2155,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -2211,16 +2167,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 3
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -2232,22 +2199,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 3
                     </div>
                   </div>
                 </div>
@@ -2273,6 +2231,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -2283,16 +2243,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 2
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -2304,22 +2275,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 2
                     </div>
                   </div>
                 </div>
@@ -2345,6 +2307,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -2355,16 +2319,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 1
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -2376,22 +2351,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with config direction 1`] = 
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 1
                     </div>
                   </div>
                 </div>
@@ -2450,7 +2416,11 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
   max-width: unset;
 }
 
-.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
+.c15 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -2474,19 +2444,19 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
   color: rgb(5, 104, 174);
 }
 
-.c13 .c7 {
+.c15 .c7 {
   user-select: none;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   color: inherit;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   font-size: inherit;
 }
 
-.c13:not(:disabled):focus {
+.c15:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -2494,13 +2464,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c15:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+.h_inlineBlock.h_middleAlign .c15.c15 > .c7 {
   display: block;
 }
 
@@ -2531,7 +2505,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -2550,7 +2524,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
   display: flex;
 }
 
-.c12 {
+.c14 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -2559,17 +2533,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
   width: 48px;
 }
 
-.c14 {
+.c16 {
   font-size: 1.5rem;
 }
 
-.c15 {
+.c12 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c16 {
+.c13 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2615,7 +2589,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -2631,7 +2605,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -2656,7 +2630,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
 }
 
 @media (pointer: coarse) {
-  .c13:not(:disabled):active {
+  .c15:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -2666,7 +2640,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
 }
 
 @media (pointer: fine) {
-  .c13:not(:disabled):hover {
+  .c15:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -2675,7 +2649,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c15:hover {
     outline: transparent solid 1px;
   }
 }
@@ -2743,6 +2717,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -2753,16 +2729,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 1
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -2774,22 +2761,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 1
                     </div>
                   </div>
                 </div>
@@ -2815,6 +2793,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -2825,16 +2805,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 2
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -2846,22 +2837,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 2
                     </div>
                   </div>
                 </div>
@@ -2887,6 +2869,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -2897,16 +2881,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 3
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -2918,22 +2913,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 1`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 3
                     </div>
                   </div>
                 </div>
@@ -2992,7 +2978,11 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
   max-width: unset;
 }
 
-.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
+.c15 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -3016,19 +3006,19 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
   color: rgb(5, 104, 174);
 }
 
-.c13 .c7 {
+.c15 .c7 {
   user-select: none;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   color: inherit;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   font-size: inherit;
 }
 
-.c13:not(:disabled):focus {
+.c15:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -3036,13 +3026,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c15:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+.h_inlineBlock.h_middleAlign .c15.c15 > .c7 {
   display: block;
 }
 
@@ -3073,7 +3067,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -3092,7 +3086,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
   display: flex;
 }
 
-.c12 {
+.c14 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -3101,17 +3095,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
   width: 48px;
 }
 
-.c14 {
+.c16 {
   font-size: 1.5rem;
 }
 
-.c15 {
+.c12 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c16 {
+.c13 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -3157,7 +3151,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -3173,7 +3167,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -3198,7 +3192,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
 }
 
 @media (pointer: coarse) {
-  .c13:not(:disabled):active {
+  .c15:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -3208,7 +3202,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
 }
 
 @media (pointer: fine) {
-  .c13:not(:disabled):hover {
+  .c15:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -3217,7 +3211,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c15:hover {
     outline: transparent solid 1px;
   }
 }
@@ -3285,6 +3279,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -3295,16 +3291,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 1
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -3316,22 +3323,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 1
                     </div>
                   </div>
                 </div>
@@ -3357,6 +3355,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -3367,16 +3367,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 2
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -3388,22 +3399,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 2
                     </div>
                   </div>
                 </div>
@@ -3429,6 +3431,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -3439,16 +3443,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 3
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -3460,22 +3475,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 2`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 3
                     </div>
                   </div>
                 </div>
@@ -3534,7 +3540,11 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
   max-width: unset;
 }
 
-.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
+.c15 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -3558,19 +3568,19 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
   color: rgb(5, 104, 174);
 }
 
-.c13 .c7 {
+.c15 .c7 {
   user-select: none;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   color: inherit;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   font-size: inherit;
 }
 
-.c13:not(:disabled):focus {
+.c15:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -3578,13 +3588,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c15:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+.h_inlineBlock.h_middleAlign .c15.c15 > .c7 {
   display: block;
 }
 
@@ -3615,7 +3629,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -3634,7 +3648,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
   display: flex;
 }
 
-.c12 {
+.c14 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -3643,17 +3657,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
   width: 48px;
 }
 
-.c14 {
+.c16 {
   font-size: 1.5rem;
 }
 
-.c15 {
+.c12 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c16 {
+.c13 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -3699,7 +3713,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -3715,7 +3729,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -3740,7 +3754,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
 }
 
 @media (pointer: coarse) {
-  .c13:not(:disabled):active {
+  .c15:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -3750,7 +3764,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
 }
 
 @media (pointer: fine) {
-  .c13:not(:disabled):hover {
+  .c15:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -3759,7 +3773,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c15:hover {
     outline: transparent solid 1px;
   }
 }
@@ -3827,6 +3841,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -3837,16 +3853,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 3
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -3858,22 +3885,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 3
                     </div>
                   </div>
                 </div>
@@ -3899,6 +3917,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -3909,16 +3929,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 2
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -3930,22 +3961,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 2
                     </div>
                   </div>
                 </div>
@@ -3971,6 +3993,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -3981,16 +4005,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 1
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -4002,22 +4037,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 3`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 1
                     </div>
                   </div>
                 </div>
@@ -4076,7 +4102,11 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
   max-width: unset;
 }
 
-.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
+.c15 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -4100,19 +4130,19 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
   color: rgb(5, 104, 174);
 }
 
-.c13 .c7 {
+.c15 .c7 {
   user-select: none;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   color: inherit;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   font-size: inherit;
 }
 
-.c13:not(:disabled):focus {
+.c15:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -4120,13 +4150,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c15:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+.h_inlineBlock.h_middleAlign .c15.c15 > .c7 {
   display: block;
 }
 
@@ -4157,7 +4191,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -4176,7 +4210,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
   display: flex;
 }
 
-.c12 {
+.c14 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -4185,17 +4219,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
   width: 48px;
 }
 
-.c14 {
+.c16 {
   font-size: 1.5rem;
 }
 
-.c15 {
+.c12 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c16 {
+.c13 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -4241,7 +4275,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -4257,7 +4291,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -4282,7 +4316,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
 }
 
 @media (pointer: coarse) {
-  .c13:not(:disabled):active {
+  .c15:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -4292,7 +4326,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
 }
 
 @media (pointer: fine) {
-  .c13:not(:disabled):hover {
+  .c15:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -4301,7 +4335,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c15:hover {
     outline: transparent solid 1px;
   }
 }
@@ -4369,6 +4403,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -4379,16 +4415,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 3
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -4400,22 +4447,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 3
                     </div>
                   </div>
                 </div>
@@ -4441,6 +4479,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -4451,16 +4491,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 2
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -4472,22 +4523,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 2
                     </div>
                   </div>
                 </div>
@@ -4513,6 +4555,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -4523,16 +4567,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 1
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -4544,22 +4599,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with default direction 4`] =
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 1
                     </div>
                   </div>
                 </div>
@@ -4618,7 +4664,11 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
   max-width: unset;
 }
 
-.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
+.c15 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -4642,19 +4692,19 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
   color: rgb(5, 104, 174);
 }
 
-.c13 .c7 {
+.c15 .c7 {
   user-select: none;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   color: inherit;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   font-size: inherit;
 }
 
-.c13:not(:disabled):focus {
+.c15:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -4662,13 +4712,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c15:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+.h_inlineBlock.h_middleAlign .c15.c15 > .c7 {
   display: block;
 }
 
@@ -4699,7 +4753,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -4718,7 +4772,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
   display: flex;
 }
 
-.c12 {
+.c14 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -4727,17 +4781,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
   width: 48px;
 }
 
-.c14 {
+.c16 {
   font-size: 1.5rem;
 }
 
-.c15 {
+.c12 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c16 {
+.c13 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -4783,7 +4837,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -4799,7 +4853,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -4824,7 +4878,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
 }
 
 @media (pointer: coarse) {
-  .c13:not(:disabled):active {
+  .c15:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -4834,7 +4888,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
 }
 
 @media (pointer: fine) {
-  .c13:not(:disabled):hover {
+  .c15:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -4843,7 +4897,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c15:hover {
     outline: transparent solid 1px;
   }
 }
@@ -4912,6 +4966,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -4922,16 +4978,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 1
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -4943,22 +5010,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 1
                     </div>
                   </div>
                 </div>
@@ -4984,6 +5042,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -4994,16 +5054,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 2
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -5015,22 +5086,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 2
                     </div>
                   </div>
                 </div>
@@ -5056,6 +5118,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -5066,16 +5130,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 3
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -5087,22 +5162,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > render with id, className and style
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 3
                     </div>
                   </div>
                 </div>
@@ -5161,7 +5227,11 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
   max-width: unset;
 }
 
-.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
+.c15 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -5185,19 +5255,19 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
   color: rgb(5, 104, 174);
 }
 
-.c13 .c7 {
+.c15 .c7 {
   user-select: none;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   color: inherit;
 }
 
-.c13 .c7 {
+.c15 .c7 {
   font-size: inherit;
 }
 
-.c13:not(:disabled):focus {
+.c15:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -5205,13 +5275,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c15:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c15.c15 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 > .c7 {
+.h_inlineBlock.h_middleAlign .c15.c15 > .c7 {
   display: block;
 }
 
@@ -5242,7 +5316,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -5261,7 +5335,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
   display: flex;
 }
 
-.c12 {
+.c14 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -5270,17 +5344,17 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
   width: 48px;
 }
 
-.c14 {
+.c16 {
   font-size: 1.5rem;
 }
 
-.c15 {
+.c12 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c16 {
+.c13 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -5326,7 +5400,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -5342,7 +5416,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   overflow: hidden;
   margin: 0px;
   transition: 0.35s 0.25s;
@@ -5367,7 +5441,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
 }
 
 @media (pointer: coarse) {
-  .c13:not(:disabled):active {
+  .c15:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -5377,7 +5451,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
 }
 
 @media (pointer: fine) {
-  .c13:not(:disabled):hover {
+  .c15:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -5386,7 +5460,7 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c15:hover {
     outline: transparent solid 1px;
   }
 }
@@ -5454,6 +5528,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -5464,16 +5540,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 1
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -5485,22 +5572,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 1
                     </div>
                   </div>
                 </div>
@@ -5526,6 +5604,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -5536,16 +5616,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 2
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -5557,22 +5648,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 2
                     </div>
                   </div>
                 </div>
@@ -5598,6 +5680,8 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       info
                     </span>
@@ -5608,16 +5692,27 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
                   data-role="toast-right"
                 >
                   <div
-                    class="c11 toast__header"
-                    data-role="toast-header"
+                    class="c11"
+                    data-role="toast-body-content"
                   >
                     <div
-                      class="c12 toast__actions"
+                      class="c12 toast__content"
+                      data-role="toast-content"
+                    >
+                      <div
+                        class="c13 toast__message"
+                        data-role="toast-message"
+                      >
+                        message 3
+                      </div>
+                    </div>
+                    <div
+                      class="c14 toast__actions"
                       data-role="toast-action"
                     >
                       <button
                         aria-label="Close"
-                        class="c13 button button--icon c14"
+                        class="c15 button button--icon c16"
                         data-role="button"
                         data-type="icon"
                         title="Close"
@@ -5629,22 +5724,13 @@ exports[`com.mgmtp.a12.widgets.toast-group > verify the basic toast group struct
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             close
                           </span>
                         </i>
                       </button>
-                    </div>
-                  </div>
-                  <div
-                    class="c15 toast__content"
-                    data-role="toast-content"
-                  >
-                    <div
-                      class="c16 toast__message"
-                      data-role="toast-message"
-                    >
-                      message 3
                     </div>
                   </div>
                 </div>

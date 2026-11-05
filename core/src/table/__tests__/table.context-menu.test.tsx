@@ -33,14 +33,13 @@
 import { fireEvent, getByDataRole, render } from "test-utils";
 import { describe, expect, test, vi } from "vitest";
 
-import { Range } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { Range } from "../../common/main/utils.js";
 import { RichTextEditor } from "../../rich-text-editor/index.js";
 import { prepopulatedRichText } from "../../rich-text-editor/main/utils/common.js";
-
+import type { BaseColumnType } from "../main/column.api.js";
 import { BodyCell } from "../main/table.body-cell.view.js";
 import { HeadCell } from "../main/table.head-cell.view.js";
-import type { BaseColumnType } from "../main/column.api.js";
 import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
 
 describe("com.mgmtp.a12.widgets.table.context-menu", () => {

@@ -58,7 +58,7 @@ export const EMPLOYEES: Employee[] = [
 ];
 
 export const BASIC_COLUMNS: BaseColumnType<Employee>[] = [
-	{ label: "ID", dataKey: "id", width: 0.4, fixedWidth: true, verticalAlignment: "middle", pinning: "left" },
+	{ label: "ID", dataKey: "id", width: 0.7, fixedWidth: true, verticalAlignment: "middle", pinning: "left" },
 	{
 		label: "First Name",
 		dataKey: "firstName",

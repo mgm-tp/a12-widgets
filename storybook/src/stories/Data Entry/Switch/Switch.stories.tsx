@@ -34,7 +34,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { fn } from "storybook/test";
 
-import { Switch } from "@com.mgmtp.a12.widgets/widgets-core";
+import { HintTooltip, Icon, Switch } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const meta: Meta<typeof Switch> = {
 	title: "Data Entry/Switch",
@@ -42,7 +42,6 @@ const meta: Meta<typeof Switch> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		checked: {
 			control: "boolean",
@@ -72,6 +71,11 @@ const meta: Meta<typeof Switch> = {
 			control: "text",
 			description: "Label text displayed next to the switch"
 		},
+		labelPosition: {
+			control: "select",
+			options: ["top", "left", "right", "bottom"],
+			description: "Position of the label relative to the switch control"
+		},
 		checkedOption: {
 			control: "text",
 			description: "Label shown when the switch is in the on/checked state"
@@ -99,6 +103,18 @@ const meta: Meta<typeof Switch> = {
 		helperText: {
 			control: "text",
 			description: "Helper text shown below the switch"
+		},
+		messagePosition: {
+			control: "select",
+			options: ["above", "below"],
+			description:
+				'Where the error, warning and info message boxes render: `"above"` (default) between the label and the control, `"below"` directly under the control'
+		},
+		breakTooltipsToNewLine: {
+			control: "select",
+			options: [false, true, "above", "below"],
+			description:
+				'Where tooltips render: `true` / `"above"` (default for this widget) on a new line above the control, `false` inline beside the control, `"below"` on a new line below'
 		}
 	},
 	args: {
@@ -109,19 +125,11 @@ const meta: Meta<typeof Switch> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
-		id: "default-switch",
+		id: "playground-switch",
 		checked: false,
 		label: "Enable feature"
-	}
-};
-
-export const Checked: Story = {
-	args: {
-		id: "checked-switch",
-		checked: true,
-		label: "Feature enabled"
 	}
 };
 
@@ -132,6 +140,38 @@ export const WithOptions: Story = {
 		label: "Dark mode",
 		checkedOption: "On",
 		uncheckedOption: "Off"
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`checkedOption` and `uncheckedOption` display state labels next to the control. Use `hideOptions` to suppress them."
+			}
+		}
+	}
+};
+
+export const LabelPositions: Story = {
+	render: (args) => (
+		<div style={{ display: "flex", gap: "48px", flexWrap: "wrap" }}>
+			{(["top", "left", "right", "bottom"] as const).map((position) => (
+				<Switch
+					{...args}
+					key={position}
+					id={`label-position-${position}-switch`}
+					label={`Label ${position}`}
+					labelPosition={position}
+				/>
+			))}
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`labelPosition` places the label at the `top` (default), `left`, `right` or `bottom` of the switch control."
+			}
+		}
 	}
 };
 
@@ -141,64 +181,151 @@ export const WithHelperText: Story = {
 		checked: false,
 		label: "Send notifications",
 		helperText: "You will receive email notifications for important updates."
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`helperText` renders additional explanatory content below the switch."
+			}
+		}
 	}
 };
 
-export const Disabled: Story = {
-	args: {
-		id: "disabled-switch",
-		checked: false,
-		label: "Disabled switch",
-		disabled: true
+export const States: Story = {
+	render: (args) => (
+		<div style={{ display: "flex", gap: "48px", flexWrap: "wrap" }}>
+			<Switch {...args} id="disabled-switch" label="Disabled" disabled />
+			<Switch {...args} id="disabled-checked-switch" label="Disabled checked" disabled checked />
+			<Switch {...args} id="readonly-switch" label="Readonly" readonly checked />
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`disabled` blocks user interaction entirely, while `readonly` renders the current value without allowing changes."
+			}
+		}
 	}
 };
 
-export const Readonly: Story = {
-	args: {
-		id: "readonly-switch",
-		checked: true,
-		label: "Readonly switch",
-		readonly: true
+export const ValidationStates: Story = {
+	render: (args) => (
+		<div style={{ display: "flex", gap: "48px", flexWrap: "wrap" }}>
+			<Switch
+				{...args}
+				id="error-switch"
+				label="Accept data processing"
+				error
+				errorMessage="This setting is required to proceed"
+			/>
+			<Switch
+				{...args}
+				id="warning-switch"
+				label="Allow third-party cookies"
+				checked
+				warning
+				warningMessage="Enabling this may affect your privacy"
+			/>
+			<Switch
+				{...args}
+				id="info-switch"
+				label="Beta features"
+				info
+				infoMessage="Beta features may change without notice"
+			/>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`error`, `warning` and `info` highlight the switch; `errorMessage`, `warningMessage` and `infoMessage` show the corresponding message below it."
+			}
+		}
 	}
 };
 
-export const WithErrorMessage: Story = {
+export const MessagePosition: Story = {
 	args: {
-		id: "error-switch",
+		id: "switch-message-position",
 		checked: false,
 		label: "Accept data processing",
+		helperText: "Helper text explaining the field",
 		error: true,
-		errorMessage: "This setting is required to proceed"
+		errorMessage: "This setting is required to proceed",
+		messagePosition: "below"
+	},
+	parameters: {
+		controls: { include: ["messagePosition"] },
+		docs: {
+			description: {
+				story:
+					'`messagePosition` places the message box relative to the control. This story starts at `"below"`, which renders it directly under the control — switch the control to `"above"` for the default placement between the label and the control.'
+			}
+		}
 	}
 };
 
-export const WithWarningMessage: Story = {
+export const TooltipPosition: Story = {
 	args: {
-		id: "warning-switch",
+		id: "switch-tooltip-position",
+		checked: false,
+		label: "Accept data processing",
+		helperText: "Helper text explaining the field",
+		tooltips: <HintTooltip text="This is a hint" id="switch-tooltip-position-hint" />,
+		ariaDescribedby: "switch-tooltip-position-hint",
+		breakTooltipsToNewLine: "below"
+	},
+	parameters: {
+		controls: { include: ["breakTooltipsToNewLine"] },
+		docs: {
+			description: {
+				story:
+					'`breakTooltipsToNewLine` places the tooltips relative to the control. This story starts at `"below"`, which puts them on their own line under the control — switch the control to `false` to place them inline beside it, or to `"above"` / `true` for a line above, which is the default for this widget.'
+			}
+		}
+	}
+};
+
+export const CustomIcons: Story = {
+	args: {
+		id: "custom-icons-switch",
 		checked: true,
-		label: "Allow third-party cookies",
-		warning: true,
-		warningMessage: "Enabling this may affect your privacy"
+		label: "Sound",
+		checkedIcon: <Icon>volume_up</Icon>,
+		uncheckedIcon: <Icon>volume_off</Icon>
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`checkedIcon` and `uncheckedIcon` replace the default check/remove icons displayed inside the thumb."
+			}
+		}
 	}
 };
 
 export const Interactive: Story = {
-	render: () => {
-		const InteractiveSwitch = () => {
-			const [checked, setChecked] = useState(false);
+	render: function InteractiveExample() {
+		const [checked, setChecked] = useState(false);
 
-			return (
-				<Switch
-					id="interactive-switch"
-					label="Airplane mode"
-					checkedOption="On"
-					uncheckedOption="Off"
-					checked={checked}
-					onChange={setChecked}
-				/>
-			);
-		};
-
-		return <InteractiveSwitch />;
+		return (
+			<Switch
+				id="interactive-switch"
+				label="Airplane mode"
+				checkedOption="On"
+				uncheckedOption="Off"
+				checked={checked}
+				onChange={setChecked}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"A controlled switch: `checked` is held in state and updated through `onChange`, which receives the new boolean value."
+			}
+		}
 	}
 };

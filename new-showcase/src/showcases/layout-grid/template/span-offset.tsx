@@ -41,11 +41,11 @@ import { styled, css } from "styled-components";
 import type { LayoutGridProps, SizeDetectorProps, Container } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Button, ButtonGroup, LayoutGrid, Range, Checkbox, Radio, Select } from "@com.mgmtp.a12.widgets/widgets-core";
 
+import { ConfigurationView } from "../../../helpers/configuration-view.js";
+import { CodeSnippetGenerationWrapper } from "../../../helpers/showcase-example.js";
 // end code removal
 // start code removal
 import { ShowcaseSlider } from "../../../helpers/showcase-slider.js";
-import { ConfigurationView } from "../../../helpers/configuration-view.js";
-import { CodeSnippetGenerationWrapper } from "../../../helpers/showcase-example.js";
 
 const { Grid, Row, Column } = LayoutGrid;
 
@@ -388,6 +388,7 @@ export const SpanAndOffset: FC = () => {
 		return (
 			<div className="-u-width-full">
 				<Checkbox
+					id="layout-grid-span-offset-checkbox"
 					checked={enableMdBreakpointConfig}
 					onChange={toggleEnableMdBreakpointConfig}
 					label={
@@ -422,7 +423,13 @@ export const SpanAndOffset: FC = () => {
 										<br />
 										<em>Click apply button to use new configuration.</em>
 									</p>
-									<Radio className="-u-margin-t-sm" value={selectedRow} inline onValueChanged={onSelectedRowChange}>
+									<Radio
+										id="layout-grid-span-offset-radio"
+										className="-u-margin-t-sm"
+										value={selectedRow}
+										inline
+										onValueChanged={onSelectedRowChange}
+									>
 										{rows.map((row, index) => (
 											<Radio.Item key={index} label={row.label} value={`${row.value}`} />
 										))}

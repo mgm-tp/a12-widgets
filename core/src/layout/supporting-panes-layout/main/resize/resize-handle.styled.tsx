@@ -32,8 +32,8 @@
 
 import { styled, css } from "styled-components";
 
-import { createPseudoElement } from "../../../../theme/base/mixins/_pseudo.js";
 import { hover } from "../../../../theme/base/mixins/_interaction.js";
+import { createPseudoElement } from "../../../../theme/base/mixins/_pseudo.js";
 
 import type { ResizeHandleProps } from "./resize-handle.api.js";
 
@@ -75,15 +75,19 @@ export const StyledResizeHandle = styled.div.withConfig({ displayName: "StyledRe
 		-webkit-user-select: none;
 		-moz-user-select: none;
 
-		${$targetPosition === "left" &&
-		css`
-			right: ${pos};
-		`}
+		${
+			$targetPosition === "left" &&
+			css`
+				right: ${pos};
+			`
+		}
 
-		${$targetPosition === "right" &&
-		css`
-			left: ${pos};
-		`}
+		${
+			$targetPosition === "right" &&
+			css`
+				left: ${pos};
+			`
+		}
 
 		${createPseudoElement(
 			":before",
@@ -93,7 +97,7 @@ export const StyledResizeHandle = styled.div.withConfig({ displayName: "StyledRe
 				width: ${visualIndicatorWidth}px;
 			`
 		)}
-		
+
 		${hover(css`
 			&:before {
 				background-color: ${interaction.hover.color};

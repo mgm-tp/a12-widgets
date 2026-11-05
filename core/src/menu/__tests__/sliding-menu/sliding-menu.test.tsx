@@ -43,13 +43,13 @@ import {
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { SlidingMenu } from "../../main/sliding-menu.view.js";
-import type { MenuItem } from "../../main/menu.api.js";
-import { items, itemsWithChildren, itemWithVariants, scrollTestItems } from "../../test/menu.setup.js";
 import { Badge } from "../../../badge/index.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { Icon } from "../../../icon/index.js";
 import { InteractionHintConfigProvider } from "../../../interaction-hint/main/interaction-hint-context.js";
+import type { MenuItem } from "../../main/menu.api.js";
+import { SlidingMenu } from "../../main/sliding-menu.view.js";
+import { items, itemsWithChildren, itemWithVariants, scrollTestItems } from "../../test/menu.setup.js";
 
 describe("com.mgmtp.a12.widgets.menu.sliding", () => {
 	test("vertical-sliding-menu-not-collapsed-icons", async () => {

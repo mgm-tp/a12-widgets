@@ -42,7 +42,6 @@ import { userEvent } from "vitest/browser";
 
 import { DataRoles } from "../../common/main/data-roles.js";
 import { Icon } from "../../icon/main/icon.view.js";
-
 import type { MentionPluginProps, TooltipPluginConfig } from "../index.js";
 import { $isInlineStyleTextNode, $updateTextSelection } from "../index.js";
 import type { TextMatcher, TextMatcherResult } from "../main/plugins/plugin.internal.api.js";
@@ -216,12 +215,10 @@ describe("TextFormatPlugin - Unmergeable Nodes", () => {
 
 		// Select all text and apply bold to create lexical unmergeable nodes
 		await userEvent.keyboard("{ControlOrMeta>}a{/ControlOrMeta}");
-		await new Promise((r) => setTimeout(r, 100));
+		await waitFor(() => expect(window.getSelection()?.toString()).toBe("abc def ghi"));
 
 		const boldButton = getAllByDataRole(container, DataRoles.RichTextEditor.ToolbarItem)[0];
 		await userEvent.click(boldButton);
-
-		await new Promise((r) => setTimeout(r, 300));
 
 		await waitFor(() => {
 			const boldNodes = container.querySelectorAll("b, strong");

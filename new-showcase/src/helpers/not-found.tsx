@@ -31,8 +31,8 @@
  */
 
 import { useState, useContext } from "react";
-import { styled, css } from "styled-components";
 import { useNavigate } from "react-router";
+import { styled, css } from "styled-components";
 
 import type { SizeDetectorProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
@@ -46,8 +46,8 @@ import {
 	provider as DeviceDetector
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { getDesktopOperatingSystem } from "./utils.js";
 import { GlobalSearchContext } from "./global-search/global-search-context.js";
+import { getDesktopOperatingSystem } from "./utils.js";
 
 const { Grid, Row, Column } = LayoutGrid;
 const isDesktop = DeviceDetector.isDesktop();

@@ -30,14 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, test, expect, vi } from "vitest";
 import { getAllByDataRole, render, waitFor } from "test-utils";
+import { describe, test, expect, vi } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { KeyboardNavigationConfigProvider } from "../../../keyboard-navigation/main/keyboard-navigation-context.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-import { SlidingMenu } from "../../main/sliding-menu.view.js";
+import { KeyboardNavigationConfigProvider } from "../../../keyboard-navigation/main/keyboard-navigation-context.js";
 import type { MenuItem } from "../../main/menu.api.js";
+import { SlidingMenu } from "../../main/sliding-menu.view.js";
 
 const items: MenuItem[] = [
 	{ id: "a", label: "Alpha" },

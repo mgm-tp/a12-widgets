@@ -30,9 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
+
 import type { FC } from "react";
 
-import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
 import { Icon, MentionNode, MentionPlugin, RichTextEditor } from "@com.mgmtp.a12.widgets/widgets-core";
 
 export const MentionPluginShowcase: FC = () => {

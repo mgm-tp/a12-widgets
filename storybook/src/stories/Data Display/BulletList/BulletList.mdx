@@ -1,0 +1,60 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as BulletListStories from "./BulletList.stories";
+
+<Meta of={BulletListStories} />
+
+<Title />
+
+The `BulletList` widget renders semantic HTML lists with consistent theming. It is a compound
+component: `BulletList.Unordered` (`<ul>`) and `BulletList.Ordered` (`<ol>`) act as containers
+for `BulletList.Item` (`<li>`) children.
+
+- Unordered lists support the marker types `disc`, `circle`, `square` and `none`; ordered lists
+  support `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman` and `lower-alpha`.
+- Use `inline` to lay items out horizontally, e.g. for navigation-style lists.
+- Unordered lists can drop their default left indentation via `indent={false}`.
+- Lists can be nested to any depth, mixing ordered and unordered levels.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={BulletListStories.Playground} />
+
+## Examples
+
+### Unordered list types
+
+<Canvas of={BulletListStories.UnorderedTypes} />
+
+### Ordered list types
+
+<Canvas of={BulletListStories.OrderedTypes} />
+
+### Inline
+
+<Canvas of={BulletListStories.Inline} />
+
+### Without indent
+
+<Canvas of={BulletListStories.WithoutIndent} />
+
+### Nested lists
+
+<Canvas of={BulletListStories.Nested} />

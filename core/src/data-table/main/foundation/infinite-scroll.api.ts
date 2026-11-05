@@ -30,63 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { RefCallback } from "react";
-import type {
-	InfiniteLoader,
-	List as ReactVirtualizedList,
-	ListProps as ReactVirtualizedProps
-} from "react-virtualized";
-
-export interface InfiniteScrollOptions {
-	/**
-	 * A fixed height of the rows
-	 */
-	rowHeight: number;
-
-	/**
-	 * Total number of rows
-	 */
-	rowCount: number;
-
-	/**
-	 * To specify a loading status for each row.
-	 * If a row is marked as loaded, it will be rendered using the body row renderer as normal, otherwise a placeholder
-	 * will be rendered instead.
-	 */
-	rowLoadingStatus(rowIndex: number): RowLoadingStatus;
-
-	/**
-	 * A callback that will be triggered when more rows should be loaded.
-	 * Use this callback to fetch the rows and update the data.
-	 *
-	 * @param range – The rows between `startIndex` and `stopIndex` inclusively should be loaded
-	 * @returns Promise<void> which resolves when data is updated
-	 */
-	loadData(range: { startIndex: number; stopIndex: number }): Promise<void>;
-
-	/**
-	 * Threshold at which to pre-fetch data.
-	 * A threshold `X` means that the next rows will start loading when a user scrolls within `X` last rows.
-	 * @default 15
-	 */
-	threshold?: number;
-
-	/**
-	 * Minimum number of rows to be loaded at a time. This can be used to reduce the number of HTTP requests
-	 * @default 10
-	 */
-	minimumBatchSize?: number;
-
-	/**
-	 * Ref to InfiniteLoader from react-virtualized package used in the table
-	 */
-	loaderRef?: RefCallback<InfiniteLoader>;
-
-	/**
-	 * To override the props of the react-virtualized list used inside an infinite-scroll table
-	 */
-	overrideListProps?: Partial<ReactVirtualizedProps> & { listRef?: RefCallback<ReactVirtualizedList> };
-}
+/*
+ * Deliberate fork of `core/src/table/main/infinite-scroll.api.ts` — see `./README.md`.
+ * Subset: `RowLoadingStatus` only. `InfiniteScrollOptions` lives in
+ * `../data-table-infinite-scroll.api.ts`.
+ */
 
 /**
  * Loading status of a row.

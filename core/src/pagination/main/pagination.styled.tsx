@@ -32,11 +32,11 @@
 
 import { styled, css } from "styled-components";
 
-import { Button } from "../../button/main/button.view.js";
 import { StyledButton } from "../../button/main/button.styled.js";
-import { active, brightFocus, hover } from "../../theme/base/mixins/_interaction.js";
+import { Button } from "../../button/main/button.view.js";
 import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
 import { StyledSelectTemplate } from "../../input/select/main/select.styled.js";
+import { active, brightFocus, hover } from "../../theme/base/mixins/_interaction.js";
 
 export const StyledPaginationWrapper = styled.div.withConfig({ displayName: "StyledPaginationWrapper-sc-" })<{
 	$simple?: boolean;
@@ -48,81 +48,89 @@ export const StyledPaginationWrapper = styled.div.withConfig({ displayName: "Sty
 	return css`
 		align-items: center;
 		cursor: default;
-		${$alignment === "left" &&
-		css`
-			float: left;
-			margin-right: auto;
-			order: 1;
-		`}
-		${$alignment === "right" &&
-		css`
-			float: right;
-			margin-left: auto;
-			order: 1;
-		`}
-		${!$simple &&
-		css`
-			display: flex;
-			font-size: 0; // Remove unwanted white-space for the inline-block child components of pagination
+		${
+			$alignment === "left" &&
+			css`
+				float: left;
+				margin-right: auto;
+				order: 1;
+			`
+		}
+		${
+			$alignment === "right" &&
+			css`
+				float: right;
+				margin-left: auto;
+				order: 1;
+			`
+		}
+		${
+			!$simple &&
+			css`
+				display: flex;
+				font-size: 0; // Remove unwanted white-space for the inline-block child components of pagination
 
-			${StyledButton} {
-				font-size: ${pagination.buttonIconFontSize};
-			}
+				${StyledButton} {
+					font-size: ${pagination.buttonIconFontSize};
+				}
 
-			${StyledBaseInput.StyledField} {
-				display: block;
-				margin: 0 3px 0 5px;
-				position: relative;
-				width: ${pagination.select.width};
-				${StyledSelectTemplate.StyledFieldSelectControl} {
-					height: auto;
-					${StyledSelectTemplate.StyledFieldSelectWrapper} {
-						box-shadow: none;
-						outline-offset: unset;
-					}
-					${StyledSelectTemplate.StyledSelectArrow}:after {
-						color: ${$disabled ? pagination.select.arrow.disabledColor : pagination.select.arrow.color};
-						content: "\\e5c5";
-						font-size: ${pagination.select.arrow.fontSize};
-						width: ${pagination.select.arrow.iconWidth};
-					}
-					${StyledSelectTemplate.StyledSelectInput} {
-						background-color: ${pagination.select.background};
-						border: ${pagination.select.title.border.width} solid transparent;
-						border-radius: ${pagination.select.title.border.radius};
-						box-shadow: none;
-						height: ${pagination.select.title.height};
-						padding: 0 ${pagination.select.arrow.iconWidth} 0 6px;
-
-						// Support for color customized setting of browser.
-						@media (forced-colors: active) {
-							background-color: transparent;
+				${StyledBaseInput.StyledField} {
+					display: block;
+					margin: 0 3px 0 5px;
+					position: relative;
+					width: ${pagination.select.width};
+					${StyledSelectTemplate.StyledFieldSelectControl} {
+						height: auto;
+						${StyledSelectTemplate.StyledFieldSelectWrapper} {
+							box-shadow: none;
+							outline-offset: unset;
 						}
+						${StyledSelectTemplate.StyledSelectArrow}:after {
+							color: ${$disabled ? pagination.select.arrow.disabledColor : pagination.select.arrow.color};
+							content: "\\e5c5";
+							font-size: ${pagination.select.arrow.fontSize};
+							width: ${pagination.select.arrow.iconWidth};
+						}
+						${StyledSelectTemplate.StyledSelectInput} {
+							background-color: ${pagination.select.background};
+							border: ${pagination.select.title.border.width} solid transparent;
+							border-radius: ${pagination.select.title.border.radius};
+							box-shadow: none;
+							height: ${pagination.select.title.height};
+							padding: 0 ${pagination.select.arrow.iconWidth} 0 6px;
 
-						&:not(:disabled) {
-							${active(css`
-								border: ${pagination.select.title.activeBorder};
-							`)}
-							${hover(css`
-								border: ${pagination.select.title.hoverBorder};
-							`)}
-							&:focus {
-								border: ${pagination.select.title.focusBorder};
+							// Support for color customized setting of browser.
+							@media (forced-colors: active) {
+								background-color: transparent;
+							}
+
+							&:not(:disabled) {
+								${active(css`
+									border: ${pagination.select.title.activeBorder};
+								`)}
+								${hover(css`
+									border: ${pagination.select.title.hoverBorder};
+								`)}
+								&:focus {
+									border: ${pagination.select.title.focusBorder};
+								}
 							}
 						}
 					}
 				}
-			}
-		`}
-		
-		${$simple &&
-		css`
-			background-color: transparent;
-			border: ${pagination.simple.border};
-			border-radius: ${pagination.simple.borderRadius};
-			color: ${pagination.simple.color};
-			display: inline-flex;
-		`}
+			`
+		}
+
+		${
+			$simple &&
+			css`
+				background-color: transparent;
+				border: ${pagination.simple.border};
+				border-radius: ${pagination.simple.borderRadius};
+				color: ${pagination.simple.color};
+				display: inline-flex;
+			`
+		}
 	`;
 });
 
@@ -154,34 +162,38 @@ export const StyledSimplePaginationAction = styled(Button).withConfig({
 		font-size: ${button.iconFontSize};
 		padding: ${button.padding};
 
-		${!$disabled &&
-		css`
-			&& {
-				${active(css`
-					background-color: ${button.active.background};
-					border: ${button.active.border};
-					color: ${button.color};
-				`)}
-				${hover(css`
-					background-color: ${button.hover.background};
-					border: ${button.hover.border};
-					color: ${button.color};
-				`)} 
-				&:focus {
-					${brightFocus};
-					background-color: ${button.focus.background};
-					border: ${button.focus.border};
-					color: ${button.focus.color};
+		${
+			!$disabled &&
+			css`
+				&& {
+					${active(css`
+						background-color: ${button.active.background};
+						border: ${button.active.border};
+						color: ${button.color};
+					`)}
+					${hover(css`
+						background-color: ${button.hover.background};
+						border: ${button.hover.border};
+						color: ${button.color};
+					`)}
+					&:focus {
+						${brightFocus};
+						background-color: ${button.focus.background};
+						border: ${button.focus.border};
+						color: ${button.focus.color};
+					}
 				}
-			}
-		`}
+			`
+		}
 
-		${$disabled &&
-		css`
-			color: ${button.disabledColor};
-			opacity: 0.3;
-		`}
-		
+		${
+			$disabled &&
+			css`
+				color: ${button.disabledColor};
+				opacity: 0.3;
+			`
+		}
+
 		&:first-child {
 			border-top-left-radius: ${borderRadius};
 			border-bottom-left-radius: ${borderRadius};

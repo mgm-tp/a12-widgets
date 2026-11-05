@@ -34,10 +34,10 @@ import type { ReactElement } from "react";
 import { useContext } from "react";
 
 import { Button } from "../../../button/main/button.view.js";
-import { Icon } from "../../../icon/main/icon.view.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { provider } from "../../../common/main/device-detector.js";
+import { Icon } from "../../../icon/main/icon.view.js";
 import { Tooltip } from "../../main/tooltip.view.js";
 
 import type { HintTooltipProps } from "./hint.api.js";
@@ -61,6 +61,8 @@ export function HintTooltip(props: HintTooltipProps): ReactElement<HintTooltipPr
 			id={props.id}
 			dataRole={props.dataRole || "tooltip-hint"}
 			useDesktopView={props.useDesktopView}
+			showDelay={props.showDelay}
+			hideDelay={props.hideDelay}
 		>
 			<Button
 				invert={props.invert}

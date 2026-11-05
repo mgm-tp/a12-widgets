@@ -30,22 +30,22 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import ModalOverlayAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/modal-overlay/main/modal-overlay.api.json" with { type: "json" };
+import accessibilityCode from "!./accessibility-modal-overlay.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import fitToParentCode from "!./fit-to-parent.tsx?raw";
+import fullscreenWithNoGutterCode from "!./fullscreen-with-no-gutter.tsx?raw";
+import maxWidthCode from "!./max-width.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import ModalOverlayAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/modal-overlay/main/modal-overlay.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { BasicModalExample } from "./basic.js";
-import { MaxWidthModalExample } from "./max-width.js";
-import { FullscreenWithNoGutterModalExample } from "./fullscreen-with-no-gutter.js";
-import { FitToParent } from "./fit-to-parent.js";
 import { AccessibilityModalExample } from "./accessibility-modal-overlay.js";
-
-import basicCode from "!./basic.tsx?raw";
-import maxWidthCode from "!./max-width.tsx?raw";
-import fullscreenWithNoGutterCode from "!./fullscreen-with-no-gutter.tsx?raw";
-import fitToParentCode from "!./fit-to-parent.tsx?raw";
-import accessibilityCode from "!./accessibility-modal-overlay.tsx?raw";
+import { BasicModalExample } from "./basic.js";
+import { FitToParent } from "./fit-to-parent.js";
+import { FullscreenWithNoGutterModalExample } from "./fullscreen-with-no-gutter.js";
+import { MaxWidthModalExample } from "./max-width.js";
 
 const showcases: Showcase[] = [
 	{

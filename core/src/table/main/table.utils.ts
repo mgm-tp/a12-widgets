@@ -34,7 +34,6 @@ import { get } from "lodash-es";
 import type { ReactNode, Key, CSSProperties, MouseEvent } from "react";
 import { useState, useCallback, useMemo } from "react";
 
-import type { TableTemplateProps } from "./template/table.tpl.api.js";
 import type { BaseColumnType, SortOrder } from "./column.api.js";
 import type {
 	FlatGroupHead,
@@ -44,6 +43,7 @@ import type {
 	TableRowsGroupRowType
 } from "./table-rows-group/table-row-group.api.js";
 import type { RowKeyGetter, RowSegments, SortState } from "./table.api.js";
+import type { TableTemplateProps } from "./template/table.tpl.api.js";
 
 export function getNextSorting<ColumnType extends BaseColumnType<any>>(
 	triggerColumn: ColumnType,

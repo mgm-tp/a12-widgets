@@ -30,14 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import ProgressBarAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/progress-bar/main/progress-bar.api.json" with { type: "json" };
+import progressBarCode from "!./progress-bar.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import ProgressBarAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/progress-bar/main/progress-bar.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { ProgressBarShowcase } from "./progress-bar.js";
-
-import progressBarCode from "!./progress-bar.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

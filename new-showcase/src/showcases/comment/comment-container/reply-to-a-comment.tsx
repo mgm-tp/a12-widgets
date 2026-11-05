@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { faker as Faker } from "@faker-js/faker/locale/en";
+import DOMPurify from "dompurify";
+import { loremIpsum } from "lorem-ipsum";
 import type { FC, ChangeEvent, ReactElement, ReactNode } from "react";
 import { useState, useRef, useCallback } from "react";
-import { faker as Faker } from "@faker-js/faker/locale/en";
-import { loremIpsum } from "lorem-ipsum";
-import DOMPurify from "dompurify";
 
 import type { CommentProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
@@ -53,7 +53,6 @@ import {
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Card } from "../../../helpers/definitions.js";
-
 import { comments, getCommentMeta } from "../shared-data.js";
 
 const currentUser = Faker.person.firstName() + " " + Faker.person.lastName();

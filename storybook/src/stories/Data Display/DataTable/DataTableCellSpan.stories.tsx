@@ -32,7 +32,7 @@
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import type { DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+import type { DataTableColumn, DataTableProps } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 interface SalesRow {
@@ -68,25 +68,15 @@ const MANY: SalesRow[] = Array.from({ length: 200 }, (_, i) => {
 		: { region: i % 2 === 0 ? "EMEA" : "APAC", quarter: `Q${(i % 4) + 1}`, revenue: 100 + i };
 });
 
-function BasicSpanDemo() {
-	return <DataTable<SalesRow> ariaLabel="Quarterly revenue with a spanning total row" data={SALES} columns={COLUMNS} />;
-}
+const BASE_ARGS: DataTableProps<SalesRow> = {
+	ariaLabel: "Quarterly revenue with a spanning total row",
+	data: SALES,
+	columns: COLUMNS
+};
 
-function VirtualizedSpanDemo() {
-	return (
-		<DataTable<SalesRow>
-			ariaLabel="Spanning total rows in a virtualized table"
-			data={MANY}
-			columns={COLUMNS}
-			maxHeight={320}
-			virtualScrollOptions={{ rowHeight: 36 }}
-		/>
-	);
-}
-
-const meta: Meta<typeof BasicSpanDemo> = {
+const meta: Meta<typeof DataTable<SalesRow>> = {
 	title: "Data Display/DataTable/Cell Spanning",
-	component: BasicSpanDemo,
+	component: DataTable,
 	parameters: { layout: "padded" },
 	tags: ["autodocs"]
 };
@@ -96,7 +86,7 @@ type Story = StoryObj<typeof meta>;
 
 export const SummaryRow: Story = {
 	name: "Summary Row (colSpan)",
-	render: () => <BasicSpanDemo />,
+	args: BASE_ARGS,
 	parameters: {
 		docs: {
 			description: {
@@ -108,8 +98,13 @@ export const SummaryRow: Story = {
 };
 
 export const Virtualized: Story = {
-	name: "Virtualized (colSpan flows through the windowed body)",
-	render: () => <VirtualizedSpanDemo />,
+	args: {
+		...BASE_ARGS,
+		ariaLabel: "Spanning total rows in a virtualized table",
+		data: MANY,
+		maxHeight: 320,
+		virtualScrollOptions: { rowHeight: 36 }
+	},
 	parameters: {
 		docs: {
 			description: {

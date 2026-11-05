@@ -48,8 +48,24 @@ const meta: Meta<typeof SplitView> = {
 	parameters: {
 		layout: "fullscreen"
 	},
-	tags: ["autodocs"],
-	argTypes: {}
+	argTypes: {
+		id: {
+			control: "text",
+			description: "HTML `id` attribute of the root element"
+		},
+		className: {
+			control: "text",
+			description: "Additional CSS class names for the root element"
+		},
+		style: {
+			control: false,
+			description: "Inline styles applied to the root element"
+		},
+		children: {
+			control: false,
+			description: "`SplitView.Area` elements laid out side by side"
+		}
+	}
 };
 
 export default meta;
@@ -61,9 +77,10 @@ const shortText =
 const longText =
 	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
 
-export const Default: Story = {
-	render: () => (
-		<SplitView>
+export const Playground: Story = {
+	args: {},
+	render: (args) => (
+		<SplitView {...args}>
 			<SplitView.Area>
 				<ActionContentbox headingElements={<ContentBoxElements.Title ariaLevel={2} text="Left Area" />}>
 					{longText}
@@ -79,81 +96,89 @@ export const Default: Story = {
 };
 
 export const WithResizableArea: Story = {
-	render: () => {
-		const ResizableSplitView = () => {
-			const [width, setWidth] = useState<number | undefined>(undefined);
+	render: function ResizableExample() {
+		const [width, setWidth] = useState<number | undefined>(undefined);
 
-			const handleResizeStop = useCallback((_event: MouseEvent, data: { width: number }) => {
-				setWidth(data.width);
-			}, []);
+		const handleResizeStop = useCallback((_event: MouseEvent, data: { width: number }) => {
+			setWidth(data.width);
+		}, []);
 
-			return (
-				<SplitView>
-					<SplitView.Area
-						width={width}
-						resizableOptions={{ minWidth: 200, maxWidth: "60%", onResizeStop: handleResizeStop }}
+		return (
+			<SplitView>
+				<SplitView.Area
+					width={width}
+					resizableOptions={{ minWidth: 200, maxWidth: "60%", onResizeStop: handleResizeStop }}
+				>
+					<ActionContentbox headingElements={<ContentBoxElements.Title ariaLevel={2} text="Resizable Left Area" />}>
+						<Typography.Body>Drag the right edge of this area to resize it.</Typography.Body>
+						<Typography.Body>{longText}</Typography.Body>
+					</ActionContentbox>
+				</SplitView.Area>
+				<SplitView.Area>
+					<ActionContentbox headingElements={<ContentBoxElements.Title ariaLevel={2} text="Right Area" />}>
+						{shortText}
+					</ActionContentbox>
+				</SplitView.Area>
+			</SplitView>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`resizableOptions` adds a drag handle to an area. `minWidth` and `maxWidth` are required and accept pixels or percentages; `onResizeStop` reports the final width so it can be persisted via the `width` prop."
+			}
+		}
+	}
+};
+
+export const TogglableArea: Story = {
+	render: function TogglableExample() {
+		const [showRight, setShowRight] = useState(true);
+		const [width, setWidth] = useState<number | undefined>(undefined);
+
+		const toggle = useCallback(() => setShowRight((prev) => !prev), []);
+
+		const handleResizeStop = useCallback((_event: MouseEvent, data: { width: number }) => {
+			setWidth(data.width);
+		}, []);
+
+		return (
+			<SplitView>
+				<SplitView.Area
+					width={width}
+					resizableOptions={{ minWidth: 200, maxWidth: "70%", onResizeStop: handleResizeStop }}
+				>
+					<ActionContentbox
+						headingElements={<ContentBoxElements.Title ariaLevel={2} text="Left Area" />}
+						headingButtons={
+							<ContentBoxElements.HeadingActionButton
+								icon={<Icon>menu</Icon>}
+								onClick={toggle}
+								title={showRight ? "Hide right area" : "Show right area"}
+							/>
+						}
 					>
-						<ActionContentbox headingElements={<ContentBoxElements.Title ariaLevel={2} text="Resizable Left Area" />}>
-							<Typography.Body>Drag the right edge of this area to resize it.</Typography.Body>
-							<Typography.Body>{longText}</Typography.Body>
-						</ActionContentbox>
-					</SplitView.Area>
+						{longText}
+					</ActionContentbox>
+				</SplitView.Area>
+				{showRight && (
 					<SplitView.Area>
 						<ActionContentbox headingElements={<ContentBoxElements.Title ariaLevel={2} text="Right Area" />}>
 							{shortText}
 						</ActionContentbox>
 					</SplitView.Area>
-				</SplitView>
-			);
-		};
-
-		return <ResizableSplitView />;
-	}
-};
-
-export const TogglableArea: Story = {
-	render: () => {
-		const TogglableSplitView = () => {
-			const [showRight, setShowRight] = useState(true);
-			const [width, setWidth] = useState<number | undefined>(undefined);
-
-			const toggle = useCallback(() => setShowRight((prev) => !prev), []);
-
-			const handleResizeStop = useCallback((_event: MouseEvent, data: { width: number }) => {
-				setWidth(data.width);
-			}, []);
-
-			return (
-				<SplitView>
-					<SplitView.Area
-						width={width}
-						resizableOptions={{ minWidth: 200, maxWidth: "70%", onResizeStop: handleResizeStop }}
-					>
-						<ActionContentbox
-							headingElements={<ContentBoxElements.Title ariaLevel={2} text="Left Area" />}
-							headingButtons={
-								<ContentBoxElements.HeadingActionButton
-									icon={<Icon>menu</Icon>}
-									onClick={toggle}
-									title={showRight ? "Hide right area" : "Show right area"}
-								/>
-							}
-						>
-							{longText}
-						</ActionContentbox>
-					</SplitView.Area>
-					{showRight && (
-						<SplitView.Area>
-							<ActionContentbox headingElements={<ContentBoxElements.Title ariaLevel={2} text="Right Area" />}>
-								{shortText}
-							</ActionContentbox>
-						</SplitView.Area>
-					)}
-				</SplitView>
-			);
-		};
-
-		return <TogglableSplitView />;
+				)}
+			</SplitView>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Areas can be mounted and unmounted at runtime. When an area becomes the only child, it expands to the full width and its resize handle is hidden automatically."
+			}
+		}
 	}
 };
 
@@ -180,7 +205,15 @@ export const ThreeAreas: Story = {
 				</ActionContentbox>
 			</SplitView.Area>
 		</SplitView>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"A `SplitView` can hold any number of areas — here a classic navigation / content / details layout with fixed-width side areas and a flexible center."
+			}
+		}
+	}
 };
 
 export const WithFixedWidth: Story = {
@@ -198,5 +231,13 @@ export const WithFixedWidth: Story = {
 				</ActionContentbox>
 			</SplitView.Area>
 		</SplitView>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `width` prop (number in pixels or any CSS length) gives an area a fixed size; areas without `width` share the remaining space equally."
+			}
+		}
+	}
 };

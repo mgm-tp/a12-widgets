@@ -34,84 +34,147 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { QuickAccessButton, Icon, Button, InteractionHintConfigProvider } from "@com.mgmtp.a12.widgets/widgets-core";
 
+const actionItems = [
+	{ text: "Save", graphic: <Icon>save</Icon>, meta: <Icon>check</Icon> },
+	{ text: "Save and close", graphic: <Icon>save</Icon> }
+];
+
 const meta: Meta<typeof QuickAccessButton> = {
 	title: "General/Buttons/QuickAccessButton",
 	component: QuickAccessButton,
-	tags: ["autodocs"]
+	parameters: {
+		layout: "centered"
+	},
+	argTypes: {
+		mainAction: {
+			control: false,
+			description: "The main action button rendered on the left side"
+		},
+		actionItems: {
+			control: false,
+			description: "Action items rendered inside the popup menu of the trigger button"
+		},
+		menuTriggerIcon: {
+			control: false,
+			description: "Overrides the icon of the popup menu trigger button"
+		},
+		primary: {
+			control: "boolean",
+			description: "Primary button styling for the menu trigger"
+		},
+		secondary: {
+			control: "boolean",
+			description: "Secondary button styling for the menu trigger"
+		},
+		destructive: {
+			control: "boolean",
+			description: "Destructive button styling for the menu trigger"
+		},
+		invert: {
+			control: "boolean",
+			description: "Inverted button styling for the menu trigger"
+		},
+		disabled: {
+			control: "boolean",
+			description: "Disables the menu trigger button"
+		},
+		preserveMainActionStyles: {
+			control: "boolean",
+			description: "If set to true, the action item keeps its main action styles"
+		},
+		focusOnTriggerElementAfterClose: {
+			control: "boolean",
+			description: "Whether focus returns to the trigger button when the popup is closed via mouse click"
+		},
+		onVisibilityChange: {
+			control: false,
+			description: "Called when the visibility of the popup changes"
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => {
-		const mainAction = <Button label="Save" icon={<Icon>save</Icon>} primary />;
+export const Playground: Story = {
+	args: {
+		primary: true,
+		mainAction: <Button label="Save" icon={<Icon>save</Icon>} primary />,
+		actionItems
+	}
+};
 
-		const actionItems = [
-			{ text: "Save", graphic: <Icon>save</Icon>, meta: <Icon>check</Icon> },
-			{ text: "Save and close", graphic: <Icon>save</Icon> }
-		];
+export const Variants: Story = {
+	render: () => (
+		<div style={{ display: "flex", gap: "16px", alignItems: "flex-start", flexWrap: "wrap" }}>
+			<QuickAccessButton primary mainAction={<Button label="Primary" primary />} actionItems={actionItems} />
+			<QuickAccessButton secondary mainAction={<Button label="Secondary" secondary />} actionItems={actionItems} />
+			<QuickAccessButton
+				destructive
+				mainAction={<Button label="Destructive" destructive />}
+				actionItems={actionItems}
+			/>
+			<QuickAccessButton disabled mainAction={<Button label="Disabled" disabled />} actionItems={actionItems} />
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The boolean variant props `primary`, `secondary`, `destructive` and `disabled` style the menu trigger button. Pass a matching `Button` as `mainAction` so both halves share the same appearance."
+			}
+		}
+	}
+};
 
-		return <QuickAccessButton primary mainAction={mainAction} className="-u-margin-b-xs" actionItems={actionItems} />;
+export const CustomTriggerIcon: Story = {
+	args: {
+		primary: true,
+		mainAction: <Button label="Save" icon={<Icon>save</Icon>} primary />,
+		actionItems,
+		menuTriggerIcon: <Icon>expand_more</Icon>
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`menuTriggerIcon` overrides the default icon of the popup menu trigger button."
+			}
+		}
 	}
 };
 
 export const WithInteractionHint: Story = {
-	decorators: [
-		(Story) => (
+	render: () => (
+		<div style={{ display: "flex", gap: "32px", alignItems: "flex-start", paddingBottom: "48px", flexWrap: "wrap" }}>
 			<InteractionHintConfigProvider componentConfigs={{ button: true }}>
-				<Story />
+				<QuickAccessButton
+					primary
+					mainAction={<Button label="Default hint" icon={<Icon>save</Icon>} primary />}
+					actionItems={actionItems}
+				/>
 			</InteractionHintConfigProvider>
-		)
-	],
-	render: () => {
-		const mainAction = <Button label="Save" icon={<Icon>save</Icon>} primary />;
-
-		const actionItems = [
-			{ text: "Save", graphic: <Icon>save</Icon>, meta: <Icon>check</Icon> },
-			{ text: "Save and close", graphic: <Icon>save</Icon> }
-		];
-
-		return <QuickAccessButton primary mainAction={mainAction} className="-u-margin-b-xs" actionItems={actionItems} />;
-	}
-};
-
-export const WithInteractionHintFollowCursor: Story = {
-	decorators: [
-		(Story) => (
 			<InteractionHintConfigProvider componentConfigs={{ button: { enabled: true, followCursor: true } }}>
-				<Story />
+				<QuickAccessButton
+					primary
+					mainAction={<Button label="Follow cursor" icon={<Icon>save</Icon>} primary />}
+					actionItems={actionItems}
+				/>
 			</InteractionHintConfigProvider>
-		)
-	],
-	render: () => {
-		const mainAction = <Button label="Save" icon={<Icon>save</Icon>} primary />;
-
-		const actionItems = [
-			{ text: "Save", graphic: <Icon>save</Icon>, meta: <Icon>check</Icon> },
-			{ text: "Save and close", graphic: <Icon>save</Icon> }
-		];
-
-		return <QuickAccessButton primary mainAction={mainAction} className="-u-margin-b-xs" actionItems={actionItems} />;
-	}
-};
-
-export const WithInteractionHintNoArrow: Story = {
-	decorators: [
-		(Story) => (
 			<InteractionHintConfigProvider componentConfigs={{ button: { enabled: true, hideArrow: true } }}>
-				<Story />
+				<QuickAccessButton
+					primary
+					mainAction={<Button label="No arrow" icon={<Icon>save</Icon>} primary />}
+					actionItems={actionItems}
+				/>
 			</InteractionHintConfigProvider>
-		)
-	],
-	render: () => {
-		const mainAction = <Button label="Save" icon={<Icon>save</Icon>} primary />;
-
-		const actionItems = [
-			{ text: "Save", graphic: <Icon>save</Icon>, meta: <Icon>check</Icon> },
-			{ text: "Save and close", graphic: <Icon>save</Icon> }
-		];
-
-		return <QuickAccessButton primary mainAction={mainAction} className="-u-margin-b-xs" actionItems={actionItems} />;
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Wrapping the widget in an `InteractionHintConfigProvider` with `componentConfigs={{ button: ... }}` shows an interaction hint on hover. The config supports `followCursor` and `hideArrow` options."
+			}
+		}
 	}
 };

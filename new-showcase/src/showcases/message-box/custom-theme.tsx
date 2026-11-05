@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import merge from "deepmerge";
 import type { FC } from "react";
 import { useMemo } from "react";
 import { ThemeProvider, useTheme } from "styled-components";
-import merge from "deepmerge";
 
 import { MessageBox } from "@com.mgmtp.a12.widgets/widgets-core";
 

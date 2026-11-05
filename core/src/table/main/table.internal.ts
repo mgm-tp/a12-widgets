@@ -32,11 +32,11 @@
 
 import { supportsTouchEvents, supportsPassiveEvents } from "detect-it";
 
-import { addPrefix, getParentElement, Throttler } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix, getParentElement, Throttler } from "../../common/main/utils.js";
 
-import type { TableTemplateProps } from "./template/table.tpl.api.js";
 import { TableDataAttributes } from "./table.data-attributes.js";
+import type { TableTemplateProps } from "./template/table.tpl.api.js";
 
 export const BASE_TABLE_CLASSNAME = addPrefix("table");
 

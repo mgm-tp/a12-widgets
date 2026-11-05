@@ -33,11 +33,11 @@
 import type { ReactElement } from "react";
 import { useContext } from "react";
 
-import { joinClassNames, StringUtils, addPrefix } from "../../common/main/utils.js";
-import { Icon } from "../../icon/main/icon.view.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { joinClassNames, StringUtils, addPrefix } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 
 import type { PaginationProps } from "./pagination.api.js";
 import {

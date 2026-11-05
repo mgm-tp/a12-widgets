@@ -37,9 +37,7 @@ import { describe, test, expect, vi } from "vitest";
 import { userEvent } from "vitest/browser";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import type { YearSelectorProps } from "../year-selector.api.js";
-import { YearSelector } from "../year-selector.view.js";
 import {
 	clampRangeToYear,
 	detectVariant,
@@ -48,6 +46,7 @@ import {
 	parseYearDigits,
 	resolveYearRange
 } from "../year-selector.utils.js";
+import { YearSelector } from "../year-selector.view.js";
 
 function ControlledYearSelectorAutocomplete() {
 	const [year, setYear] = useState<number | undefined>();
@@ -551,7 +550,7 @@ describe("com.mgmtp.a12.widgets.input.year-selector", () => {
 			await userEvent.type(input, "abc");
 			fireEvent.blur(input);
 
-			expect(getByDataRole(container, DataRoles.TextField.ErrorMessage)).toHaveTextContent("Invalid year");
+			expect(getByDataRole(container, DataRoles.TextField.ErrorMessage)).toMatchTextContent("Invalid year");
 
 			await userEvent.clear(input);
 			fireEvent.blur(input);

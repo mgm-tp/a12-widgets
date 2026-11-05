@@ -30,16 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import InteractiveTileAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/interactive-tile/main/interactive-tile.api.json" with { type: "json" };
+import AccessibilityCode from "!./accessibility.tsx?raw";
+import InteractiveTileCode from "!./interactive-tile.tsx?raw";
+
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
+import InteractiveTileAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/interactive-tile/main/interactive-tile.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { InteractiveTileExample } from "./interactive-tile.js";
 import { Accessibility } from "./accessibility.js";
-
-import InteractiveTileCode from "!./interactive-tile.tsx?raw";
-import AccessibilityCode from "!./accessibility.tsx?raw";
+import { InteractiveTileExample } from "./interactive-tile.js";
 
 const showcases: Showcase[] = [
 	{

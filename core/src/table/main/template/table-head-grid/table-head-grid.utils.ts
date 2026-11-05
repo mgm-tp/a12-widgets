@@ -33,7 +33,6 @@
 import { mapValues, times } from "lodash-es";
 
 import type { BaseColumnType, Column } from "../../column.api.js";
-
 import type { TableTemplateProps } from "../table.tpl.api.js";
 
 export type HeaderCellWithPos<T = unknown> = {

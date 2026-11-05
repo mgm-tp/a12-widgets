@@ -37,10 +37,10 @@ import { useState, useCallback, useMemo } from "react";
 
 import { BarChart, ResponsiveChartContainer, provider } from "@com.mgmtp.a12.widgets/widgets-core";
 
-// start code removal
-import { ShowcaseSlider } from "../../../helpers/showcase-slider.js";
 import { ConfigurationView } from "../../../helpers/configuration-view.js";
 import { CodeSnippetGenerationWrapper } from "../../../helpers/showcase-example.js";
+// start code removal
+import { ShowcaseSlider } from "../../../helpers/showcase-slider.js";
 
 const CHART_DATA = [
 	{ month: "Jan", sale: 145 },

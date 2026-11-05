@@ -33,10 +33,10 @@
 import { styled, css } from "styled-components";
 
 import { getBaseButtonVariantStyles, StyledButton } from "../../../button/main/button.styled.js";
+import { Button } from "../../../button/main/button.view.js";
+import { StyledContentBox } from "../../../contentbox/main/template/contentbox.tpl.styled.js";
 import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { activeAndHover } from "../../../theme/base/mixins/_interaction.js";
-import { StyledContentBox } from "../../../contentbox/main/template/contentbox.tpl.styled.js";
-import { Button } from "../../../button/main/button.view.js";
 import { StyledResizeHandlerWrapper } from "../../resizable/resize-handler.styled.js";
 
 export namespace StyledApplicationFrame {
@@ -59,15 +59,17 @@ export namespace StyledApplicationFrame {
 			right: 0;
 			top: 0;
 			@media only screen and (max-width: ${applicationStyles.responsive.mobileMaxWidth}) {
-				${$stickyFooter &&
-				css`
-					height: 100%;
-					min-height: fit-content;
-					${StyledFooter} {
-						bottom: 0;
-						position: sticky;
-					}
-				`}
+				${
+					$stickyFooter &&
+					css`
+						height: 100%;
+						min-height: fit-content;
+						${StyledFooter} {
+							bottom: 0;
+							position: sticky;
+						}
+					`
+				}
 			}
 		`;
 	});
@@ -100,12 +102,14 @@ export namespace StyledApplicationFrame {
 			width: 100%;
 			isolation: isolate;
 
-			${($subExpanded || ($subExpanded && !$disabledCollapsingSub)) &&
-			css`
-				~ ${StyledToggleSidebarButtonWrapper} {
-					z-index: 1;
-				}
-			`}
+			${
+				($subExpanded || ($subExpanded && !$disabledCollapsingSub)) &&
+				css`
+					~ ${StyledToggleSidebarButtonWrapper} {
+						z-index: 1;
+					}
+				`
+			}
 
 			@media only screen and (min-width: ${responsive.tabletMinWidth}) {
 				display: flex;
@@ -120,10 +124,12 @@ export namespace StyledApplicationFrame {
 				&:has(${StyledContentBox}) {
 					min-height: 0;
 				}
-				${$hasToggleButton &&
-				css`
-					height: ${menu.slidingMenu.height};
-				`}
+				${
+					$hasToggleButton &&
+					css`
+						height: ${menu.slidingMenu.height};
+					`
+				}
 			}
 		`;
 	});
@@ -145,12 +151,14 @@ export namespace StyledApplicationFrame {
 			top: 0;
 			width: 100%;
 
-			${$sub &&
-			css`
-				overflow-y: auto;
-				transition: width ${sidebar.transition};
-				width: calc(100% - ${$sidebarWidth});
-			`}
+			${
+				$sub &&
+				css`
+					overflow-y: auto;
+					transition: width ${sidebar.transition};
+					width: calc(100% - ${$sidebarWidth});
+				`
+			}
 
 			@media only screen and (min-width: ${responsive.tabletMinWidth}) {
 				position: static;
@@ -188,32 +196,40 @@ export namespace StyledApplicationFrame {
 			transition: width ${sidebar.transition};
 			width: ${$width};
 
-			${($subExpanded || ($subExpanded && !$disabledCollapsingSub)) &&
-			css`
-				z-index: 1;
-			`}
+			${
+				($subExpanded || ($subExpanded && !$disabledCollapsingSub)) &&
+				css`
+					z-index: 1;
+				`
+			}
 
-			${!$subExpanded &&
-			css`
-				z-index: 0;
-				transition:
-					width 0.1s,
-					z-index 0.15s;
-			`}
+			${
+				!$subExpanded &&
+				css`
+					z-index: 0;
+					transition:
+						width 0.1s,
+						z-index 0.15s;
+				`
+			}
 
-			${$minimized &&
-			css`
-				flex-shrink: 0;
-				min-width: ${!$resizable && sidebar.expandedMinimizedMinWidth};
-			`}
+			${
+				$minimized &&
+				css`
+					flex-shrink: 0;
+					min-width: ${!$resizable && sidebar.expandedMinimizedMinWidth};
+				`
+			}
 
 			@media only screen and (min-width: ${responsive.tabletMinWidth}) {
 				position: relative;
-				${$subExpanded &&
-				!$disabledCollapsingSub &&
-				css`
-					z-index: 0;
-				`}
+				${
+					$subExpanded &&
+					!$disabledCollapsingSub &&
+					css`
+						z-index: 0;
+					`
+				}
 
 				// Reset position of resize handler wrapper to avoid the collapsed button shifting upward after expanding.
 				${StyledResizeHandlerWrapper} {
@@ -231,18 +247,22 @@ export namespace StyledApplicationFrame {
 				visibility: hidden;
 				width: 100%;
 
-				${$subExpanded &&
-				css`
-					transform: translateX(0);
-					visibility: visible;
-					width: 100%;
-					z-index: 1;
-				`}
+				${
+					$subExpanded &&
+					css`
+						transform: translateX(0);
+						visibility: visible;
+						width: 100%;
+						z-index: 1;
+					`
+				}
 
-				${$minimized &&
-				css`
-					min-width: unset;
-				`}
+				${
+					$minimized &&
+					css`
+						min-width: unset;
+					`
+				}
 			}
 		`;
 	});
@@ -274,10 +294,12 @@ export namespace StyledApplicationFrame {
 			user-select: none;
 			width: 100%;
 
-			${$smallView &&
-			css`
-				display: none;
-			`}
+			${
+				$smallView &&
+				css`
+					display: none;
+				`
+			}
 
 			@media screen and (max-width: ${responsive.mobileMaxWidth}) {
 				bottom: ${trigger.mobile.bottom};
@@ -306,13 +328,15 @@ export namespace StyledApplicationFrame {
 			height: 100%;
 			width: ${trigger.height};
 
-			${!$smallView &&
-			!$subExpanded &&
-			css`
-				${StyledButton} {
-					width: 100%;
-				}
-			`}
+			${
+				!$smallView &&
+				!$subExpanded &&
+				css`
+					${StyledButton} {
+						width: 100%;
+					}
+				`
+			}
 
 			${StyledIconWrapper} {
 				padding: ${trigger.iconPadding};
@@ -339,12 +363,14 @@ export namespace StyledApplicationFrame {
 
 					${getBaseButtonVariantStyles(trigger.mobile)}
 
-					${$subExpanded &&
-					css`
-						${StyledIconWrapper} {
-							font-size: ${trigger.mobile.collapsedFontSize};
-						}
-					`}
+					${
+						$subExpanded &&
+						css`
+							${StyledIconWrapper} {
+								font-size: ${trigger.mobile.collapsedFontSize};
+							}
+						`
+					}
 				}
 			}
 		`;

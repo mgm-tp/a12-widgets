@@ -31,139 +31,160 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ReactElement } from "react";
 import { useRef } from "react";
 
+import type { InteractionHintProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import { InteractionHint, Button, InteractionHintConfigProvider } from "@com.mgmtp.a12.widgets/widgets-core";
+
+const HintAnchor = ({
+	label,
+	...hintProps
+}: { label: string } & Omit<InteractionHintProps, "referenceElementRef">): ReactElement => {
+	const ref = useRef<HTMLDivElement>(null);
+
+	return (
+		<div style={{ position: "relative", display: "inline-block" }} ref={ref}>
+			<Button label={label} />
+			<InteractionHint referenceElementRef={ref} {...hintProps} />
+		</div>
+	);
+};
 
 const meta: Meta<typeof InteractionHint> = {
 	title: "Data Display/InteractionHint",
 	component: InteractionHint,
 	parameters: {
-		layout: "padded",
-		docs: {
-			description: {
-				component:
-					"InteractionHint is a tooltip-like overlay anchored to a reference element via `referenceElementRef`. " +
-					"Wrap with `InteractionHintConfigProvider` to enable hover-triggered display."
-			}
-		}
+		layout: "padded"
 	},
-	tags: ["autodocs"]
+	argTypes: {
+		title: {
+			control: "text",
+			description: "Content shown inside the hint"
+		},
+		variant: {
+			control: "select",
+			options: ["hint", "success", "warning", "error"],
+			description: "Variant will decide the hint color"
+		},
+		position: {
+			control: "select",
+			options: ["left", "right"],
+			description: "Position of the hint relative to the reference element"
+		},
+		focusable: {
+			control: "boolean",
+			description: "Specifies whether the reference element is focusable"
+		},
+		followCursor: {
+			control: "boolean",
+			description: "When enabled, the hint follows the cursor during hover instead of being anchored to the element"
+		},
+		hideArrow: {
+			control: "boolean",
+			description: "Hides the arrow pointing at the reference element"
+		},
+		showDelay: {
+			control: { type: "number", min: 0, step: 50 },
+			description: "Delay in milliseconds before the hint appears on hover"
+		},
+		referenceElementRef: {
+			control: false,
+			description: "Ref to the trigger element the hint is anchored to"
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => {
-		const DefaultExample = () => {
-			const ref = useRef<HTMLDivElement>(null);
+export const Playground: Story = {
+	args: {
+		title: "Helpful information about this action",
+		variant: "hint"
+	},
+	render: function PlaygroundExample(args) {
+		const ref = useRef<HTMLDivElement>(null);
 
-			return (
-				<InteractionHintConfigProvider>
-					<div style={{ position: "relative", display: "inline-block" }} ref={ref}>
-						<Button label="Hover me" />
-						<InteractionHint referenceElementRef={ref} title="Helpful information about this action" />
-					</div>
-				</InteractionHintConfigProvider>
-			);
-		};
-
-		return <DefaultExample />;
+		return (
+			<InteractionHintConfigProvider>
+				<div style={{ position: "relative", display: "inline-block" }} ref={ref}>
+					<Button label="Hover me" />
+					<InteractionHint {...args} referenceElementRef={ref} />
+				</div>
+			</InteractionHintConfigProvider>
+		);
 	}
 };
 
-export const HintVariant: Story = {
-	render: () => {
-		const HintExample = () => {
-			const ref = useRef<HTMLDivElement>(null);
-
-			return (
-				<InteractionHintConfigProvider>
-					<div style={{ position: "relative", display: "inline-block" }} ref={ref}>
-						<Button label="Hover me" />
-						<InteractionHint referenceElementRef={ref} title="This is a hint" variant="hint" />
-					</div>
-				</InteractionHintConfigProvider>
-			);
-		};
-
-		return <HintExample />;
+export const Variants: Story = {
+	render: () => (
+		<InteractionHintConfigProvider>
+			<div style={{ display: "flex", gap: "16px" }}>
+				<HintAnchor label="Hint" title="This is a hint" variant="hint" />
+				<HintAnchor label="Success" title="Field is valid" variant="success" />
+				<HintAnchor label="Warning" title="Please review before submitting" variant="warning" />
+				<HintAnchor label="Error" title="This action has an error" variant="error" />
+			</div>
+		</InteractionHintConfigProvider>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `variant` prop selects the hint color: `hint`, `success`, `warning` or `error`. Hover a button to show its hint."
+			}
+		}
 	}
 };
 
-export const SuccessVariant: Story = {
-	render: () => {
-		const SuccessExample = () => {
-			const ref = useRef<HTMLDivElement>(null);
-
-			return (
-				<InteractionHintConfigProvider>
-					<div style={{ position: "relative", display: "inline-block" }} ref={ref}>
-						<Button label="Validated" primary />
-						<InteractionHint referenceElementRef={ref} title="Field is valid" variant="success" />
-					</div>
-				</InteractionHintConfigProvider>
-			);
-		};
-
-		return <SuccessExample />;
+export const Position: Story = {
+	render: () => (
+		<InteractionHintConfigProvider>
+			<div style={{ display: "flex", gap: "64px", justifyContent: "center" }}>
+				<HintAnchor label="Left hint" title="Shown on the left" variant="hint" position="left" />
+				<HintAnchor label="Right hint" title="Shown on the right" variant="hint" position="right" />
+			</div>
+		</InteractionHintConfigProvider>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`position` aligns the hint to the `left` or `right` edge of the reference element instead of centering it."
+			}
+		}
 	}
 };
 
-export const WarningVariant: Story = {
-	render: () => {
-		const WarningExample = () => {
-			const ref = useRef<HTMLDivElement>(null);
-
-			return (
-				<InteractionHintConfigProvider>
-					<div style={{ position: "relative", display: "inline-block" }} ref={ref}>
-						<Button label="Review" />
-						<InteractionHint referenceElementRef={ref} title="Please review before submitting" variant="warning" />
-					</div>
-				</InteractionHintConfigProvider>
-			);
-		};
-
-		return <WarningExample />;
+export const FollowCursor: Story = {
+	render: () => (
+		<InteractionHintConfigProvider>
+			<HintAnchor label="Move the cursor over me" title="Following the cursor" variant="hint" followCursor />
+		</InteractionHintConfigProvider>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"With `followCursor` the hint tracks the mouse pointer during hover instead of staying anchored to the element. The arrow is hidden automatically while following."
+			}
+		}
 	}
 };
 
-export const ErrorVariant: Story = {
-	render: () => {
-		const ErrorExample = () => {
-			const ref = useRef<HTMLDivElement>(null);
-
-			return (
-				<InteractionHintConfigProvider>
-					<div style={{ position: "relative", display: "inline-block" }} ref={ref}>
-						<Button label="Error" destructive />
-						<InteractionHint referenceElementRef={ref} title="This action has an error" variant="error" />
-					</div>
-				</InteractionHintConfigProvider>
-			);
-		};
-
-		return <ErrorExample />;
-	}
-};
-
-export const RightPosition: Story = {
-	render: () => {
-		const RightExample = () => {
-			const ref = useRef<HTMLDivElement>(null);
-
-			return (
-				<InteractionHintConfigProvider>
-					<div style={{ position: "relative", display: "inline-block" }} ref={ref}>
-						<Button label="Right hint" />
-						<InteractionHint referenceElementRef={ref} title="Shown on the right" variant="hint" position="right" />
-					</div>
-				</InteractionHintConfigProvider>
-			);
-		};
-
-		return <RightExample />;
+export const HideArrow: Story = {
+	render: () => (
+		<InteractionHintConfigProvider>
+			<HintAnchor label="Hover me" title="No arrow on this hint" variant="hint" hideArrow />
+		</InteractionHintConfigProvider>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`hideArrow` removes the arrow that points at the reference element, giving the hint a plain tooltip look."
+			}
+		}
 	}
 };

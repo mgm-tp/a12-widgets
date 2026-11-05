@@ -33,8 +33,8 @@
 import type { ReactElement } from "react";
 import { styled } from "styled-components";
 
-import { addPrefix, joinClassNames } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix, joinClassNames } from "../../common/main/utils.js";
 
 import type { ResponsiveImageContainerProps } from "./responsive-image-container.api.js";
 

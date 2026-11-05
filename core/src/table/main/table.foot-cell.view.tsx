@@ -33,14 +33,14 @@
 import { memo, useMemo } from "react";
 import { styled } from "styled-components";
 
-import { TableTemplate } from "./template/index.js";
-import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
-import { StyledBaseTable } from "./template/table.styled.js";
-import type { TableRenderPropsType } from "./table-renderer.api.js";
 import type { BaseColumnType } from "./column.api.js";
-import { isColumnGroup, TableInternalUtils as Utils } from "./table.utils.js";
+import type { TableRenderPropsType } from "./table-renderer.api.js";
 import { useTableContext } from "./table.context.js";
 import { FootContent } from "./table.foot-content.view.js";
+import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
+import { isColumnGroup, TableInternalUtils as Utils } from "./table.utils.js";
+import { TableTemplate } from "./template/index.js";
+import { StyledBaseTable } from "./template/table.styled.js";
 
 const StyledTableFootCellGroup = styled(StyledBaseTable.Group)``;
 

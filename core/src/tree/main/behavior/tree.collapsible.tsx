@@ -51,7 +51,6 @@ import type { ComponentType, ReactNode } from "react";
 import { Component } from "react";
 
 import { bindMethods } from "../../../common/main/utils.js";
-
 import type { TreeNodeTemplateModel } from "../tpl/tree.tpl.api.js";
 
 import type {

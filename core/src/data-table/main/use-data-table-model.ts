@@ -31,24 +31,29 @@
  */
 
 import type { CSSProperties, HTMLAttributes as ReactHTMLAttributes, Key, MouseEvent, ReactNode } from "react";
-import { useCallback, useContext, useMemo, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
 
-import type { BaseColumnType } from "./foundation/column.api.js";
-import type { DataTableSortState } from "./data-table.sort.js";
-import { assertSortableColumnIds, getColumnId, getNextSortState } from "./data-table.sort.js";
-import { useCellHighlighting } from "./data-table.cell-highlighting.js";
-import { useFilterRowHeadHeight } from "./data-table.head-height.js";
-import { useLeafPinOffsets } from "./data-table.pin-offsets.js";
-import { useScrollToNode } from "./data-table.scroll-to-node.js";
 import { buildHeaderGrid, getColumnRender, type DataTableHeaderCell } from "./columns.js";
-import { useRowArrowNavigation } from "./keyboard.js";
-import type { DataTableProps, DataTableVirtualScrollOptions } from "./data-table.api.js";
 import type { DataTableRenderPropsType } from "./data-table-renderer.api.js";
 import type { DataTableSlots } from "./data-table-slots.api.js";
+import type { DataTableProps, DataTableVirtualScrollOptions } from "./data-table.api.js";
+import { useAutoSizeActionColumns } from "./data-table.auto-size.js";
+import { useCellHighlighting } from "./data-table.cell-highlighting.js";
+import type { DataTableContextType } from "./data-table.context.js";
+import { useFilterRowHeadHeight } from "./data-table.head-height.js";
+import { useHeaderFocusScroll } from "./data-table.header-focus-scroll.js";
+import { useLeafPinOffsetCssVars } from "./data-table.pin-offsets.js";
 import { useColumnResize } from "./data-table.resize.js";
-import { getColumnWidths, getMinTableWidth, rowKeyFor } from "./data-table.utils.js";
+import { useRowTabStopFallback } from "./data-table.row-tab-stop.js";
+import { useScrollToNode } from "./data-table.scroll-to-node.js";
+import type { DataTableSortState } from "./data-table.sort.js";
+import { assertSortableColumnIds, getColumnId, getNextSortState } from "./data-table.sort.js";
+import { getColumnWidths, getMinTableWidthExpression, rowKeyFor } from "./data-table.utils.js";
+import { useDataTableKeyboardReorder } from "./dnd/index.js";
+import type { BaseColumnType } from "./foundation/column.api.js";
+import { useRowArrowNavigation } from "./keyboard.js";
 
 /**
  * Context-menu request state owned by the model: at most one menu (body or
@@ -76,6 +81,21 @@ export type DataTableContextMenuState<RowType> =
  * the table-level `disabled` flag contribute to a body row, computed once per
  * row so cell-level code never re-invokes the consumer getters.
  *
+ * Deliberately **value-only** — every field is a primitive except `styles`,
+ * which is `undefined` unless the consumer actually returned a
+ * `className` / `style` / `title`. That is what lets the memoized body row
+ * compare its state with React's default shallow compare and re-render only
+ * the rows that really changed: a `rowStyling` getter derived from selection
+ * necessarily changes identity when selection moves, so comparing the getter
+ * (or anything holding it) can only ever mean "re-render every row".
+ *
+ * The consumer's handlers are therefore reduced to the booleans
+ * {@link hasRowClick} / {@link hasRowContextMenu}; the calls themselves go
+ * through the model's stable `dispatchRowClick` / `dispatchRowContextMenu`,
+ * which read the newest `rowEventHandlers` from a ref. Comparing by value
+ * while holding a captured closure would silently freeze handlers on rows that
+ * skip a render.
+ *
  * @internal
  */
 export interface DataTableRowState {
@@ -85,57 +105,87 @@ export interface DataTableRowState {
 	selected: boolean;
 	highlighted: boolean;
 	interactive: boolean;
-	onClick?: (event: MouseEvent<HTMLElement>) => void;
-	onContextMenu?: (event: MouseEvent<HTMLElement>) => void;
+
+	/** Whether `rowEventHandlers` supplied an `onClick` for this row. */
+	hasRowClick: boolean;
+
+	/** Whether a right-click on this row should open the body context menu. */
+	hasRowContextMenu: boolean;
 }
 
 /**
- * Inputs the model needs from the slot-resolution layer: which opt-in
- * structures the consumer activated. Passed as plain booleans/probes so the
- * model has no dependency on the slot components themselves.
+ * Inputs the model needs from the view layer: which opt-in structures the
+ * consumer activated (passed as plain booleans/probes so the model has no
+ * dependency on the slot components themselves) and the sink for the sort
+ * live-region text.
  *
  * @internal
  */
 export interface DataTableModelSlotInfo {
 	hasConsumerSlot: (slot: keyof DataTableSlots<any, any>) => boolean;
 	hasContextMenu: boolean;
+
+	/**
+	 * Sink for the localized sort live-region announcement. The text is held by a
+	 * ref-driven live-region component in the view, so announcing a sort result
+	 * re-renders only that span — not the model or the whole table body.
+	 */
+	announceSort: (message: string) => void;
 }
 
 /**
- * The headless DataTable state model: every piece of derived layout state and
- * behavior (header grid, pinning, sorting, resizing, keyboard navigation,
- * context menus, row state, aria numbering) with no element production. Most
- * fields are also published through {@link DataTableContext}.
+ * The model's contribution to the shared {@link DataTableContext} — the slice of the
+ * slot-facing contract it owns.
+ *
+ * `slots` and `dragDropOptions` are excluded because the view supplies them: the model
+ * is deliberately unaware of the slot components (it sees only the probes on
+ * {@link DataTableModelSlotInfo}), and the drag options reach the context through a
+ * stable-identity Proxy the view maintains.
+ *
+ * @internal
+ */
+export type DataTableModelContextFields<RowType> = Omit<DataTableContextType<RowType>, "slots" | "dragDropOptions">;
+
+/**
+ * The state-and-behavior facade behind one `<DataTable>`: derived layout (header grid,
+ * pinning, column widths), interaction state (sorting, resizing, keyboard navigation,
+ * context menus, drag), per-row state resolution, aria numbering, and the element refs
+ * the imperative hot paths write through. No element production.
+ *
+ * Not purely state — it also carries event dispatchers, ref setters and the return
+ * values of the sub-hooks it composes, because its job is to be the single seam between
+ * `<DataTable>`'s state and its rendering.
+ *
+ * The fields split by audience: {@link contextFields} is what reaches slot authors
+ * through {@link DataTableContext}, everything beside it is view-internal plumbing. New
+ * fields belong on one side or the other — that choice is the reason the two are
+ * separated rather than flattened.
  *
  * @internal
  */
 export interface DataTableModel<RowType> {
+	/** Published to slot authors via {@link DataTableContext}; memoized, stable while its inputs are. */
+	contextFields: DataTableModelContextFields<RowType>;
+
 	data: (RowType | undefined)[];
 	leafColumns: BaseColumnType<RowType>[];
 	cellsByRow: DataTableHeaderCell<RowType>[][];
 	headerDepth: number;
 
-	/** `headerDepth` for aria purposes — `0` when the header is hidden. */
-	effectiveHeaderDepth: number;
 	crossTabulation: boolean;
 	leafPinning: (("left" | "right") | undefined)[];
-	leafPinOffsets: { left: number[]; right: number[] };
-	leafPinningEdge: { left: number; right: number };
-	groupRightBoundaries: ReadonlySet<number>;
-	leavesInGroup: ReadonlySet<number>;
 	colWidths: string[];
-	minTableWidth: number | undefined;
+
+	/** The table's `min-width` as a CSS length. See `getMinTableWidthExpression`. */
+	minTableWidth: string | undefined;
 
 	isInfiniteScrollMode: boolean;
 	isVirtualizedMode: boolean;
 	resolvedVirtualScrollOptions: DataTableVirtualScrollOptions | undefined;
 
 	emptyStateLabel: string;
-	actionColumnFallbackLabel: string;
 
 	sortState: DataTableSortState | undefined;
-	handleSort: (column: BaseColumnType<RowType>, event?: { shiftKey?: boolean }) => void;
-	sortAnnouncement: string;
 
 	hideHeader: boolean;
 	hasFilterRow: boolean;
@@ -145,16 +195,16 @@ export interface DataTableModel<RowType> {
 	resolveExpansion: (row: RowType, rowIndex: number) => ReactNode;
 
 	contextMenuState: DataTableContextMenuState<RowType>;
-	openBodyContextMenu: (args: { row: RowType; rowIndex: number; position: { top: number; left: number } }) => void;
-	openHeadContextMenu: (args: {
-		column: BaseColumnType<RowType>;
-		columnIndex: number;
-		position: { top: number; left: number };
-	}) => void;
 	closeContextMenu: () => void;
 
 	tableRef: { current: HTMLTableElement | null };
-	setTableRef: (node: HTMLTableElement | null) => void;
+
+	/**
+	 * Attach to the layout root: the `<table>` in the table layout, the card root
+	 * `<div>` in card view. Widened to `HTMLElement` for that reason — see the setter
+	 * for which hooks that affects.
+	 */
+	setTableRef: (node: HTMLElement | null) => void;
 	viewportRef: { current: HTMLDivElement | null };
 
 	/** The live scroll-container element, as state — drives the DnD auto-scroll effect. */
@@ -164,22 +214,24 @@ export interface DataTableModel<RowType> {
 	getRowElement: (rowIndex: number) => HTMLElement | null;
 	rowKeyForIndex: (rowIndex: number) => Key;
 
-	isResizable: (columnIndex: number) => boolean;
-	resizeHandleProps: (columnIndex: number) => ReactHTMLAttributes<HTMLDivElement>;
-
-	isRowFocused: (rowIndex: number) => boolean;
-	onRowFocusChange: (rowIndex: number, row?: HTMLTableRowElement) => void;
-	arrowNavActive: boolean;
-
 	enableDragDrop: boolean;
 	activeDrag: DataTableRenderPropsType.ActiveDrag<RowType> | null;
 	setActiveDrag: (drag: DataTableRenderPropsType.ActiveDrag<RowType> | null) => void;
+	dndRowRegistry: DataTableRenderPropsType.DndRowRegistry<RowType>;
 
 	ariaRowCount: number;
-	footerAriaRowIndex: number | undefined;
 	bodyAriaRowIndex: (rowIndex: number) => number;
 
 	resolveRowState: (row: RowType, rowIndex: number) => DataTableRowState;
+
+	/**
+	 * Invokes the consumer's row `onClick` for one row. Stable, so it can be held
+	 * by a memoized row without pinning that row to one `rowEventHandlers` identity.
+	 */
+	dispatchRowClick: (row: RowType, rowIndex: number, event: MouseEvent<HTMLElement>) => void;
+
+	/** Opens the body context menu at the pointer. Stable, like {@link dispatchRowClick}. */
+	dispatchRowContextMenu: (row: RowType, rowIndex: number, event: MouseEvent<HTMLElement>) => void;
 }
 
 /**
@@ -200,12 +252,14 @@ export function useDataTableModel<RowType>(
 		rowStyling,
 		cellHighlighting,
 		cardView,
+		gridRole,
 		disableArrowNavigation,
 		disabled,
 		hasFootContent,
 		hideHeader = false,
 		rowExpansion,
 		scrollToNode,
+		actionColumnAutoSize = true,
 		columnResizingOptions,
 		dragDropOptions,
 		virtualScrollOptions,
@@ -225,11 +279,21 @@ export function useDataTableModel<RowType>(
 	const sortAscendingMessage = tableTitles?.sortAscendingAnnouncement ?? "Sorted ascending";
 	const sortDescendingMessage = tableTitles?.sortDescendingAnnouncement ?? "Sorted descending";
 	const sortClearedMessage = tableTitles?.sortClearedAnnouncement ?? "Sort cleared";
-	const actionColumnFallbackLabel = tableTitles?.actionColumnDefaultLabel ?? "Actions";
+	const actionColumnHiddenText = tableTitles?.actionTitle;
 
-	const [sortAnnouncement, setSortAnnouncement] = useState("");
+	const { announceSort } = slotInfo;
 	const [activeDrag, setActiveDrag] = useState<DataTableRenderPropsType.ActiveDrag<RowType> | null>(null);
 	const enableDragDrop = !!dragDropOptions;
+	// Live registry of mounted body rows (index → { row, element }), shared with the
+	// DnD body rows (which populate it) and the drag monitor's row-shift engine
+	// (which iterates it). A stable ref-held Map so registration never triggers a render.
+	const dndRowRegistryRef = useRef<DataTableRenderPropsType.DndRowRegistry<RowType>>(undefined);
+
+	if (!dndRowRegistryRef.current) {
+		dndRowRegistryRef.current = new Map();
+	}
+
+	const dndRowRegistry = dndRowRegistryRef.current;
 
 	const crossTabulation = useMemo(() => columns.some((col) => col.verticalHeader), [columns]);
 	const effectiveColumns = useMemo<BaseColumnType<RowType>[]>(
@@ -263,14 +327,25 @@ export function useDataTableModel<RowType>(
 		return result;
 	}, [headerGrid.cells, leafColumns.length]);
 
-	const { groupRightBoundaries, leavesInGroup } = useMemo(() => {
+	const { groupRightBoundaries, leavesInGroup, resizeEdgeOwner } = useMemo(() => {
 		const boundaries = new Set<number>();
 		const inGroup = new Set<number>();
+		// The column itself, not its leaf range: an outer group and its only child
+		// share the range, so only the header row separates them.
+		const owners: (BaseColumnType<RowType> | undefined)[] = new Array(leafColumns.length);
+		const ownerRows: (number | undefined)[] = new Array(leafColumns.length);
 		const multiRowHeader = headerGrid.maxDepth > 1;
 
 		for (const cell of headerGrid.cells) {
 			if (!cell.isLeaf) {
 				boundaries.add(cell.leafTo);
+
+				const ownerRow = ownerRows[cell.leafTo];
+
+				if (ownerRow === undefined || cell.headerRowStart < ownerRow) {
+					ownerRows[cell.leafTo] = cell.headerRowStart;
+					owners[cell.leafTo] = cell.column;
+				}
 
 				for (let i = cell.leafFrom; i <= cell.leafTo; i += 1) {
 					inGroup.add(i);
@@ -284,8 +359,8 @@ export function useDataTableModel<RowType>(
 			}
 		}
 
-		return { groupRightBoundaries: boundaries, leavesInGroup: inGroup };
-	}, [headerGrid.cells, headerGrid.maxDepth]);
+		return { groupRightBoundaries: boundaries, leavesInGroup: inGroup, resizeEdgeOwner: owners };
+	}, [headerGrid.cells, headerGrid.maxDepth, leafColumns.length]);
 
 	const leafPinningEdge = useMemo<{ left: number; right: number }>(() => {
 		let left = -1;
@@ -314,10 +389,13 @@ export function useDataTableModel<RowType>(
 	}, [headerGrid.cells, headerDepth]);
 
 	const colWidths = useMemo(
-		() => getColumnWidths(leafColumns, !!columnResizingOptions),
-		[leafColumns, columnResizingOptions]
+		() => getColumnWidths(leafColumns, !!columnResizingOptions, actionColumnAutoSize),
+		[leafColumns, columnResizingOptions, actionColumnAutoSize]
 	);
-	const minTableWidth = useMemo(() => getMinTableWidth(leafColumns), [leafColumns]);
+	const minTableWidth = useMemo(
+		() => getMinTableWidthExpression(leafColumns, actionColumnAutoSize),
+		[leafColumns, actionColumnAutoSize]
+	);
 
 	const handleSort = useCallback(
 		(column: BaseColumnType<RowType>, event?: { shiftKey?: boolean }): void => {
@@ -334,22 +412,28 @@ export function useDataTableModel<RowType>(
 			const isMulti =
 				!!sortOptions.enableMultiSort && (sortOptions.isMultiSortEvent ?? ((e): boolean => !!e?.shiftKey))(event ?? {});
 
-			const { next, order } = getNextSortState(column, columnId, sortOptions.sortState ?? [], {
+			const { next, order, ignored } = getNextSortState(column, columnId, sortOptions.sortState ?? [], {
 				isMulti,
 				maxMultiSortColCount: sortOptions.maxMultiSortColCount
 			});
 
+			if (ignored) {
+				// Activation rejected (e.g. appending past the multi-sort cap): nothing
+				// changed, so stay silent and do not fire `onSort` with a no-op payload.
+				return;
+			}
+
 			if (order === "asc") {
-				setSortAnnouncement(sortAscendingMessage);
+				announceSort(sortAscendingMessage);
 			} else if (order === "desc") {
-				setSortAnnouncement(sortDescendingMessage);
+				announceSort(sortDescendingMessage);
 			} else {
-				setSortAnnouncement(sortClearedMessage);
+				announceSort(sortClearedMessage);
 			}
 
 			sortOptions.onSort(next, { columnId, order });
 		},
-		[disabled, sortOptions, sortAscendingMessage, sortDescendingMessage, sortClearedMessage]
+		[disabled, sortOptions, sortAscendingMessage, sortDescendingMessage, sortClearedMessage, announceSort]
 	);
 
 	const rowRefs = useScrollToNode({ dataLength: data.length, scrollToNode, isVirtualizedMode });
@@ -398,6 +482,13 @@ export function useDataTableModel<RowType>(
 		setContextMenuState(null);
 	}, []);
 
+	// A body context menu captures its row by value; if `data` is replaced while the
+	// menu is open, the captured row can become stale (its actions would operate on
+	// removed data). Close the menu when the data identity changes.
+	useEffect(() => {
+		setContextMenuState((current) => (current?.type === "body" ? null : current));
+	}, [data]);
+
 	const openBodyContextMenu = useCallback(
 		(args: { row: RowType; rowIndex: number; position: { top: number; left: number } }): void => {
 			setContextMenuState({ type: "body", ...args });
@@ -431,18 +522,39 @@ export function useDataTableModel<RowType>(
 	}, []);
 
 	const setTableRef = useCallback(
-		(node: HTMLTableElement | null): void => {
-			tableRef.current = node;
-			ref?.(node);
+		(node: HTMLElement | null): void => {
+			// The one place the layout root is widened. The table layout attaches a
+			// `<table>` here; card view attaches the card root `<div>`. Everything reading
+			// `tableRef` stays typed for the table, because every hook that touches a
+			// table-specific member (column resize, `<thead>` measurement, pin offsets,
+			// keyboard row reorder) belongs to features card view does not have — and the
+			// ones that stay live in card view only ever query descendants by `data-role`.
+			tableRef.current = node as HTMLTableElement | null;
+			ref?.(node as HTMLTableElement | null);
 		},
 		[ref]
 	);
 
-	const { resizeHandleProps, isResizable } = useColumnResize({
+	const { resizeHandleProps, groupResizeHandleProps, isResizable, pinnedByResize, remeasureSignal } = useColumnResize({
 		tableRef,
 		leafColumns,
+		leafPinning,
 		resizingOptions: columnResizingOptions,
 		disabled
+	});
+
+	// Auto-size width-less action columns to fit their content (buttons + header + footer) by
+	// writing `--a12-col-N-width` on the table root — the same channel resize uses.
+	// Skips any column the user manually resized (`pinnedByResize`); re-fits after an
+	// Escape reset clears the vars (`remeasureSignal`).
+	useAutoSizeActionColumns({
+		tableRef,
+		scrollRef: viewportRef,
+		leafColumns,
+		autoSizeEnabled: actionColumnAutoSize,
+		rows: data,
+		pinnedByResize,
+		remeasureSignal
 	});
 
 	const typedResizeHandleProps = useCallback(
@@ -451,19 +563,32 @@ export function useDataTableModel<RowType>(
 		[resizeHandleProps]
 	);
 
-	const leafPinOffsets = useLeafPinOffsets({ tableRef, leafColumns, leafPinning });
+	const typedGroupResizeHandleProps = useCallback(
+		(
+			leafFrom: number,
+			leafTo: number,
+			groupColumn: BaseColumnType<RowType>,
+			groupLabel: string
+		): ReactHTMLAttributes<HTMLDivElement> =>
+			groupResizeHandleProps(leafFrom, leafTo, groupColumn, groupLabel) as ReactHTMLAttributes<HTMLDivElement>,
+		[groupResizeHandleProps]
+	);
 
-	const arrowNav = useRowArrowNavigation({
-		tableRef,
-		disabled: !!disabled || !!disableArrowNavigation,
-		rowCount: data.length
+	// Writes `--a12-pin-{left,right}-N` on the table root; cells read them via
+	// `--a12-data-table-pin-offset` (see `useCellPinning`) — no state round-trip.
+	useLeafPinOffsetCssVars({ tableRef, leafColumns, leafPinning });
+
+	// Keep a focused header cell / resize separator scrolled into the unobscured
+	// band when the header overflows horizontally (e.g. after a keyboard resize).
+	useHeaderFocusScroll(viewportEl);
+
+	const keyboardReorder = useDataTableKeyboardReorder<RowType>({
+		dragDropOptions,
+		rowByIndex: (index) => data[index],
+		rowCount: data.length,
+		dndRowRegistry,
+		announce: announceSort
 	});
-
-	const arrowNavActive = !disabled && !disableArrowNavigation && data.length > 0 && leafColumns.length > 0;
-
-	useFilterRowHeadHeight({ tableRef, hasFilterRowRenderer: hasFilterRow, headerDepth });
-
-	useCellHighlighting({ tableRef, cellHighlighting, disabled, cardView });
 
 	const getRowElement = useCallback(
 		(rowIndex: number): HTMLElement | null => rowRefs.current[rowIndex] ?? null,
@@ -479,7 +604,39 @@ export function useDataTableModel<RowType>(
 		[data, rowKey]
 	);
 
-	const ariaRowCount = data.length + effectiveHeaderDepth + (hasFilterRow ? 1 : 0) + (showFooter ? 1 : 0);
+	// Inverse of `rowKeyForIndex`, mirroring its treatment of holes (sparse `data` in infinite-scroll
+	// mode). A scan rather than a map: only hit when the roving tab stop is re-anchored, never per row.
+	const indexForRowKey = useCallback(
+		(key: Key): number =>
+			data.findIndex((row, rowIndex) => (row !== undefined ? rowKeyFor(row, rowIndex, rowKey) : rowIndex) === key),
+		[data, rowKey]
+	);
+
+	// Set by `DataTreeTable`; `undefined` for a plain `DataTable`.
+	const rowFallbackKeys = useRowTabStopFallback();
+
+	const arrowNav = useRowArrowNavigation({
+		tableRef,
+		disabled: !!disabled || !!disableArrowNavigation,
+		rowCount: data.length,
+		rowKeyForIndex,
+		indexForRowKey,
+		getRowElement,
+		rowFallbackKeys,
+		reorder: keyboardReorder
+	});
+
+	const arrowNavActive = !disabled && !disableArrowNavigation && data.length > 0 && leafColumns.length > 0;
+
+	useFilterRowHeadHeight({ tableRef, hasFilterRowRenderer: hasFilterRow, headerDepth });
+
+	useCellHighlighting({ tableRef, cellHighlighting, disabled, cardView });
+
+	// In infinite-scroll mode the windowed body numbers rows against the full
+	// `rowCount`, which may exceed the loaded `data.length` (a short/sparse array) —
+	// take the larger so a rendered row's `aria-rowindex` never exceeds `aria-rowcount`.
+	const bodyRowCount = Math.max(data.length, isInfiniteScrollMode ? (infiniteScrollOptions?.rowCount ?? 0) : 0);
+	const ariaRowCount = bodyRowCount + effectiveHeaderDepth + (hasFilterRow ? 1 : 0) + (showFooter ? 1 : 0);
 
 	// The footer is the last row, so its 1-based index equals the total row
 	// count. Only needed in windowed modes (explicit numbering).
@@ -495,17 +652,7 @@ export function useDataTableModel<RowType>(
 	const resolveRowState = useCallback(
 		(row: RowType, rowIndex: number): DataTableRowState => {
 			const styles = rowStyling?.({ row, rowIndex });
-			const handlers = rowEventHandlers?.({ row, rowIndex });
-			const rowOnClick = !disabled && handlers?.onClick ? handlers.onClick : undefined;
-
-			const rowDisabled = !!disabled || !!styles?.disabled;
-			const rowContextMenuEnabled = !disabled && hasContextMenu && !styles?.disabledRightClickContextMenu;
-			const onContextMenu = rowContextMenuEnabled
-				? (event: MouseEvent<HTMLElement>): void => {
-						event.preventDefault();
-						openBodyContextMenu({ row, rowIndex, position: { top: event.clientY, left: event.clientX } });
-					}
-				: undefined;
+			const hasRowClick = !disabled && !!rowEventHandlers?.({ row, rowIndex })?.onClick;
 
 			const resolvedStyles =
 				styles?.className !== undefined || styles?.style !== undefined || styles?.title !== undefined
@@ -514,48 +661,132 @@ export function useDataTableModel<RowType>(
 
 			return {
 				styles: resolvedStyles,
-				rowDisabled,
+				rowDisabled: !!disabled || !!styles?.disabled,
 				highlightVariant: styles?.highlightVariant,
 				selected: !!styles?.selected,
 				highlighted: !!styles?.highlighted,
-				interactive: !!styles?.interactive || !!rowOnClick,
-				onClick: rowOnClick ? (event: MouseEvent<HTMLElement>): void => rowOnClick(event) : undefined,
-				onContextMenu
+				interactive: !!styles?.interactive || hasRowClick,
+				hasRowClick,
+				hasRowContextMenu: !disabled && hasContextMenu && !styles?.disabledRightClickContextMenu
 			};
 		},
-		[rowStyling, rowEventHandlers, disabled, hasContextMenu, openBodyContextMenu]
+		[rowStyling, rowEventHandlers, disabled, hasContextMenu]
+	);
+
+	// Newest `rowEventHandlers` for the dispatchers below. Synced in a layout
+	// effect rather than during render so a render React discards can never leave
+	// the ref ahead of what is actually committed; events fire after commit, so
+	// the dispatchers always see the handlers belonging to the visible rows.
+	const rowEventHandlersRef = useRef(rowEventHandlers);
+
+	useLayoutEffect(() => {
+		rowEventHandlersRef.current = rowEventHandlers;
+	});
+
+	// Stable for the lifetime of the table: a body row keeps its identity across a
+	// `rowEventHandlers` change, so passing these down cannot invalidate the row
+	// memo. They re-read the getter per event, which is also what keeps a row that
+	// skipped a render from firing a stale handler.
+	const dispatchRowClick = useCallback((row: RowType, rowIndex: number, event: MouseEvent<HTMLElement>): void => {
+		rowEventHandlersRef.current?.({ row, rowIndex })?.onClick?.(event);
+	}, []);
+
+	const dispatchRowContextMenu = useCallback(
+		(row: RowType, rowIndex: number, event: MouseEvent<HTMLElement>): void => {
+			event.preventDefault();
+			openBodyContextMenu({ row, rowIndex, position: { top: event.clientY, left: event.clientX } });
+		},
+		[openBodyContextMenu]
+	);
+
+	// Everything the model publishes to slot authors through `DataTableContext`,
+	// assembled here rather than in the view so the boundary is recorded once: a field
+	// added below is part of the semi-public slot contract, a field added to the
+	// returned object beside it is view-internal plumbing. `slots` and
+	// `dragDropOptions` are the two the view still contributes — the model stays
+	// deliberately unaware of the slot components themselves (see
+	// {@link DataTableModelSlotInfo}), and the drag options need the view's
+	// stable-identity Proxy.
+	const contextFields = useMemo<DataTableModelContextFields<RowType>>(
+		() => ({
+			disabled,
+			cardView,
+			gridRole: cardView ? undefined : gridRole,
+			crossTabulation,
+			cellHighlighting: !!cellHighlighting && !cardView,
+			headerDepth,
+			isVirtualizedMode,
+			footerAriaRowIndex,
+			leafPinning,
+			leafPinningEdge,
+			actionColumnHiddenText,
+			isResizable,
+			leafColumnCount: leafColumns.length,
+			resizeHandleProps: typedResizeHandleProps,
+			groupResizeHandleProps: typedGroupResizeHandleProps,
+			isRowFocused: arrowNav.isFocused,
+			onRowFocusChange: arrowNav.handleRowFocus,
+			ensureRowTabStop: arrowNav.ensureTabStop,
+			arrowNavActive,
+			groupRightBoundaries,
+			leavesInGroup,
+			resizeEdgeOwner,
+			onSort: handleSort,
+			openHeadContextMenu,
+			rowCount: data.length,
+			dndRowRegistry
+		}),
+		[
+			disabled,
+			cardView,
+			gridRole,
+			crossTabulation,
+			cellHighlighting,
+			headerDepth,
+			isVirtualizedMode,
+			footerAriaRowIndex,
+			leafPinning,
+			leafPinningEdge,
+			actionColumnHiddenText,
+			isResizable,
+			leafColumns.length,
+			typedResizeHandleProps,
+			typedGroupResizeHandleProps,
+			arrowNav.isFocused,
+			arrowNav.handleRowFocus,
+			arrowNav.ensureTabStop,
+			arrowNavActive,
+			groupRightBoundaries,
+			leavesInGroup,
+			resizeEdgeOwner,
+			handleSort,
+			openHeadContextMenu,
+			data.length,
+			dndRowRegistry
+		]
 	);
 
 	return {
+		contextFields,
 		data,
 		leafColumns,
 		cellsByRow,
 		headerDepth,
-		effectiveHeaderDepth,
 		crossTabulation,
 		leafPinning,
-		leafPinOffsets,
-		leafPinningEdge,
-		groupRightBoundaries,
-		leavesInGroup,
 		colWidths,
 		minTableWidth,
 		isInfiniteScrollMode,
 		isVirtualizedMode,
 		resolvedVirtualScrollOptions,
 		emptyStateLabel,
-		actionColumnFallbackLabel,
 		sortState: sortOptions?.sortState,
-		handleSort,
-		sortAnnouncement,
 		hideHeader,
 		hasFilterRow,
 		showFooter,
 		hasExpansion,
 		resolveExpansion,
 		contextMenuState,
-		openBodyContextMenu,
-		openHeadContextMenu,
 		closeContextMenu,
 		tableRef,
 		setTableRef,
@@ -565,17 +796,14 @@ export function useDataTableModel<RowType>(
 		rowRefs,
 		getRowElement,
 		rowKeyForIndex,
-		isResizable,
-		resizeHandleProps: typedResizeHandleProps,
-		isRowFocused: arrowNav.isFocused,
-		onRowFocusChange: arrowNav.handleRowFocus,
-		arrowNavActive,
 		enableDragDrop,
 		activeDrag,
 		setActiveDrag,
+		dndRowRegistry,
 		ariaRowCount,
-		footerAriaRowIndex,
 		bodyAriaRowIndex,
-		resolveRowState
+		resolveRowState,
+		dispatchRowClick,
+		dispatchRowContextMenu
 	};
 }

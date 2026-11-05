@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode } from "react";
-import { useMemo, createContext } from "react";
 import merge from "deepmerge";
+import type { ReactNode } from "react";
+import { useContext, useMemo, createContext } from "react";
 
 import type { Container } from "../../common/main/base-props.js";
 
@@ -65,7 +65,11 @@ export const InteractionHintConfigContext = createContext<InteractionHintConfigC
 export const InteractionHintConfigProvider = (props: InteractionHintConfigContextProps & Container): ReactNode => {
 	const { children, ...config } = props;
 
-	const contextValue = useMemo(() => merge(DEFAULT_INTERACTION_HINT_CONTEXT_VALUE, config), [config]);
+	// Merge on top of the inherited context so nested providers only override what they explicitly set,
+	// instead of resetting every unspecified option back to its default.
+	const inheritedConfig = useContext(InteractionHintConfigContext);
+
+	const contextValue = useMemo(() => merge(inheritedConfig, config), [inheritedConfig, config]);
 
 	return <InteractionHintConfigContext.Provider value={contextValue}>{children}</InteractionHintConfigContext.Provider>;
 };

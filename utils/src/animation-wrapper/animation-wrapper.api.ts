@@ -35,6 +35,15 @@ import type { CSSTransitionClassNames } from "react-transition-group/CSSTransiti
 
 import type { Container, Styleable, Identifiable } from "@com.mgmtp.a12.widgets/widgets-core";
 
+/**
+ * The props of {@link AnimationWrapper}.
+ *
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. It hands its child to a `react-transition-group` `CSSTransition` that
+ * toggles the `a12-animation-wrapper-*` classes, which no Widgets stylesheet defines - so unless the project ships
+ * those classes itself, the wrapper only delays unmounting by `timeout`. Render the child conditionally instead, or
+ * drive the transition with an animation library such as Motion.
+ */
 export interface AnimationWrapperProps extends Container, Styleable, Identifiable {
 	/**
 	 * Name of transition.

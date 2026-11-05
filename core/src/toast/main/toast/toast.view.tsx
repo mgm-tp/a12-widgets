@@ -33,9 +33,8 @@
 import type { FC, ReactElement } from "react";
 import { useContext, useRef, useCallback, useEffect } from "react";
 
-import { getParentElement, noop } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
+import { getParentElement, noop } from "../../../common/main/utils.js";
 import { ToastGroupContext } from "../toast-group.view.js";
 
 import { ToastTemplate } from "./template/toast.template.view.js";

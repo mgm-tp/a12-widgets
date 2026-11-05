@@ -30,15 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { enUS } from "date-fns/locale";
 import { createReferenceElement, getByDataRole, getByRole, removeReferenceElement, render } from "test-utils";
 import { afterEach, beforeEach, describe, vi, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
-import { enUS } from "date-fns/locale";
 
-import { provider } from "../../common/main/device-detector.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
-
+import { provider } from "../../common/main/device-detector.js";
 import { DateTimePicker } from "../main/date-time-picker.view.js";
 import { DateTimePickerDialog } from "../main/wrapper/date-time-picker-dialog.view.js";
 import { DateTimePickerInput } from "../main/wrapper/date-time-picker-input.view.js";

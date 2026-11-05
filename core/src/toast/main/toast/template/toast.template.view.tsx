@@ -33,9 +33,10 @@
 import type { FC } from "react";
 import { useContext, useRef, useEffect } from "react";
 
-import { Icon } from "../../../../icon/main/icon.view.js";
-import { addPrefix, joinClassNames } from "../../../../common/main/utils.js";
 import { A11YLanguageContext } from "../../../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../../../common/main/data-roles.js";
+import { addPrefix, joinClassNames } from "../../../../common/main/utils.js";
+import { Icon } from "../../../../icon/main/icon.view.js";
 import { renderIcon } from "../../common/toast.internal.js";
 import {
 	StyledToastWrapper,
@@ -48,9 +49,9 @@ import {
 	StyledToastFooter,
 	StyledToastHeader,
 	StyledToastMessage,
-	StyledToastTitle
+	StyledToastTitle,
+	StyledToastBodyContent
 } from "../../common/toast.styled.js";
-import { DataRoles } from "../../../../common/main/data-roles.js";
 
 import type { ToastTemplateProps } from "./toast.template.api.js";
 
@@ -95,6 +96,27 @@ export const ToastTemplate: FC<ToastTemplateProps> = (props) => {
 		focusToWrapper();
 	}, [focusOnMount]);
 
+	const messageAndCollapseContent = (
+		<>
+			{message && (
+				<StyledToastMessage className={`${baseClassName}__message`} data-role={DataRoles.Toast.Message}>
+					{message}
+				</StyledToastMessage>
+			)}
+			{collapse && (
+				<StyledToastCollapse className={`${baseClassName}__collapse`} data-role={DataRoles.Toast.Collapse}>
+					{collapse}
+				</StyledToastCollapse>
+			)}
+		</>
+	);
+
+	const actionButton = (
+		<StyledToastActions className={`${baseClassName}__actions`} data-role={DataRoles.Toast.Action}>
+			<StyledToastButton icon={<Icon>close</Icon>} title={a11yContext.toastTitles?.closeToast} onClick={onClose} />
+		</StyledToastActions>
+	);
+
 	return (
 		<StyledToastWrapper
 			ref={getWrapperRef}
@@ -109,42 +131,43 @@ export const ToastTemplate: FC<ToastTemplateProps> = (props) => {
 				{icon || renderIcon(variant)}
 			</StyledToastGraphic>
 			<StyledToastBody variant={variant} className={`${baseClassName}__right`} data-role={DataRoles.Toast.Right}>
-				<StyledToastHeader className={`${baseClassName}__header`} data-role={DataRoles.Toast.Header}>
-					{header && (
-						<StyledToastTitle
-							className={`${baseClassName}__title`}
-							role="heading"
-							aria-level={ariaLevel ?? 2}
-							data-role={DataRoles.Toast.Title}
-						>
-							{header}
-						</StyledToastTitle>
-					)}
-					<StyledToastActions className={`${baseClassName}__actions`} data-role={DataRoles.Toast.Action}>
-						<StyledToastButton
-							icon={<Icon>close</Icon>}
-							title={a11yContext.toastTitles?.closeToast}
-							onClick={onClose}
-						/>
-					</StyledToastActions>
-				</StyledToastHeader>
-				{(message || collapse) && (
-					<StyledToastContent
-						className={`${baseClassName}__content`}
-						style={{ height: contentHeight }}
-						data-role={DataRoles.Toast.Content}
-					>
-						{message && (
-							<StyledToastMessage className={`${baseClassName}__message`} data-role={DataRoles.Toast.Message}>
-								{message}
-							</StyledToastMessage>
+				{header ? (
+					<>
+						<StyledToastHeader className={`${baseClassName}__header`} data-role={DataRoles.Toast.Header}>
+							<StyledToastTitle
+								className={`${baseClassName}__title`}
+								role="heading"
+								aria-level={ariaLevel ?? 2}
+								data-role={DataRoles.Toast.Title}
+							>
+								{header}
+							</StyledToastTitle>
+							{actionButton}
+						</StyledToastHeader>
+						{(message || collapse) && (
+							<StyledToastContent
+								className={`${baseClassName}__content`}
+								style={{ height: contentHeight }}
+								data-role={DataRoles.Toast.Content}
+							>
+								{messageAndCollapseContent}
+							</StyledToastContent>
 						)}
-						{collapse && (
-							<StyledToastCollapse className={`${baseClassName}__collapse`} data-role={DataRoles.Toast.Collapse}>
-								{collapse}
-							</StyledToastCollapse>
+					</>
+				) : (
+					<StyledToastBodyContent data-role={DataRoles.Toast.Body.Content}>
+						{(message || collapse) && (
+							<StyledToastContent
+								className={`${baseClassName}__content`}
+								style={{ height: contentHeight }}
+								data-role={DataRoles.Toast.Content}
+								$noToastHeader
+							>
+								{messageAndCollapseContent}
+							</StyledToastContent>
 						)}
-					</StyledToastContent>
+						{actionButton}
+					</StyledToastBodyContent>
 				)}
 				{footer && (
 					<StyledToastFooter className={`${baseClassName}__footer`} data-role={DataRoles.Toast.Footer}>

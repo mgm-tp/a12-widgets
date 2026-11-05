@@ -30,16 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { BaseThemeComponents } from "../schema/components.api.js";
-import type { BaseThemeColorsType } from "../schema/base-colors.api.js";
 import type { ApplicationStyle, DivisionLineStyle } from "../schema/application-styles.api.js";
-import type { FocusStyle } from "../schema/focus.api.js";
+import type { BaseThemeColorsType } from "../schema/base-colors.api.js";
 import type { InputStyle } from "../schema/base-input-styles.api.js";
-import type { BaseThemeSpacingType } from "../schema/spacing.api.js";
-import type { BaseThemeTypographyType } from "../schema/typography.api.js";
 import type { BorderConfig } from "../schema/border.api.js";
+import type { BaseThemeComponents } from "../schema/components.api.js";
+import type { FocusStyle } from "../schema/focus.api.js";
 import type { MotionConfig } from "../schema/motion.api.js";
 import type { OpacityConfig } from "../schema/opacity.api.js";
+import type { BaseThemeSpacingType } from "../schema/spacing.api.js";
+import type { BaseThemeTypographyType } from "../schema/typography.api.js";
 
 export interface BaseThemeBaseConfig extends BaseThemeComponents {
 	colors: BaseThemeColors;

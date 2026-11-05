@@ -35,16 +35,15 @@ import { DndProvider } from "react-dnd";
 import { render, getAllByDataRole, fireEvent, getByDataRole, queryByDataRole } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
+import { DataRoles } from "../../common/main/data-roles.js";
 import { DragAndDropUtils } from "../../common/main/drag-and-drop-utils.js";
 import { Icon } from "../../icon/main/icon.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
-
-import { TreeTable } from "../main/tree-table.view.js";
 import type {
 	TreeTableRowStyling,
 	TreeTableRowEventHandlers,
 	TreeTableComponentRenderers
 } from "../main/tree-table.api.js";
+import { TreeTable } from "../main/tree-table.view.js";
 
 import {
 	GROUP_COLUMNS,

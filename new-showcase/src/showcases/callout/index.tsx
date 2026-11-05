@@ -30,18 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import accessibilityCode from "!./accessibility-callout.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import resizableAndDraggableCode from "!./resizable-draggable.tsx?raw";
+
 import { provider, ExternalLink } from "@com.mgmtp.a12.widgets/widgets-core";
 import CalloutAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/callout/main/callout.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
+import { AccessibilityCallout } from "./accessibility-callout.js";
 import { BasicCallout } from "./basic.js";
 import { ResizableAndDraggableCallout } from "./resizable-draggable.js";
-import { AccessibilityCallout } from "./accessibility-callout.js";
-
-import basicCode from "!./basic.tsx?raw";
-import resizableAndDraggableCode from "!./resizable-draggable.tsx?raw";
-import accessibilityCode from "!./accessibility-callout.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

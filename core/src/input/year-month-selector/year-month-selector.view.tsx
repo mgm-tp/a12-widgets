@@ -33,11 +33,11 @@
 import type { ReactElement } from "react";
 import { Children } from "react";
 
-import { addPrefix, joinClassNames } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
-import { InputElements } from "../base/template/base.tpl.view.js";
+import { addPrefix, joinClassNames } from "../../common/main/utils.js";
 import { StyledBaseInput } from "../base-input-styled/base.styled.js";
+import { InputElements } from "../base/template/base.tpl.view.js";
+import { useFieldDefaultsConfig } from "../field-default-config/main/field-default-config.utils.js";
 
 import { MonthSelector } from "./month-selector.view.js";
 import type { YearMonthSelectorProps } from "./year-month-selector.api.js";
@@ -48,12 +48,13 @@ const baseClassName = addPrefix("year-month-selector");
 const baseFieldClassName = addPrefix("field");
 
 export function YearMonthSelector(props: YearMonthSelectorProps): ReactElement<YearMonthSelectorProps> {
+	const { breakTooltipsToNewLine, messagePosition } = useFieldDefaultsConfig(props, false);
 	const numberOfTooltips = Children.count(props.tooltips);
 	const className = joinClassNames(
 		baseClassName,
 		{
 			[`${baseFieldClassName}--tooltips ${baseFieldClassName}--tooltips-${numberOfTooltips}`]:
-				numberOfTooltips && !props.breakTooltipsToNewLine
+				numberOfTooltips && !breakTooltipsToNewLine
 		},
 		props.className
 	);
@@ -64,13 +65,44 @@ export function YearMonthSelector(props: YearMonthSelectorProps): ReactElement<Y
 		props.ariaDescribedby
 	);
 
+	const messagesElement = (
+		<>
+			{props.errorMessage && (
+				<InputElements.Error
+					dataRole={DataRoles.Year.Month.Selector.ErrorMessage}
+					id={props.id}
+					errorMessage={props.errorMessage}
+					position={messagePosition}
+				/>
+			)}
+			{props.warningMessage && (
+				<InputElements.Warning
+					dataRole={DataRoles.Year.Month.Selector.WarningMessage}
+					id={props.id}
+					warningMessage={props.warningMessage}
+					position={messagePosition}
+				/>
+			)}
+			{props.infoMessage && (
+				<InputElements.Info
+					dataRole={DataRoles.Year.Month.Selector.InfoMessage}
+					id={props.id}
+					infoMessage={props.infoMessage}
+					position={messagePosition}
+				/>
+			)}
+		</>
+	);
+
 	return (
 		<StyledYearMonthSelector
 			data-role={DataRoles.Year.Month.Selector}
 			className={className}
 			id={props.id}
 			style={props.style}
-			$numberOfTooltips={!props.breakTooltipsToNewLine && numberOfTooltips ? numberOfTooltips : undefined}
+			$numberOfTooltips={!breakTooltipsToNewLine && numberOfTooltips ? numberOfTooltips : undefined}
+			$messagePosition={messagePosition}
+			$tooltipPosition={breakTooltipsToNewLine}
 		>
 			<InputElements.Label
 				dataRole={DataRoles.Year.Month.Selector.Label}
@@ -80,28 +112,8 @@ export function YearMonthSelector(props: YearMonthSelectorProps): ReactElement<Y
 				disabled={props.disabled}
 				htmlFor={props.id && `${props.id}-month`}
 			/>
-			{props.breakTooltipsToNewLine && props.tooltips}
-			{props.errorMessage && (
-				<InputElements.Error
-					dataRole={DataRoles.Year.Month.Selector.ErrorMessage}
-					id={props.id}
-					errorMessage={props.errorMessage}
-				/>
-			)}
-			{props.warningMessage && (
-				<InputElements.Warning
-					dataRole={DataRoles.Year.Month.Selector.WarningMessage}
-					id={props.id}
-					warningMessage={props.warningMessage}
-				/>
-			)}
-			{props.infoMessage && (
-				<InputElements.Info
-					dataRole={DataRoles.Year.Month.Selector.InfoMessage}
-					id={props.id}
-					infoMessage={props.infoMessage}
-				/>
-			)}
+			{(breakTooltipsToNewLine === true || breakTooltipsToNewLine === "above") && props.tooltips}
+			{messagePosition !== "below" && messagesElement}
 			<StyledYearMonthSelectorInner
 				className={`${baseClassName}__inner`}
 				data-role={DataRoles.Year.Month.Selector.Control}
@@ -122,6 +134,8 @@ export function YearMonthSelector(props: YearMonthSelectorProps): ReactElement<Y
 					ariaDescribedby={ariaDescribedby}
 					inputProps={props.inputPropsOfMonthSelector}
 					optionalItem={props.optionalMonthItem}
+					messagePosition="above"
+					breakTooltipsToNewLine={false}
 				/>
 				<YearSelector
 					id={props.id && `${props.id}-year`}
@@ -133,7 +147,9 @@ export function YearMonthSelector(props: YearMonthSelectorProps): ReactElement<Y
 					error={props.invalidComponent !== "month" && (props.error || !!props.errorMessage)}
 					warning={props.invalidComponent !== "month" && (props.warning || !!props.warningMessage)}
 					info={props.invalidComponent !== "month" && (props.info || !!props.infoMessage)}
-					tooltips={!props.breakTooltipsToNewLine ? props.tooltips : undefined}
+					tooltips={!breakTooltipsToNewLine ? props.tooltips : undefined}
+					breakTooltipsToNewLine={false}
+					messagePosition="above"
 					label={props.hiddenLabels && props.hiddenLabels.yearLabel}
 					hideLabel
 					yearSelectRef={props.yearSelectRef}
@@ -145,6 +161,8 @@ export function YearMonthSelector(props: YearMonthSelectorProps): ReactElement<Y
 					onBlur={props.onYearSelectorBlur}
 				/>
 			</StyledYearMonthSelectorInner>
+			{messagePosition === "below" && messagesElement}
+			{breakTooltipsToNewLine === "below" && props.tooltips}
 			{props.helperText && (
 				<StyledBaseInput.StyledFieldHelperWrapper className={`${baseFieldClassName}__helper`}>
 					<StyledBaseInput.StyledFieldHelperText

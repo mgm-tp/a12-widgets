@@ -44,19 +44,7 @@ import {
 	Typography
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-const meta: Meta<typeof TabPanel> = {
-	title: "Navigation/TabPanel",
-	component: TabPanel,
-	parameters: {
-		layout: "padded"
-	},
-	tags: ["autodocs"]
-};
-
-export default meta;
-type Story = StoryObj<typeof TabPanel>;
-
-export const sampleTabs: TabPanelTemplateProps.TabProps[] = [
+const sampleTabs: TabPanelTemplateProps.TabProps[] = [
 	{
 		icon: <Icon>info</Icon>,
 		value: "information",
@@ -102,154 +90,200 @@ export const sampleTabs: TabPanelTemplateProps.TabProps[] = [
 	}
 ];
 
-export const Default: Story = {
-	render: () => {
-		const DefaultTabPanel = () => {
-			const [value, setValue] = useState("information");
-
-			return (
-				<TabPanel tabs={sampleTabs} value={value} onSelect={(tab) => setValue(tab.value)}>
-					<div style={{ padding: "20px" }}>Selected: {value}</div>
-				</TabPanel>
-			);
-		};
-
-		return <DefaultTabPanel />;
+const meta: Meta<typeof TabPanel> = {
+	title: "Navigation/TabPanel",
+	component: TabPanel,
+	parameters: {
+		layout: "padded"
+	},
+	argTypes: {
+		tabs: {
+			control: false,
+			description: "Array of tab items — a flat `TabProps[]` list or a grouped `GroupTabProps[]` list"
+		},
+		value: {
+			control: "select",
+			options: sampleTabs.map((tab) => tab.value),
+			description: "Value of the tab that should be selected"
+		},
+		orientation: {
+			control: "inline-radio",
+			options: ["vertical", "horizontal"],
+			description: "Orientation of the tab list"
+		},
+		header: {
+			control: false,
+			description: "Header of the tab content, e.g. a `TabPanelTemplate.PanelHeader`"
+		},
+		tabListAriaLabel: {
+			control: "text",
+			description: 'Custom aria-label for the tab list (defaults to "main navigation")'
+		},
+		focusOnPanelAfterSelect: {
+			control: "boolean",
+			description: "When true, selecting a tab moves focus to the panel element instead of keeping it on the tab"
+		},
+		enableA11YMobileDesignOnSubTab: {
+			control: "boolean",
+			description: "Enables the mobile design for the sub tab menu opened by a condensed tab"
+		},
+		onSelect: {
+			control: false,
+			description: "Callback that is called when a tab is clicked"
+		},
+		onClose: {
+			control: false,
+			description: "Callback that is called when the tab is closed"
+		}
 	}
 };
 
-export const WithInteractionHint: Story = {
-	render: () => {
-		const TabPanelDemo = () => {
-			const [value, setValue] = useState("overview");
-			const [maximized, setMaximized] = useState(false);
+export default meta;
+type Story = StoryObj<typeof TabPanel>;
 
-			return (
-				<InteractionHintConfigProvider componentConfigs={{ tabPanel: { enabled: true } }}>
-					<TabPanel
-						tabs={sampleTabs}
-						value={value}
-						onSelect={(tab) => setValue(tab.value)}
-						header={
-							<TabPanelTemplate.PanelHeader
-								heading="Demo"
-								suffixes={[
-									<Button
-										key="fs"
-										icon={<Icon>{maximized ? "fullscreen_exit" : "fullscreen"}</Icon>}
-										invert
-										onClick={() => setMaximized(!maximized)}
-										title={maximized ? "Minimize" : "Maximize"}
-									/>,
-									<Button
-										key="close"
-										icon={<Icon>close</Icon>}
-										invert
-										onClick={() => setValue("overview")}
-										title="Close"
-									/>
-								]}
+export const Playground: Story = {
+	args: {
+		tabs: sampleTabs,
+		value: "information",
+		orientation: "vertical"
+	},
+	render: function PlaygroundExample(args) {
+		const [value, setValue] = useState<string | undefined>(undefined);
+		const selected = value ?? args.value;
+
+		return (
+			<TabPanel
+				{...args}
+				value={selected}
+				onSelect={(tab) => {
+					setValue(tab.value);
+					args.onSelect?.(tab);
+				}}
+			>
+				<div style={{ padding: "20px" }}>Selected: {selected}</div>
+			</TabPanel>
+		);
+	}
+};
+
+export const WithHeader: Story = {
+	render: function WithHeaderExample() {
+		const [value, setValue] = useState("information");
+		const [maximized, setMaximized] = useState(false);
+
+		return (
+			<TabPanel
+				tabs={sampleTabs}
+				value={value}
+				onSelect={(tab) => setValue(tab.value)}
+				header={
+					<TabPanelTemplate.PanelHeader
+						heading="Demo"
+						suffixes={[
+							<Button
+								key="fs"
+								icon={<Icon>{maximized ? "fullscreen_exit" : "fullscreen"}</Icon>}
+								invert
+								onClick={() => setMaximized(!maximized)}
+								title={maximized ? "Minimize" : "Maximize"}
+							/>,
+							<Button
+								key="close"
+								icon={<Icon>close</Icon>}
+								invert
+								onClick={() => setValue("information")}
+								title="Close"
 							/>
-						}
-					>
-						<div style={{ padding: "20px" }}>Hover over tabs to see interaction hints</div>
-					</TabPanel>
-				</InteractionHintConfigProvider>
-			);
-		};
-
-		return <TabPanelDemo />;
-	},
-	parameters: {
-		docs: {
-			description: {
-				story: "Tab panel with standard interaction hints. Hover over tabs to see tooltips."
-			}
-		}
-	}
-};
-
-export const WithInteractionHintFollowCursor: Story = {
-	render: () => {
-		const TabPanelDemo = () => {
-			const [value, setValue] = useState("overview");
-
-			return (
-				<InteractionHintConfigProvider componentConfigs={{ tabPanel: { enabled: true, followCursor: true } }}>
-					<TabPanel tabs={sampleTabs} value={value} onSelect={(tab) => setValue(tab.value)}>
-						<div style={{ padding: "20px" }}>Hints follow your cursor position</div>
-					</TabPanel>
-				</InteractionHintConfigProvider>
-			);
-		};
-
-		return <TabPanelDemo />;
-	},
-	parameters: {
-		docs: {
-			description: {
-				story: "Tab panel with cursor-following hints. Move your mouse over tabs to see tooltips follow the cursor."
-			}
-		}
-	}
-};
-
-export const InteractionHintVariations: Story = {
-	render: () => {
-		const TabPanelDemo = () => {
-			const [value1, setValue1] = useState("overview");
-			const [value2, setValue2] = useState("details");
-			const [value3, setValue3] = useState("settings");
-			const [value4, setValue4] = useState("overview");
-
-			return (
-				<div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-					<div>
-						<Typography.Headline level={3}>Standard Hints (Fixed Position)</Typography.Headline>
-						<InteractionHintConfigProvider componentConfigs={{ tabPanel: { enabled: true } }}>
-							<TabPanel tabs={sampleTabs} value={value1} onSelect={(tab) => setValue1(tab.value)}>
-								<div style={{ padding: "20px" }}>Fixed position tooltips</div>
-							</TabPanel>
-						</InteractionHintConfigProvider>
-					</div>
-
-					<div>
-						<Typography.Headline level={3}>Follow Cursor (Dynamic Position)</Typography.Headline>
-						<InteractionHintConfigProvider componentConfigs={{ tabPanel: { enabled: true, followCursor: true } }}>
-							<TabPanel tabs={sampleTabs} value={value2} onSelect={(tab) => setValue2(tab.value)}>
-								<div style={{ padding: "20px" }}>Tooltips follow mouse cursor</div>
-							</TabPanel>
-						</InteractionHintConfigProvider>
-					</div>
-
-					<div>
-						<Typography.Headline level={3}>Follow Cursor + Hide Arrow</Typography.Headline>
-						<InteractionHintConfigProvider
-							componentConfigs={{ tabPanel: { enabled: true, followCursor: true, hideArrow: true } }}
-						>
-							<TabPanel tabs={sampleTabs} value={value3} onSelect={(tab) => setValue3(tab.value)}>
-								<div style={{ padding: "20px" }}>Dynamic tooltips without arrow</div>
-							</TabPanel>
-						</InteractionHintConfigProvider>
-					</div>
-
-					<div>
-						<Typography.Headline level={3}>Without Hints (Disabled)</Typography.Headline>
-						<TabPanel tabs={sampleTabs} value={value4} onSelect={(tab) => setValue4(tab.value)}>
-							<div style={{ padding: "20px" }}>No interaction hints</div>
-						</TabPanel>
-					</div>
-				</div>
-			);
-		};
-
-		return <TabPanelDemo />;
+						]}
+					/>
+				}
+			>
+				<div style={{ padding: "20px" }}>Selected: {value}</div>
+			</TabPanel>
+		);
 	},
 	parameters: {
 		docs: {
 			description: {
 				story:
-					"Comparison of different interaction hint configurations:\n\n- **Standard**: Fixed position tooltips with arrow\n- **Follow Cursor**: Tooltips that move with your mouse\n- **Follow Cursor + Hide Arrow**: Dynamic tooltips without arrow pointer\n- **Disabled**: No interaction hints shown"
+					"`header` renders above the tab content — here a `TabPanelTemplate.PanelHeader` with a `heading` and action buttons as `suffixes`."
+			}
+		}
+	}
+};
+
+export const Horizontal: Story = {
+	render: function HorizontalExample() {
+		const [value, setValue] = useState("information");
+
+		return (
+			<TabPanel tabs={sampleTabs} orientation="horizontal" value={value} onSelect={(tab) => setValue(tab.value)}>
+				<div style={{ padding: "20px" }}>Selected: {value}</div>
+			</TabPanel>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'`orientation="horizontal"` renders the tab list as a horizontal bar instead of the default vertical list.'
+			}
+		}
+	}
+};
+
+export const InteractionHints: Story = {
+	render: function InteractionHintsExample() {
+		const [value1, setValue1] = useState("information");
+		const [value2, setValue2] = useState("search");
+		const [value3, setValue3] = useState("calendar");
+		const [value4, setValue4] = useState("information");
+
+		return (
+			<div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+				<div>
+					<Typography.Headline level={3}>Standard Hints (Fixed Position)</Typography.Headline>
+					<InteractionHintConfigProvider componentConfigs={{ tabPanel: { enabled: true } }}>
+						<TabPanel tabs={sampleTabs} value={value1} onSelect={(tab) => setValue1(tab.value)}>
+							<div style={{ padding: "20px" }}>Fixed position tooltips</div>
+						</TabPanel>
+					</InteractionHintConfigProvider>
+				</div>
+
+				<div>
+					<Typography.Headline level={3}>Follow Cursor (Dynamic Position)</Typography.Headline>
+					<InteractionHintConfigProvider componentConfigs={{ tabPanel: { enabled: true, followCursor: true } }}>
+						<TabPanel tabs={sampleTabs} value={value2} onSelect={(tab) => setValue2(tab.value)}>
+							<div style={{ padding: "20px" }}>Tooltips follow mouse cursor</div>
+						</TabPanel>
+					</InteractionHintConfigProvider>
+				</div>
+
+				<div>
+					<Typography.Headline level={3}>Follow Cursor + Hide Arrow</Typography.Headline>
+					<InteractionHintConfigProvider
+						componentConfigs={{ tabPanel: { enabled: true, followCursor: true, hideArrow: true } }}
+					>
+						<TabPanel tabs={sampleTabs} value={value3} onSelect={(tab) => setValue3(tab.value)}>
+							<div style={{ padding: "20px" }}>Dynamic tooltips without arrow</div>
+						</TabPanel>
+					</InteractionHintConfigProvider>
+				</div>
+
+				<div>
+					<Typography.Headline level={3}>Without Hints (Disabled)</Typography.Headline>
+					<TabPanel tabs={sampleTabs} value={value4} onSelect={(tab) => setValue4(tab.value)}>
+						<div style={{ padding: "20px" }}>No interaction hints</div>
+					</TabPanel>
+				</div>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Comparison of different interaction hint configurations via `InteractionHintConfigProvider`:\n\n- **Standard**: Fixed position tooltips with arrow\n- **Follow Cursor**: Tooltips that move with your mouse\n- **Follow Cursor + Hide Arrow**: Dynamic tooltips without arrow pointer\n- **Disabled**: No interaction hints shown"
 			}
 		}
 	}

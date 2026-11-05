@@ -30,13 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 import { useState, useRef, useCallback } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import type { ConnectedToastType, Orientation } from "@com.mgmtp.a12.widgets/widgets-core";
 import { ConnectedToast, ORIENTATION_LIST, Radio, Select, Button, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
-import { AnimationWrapper } from "@com.mgmtp.a12.widgets/widgets-utils";
 
 import { ConfigurationView } from "../../../../helpers/configuration-view.js";
 
@@ -99,11 +98,18 @@ export function Combination(): ReactElement {
 						items={orientations}
 					/>
 					<br />
-					<Radio inline label="Toast type:" value={type} onValueChanged={changeType}>
+					<Radio
+						id="connected-toast-combination-toast-type"
+						inline
+						label="Toast type:"
+						value={type}
+						onValueChanged={changeType}
+					>
 						<Radio.Item label="Permanent" value="permanent" />
 						<Radio.Item label="Temporary" value="temporary" />
 					</Radio>
 					<Radio
+						id="connected-toast-combination-toast-duration"
 						inline
 						label="Toast duration"
 						onValueChanged={changeDuration}
@@ -120,19 +126,17 @@ export function Combination(): ReactElement {
 			}
 		>
 			<Button primary label="Show/hide" buttonRef={setButtonRef} onClick={toggleShow} />
-			{referenceElement.current && (
-				<AnimationWrapper show={show}>
-					<ConnectedToast
-						referenceElement={referenceElement.current}
-						orientation={orientation}
-						duration={Number(duration)}
-						type={type}
-						message={message}
-						onClose={onToastClose}
-						hideOnReferenceElementPositionChange={false}
-						icon={customIcon}
-					/>
-				</AnimationWrapper>
+			{referenceElement.current && show && (
+				<ConnectedToast
+					referenceElement={referenceElement.current}
+					orientation={orientation}
+					duration={Number(duration)}
+					type={type}
+					message={message}
+					onClose={onToastClose}
+					hideOnReferenceElementPositionChange={false}
+					icon={customIcon}
+				/>
 			)}
 		</ConfigurationView>
 	);

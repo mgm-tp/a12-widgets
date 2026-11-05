@@ -55,39 +55,8 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   max-width: unset;
 }
 
-.c33 {
-  color: rgb(77, 77, 77);
-  display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.45;
-  text-transform: none;
-  align-self: center;
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 1px;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  width: 1px;
-  margin: -1px !important;
-}
-
-.c33:empty {
-  display: none;
-}
-
-.c33 * {
-  width: 1px;
-  height: 1px;
-}
-
-.c60 .c11 {
-  font-size: 1.25rem;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c12 {
+  color: inherit;
 }
 
 .c10 {
@@ -134,6 +103,10 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c10.c10 {
   display: block;
   height: auto;
@@ -141,66 +114,6 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
 }
 
 .h_inlineBlock.h_middleAlign .c10.c10 > .c11 {
-  display: block;
-}
-
-.c55 .c11 {
-  user-select: none;
-}
-
-.c55 .c11 {
-  color: inherit;
-}
-
-.c55 .c11 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c55.c55 > .c11 {
-  display: block;
-}
-
-.c56 .c11 {
-  user-select: none;
-}
-
-.c56 .c11 {
-  color: inherit;
-}
-
-.c56 .c11 {
-  font-size: inherit;
-}
-
-.c56.c56 .c11 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c56.c56 > .c11 {
-  display: block;
-}
-
-.c57 .c11 {
-  user-select: none;
-}
-
-.c57 .c11 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c57.c57 > .c11 {
-  display: block;
-}
-
-.c58 .c11 {
-  user-select: none;
-}
-
-.c58 .c11 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c58.c58 > .c11 {
   display: block;
 }
 
@@ -248,6 +161,10 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c22:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c22.c22 {
   display: block;
   height: auto;
@@ -256,6 +173,37 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
 
 .h_inlineBlock.h_middleAlign .c22.c22 > .c11 {
   display: block;
+}
+
+.c33 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c33:empty {
+  display: none;
+}
+
+.c33 * {
+  width: 1px;
+  height: 1px;
 }
 
 .c8 {
@@ -279,7 +227,7 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -308,7 +256,7 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -321,22 +269,6 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
 }
 
 .c6 .c9 {
-  border-radius: 0px;
-}
-
-.c51 .c9 {
-  border-radius: 0px;
-}
-
-.c52 .c9 {
-  border-radius: 0px;
-}
-
-.c53 .c9 {
-  border-radius: 0px;
-}
-
-.c54 .c9 {
   border-radius: 0px;
 }
 
@@ -355,20 +287,6 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
 
 .c0 * {
   max-width: 100%;
-}
-
-.c50 .c1 {
-  display: flex;
-  width: 100%;
-}
-
-.c50[class*="h_"] .c5 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c50[class*="h_"] .c32 {
-  color: rgb(169, 179, 188) !important;
 }
 
 .c4 {
@@ -437,7 +355,7 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -474,7 +392,7 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -541,7 +459,7 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c28:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -722,55 +640,6 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   justify-content: space-evenly;
 }
 
-.c59 .c38 {
-  background-color: rgb(89, 102, 115);
-  border: 2px solid transparent;
-  color: rgb(255, 255, 255);
-  height: 32px;
-  padding: 0px 32px 0px 8px;
-  box-shadow: none;
-  border-radius: 2px;
-}
-
-.c59 .c38:focus {
-  background-color: rgba(0, 0, 0, 0.2);
-  border: 2px solid rgb(255, 255, 255);
-}
-
-.c59 .c34 {
-  height: auto;
-}
-
-.c59 .c42::after {
-  content: "";
-  color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-  width: 32px;
-}
-
-.c59 .c36 {
-  background-color: transparent;
-  box-shadow: none;
-  outline-offset: unset;
-}
-
-.c59 .c36::before {
-  display: none;
-}
-
-.c59 .c36:focus-within {
-  outline: rgb(255, 255, 255) dotted 1px;
-}
-
-.c59 .c40 {
-  background-color: rgb(255, 255, 255);
-  color: rgb(77, 77, 77);
-}
-
-.c59 [data-role="year-selector"] .c5 {
-  height: 32px;
-}
-
 .c29 {
   align-items: center;
   display: flex;
@@ -786,7 +655,7 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(77, 77, 77);
   font-size: 0.75rem;
 }
@@ -1027,36 +896,6 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
 }
 
 @media (pointer: coarse) {
-  .c59 .c38:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 2px solid rgb(5, 104, 174);
-  }
-}
-
-@media (pointer: fine) {
-  .c59 .c38:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 2px solid rgb(255, 255, 255);
-  }
-}
-
-@media (pointer: coarse) {
-  .c59 .c40:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c59 .c40:hover {
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-  }
-}
-
-@media (pointer: coarse) {
   .c29 .c40:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
@@ -1068,26 +907,6 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
   .c29 .c40:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
-  }
-}
-
-@keyframes k1 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
-}
-
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
   }
 }
 
@@ -1127,6 +946,8 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   event
                 </span>
@@ -1207,6 +1028,8 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       close
                     </span>
@@ -1244,6 +1067,8 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             navigate_before
                           </span>
@@ -1432,6 +1257,8 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
                         >
                           <span
                             aria-hidden="true"
+                            class="notranslate"
+                            translate="no"
                           >
                             navigate_next
                           </span>
@@ -2212,25 +2039,6 @@ exports[`com.mgmtp.a12.widgets.date-input > Touch Device > render default date i
 `;
 
 exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder and label 1`] = `
-.c16 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 1px;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  width: 1px;
-  margin: -1px !important;
-}
-
-.c16 * {
-  width: 1px;
-  height: 1px;
-}
-
 .c7 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
@@ -2251,7 +2059,26 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   height: 1px;
 }
 
-.c15 {
+.c14 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c14 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c13 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -2271,31 +2098,19 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   font-feature-settings: "liga";
 }
 
-.c15 > span {
+.c13 > span {
   display: inline-block;
 }
 
-.c15.c15 {
+.c13.c13 {
   max-width: unset;
 }
 
-.c6 {
-  color: rgb(77, 77, 77);
-  display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.45;
-  text-transform: none;
-  margin: 0px 0px 4px;
-  align-self: center;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c13 {
+  color: inherit;
 }
 
-.c6:empty {
-  display: none;
-}
-
-.c13 {
+.c11 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -2319,19 +2134,19 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   width: 100%;
 }
 
-.c13 .c14 {
+.c11 .c12 {
   user-select: none;
 }
 
-.c13 .c14 {
+.c11 .c12 {
   color: inherit;
 }
 
-.c13 .c14 {
+.c11 .c12 {
   font-size: inherit;
 }
 
-.c13:not(:disabled):focus {
+.c11:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -2339,53 +2154,37 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c11.c11 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c13.c13 > .c14 {
+.h_inlineBlock.h_middleAlign .c11.c11 > .c12 {
   display: block;
 }
 
-.c22 .c14 {
-  user-select: none;
+.c6 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
 }
 
-.c22 .c14 {
-  color: inherit;
+.c6:empty {
+  display: none;
 }
 
-.c22 .c14 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c22.c22 > .c14 {
-  display: block;
-}
-
-.c23 .c14 {
-  user-select: none;
-}
-
-.c23 .c14 {
-  color: inherit;
-}
-
-.c23 .c14 {
-  font-size: inherit;
-}
-
-.c23.c23 .c14 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c23.c23 > .c14 {
-  display: block;
-}
-
-.c11 {
+.c9 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -2396,17 +2195,17 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   position: relative;
 }
 
-.c11:first-child {
+.c9:first-child {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
 }
 
-.c18 {
+.c16 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2424,18 +2223,18 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   width: 100%;
 }
 
-.c18::placeholder {
+.c16::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c9 {
+.c8 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -2447,15 +2246,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   height: 32px;
 }
 
-.c9 .c12 {
-  border-radius: 0px;
-}
-
-.c20 .c12 {
-  border-radius: 0px;
-}
-
-.c21 .c12 {
+.c8 .c10 {
   border-radius: 0px;
 }
 
@@ -2474,20 +2265,6 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
 
 .c0 * {
   max-width: 100%;
-}
-
-.c19 .c1 {
-  display: flex;
-  width: 100%;
-}
-
-.c19[class*="h_"] .c8 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c19[class*="h_"] .c5 {
-  color: rgb(169, 179, 188) !important;
 }
 
 .c4 {
@@ -2510,7 +2287,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   max-width: 100%;
 }
 
-.c17 {
+.c15 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -2521,22 +2298,8 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
   width: 0px;
 }
 
-.c26 .c10 > .c14 {
-  color: inherit;
-  cursor: default;
-}
-
-.c25 .c5 {
-  display: block;
-  margin: 0px 0px 4px;
-}
-
-.c24 [data-role="year-selector"] .c8 {
-  height: 32px;
-}
-
 @media (pointer: coarse) {
-  .c13:not(:disabled):active {
+  .c11:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -2546,7 +2309,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
 }
 
 @media (pointer: fine) {
-  .c13:not(:disabled):hover {
+  .c11:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -2555,41 +2318,21 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c11:hover {
     outline: transparent solid 1px;
   }
 }
 
 @media (pointer: coarse) {
-  .c9:active {
+  .c8:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c9:hover {
+  .c8:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@keyframes k1 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
-}
-
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
   }
 }
 
@@ -2619,17 +2362,17 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
         </span>
       </label>
       <div
-        class="c8 c9 field__input"
+        class="c8 field__input"
         data-role="text-field-input-wrapper"
       >
         <div
-          class="c10 c11 field__prefix field__prefix--last"
+          class="c9 field__prefix field__prefix--last"
           data-role="text-field-prefix-0"
         >
           <button
             aria-label="Select a date"
             aria-labelledby="test-date-input-input-label test-date-input-trigger-button-title"
-            class="c12 c13 button button--icon button--block"
+            class="c10 c11 button button--icon button--block"
             data-role="button"
             data-type="icon"
             id="test-date-input-trigger-button"
@@ -2637,17 +2380,19 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
             type="button"
           >
             <i
-              class="c14 c15 plasma-icon"
+              class="c12 c13 plasma-icon"
               data-role="plasma-icon"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 event
               </span>
             </i>
             <span
-              class="c16 -u-unseenButRead"
+              class="c14 -u-unseenButRead"
               data-role="hidden-text"
               id="test-date-input-trigger-button-title"
             >
@@ -2656,10 +2401,10 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
           </button>
         </div>
         <span
-          class="c17 supported-unseen-span"
+          class="c15 supported-unseen-span"
         />
         <input
-          class="c18 field__text"
+          class="c16 field__text"
           data-role="text-field-input"
           id="test-date-input-input"
           placeholder="test placeholder"
@@ -2667,7 +2412,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with placeholder a
           value=""
         />
         <span
-          class="c17 supported-unseen-span"
+          class="c15 supported-unseen-span"
         />
       </div>
     </div>
@@ -2802,7 +2547,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with some TextFiel
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2831,7 +2576,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render date input with some TextFiel
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -3052,6 +2797,10 @@ exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10 {
+  color: inherit;
+}
+
 .c8 {
   align-items: center;
   border: 2px solid transparent;
@@ -3096,6 +2845,10 @@ exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c8.c8 {
   display: block;
   height: auto;
@@ -3127,7 +2880,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -3156,7 +2909,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -3253,26 +3006,6 @@ exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
   }
 }
 
-@keyframes k1 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
-}
-
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 <div
   class="c0 field-wrapper field-wrapper--block "
   data-role="text-field"
@@ -3308,6 +3041,8 @@ exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 event
               </span>
@@ -3341,7 +3076,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render default date input 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
-.c13 {
+.c12 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -3355,12 +3090,12 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
   margin: -1px !important;
 }
 
-.c13 * {
+.c12 * {
   width: 1px;
   height: 1px;
 }
 
-.c12 {
+.c11 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -3380,47 +3115,19 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
   font-feature-settings: "liga";
 }
 
-.c12 > span {
+.c11 > span {
   display: inline-block;
 }
 
-.c12.c12 {
+.c11.c11 {
   max-width: unset;
 }
 
-.c18 .c11 {
-  user-select: none;
-}
-
-.c18 .c11 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
   color: inherit;
 }
 
-.c18 .c11 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c11 {
-  display: block;
-}
-
-.c19 .c11 {
-  user-select: none;
-}
-
-.c19 .c11 {
-  color: inherit;
-}
-
-.c19 .c11 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c11 {
-  display: block;
-}
-
-.c10 {
+.c9 {
   align-items: center;
   border: 2px solid transparent;
   display: inline-flex;
@@ -3445,33 +3152,40 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
   width: 100%;
 }
 
-.c10 .c11 {
+.c9 .c10 {
   user-select: none;
 }
 
-.c10 .c11 {
+.c9 .c10 {
   color: inherit;
 }
 
-.c10 .c11 {
+.c9 .c10 {
   font-size: inherit;
 }
 
-.c10.c10 .c11 {
+.c9.c9 .c10 {
   color: inherit;
 }
 
-.h_inlineBlock.h_middleAlign .c10.c10 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c9.c9) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c10.c10 > .c11 {
+.h_inlineBlock.h_middleAlign .c9.c9 > .c10 {
   display: block;
 }
 
-.c8 {
+.c7 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -3482,17 +3196,17 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
   position: relative;
 }
 
-.c8:first-child {
+.c7:first-child {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
 }
 
-.c15 {
+.c14 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -3510,21 +3224,17 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
   width: 100%;
 }
 
-.c15::placeholder {
+.c14::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
-}
-
-.c17 .c9 {
-  border-radius: 0px;
 }
 
 .c6 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   display: flex;
   font-family: "Open Sans", sans-serif;
@@ -3537,13 +3247,8 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
   color: rgb(169, 179, 188);
 }
 
-.c6 .c9 {
+.c6 .c8 {
   border-radius: 0px;
-}
-
-.c16 .c1 {
-  display: flex;
-  width: 100%;
 }
 
 .c0 {
@@ -3583,7 +3288,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
   max-width: 100%;
 }
 
-.c14 {
+.c13 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -3592,35 +3297,6 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
   padding: 0px;
   position: absolute;
   width: 0px;
-}
-
-.c21 .c7 > .c11 {
-  color: inherit;
-  cursor: default;
-}
-
-.c20 [data-role="year-selector"] .c5 {
-  height: 32px;
-}
-
-@keyframes k1 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
-}
-
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 <div
@@ -3640,13 +3316,13 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
         data-role="text-field-input-wrapper"
       >
         <div
-          class="c7 c8 field__prefix field__prefix--last"
+          class="c7 field__prefix field__prefix--last"
           data-role="text-field-prefix-0"
         >
           <button
             aria-label="Select a date"
             aria-labelledby="test-date-input-trigger-button-title"
-            class="c9 c10 button button--icon button--block"
+            class="c8 c9 button button--icon button--block"
             data-role="button"
             data-type="icon"
             disabled=""
@@ -3655,17 +3331,19 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
             type="button"
           >
             <i
-              class="c11 c12 plasma-icon"
+              class="c10 c11 plasma-icon"
               data-role="plasma-icon"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 event
               </span>
             </i>
             <span
-              class="c13 -u-unseenButRead"
+              class="c12 -u-unseenButRead"
               data-role="hidden-text"
               id="test-date-input-trigger-button-title"
             >
@@ -3674,10 +3352,10 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
           </button>
         </div>
         <span
-          class="c14 supported-unseen-span"
+          class="c13 supported-unseen-span"
         />
         <input
-          class="c15 field__text"
+          class="c14 field__text"
           data-role="text-field-input"
           disabled=""
           id="test-date-input-input"
@@ -3685,7 +3363,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
           value=""
         />
         <span
-          class="c14 supported-unseen-span"
+          class="c13 supported-unseen-span"
         />
       </div>
     </div>
@@ -3694,7 +3372,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render disabled date input 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
-.c13 {
+.c11 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -3708,12 +3386,12 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   margin: -1px !important;
 }
 
-.c13 * {
+.c11 * {
   width: 1px;
   height: 1px;
 }
 
-.c12 {
+.c10 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -3733,47 +3411,19 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   font-feature-settings: "liga";
 }
 
-.c12 > span {
+.c10 > span {
   display: inline-block;
 }
 
-.c12.c12 {
+.c10.c10 {
   max-width: unset;
 }
 
-.c19 .c11 {
-  user-select: none;
-}
-
-.c19 .c11 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10 {
   color: inherit;
 }
 
-.c19 .c11 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c19.c19 > .c11 {
-  display: block;
-}
-
-.c20 .c11 {
-  user-select: none;
-}
-
-.c20 .c11 {
-  color: inherit;
-}
-
-.c20 .c11 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c11 {
-  display: block;
-}
-
-.c10 {
+.c8 {
   align-items: center;
   border: 2px solid transparent;
   display: inline-flex;
@@ -3798,33 +3448,40 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   width: 100%;
 }
 
-.c10 .c11 {
+.c8 .c9 {
   user-select: none;
 }
 
-.c10 .c11 {
+.c8 .c9 {
   color: inherit;
 }
 
-.c10 .c11 {
+.c8 .c9 {
   font-size: inherit;
 }
 
-.c10.c10 .c11 {
+.c8.c8 .c9 {
   color: inherit;
 }
 
-.h_inlineBlock.h_middleAlign .c10.c10 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c8.c8) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c8.c8 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c10.c10 > .c11 {
+.h_inlineBlock.h_middleAlign .c8.c8 > .c9 {
   display: block;
 }
 
-.c8 {
+.c6 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -3835,17 +3492,17 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   position: relative;
 }
 
-.c8:first-child {
+.c6:first-child {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
 }
 
-.c15 {
+.c13 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -3863,25 +3520,17 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   width: 100%;
 }
 
-.c15::placeholder {
+.c13::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c17 .c9 {
-  border-radius: 0px;
-}
-
-.c18 .c9 {
-  border-radius: 0px;
-}
-
-.c6 {
+.c5 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3894,7 +3543,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   box-shadow: none;
 }
 
-.c6 .c9 {
+.c5 .c7 {
   border-radius: 0px;
 }
 
@@ -3915,16 +3564,6 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   max-width: 100%;
 }
 
-.c16 .c1 {
-  display: flex;
-  width: 100%;
-}
-
-.c16[class*="h_"] .c5 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c4 {
   box-sizing: border-box;
   flex-grow: 1;
@@ -3940,7 +3579,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   max-width: 100%;
 }
 
-.c14 {
+.c12 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -3949,35 +3588,6 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
   padding: 0px;
   position: absolute;
   width: 0px;
-}
-
-.c22 .c7 > .c11 {
-  color: inherit;
-  cursor: default;
-}
-
-.c21 [data-role="year-selector"] .c5 {
-  height: 32px;
-}
-
-@keyframes k1 {
-  0% {
-    transform: translate3d(0px, -3px, 0px);
-  }
-
-  100% {
-    transform: translateZ(0px);
-  }
-}
-
-@keyframes k0 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 <div
@@ -3992,18 +3602,18 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
       data-role="text-field-control"
     >
       <div
-        class="c5 c6 field__input field__input--readonly"
+        class="c5 field__input field__input--readonly"
         data-readonly="true"
         data-role="text-field-input-wrapper"
       >
         <div
-          class="c7 c8 field__prefix field__prefix--last"
+          class="c6 field__prefix field__prefix--last"
           data-role="text-field-prefix-0"
         >
           <button
             aria-label="Select a date"
             aria-labelledby="test-date-input-trigger-button-title"
-            class="c9 c10 button button--icon button--block"
+            class="c7 c8 button button--icon button--block"
             data-role="button"
             data-type="icon"
             disabled=""
@@ -4012,17 +3622,19 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
             type="button"
           >
             <i
-              class="c11 c12 plasma-icon"
+              class="c9 c10 plasma-icon"
               data-role="plasma-icon"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 event
               </span>
             </i>
             <span
-              class="c13 -u-unseenButRead"
+              class="c11 -u-unseenButRead"
               data-role="hidden-text"
               id="test-date-input-trigger-button-title"
             >
@@ -4031,10 +3643,10 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
           </button>
         </div>
         <span
-          class="c14 supported-unseen-span"
+          class="c12 supported-unseen-span"
         />
         <input
-          class="c15 field__text"
+          class="c13 field__text"
           data-role="text-field-input"
           id="test-date-input-input"
           readonly=""
@@ -4043,7 +3655,7 @@ exports[`com.mgmtp.a12.widgets.date-input > render readonly date input 1`] = `
           value=""
         />
         <span
-          class="c14 supported-unseen-span"
+          class="c12 supported-unseen-span"
         />
       </div>
     </div>

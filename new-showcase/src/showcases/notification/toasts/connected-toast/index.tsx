@@ -30,6 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import combinationCode from "!./combination.tsx?raw";
+
 import ConnectedToastAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/toast/main/connected-toast/connected-toast.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../../helpers/definitions.js";
@@ -37,9 +40,6 @@ import { StyledShowcaseLink } from "../../../../helpers/showcase-styles.js";
 
 import { Basic } from "./basic.js";
 import { Combination } from "./combination.js";
-
-import basicCode from "!./basic.tsx?raw";
-import combinationCode from "!./combination.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

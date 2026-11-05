@@ -30,9 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import pieChartWithCounterclockwiseRotationCode from "!./with-counterclockwise-rotation.tsx?raw";
+import pieChartWithCustomizedRotationCode from "!./with-customized-rotation.tsx?raw";
+import withLabelCode from "!./with-label.tsx?raw";
+import visibilityEntriesOfLegendCode from "!./with-visibility-entries.tsx?raw";
+
+import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
 import PieChartAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/chart/pie-chart/main/pie-chart.api.json" with { type: "json" };
 import PieChartTplAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/chart/pie-chart/main/tpl/pie-chart.tpl.api.json" with { type: "json" };
-import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Showcase } from "../../../helpers/definitions.js";
 import {
@@ -41,16 +47,10 @@ import {
 } from "../../../helpers/showcase-styles.js";
 
 import { BasicPieChart } from "./basic.js";
-import { PieChartWithLabelShowCase } from "./with-label.js";
-import { PieChartVisibilityEntriesOfLegendShowCase } from "./with-visibility-entries.js";
 import { PieChartWithCounterclockwiseRotation } from "./with-counterclockwise-rotation.js";
 import { PieChartWithCustomizedRotationShowCase } from "./with-customized-rotation.js";
-
-import basicCode from "!./basic.tsx?raw";
-import withLabelCode from "!./with-label.tsx?raw";
-import visibilityEntriesOfLegendCode from "!./with-visibility-entries.tsx?raw";
-import pieChartWithCounterclockwiseRotationCode from "!./with-counterclockwise-rotation.tsx?raw";
-import pieChartWithCustomizedRotationCode from "!./with-customized-rotation.tsx?raw";
+import { PieChartWithLabelShowCase } from "./with-label.js";
+import { PieChartVisibilityEntriesOfLegendShowCase } from "./with-visibility-entries.js";
 
 const showcases: Showcase[] = [
 	{

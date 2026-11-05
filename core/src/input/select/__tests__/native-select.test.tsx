@@ -34,7 +34,6 @@ import { getByDataRole, render, fireEvent } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { NativeSelect } from "../main/native-select.view.js";
 import type { NativeSelectProps } from "../main/select.api.js";
 
@@ -165,5 +164,36 @@ describe("com.mgmtp.a12.widgets.input.native.select", () => {
 		const selectInput = getByDataRole(DataRoles.Select.Input);
 
 		expect(selectInput.firstChild).toMatchSnapshot();
+	});
+
+	describe("aria-invalid", () => {
+		test("marks the input as invalid for error", () => {
+			const { getByDataRole } = render(<NativeSelect items={properties.items ?? []} label={properties.label} error />);
+
+			expect(getByDataRole(DataRoles.Select.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("marks the input as invalid for errorMessage", () => {
+			const { getByDataRole } = render(
+				<NativeSelect items={properties.items ?? []} label={properties.label} errorMessage={properties.errorMessage} />
+			);
+
+			expect(getByDataRole(DataRoles.Select.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("does not mark the input as invalid for a warning or an info", () => {
+			const { getByDataRole } = render(
+				<NativeSelect
+					items={properties.items ?? []}
+					label={properties.label}
+					warning
+					info
+					warningMessage={properties.warningMessage}
+					infoMessage={properties.infoMessage}
+				/>
+			);
+
+			expect(getByDataRole(DataRoles.Select.Input)).not.toHaveAttribute("aria-invalid");
+		});
 	});
 });

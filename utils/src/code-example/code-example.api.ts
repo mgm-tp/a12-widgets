@@ -32,9 +32,35 @@
 
 import { type Styleable } from "@com.mgmtp.a12.widgets/widgets-core";
 
+/**
+ * The license header at the very start of a snippet, together with the blank lines after it.
+ *
+ * Anchored at the start so only the header is stripped: block comments further down, such as the
+ * JSDoc explaining why an example is written the way it is, stay visible in the displayed code.
+ * The trailing part deliberately matches only spaces, tabs and line breaks rather than `\s*`,
+ * which would also swallow the indentation of the first line of code.
+ *
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. Copy this expression into your project if you need it.
+ */
+export const LICENSE_HEADER = /^\/\*[\s\S]*?\*\/(?:[\t ]*(?:\r?\n|\r))+/;
+
+/**
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. The code viewer exists to render the showcase's own snippets and has no
+ * counterpart in `widgets-core`. Render highlighted code with `react-syntax-highlighter` (or any other highlighter)
+ * directly, or copy this component's source out of the package.
+ */
 export type CodeModule = {
 	default: string;
 };
+
+/**
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. The code viewer exists to render the showcase's own snippets and has no
+ * counterpart in `widgets-core`. Render highlighted code with `react-syntax-highlighter` (or any other highlighter)
+ * directly, or copy this component's source out of the package.
+ */
 export type SourceCode = {
 	name?: string;
 	code: string | CodeModule;
@@ -42,6 +68,11 @@ export type SourceCode = {
 
 /**
  * The props of {@link CodeExample}.
+ *
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. The code viewer exists to render the showcase's own snippets and has no
+ * counterpart in `widgets-core`. Render highlighted code with `react-syntax-highlighter` (or any other highlighter)
+ * directly, or copy this component's source out of the package.
  */
 export interface CodeExampleProps extends Styleable {
 	/**
@@ -51,7 +82,10 @@ export interface CodeExampleProps extends Styleable {
 	code: CodeModule | SourceCode | SourceCode[];
 
 	/**
-	 * @default typescript
+	 * A language registered with the syntax highlighter. Only `jsx` and `tsx` are registered; anything else
+	 * renders unhighlighted.
+	 *
+	 * @default tsx
 	 */
 	language?: string;
 }

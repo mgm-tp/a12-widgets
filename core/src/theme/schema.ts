@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { BaseThemeComponents } from "./schema/components.api.js";
-import type { BaseThemeType } from "./schema/base-theme.js";
 import type { HoverFlatStyles } from "./flat/config/application/hover.config.js";
 import type { FlatColorsConfigType } from "./flat/config/base/colors.config.js";
+import type { BaseThemeType } from "./schema/base-theme.js";
+import type { BaseThemeComponents } from "./schema/components.api.js";
 
 export interface DefaultThemeType extends BaseThemeType, BaseThemeComponents {}
 export type CompactThemeType = DefaultThemeType;

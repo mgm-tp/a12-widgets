@@ -31,10 +31,11 @@
  */
 
 import type { ReactElement } from "react";
+import { useContext } from "react";
 
-import { joinClassNames } from "../../../../common/main/utils.js";
 import { DataRoles } from "../../../../common/main/data-roles.js";
-
+import { joinClassNames } from "../../../../common/main/utils.js";
+import { StyledContentBoxContext } from "../contentbox.context.js";
 import type { ContentBoxProps } from "../contentbox.tpl.api.js";
 import { StyledContentBoxTitleWrapper } from "../contentbox.tpl.styled.js";
 
@@ -52,6 +53,7 @@ export function TitleTpl({
 	htmlAttributes
 }: ContentBoxProps.TitleProps): ReactElement<ContentBoxProps.HeadingProps> {
 	const className = joinClassNames(`${baseClassName}__title`, classNameProp);
+	const { embedded } = useContext(StyledContentBoxContext);
 
 	return (
 		<StyledContentBoxTitleWrapper
@@ -61,6 +63,7 @@ export function TitleTpl({
 			role={role || undefined}
 			data-role={DataRoles.Contentbox.Title}
 			aria-level={ariaLevel}
+			$embedded={embedded}
 			{...htmlAttributes}
 		>
 			{text}

@@ -41,7 +41,6 @@ import {
 	setLocalStorage,
 	defaultProvider as DefaultDeviceDetector
 } from "../../helpers/utils.js";
-
 import { ThemeContext } from "../theme-selector.js";
 import type { InteractionHintSettingProps } from "../use-interaction-hint-settings.js";
 import type { KeyboardNavigationSettingProps } from "../use-keyboard-navigation-settings.js";

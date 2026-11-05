@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { ReactNode, ChangeEvent, KeyboardEvent, ReactElement } from "react";
 import { useState, useRef, useCallback, useEffect, Fragment } from "react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import {
 	Chat,
@@ -52,26 +52,43 @@ const meta: Meta<typeof Chat.Container> = {
 	title: "Business Case/Chat",
 	component: Chat.Container,
 	parameters: {
-		layout: "padded",
-		docs: {
-			description: {
-				component:
-					"Chat is a compound component for building chat UIs. Use Chat.Container as the scroll container, Chat.MessageGroup to group messages by user, Chat.Message for individual messages, and Chat.UserInfo / Chat.Avatar for user identity."
-			}
-		}
+		layout: "padded"
 	},
-	tags: ["autodocs"]
+	argTypes: {
+		scrollEndDetectingTime: {
+			control: { type: "number", min: 0, max: 2000 },
+			description: "Time in milliseconds without scroll events after which `onScrollEnd` fires"
+		},
+		onScroll: {
+			control: false,
+			description: "Scroll event handler for the chat container"
+		},
+		onScrollStart: {
+			control: false,
+			description: "Fired when the first scroll event of a scroll sequence occurs"
+		},
+		onScrollEnd: {
+			control: false,
+			description: "Fired after scrolling stops, debounced by `scrollEndDetectingTime`"
+		},
+		innerChatContainerRef: {
+			control: false,
+			description: "Ref callback for the inner chat container element"
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 type InteractiveStory = StoryObj<ChatStoryArgs>;
 
-export const Default: Story = {
-	name: "Basic Chat",
-	render: () => (
-		<div style={{ width: "400px", height: "200px", border: "1px solid #ccc" }}>
-			<Chat.Container>
+export const Playground: Story = {
+	args: {
+		scrollEndDetectingTime: 250
+	},
+	render: (args) => (
+		<div style={{ width: "100%", maxWidth: 400, height: "200px", border: "1px solid #ccc" }}>
+			<Chat.Container {...args}>
 				<Chat.MessageGroup
 					position="left"
 					userInfo={
@@ -103,15 +120,16 @@ export const Default: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Minimal chat showing left/right message groups with user info and avatar."
+				story:
+					"Minimal chat with left/right `Chat.MessageGroup`s inside an args-driven `Chat.Container`. Use the controls to tweak the container props."
 			}
 		}
 	}
 };
 
-export const BasicConversation: Story = {
+export const Conversation: Story = {
 	render: () => (
-		<div style={{ width: "400px", height: "500px", border: "1px solid #ccc" }}>
+		<div style={{ width: "100%", maxWidth: 400, height: "500px", border: "1px solid #ccc" }}>
 			<Chat.Container>
 				<Chat.DateMarker>Today</Chat.DateMarker>
 
@@ -169,7 +187,7 @@ export const BasicConversation: Story = {
 
 export const WithTypingIndicator: Story = {
 	render: () => (
-		<div style={{ width: "400px", height: "300px", border: "1px solid #ccc" }}>
+		<div style={{ width: "100%", maxWidth: 400, height: "300px", border: "1px solid #ccc" }}>
 			<Chat.Container>
 				<Chat.MessageGroup
 					position="left"
@@ -198,7 +216,7 @@ export const WithTypingIndicator: Story = {
 
 export const WithNotification: Story = {
 	render: () => (
-		<div style={{ width: "400px", height: "300px", border: "1px solid #ccc", position: "relative" }}>
+		<div style={{ width: "100%", maxWidth: 400, height: "300px", border: "1px solid #ccc", position: "relative" }}>
 			<Chat.Container>
 				<Chat.MessageGroup
 					position="right"
@@ -223,51 +241,15 @@ export const WithNotification: Story = {
 		docs: {
 			description: {
 				story:
-					"Chat.Notification is a fixed overlay button (e.g., 'scroll to new messages'). Use variant prop for info/success/warning/error styling."
+					"A longer conversation: consecutive messages from the same user share one `Chat.MessageGroup`, and the group `position` controls left/right alignment."
 			}
 		}
 	}
 };
 
-export const DateMarkersAndNotifications: Story = {
-	name: "Date Markers and Notifications",
+export const MessageStatus: Story = {
 	render: () => (
-		<div style={{ width: "400px", height: "380px", border: "1px solid #ccc" }}>
-			<Chat.Container>
-				<Chat.DateMarker>Yesterday</Chat.DateMarker>
-				<Chat.Notification variant="info">Alice has joined this space</Chat.Notification>
-
-				<Chat.MessageGroup position="left" userInfo={<Chat.UserInfo position="left" userName="Alice" />}>
-					<Chat.Message position="left">Good morning everyone!</Chat.Message>
-				</Chat.MessageGroup>
-
-				<Chat.Notification variant="warning">Bob has left this space</Chat.Notification>
-
-				<Chat.DateMarker>Today</Chat.DateMarker>
-				<Chat.Notification variant="success">Bob has rejoined this space</Chat.Notification>
-
-				<Chat.MessageGroup position="left" userInfo={<Chat.UserInfo position="left" userName="Bob" />}>
-					<Chat.Message position="left">Sorry I had to step away!</Chat.Message>
-				</Chat.MessageGroup>
-
-				<Chat.Notification variant="error">Connection interrupted</Chat.Notification>
-			</Chat.Container>
-		</div>
-	),
-	parameters: {
-		docs: {
-			description: {
-				story:
-					"Use Chat.DateMarker to visually separate days. Use Chat.Notification (without fixedToBottom) to insert event announcements inline in the message stream — supports info, success, warning, error variants."
-			}
-		}
-	}
-};
-
-export const MessageWithStatus: Story = {
-	name: "Message with Status",
-	render: () => (
-		<div style={{ width: "400px", height: "280px", border: "1px solid #ccc" }}>
+		<div style={{ width: "100%", maxWidth: 400, height: "280px", border: "1px solid #ccc" }}>
 			<Chat.Container>
 				<Chat.MessageGroup position="right" userInfo={<Chat.UserInfo position="right" userName="You" />}>
 					<Chat.Message position="right" status="10:30 am · Sent">
@@ -299,7 +281,102 @@ export const MessageWithStatus: Story = {
 		docs: {
 			description: {
 				story:
-					"Use the status prop on Chat.Message to display metadata below a message — such as a timestamp or delivery/read indicator. The status value can be a string or ReactNode."
+					"Use the `status` prop on `Chat.Message` to display metadata below a message — such as a timestamp or delivery/read indicator. The `status` value can be a string or any ReactNode."
+			}
+		}
+	}
+};
+
+export const TypingIndicator: Story = {
+	render: () => (
+		<div style={{ width: "100%", maxWidth: 400, height: "300px", border: "1px solid #ccc" }}>
+			<Chat.Container>
+				<Chat.MessageGroup
+					position="left"
+					userInfo={
+						<Chat.UserInfo
+							position="left"
+							userAvatar={<Chat.Avatar imageUrl="https://i.pravatar.cc/40?u=carol" alt="Carol" />}
+							userName="Carol"
+						/>
+					}
+				>
+					<Chat.Message position="left">Just a moment...</Chat.Message>
+				</Chat.MessageGroup>
+				<Chat.TypingMarker>Carol is typing...</Chat.TypingMarker>
+			</Chat.Container>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`Chat.TypingMarker` shows a typing indicator below the last message."
+			}
+		}
+	}
+};
+
+export const DateMarkersAndNotifications: Story = {
+	render: () => (
+		<div style={{ width: "100%", maxWidth: 400, height: "380px", border: "1px solid #ccc" }}>
+			<Chat.Container>
+				<Chat.DateMarker>Yesterday</Chat.DateMarker>
+				<Chat.Notification variant="info">Alice has joined this space</Chat.Notification>
+
+				<Chat.MessageGroup position="left" userInfo={<Chat.UserInfo position="left" userName="Alice" />}>
+					<Chat.Message position="left">Good morning everyone!</Chat.Message>
+				</Chat.MessageGroup>
+
+				<Chat.Notification variant="warning">Bob has left this space</Chat.Notification>
+
+				<Chat.DateMarker>Today</Chat.DateMarker>
+				<Chat.Notification variant="success">Bob has rejoined this space</Chat.Notification>
+
+				<Chat.MessageGroup position="left" userInfo={<Chat.UserInfo position="left" userName="Bob" />}>
+					<Chat.Message position="left">Sorry I had to step away!</Chat.Message>
+				</Chat.MessageGroup>
+
+				<Chat.Notification variant="error">Connection interrupted</Chat.Notification>
+			</Chat.Container>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Use `Chat.DateMarker` to visually separate days. Use `Chat.Notification` (without `fixedToBottom`) to insert event announcements inline in the message stream — supports the `info`, `success`, `warning` and `error` variants."
+			}
+		}
+	}
+};
+
+export const FixedNotification: Story = {
+	render: () => (
+		<div style={{ width: "100%", maxWidth: 400, height: "300px", border: "1px solid #ccc", position: "relative" }}>
+			<Chat.Container>
+				<Chat.MessageGroup
+					position="right"
+					userInfo={
+						<Chat.UserInfo
+							position="right"
+							userAvatar={<Chat.Avatar imageUrl="https://i.pravatar.cc/40?u=dave" alt="Dave" />}
+							userName="Dave"
+						/>
+					}
+				>
+					<Chat.Message position="right">Scroll up to see older messages</Chat.Message>
+				</Chat.MessageGroup>
+			</Chat.Container>
+			<Chat.Notification show variant="info" fixedToBottom onClick={() => {}}>
+				3 new messages
+			</Chat.Notification>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"With `fixedToBottom`, `Chat.Notification` becomes a clickable overlay button pinned to the bottom of the chat (e.g. 'scroll to new messages'). Use the `variant` prop for `info`/`success`/`warning`/`error` styling and `show` to toggle visibility."
 			}
 		}
 	}
@@ -469,7 +546,7 @@ function AddingMultipleMessagesChat({ numberOfMessages = 3 }: { numberOfMessages
 
 	return (
 		<ActionContentbox
-			style={{ height: 500, width: 400 }}
+			style={{ height: 500, width: "100%", maxWidth: 400 }}
 			className="-u-flex"
 			headingElements={<ContentBoxElements.Title key="title" text="Chat with expandable input" />}
 			padding={false}
@@ -639,7 +716,7 @@ function AddMessageAndNotificationChat(): ReactElement {
 
 	return (
 		<ActionContentbox
-			style={{ height: 500, width: 400 }}
+			style={{ height: 500, width: "100%", maxWidth: 400 }}
 			className="-u-flex"
 			headingElements={<ContentBoxElements.Title key="title" text="Chat with expandable input" />}
 			padding={false}
@@ -758,7 +835,7 @@ function MessageAndFixedToBottomNotificationChat(): ReactElement {
 
 	return (
 		<ActionContentbox
-			style={{ height: 500, width: 400 }}
+			style={{ height: 500, width: "100%", maxWidth: 400 }}
 			className="-u-flex"
 			headingElements={<ContentBoxElements.Title key="title" text="Chat with fixedToBottom notification" />}
 			padding={false}
@@ -784,6 +861,7 @@ function MessageAndFixedToBottomNotificationChat(): ReactElement {
 						/>
 					</div>
 					<Checkbox
+						id="chat-show-notification"
 						label="Show notification after message"
 						checked={showNotification}
 						onChange={() => setShowNotification((prev) => !prev)}

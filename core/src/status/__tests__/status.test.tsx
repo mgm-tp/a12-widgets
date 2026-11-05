@@ -34,7 +34,6 @@ import { render } from "test-utils";
 import { describe, expect, test } from "vitest";
 
 import { Icon } from "../../icon/main/icon.view.js";
-
 import { Status } from "../main/status.view.js";
 
 describe("com.mgmtp.a12.widgets.status", () => {

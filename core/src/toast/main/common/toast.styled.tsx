@@ -33,9 +33,9 @@
 import { styled, css } from "styled-components";
 
 import { Button } from "../../../button/main/button.view.js";
+import { addPrefix } from "../../../common/main/utils.js";
 import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import type { DefaultThemeType } from "../../../theme/schema.js";
-import { addPrefix } from "../../../common/main/utils.js";
 
 import type { Variant } from "./toast.common.api.js";
 
@@ -54,18 +54,20 @@ export const StyledToastWrapper = styled.div.withConfig({ displayName: "StyledTo
 		display: inline-flex;
 		outline: none;
 
-		${shouldHideToastWhenAdding &&
-		css`
-			&&& {
-				opacity: 0;
-				visibility: hidden;
-			}
-			&:nth-last-child(2):not(.${baseClassName}-exit) {
-				transition:
-					visibility 0s linear ${hideDuration},
-					opacity ${hideDuration};
-			}
-		`}
+		${
+			shouldHideToastWhenAdding &&
+			css`
+				&&& {
+					opacity: 0;
+					visibility: hidden;
+				}
+				&:nth-last-child(2):not(.${baseClassName}-exit) {
+					transition:
+						visibility 0s linear ${hideDuration},
+						opacity ${hideDuration};
+				}
+			`
+		}
 	`;
 });
 
@@ -119,6 +121,11 @@ export const StyledToastHeader = styled.div.withConfig({ displayName: "StyledToa
 	display: flex;
 `;
 
+export const StyledToastBodyContent = styled.div.withConfig({ displayName: "StyledToastRow-sc-" })`
+	box-sizing: border-box;
+	display: flex;
+`;
+
 export const StyledToastTitle = styled.div.withConfig({ displayName: "StyledToastTitle-sc-" })(({ theme }) => {
 	const { title } = theme.components.toast;
 
@@ -156,13 +163,22 @@ export const StyledToastButton = styled(Button).withConfig({ displayName: "Style
 	`;
 });
 
-export const StyledToastContent = styled.div.withConfig({ displayName: "StyledToastContent-sc-" })(({ theme }) => {
+export const StyledToastContent = styled.div.withConfig({ displayName: "StyledToastContent-sc-" })<{
+	$noToastHeader?: boolean;
+}>(({ theme, $noToastHeader }) => {
 	const { content } = theme.components.toast;
 
 	return css`
 		box-sizing: border-box;
 		flex: 0 1 auto;
 		padding: ${content.padding};
+
+		${
+			$noToastHeader &&
+			css`
+				padding: ${content.noHeader?.padding};
+			`
+		}
 	`;
 });
 

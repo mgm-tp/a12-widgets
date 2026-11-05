@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode, FocusEvent } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ReactNode, FocusEvent } from "react";
 import { useState, useCallback, useRef, useEffect } from "react";
 
 import {
@@ -58,8 +58,7 @@ const meta: Meta<typeof DateTimePicker> = {
 	component: DateTimePicker,
 	parameters: {
 		layout: "centered"
-	},
-	tags: ["autodocs"]
+	}
 };
 
 export default meta;
@@ -76,7 +75,7 @@ export const Default: Story = {
 		}, []);
 
 		return (
-			<div style={{ width: "360px" }}>
+			<div style={{ width: "min(360px, calc(100vw - 32px))" }}>
 				<DateTimePickerInputComponent
 					inputLabel="Date & Time"
 					dateTimeInputFormat="MM/DD/YYYY h:mm A"
@@ -113,7 +112,7 @@ export const Basic: Story = {
 			}, [acceptedDatetime, value]);
 
 			return (
-				<div style={{ width: 360 }}>
+				<div style={{ width: "min(360px, calc(100vw - 32px))" }}>
 					<DateTimePickerInputComponent
 						inputLabel="Date & Time Picker"
 						placeholder="MM/DD/YYYY h:mm A"
@@ -149,7 +148,7 @@ export const With24hMode: Story = {
 		const [acceptedDate, setAcceptedDate] = useState<Date | undefined>();
 
 		return (
-			<div style={{ width: "360px" }}>
+			<div style={{ width: "min(360px, calc(100vw - 32px))" }}>
 				<DateTimePickerInputComponent
 					inputLabel="Date & Time (24h)"
 					dateTimeInputFormat="MM/DD/YYYY H:mm"
@@ -174,7 +173,7 @@ export const WithYearSelectorAutocomplete: Story = {
 		const [acceptedDate, setAcceptedDate] = useState<Date | undefined>();
 
 		return (
-			<div style={{ width: "360px" }}>
+			<div style={{ width: "min(360px, calc(100vw - 32px))" }}>
 				<DateTimePickerInputComponent
 					inputLabel="Date & Time"
 					dateTimeInputFormat="MM/DD/YYYY h:mm A"
@@ -197,7 +196,7 @@ export const WithYearSelectorAutocomplete: Story = {
 
 export const Disabled: Story = {
 	render: () => (
-		<div style={{ width: 360 }}>
+		<div style={{ width: "min(360px, calc(100vw - 32px))" }}>
 			<DateTimePickerInputComponent
 				inputLabel="Disabled Date & Time Picker"
 				placeholder="MM/DD/YYYY h:mm A"
@@ -210,7 +209,7 @@ export const Disabled: Story = {
 
 export const Readonly: Story = {
 	render: () => (
-		<div style={{ width: "360px" }}>
+		<div style={{ width: "min(360px, calc(100vw - 32px))" }}>
 			<DateTimePickerInputComponent
 				inputLabel="Date & Time"
 				readonly

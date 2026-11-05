@@ -33,13 +33,14 @@
 import type { ReactElement } from "react";
 import { Children, useContext, isValidElement, cloneElement } from "react";
 
-import { Icon } from "../../icon/main/icon.view.js";
-import { joinClassNames, addPrefix } from "../../common/main/utils.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { DataRoles } from "../../common/index.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { DataRoles } from "../../common/index.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { joinClassNames, addPrefix } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 
+import type { BreadcrumbProps } from "./breadcrumb.api.js";
 import {
 	StyledBreadcrumb,
 	StyledBreadcrumbContent,
@@ -47,7 +48,6 @@ import {
 	StyledBreadcrumbItem,
 	StyledBreadCrumbWrapper
 } from "./breadcrumb.styled.js";
-import type { BreadcrumbProps } from "./breadcrumb.api.js";
 
 const baseClassName = addPrefix("breadcrumb");
 

@@ -12,7 +12,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > mobile > render desktop tooltip on mobi
   max-height: inherit;
 }
 
-.c3 {
+.c2 {
   max-height: 100%;
   width: 100%;
   overflow: hidden auto;
@@ -28,89 +28,9 @@ exports[`com.mgmtp.a12.widgets.tooltip > mobile > render desktop tooltip on mobi
   word-break: break-word;
 }
 
-.c3 ul,
-.c3 ol {
+.c2 ul,
+.c2 ol {
   margin: 0px;
-}
-
-.c4 .c2,
-.c4::after {
-  border-color: rgb(201, 29, 29);
-  background-color: rgb(252, 233, 233);
-}
-
-.c4 .c2 {
-  color: rgb(201, 29, 29);
-}
-
-.c5 .c2,
-.c5::after {
-  border-color: rgb(201, 29, 29);
-  background-color: rgb(252, 233, 233);
-}
-
-.c5 .c2 {
-  color: rgb(201, 29, 29);
-}
-
-.c6 .c2,
-.c6::after {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c6 .c2 {
-  color: rgb(77, 77, 77);
-}
-
-.c7 .c2,
-.c7::after {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c7 .c2 {
-  color: rgb(77, 77, 77);
-}
-
-.c8 .c2,
-.c8::after {
-  border-color: rgb(41, 122, 36);
-  background-color: rgb(255, 255, 255);
-}
-
-.c8 .c2 {
-  color: rgb(77, 77, 77);
-}
-
-.c9 .c2,
-.c9::after {
-  border-color: rgb(41, 122, 36);
-  background-color: rgb(255, 255, 255);
-}
-
-.c9 .c2 {
-  color: rgb(77, 77, 77);
-}
-
-.c10 .c2,
-.c10::after {
-  border-color: rgb(249, 191, 48);
-  background-color: rgb(254, 242, 218);
-}
-
-.c10 .c2 {
-  color: rgb(22, 25, 29);
-}
-
-.c11 .c2,
-.c11::after {
-  border-color: rgb(249, 191, 48);
-  background-color: rgb(254, 242, 218);
-}
-
-.c11 .c2 {
-  color: rgb(22, 25, 29);
 }
 
 .c1 {
@@ -130,7 +50,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > mobile > render desktop tooltip on mobi
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(181, 76, 23) currentcolor currentcolor rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -155,7 +75,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > mobile > render desktop tooltip on mobi
     data-role="tooltip"
   >
     <div
-      class="c2 c3 tooltip__content"
+      class="c2 tooltip__content"
       data-role="tooltip-content"
       role="tooltip"
       tabindex="-1"
@@ -202,7 +122,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render basic tooltip 1`] = `
   max-width: unset;
 }
 
-.c0 .c4 {
+:where(.c0) .c4 {
   color: inherit;
 }
 
@@ -258,15 +178,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render basic tooltip 1`] = `
   width: fit-content;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
 .c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+:where(.c0) .c2:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -340,6 +256,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render basic tooltip 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         warning
       </span>
@@ -417,7 +335,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render basic tooltip 2`] = `
   border-width: medium medium 1px 1px;
   border-style: none none solid solid;
   border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -495,13 +413,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render dark tooltip 1`] = `
   max-width: unset;
 }
 
-.c0 .c4 {
+:where(.c0) .c4 {
   color: inherit;
-}
-
-.c5.c5.c5,
-.c0 .c5.c5.c5 {
-  font-size: 1.5rem;
 }
 
 .c2 {
@@ -556,15 +469,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render dark tooltip 1`] = `
   width: fit-content;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
 .c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+:where(.c0) .c2:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -638,6 +547,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render dark tooltip 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         warning
       </span>
@@ -682,13 +593,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render disabled tooltip 1`] = `
   max-width: unset;
 }
 
-.c0 .c4 {
+:where(.c0) .c4 {
   color: inherit;
-}
-
-.c5.c5.c5,
-.c0 .c5.c5.c5 {
-  font-size: 1.5rem;
 }
 
 .c2 {
@@ -743,15 +649,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render disabled tooltip 1`] = `
   width: fit-content;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
 .c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+:where(.c0) .c2:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -825,6 +727,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render disabled tooltip 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         warning
       </span>
@@ -834,7 +738,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render disabled tooltip 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.tooltip > render error tooltip 1`] = `
-.c7 {
+.c6 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -848,7 +752,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render error tooltip 1`] = `
   margin: -1px !important;
 }
 
-.c7 * {
+.c6 * {
   width: 1px;
   height: 1px;
 }
@@ -860,11 +764,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render error tooltip 1`] = `
   color: rgb(201, 29, 29);
 }
 
-.c0 .c9 {
-  color: inherit;
-}
-
-.c5 {
+.c4 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -884,61 +784,20 @@ exports[`com.mgmtp.a12.widgets.tooltip > render error tooltip 1`] = `
   font-feature-settings: "liga";
 }
 
-.c5 > span {
+.c4 > span {
   display: inline-block;
 }
 
-.c5.c5 {
+.c4.c4 {
   max-width: unset;
 }
 
-.c0 .c5 {
+:where(.c0) .c4 {
   color: inherit;
 }
 
-.c10.c10.c10,
-.c0 .c10.c10.c10 {
-  font-size: 1.5rem;
-}
-
-.c6.c6 {
+.c5.c5 {
   color: rgb(201, 29, 29);
-}
-
-.c8 .c3 {
-  user-select: none;
-}
-
-.c8 .c3 {
-  color: inherit;
-}
-
-.c8 .c3 {
-  font-size: inherit;
-}
-
-.c0 .c8.c8 {
-  font-size: 1.25rem;
-  height: fit-content;
-  min-height: 0px;
-  padding: 0px;
-  width: fit-content;
-}
-
-.c0 .c8.c8:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c8.c8:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
-  color: inherit;
-}
-
-.c0 .c8.c8:focus .c3 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c3 {
-  display: block;
 }
 
 .c2 {
@@ -993,15 +852,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render error tooltip 1`] = `
   width: fit-content;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
-  color: inherit;
-}
-
 .c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+:where(.c0) .c2:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -1013,22 +868,6 @@ exports[`com.mgmtp.a12.widgets.tooltip > render error tooltip 1`] = `
 
 .h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
   display: block;
-}
-
-@media (pointer: coarse) {
-  .c0 .c8.c8:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c0 .c8.c8:active .c3 {
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c0 .c8.c8:hover .c3 {
-    color: inherit;
-  }
 }
 
 @media (pointer: coarse) {
@@ -1086,16 +925,18 @@ exports[`com.mgmtp.a12.widgets.tooltip > render error tooltip 1`] = `
     type="button"
   >
     <i
-      class="c3 c4 c5 c6 plasma-icon plasma-icon--error plasma-icon--custom"
+      class="c3 c4 c5 plasma-icon plasma-icon--error plasma-icon--custom"
       data-role="plasma-icon"
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         
       </span>
       <span
-        class="c7 -u-unseenButRead"
+        class="c6 -u-unseenButRead"
         data-role="hidden-text"
       >
         Error: Tooltip
@@ -1184,7 +1025,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render error tooltip 2`] = `
   border-width: medium medium 1px 1px;
   border-style: none none solid solid;
   border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -1291,17 +1132,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render hint tooltip 1`] = `
   max-width: unset;
 }
 
-.c0 .c4 {
+:where(.c0) .c4 {
   color: inherit;
-}
-
-.c0 .c7 {
-  color: inherit;
-}
-
-.c8.c8.c8,
-.c0 .c8.c8.c8 {
-  font-size: 1.5rem;
 }
 
 .c2 {
@@ -1356,15 +1188,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render hint tooltip 1`] = `
   width: fit-content;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.c9) {
-  color: inherit;
-}
-
 .c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+:where(.c0) .c2:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -1375,38 +1203,6 @@ exports[`com.mgmtp.a12.widgets.tooltip > render hint tooltip 1`] = `
 }
 
 .h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
-  display: block;
-}
-
-.c6 .c3 {
-  user-select: none;
-}
-
-.c6 .c3 {
-  font-size: inherit;
-}
-
-.c0 .c6.c6 {
-  font-size: 1.25rem;
-  height: fit-content;
-  min-height: 0px;
-  padding: 0px;
-  width: fit-content;
-}
-
-.c0 .c6.c6:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c6.c6:not(:active):not(:hover):not(:focus) .c3:not(.c9) {
-  color: inherit;
-}
-
-.c0 .c6.c6:focus .c3 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c6.c6 > .c3 {
   display: block;
 }
 
@@ -1451,22 +1247,6 @@ exports[`com.mgmtp.a12.widgets.tooltip > render hint tooltip 1`] = `
   }
 }
 
-@media (pointer: coarse) {
-  .c0 .c6.c6:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c0 .c6.c6:active .c3 {
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c0 .c6.c6:hover .c3 {
-    color: inherit;
-  }
-}
-
 <span
   class="c0 c1 tooltip tooltip--hint"
   data-role="tooltip-hint"
@@ -1486,6 +1266,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render hint tooltip 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -1554,31 +1336,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render hint tooltip 2`] = `
 
 .c5 .c2,
 .c5::after {
-  border-color: rgb(201, 29, 29);
-  background-color: rgb(252, 233, 233);
-}
-
-.c5 .c2 {
-  color: rgb(201, 29, 29);
-}
-
-.c6 .c2,
-.c6::after {
-  border-color: rgb(201, 29, 29);
-  background-color: rgb(252, 233, 233);
-}
-
-.c6 .c2 {
-  color: rgb(201, 29, 29);
-}
-
-.c7 .c2,
-.c7::after {
   border-color: rgb(5, 104, 174);
   background-color: rgb(255, 255, 255);
 }
 
-.c7 .c2 {
+.c5 .c2 {
   color: rgb(77, 77, 77);
 }
 
@@ -1599,7 +1361,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render hint tooltip 2`] = `
   border-width: medium medium 1px 1px;
   border-style: none none solid solid;
   border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -1652,7 +1414,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render hint tooltip 2`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 1`] = `
-.c7 {
+.c6 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -1666,7 +1428,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 1`] = `
   margin: -1px !important;
 }
 
-.c7 * {
+.c6 * {
   width: 1px;
   height: 1px;
 }
@@ -1678,7 +1440,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 1`] = `
   color: rgb(41, 122, 36);
 }
 
-.c5 {
+.c4 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -1698,65 +1460,20 @@ exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 1`] = `
   font-feature-settings: "liga";
 }
 
-.c5 > span {
+.c4 > span {
   display: inline-block;
 }
 
-.c5.c5 {
+.c4.c4 {
   max-width: unset;
 }
 
-.c0 .c5 {
+:where(.c0) .c4 {
   color: inherit;
 }
 
-.c0 .c9 {
-  color: inherit;
-}
-
-.c10.c10.c10,
-.c0 .c10.c10.c10 {
-  font-size: 1.5rem;
-}
-
-.c6.c6 {
+.c5.c5 {
   color: rgb(41, 122, 36);
-}
-
-.c8 .c3 {
-  user-select: none;
-}
-
-.c8 .c3 {
-  color: inherit;
-}
-
-.c8 .c3 {
-  font-size: inherit;
-}
-
-.c0 .c8.c8 {
-  font-size: 1.25rem;
-  height: fit-content;
-  min-height: 0px;
-  padding: 0px;
-  width: fit-content;
-}
-
-.c0 .c8.c8:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c8.c8:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
-  color: inherit;
-}
-
-.c0 .c8.c8:focus .c3 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c3 {
-  display: block;
 }
 
 .c2 {
@@ -1811,15 +1528,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 1`] = `
   width: fit-content;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
-  color: inherit;
-}
-
 .c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+:where(.c0) .c2:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -1831,22 +1544,6 @@ exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 1`] = `
 
 .h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
   display: block;
-}
-
-@media (pointer: coarse) {
-  .c0 .c8.c8:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c0 .c8.c8:active .c3 {
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c0 .c8.c8:hover .c3 {
-    color: inherit;
-  }
 }
 
 @media (pointer: coarse) {
@@ -1904,16 +1601,18 @@ exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 1`] = `
     type="button"
   >
     <i
-      class="c3 c4 c5 c6 plasma-icon plasma-icon--success"
+      class="c3 c4 c5 plasma-icon plasma-icon--success"
       data-role="plasma-icon"
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         check_circle
       </span>
       <span
-        class="c7 -u-unseenButRead"
+        class="c6 -u-unseenButRead"
         data-role="hidden-text"
       >
         Success: Tooltip
@@ -1977,51 +1676,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 2`] = `
 
 .c5 .c2,
 .c5::after {
-  border-color: rgb(201, 29, 29);
-  background-color: rgb(252, 233, 233);
-}
-
-.c5 .c2 {
-  color: rgb(201, 29, 29);
-}
-
-.c6 .c2,
-.c6::after {
-  border-color: rgb(201, 29, 29);
-  background-color: rgb(252, 233, 233);
-}
-
-.c6 .c2 {
-  color: rgb(201, 29, 29);
-}
-
-.c7 .c2,
-.c7::after {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c7 .c2 {
-  color: rgb(77, 77, 77);
-}
-
-.c8 .c2,
-.c8::after {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c8 .c2 {
-  color: rgb(77, 77, 77);
-}
-
-.c9 .c2,
-.c9::after {
   border-color: rgb(41, 122, 36);
   background-color: rgb(255, 255, 255);
 }
 
-.c9 .c2 {
+.c5 .c2 {
   color: rgb(77, 77, 77);
 }
 
@@ -2042,7 +1701,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render success tooltip 2`] = `
   border-width: medium medium 1px 1px;
   border-style: none none solid solid;
   border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -2130,7 +1789,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with big icon 1`] = `
   max-width: unset;
 }
 
-.c0 .c4 {
+:where(.c0) .c4 {
   color: inherit;
 }
 
@@ -2191,15 +1850,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with big icon 1`] = `
   width: fit-content;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
 .c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+:where(.c0) .c2:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -2273,6 +1928,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with big icon 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         warning
       </span>
@@ -2350,7 +2007,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with big icon 2`] = `
   border-width: medium medium 1px 1px;
   border-style: none none solid solid;
   border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -2428,17 +2085,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with wrapper which has t
   max-width: unset;
 }
 
-.c0 .c4 {
+:where(.c0) .c4 {
   color: inherit;
-}
-
-.c0 .c6 {
-  color: inherit;
-}
-
-.c7.c7.c7,
-.c0 .c7.c7.c7 {
-  font-size: 1.5rem;
 }
 
 .c2 {
@@ -2493,15 +2141,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with wrapper which has t
   width: fit-content;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.c8) {
-  color: inherit;
-}
-
 .c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+:where(.c0) .c2:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -2512,38 +2156,6 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with wrapper which has t
 }
 
 .h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
-  display: block;
-}
-
-.c5 .c3 {
-  user-select: none;
-}
-
-.c5 .c3 {
-  font-size: inherit;
-}
-
-.c0 .c5.c5 {
-  font-size: 1.25rem;
-  height: fit-content;
-  min-height: 0px;
-  padding: 0px;
-  width: fit-content;
-}
-
-.c0 .c5.c5:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c5.c5:not(:active):not(:hover):not(:focus) .c3:not(.c8) {
-  color: inherit;
-}
-
-.c0 .c5.c5:focus .c3 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c5.c5 > .c3 {
   display: block;
 }
 
@@ -2588,22 +2200,6 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with wrapper which has t
   }
 }
 
-@media (pointer: coarse) {
-  .c0 .c5.c5:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c0 .c5.c5:active .c3 {
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c0 .c5.c5:hover .c3 {
-    color: inherit;
-  }
-}
-
 <div
   title="parent title"
 >
@@ -2626,6 +2222,8 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with wrapper which has t
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           warning
         </span>
@@ -2636,7 +2234,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render tooltip with wrapper which has t
 `;
 
 exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 1`] = `
-.c7 {
+.c6 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -2650,7 +2248,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 1`] = `
   margin: -1px !important;
 }
 
-.c7 * {
+.c6 * {
   width: 1px;
   height: 1px;
 }
@@ -2662,7 +2260,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 1`] = `
   color: rgb(249, 191, 48);
 }
 
-.c5 {
+.c4 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -2682,65 +2280,20 @@ exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 1`] = `
   font-feature-settings: "liga";
 }
 
-.c5 > span {
+.c4 > span {
   display: inline-block;
 }
 
-.c5.c5 {
+.c4.c4 {
   max-width: unset;
 }
 
-.c0 .c5 {
+:where(.c0) .c4 {
   color: inherit;
 }
 
-.c0 .c9 {
-  color: inherit;
-}
-
-.c10.c10.c10,
-.c0 .c10.c10.c10 {
-  font-size: 1.5rem;
-}
-
-.c6.c6 {
+.c5.c5 {
   color: rgb(175, 121, 2);
-}
-
-.c8 .c3 {
-  user-select: none;
-}
-
-.c8 .c3 {
-  color: inherit;
-}
-
-.c8 .c3 {
-  font-size: inherit;
-}
-
-.c0 .c8.c8 {
-  font-size: 1.25rem;
-  height: fit-content;
-  min-height: 0px;
-  padding: 0px;
-  width: fit-content;
-}
-
-.c0 .c8.c8:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c8.c8:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
-  color: inherit;
-}
-
-.c0 .c8.c8:focus .c3 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c8.c8 > .c3 {
-  display: block;
 }
 
 .c2 {
@@ -2795,15 +2348,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 1`] = `
   width: fit-content;
 }
 
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c0 .c2.c2:not(:active):not(:hover):not(:focus) .c3:not(.c4) {
-  color: inherit;
-}
-
 .c0 .c2.c2:focus .c3 {
+  color: inherit;
+}
+
+:where(.c0) .c2:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -2815,22 +2364,6 @@ exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 1`] = `
 
 .h_inlineBlock.h_middleAlign .c2.c2 > .c3 {
   display: block;
-}
-
-@media (pointer: coarse) {
-  .c0 .c8.c8:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c0 .c8.c8:active .c3 {
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c0 .c8.c8:hover .c3 {
-    color: inherit;
-  }
 }
 
 @media (pointer: coarse) {
@@ -2888,16 +2421,18 @@ exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 1`] = `
     type="button"
   >
     <i
-      class="c3 c4 c5 c6 plasma-icon plasma-icon--warning"
+      class="c3 c4 c5 plasma-icon plasma-icon--warning"
       data-role="plasma-icon"
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         warning
       </span>
       <span
-        class="c7 -u-unseenButRead"
+        class="c6 -u-unseenButRead"
         data-role="hidden-text"
       >
         Warning: Tooltip
@@ -2961,71 +2496,11 @@ exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 2`] = `
 
 .c5 .c2,
 .c5::after {
-  border-color: rgb(201, 29, 29);
-  background-color: rgb(252, 233, 233);
-}
-
-.c5 .c2 {
-  color: rgb(201, 29, 29);
-}
-
-.c6 .c2,
-.c6::after {
-  border-color: rgb(201, 29, 29);
-  background-color: rgb(252, 233, 233);
-}
-
-.c6 .c2 {
-  color: rgb(201, 29, 29);
-}
-
-.c7 .c2,
-.c7::after {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c7 .c2 {
-  color: rgb(77, 77, 77);
-}
-
-.c8 .c2,
-.c8::after {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c8 .c2 {
-  color: rgb(77, 77, 77);
-}
-
-.c9 .c2,
-.c9::after {
-  border-color: rgb(41, 122, 36);
-  background-color: rgb(255, 255, 255);
-}
-
-.c9 .c2 {
-  color: rgb(77, 77, 77);
-}
-
-.c10 .c2,
-.c10::after {
-  border-color: rgb(41, 122, 36);
-  background-color: rgb(255, 255, 255);
-}
-
-.c10 .c2 {
-  color: rgb(77, 77, 77);
-}
-
-.c11 .c2,
-.c11::after {
   border-color: rgb(249, 191, 48);
   background-color: rgb(254, 242, 218);
 }
 
-.c11 .c2 {
+.c5 .c2 {
   color: rgb(22, 25, 29);
 }
 
@@ -3046,7 +2521,7 @@ exports[`com.mgmtp.a12.widgets.tooltip > render warning tooltip 2`] = `
   border-width: medium medium 1px 1px;
   border-style: none none solid solid;
   border-color: currentcolor currentcolor rgb(181, 76, 23) rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;

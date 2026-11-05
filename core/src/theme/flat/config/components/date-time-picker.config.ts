@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FlatThemeType } from "../../../schema.js";
 import { commonButtonConfigs } from "../../../default/config/components/button.config.js";
+import type { FlatThemeType } from "../../../schema.js";
 
 export const dateTimePickerFlatConfig = (theme: FlatThemeType) => {
 	const { colors, focusStyles } = theme;

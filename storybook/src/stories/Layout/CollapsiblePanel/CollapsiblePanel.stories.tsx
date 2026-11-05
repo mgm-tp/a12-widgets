@@ -51,6 +51,34 @@ const meta: Meta<typeof CollapsiblePanel> = {
 		title: {
 			control: "text",
 			description: "Title of the panel"
+		},
+		info: {
+			control: "text",
+			description: "Additional information that will be printed next to the title"
+		},
+		addons: {
+			control: false,
+			description: "Additional content that will be placed at the end of the title"
+		},
+		swapAddonsPosition: {
+			control: "boolean",
+			description: "Whether the position of addons will be swapped with the collapse icon"
+		},
+		ariaLevel: {
+			control: { type: "number", min: 1, max: 6 },
+			description: "Aria level of the title"
+		},
+		role: {
+			control: "text",
+			description: "Value of the role attribute of the panel header, in order to support accessibility"
+		},
+		onClick: {
+			control: false,
+			description: "Called when the panel header is clicked or Enter is pressed on it"
+		},
+		children: {
+			control: false,
+			description: "Panel content — the panel is expanded while children are rendered and collapsed otherwise"
 		}
 	}
 };
@@ -66,38 +94,35 @@ const sampleContent = (
 	</div>
 );
 
-export const Default: Story = {
-	render: () => (
-		<CollapsiblePanel title="Panel Title" onClick={() => {}}>
-			{sampleContent}
-		</CollapsiblePanel>
-	)
+export const Playground: Story = {
+	args: {
+		title: "Panel Title"
+	},
+	render: function PlaygroundExample(args) {
+		const [collapsed, setCollapsed] = useState(false);
+
+		return (
+			<CollapsiblePanel {...args} onClick={() => setCollapsed(!collapsed)}>
+				{!collapsed && sampleContent}
+			</CollapsiblePanel>
+		);
+	}
 };
 
 export const Collapsed: Story = {
-	render: () => <CollapsiblePanel title="Collapsed Panel" onClick={() => {}}></CollapsiblePanel>
-};
-
-export const Expanded: Story = {
-	render: () => (
-		<CollapsiblePanel title="Expanded Panel" onClick={() => {}}>
-			{sampleContent}
-		</CollapsiblePanel>
-	)
-};
-
-export const NotCollapsible: Story = {
-	render: () => (
-		// CollapsiblePanel does not support a `collapsible` prop. To show an always-visible panel,
-		// provide a no-op onClick and keep the content rendered.
-		<CollapsiblePanel title="Always Visible Panel" onClick={() => {}}>
-			{sampleContent}
-		</CollapsiblePanel>
-	)
+	render: () => <CollapsiblePanel title="Collapsed Panel" onClick={() => {}} />,
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The panel is collapsed whenever no `children` are rendered. The indicator icon switches accordingly and `aria-expanded` is set to `false`."
+			}
+		}
+	}
 };
 
 export const Controlled: Story = {
-	render: () => {
+	render: function ControlledExample() {
 		const [collapsed, setCollapsed] = useState(false);
 
 		return (
@@ -108,30 +133,70 @@ export const Controlled: Story = {
 				</CollapsiblePanel>
 			</div>
 		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The panel is fully controlled: `onClick` reports header clicks (or Enter key presses) and the consumer decides whether to render the `children`. External controls can toggle the same state."
+			}
+		}
 	}
 };
 
-export const WithInteractionHint: Story = {
+export const WithInfo: Story = {
 	render: () => (
-		<InteractionHintConfigProvider enableInteractionHint componentConfigs={{ collapsiblePanel: true }}>
-			<CollapsiblePanel title="Panel with Interaction Hint" onClick={() => {}}>
-				{sampleContent}
-			</CollapsiblePanel>
-		</InteractionHintConfigProvider>
-	)
+		<CollapsiblePanel title="Panel Title" info="3 items" onClick={() => {}}>
+			{sampleContent}
+		</CollapsiblePanel>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`info` prints additional text next to the panel title."
+			}
+		}
+	}
 };
 
-export const WithInteractionHintFollowCursor: Story = {
+export const WithAddons: Story = {
 	render: () => (
-		<InteractionHintConfigProvider enableInteractionHint followCursor componentConfigs={{ collapsiblePanel: true }}>
-			<CollapsiblePanel title="Panel with Follow Cursor Hint" onClick={() => {}}>
-				{sampleContent}
-			</CollapsiblePanel>
-		</InteractionHintConfigProvider>
-	)
+		<div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+			<div>
+				<Typography.Headline level={3}>Addons at the end of the title</Typography.Headline>
+				<CollapsiblePanel
+					title="Panel with Addons"
+					addons={<Button label="Edit" onClick={() => {}} />}
+					onClick={() => {}}
+				>
+					{sampleContent}
+				</CollapsiblePanel>
+			</div>
+
+			<div>
+				<Typography.Headline level={3}>Swapped addons position</Typography.Headline>
+				<CollapsiblePanel
+					title="Panel with Swapped Addons"
+					addons={<Button label="Edit" onClick={() => {}} />}
+					swapAddonsPosition
+					onClick={() => {}}
+				>
+					{sampleContent}
+				</CollapsiblePanel>
+			</div>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`addons` places extra interactive content in the panel header. With `swapAddonsPosition` the addons swap places with the collapse indicator icon. Clicking an interactive addon does not toggle the panel."
+			}
+		}
+	}
 };
 
-export const InteractionHintVariations: Story = {
+export const InteractionHints: Story = {
 	render: () => (
 		<div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
 			<div>
@@ -160,61 +225,32 @@ export const InteractionHintVariations: Story = {
 					</CollapsiblePanel>
 				</InteractionHintConfigProvider>
 			</div>
-		</div>
-	)
-};
 
-export const AllVariants: Story = {
-	render: () => {
-		const [controlled, setControlled] = useState(true);
-
-		return (
-			<div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-				<div>
-					<Typography.Headline level={3}>Default Expanded</Typography.Headline>
-					<CollapsiblePanel title="Default Panel" onClick={() => {}}>
-						<div style={{ padding: "20px" }}>Default expanded state</div>
-					</CollapsiblePanel>
-				</div>
-
-				<div>
-					<Typography.Headline level={3}>Initially Collapsed</Typography.Headline>
-					<CollapsiblePanel title="Collapsed Panel" onClick={() => {}}></CollapsiblePanel>
-				</div>
-
-				<div>
-					<Typography.Headline level={3}>Not Collapsible</Typography.Headline>
-					<CollapsiblePanel title="Always Visible" onClick={() => {}}>
-						<div style={{ padding: "20px" }}>Cannot be collapsed</div>
-					</CollapsiblePanel>
-				</div>
-
-				<div>
-					<Typography.Headline level={3}>With Interaction Hint</Typography.Headline>
-					<A11YLanguageContext.Provider
-						value={{
-							collapsiblePanelTitles: {
-								openPanel: "open",
-								closePanel: "close"
-							}
-						}}
-					>
-						<InteractionHintConfigProvider componentConfigs={{ collapsiblePanel: true }}>
-							<CollapsiblePanel onClick={() => {}}>
-								<div style={{ padding: "20px" }}>Hover the header to see hints</div>
-							</CollapsiblePanel>
-						</InteractionHintConfigProvider>
-					</A11YLanguageContext.Provider>
-				</div>
-
-				<div>
-					<Typography.Headline level={3}>Controlled Panel</Typography.Headline>
-					<Button onClick={() => setControlled(!controlled)}>Toggle ({controlled ? "Collapse" : "Expand"})</Button>
-					<CollapsiblePanel title="Controlled Panel" onClick={() => setControlled(!controlled)}>
-						{!controlled && <div style={{ padding: "20px" }}>Controlled by external button</div>}
-					</CollapsiblePanel>
-				</div>
+			<div>
+				<Typography.Headline level={3}>Localized Hint Labels</Typography.Headline>
+				<A11YLanguageContext.Provider
+					value={{
+						collapsiblePanelTitles: {
+							openPanel: "open",
+							closePanel: "close"
+						}
+					}}
+				>
+					<InteractionHintConfigProvider componentConfigs={{ collapsiblePanel: true }}>
+						<CollapsiblePanel title="Localized Hint" onClick={() => {}}>
+							{sampleContent}
+						</CollapsiblePanel>
+					</InteractionHintConfigProvider>
+				</A11YLanguageContext.Provider>
 			</div>
-		);
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Wrapping the panel in an `InteractionHintConfigProvider` with `componentConfigs={{ collapsiblePanel: true }}` shows an open/close hint when hovering the header. `followCursor` and `hideArrow` adjust the hint behavior, and `A11YLanguageContext` localizes the hint labels."
+			}
+		}
 	}
 };

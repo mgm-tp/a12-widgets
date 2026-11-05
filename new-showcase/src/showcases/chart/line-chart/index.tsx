@@ -30,9 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import simpleCode from "!./simple.tsx?raw";
+import withComparableCode from "!./with-comparable-area.tsx?raw";
+import withDisparateCode from "!./with-disparate-data-points.tsx?raw";
+import withInteractionCode from "!./with-interaction.tsx?raw";
+import withShowAndHideCode from "!./with-show-and-hide-lines.tsx?raw";
+import withThresholdCode from "!./with-threshold.tsx?raw";
+
+import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
 import LineChartAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/chart/line-chart/main/line-chart.api.json" with { type: "json" };
 import LineChartTplAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/chart/line-chart/main/tpl/line-chart.tpl.api.json" with { type: "json" };
-import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Showcase } from "../../../helpers/definitions.js";
 import {
@@ -41,20 +49,12 @@ import {
 } from "../../../helpers/showcase-styles.js";
 
 import { BasicLineChart } from "./basic.js";
+import { SimpleLineChart } from "./simple.js";
 import { LineChartWithComparableArea } from "./with-comparable-area.js";
 import { LineChartWithDisparateDataPoints } from "./with-disparate-data-points.js";
 import { LineChartWithInteraction } from "./with-interaction.js";
 import { LineChartWithShowAndHideLines } from "./with-show-and-hide-lines.js";
 import { LineChartWithThreshold } from "./with-threshold.js";
-import { SimpleLineChart } from "./simple.js";
-
-import basicCode from "!./basic.tsx?raw";
-import withComparableCode from "!./with-comparable-area.tsx?raw";
-import withDisparateCode from "!./with-disparate-data-points.tsx?raw";
-import withInteractionCode from "!./with-interaction.tsx?raw";
-import withShowAndHideCode from "!./with-show-and-hide-lines.tsx?raw";
-import withThresholdCode from "!./with-threshold.tsx?raw";
-import simpleCode from "!./simple.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

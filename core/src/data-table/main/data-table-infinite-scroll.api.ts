@@ -32,8 +32,8 @@
 
 import type { Ref } from "react";
 
-import type { RowLoadingStatus } from "./foundation/infinite-scroll.api.js";
 import type { DataTableVirtualizerHandle } from "./data-table-virtualizer.api.js";
+import type { RowLoadingStatus } from "./foundation/infinite-scroll.api.js";
 
 export type DataTableRowLoadingStatus = RowLoadingStatus;
 

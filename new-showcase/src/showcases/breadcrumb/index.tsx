@@ -30,15 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import customCode from "!./custom-separator.tsx?raw";
+
 import BreadcrumbAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/breadcrumb/main/breadcrumb.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { BasicBreadcrumb } from "./basic.js";
 import { CustomSeparator } from "./custom-separator.js";
-
-import basicCode from "!./basic.tsx?raw";
-import customCode from "!./custom-separator.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

@@ -30,17 +30,6 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
-
-import type { Showcase } from "../../../helpers/definitions.js";
-
-import { MasterDetailExample } from "./master-detail.js";
-
-import masterDetailCode from "!./master-detail.tsx?raw";
-import masterViewCode from "!./master-view.tsx?raw";
-import masterDetailTemplateCode from "!./master-detail-template.tsx?raw";
-import overviewCode from "!./overview.tsx?raw";
-import setupCode from "!./setup.tsx?raw";
 import filterSelectorCommonCode from "!./filter-selector/common.tsx?raw";
 import filterSelectorDataCode from "!./filter-selector/data.tsx?raw";
 import filterSelectorDateInputCode from "!./filter-selector/date-input.tsx?raw";
@@ -49,7 +38,18 @@ import filterSelectorCode from "!./filter-selector/filter-selector.tsx?raw";
 import filterSelectorViewCode from "!./filter-selector/filter-view.tsx?raw";
 import filterSelectorUseTimepickerPropsCode from "!./filter-selector/use-time-picker-props.tsx?raw";
 import filterSelectorUtilsCode from "!./filter-selector/utils.tsx?raw";
+import masterDetailTemplateCode from "!./master-detail-template.tsx?raw";
+import masterDetailCode from "!./master-detail.tsx?raw";
+import masterViewCode from "!./master-view.tsx?raw";
+import overviewCode from "!./overview.tsx?raw";
+import setupCode from "!./setup.tsx?raw";
 import contentBoxWrapperAPICode from "!./showcase-content-box-wrapper.api.ts?raw";
+
+import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+
+import type { Showcase } from "../../../helpers/definitions.js";
+
+import { MasterDetailExample } from "./master-detail.js";
 
 const showcases: Showcase[] = [
 	{

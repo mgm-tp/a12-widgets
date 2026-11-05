@@ -1,8 +1,0 @@
-pnpm-lock.yaml
-index.api.md
-storybook-static
-lib
-dist
-.*
-THIRD_PARTY_NOTICES
-licenses

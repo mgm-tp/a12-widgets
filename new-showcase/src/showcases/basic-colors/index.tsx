@@ -32,16 +32,16 @@
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { MainColorsShowcase } from "./main-colors.js";
-import { TextColorsShowcase } from "./text-colors.js";
 import { BackgroundColorsShowcase } from "./background-colors.js";
+import { DecorationColorsShowcase } from "./decoration-colors.js";
 import { DividerColorsShowcase } from "./dividers-colors.js";
+import { HightlightColorsShowcase } from "./hightlight-colors.js";
 import { InteractionColorsShowcase } from "./interaction-colors.js";
 import { InteractionStatesColorsShowcase } from "./interaction-states-colors.js";
+import { MainColorsShowcase } from "./main-colors.js";
 import { MessageColorsShowcase } from "./message-colors.js";
-import { DecorationColorsShowcase } from "./decoration-colors.js";
-import { HightlightColorsShowcase } from "./hightlight-colors.js";
 import { StatusColorsShowcase } from "./status-colors.js";
+import { TextColorsShowcase } from "./text-colors.js";
 
 const showcases: Showcase[] = [
 	{

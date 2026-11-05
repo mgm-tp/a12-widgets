@@ -36,7 +36,6 @@
  */
 
 import type { Container, Identifiable, Styleable } from "../../../common/main/base-props.js";
-
 import type { TreeTemplateProps, TreeNodeTemplateModel } from "../tpl/tree.tpl.api.js";
 
 /** React DnD identifier of "drop" compatible elements. */

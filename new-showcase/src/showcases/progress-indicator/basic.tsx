@@ -30,14 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { FC, ChangeEvent } from "react";
 import { useState } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import { ProgressIndicator } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 import { ConfigurationView } from "../../helpers/configuration-view.js";
+import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 
 const loadingContent = loremIpsum({ count: 600, units: "words" });
 

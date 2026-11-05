@@ -30,31 +30,30 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { isEqual } from "lodash-es";
 import type { FC, ReactNode } from "react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { isEqual } from "lodash-es";
-import type { RndResizeCallback, RndResizeStartCallback } from "react-rnd";
+import type { RndDragCallback, RndResizeCallback, RndResizeStartCallback } from "react-rnd";
 import { Rnd } from "react-rnd";
-import { Key } from "ts-key-enum";
-import type { DraggableData, DraggableEvent } from "react-draggable";
 import { CSSTransition } from "react-transition-group";
 import { useTheme } from "styled-components";
-import { useResizeDetector } from "react-resize-detector";
+import { Key } from "ts-key-enum";
 
 import { computeMaxSize } from "../../attached-portal/main/attached-portal.internal.js";
-import { addPrefix, joinClassNames } from "../../common/main/utils.js";
-import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
 import type { BoundaryAlignmentArgument, Orientation, Position } from "../../common/main/alignment.js";
 import { getBoundaryAlignment } from "../../common/main/alignment.js";
-import { Portal } from "../../portal/main/portal.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { useResizeObserver } from "../../common/main/resize-observer/use-resize-observer.js";
+import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
+import { addPrefix, joinClassNames } from "../../common/main/utils.js";
+import { Portal } from "../../portal/main/portal.view.js";
 
 import type { ResizeAndDragContainerProps } from "./resize-and-drag-container.api.js";
-import { resizeAndDragContentAnimate, StyledResizeAndDragContentWrapper } from "./resize-and-drag-container.styled.js";
 import {
 	disableAllResizing,
 	resizeHandleStyles as internalResizeHandleStyles
 } from "./resize-and-drag-container.internal.js";
+import { resizeAndDragContentAnimate, StyledResizeAndDragContentWrapper } from "./resize-and-drag-container.styled.js";
 
 /** @internal */
 export const getRnDSize = (element: Rnd): { width: number; height: number } => {
@@ -177,6 +176,13 @@ const ResizeAndDragContainerInternal: FC<ResizeAndDragContainerProps> = ({
 	const innerHTMLComponent = useRef<HTMLDivElement | null>(null);
 	const rndElement = useRef<Rnd | null>(null);
 	const previousOrientation = useRef<Orientation>("bottom-start");
+
+	/**
+	 * Whether *this* instance currently owns the body-level text-selection suppression.
+	 * Tracked per instance so unmounting one container cannot clear the class out from
+	 * under another container that is mid-drag.
+	 */
+	const suppressesTextSelection = useRef(false);
 	const [containsHandle, setContainsHandle] = useState(false);
 	const [isDragging, setDragging] = useState(false);
 	const [disabledDraggingWhenClickScrollBar, setDisabledDraggingWhenClickScrollBar] = useState(false);
@@ -422,45 +428,69 @@ const ResizeAndDragContainerInternal: FC<ResizeAndDragContainerProps> = ({
 		[rndRef]
 	);
 
+	const startSuppressingTextSelection = useCallback((): void => {
+		suppressesTextSelection.current = true;
+		document.body.classList.add(addPrefix("-u-user-select-none"));
+	}, []);
+
+	const stopSuppressingTextSelection = useCallback((): void => {
+		if (!suppressesTextSelection.current) {
+			return;
+		}
+
+		suppressesTextSelection.current = false;
+		document.body.classList.remove(addPrefix("-u-user-select-none"));
+	}, []);
+
+	/**
+	 * Drag and resize suppress text selection on `document.body`, and the matching
+	 * stop handlers are the only thing that lifts it. Those handlers do not run if the
+	 * container unmounts while an interaction is in flight (a drop that unmounts the
+	 * container, a parent that closes mid-drag, a pointer released outside the window),
+	 * which used to leave `-u-user-select-none` on the body permanently — making text
+	 * unselectable across the whole application until a reload.
+	 */
+	useEffect(() => stopSuppressingTextSelection, [stopSuppressingTextSelection]);
+
 	const onResizeStartHandler: RndResizeStartCallback = useCallback(
 		(event, dir, elementRef): void => {
 			event.preventDefault();
 			updateChildWidth();
 			allowUpdatePosition.current = false;
-			document.body.classList.add(`${addPrefix("-u-user-select-none")}`);
+			startSuppressingTextSelection();
 			onResizeStart?.(event, dir, elementRef);
 		},
-		[onResizeStart, updateChildWidth]
+		[onResizeStart, updateChildWidth, startSuppressingTextSelection]
 	);
 
 	const onResizeStopHandler: RndResizeCallback = useCallback(
 		(event, direction, elementRef, delta, position): void => {
 			event.preventDefault();
-			document.body.classList.remove(`${addPrefix("-u-user-select-none")}`);
+			stopSuppressingTextSelection();
 			innerHTMLComponent.current?.focus();
 			onResizeStop?.(event, direction, elementRef, delta, position);
 		},
-		[onResizeStop]
+		[onResizeStop, stopSuppressingTextSelection]
 	);
 
-	const onDragStartHandler = useCallback(
-		(event: DraggableEvent, data: DraggableData): void => {
+	const onDragStartHandler: RndDragCallback = useCallback(
+		(event, data): void => {
 			event.preventDefault();
 			setDragging(true);
-			document.body.classList.add(`${addPrefix("-u-user-select-none")}`);
+			startSuppressingTextSelection();
 			onDragStart?.(event, data);
 		},
-		[onDragStart]
+		[onDragStart, startSuppressingTextSelection]
 	);
 
-	const onDragStopHandler = useCallback(
-		(event: DraggableEvent, data: DraggableData): void => {
+	const onDragStopHandler: RndDragCallback = useCallback(
+		(event, data): void => {
 			event.preventDefault();
 			setDragging(false);
-			document.body.classList.remove(`${addPrefix("-u-user-select-none")}`);
+			stopSuppressingTextSelection();
 			onDragStop?.(event, data);
 		},
-		[onDragStop]
+		[onDragStop, stopSuppressingTextSelection]
 	);
 
 	const handleResize = useCallback((): void => {
@@ -522,6 +552,7 @@ const ResizeAndDragContainerInternal: FC<ResizeAndDragContainerProps> = ({
 		}
 
 		return () => {
+			// oxlint-disable-next-line react-hooks/exhaustive-deps -- ref may re-point between setup and cleanup; the stale-listener risk is accepted here
 			rndElement.current?.resizableElement.current?.removeEventListener("mousedown", handleMouseDown);
 		};
 	}, [disableDraggingProp]);
@@ -541,9 +572,7 @@ const ResizeAndDragContainerInternal: FC<ResizeAndDragContainerProps> = ({
 		[wrapperRef]
 	);
 
-	useResizeDetector({
-		refreshMode: "debounce",
-		refreshRate: 0,
+	useResizeObserver({
 		onResize: handleResize,
 		targetRef: innerHTMLComponent
 	});

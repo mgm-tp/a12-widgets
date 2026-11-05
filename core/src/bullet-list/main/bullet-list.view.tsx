@@ -33,8 +33,8 @@
 import type { ReactElement } from "react";
 import { styled, css } from "styled-components";
 
-import { joinClassNames, addPrefix } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { joinClassNames, addPrefix } from "../../common/main/utils.js";
 
 import type { BulletListProps } from "./bullet-list.api.js";
 
@@ -85,18 +85,22 @@ export const StyledBulletList = styled.ul.withConfig({ displayName: "StyledBulle
 			list-style-type: ${listType};
 			${overrideColor && `color: ${item.overrideColor};`}
 		}
-		${inline &&
-		css`
-			display: flex;
-			flex-wrap: wrap;
-			column-gap: ${columnGap};
-		`}
-		${noIndent &&
-		css`
-			&& {
-				padding: ${unorderedList.noIndentPadding};
-			}
-		`}
+		${
+			inline &&
+			css`
+				display: flex;
+				flex-wrap: wrap;
+				column-gap: ${columnGap};
+			`
+		}
+		${
+			noIndent &&
+			css`
+				&& {
+					padding: ${unorderedList.noIndentPadding};
+				}
+			`
+		}
 	`;
 });
 export namespace BulletList {

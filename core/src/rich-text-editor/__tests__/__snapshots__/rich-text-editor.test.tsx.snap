@@ -8,10 +8,6 @@ exports[`Disabled Rich Text Editor > Should render disabled editor with content 
   width: 100vw;
 }
 
-.c16 .c6 {
-  margin: 0px;
-}
-
 .c7 {
   display: inline-block;
   font-family: "Open Sans", sans-serif;
@@ -32,7 +28,7 @@ exports[`Disabled Rich Text Editor > Should render disabled editor with content 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   display: flex;
   font-family: "Open Sans", sans-serif;
@@ -90,92 +86,6 @@ exports[`Disabled Rich Text Editor > Should render disabled editor with content 
   min-height: inherit;
 }
 
-.c13 .c11 {
-  background-color: inherit;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 100px;
-  overflow: auto;
-  padding: calc(16px - 0.54375rem) 12px;
-  position: relative;
-  text-align: inherit;
-  vertical-align: top;
-  width: 100%;
-}
-
-.c13 .c11 p:first-child,
-.c13 .c11 h1:first-child,
-.c13 .c11 h2:first-child {
-  margin: 0px;
-}
-
-.c14 .c11 {
-  background-color: inherit;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 100px;
-  overflow: auto;
-  padding: calc(16px - 0.54375rem) 12px;
-  position: relative;
-  text-align: inherit;
-  vertical-align: top;
-  width: 100%;
-  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  outline-offset: 0px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c14 .c11 p:first-child,
-.c14 .c11 h1:first-child,
-.c14 .c11 h2:first-child {
-  margin: 0px;
-}
-
-.c15 .c11 {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 100px;
-  overflow: auto;
-  padding: calc(16px - 0.54375rem) 12px;
-  position: relative;
-  text-align: inherit;
-  vertical-align: top;
-  width: 100%;
-  background: rgb(241, 242, 244);
-  box-shadow: none;
-}
-
-.c15 .c11 p:first-child,
-.c15 .c11 h1:first-child,
-.c15 .c11 h2:first-child {
-  margin: 0px;
-}
-
-.c15 .c11 :focus-visible {
-  outline: none;
-}
-
 .c9 {
   display: block;
   height: auto;
@@ -193,7 +103,7 @@ exports[`Disabled Rich Text Editor > Should render disabled editor with content 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -300,10 +210,6 @@ exports[`Readonly Rich Text Editor > Should render readonly editor with content 
   width: 100vw;
 }
 
-.c15 .c6 {
-  margin: 0px;
-}
-
 .c7 {
   color: rgb(77, 77, 77);
   display: inline-block;
@@ -324,7 +230,7 @@ exports[`Readonly Rich Text Editor > Should render readonly editor with content 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -382,61 +288,6 @@ exports[`Readonly Rich Text Editor > Should render readonly editor with content 
   min-height: inherit;
 }
 
-.c13 .c11 {
-  background-color: inherit;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 100px;
-  overflow: auto;
-  padding: calc(16px - 0.54375rem) 12px;
-  position: relative;
-  text-align: inherit;
-  vertical-align: top;
-  width: 100%;
-}
-
-.c13 .c11 p:first-child,
-.c13 .c11 h1:first-child,
-.c13 .c11 h2:first-child {
-  margin: 0px;
-}
-
-.c14 .c11 {
-  background-color: inherit;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 100px;
-  overflow: auto;
-  padding: calc(16px - 0.54375rem) 12px;
-  position: relative;
-  text-align: inherit;
-  vertical-align: top;
-  width: 100%;
-  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  outline-offset: 0px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c14 .c11 p:first-child,
-.c14 .c11 h1:first-child,
-.c14 .c11 h2:first-child {
-  margin: 0px;
-}
-
 .c9 {
   display: block;
   height: auto;
@@ -454,7 +305,7 @@ exports[`Readonly Rich Text Editor > Should render readonly editor with content 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
@@ -559,10 +410,6 @@ exports[`Readonly Rich Text Editor > Should render readonly editor without conte
   width: 100vw;
 }
 
-.c15 .c6 {
-  margin: 0px;
-}
-
 .c7 {
   color: rgb(77, 77, 77);
   display: inline-block;
@@ -583,7 +430,7 @@ exports[`Readonly Rich Text Editor > Should render readonly editor without conte
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -641,61 +488,6 @@ exports[`Readonly Rich Text Editor > Should render readonly editor without conte
   min-height: inherit;
 }
 
-.c13 .c11 {
-  background-color: inherit;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 100px;
-  overflow: auto;
-  padding: calc(16px - 0.54375rem) 12px;
-  position: relative;
-  text-align: inherit;
-  vertical-align: top;
-  width: 100%;
-}
-
-.c13 .c11 p:first-child,
-.c13 .c11 h1:first-child,
-.c13 .c11 h2:first-child {
-  margin: 0px;
-}
-
-.c14 .c11 {
-  background-color: inherit;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 100px;
-  overflow: auto;
-  padding: calc(16px - 0.54375rem) 12px;
-  position: relative;
-  text-align: inherit;
-  vertical-align: top;
-  width: 100%;
-  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  outline-offset: 0px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c14 .c11 p:first-child,
-.c14 .c11 h1:first-child,
-.c14 .c11 h2:first-child {
-  margin: 0px;
-}
-
 .c9 {
   display: block;
   height: auto;
@@ -713,7 +505,7 @@ exports[`Readonly Rich Text Editor > Should render readonly editor without conte
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
@@ -790,7 +582,9 @@ exports[`Readonly Rich Text Editor > Should render readonly editor without conte
                   class="editor-paragraph"
                   dir="auto"
                 >
-                  <br />
+                  <br
+                    data-lexical-managed-linebreak="true"
+                  />
                 </p>
               </div>
             </div>
@@ -849,7 +643,7 @@ exports[`Rich Text Editor > Should render with label, content and helper text 1`
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -924,7 +718,7 @@ exports[`Rich Text Editor > Should render with label, content and helper text 1`
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
@@ -1081,7 +875,7 @@ exports[`Rich Text Editor > Should render with label, placeholder and helper tex
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -1156,7 +950,7 @@ exports[`Rich Text Editor > Should render with label, placeholder and helper tex
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
@@ -1248,7 +1042,9 @@ exports[`Rich Text Editor > Should render with label, placeholder and helper tex
                   class="editor-paragraph"
                   dir="auto"
                 >
-                  <br />
+                  <br
+                    data-lexical-managed-linebreak="true"
+                  />
                 </p>
               </div>
             </div>

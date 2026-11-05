@@ -30,19 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import multilingualCode from "!./multilingual?raw";
+import withHeaderTriggerCode from "!./with-header-trigger.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
-import PopUpMenuAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/pop-up-menu/main/pop-up-menu.api.json" with { type: "json" };
 import HeaderTriggerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/button/main/header-trigger/header-trigger.api.json" with { type: "json" };
+import PopUpMenuAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/pop-up-menu/main/pop-up-menu.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
 
 import { BasicShowcase } from "./basic.js";
 import { WithHeaderTriggerExample } from "./with-header-trigger.js";
-
-import basicCode from "!./basic.tsx?raw";
-import withHeaderTriggerCode from "!./with-header-trigger.tsx?raw";
-import multilingualCode from "!./multilingual?raw";
 
 const showcases: Showcase[] = [
 	{

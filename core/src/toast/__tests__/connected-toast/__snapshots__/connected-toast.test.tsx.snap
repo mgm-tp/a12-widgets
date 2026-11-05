@@ -66,6 +66,10 @@ exports[`com.mgmtp.a12.widgets.connected-toast > render with orientation 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c3 {
   display: inline-flex;
   outline: none;
@@ -93,7 +97,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast > render with orientation 1`] = `
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -123,7 +127,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast > render with orientation 1`] = `
   border-width: medium medium 1px 1px;
   border-style: none none solid solid;
   border-color: currentcolor currentcolor rgb(5, 104, 174) rgb(5, 104, 174);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 8px;
   pointer-events: none;
@@ -190,6 +194,8 @@ exports[`com.mgmtp.a12.widgets.connected-toast > render with orientation 1`] = `
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   info
                 </span>
@@ -299,6 +305,10 @@ exports[`com.mgmtp.a12.widgets.connected-toast > verify the basic connected toas
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c3 {
   display: inline-flex;
   outline: none;
@@ -326,7 +336,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast > verify the basic connected toas
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -356,7 +366,7 @@ exports[`com.mgmtp.a12.widgets.connected-toast > verify the basic connected toas
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(5, 104, 174) currentcolor currentcolor rgb(5, 104, 174);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 8px;
   pointer-events: none;
@@ -425,6 +435,8 @@ exports[`com.mgmtp.a12.widgets.connected-toast > verify the basic connected toas
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   info
                 </span>

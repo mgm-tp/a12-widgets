@@ -27,7 +27,7 @@ exports[`com.mgmtp.a12.widgets.resize-and-drag-container > customization-resizer
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: none;
   background: transparent;
   color: rgb(255, 255, 255);
@@ -252,7 +252,7 @@ exports[`com.mgmtp.a12.widgets.resize-and-drag-container > draggable-container-w
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: none;
   background: transparent;
   color: rgb(255, 255, 255);
@@ -452,7 +452,7 @@ exports[`com.mgmtp.a12.widgets.resize-and-drag-container > draggable-container-w
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: none;
   background: transparent;
   color: rgb(255, 255, 255);

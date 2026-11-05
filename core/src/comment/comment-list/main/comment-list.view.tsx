@@ -33,8 +33,8 @@
 import type { ReactElement } from "react";
 import { Children, Component } from "react";
 
-import { bindMethods, addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { bindMethods, addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import { StyledCommentListWrapper, StyledCommentListItem } from "../../comment.styled.js";
 
 import type { CommentListProps } from "./comment-list.api.js";

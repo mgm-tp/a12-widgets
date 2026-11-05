@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { BaseThemeColorsType } from "../../../schema/base-colors.api.js";
 import { GeneralColorsConfig } from "../../../base/colors.config.js";
+import type { BaseThemeColorsType } from "../../../schema/base-colors.api.js";
 
 export const HoverFlatStyles = (params: { colors: BaseThemeColorsType }) => {
 	return {

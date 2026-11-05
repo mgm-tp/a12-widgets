@@ -37,8 +37,7 @@ import { DefaultFileUpload, Typography, KeyboardNavigationConfigProvider } from 
 const meta: Meta<typeof DefaultFileUpload> = {
 	title: "Data Entry/FileUpload/KeyboardNavigation",
 	component: DefaultFileUpload,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;

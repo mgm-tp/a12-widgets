@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { DropDownItem } from "../../dropdown/main/template/dropdown.tpl.api.js";
 import { StringUtils } from "../../common/main/utils.js";
+import type { DropDownItem } from "../../dropdown/main/template/dropdown.tpl.api.js";
 
 export interface TagInternalProps {
 	text: string;

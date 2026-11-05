@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { CSSProperties } from "react";
 
 import { Comment, Button, ButtonGroup, Icon, Tag, TagGroup } from "@com.mgmtp.a12.widgets/widgets-core";
 
@@ -39,15 +39,59 @@ const meta: Meta<typeof Comment> = {
 	title: "Business Case/Comment",
 	component: Comment,
 	parameters: {
-		layout: "padded",
-		docs: {
-			description: {
-				component:
-					"Comment renders a single comment with avatar, author info, body text, and optional replies. Use CommentList for a list of comments, and CommentContainer for the floating panel pattern."
-			}
-		}
+		layout: "padded"
 	},
-	tags: ["autodocs"]
+	argTypes: {
+		commentMeta: {
+			control: false,
+			description: "The comment's information: avatar, author, action and date"
+		},
+		inactiveCommentMeta: {
+			control: false,
+			description: "Alternative comment information shown while the comment is inactive"
+		},
+		children: {
+			control: "text",
+			description: "The comment's content"
+		},
+		commentTags: {
+			control: false,
+			description: "Tags displayed below the comment body, e.g. a TagGroup"
+		},
+		replies: {
+			control: false,
+			description: "A list of replies, typically nested Comment elements with isReply"
+		},
+		actionButtons: {
+			control: false,
+			description: "The comment's action buttons"
+		},
+		actionButtonPosition: {
+			control: "select",
+			options: ["left", "right"],
+			description: "The action button's position"
+		},
+		combinedActionButton: {
+			control: false,
+			description: "A PopUpMenu element that combines the action buttons into a single menu"
+		},
+		inactive: {
+			control: "boolean",
+			description: "Whether the comment is in inactive mode"
+		},
+		showAllText: {
+			control: "text",
+			description: "Customized text for the SHOW ALL button (only when inactive)"
+		},
+		minimiseText: {
+			control: "text",
+			description: "Customized text for the MINIMISE button (only when inactive)"
+		},
+		isReply: {
+			control: "boolean",
+			description: "If true, the comment will be displayed as a reply"
+		}
+	}
 };
 
 export default meta;
@@ -72,7 +116,7 @@ const commentMeta1 = {
 	date: <span style={{ color: "#666" }}>2 hours ago</span>
 };
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		commentMeta: commentMeta1,
 		children: "This looks great! I think we should proceed with this approach and schedule a review meeting."
@@ -119,7 +163,8 @@ export const WithReplies: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Comment with a reply nested below. Use isReply prop on the nested Comment to style it as a reply."
+				story:
+					"Nested replies are passed via the `replies` prop. Use `isReply` on the nested `Comment` to style it as a reply."
 			}
 		}
 	}
@@ -138,7 +183,8 @@ export const Inactive: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Inactive comment shows inactiveCommentMeta instead of commentMeta when inactive=true."
+				story:
+					"When `inactive` is true the comment shows `inactiveCommentMeta` instead of `commentMeta`. Use `showAllText` and `minimiseText` to customize the expand/collapse button labels."
 			}
 		}
 	}
@@ -168,7 +214,7 @@ export const WithActionButtons: Story = {
 		docs: {
 			description: {
 				story:
-					"Use the actionButtons prop to place a ButtonGroup below the comment body for contextual actions like reply or like."
+					"Use the `actionButtons` prop to place a `ButtonGroup` with contextual actions like reply or like. `actionButtonPosition` controls whether they appear on the `left` or `right`."
 			}
 		}
 	}
@@ -193,7 +239,8 @@ export const WithCommentTags: Story = {
 	parameters: {
 		docs: {
 			description: {
-				story: "Use the commentTags prop with Tag and TagGroup to display categorisation chips below the comment body."
+				story:
+					"Use the `commentTags` prop with `Tag` and `TagGroup` to display categorisation chips below the comment body."
 			}
 		}
 	}

@@ -152,7 +152,7 @@ exports[`com.mgmtp.a12.widgets.table-row-group > render all groups 1`] = `
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -258,7 +258,7 @@ exports[`com.mgmtp.a12.widgets.table-row-group > render all groups 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   font-size: 0.75rem;
   font-weight: 400;
   padding: 4px 16px 4px 24px;
@@ -1641,7 +1641,7 @@ exports[`com.mgmtp.a12.widgets.table-row-group > with virtual scrolling 1`] = `
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -1654,7 +1654,7 @@ exports[`com.mgmtp.a12.widgets.table-row-group > with virtual scrolling 1`] = `
   overflow-x: hidden;
 }
 
-.c19 {
+.c17 {
   font-weight: 600;
   min-height: 32px;
   overflow: hidden;
@@ -1662,13 +1662,13 @@ exports[`com.mgmtp.a12.widgets.table-row-group > with virtual scrolling 1`] = `
   align-items: flex-start;
 }
 
-.c19:empty {
+.c17:empty {
   min-height: 1px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
-.c17 {
+.c16 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   flex: 0 0 auto;
@@ -1676,22 +1676,22 @@ exports[`com.mgmtp.a12.widgets.table-row-group > with virtual scrolling 1`] = `
   z-index: 1;
 }
 
-.c17 > * {
+.c16 > * {
   position: relative;
 }
 
-.c17 > ::before {
+.c16 > ::before {
   content: "";
   inset: 0px;
   position: absolute;
   border-bottom: 1px solid rgb(211, 214, 220);
 }
 
-.c17 > :first-child {
+.c16 > :first-child {
   box-shadow: rgb(226, 230, 233) 0px 1px 0px 0px inset, rgb(169, 179, 188) 0px 2px 0px 0px inset;
 }
 
-.c17 > :first-child::before {
+.c16 > :first-child::before {
   border-bottom-width: medium;
   border-bottom-style: none;
   border-bottom-color: currentcolor;
@@ -1742,24 +1742,6 @@ exports[`com.mgmtp.a12.widgets.table-row-group > with virtual scrolling 1`] = `
   flex: 0 0 auto;
 }
 
-.c13 > .c23 + .c23.c23 {
-  border-top: 1px solid rgb(226, 230, 233);
-}
-
-.c22 .c13:not(:empty) {
-  flex-grow: 0;
-}
-
-.c22 .c16 {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-}
-
-.c22 .c18:last-child {
-  flex-grow: 1;
-}
-
 .c0 {
   color: rgb(77, 77, 77);
   display: flex;
@@ -1772,14 +1754,14 @@ exports[`com.mgmtp.a12.widgets.table-row-group > with virtual scrolling 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0 .c13:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0 .c13:not(:empty) {
@@ -1808,13 +1790,13 @@ exports[`com.mgmtp.a12.widgets.table-row-group > with virtual scrolling 1`] = `
   border: 1px dotted rgb(51, 51, 51);
 }
 
-.c20 {
+.c18 {
   border-left: 1px solid rgb(241, 242, 244);
   border-right: 1px solid rgb(241, 242, 244);
   margin-top: -1px;
 }
 
-.c21 {
+.c19 {
   overflow-x: auto;
 }
 
@@ -1931,11 +1913,11 @@ exports[`com.mgmtp.a12.widgets.table-row-group > with virtual scrolling 1`] = `
       </div>
     </div>
     <div
-      class="c16 c17 table__footer"
+      class="c16 table__footer"
       data-role="table-footer"
     >
       <div
-        class="c18 c3 table__footerRow"
+        class="c3 table__footerRow"
         data-role="table-footer-row"
       >
         <div
@@ -1943,19 +1925,19 @@ exports[`com.mgmtp.a12.widgets.table-row-group > with virtual scrolling 1`] = `
           data-role="table-footer-row--scroll"
         >
           <div
-            class="c8 c9 c19 table__footerCell table__footerCell--10"
+            class="c8 c9 c17 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c19 table__footerCell table__footerCell--10"
+            class="c8 c9 c17 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c19 table__footerCell table__footerCell--10"
+            class="c8 c9 c17 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
           <div
-            class="c8 c9 c19 table__footerCell table__footerCell--10"
+            class="c8 c9 c17 table__footerCell table__footerCell--10"
             data-role="table-footer-cell"
           />
         </div>
@@ -1963,28 +1945,28 @@ exports[`com.mgmtp.a12.widgets.table-row-group > with virtual scrolling 1`] = `
     </div>
     <div
       aria-hidden="true"
-      class="c3 c20"
+      class="c3 c18"
       data-role="table-row-scroller"
     >
       <div
-        class="c5 c7 c21"
+        class="c5 c7 c19"
         data-role="table-row-scroller--scroll"
         tabindex="-1"
       >
         <div
-          class="c8 c9 c19"
+          class="c8 c9 c17"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c19"
+          class="c8 c9 c17"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c19"
+          class="c8 c9 c17"
           data-role="table-row-scroller-cell"
         />
         <div
-          class="c8 c9 c19"
+          class="c8 c9 c17"
           data-role="table-row-scroller-cell"
         />
       </div>

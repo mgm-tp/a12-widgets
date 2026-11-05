@@ -29,6 +29,10 @@ exports[`com.mgmtp.a12.widgets.typography > align addons and graphic icon to bot
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c2 {
   box-sizing: border-box;
   background-color: transparent;
@@ -57,30 +61,6 @@ exports[`com.mgmtp.a12.widgets.typography > align addons and graphic icon to bot
 .c2:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c6,
 .c2:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c6 {
   color: inherit;
-}
-
-.c12 .c6 {
-  align-items: center;
-  background-color: rgb(241, 242, 244);
-  border-radius: 50%;
-  color: inherit;
-  display: flex;
-  font-size: 1.125rem;
-  height: 1.5rem;
-  justify-content: center;
-  width: 1.5rem;
-}
-
-.c13 .c6 {
-  align-items: center;
-  background-color: rgb(241, 242, 244);
-  border-radius: 50%;
-  color: inherit;
-  display: flex;
-  font-size: 1.125rem;
-  height: 1.5rem;
-  justify-content: center;
-  width: 1.5rem;
 }
 
 .c11 {
@@ -150,10 +130,6 @@ exports[`com.mgmtp.a12.widgets.typography > align addons and graphic icon to bot
 
 .c5 {
   margin: 0px 8px 0px 0px;
-}
-
-.c14 .c4:first-child {
-  margin-left: 8px;
 }
 
 .c3 {
@@ -228,6 +204,8 @@ exports[`com.mgmtp.a12.widgets.typography > align addons and graphic icon to bot
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             edit
           </span>
@@ -265,6 +243,8 @@ exports[`com.mgmtp.a12.widgets.typography > align addons and graphic icon to bot
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             keyboard_arrow_down
           </span>
@@ -302,6 +282,10 @@ exports[`com.mgmtp.a12.widgets.typography > rendering collapsible typography 1`]
 
 .c7.c7 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
 }
 
 .c2 {
@@ -459,6 +443,8 @@ exports[`com.mgmtp.a12.widgets.typography > rendering collapsible typography 1`]
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             keyboard_arrow_down
           </span>
@@ -638,6 +624,10 @@ exports[`com.mgmtp.a12.widgets.typography > swap position of graphic icon and ad
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c2 {
   box-sizing: border-box;
   background-color: transparent;
@@ -666,18 +656,6 @@ exports[`com.mgmtp.a12.widgets.typography > swap position of graphic icon and ad
 .c2:hover [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c6,
 .c2:focus-within [class*="StyledTypographyHeaderActions"] [data-type="icon"]:hover .c6 {
   color: inherit;
-}
-
-.c12 .c6 {
-  align-items: center;
-  background-color: rgb(241, 242, 244);
-  border-radius: 50%;
-  color: inherit;
-  display: flex;
-  font-size: 1.125rem;
-  height: 1.5rem;
-  justify-content: center;
-  width: 1.5rem;
 }
 
 .c11 {
@@ -821,6 +799,8 @@ exports[`com.mgmtp.a12.widgets.typography > swap position of graphic icon and ad
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             edit
           </span>
@@ -858,6 +838,8 @@ exports[`com.mgmtp.a12.widgets.typography > swap position of graphic icon and ad
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             keyboard_arrow_down
           </span>

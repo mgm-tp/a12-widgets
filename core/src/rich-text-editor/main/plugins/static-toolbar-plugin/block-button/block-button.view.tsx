@@ -30,20 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC, MouseEvent } from "react";
-import { useContext, useState, useCallback, useEffect } from "react";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import type { LexicalEditor, BaseSelection } from "lexical";
 import { $getSelection, $isRangeSelection, COMMAND_PRIORITY_LOW, FORMAT_ELEMENT_COMMAND } from "lexical";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import type { FC, MouseEvent } from "react";
+import { useContext, useState, useCallback, useEffect } from "react";
 
-import { useEditorUpdateChange } from "../../../utils/hooks.js";
-import { $isElementFormatApplyToSelection } from "../../../utils/selection.js";
 import { A11YLanguageContext } from "../../../../../common/main/a11y-localization/language-context.js";
 import { useRichTextEditorCache } from "../../../template/rich-text-editor.tpl.view.js";
-
+import { useEditorUpdateChange } from "../../../utils/hooks.js";
+import { $isElementFormatApplyToSelection } from "../../../utils/selection.js";
 import type { ButtonType, Interactable } from "../toolbar-button/toolbar-button.api.js";
-import { ToolbarButtonInternal } from "../toolbar-button/toolbar-button.view.js";
 import type { ToolbarButtonInternalProps } from "../toolbar-button/toolbar-button.internal.api.js";
+import { ToolbarButtonInternal } from "../toolbar-button/toolbar-button.view.js";
 
 import type { BlockButtonProps } from "./block-button.api.js";
 

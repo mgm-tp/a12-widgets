@@ -138,7 +138,7 @@ exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting 1`] = `
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -712,17 +712,7 @@ exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting 3`] = `
 
 exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-column-group-cross-tabulation 1`] = `
 [
-  .c0:first-child .c8.c8:first-child {
-  min-width: calc(166px);
-  width: calc(166px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] .c0:first-child .c8.c8:first-child.c0:first-child .c8.c8:first-child {
-  padding-left: calc(24px);
-}
-
-.c4 {
+  .c4 {
   box-sizing: border-box;
   display: flex;
   flex: 0 0 auto;
@@ -753,6 +743,16 @@ exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-column-
 }
 
 [data-role="tree"] .c4:first-child.c4:first-child {
+  padding-left: calc(24px);
+}
+
+.c0:first-child .c8.c8:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c0:first-child .c8.c8:first-child.c0:first-child .c8.c8:first-child {
   padding-left: calc(24px);
 }
 
@@ -853,17 +853,7 @@ exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-column-
 
 exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-tabulation 1`] = `
 [
-  .c0:first-child .c6.c6:first-child {
-  min-width: calc(166px);
-  width: calc(166px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] .c0:first-child .c6.c6:first-child.c0:first-child .c6.c6:first-child {
-  padding-left: calc(24px);
-}
-
-.c3 {
+  .c3 {
   box-sizing: border-box;
   display: flex;
   flex: 0 0 auto;
@@ -894,6 +884,16 @@ exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-t
 }
 
 [data-role="tree"] .c3:first-child.c3:first-child {
+  padding-left: calc(24px);
+}
+
+.c0:first-child .c6.c6:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c0:first-child .c6.c6:first-child.c0:first-child .c6.c6:first-child {
   padding-left: calc(24px);
 }
 
@@ -1011,10 +1011,6 @@ exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-t
 }
 
 .c3 .c2.c2 {
-  overflow: hidden;
-}
-
-.c3 .c6.c6 {
   overflow: hidden;
 }
 
@@ -1258,17 +1254,7 @@ exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-t
 
 exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-tabulation 4`] = `
 [
-  .c0:first-child .c6.c6:first-child {
-  min-width: calc(166px);
-  width: calc(166px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] .c0:first-child .c6.c6:first-child.c0:first-child .c6.c6:first-child {
-  padding-left: calc(24px);
-}
-
-.c3 {
+  .c3 {
   box-sizing: border-box;
   display: flex;
   flex: 0 0 auto;
@@ -1299,6 +1285,16 @@ exports[`com.mgmtp.a12.widgets.table.context-menu > cell-highlighting-in-cross-t
 }
 
 [data-role="tree"] .c3:first-child.c3:first-child {
+  padding-left: calc(24px);
+}
+
+.c0:first-child .c6.c6:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c0:first-child .c6.c6:first-child.c0:first-child .c6.c6:first-child {
   padding-left: calc(24px);
 }
 

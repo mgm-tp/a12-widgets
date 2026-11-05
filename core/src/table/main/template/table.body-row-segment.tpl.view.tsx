@@ -36,13 +36,12 @@ import { styled, css } from "styled-components";
 
 import { joinClassNames } from "../../../common/main/utils.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
-
 import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
 import { StyledTableBodyRow } from "./table.body-row.tpl.view.js";
-import type { TableTemplateProps } from "./table.tpl.api.js";
 import { StyledBaseTable } from "./table.styled.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 
 export const StyledTableBodyRowSegment = styled(StyledBaseTable.Segment).withConfig({
 	displayName: "StyledTableBodyRowSegment-sc-"
@@ -50,21 +49,23 @@ export const StyledTableBodyRowSegment = styled(StyledBaseTable.Segment).withCon
 	const { bodyRow } = theme.components.table;
 
 	return css`
-		${crossTabulation &&
-		rowSegmentType === "left" &&
-		css`
-			${StyledTableBodyRow}:not(:last-child) && {
-				// fix cannot right-click on body row to open context menu
-				${createPseudoElement(
-					":before",
-					css`
-						border-bottom: ${bodyRow.borderBottom};
-						display: block;
-						top: unset;
-					`
-				)}
-			}
-		`}
+		${
+			crossTabulation &&
+			rowSegmentType === "left" &&
+			css`
+				${StyledTableBodyRow}:not(:last-child) && {
+					// fix cannot right-click on body row to open context menu
+					${createPseudoElement(
+						":before",
+						css`
+							border-bottom: ${bodyRow.borderBottom};
+							display: block;
+							top: unset;
+						`
+					)}
+				}
+			`
+		}
 
 		&:last-child > :last-child {
 			${StyledTableBodyRow}:focus & {

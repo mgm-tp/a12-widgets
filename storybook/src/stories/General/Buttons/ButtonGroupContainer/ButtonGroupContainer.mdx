@@ -1,0 +1,71 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ButtonGroupContainerStories from "./ButtonGroupContainer.stories";
+import * as KeyboardNavigationStories from "./ButtonGroupContainerKeyboardNavigation.stories";
+
+<Meta of={ButtonGroupContainerStories} />
+
+<Title />
+
+The `ButtonGroupContainer` widget is a layout component that wraps multiple buttons and positions
+them in left- and right-aligned groups. Use it for toolbars and action bars where related actions
+belong together.
+
+- Pass buttons either directly as `children` or declaratively via `leftSlotButtons` / `rightSlotButtons` (accepting `ButtonProps` or `QuickAccessButtonProps`).
+- With `responsive` enabled, buttons that do not fit into the available width are collapsed into a popup menu; `collapsingDirection` controls which side collapses first.
+- `preserveSemanticStyles` keeps `primary` / `destructive` / `disabled` styling on the collapsed popup menu entries.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ButtonGroupContainerStories.Playground} />
+
+## Examples
+
+### Default
+
+<Canvas of={ButtonGroupContainerStories.Default} />
+
+### Left and right slots
+
+<Canvas of={ButtonGroupContainerStories.LeftAndRightSlots} />
+
+### Responsive overflow
+
+<Canvas of={ButtonGroupContainerStories.Responsive} />
+
+### Collapsing direction
+
+<Canvas of={ButtonGroupContainerStories.CollapsingDirection} />
+
+### Interaction hints
+
+<Canvas of={ButtonGroupContainerStories.InteractionHints} />
+
+### Custom portal positioning
+
+<Canvas of={ButtonGroupContainerStories.WithCustomPortalPositioning} />
+
+## Keyboard navigation
+
+The `KeyboardNavigation` sidebar entry demonstrates the two keyboard navigation modes: the default
+mode (**Tab** / **Shift+Tab** and **← / →** move between visible buttons) and the arrow-only mode
+configured via `KeyboardNavigationConfigProvider`, where **Tab** skips the entire group.
+
+<Canvas of={KeyboardNavigationStories.DefaultMode} />

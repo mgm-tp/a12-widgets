@@ -30,19 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import preserveMainActionStylesCode from "!./preserve-main-action-styles.tsx?raw";
+import primaryCode from "!./primary.tsx?raw";
+import secondaryCode from "!./secondary.tsx?raw";
+
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 import QuickAccessButtonAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/quick-access-button/main/quick-access-button.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
 
+import { PreserveMainActionStylesShowcase } from "./preserve-main-action-styles.js";
 import { PrimaryQuickAccessButtonShowcase } from "./primary.js";
 import { SecondaryQuickAccessButtonShowcase } from "./secondary.js";
-import { PreserveMainActionStylesShowcase } from "./preserve-main-action-styles.js";
-
-import primaryCode from "!./primary.tsx?raw";
-import secondaryCode from "!./secondary.tsx?raw";
-import preserveMainActionStylesCode from "!./preserve-main-action-styles.tsx?raw";
 
 const { Item, Unordered } = BulletList;
 

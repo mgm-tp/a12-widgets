@@ -52,7 +52,6 @@ import {
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { createCard } from "../../../helpers/faker.js";
-
 import { getCommentMeta, getComments } from "../shared-data.js";
 
 type CommentType = Omit<CommentProps, "replies"> & {

@@ -35,11 +35,10 @@ import { useRef, useMemo } from "react";
 import { styled, css } from "styled-components";
 
 import { joinClassNames, getRole } from "../../../common/main/utils.js";
-
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
-import type { TableTemplateProps } from "./table.tpl.api.js";
 import { StyledBaseTable } from "./table.styled.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 
 export const StyledTableFootRow = styled(StyledBaseTable.Row).withConfig({ displayName: "StyledTableFootRow-sc-" })<{
 	useHighlightColor?: boolean;
@@ -47,10 +46,12 @@ export const StyledTableFootRow = styled(StyledBaseTable.Row).withConfig({ displ
 	const { footRow } = theme.components.table;
 
 	return css`
-		${useHighlightColor &&
-		css`
-			background-color: ${footRow.highlightBG};
-		`}
+		${
+			useHighlightColor &&
+			css`
+				background-color: ${footRow.highlightBG};
+			`
+		}
 	`;
 });
 

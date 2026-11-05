@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { unstable_NormalPriority as NormalPriority, unstable_runWithPriority as runWithPriority } from "scheduler";
 import type { Context, FC, MutableRefObject, Provider } from "react";
 import { useContext, useLayoutEffect, useReducer, useRef, createContext as reactCreateContext } from "react";
+import { unstable_NormalPriority as NormalPriority, unstable_runWithPriority as runWithPriority } from "scheduler";
 
 import type { Container } from "../common/main/base-props.js";
 

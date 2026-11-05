@@ -57,7 +57,29 @@ export interface TooltipProps extends BaseTooltipProps {
 	variant?: "success" | "hint" | "error" | "warning";
 }
 
-export interface BaseTooltipProps extends Styleable, Identifiable, DataRole {
+/**
+ * Timing options shared by the tooltip widgets. They can be set on a single tooltip or for a whole subtree
+ * through `TooltipConfigProvider`.
+ */
+export interface TooltipBehavior {
+	/**
+	 * Delay in milliseconds before the tooltip appears once the trigger is hovered.
+	 * Lower it to make tooltips feel snappier. Very small values are not recommended: the tooltip is
+	 * positioned from the trigger's measured rect, and showing it before that measurement lands can skip
+	 * the tooltip entirely.
+	 * @default 200 for `Tooltip`, 500 for `TooltipPortal`
+	 */
+	showDelay?: number;
+
+	/**
+	 * Delay in milliseconds before the tooltip disappears once the pointer leaves the trigger. The delay
+	 * lets users move the pointer onto the tooltip itself without it closing.
+	 * @default 200 for `Tooltip`, 500 for `TooltipPortal`
+	 */
+	hideDelay?: number;
+}
+
+export interface BaseTooltipProps extends Styleable, Identifiable, DataRole, TooltipBehavior {
 	/**
 	 * The text to display when the mouse hovers over/clicks the element.
 	 */

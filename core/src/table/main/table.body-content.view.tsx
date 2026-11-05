@@ -33,8 +33,8 @@
 import { memo } from "react";
 
 import type { TableRenderPropsType } from "./table-renderer.api.js";
-import { getDataByKey, TableInternalUtils as Utils } from "./table.utils.js";
 import { useTableContext } from "./table.context.js";
+import { getDataByKey, TableInternalUtils as Utils } from "./table.utils.js";
 
 /** @internal */
 export const BodyContent = memo(function BodyContent(props: TableRenderPropsType.BodyContentProps) {

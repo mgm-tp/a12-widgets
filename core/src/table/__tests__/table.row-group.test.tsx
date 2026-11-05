@@ -34,7 +34,6 @@ import { render } from "test-utils";
 import { describe, expect, test } from "vitest";
 
 import { Range } from "../../common/main/utils.js";
-
 import type { BaseTableRowsGroupColumnType, RowsGroup } from "../main/table-rows-group/table-row-group.api.js";
 import { TableRowsGroup } from "../main/table-rows-group/table-row-group.view.js";
 

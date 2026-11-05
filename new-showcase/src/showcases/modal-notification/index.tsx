@@ -30,20 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import ModalNotificationAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/modal-notification/main/modal-notification.api.json" with { type: "json" };
+import accessibilityCode from "!./accessibility-modal-notification.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import customizationCode from "!./customization.tsx?raw";
+import variantsCode from "!./variants.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import ModalNotificationAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/modal-notification/main/modal-notification.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { ModalNotificationBasicShowcase } from "./basic.js";
-import { ModalNotificationVariantsShowcase } from "./variants.js";
-import { ModalNotificationCustomizationShowcase } from "./customization.js";
 import { AccessibilityModalNotificationExample } from "./accessibility-modal-notification.js";
-
-import basicCode from "!./basic.tsx?raw";
-import variantsCode from "!./variants.tsx?raw";
-import customizationCode from "!./customization.tsx?raw";
-import accessibilityCode from "!./accessibility-modal-notification.tsx?raw";
+import { ModalNotificationBasicShowcase } from "./basic.js";
+import { ModalNotificationCustomizationShowcase } from "./customization.js";
+import { ModalNotificationVariantsShowcase } from "./variants.js";
 
 const showcases: Showcase[] = [
 	{

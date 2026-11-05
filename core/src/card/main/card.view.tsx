@@ -34,7 +34,7 @@ import type { ReactElement, MouseEvent, TouchEvent, KeyboardEvent } from "react"
 import { useRef, useState, useCallback, useEffect } from "react";
 import { styled, css } from "styled-components";
 
-import { active, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import {
 	joinClassNames,
 	addPrefix,
@@ -42,7 +42,7 @@ import {
 	getParentElement,
 	getAllInteractiveElements
 } from "../../common/main/utils.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { active, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
 
 import type { CardProps } from "./card.api.js";
 
@@ -98,7 +98,7 @@ const cardElementSpacing = css`
 const StyledCardWrapper = styled.div`
 	${cardElementSpacing}
 	${cardContainerLayout}
-    box-sizing: border-box;
+	box-sizing: border-box;
 	height: 100%;
 	// Add this padding to take spaces for outline, prevent cutting off problem
 	padding: ${({ theme }) =>
@@ -126,27 +126,29 @@ const StyledActionAreaWrapper = styled.div.withConfig({ displayName: "StyledActi
 			right: 0;
 			left: 0;
 		}
-		${!noEffect &&
-		css`
-			${active(css`
-				&:before {
-					border: ${actionArea.activeBorder};
-				}
-			`)}
-			${hover(css`
-				&:before {
-					border: ${actionArea.hoverBorder};
-				}
-			`)}
+		${
+			!noEffect &&
+			css`
+				${active(css`
+					&:before {
+						border: ${actionArea.activeBorder};
+					}
+				`)}
+				${hover(css`
+					&:before {
+						border: ${actionArea.hoverBorder};
+					}
+				`)}
 
-		&:focus {
-				box-shadow: ${actionArea.focusBoxShadow};
-				${darkFocus}
-				&:before {
-					border: ${actionArea.focusBorder};
+				&:focus {
+					box-shadow: ${actionArea.focusBoxShadow};
+					${darkFocus}
+					&:before {
+						border: ${actionArea.focusBorder};
+					}
 				}
-			}
-		`}
+			`
+		}
 
 		${StyledContentWrapper}:last-child {
 			padding-bottom: 4px;

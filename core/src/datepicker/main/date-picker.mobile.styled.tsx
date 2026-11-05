@@ -34,8 +34,8 @@ import { styled, css } from "styled-components";
 
 import { StyledIconWrapper } from "../../icon/main/icon.view.js";
 
-import { DatePickerFooter } from "./date-picker.tpl.view.js";
 import { StyledPickerHeaderButton } from "./date-picker.styled.js";
+import { DatePickerFooter } from "./date-picker.tpl.view.js";
 
 export namespace StyledDatePickerMobile {
 	export const StyledDatePickerDialogContainer = styled.div.withConfig({

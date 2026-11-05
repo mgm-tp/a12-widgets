@@ -42,8 +42,6 @@ import type { Key } from "react";
 /**
  * One visible tree row after flattening. The consumer's `row` is carried verbatim (no envelope); the
  * tree metadata lives alongside it so the view resolves depth/expansion/relationships from this record.
- *
- * @internal
  */
 export interface FlatTreeRow<RowType = unknown> {
 	/**

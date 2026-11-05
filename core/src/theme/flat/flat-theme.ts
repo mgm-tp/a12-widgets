@@ -32,18 +32,18 @@
 
 import merge from "deepmerge";
 
-import type { DivisionLineStyle } from "../schema/application-styles.api.js";
 import { ApplicationStyles } from "../default/config/application/application_styles.config.js";
 import { DivisionLineStyles } from "../default/config/application/division-line.config.js";
-import { getDefaultTheme } from "../default/default-theme.js";
 import { DefaultComponentsConfigs } from "../default/config/components/components.js";
+import { getDefaultTheme } from "../default/default-theme.js";
+import type { DivisionLineStyle } from "../schema/application-styles.api.js";
 
-import { FlatColorsConfig } from "./config/base/colors.config.js";
-import { FlatComponentsConfigs } from "./config/components/components.js";
 import { ApplicationFlatStyles } from "./config/application/application_styles.config.js";
+import { FlatDivisionLineStyles } from "./config/application/division-line.config.js";
 import { FocusFlatStyles } from "./config/application/focus.config.js";
 import { HoverFlatStyles } from "./config/application/hover.config.js";
-import { FlatDivisionLineStyles } from "./config/application/division-line.config.js";
+import { FlatColorsConfig } from "./config/base/colors.config.js";
+import { FlatComponentsConfigs } from "./config/components/components.js";
 
 /** @deprecated since v39.0.0. Use {@link getBaseTheme} from `@com.mgmtp.a12.widgets/widgets-core`. */
 export const getFlatTheme = () => {

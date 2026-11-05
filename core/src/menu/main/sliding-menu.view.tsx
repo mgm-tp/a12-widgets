@@ -45,21 +45,19 @@ import {
 } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { css, styled } from "styled-components";
-import type { OnResizeCallback, ResizePayload } from "react-resize-detector";
-import { useResizeDetector } from "react-resize-detector";
 
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { isSimilarNode } from "../../common/main/react-node-utils.js";
-import { addPrefix, isVisibleOnScreen, joinClassNames } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { isSimilarNode } from "../../common/main/react-node-utils.js";
+import type { OnResizeCallback, ResizePayload } from "../../common/main/resize-observer/resize-observer.api.js";
+import { useResizeObserver } from "../../common/main/resize-observer/use-resize-observer.js";
+import { addPrefix, isVisibleOnScreen, joinClassNames } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { useKeyboardNavigationMode } from "../../keyboard-navigation/main/keyboard-navigation-context.js";
 import type { KeyboardNavigationMode } from "../../keyboard-navigation/main/keyboard-navigation.api.js";
-import { Icon } from "../../icon/main/icon.view.js";
 
 import type { MenuItem } from "./menu.api.js";
-import type { SlidingMenuProps } from "./sliding-menu.api.js";
 import { MenuUtils } from "./menu.internal.js";
-import { MenuTplUtils } from "./template/menu.tpl.internal.js";
 import {
 	getNavigableMenuItems,
 	initDefaultMenuTabIndex,
@@ -67,8 +65,10 @@ import {
 	resetMenuRovingTabIndex,
 	updateMenuRovingTabIndex
 } from "./menu.utils.js";
-import { useSlidingMenuKeyboard, type SlidingMenuKeyboardOptions } from "./use-sliding-menu-keyboard.js";
+import type { SlidingMenuProps } from "./sliding-menu.api.js";
+import { MenuTplUtils } from "./template/menu.tpl.internal.js";
 import { MainMenuTpl, MenuContainer } from "./template/menu.tpl.view.js";
+import { useSlidingMenuKeyboard, type SlidingMenuKeyboardOptions } from "./use-sliding-menu-keyboard.js";
 
 const { flattenToMenuItems } = MenuTplUtils;
 
@@ -95,13 +95,15 @@ const BaseSlidingMenuWrapper = styled.div<Pick<SlidingMenuProps.MainWrapperProps
 			visibility: hidden;
 			width: 100%;
 			z-index: 0;
-			${expanded &&
-			css`
-				overflow-y: auto;
-				transform: translateX(100%);
-				visibility: visible;
-				z-index: 2;
-			`}
+			${
+				expanded &&
+				css`
+					overflow-y: auto;
+					transform: translateX(100%);
+					visibility: visible;
+					z-index: 2;
+				`
+			}
 		`;
 	}
 );
@@ -511,7 +513,7 @@ export function SlidingMenuMainWrapper(
 		setTopDistance(height || 0);
 	}, []);
 
-	useResizeDetector({ handleWidth: false, targetRef: applicationFrameHeaderRef, onResize });
+	useResizeObserver({ handleWidth: false, targetRef: applicationFrameHeaderRef, onResize });
 
 	return (
 		<BaseSlidingMenuWrapper

@@ -34,8 +34,8 @@ import type { KeyboardEvent as ReactKeyboardEvent, RefObject } from "react";
 import { useCallback } from "react";
 import { Key } from "ts-key-enum";
 
-import { getAllFocusableElements, getNextWrappedIndex } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { getAllFocusableElements, getNextWrappedIndex } from "../../common/main/utils.js";
 import type { KeyboardNavigationMode } from "../../keyboard-navigation/main/keyboard-navigation.api.js";
 
 import type { PopUpMenuCloseReason } from "./pop-up-menu.api.js";

@@ -57,6 +57,7 @@ export const HelperTextCheckboxesShowcase: FC = () => {
 	return (
 		<div className="-u-flex -u-items-center -u-flex-wrap -u-width-full" style={{ gap: 16 }}>
 			<Checkbox
+				id="checkbox-helpertext"
 				label="Checkbox with Helper Text"
 				checked={checked}
 				onChange={handleChange}

@@ -80,15 +80,27 @@ export function fixedRandomNumber(seed = 2): () => number {
 declare const __A12_VERSION__: string;
 
 export function setLocalStorage(key: string, value: string): void {
-	return localStorage.setItem(`${__A12_VERSION__}-${key}`, value);
+	try {
+		localStorage.setItem(`${__A12_VERSION__}-${key}`, value);
+	} catch {
+		// no-op when localStorage is unavailable (e.g. sandboxed iframe)
+	}
 }
 
 export function getLocalStorage(key: string): string | null {
-	return localStorage.getItem(`${__A12_VERSION__}-${key}`);
+	try {
+		return localStorage.getItem(`${__A12_VERSION__}-${key}`);
+	} catch {
+		return null;
+	}
 }
 
 export function removeLocalStorage(key: string): void {
-	return localStorage.removeItem(`${__A12_VERSION__}-${key}`);
+	try {
+		localStorage.removeItem(`${__A12_VERSION__}-${key}`);
+	} catch {
+		// no-op when localStorage is unavailable (e.g. sandboxed iframe)
+	}
 }
 
 export const isGroupSection = (sections?: Section[] | GroupSections): sections is GroupSections => {

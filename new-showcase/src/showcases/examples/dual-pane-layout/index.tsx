@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { Showcase } from "../../../helpers/definitions.js";
-
-import { DualPaneLayoutExample } from "./dual-pane-layout.js";
-
 import dualPaneLayoutCode from "!./dual-pane-layout.tsx?raw";
 import embeddedContentBoxCode from "!./embedded-content-box.tsx?raw";
 import tableDataCode from "!./table-data.tsx?raw";
+
+import type { Showcase } from "../../../helpers/definitions.js";
+
+import { DualPaneLayoutExample } from "./dual-pane-layout.js";
 
 const showcases: Showcase[] = [
 	{

@@ -55,6 +55,10 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering default modal
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c12 {
+  color: inherit;
+}
+
 .c8 {
   align-items: center;
   background-color: rgb(78, 89, 101);
@@ -279,6 +283,8 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering default modal
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         info
                       </span>
@@ -394,6 +400,10 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering error modal n
 
 .c12.c12 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c12 {
+  color: inherit;
 }
 
 .c8 {
@@ -552,34 +562,6 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering error modal n
   flex: 1 0 auto;
 }
 
-.c20 .c7 {
-  background-color: rgb(5, 104, 174);
-  color: rgb(5, 104, 174);
-}
-
-.c20 .c9 > .c11 {
-  color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c20 .c14 {
-  color: rgb(255, 255, 255);
-}
-
-.c21 .c7 {
-  background-color: rgb(41, 122, 36);
-  color: rgb(41, 122, 36);
-}
-
-.c21 .c9 > .c11 {
-  color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c21 .c14 {
-  color: rgb(255, 255, 255);
-}
-
 .c5 .c7 {
   background-color: rgb(201, 29, 29);
   color: rgb(201, 29, 29);
@@ -648,6 +630,8 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering error modal n
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         
                       </span>
@@ -894,33 +878,6 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering modal notific
   color: rgb(255, 255, 255);
 }
 
-.c17 .c7 {
-  background-color: rgb(41, 122, 36);
-  color: rgb(41, 122, 36);
-}
-
-.c17 .c11 {
-  color: rgb(255, 255, 255);
-}
-
-.c18 .c7 {
-  background-color: rgb(201, 29, 29);
-  color: rgb(201, 29, 29);
-}
-
-.c18 .c11 {
-  color: rgb(255, 255, 255);
-}
-
-.c19 .c7 {
-  background-color: rgb(249, 191, 48);
-  color: rgb(249, 191, 48);
-}
-
-.c19 .c11 {
-  color: rgb(22, 25, 29);
-}
-
 @media only screen and (max-width: 756px) {
   .c2 {
     width: calc(100% - 48px);
@@ -1084,6 +1041,10 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering success modal
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c12 {
+  color: inherit;
+}
+
 .c8 {
   align-items: center;
   background-color: rgb(78, 89, 101);
@@ -1240,20 +1201,6 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering success modal
   flex: 1 0 auto;
 }
 
-.c20 .c7 {
-  background-color: rgb(5, 104, 174);
-  color: rgb(5, 104, 174);
-}
-
-.c20 .c9 > .c11 {
-  color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c20 .c14 {
-  color: rgb(255, 255, 255);
-}
-
 .c5 .c7 {
   background-color: rgb(41, 122, 36);
   color: rgb(41, 122, 36);
@@ -1322,6 +1269,8 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering success modal
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         check_circle
                       </span>
@@ -1439,6 +1388,10 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering warning modal
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c12 {
+  color: inherit;
+}
+
 .c8 {
   align-items: center;
   background-color: rgb(78, 89, 101);
@@ -1595,48 +1548,6 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering warning modal
   flex: 1 0 auto;
 }
 
-.c20 .c7 {
-  background-color: rgb(5, 104, 174);
-  color: rgb(5, 104, 174);
-}
-
-.c20 .c9 > .c11 {
-  color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c20 .c14 {
-  color: rgb(255, 255, 255);
-}
-
-.c21 .c7 {
-  background-color: rgb(41, 122, 36);
-  color: rgb(41, 122, 36);
-}
-
-.c21 .c9 > .c11 {
-  color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c21 .c14 {
-  color: rgb(255, 255, 255);
-}
-
-.c22 .c7 {
-  background-color: rgb(201, 29, 29);
-  color: rgb(201, 29, 29);
-}
-
-.c22 .c9 > .c11 {
-  color: rgb(255, 255, 255);
-  font-size: 1.25rem;
-}
-
-.c22 .c14 {
-  color: rgb(255, 255, 255);
-}
-
 .c5 .c7 {
   background-color: rgb(249, 191, 48);
   color: rgb(249, 191, 48);
@@ -1705,6 +1616,8 @@ exports[`com.mgmtp.a12.widgets.modal-notification > test rendering warning modal
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         warning_amber
                       </span>

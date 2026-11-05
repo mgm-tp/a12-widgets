@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { FC } from "react";
 import { useState } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import {
 	Checkbox,
@@ -56,13 +56,20 @@ export const FullscreenWithNoGutterModalExample: FC = () => {
 			configuration={
 				<div className="-u-flex -u-justify-center -u-items-center">
 					<Checkbox
+						id="modal-overlay-fullscreen-with-no-gutter-fullscreen"
 						className="-u-margin-r-sm"
 						checked={fullscreen}
 						onChange={setFullScreen}
 						label="Fullscreen"
 						title="Fullscreen"
 					/>
-					<Checkbox checked={noGutter} onChange={setNoGutter} label="No Gutter" title="No Gutter" />
+					<Checkbox
+						id="modal-overlay-fullscreen-with-no-gutter-no-gutter"
+						checked={noGutter}
+						onChange={setNoGutter}
+						label="No Gutter"
+						title="No Gutter"
+					/>
 				</div>
 			}
 		>

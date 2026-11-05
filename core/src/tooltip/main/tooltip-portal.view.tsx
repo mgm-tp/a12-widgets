@@ -31,14 +31,18 @@
  */
 
 import type { ReactElement } from "react";
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useContext, useRef, useState, useCallback, useEffect } from "react";
 
 import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
 import type { Orientation } from "../../common/main/alignment.js";
 import { IntersectionObserverHelper } from "../../common/main/utils.js";
 
-import { StyledTooltipContainer, StyledTooltipContent } from "./tooltip.styled.js";
+import { TooltipConfigContext } from "./tooltip-context.js";
 import type { TooltipPortalProps } from "./tooltip-portal.api.js";
+import { StyledTooltipContainer, StyledTooltipContent } from "./tooltip.styled.js";
+
+/** Default show/hide delay. Overridable per instance or through `TooltipConfigProvider`. */
+const TOOLTIP_DELAY = 500;
 
 /**
  * A reusable tooltip portal component that displays content in a positioned overlay.
@@ -54,7 +58,9 @@ export function TooltipPortal({
 	className,
 	dataRole,
 	tooltipContentDataRole,
-	shouldShowTooltip
+	shouldShowTooltip,
+	showDelay: showDelayProp,
+	hideDelay: hideDelayProp
 }: TooltipPortalProps): ReactElement | null {
 	const [orientation, setOrientation] = useState<Orientation>("top-start");
 	const [showTooltip, setShowTooltip] = useState(false);
@@ -67,7 +73,10 @@ export function TooltipPortal({
 	const showTimeoutId = useRef<number | null>(null);
 	const hideTimeoutId = useRef<number | null>(null);
 
-	const TOOLTIP_DELAY = 500;
+	const tooltipConfig = useContext(TooltipConfigContext);
+	// Instance prop wins, then any application-wide configuration, then the built-in default.
+	const showDelay = showDelayProp ?? tooltipConfig.showDelay ?? TOOLTIP_DELAY;
+	const hideDelay = hideDelayProp ?? tooltipConfig.hideDelay ?? TOOLTIP_DELAY;
 
 	const getPortalElementRef = useCallback((ref: HTMLDivElement | null): void => {
 		portalElement.current = ref;
@@ -112,8 +121,8 @@ export function TooltipPortal({
 			}
 
 			setShowTooltip(true);
-		}, TOOLTIP_DELAY);
-	}, [clearTimeouts, referenceElementRef, shouldShowTooltip, TOOLTIP_DELAY]);
+		}, showDelay);
+	}, [clearTimeouts, referenceElementRef, shouldShowTooltip, showDelay]);
 
 	const handleHideTooltip = useCallback((): void => {
 		clearTimeouts();
@@ -121,8 +130,8 @@ export function TooltipPortal({
 		hideTimeoutId.current = window.setTimeout(() => {
 			setShowTooltip(false);
 			intersectionObserverRef.current.disconnectObserver();
-		}, TOOLTIP_DELAY);
-	}, [clearTimeouts, TOOLTIP_DELAY]);
+		}, hideDelay);
+	}, [clearTimeouts, hideDelay]);
 
 	useEffect(() => {
 		const handleMouseOver = (): void => {

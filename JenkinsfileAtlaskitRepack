@@ -1,0 +1,76 @@
+#!/usr/bin/env groovy
+
+/**
+ * Manually triggered job that republishes the @atlaskit/pragmatic-drag-and-drop*
+ * packages under our own scope with a proper `exports` field (Node ESM fix).
+ *
+ * Gradle is the leading tool: the `repackAtlaskit` task supplies the publish
+ * registry from the a12Publish plugin (same npm repo as our other packages) and
+ * runs tools/atlaskit-repack/repack.mjs, which transforms the upstream tarballs,
+ * smoke-tests every exports subpath via native import()/require(), and only
+ * publishes when the smoke test passes. Already-published versions are skipped,
+ * so re-running is always safe.
+ *
+ * See tools/atlaskit-repack/README.md for the full workflow.
+ */
+pipeline {
+    agent { label "linux-node-small" }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        ansiColor('xterm')
+        disableConcurrentBuilds()
+    }
+    tools {
+        jdk "OpenJDK25"
+        gradle "Gradle9"
+    }
+    environment {
+        GRADLE_USER_HOME = "${WORKSPACE}/.gradle"
+        GRADLE_OPTS = '-Dorg.gradle.daemon=true'
+    }
+
+    parameters {
+        booleanParam name: "dryRun", defaultValue: true, description: "Transform and smoke-test only (npm publish --dry-run, nothing is uploaded). Re-run with this unchecked to publish."
+        booleanParam name: "force", defaultValue: false, description: "Repack even if the target versions already exist in the registry"
+    }
+
+    stages {
+        stage("Repack") {
+            steps {
+                buildEnvironment {
+                    sh "gradle repackAtlaskit -PrepackDryRun=${params.dryRun} -PrepackForce=${params.force}"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs cleanWhenFailure: false, cleanWhenUnstable: false
+        }
+
+        failure {
+            emailext to: "a12-widgets-team@mgm-tp.com",
+                    subject: "[${currentBuild.currentResult}] atlaskit-repack",
+                    body: "Build output: ${env.BUILD_URL}consoleFull"
+        }
+    }
+}
+
+/**
+ * Trimmed variant of the main Jenkinsfile's buildEnvironment: artifactory
+ * credentials (internal Gradle plugin resolution), the gradle-settings init
+ * script, and the managed npmrc (npm publish auth). The deployment/cluster
+ * credentials of the main pipeline are not needed here.
+ */
+void buildEnvironment(Closure body) {
+    withCredentials([
+            usernamePassword(credentialsId: 'ci-user-artifactory-token', usernameVariable: 'repository_username', passwordVariable: 'repository_password')
+    ]) {
+        configFileProvider([configFile(fileId: 'gradle-settings', targetLocation: "${GRADLE_USER_HOME}/init.d/settings.gradle")]) {
+            nodejs(configId: 'npmrc', nodeJSInstallationName: 'Node24') {
+                body()
+            }
+        }
+    }
+}

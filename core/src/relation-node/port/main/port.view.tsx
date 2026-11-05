@@ -33,8 +33,8 @@
 import type { ComponentType, SyntheticEvent, ReactElement } from "react";
 import { useCallback } from "react";
 
-import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import type { Container, Styleable } from "../../../common/main/base-props.js";
+import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 
 import type { PortProps } from "./port.api.js";
 

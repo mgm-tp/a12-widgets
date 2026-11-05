@@ -32,16 +32,16 @@
 
 import { styled, css } from "styled-components";
 
+import { StyledButton } from "../../button/main/button.styled.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { shouldForwardProp } from "../../common/main/should-forward-prop.js";
+import { StyledContentBoxFooter } from "../../contentbox/main/template/contentbox.tpl.styled.js";
+import { SubHeadingElements } from "../../contentbox/main/template/elements/sub-heading.tpl.view.js";
+import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
 import { breakWord } from "../../theme/base/mixins/_break-word.js";
 import { active, hover, inputDarkFocus } from "../../theme/base/mixins/_interaction.js";
 import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
-import { StyledContentBoxFooter } from "../../contentbox/main/template/contentbox.tpl.styled.js";
-import { SubHeadingElements } from "../../contentbox/main/template/elements/sub-heading.tpl.view.js";
-import { StyledButton } from "../../button/main/button.styled.js";
-import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
-import { shouldForwardProp } from "../../common/main/should-forward-prop.js";
-import { DataRoles } from "../../common/main/data-roles.js";
-
+import type { TooltipLineBreak } from "../base/template/base.tpl.api.js";
 import {
 	StyledFieldLabel,
 	StyledFieldLabelWrapper,
@@ -87,17 +87,19 @@ export namespace StyledBaseInput {
 			justify-content: center;
 			min-width: ${textSuffix.minWidth};
 			padding: ${textSuffix.padding};
-			${$truncated &&
-			css`
-				width: ${textSuffix.minWidth};
+			${
+				$truncated &&
+				css`
+					width: ${textSuffix.minWidth};
 
-				> * {
-					flex-shrink: 1;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-				}
-			`}
+					> * {
+						flex-shrink: 1;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+				`
+			}
 		`;
 	});
 
@@ -164,11 +166,13 @@ export namespace StyledBaseInput {
 				border-top-left-radius: ${input.borderRadius};
 			}
 
-			${$last &&
-			css`
-				margin-right: -${baseInput.input.horizontalSpacing};
-				position: relative;
-			`}
+			${
+				$last &&
+				css`
+					margin-right: -${baseInput.input.horizontalSpacing};
+					position: relative;
+				`
+			}
 			${StyledFieldAffixText} {
 				margin: 0 ${baseInput.input.horizontalSpacing} 0 0;
 			}
@@ -195,18 +199,22 @@ export namespace StyledBaseInput {
 				border-top-right-radius: ${input.borderRadius};
 			}
 
-			${$first &&
-			$negativeMargin &&
-			css`
-				margin-left: -${baseInput.input.horizontalSpacing};
-			`}
+			${
+				$first &&
+				$negativeMargin &&
+				css`
+					margin-left: -${baseInput.input.horizontalSpacing};
+				`
+			}
 
-			${!($first && !$negativeMargin) &&
-			css`
-				${StyledFieldAffixText} {
-					margin: 0 0 0 ${baseInput.input.horizontalSpacing};
-				}
-			`}
+			${
+				!($first && !$negativeMargin) &&
+				css`
+					${StyledFieldAffixText} {
+						margin: 0 0 0 ${baseInput.input.horizontalSpacing};
+					}
+				`
+			}
 		`;
 	});
 
@@ -285,77 +293,99 @@ export namespace StyledBaseInput {
 				border-radius: ${input.borderRadius};
 			}
 
-			${!$disabled &&
-			css`
-				${!$readonly &&
-				css`
-					&& {
-						${StyledContentBoxFooter} &,
-                  ${SubHeadingElements.StyledSubHeading} & {
-							background-color: ${contentBox.subHeading.inputBackground};
-						}
-					}
-					${!$noEffect &&
-					css`
-						${!$hasFocus &&
-						css`
-							${active(css`
-								box-shadow: ${input.activeBoxShadow};
-							`)}
-							${hover(css`
-								box-shadow: ${input.hoverBoxShadow};
-							`)}
-						`}
-						${$hasFocus &&
-						css`
-							${createBoxShadow(baseInput.input.customDashedFocus ?? baseInput.input.focusBoxShadow)}
-						`}
-					`}
-				`}
-				${$hasFocus &&
-				css`
-					outline-offset: ${baseInput.input.outlineOffset};
-					${inputDarkFocus}
-				`}
-			`}
-
-			${variant &&
-			css`
-				box-shadow: ${baseInput.input[variant].boxShadow};
-				${!$readonly &&
-				!$noEffect &&
+			${
 				!$disabled &&
 				css`
-					&& {
-						${active(css`
-							box-shadow: ${baseInput.input[variant].activeBoxShadow};
-						`)};
-						${hover(css`
-							box-shadow: ${baseInput.input[variant].hoverBoxShadow};
-						`)};
-						${$hasFocus &&
+					${
+						!$readonly &&
 						css`
-							&:before {
-								display: none;
+							&& {
+								${StyledContentBoxFooter} &,
+								${SubHeadingElements.StyledSubHeading} & {
+									background-color: ${contentBox.subHeading.inputBackground};
+								}
 							}
-							${createBoxShadow(baseInput.input[variant].customDashedFocus ?? baseInput.input[variant].focusBoxShadow)}
-						`};
+							${
+								!$noEffect &&
+								css`
+									${
+										!$hasFocus &&
+										css`
+											${active(css`
+												box-shadow: ${input.activeBoxShadow};
+											`)}
+											${hover(css`
+												box-shadow: ${input.hoverBoxShadow};
+											`)}
+										`
+									}
+									${
+										$hasFocus &&
+										css`
+											${createBoxShadow(baseInput.input.customDashedFocus ?? baseInput.input.focusBoxShadow)}
+										`
+									}
+								`
+							}
+						`
 					}
-				`}
-			`}
-			
-			${$readonly &&
-			css`
-				background-color: ${baseInput.input.readonly.background};
-				box-shadow: ${baseInput.input.readonly.boxShadow};
-			`}
-			
-			${$disabled &&
-			css`
-				background-color: ${baseInput.input.disabled.background};
-				box-shadow: ${baseInput.input.disabled.boxShadow};
-				color: ${baseInput.input.disabled.color};
-			`}
+					${
+						$hasFocus &&
+						css`
+							outline-offset: ${baseInput.input.outlineOffset};
+							${inputDarkFocus}
+						`
+					}
+				`
+			}
+
+			${
+				variant &&
+				css`
+					box-shadow: ${baseInput.input[variant].boxShadow};
+					${
+						!$readonly &&
+						!$noEffect &&
+						!$disabled &&
+						css`
+							&& {
+								${active(css`
+									box-shadow: ${baseInput.input[variant].activeBoxShadow};
+								`)};
+								${hover(css`
+									box-shadow: ${baseInput.input[variant].hoverBoxShadow};
+								`)};
+								${
+									$hasFocus &&
+									css`
+										&:before {
+											display: none;
+										}
+										${createBoxShadow(baseInput.input[variant].customDashedFocus ?? baseInput.input[variant].focusBoxShadow)}
+									`
+								};
+							}
+						`
+					}
+				`
+			}
+
+			${
+				$readonly &&
+				css`
+					background-color: ${baseInput.input.readonly.background};
+					box-shadow: ${baseInput.input.readonly.boxShadow};
+				`
+			}
+
+			${
+				$disabled &&
+				css`
+					background-color: ${baseInput.input.disabled.background};
+					box-shadow: ${baseInput.input.disabled.boxShadow};
+					color: ${baseInput.input.disabled.color};
+				`
+			}
 		`;
 	});
 
@@ -363,8 +393,9 @@ export namespace StyledBaseInput {
 		$block?: boolean;
 		$phone?: boolean;
 		$disabled?: boolean;
-	}>(({ theme, $block, $phone, $disabled }) => {
-		const { textField } = theme.components;
+		$tooltipPosition?: TooltipLineBreak;
+	}>(({ theme, $block, $phone, $disabled, $tooltipPosition }) => {
+		const { textField, baseInput } = theme.components;
 
 		return css`
 			display: inline-flex;
@@ -372,27 +403,42 @@ export namespace StyledBaseInput {
 			${breakWord()}
 			flex-direction: column;
 
-			${$phone &&
-			css`
-				${StyledFieldMain} ${StyledFieldTextInput} {
-					// Increase font-size on phone to avoid zooming on focus
-					font-size: ${textField.mobile?.fontSize};
-					height: ${textField.mobile?.height};
-				}
-			`}
+			${
+				$phone &&
+				css`
+					${StyledFieldMain} ${StyledFieldTextInput} {
+						// Increase font-size on phone to avoid zooming on focus
+						font-size: ${textField.mobile?.fontSize};
+						height: ${textField.mobile?.height};
+					}
+				`
+			}
 
-			${$block &&
-			css`
-				display: flex;
-				width: 100%;
-
-				${StyledFieldMain} {
+			${
+				$block &&
+				css`
 					display: flex;
 					width: 100%;
-				}
-			`}
+
+					${StyledFieldMain} {
+						display: flex;
+						width: 100%;
+					}
+				`
+			}
 			* {
 				max-width: 100%;
+			}
+
+			${
+				$tooltipPosition === "below" &&
+				css`
+					// Tooltips below the control are rendered outside the field's main row, so the spacing
+					// rule on the field itself does not cover them. They need the gap on top here.
+					> ${StyledTooltipTriggerWrapper} {
+						margin: ${baseInput.input.tooltipInNewLineMarginBelow};
+					}
+				`
 			}
 
 			${$disabled && helperClassInDisabledStyles}
@@ -410,55 +456,69 @@ export namespace StyledBaseInput {
 		$hasTooltips?: boolean;
 		$disabled?: boolean;
 		$numberOfTooltips?: number;
-	}>(({ theme, $block, $hasTooltips, $numberOfTooltips, $disabled }) => {
+		$tooltipPosition?: TooltipLineBreak;
+	}>(({ theme, $block, $hasTooltips, $numberOfTooltips, $disabled, $tooltipPosition }) => {
 		const { input, field } = theme.components.baseInput;
 		const { tooltip } = theme.components;
 
 		return css`
 			box-sizing: border-box;
-			${!$block &&
-			css`
-				display: inline-block;
-			`}
-			${$block &&
-			css`
-				flex-grow: 1;
-				width: 100%;
-			`}
+			${
+				!$block &&
+				css`
+					display: inline-block;
+				`
+			}
+			${
+				$block &&
+				css`
+					flex-grow: 1;
+					width: 100%;
+				`
+			}
 			> ${StyledTooltipTriggerWrapper} {
-				margin: ${!$hasTooltips && input.tooltipInNewLineMargin};
+				// A tooltip below the control needs the gap on top, so that it separates the tooltip from
+				// the control instead of from whatever follows it.
+				margin: ${
+					!$hasTooltips &&
+					($tooltipPosition === "below" ? input.tooltipInNewLineMarginBelow : input.tooltipInNewLineMargin)
+				};
 			}
 
-			${!$hasTooltips &&
-			css`
-				${StyledFieldLabel} {
-					display: block;
-					width: fit-content;
-				}
-			`}
-
-			${$hasTooltips &&
-			css`
-				${StyledTooltipTriggerWrapper} {
-					align-self: center;
-					flex-shrink: 0;
-					text-align: right;
-					width: ${field.tooltipWidth};
-				}
-
-				&[data-role="${DataRoles.CheckboxGroup}"],
-				&[data-role="${DataRoles.Radio.Group}"],
-				&[data-role="${DataRoles.FileUpload}"] {
+			${
+				!$hasTooltips &&
+				css`
 					${StyledFieldLabel} {
-						max-width: 100%;
-						vertical-align: middle;
+						display: block;
+						width: fit-content;
+					}
+				`
+			}
 
-						~ ${StyledTooltipTriggerWrapper} {
-							margin: ${tooltip.nextToLabelMargin};
+			${
+				$hasTooltips &&
+				css`
+					${StyledTooltipTriggerWrapper} {
+						align-self: center;
+						flex-shrink: 0;
+						text-align: right;
+						width: ${field.tooltipWidth};
+					}
+
+					&[data-role="${DataRoles.CheckboxGroup}"], &[data-role="${
+						DataRoles.Radio.Group
+					}"], &[data-role="${DataRoles.FileUpload}"] {
+						${StyledFieldLabel} {
+							max-width: 100%;
+							vertical-align: middle;
+
+							~ ${StyledTooltipTriggerWrapper} {
+								margin: ${tooltip.nextToLabelMargin};
+							}
 						}
 					}
-				}
-			`}
+				`
+			}
 
 			${$hasTooltips && $numberOfTooltips && elementWithTooltipStyles($numberOfTooltips)}
 

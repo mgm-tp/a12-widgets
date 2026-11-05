@@ -1,0 +1,102 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as TreeTableStories from "./TreeTable.stories";
+
+<Meta of={TreeTableStories} />
+
+<Title />
+
+> ℹ️ `TreeTable` remains fully supported. Its experimental counterpart, **Data Display › DataTreeTable**,
+> is a hierarchical wrapper over `DataTable` that works on your own row type instead of a
+> `TreeNodeModel` envelope, needs no `DndProvider`, and adds keyboard drag-and-drop, lazy loading and
+> pagination. A mapping between the two APIs is in the showcase's migration notes.
+
+The `TreeTable` widget displays hierarchical data in a multi-column table — think file explorers,
+organization charts or nested categories. It takes a single `root` node (each node has an `id`,
+`data` for its cells, an optional `icon` and optional `children`) and a list of `columns`, where
+one column is marked `hierarchical` to host the expand/collapse arrows.
+
+- Expansion state is controlled by the consumer: toggle `collapsed` via `rowStyling` in response to
+  `onArrowClick` from `rowEventHandlers`.
+- `rowStyling` also drives `selected`, `disabled`, `highlighted` and `interactive` row states.
+- Use `hideRoot` to show the root's children as top-level rows, and `scrollToNode` to scroll to a
+  row programmatically.
+- `dragDropOptions` enables drag-and-drop reordering and re-parenting of nodes. It is built on
+  react-dnd, so the table has to be wrapped in a `DndProvider` (see the drag-and-drop examples).
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={TreeTableStories.Playground} />
+
+## Examples
+
+### Disabled rows
+
+<Canvas of={TreeTableStories.DisabledRows} />
+
+### Row highlighting
+
+<Canvas of={TreeTableStories.RowHighlighting} />
+
+### Hiding the root node
+
+<Canvas of={TreeTableStories.HideRoot} />
+
+### Action column
+
+<Canvas of={TreeTableStories.WithActionColumn} />
+
+### Scroll to node
+
+<Canvas of={TreeTableStories.ScrollToNode} />
+
+### Column groups accessibility
+
+<Canvas of={TreeTableStories.ColumnGroupWithEnhancedAccessibility} />
+
+## Drag and drop
+
+Wrap the table in a `DndProvider` (backend `DragAndDropUtils.DefaultDndBackend`) and pass
+`dragDropOptions`. A drop target is a combination of a row and a `TreeTableNodeDropPosition`:
+
+| Position   | Meaning                                                    |
+| ---------- | ---------------------------------------------------------- |
+| `TOP`      | Insert above the hovered row, as its sibling                |
+| `BOTTOM`   | Insert below the hovered row, as its sibling                |
+| `AS_CHILD` | Append into the hovered row (hovering the middle of a row)  |
+
+The table never mutates the tree itself — `onDrop` reports `{ dragItem, dropResult }` and the
+consumer applies the move to its own `root`.
+
+### Reordering and re-parenting
+
+<Canvas of={TreeTableStories.DragAndDrop} />
+
+### Restricting drag sources and drop targets
+
+<Canvas of={TreeTableStories.DragAndDropRestrictions} />
+
+### Dropping onto a hidden root
+
+<Canvas of={TreeTableStories.DragAndDropHiddenRoot} />
+
+### Drag lifecycle events
+
+<Canvas of={TreeTableStories.DragAndDropEvents} />

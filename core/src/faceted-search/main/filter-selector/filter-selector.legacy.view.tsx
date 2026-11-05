@@ -35,8 +35,10 @@ import { Component, Fragment } from "react";
 import { Key } from "ts-key-enum";
 
 import { AttachedPortal } from "../../../attached-portal/main/attached-portal.view.js";
-import { ContentBoxElements } from "../../../contentbox/main/template/contentbox.tpl.view.js";
-import { ModalOverlay } from "../../../modal-overlay/main/modal-overlay.view.js";
+import { DISTANCE_TO_SCREEN_BORDER } from "../../../common/main/alignment.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
+import { provider as DeviceDetector } from "../../../common/main/device-detector.js";
+import { TabSandbox } from "../../../common/main/tab-sandbox.view.js";
 import {
 	bindMethods,
 	getAllFocusableElements,
@@ -46,15 +48,13 @@ import {
 	noop,
 	inputWithSuffixName
 } from "../../../common/main/utils.js";
-import { provider as DeviceDetector } from "../../../common/main/device-detector.js";
-import { DISTANCE_TO_SCREEN_BORDER } from "../../../common/main/alignment.js";
-import { TabSandbox } from "../../../common/main/tab-sandbox.view.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
+import { ContentBoxElements } from "../../../contentbox/main/template/contentbox.tpl.view.js";
+import { ModalOverlay } from "../../../modal-overlay/main/modal-overlay.view.js";
 
-import { getFlattenedFilters, isSection } from "./filter-selector.internal.js";
-import { FilterSelectorTemplate } from "./tpl/filter-selector.tpl.view.js";
 import type { FilterSelectorProps } from "./filter-selector.api.js";
+import { getFlattenedFilters, isSection } from "./filter-selector.internal.js";
 import { StyledFilterSelectorChildrenWrapper, StyledFilterSelectorItemCheckbox } from "./filter.selector.styled.js";
+import { FilterSelectorTemplate } from "./tpl/filter-selector.tpl.view.js";
 
 const baseClassName = addPrefix("filter-selector");
 const { Section, List, Item, Content } = FilterSelectorTemplate;

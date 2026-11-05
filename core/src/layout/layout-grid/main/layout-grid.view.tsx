@@ -61,8 +61,8 @@ const baseClassName = addPrefix("layoutGrid");
  * The component listens to window resize events. Therefore resizing the browser window or changing the
  * orientation on mobile devices are handled.
  *
- * The component also listens to element resize events using the
- * [react-resize-detector]{@link https://www.npmjs.com/package/react-resize-detector} library.
+ * The component also listens to element resize events using the library's own
+ * {@link useResizeObserver} hook, built on the native `ResizeObserver` API.
  * Therefore, all changes to size - even from outside React should be properly handled.
  */
 
@@ -184,7 +184,13 @@ export namespace LayoutGrid {
 
 	export function Row(props: LayoutGridProps.RowProps): ReactElement<LayoutGridProps.RowProps> {
 		const { height, fitToContent, verticalAlignment, layoutConfig, children, className, id, role, style } = props;
-		const { noGutter, rowCount } = useContext(LayoutGridContext);
+		const {
+			noGutter,
+			rowCount,
+			fitToParent,
+			currentBreakPoint,
+			verticalAlignment: gridVerticalAlignment
+		} = useContext(LayoutGridContext);
 		const rowRef = useRef<HTMLDivElement | null>(null);
 		const columnCount = Children.count(children);
 
@@ -214,6 +220,10 @@ export namespace LayoutGrid {
 				style={style}
 				ref={rowRef}
 				rowCount={rowCount}
+				$fitToParent={fitToParent}
+				$currentBreakPoint={currentBreakPoint}
+				$gridVerticalAlignment={gridVerticalAlignment}
+				$noGutter={noGutter}
 			>
 				{calculationResult
 					? Children.map(props.children, (child, index) => {
@@ -244,6 +254,7 @@ export namespace LayoutGrid {
 		const { size, verticalAlignment, spacerColumn, height, isUsingSpanOffset, children, className, id, style, role } =
 			props;
 		const { currentBreakPoint, noGutter, ...rest } = useContext(LayoutGridContext);
+		const { fitToParent, cellBorder } = rest;
 		const columnRef = useRef<HTMLDivElement | null>(null);
 		const [rowCount, setRowCount] = useState(0);
 
@@ -294,6 +305,10 @@ export namespace LayoutGrid {
 				customHeight={height}
 				spacerColumn={spacerColumn}
 				ref={columnRef}
+				$fitToParent={fitToParent}
+				$cellBorder={cellBorder}
+				$currentBreakPoint={currentBreakPoint}
+				$noGutter={noGutter}
 			>
 				<LayoutGridContext.Provider value={{ currentBreakPoint, noGutter, ...rest, rowCount }}>
 					{!spacerColumn && children}

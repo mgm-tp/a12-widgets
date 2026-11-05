@@ -12,7 +12,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering disabled month s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -55,7 +55,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering disabled month s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -112,7 +112,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering disabled month s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
@@ -277,7 +277,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering month selector 1
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -314,7 +314,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering month selector 1
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -376,7 +376,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering month selector 1
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
@@ -528,23 +528,19 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering month selector 1
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering readonly month selector 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -564,27 +560,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering readonly month s
   opacity: 1;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -596,11 +592,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering readonly month s
   min-width: 5px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   border-radius: inherit;
   display: flex;
   flex-grow: 1;
@@ -609,7 +605,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering readonly month s
   box-shadow: none;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -631,22 +627,22 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering readonly month s
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -654,109 +650,109 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering readonly month s
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block month-selector"
+  class="c0 field field--block month-selector"
   data-role="month-selector"
 >
   <div
-    class="c2 field__select field__select--readonly"
+    class="c1 field__select field__select--readonly"
     data-role="month-selector-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-readonly="true"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="month-selector-input"
         disabled=""
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           January
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           February
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           March
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           April
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           May
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           June
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           July
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           August
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           September
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           October
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           November
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -765,7 +761,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering readonly month s
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
   </div>
@@ -773,7 +769,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering readonly month s
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with allow optional value 1`] = `
-.c3 {
+.c2 {
   color: rgb(77, 77, 77);
   display: inline-block;
   font-family: "Open Sans", sans-serif;
@@ -785,44 +781,28 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with allow optio
   align-self: center;
 }
 
-.c3:empty {
+.c2:empty {
   display: none;
 }
 
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c1 .c2 {
+.c0 .c1 {
   display: block;
   width: fit-content;
 }
 
-.c9 .c2 {
-  display: block;
-  width: fit-content;
-}
-
-.c9[class*="h_"] .c2 {
-  color: rgb(169, 179, 188) !important;
-}
-
-.c10[data-role="checkbox-group"] .c2,
-.c10[data-role="radio-group"] .c2,
-.c10[data-role="file-upload"] .c2 {
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-.c6 {
+.c5 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -839,31 +819,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with allow optio
   cursor: pointer;
 }
 
-.c6.c6.c6 {
+.c5.c5.c5 {
   outline: transparent solid 1px;
 }
 
-.c6::selection {
+.c5::selection {
   background-color: transparent;
 }
 
-.c6::placeholder {
+.c5::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c11.c11 {
-  background-color: inherit !important;
-}
-
-.c4 {
+.c3 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -873,11 +849,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with allow optio
   height: 32px;
 }
 
-.c4:focus {
+.c3:focus {
   outline: none;
 }
 
-.c5 {
+.c4 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -886,13 +862,13 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with allow optio
   position: relative;
 }
 
-.c5:focus-within {
+.c4:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c8::after {
+.c7::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -914,35 +890,35 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with allow optio
   overflow-wrap: normal;
 }
 
-.c7 {
+.c6 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c7:focus {
+.c6:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c7:active {
+  .c6:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -950,119 +926,119 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with allow optio
 }
 
 @media (pointer: fine) {
-  .c7:hover {
+  .c6:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block month-selector"
+  class="c0 field field--block month-selector"
   data-role="month-selector"
 >
   <label
-    class="c2 c3 label field__label"
+    class="c1 c2 label field__label"
     data-role="month-selector-label"
   >
     Test Month Selector
   </label>
   <div
-    class="c4 field__select"
+    class="c3 field__select"
     data-role="month-selector-control"
   >
     <div
-      class="c5 field__select-wrapper"
+      class="c4 field__select-wrapper"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c6 field__selectTitle"
+        class="c5 field__selectTitle"
         data-role="month-selector-input"
       >
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
         >
           additional Item
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           January
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           February
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           March
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           April
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           May
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           June
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           July
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           August
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           September
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           October
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           November
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -1071,7 +1047,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with allow optio
       </select>
       <span
         aria-hidden="true"
-        class="c8 field__select-arrow"
+        class="c7 field__select-arrow"
       />
     </div>
   </div>
@@ -1079,19 +1055,19 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with allow optio
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with custom month names 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1108,31 +1084,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with custom mont
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1142,11 +1114,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with custom mont
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -1155,13 +1127,13 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with custom mont
   position: relative;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -1183,35 +1155,35 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with custom mont
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -1219,107 +1191,107 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with custom mont
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block month-selector"
+  class="c0 field field--block month-selector"
   data-role="month-selector"
 >
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="month-selector-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="month-selector-input"
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           jan
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           feb
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           mar
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           apr
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           may
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           jun
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           jul
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           aug
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           sep
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           oct
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           nov
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -1328,7 +1300,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with custom mont
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
   </div>
@@ -1336,7 +1308,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with custom mont
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and warning messages 1`] = `
-.c7 {
+.c6 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -1350,40 +1322,12 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
   margin: -1px !important;
 }
 
-.c7 * {
+.c6 * {
   width: 1px;
   height: 1px;
 }
 
-.c10 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c10 > span {
-  display: inline-block;
-}
-
-.c10.c10 {
-  max-width: unset;
-}
-
-.c5 {
+.c4 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -1403,23 +1347,59 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
   font-feature-settings: "liga";
 }
 
-.c5 > span {
+.c4 > span {
   display: inline-block;
 }
 
-.c5.c5 {
+.c4.c4 {
   max-width: unset;
 }
 
-.c6.c6 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c9 {
+  color: inherit;
+}
+
+.c5.c5 {
   color: rgb(201, 29, 29);
 }
 
-.c11.c11 {
+.c10.c10 {
   color: rgb(175, 121, 2);
 }
 
-.c2 {
+.c1 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -1430,7 +1410,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
   color: rgb(201, 29, 29);
 }
 
-.c9 {
+.c8 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -1441,33 +1421,33 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
   color: rgb(22, 25, 29);
 }
 
-.c3 {
+.c2 {
   display: flex;
   margin-right: 4px;
 }
 
-.c3 .c4 {
+.c2 .c3 {
   font-size: 1.25rem;
 }
 
-.c8 {
+.c7 {
   align-self: center;
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c14 {
+.c13 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1484,31 +1464,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
   cursor: pointer;
 }
 
-.c14.c14.c14 {
+.c13.c13.c13 {
   outline: transparent solid 1px;
 }
 
-.c14::selection {
+.c13::selection {
   background-color: transparent;
 }
 
-.c14::placeholder {
+.c13::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c17.c17 {
-  background-color: inherit !important;
-}
-
-.c12 {
+.c11 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1518,11 +1494,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
   height: 32px;
 }
 
-.c12:focus {
+.c11:focus {
   outline: none;
 }
 
-.c13 {
+.c12 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   display: flex;
@@ -1531,13 +1507,13 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
   box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
 }
 
-.c13:focus-within {
+.c12:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c16::after {
+.c15::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -1559,35 +1535,35 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
   overflow-wrap: normal;
 }
 
-.c15 {
+.c14 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c15:focus {
+.c14:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c13:active {
+  .c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c15:active {
+  .c14:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -1595,35 +1571,37 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
 }
 
 @media (pointer: fine) {
-  .c15:hover {
+  .c14:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block month-selector"
+  class="c0 field field--block month-selector"
   data-role="month-selector"
 >
   <div
-    class="c2 message message--error"
+    class="c1 message message--error"
     data-role="month-selector-error-message"
   >
     <div
-      class="c3 messageIcon"
+      class="c2 messageIcon"
     >
       <i
-        class="c4 c5 c6 plasma-icon plasma-icon--error plasma-icon--custom"
+        class="c3 c4 c5 plasma-icon plasma-icon--error plasma-icon--custom"
         data-role="plasma-icon"
         title="Error"
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           
         </span>
         <span
-          class="c7 -u-unseenButRead"
+          class="c6 -u-unseenButRead"
           data-role="hidden-text"
         >
           Error
@@ -1631,31 +1609,33 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
       </i>
     </div>
     <div
-      class="c8 messageText"
+      class="c7 messageText"
       data-role="error-text"
     >
       Error message
     </div>
   </div>
   <div
-    class="c9 message message--warning"
+    class="c8 message message--warning"
     data-role="month-selector-warning-message"
   >
     <div
-      class="c3 messageIcon"
+      class="c2 messageIcon"
     >
       <i
-        class="c4 c10 c11 plasma-icon plasma-icon--warning"
+        class="c3 c9 c10 plasma-icon plasma-icon--warning"
         data-role="plasma-icon"
         title="Warning"
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           warning
         </span>
         <span
-          class="c7 -u-unseenButRead"
+          class="c6 -u-unseenButRead"
           data-role="hidden-text"
         >
           Warning
@@ -1663,103 +1643,104 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
       </i>
     </div>
     <div
-      class="c8 messageText"
+      class="c7 messageText"
       data-role="warning-text"
     >
       Warning message
     </div>
   </div>
   <div
-    class="c12 field__select"
+    class="c11 field__select"
     data-role="month-selector-control"
   >
     <div
-      class="c13 field__select-wrapper field__select-wrapper--error field__select-wrapper--warning"
+      class="c12 field__select-wrapper field__select-wrapper--error field__select-wrapper--warning"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c14 field__selectTitle field__selectTitle--error field__selectTitle--warning"
+        aria-invalid="true"
+        class="c13 field__selectTitle field__selectTitle--error field__selectTitle--warning"
         data-role="month-selector-input"
       >
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           January
         </option>
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           February
         </option>
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           March
         </option>
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           April
         </option>
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           May
         </option>
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           June
         </option>
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           July
         </option>
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           August
         </option>
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           September
         </option>
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           October
         </option>
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           November
         </option>
         <option
-          class="c15 field__selectOption"
+          class="c14 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -1768,7 +1749,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
       </select>
       <span
         aria-hidden="true"
-        class="c16 field__select-arrow"
+        class="c15 field__select-arrow"
       />
     </div>
   </div>
@@ -1776,19 +1757,19 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error and w
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error state 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1805,31 +1786,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error state
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1839,11 +1816,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error state
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   display: flex;
@@ -1852,13 +1829,13 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error state
   box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -1880,35 +1857,35 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error state
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -1916,107 +1893,108 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error state
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block month-selector"
+  class="c0 field field--block month-selector"
   data-role="month-selector"
 >
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="month-selector-control"
   >
     <div
-      class="c3 field__select-wrapper field__select-wrapper--error"
+      class="c2 field__select-wrapper field__select-wrapper--error"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle field__selectTitle--error"
+        aria-invalid="true"
+        class="c3 field__selectTitle field__selectTitle--error"
         data-role="month-selector-input"
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           January
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           February
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           March
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           April
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           May
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           June
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           July
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           August
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           September
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           October
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           November
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -2025,7 +2003,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error state
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
   </div>
@@ -2033,7 +2011,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with error state
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with helper text 1`] = `
-.c8 {
+.c7 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -2043,23 +2021,23 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with helper text
   width: fit-content;
 }
 
-.c7 {
+.c6 {
   display: flex;
 }
 
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2076,31 +2054,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with helper text
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c9.c9 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2110,11 +2084,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with helper text
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -2123,13 +2097,13 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with helper text
   position: relative;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -2151,35 +2125,35 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with helper text
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -2187,107 +2161,107 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with helper text
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block month-selector"
+  class="c0 field field--block month-selector"
   data-role="month-selector"
 >
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="month-selector-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="month-selector-input"
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           January
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           February
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           March
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           April
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           May
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           June
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           July
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           August
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           September
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           October
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           November
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -2296,16 +2270,16 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with helper text
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
   </div>
   <div
-    class="c7 field__helper"
+    class="c6 field__helper"
     data-role="month-selector-helper-text"
   >
     <label
-      class="c8 field__helper-text"
+      class="c7 field__helper-text"
     >
       Helper text
     </label>
@@ -2314,7 +2288,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with helper text
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with hidden label 1`] = `
-.c3 {
+.c2 {
   color: rgb(77, 77, 77);
   display: inline-block;
   font-family: "Open Sans", sans-serif;
@@ -2336,49 +2310,33 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with hidden labe
   margin: -1px !important;
 }
 
-.c3:empty {
+.c2:empty {
   display: none;
 }
 
-.c3 * {
+.c2 * {
   width: 1px;
   height: 1px;
 }
 
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c1 .c2 {
+.c0 .c1 {
   display: block;
   width: fit-content;
 }
 
-.c9 .c2 {
-  display: block;
-  width: fit-content;
-}
-
-.c9[class*="h_"] .c2 {
-  color: rgb(169, 179, 188) !important;
-}
-
-.c10[data-role="checkbox-group"] .c2,
-.c10[data-role="radio-group"] .c2,
-.c10[data-role="file-upload"] .c2 {
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-.c6 {
+.c5 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2395,31 +2353,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with hidden labe
   cursor: pointer;
 }
 
-.c6.c6.c6 {
+.c5.c5.c5 {
   outline: transparent solid 1px;
 }
 
-.c6::selection {
+.c5::selection {
   background-color: transparent;
 }
 
-.c6::placeholder {
+.c5::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c11.c11 {
-  background-color: inherit !important;
-}
-
-.c4 {
+.c3 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2429,11 +2383,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with hidden labe
   height: 32px;
 }
 
-.c4:focus {
+.c3:focus {
   outline: none;
 }
 
-.c5 {
+.c4 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -2442,13 +2396,13 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with hidden labe
   position: relative;
 }
 
-.c5:focus-within {
+.c4:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c8::after {
+.c7::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -2470,35 +2424,35 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with hidden labe
   overflow-wrap: normal;
 }
 
-.c7 {
+.c6 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c7:focus {
+.c6:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c7:active {
+  .c6:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -2506,113 +2460,113 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with hidden labe
 }
 
 @media (pointer: fine) {
-  .c7:hover {
+  .c6:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block month-selector"
+  class="c0 field field--block month-selector"
   data-role="month-selector"
 >
   <label
-    class="c2 c3 label field__label -u-unseenButRead"
+    class="c1 c2 label field__label -u-unseenButRead"
     data-role="month-selector-label"
   >
     Test Month Selector
   </label>
   <div
-    class="c4 field__select"
+    class="c3 field__select"
     data-role="month-selector-control"
   >
     <div
-      class="c5 field__select-wrapper"
+      class="c4 field__select-wrapper"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c6 field__selectTitle"
+        class="c5 field__selectTitle"
         data-role="month-selector-input"
       >
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           January
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           February
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           March
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           April
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           May
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           June
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           July
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           August
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           September
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           October
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           November
         </option>
         <option
-          class="c7 field__selectOption"
+          class="c6 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -2621,7 +2575,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with hidden labe
       </select>
       <span
         aria-hidden="true"
-        class="c8 field__select-arrow"
+        class="c7 field__select-arrow"
       />
     </div>
   </div>
@@ -2629,7 +2583,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with hidden labe
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info message 1`] = `
-.c7 {
+.c6 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -2643,12 +2597,12 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info messag
   margin: -1px !important;
 }
 
-.c7 * {
+.c6 * {
   width: 1px;
   height: 1px;
 }
 
-.c5 {
+.c4 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -2668,19 +2622,23 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info messag
   font-feature-settings: "liga";
 }
 
-.c5 > span {
+.c4 > span {
   display: inline-block;
 }
 
-.c5.c5 {
+.c4.c4 {
   max-width: unset;
 }
 
-.c6.c6 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
+.c5.c5 {
   color: rgb(5, 104, 174);
 }
 
-.c2 {
+.c1 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2691,33 +2649,33 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info messag
   color: rgb(5, 104, 174);
 }
 
-.c3 {
+.c2 {
   display: flex;
   margin-right: 4px;
 }
 
-.c3 .c4 {
+.c2 .c3 {
   font-size: 1.25rem;
 }
 
-.c8 {
+.c7 {
   align-self: center;
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c11 {
+.c10 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2734,31 +2692,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info messag
   cursor: pointer;
 }
 
-.c11.c11.c11 {
+.c10.c10.c10 {
   outline: transparent solid 1px;
 }
 
-.c11::selection {
+.c10::selection {
   background-color: transparent;
 }
 
-.c11::placeholder {
+.c10::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c14.c14 {
-  background-color: inherit !important;
-}
-
-.c9 {
+.c8 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2768,11 +2722,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info messag
   height: 32px;
 }
 
-.c9:focus {
+.c8:focus {
   outline: none;
 }
 
-.c10 {
+.c9 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   display: flex;
@@ -2781,13 +2735,13 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info messag
   box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
 }
 
-.c10:focus-within {
+.c9:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c13::after {
+.c12::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -2809,35 +2763,35 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info messag
   overflow-wrap: normal;
 }
 
-.c12 {
+.c11 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c12:focus {
+.c11:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c10:active {
+  .c9:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c10:hover {
+  .c9:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c12:active {
+  .c11:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -2845,35 +2799,37 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info messag
 }
 
 @media (pointer: fine) {
-  .c12:hover {
+  .c11:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block month-selector"
+  class="c0 field field--block month-selector"
   data-role="month-selector"
 >
   <div
-    class="c2"
+    class="c1"
     data-role="month-selector-info-message"
   >
     <div
-      class="c3"
+      class="c2"
     >
       <i
-        class="c4 c5 c6 plasma-icon plasma-icon--info"
+        class="c3 c4 c5 plasma-icon plasma-icon--info"
         data-role="plasma-icon"
         title="Information"
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
         <span
-          class="c7 -u-unseenButRead"
+          class="c6 -u-unseenButRead"
           data-role="hidden-text"
         >
           Information
@@ -2881,103 +2837,103 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info messag
       </i>
     </div>
     <div
-      class="c8"
+      class="c7"
       data-role="info-text"
     >
       Info message
     </div>
   </div>
   <div
-    class="c9 field__select"
+    class="c8 field__select"
     data-role="month-selector-control"
   >
     <div
-      class="c10 field__select-wrapper"
+      class="c9 field__select-wrapper"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c11 field__selectTitle"
+        class="c10 field__selectTitle"
         data-role="month-selector-input"
       >
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           January
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           February
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           March
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           April
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           May
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           June
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           July
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           August
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           September
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           October
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           November
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -2986,7 +2942,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info messag
       </select>
       <span
         aria-hidden="true"
-        class="c13 field__select-arrow"
+        class="c12 field__select-arrow"
       />
     </div>
   </div>
@@ -2994,19 +2950,19 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info messag
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info state 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -3023,31 +2979,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info state 
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3057,11 +3009,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info state 
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   display: flex;
@@ -3070,13 +3022,13 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info state 
   box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -3098,35 +3050,35 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info state 
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -3134,107 +3086,107 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info state 
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block month-selector"
+  class="c0 field field--block month-selector"
   data-role="month-selector"
 >
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="month-selector-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="month-selector-input"
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           January
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           February
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           March
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           April
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           May
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           June
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           July
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           August
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           September
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           October
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           November
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -3243,7 +3195,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info state 
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
   </div>
@@ -3251,19 +3203,19 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with info state 
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with inline tooltip 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -3280,31 +3232,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with inline tool
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3314,11 +3262,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with inline tool
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -3327,13 +3275,13 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with inline tool
   position: relative;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -3355,35 +3303,35 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with inline tool
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -3391,107 +3339,107 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with inline tool
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--tooltips field--tooltips-1 field--block month-selector"
+  class="c0 field field--tooltips field--tooltips-1 field--block month-selector"
   data-role="month-selector"
 >
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="month-selector-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="month-selector-input"
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           January
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           February
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           March
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           April
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           May
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           June
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           July
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           August
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           September
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           October
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           November
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -3500,7 +3448,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with inline tool
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
     Test Tooltip
@@ -3509,19 +3457,19 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with inline tool
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with tooltip in new line 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -3538,31 +3486,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with tooltip in 
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3572,11 +3516,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with tooltip in 
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -3585,13 +3529,13 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with tooltip in 
   position: relative;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -3613,35 +3557,35 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with tooltip in 
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -3649,108 +3593,108 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with tooltip in 
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block month-selector"
+  class="c0 field field--block month-selector"
   data-role="month-selector"
 >
   Test Tooltip
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="month-selector-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="month-selector-input"
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           January
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           February
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           March
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           April
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           May
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           June
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           July
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           August
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           September
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           October
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           November
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -3759,7 +3703,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with tooltip in 
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
   </div>
@@ -3767,19 +3711,19 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with tooltip in 
 `;
 
 exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with warning state 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -3796,31 +3740,27 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with warning sta
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3830,11 +3770,11 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with warning sta
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   display: flex;
@@ -3843,13 +3783,13 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with warning sta
   box-shadow: rgb(175, 121, 2) 0px 1px 0px 0px;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -3871,35 +3811,35 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with warning sta
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -3907,107 +3847,107 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with warning sta
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block month-selector"
+  class="c0 field field--block month-selector"
   data-role="month-selector"
 >
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="month-selector-control"
   >
     <div
-      class="c3 field__select-wrapper field__select-wrapper--warning"
+      class="c2 field__select-wrapper field__select-wrapper--warning"
       data-role="month-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle field__selectTitle--warning"
+        class="c3 field__selectTitle field__selectTitle--warning"
         data-role="month-selector-input"
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="0"
         >
           January
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="1"
         >
           February
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="2"
         >
           March
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="3"
         >
           April
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="4"
         >
           May
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="5"
         >
           June
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="6"
         >
           July
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="7"
         >
           August
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="8"
         >
           September
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="9"
         >
           October
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="10"
         >
           November
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="month-selector-option"
           value="11"
         >
@@ -4016,7 +3956,7 @@ exports[`com.mgmtp.a12.widgets.input.month-selector > rendering with warning sta
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
   </div>

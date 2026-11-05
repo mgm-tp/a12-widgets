@@ -33,10 +33,10 @@
 import { getAllByDataRole, render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import { BodyRowSegmentTpl } from "../main/template/table.body-row-segment.tpl.view.js";
 import type { BaseColumnType } from "../main/column.api.js";
-import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
 import { RowSegments } from "../main/table.row-segments.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { BodyRowSegmentTpl } from "../main/template/table.body-row-segment.tpl.view.js";
 
 describe("com.mgmtp.a12.widgets.table.row-segments", () => {
 	test("default", () => {

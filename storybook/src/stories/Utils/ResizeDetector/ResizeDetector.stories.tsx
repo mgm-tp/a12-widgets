@@ -31,72 +31,165 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { CSSProperties } from "react";
 import { useState, useRef } from "react";
 
 import { WidgetsResizeDetector } from "@com.mgmtp.a12.widgets/widgets-core";
+
+const resizableBoxStyle: CSSProperties = {
+	resize: "both",
+	overflow: "auto",
+	border: "2px dashed #4a90d9",
+	padding: "16px",
+	minWidth: "150px",
+	minHeight: "80px",
+	background: "#f0f7ff"
+};
 
 const meta: Meta<typeof WidgetsResizeDetector> = {
 	title: "Utils/ResizeDetector",
 	component: WidgetsResizeDetector,
 	parameters: {
-		layout: "padded",
-		docs: {
-			description: {
-				component:
-					"WidgetsResizeDetector is a thin wrapper around the react-resize-detector hook, making it usable in class components. Pass a targetRef pointing to the element to observe and an onResize callback to receive size changes."
-			}
-		}
+		layout: "padded"
 	},
-	tags: ["autodocs"]
+	argTypes: {
+		onResize: {
+			control: false,
+			description: "Callback invoked with `{ width, height, entry }` whenever the observed element resizes"
+		},
+		targetRef: {
+			control: false,
+			description: "Ref to the DOM element to observe — the detector attaches a ResizeObserver to `targetRef.current`"
+		},
+		handleWidth: {
+			control: "boolean",
+			description: "Trigger `onResize` on width changes (default `true`)"
+		},
+		handleHeight: {
+			control: "boolean",
+			description: "Trigger `onResize` on height changes (default `true`)"
+		},
+		skipOnMount: {
+			control: "boolean",
+			description: "Skip the initial `onResize` call after mounting"
+		},
+		refreshMode: {
+			control: "select",
+			options: ["debounce", "throttle"],
+			description: "Rate-limiting strategy applied to resize notifications"
+		},
+		refreshRate: {
+			control: { type: "number", min: 0, max: 2000, step: 50 },
+			description: "Delay in milliseconds used by the selected `refreshMode`"
+		},
+		children: {
+			control: false,
+			description: "Rendered as-is — the detector adds no extra DOM element"
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => {
-		const ResizeDetectorExample = () => {
-			const [dimensions, setDimensions] = useState<{ width: number | null; height: number | null }>({
-				width: null,
-				height: null
-			});
-			const targetRef = useRef<HTMLDivElement>(null);
+export const Playground: Story = {
+	args: {
+		handleWidth: true,
+		handleHeight: true,
+		skipOnMount: false,
+		refreshMode: "debounce",
+		refreshRate: 0
+	},
+	render: function PlaygroundExample(args) {
+		const [dimensions, setDimensions] = useState<{ width: number | null; height: number | null }>({
+			width: null,
+			height: null
+		});
+		const targetRef = useRef<HTMLDivElement>(null);
 
-			return (
-				<div>
-					<WidgetsResizeDetector
-						targetRef={targetRef}
-						onResize={({ width, height }) => setDimensions({ width: width ?? null, height: height ?? null })}
-					>
-						<div
-							ref={targetRef}
-							style={{
-								resize: "both",
-								overflow: "auto",
-								border: "2px dashed #4a90d9",
-								padding: "16px",
-								minWidth: "150px",
-								minHeight: "80px",
-								background: "#f0f7ff"
-							}}
-						>
-							<p style={{ margin: 0 }}>Resize me (drag the corner)</p>
-						</div>
-					</WidgetsResizeDetector>
-					<p style={{ marginTop: "12px", fontFamily: "monospace" }}>
-						Width: {dimensions.width ?? "—"}px / Height: {dimensions.height ?? "—"}px
-					</p>
-				</div>
-			);
-		};
-
-		return <ResizeDetectorExample />;
+		return (
+			<div>
+				<WidgetsResizeDetector
+					{...args}
+					targetRef={targetRef}
+					onResize={({ width, height }) => setDimensions({ width: width ?? null, height: height ?? null })}
+				>
+					<div ref={targetRef} style={resizableBoxStyle}>
+						<p style={{ margin: 0 }}>Resize me (drag the corner)</p>
+					</div>
+				</WidgetsResizeDetector>
+				<p style={{ marginTop: "12px", fontFamily: "monospace" }}>
+					Width: {dimensions.width ?? "—"}px / Height: {dimensions.height ?? "—"}px
+				</p>
+			</div>
+		);
 	},
 	parameters: {
 		docs: {
 			description: {
 				story:
-					"Drag the corner of the dashed box to resize it. WidgetsResizeDetector fires onResize and the dimensions are displayed below."
+					"Drag the corner of the dashed box to resize it. `WidgetsResizeDetector` fires `onResize` and the dimensions are displayed below."
+			}
+		}
+	}
+};
+
+export const WidthOnly: Story = {
+	render: function WidthOnlyExample() {
+		const [width, setWidth] = useState<number | null>(null);
+		const targetRef = useRef<HTMLDivElement>(null);
+
+		return (
+			<div>
+				<WidgetsResizeDetector
+					targetRef={targetRef}
+					handleHeight={false}
+					onResize={(payload) => setWidth(payload.width ?? null)}
+				>
+					<div ref={targetRef} style={resizableBoxStyle}>
+						<p style={{ margin: 0 }}>Only width changes are reported</p>
+					</div>
+				</WidgetsResizeDetector>
+				<p style={{ marginTop: "12px", fontFamily: "monospace" }}>Width: {width ?? "—"}px</p>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`handleWidth` and `handleHeight` select which dimension changes trigger the callback. Here `handleHeight` is `false`, so dragging only the bottom edge does not fire `onResize`."
+			}
+		}
+	}
+};
+
+export const Throttled: Story = {
+	render: function ThrottledExample() {
+		const [resizeCount, setResizeCount] = useState(0);
+		const targetRef = useRef<HTMLDivElement>(null);
+
+		return (
+			<div>
+				<WidgetsResizeDetector
+					targetRef={targetRef}
+					refreshMode="throttle"
+					refreshRate={500}
+					onResize={() => setResizeCount((count) => count + 1)}
+				>
+					<div ref={targetRef} style={resizableBoxStyle}>
+						<p style={{ margin: 0 }}>Resize me — notifications are throttled</p>
+					</div>
+				</WidgetsResizeDetector>
+				<p style={{ marginTop: "12px", fontFamily: "monospace" }}>onResize calls: {resizeCount}</p>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`refreshMode` and `refreshRate` rate-limit resize notifications — here `onResize` is throttled to at most one call every 500 ms while you drag."
 			}
 		}
 	}

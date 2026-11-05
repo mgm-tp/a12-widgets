@@ -75,10 +75,12 @@ export const StyledLoginContainer = styled.div.withConfig({ displayName: "Styled
 		@media screen and (max-width: 575px) {
 			padding: ${mobile.padding};
 		}
-		${secondary &&
-		css`
-			background-color: ${container.secondaryBackground};
-		`}
+		${
+			secondary &&
+			css`
+				background-color: ${container.secondaryBackground};
+			`
+		}
 		&:after {
 			content: "";
 			display: block;
@@ -124,28 +126,34 @@ export const StyledLoginLayout = styled.div.withConfig({ displayName: "StyledLog
 			width: 100%;
 		}
 
-		${fullscreen &&
-		css`
-			height: 100vh;
-			width: 100vw;
-		`}
-		${mobile &&
-		css`
-			justify-content: start;
-			${StyledLoginContainer} {
-				margin: ${loginLayout.mobile.margin};
-				padding: ${loginLayout.mobile.padding};
-				&:after {
-					height: ${loginLayout.mobile.spacingBottom};
+		${
+			fullscreen &&
+			css`
+				height: 100vh;
+				width: 100vw;
+			`
+		}
+		${
+			mobile &&
+			css`
+				justify-content: start;
+				${StyledLoginContainer} {
+					margin: ${loginLayout.mobile.margin};
+					padding: ${loginLayout.mobile.padding};
+					&:after {
+						height: ${loginLayout.mobile.spacingBottom};
+					}
 				}
-			}
-		`}
-			${!mobile &&
-		css`
-			${StyledLoginContainer} {
-				width: ${loginLayout.container.width};
-			}
-		`}
+			`
+		}
+		${
+			!mobile &&
+			css`
+				${StyledLoginContainer} {
+					width: ${loginLayout.container.width};
+				}
+			`
+		}
 	`;
 });
 

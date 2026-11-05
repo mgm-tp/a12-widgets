@@ -33,12 +33,12 @@
 import type { FC, ReactElement } from "react";
 import { useState } from "react";
 
+import { Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 import type {
 	DataTableColumn,
 	DataTableSlotProps,
 	DataTableSortState
 } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
-import { Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 interface DataType {

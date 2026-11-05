@@ -32,8 +32,8 @@
 
 import type { ReactElement } from "react";
 
-import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/index.js";
+import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 
 import type { FilterBarMobileProps } from "./filter-bar.api.js";
 import {

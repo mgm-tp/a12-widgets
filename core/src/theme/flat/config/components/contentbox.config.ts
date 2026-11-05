@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FlatThemeType } from "../../../schema.js";
 import { FontConfig } from "../../../default/config/base/fonts.config.js";
 import { commonButtonConfigs } from "../../../default/config/components/button.config.js";
+import type { FlatThemeType } from "../../../schema.js";
 
 export const contentBoxFlatConfig = (theme: FlatThemeType) => {
 	const { colors, spacing, focusStyles } = theme;

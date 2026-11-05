@@ -41,6 +41,7 @@ export function AccessibilityCollapsiblePanel(): ReactElement {
 
 	return (
 		<CollapsiblePanel
+			// oxlint-disable-next-line jsx-a11y/role-has-required-aria-props -- CollapsiblePanel maps ariaLevel to aria-level
 			role="heading"
 			ariaLevel={2}
 			title="Title with role and ariaLevel"

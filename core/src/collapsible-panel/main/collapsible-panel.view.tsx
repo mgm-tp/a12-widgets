@@ -30,44 +30,29 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type {
-	ContextType,
-	KeyboardEvent,
-	MouseEvent,
-	TouchEvent,
-	FocusEvent,
-	ReactElement,
-	ReactNode,
-	RefObject
-} from "react";
-import { createRef, Component } from "react";
+import type { KeyboardEvent, MouseEvent, TouchEvent, FocusEvent, ReactElement, ReactNode, ContextType } from "react";
+import { Component, useContext, useRef, useState } from "react";
 import { styled, css } from "styled-components";
 import { Key } from "ts-key-enum";
 
-import { active, hover } from "../../theme/base/mixins/_interaction.js";
-import { Icon, StyledIconWrapper } from "../../icon/main/icon.view.js";
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import {
-	joinClassNames,
 	bindMethods,
+	joinClassNames,
 	addPrefix,
 	getAllFocusableElements,
 	getParentElement,
 	getNearestFocusableParent
 } from "../../common/main/utils.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import type { UseInteractionHintResult } from "../../interaction-hint/main/use-interaction-hint.js";
+import { Icon, StyledIconWrapper } from "../../icon/main/icon.view.js";
 import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { active, hover } from "../../theme/base/mixins/_interaction.js";
 
 import type { CollapsiblePanelProps } from "./collapsible-panel.api.js";
 
 const baseClassName = addPrefix("collapsiblePanel");
-
-interface CollapsiblePanelState {
-	isAddonHoveredOrTouched?: boolean;
-	isAddonFocused?: boolean;
-}
 
 export const StyledCollapsiblePanelContent = styled.div.withConfig({
 	displayName: "StyledCollapsiblePanelContent-sc-"
@@ -120,13 +105,15 @@ export const StyledCollapsiblePanelIndicator = styled.div.withConfig({
 		top: calc((1.125rem - ${fontSize}) * 0.5);
 		width: ${width};
 
-		${$swapAddonsPosition
-			? css`
-					right: 0;
-				`
-			: css`
+		${
+			$swapAddonsPosition
+				? css`
+						right: 0;
+					`
+				: css`
 					left: calc(-${marginRight} - ${fontSize});
-				`}
+				`
+		}
 
 		${StyledIconWrapper} {
 			color: ${iconStyle.color};
@@ -143,9 +130,11 @@ export const StyledCollapsiblePanelLabel = styled.div.withConfig({ displayName: 
 	return css`
 		flex: 1;
 		line-height: 1.125rem;
-		margin-left: ${$swapAddonsPosition
-			? collapsiblePanel.indicator.marginRight
-			: `calc(${collapsiblePanel.indicator.fontSize} + ${collapsiblePanel.indicator.marginRight})`};
+		margin-left: ${
+			$swapAddonsPosition
+				? collapsiblePanel.indicator.marginRight
+				: `calc(${collapsiblePanel.indicator.fontSize} + ${collapsiblePanel.indicator.marginRight})`
+		};
 		outline: none;
 		position: relative;
 	`;
@@ -181,40 +170,44 @@ export const StyledCollapsiblePanelTitle = styled.div.withConfig({ displayName: 
 		min-height: inherit;
 		outline: none;
 		padding: ${padding};
-		${!$noEffect &&
-		css`
-			${active(css`
-				background-color: ${activeBackgroundColor};
-				box-shadow: ${activeBoxShadow};
-				cursor: pointer;
-			`)}
-			${hover(css`
-				background-color: ${hoverBackgroundColor};
-				box-shadow: ${hoverBoxShadow};
-				cursor: pointer;
-			`)}
-		`}
-		${!$noFocus &&
-		css`
-			&:focus-within {
-				background-color: ${focusByTab.backgroundColor};
-				color: ${focusByTab.color};
-				position: relative;
-				${StyledIconWrapper} {
-					color: ${iconStyle.focusColor};
+		${
+			!$noEffect &&
+			css`
+				${active(css`
+					background-color: ${activeBackgroundColor};
+					box-shadow: ${activeBoxShadow};
+					cursor: pointer;
+				`)}
+				${hover(css`
+					background-color: ${hoverBackgroundColor};
+					box-shadow: ${hoverBoxShadow};
+					cursor: pointer;
+				`)}
+			`
+		}
+		${
+			!$noFocus &&
+			css`
+				&:focus-within {
+					background-color: ${focusByTab.backgroundColor};
+					color: ${focusByTab.color};
+					position: relative;
+					${StyledIconWrapper} {
+						color: ${iconStyle.focusColor};
+					}
+					&:before {
+						border: ${focusByTab.border};
+						bottom: 0;
+						content: "";
+						left: 0;
+						position: absolute;
+						pointer-events: none;
+						right: 0;
+						top: 0;
+					}
 				}
-				&:before {
-					border: ${focusByTab.border};
-					bottom: 0;
-					content: "";
-					left: 0;
-					position: absolute;
-					pointer-events: none;
-					right: 0;
-					top: 0;
-				}
-			}
-		`}
+			`
+		}
 	`;
 });
 
@@ -232,80 +225,54 @@ export const StyledCollapsiblePanelWrapper = styled.div.withConfig({
 	`;
 });
 
-function CollapsiblePanelInteractionHintWrapper(props: {
-	collapsiblePanelTitle: string | undefined;
-	wrapperRef: RefObject<HTMLDivElement | null>;
-	labelRef: RefObject<HTMLDivElement | null>;
-	children: (state: UseInteractionHintResult) => ReactNode;
-}) {
-	const { title, hintRenderer } = useInteractionHint({
-		title: props.collapsiblePanelTitle,
+function CollapsiblePanelImpl(props: CollapsiblePanelProps): ReactElement<CollapsiblePanelProps> {
+	const { addons, ariaLevel, children, className, id, info, onClick, role, style, swapAddonsPosition, title } = props;
+
+	const [isAddonHoveredOrTouched, setIsAddonHoveredOrTouched] = useState(false);
+	const [isAddonFocused, setIsAddonFocused] = useState(false);
+
+	const labelRef = useRef<HTMLDivElement | null>(null);
+
+	const { collapsiblePanelTitles: panelTitles } = useContext(A11YLanguageContext);
+	const collapsiblePanelTitle = children ? panelTitles?.closePanel : panelTitles?.openPanel;
+
+	const { title: resolvedTitle, hintRenderer } = useInteractionHint({
+		title: collapsiblePanelTitle,
 		componentKey: "collapsiblePanel",
-		referenceElementRef: props.labelRef
+		referenceElementRef: labelRef
 	});
 
-	return <>{props.children({ title, hintRenderer })}</>;
-}
-
-export class CollapsiblePanel extends Component<CollapsiblePanelProps, CollapsiblePanelState> {
-	static displayName = "CollapsiblePanel";
-	declare context: ContextType<typeof A11YLanguageContext>;
-	private labelRef: RefObject<HTMLDivElement | null> = createRef<HTMLDivElement | null>();
-	private titleRef: RefObject<HTMLDivElement | null> = createRef<HTMLDivElement | null>();
-	// Reference for the whole collapsible wrapper — used as reference element for interaction hint
-	private wrapperRef: RefObject<HTMLDivElement | null> = createRef<HTMLDivElement | null>();
-
-	constructor(props: CollapsiblePanelProps) {
-		super(props);
-
-		this.state = {
-			isAddonHoveredOrTouched: false,
-			isAddonFocused: false
-		};
-
-		bindMethods(this);
+	function handleClick(): void {
+		labelRef.current?.focus();
+		onClick();
 	}
 
-	private getLabelRef(ref: HTMLDivElement | null): void {
-		this.labelRef.current = ref;
-	}
-
-	private getTitleRef(ref: HTMLDivElement): void {
-		this.titleRef.current = ref;
-	}
-
-	private handleClick(): void {
-		this.labelRef.current?.focus();
-		this.props.onClick();
-	}
-
-	private handleKeyUp(event: KeyboardEvent): void {
+	function handleKeyUp(event: KeyboardEvent): void {
 		if (event.key === Key.Enter) {
-			this.props.onClick();
+			onClick();
 		}
 	}
 
-	private handleHoverOrTouchAddon(
+	function handleHoverOrTouchAddon(
 		event: MouseEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>,
-		isHovered?: boolean
+		isHovered: boolean
 	): void {
 		const nearestFocusableParentElement = getNearestFocusableParent(event.target as HTMLElement);
 
 		if (getAllFocusableElements(event.currentTarget).length > 0) {
-			this.setState({
-				isAddonHoveredOrTouched:
-					isHovered && !!nearestFocusableParentElement && event.currentTarget.contains(nearestFocusableParentElement)
-			});
+			setIsAddonHoveredOrTouched(
+				isHovered && !!nearestFocusableParentElement && event.currentTarget.contains(nearestFocusableParentElement)
+			);
 		}
 	}
 
-	private handleFocusAddon(event: FocusEvent<HTMLElement>, isFocused?: boolean): void {
+	function handleFocusAddon(event: FocusEvent<HTMLElement>, isFocused: boolean): void {
 		if (getAllFocusableElements(event.currentTarget).length > 0) {
-			this.setState({ isAddonFocused: isFocused });
+			setIsAddonFocused(isFocused);
 		}
 	}
 
-	private handleWrapperMouseOver(event: MouseEvent<HTMLDivElement>): void {
+	function handleWrapperMouseOver(event: MouseEvent<HTMLDivElement>): void {
 		const target = event.target as HTMLElement;
 		const nearestFocusableParentElement = getNearestFocusableParent(target);
 		const addon =
@@ -317,129 +284,131 @@ export class CollapsiblePanel extends Component<CollapsiblePanelProps, Collapsib
 					);
 		const isInteractiveAddon =
 			!!addon && !!nearestFocusableParentElement && event.currentTarget.contains(nearestFocusableParentElement);
-		this.setState({ isAddonHoveredOrTouched: isInteractiveAddon });
+		setIsAddonHoveredOrTouched(isInteractiveAddon);
 	}
 
-	private graphicIconRenderer(): ReactElement {
+	function graphicIconRenderer(): ReactElement {
 		return (
 			<StyledCollapsiblePanelIndicator
 				className={`${baseClassName}__indicator`}
 				data-role={DataRoles.CollapsiblePanel.Indicator}
-				$swapAddonsPosition={this.props.swapAddonsPosition}
+				$swapAddonsPosition={swapAddonsPosition}
 			>
-				<Icon>{this.props.children ? "keyboard_arrow_down" : "keyboard_arrow_right"}</Icon>
+				<Icon>{children ? "keyboard_arrow_down" : "keyboard_arrow_right"}</Icon>
 			</StyledCollapsiblePanelIndicator>
 		);
 	}
 
-	private addonsRenderer(): ReactElement {
-		return this.props.addons ? (
+	function addonsRenderer(): ReactElement | null {
+		return addons ? (
 			<StyledCollapsiblePanelAddons
 				className={`${baseClassName}__add-ons`}
 				data-role={DataRoles.CollapsiblePanelAddons}
-				onMouseOver={(event) => this.handleHoverOrTouchAddon(event, true)}
-				onMouseLeave={(event) => this.handleHoverOrTouchAddon(event, false)}
-				onTouchStart={(event) => this.handleHoverOrTouchAddon(event, true)}
-				onTouchEnd={(event) => this.handleHoverOrTouchAddon(event, false)}
-				onFocus={(event) => this.handleFocusAddon(event, true)}
-				onBlur={(event) => this.handleFocusAddon(event, false)}
+				onMouseOver={(event) => handleHoverOrTouchAddon(event, true)}
+				onMouseLeave={(event) => handleHoverOrTouchAddon(event, false)}
+				onTouchStart={(event) => handleHoverOrTouchAddon(event, true)}
+				onTouchEnd={(event) => handleHoverOrTouchAddon(event, false)}
+				onFocus={(event) => handleFocusAddon(event, true)}
+				onBlur={(event) => handleFocusAddon(event, false)}
 			>
-				{this.props.addons}
+				{addons}
 			</StyledCollapsiblePanelAddons>
-		) : (
-			<></>
-		);
+		) : null;
+	}
+
+	return (
+		<StyledCollapsiblePanelWrapper
+			className={joinClassNames(baseClassName, className)}
+			id={id}
+			style={style}
+			data-role={DataRoles.CollapsiblePanel}
+		>
+			<StyledCollapsiblePanelTitle
+				$noEffect={isAddonHoveredOrTouched}
+				$noFocus={isAddonHoveredOrTouched || isAddonFocused}
+				className={joinClassNames(
+					`${baseClassName}__title`,
+					{
+						[`${baseClassName}__title--no-effect`]: isAddonHoveredOrTouched
+					},
+					{
+						[`${baseClassName}__title--no-focus`]: isAddonHoveredOrTouched || isAddonFocused
+					}
+				)}
+				data-role={DataRoles.CollapsiblePanel.Header}
+				aria-level={ariaLevel}
+				role={role}
+				onClick={handleClick}
+				onKeyUp={handleKeyUp}
+				onMouseOver={handleWrapperMouseOver}
+			>
+				{swapAddonsPosition && addonsRenderer()}
+				<StyledCollapsiblePanelLabel
+					className={`${baseClassName}__label`}
+					role="button"
+					tabIndex={0}
+					aria-expanded={children ? "true" : "false"}
+					data-role={DataRoles.CollapsiblePanel.Title.Wrapper}
+					ref={labelRef}
+					$swapAddonsPosition={swapAddonsPosition}
+					title={resolvedTitle}
+				>
+					{!swapAddonsPosition && graphicIconRenderer()}
+					<StyledCollapsiblePanelLabelText
+						className={`${baseClassName}__label--text`}
+						data-role={DataRoles.CollapsiblePanel.Title}
+					>
+						{title}
+					</StyledCollapsiblePanelLabelText>
+					{info && (
+						<StyledCollapsiblePanelLabelInfo
+							className={`${baseClassName}__label--info`}
+							data-role={DataRoles.CollapsiblePanel.Info}
+						>
+							&nbsp;- {info}
+						</StyledCollapsiblePanelLabelInfo>
+					)}
+					{collapsiblePanelTitle && !!hintRenderer && <HiddenText>{collapsiblePanelTitle}</HiddenText>}
+					{swapAddonsPosition && graphicIconRenderer()}
+				</StyledCollapsiblePanelLabel>
+				{!swapAddonsPosition && addonsRenderer()}
+				{hintRenderer?.()}
+			</StyledCollapsiblePanelTitle>
+			{children && (
+				<StyledCollapsiblePanelContent
+					className={`${baseClassName}__content`}
+					role="document"
+					data-role={DataRoles.CollapsiblePanel.Content}
+				>
+					{children}
+				</StyledCollapsiblePanelContent>
+			)}
+		</StyledCollapsiblePanelWrapper>
+	);
+}
+
+CollapsiblePanelImpl.displayName = "CollapsiblePanelImpl";
+
+/**
+ * A panel with a clickable title that toggles its content.
+ *
+ * @remarks
+ * The implementation is a function component built on hooks. `CollapsiblePanel` itself stays a thin class shell that
+ * renders it, so consumers that hold a `ref` to the component instance, annotate `typeof CollapsiblePanel` as a class
+ * or subclass it keep compiling and working. New code should not rely on any of these.
+ */
+export class CollapsiblePanel extends Component<CollapsiblePanelProps> {
+	static displayName = "CollapsiblePanel";
+	static contextType = A11YLanguageContext;
+	declare context: ContextType<typeof A11YLanguageContext>;
+
+	constructor(props: CollapsiblePanelProps) {
+		super(props);
+		// Subclasses relied on the base constructor to bind their own methods to the instance.
+		bindMethods(this);
 	}
 
 	render(): ReactNode {
-		const classNames = joinClassNames(baseClassName, this.props.className);
-		const panelTitles = this.context.collapsiblePanelTitles;
-		const collapsiblePanelTitle = this.props.children ? panelTitles?.closePanel : panelTitles?.openPanel;
-
-		return (
-			<StyledCollapsiblePanelWrapper
-				className={classNames}
-				id={this.props.id}
-				style={this.props.style}
-				data-role={DataRoles.CollapsiblePanel}
-				ref={this.wrapperRef}
-			>
-				<StyledCollapsiblePanelTitle
-					$noEffect={this.state.isAddonHoveredOrTouched}
-					$noFocus={this.state.isAddonHoveredOrTouched || this.state.isAddonFocused}
-					className={joinClassNames(
-						`${baseClassName}__title`,
-						{
-							[`${baseClassName}__title--no-effect`]: this.state.isAddonHoveredOrTouched
-						},
-						{
-							[`${baseClassName}__title--no-focus`]: this.state.isAddonHoveredOrTouched || this.state.isAddonFocused
-						}
-					)}
-					data-role={DataRoles.CollapsiblePanel.Header}
-					aria-level={this.props.ariaLevel}
-					role={this.props.role}
-					ref={this.getTitleRef}
-					onClick={this.handleClick}
-					onKeyUp={this.handleKeyUp}
-					onMouseOver={this.handleWrapperMouseOver}
-				>
-					{this.props.swapAddonsPosition && this.addonsRenderer()}
-					<CollapsiblePanelInteractionHintWrapper
-						collapsiblePanelTitle={collapsiblePanelTitle}
-						wrapperRef={this.wrapperRef}
-						labelRef={this.labelRef}
-					>
-						{({ title: resolvedTitle, hintRenderer }) => {
-							return (
-								<>
-									<StyledCollapsiblePanelLabel
-										className={`${baseClassName}__label`}
-										role="button"
-										tabIndex={0}
-										aria-expanded={this.props.children ? "true" : "false"}
-										data-role={DataRoles.CollapsiblePanel.Title.Wrapper}
-										ref={this.getLabelRef}
-										$swapAddonsPosition={this.props.swapAddonsPosition}
-										title={resolvedTitle}
-									>
-										{!this.props.swapAddonsPosition && this.graphicIconRenderer()}
-										<StyledCollapsiblePanelLabelText
-											className={`${baseClassName}__label--text`}
-											data-role={DataRoles.CollapsiblePanel.Title}
-										>
-											{this.props.title}
-										</StyledCollapsiblePanelLabelText>
-										{this.props.info && (
-											<StyledCollapsiblePanelLabelInfo
-												className={`${baseClassName}__label--info`}
-												data-role={DataRoles.CollapsiblePanel.Info}
-											>
-												&nbsp;- {this.props.info}
-											</StyledCollapsiblePanelLabelInfo>
-										)}
-										{collapsiblePanelTitle && !!hintRenderer && <HiddenText>{collapsiblePanelTitle}</HiddenText>}
-										{this.props.swapAddonsPosition && this.graphicIconRenderer()}
-									</StyledCollapsiblePanelLabel>
-									{!this.props.swapAddonsPosition && this.addonsRenderer()}
-									{hintRenderer?.()}
-								</>
-							);
-						}}
-					</CollapsiblePanelInteractionHintWrapper>
-				</StyledCollapsiblePanelTitle>
-				{this.props.children && (
-					<StyledCollapsiblePanelContent
-						className={`${baseClassName}__content`}
-						role="document"
-						data-role={DataRoles.CollapsiblePanel.Content}
-					>
-						{this.props.children}
-					</StyledCollapsiblePanelContent>
-				)}
-			</StyledCollapsiblePanelWrapper>
-		);
+		return <CollapsiblePanelImpl {...this.props} />;
 	}
 }
-
-CollapsiblePanel.contextType = A11YLanguageContext;

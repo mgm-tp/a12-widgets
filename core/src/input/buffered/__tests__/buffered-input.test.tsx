@@ -30,22 +30,47 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ChangeEvent, FocusEvent, ReactElement, ReactNode } from "react";
-import { useState } from "react";
+import { waitFor } from "@testing-library/dom";
+import type { ChangeEvent, FocusEvent, InputHTMLAttributes, ReactElement, ReactNode, Ref, RefObject } from "react";
+import { createRef, useState } from "react";
 import { getByDataRole, render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
-import { waitFor } from "@testing-library/dom";
 import { userEvent } from "vitest/browser";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { noop } from "../../../common/main/utils.js";
 import { TextField } from "../../text-field/index.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { BufferedInput, HTMLInputAdapter } from "../main/buffered.view.js";
 
 interface MockInputProps {
 	onChange?(ev: ChangeEvent<HTMLInputElement>): void;
 	onBlur?(ev: FocusEvent<HTMLInputElement>): void;
+}
+
+interface ForwardingMockProps extends InputHTMLAttributes<HTMLInputElement> {
+	inputRef?: Ref<HTMLInputElement | HTMLTextAreaElement>;
+	alwaysSubmit?: boolean;
+}
+
+/**
+ * Immediate input that behaves like the real widgets: it hands the DOM node to `inputRef`
+ * (so the buffer can tell a focused edit from an autofill), stays controlled like `TextField` does
+ * and passes every other prop to the `<input>`.
+ */
+function ForwardingMock({
+	inputRef,
+	alwaysSubmit: _alwaysSubmit,
+	value = "",
+	...rest
+}: ForwardingMockProps): ReactElement {
+	return <input data-role="mock-element" ref={inputRef as Ref<HTMLInputElement>} value={value} {...rest} />;
+}
+
+/** Changes the value like a browser autofill does: without focusing the input. */
+function autofill(input: HTMLInputElement, value: string): void {
+	const nativeValueSetter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")?.set;
+	nativeValueSetter?.call(input, value);
+	input.dispatchEvent(new Event("input", { bubbles: true }));
 }
 
 describe("com.mgmtp.a12.widgets.input.buffered-input", () => {
@@ -193,5 +218,357 @@ describe("com.mgmtp.a12.widgets.input.buffered-input", () => {
 			},
 			{ timeout: 150 }
 		);
+	});
+
+	describe("buffered editing", () => {
+		const BufferedTextInput = BufferedInput(HTMLInputAdapter(ForwardingMock));
+
+		function getInput(container: HTMLElement): HTMLInputElement {
+			return getByDataRole(container, "mock-element") as HTMLInputElement;
+		}
+
+		test("calls onValueSubmit with the buffered value on Enter and on blur", async () => {
+			const onValueSubmit = vi.fn();
+			const { container } = render(<BufferedTextInput submitOnEnter onValueSubmit={onValueSubmit} />);
+			const input = getInput(container);
+
+			await userEvent.click(input);
+			await userEvent.fill(input, "first");
+			await userEvent.keyboard("{Enter}");
+			expect(onValueSubmit).toHaveBeenCalledTimes(1);
+			expect(onValueSubmit).toHaveBeenLastCalledWith("first");
+
+			await userEvent.fill(input, "second");
+			await userEvent.tab();
+			expect(onValueSubmit).toHaveBeenCalledTimes(2);
+			expect(onValueSubmit).toHaveBeenLastCalledWith("second");
+			expect(input.value).toBe("second");
+		});
+
+		test("reports every keystroke through onValueChange and holds onValueSubmit until the input is submitted", async () => {
+			const onValueChange = vi.fn();
+			const onValueSubmit = vi.fn();
+			const { container } = render(<BufferedTextInput onValueChange={onValueChange} onValueSubmit={onValueSubmit} />);
+			const input = getInput(container);
+
+			await userEvent.click(input);
+			await userEvent.type(input, "abc");
+
+			expect(onValueChange.mock.calls).toEqual([["a"], ["ab"], ["abc"]]);
+			expect(onValueSubmit).not.toHaveBeenCalled();
+			expect(input.value).toBe("abc");
+
+			await userEvent.tab();
+			expect(onValueSubmit).toHaveBeenCalledTimes(1);
+			expect(onValueSubmit).toHaveBeenCalledWith("abc");
+			expect(onValueChange).toHaveBeenCalledTimes(3);
+		});
+
+		test("calls onSubmit on every blur and Enter even when the value is unchanged", async () => {
+			const onSubmit = vi.fn();
+			const onValueSubmit = vi.fn();
+			const { container } = render(
+				<BufferedTextInput value="de" submitOnEnter onSubmit={onSubmit} onValueSubmit={onValueSubmit} />
+			);
+			const input = getInput(container);
+
+			await userEvent.click(input);
+			await userEvent.keyboard("{Enter}");
+			expect(onSubmit).toHaveBeenCalledTimes(1);
+
+			await userEvent.tab();
+			expect(onSubmit).toHaveBeenCalledTimes(2);
+			expect(onValueSubmit).not.toHaveBeenCalled();
+		});
+
+		test("submits the unchanged value on blur when alwaysSubmit is set", async () => {
+			const onValueSubmit = vi.fn();
+			const { container } = render(<BufferedTextInput value="de" alwaysSubmit onValueSubmit={onValueSubmit} />);
+			const input = getInput(container);
+
+			await userEvent.click(input);
+			await userEvent.tab();
+			expect(onValueSubmit).toHaveBeenCalledTimes(1);
+			expect(onValueSubmit).toHaveBeenLastCalledWith("de");
+
+			await userEvent.click(input);
+			await userEvent.tab();
+			expect(onValueSubmit).toHaveBeenCalledTimes(2);
+			expect(input.value).toBe("de");
+		});
+
+		test("Enter does not submit unless submitOnEnter is set", async () => {
+			const onValueSubmit = vi.fn();
+			const { container } = render(<BufferedTextInput onValueSubmit={onValueSubmit} />);
+			const input = getInput(container);
+
+			await userEvent.click(input);
+			await userEvent.fill(input, "typed");
+			await userEvent.keyboard("{Enter}");
+			expect(onValueSubmit).not.toHaveBeenCalled();
+			expect(input.value).toBe("typed");
+
+			await userEvent.tab();
+			expect(onValueSubmit).toHaveBeenCalledTimes(1);
+			expect(onValueSubmit).toHaveBeenCalledWith("typed");
+		});
+
+		test("prefers initialValue over value at mount", async () => {
+			const onValueSubmit = vi.fn();
+			const { container } = render(
+				<BufferedTextInput initialValue="draft" value="stored" onValueSubmit={onValueSubmit} />
+			);
+			const input = getInput(container);
+
+			expect(input.value).toBe("draft");
+
+			// the initial value counts as already submitted
+			await userEvent.click(input);
+			await userEvent.tab();
+			expect(onValueSubmit).not.toHaveBeenCalled();
+		});
+
+		test("adopts an external value update while the buffer is clean", async () => {
+			const onValueSubmit = vi.fn();
+			const { container, rerender } = render(<BufferedTextInput value="de" onValueSubmit={onValueSubmit} />);
+			const input = getInput(container);
+
+			rerender(<BufferedTextInput value="en" onValueSubmit={onValueSubmit} />);
+			expect(input.value).toBe("en");
+
+			// the adopted value counts as already submitted
+			await userEvent.click(input);
+			await userEvent.tab();
+			expect(onValueSubmit).not.toHaveBeenCalled();
+		});
+
+		test("an external value update replaces the buffer even while the user is typing", async () => {
+			const onValueSubmit = vi.fn();
+			const { container, rerender } = render(<BufferedTextInput value="de" onValueSubmit={onValueSubmit} />);
+			const input = getInput(container);
+
+			await userEvent.click(input);
+			await userEvent.fill(input, "typing");
+			expect(input.value).toBe("typing");
+
+			rerender(<BufferedTextInput value="fr" onValueSubmit={onValueSubmit} />);
+			expect(input.value).toBe("fr");
+
+			await userEvent.tab();
+			expect(onValueSubmit).not.toHaveBeenCalled();
+			expect(input.value).toBe("fr");
+		});
+
+		test("a parent re-render with unchanged props keeps the edited buffer", async () => {
+			const onValueSubmit = vi.fn();
+			const { container, rerender } = render(<BufferedTextInput value="de" onValueSubmit={onValueSubmit} />);
+			const input = getInput(container);
+
+			await userEvent.click(input);
+			await userEvent.fill(input, "edited");
+
+			rerender(<BufferedTextInput value="de" onValueSubmit={onValueSubmit} />);
+			expect(input.value).toBe("edited");
+			expect(onValueSubmit).not.toHaveBeenCalled();
+
+			await userEvent.tab();
+			expect(onValueSubmit).toHaveBeenCalledTimes(1);
+			expect(onValueSubmit).toHaveBeenCalledWith("edited");
+		});
+
+		test("keeps the submitted value once the parent accepts it and does not submit it again", async () => {
+			const onValueSubmit = vi.fn();
+
+			function Controlled(): ReactElement {
+				const [value, setValue] = useState("de");
+
+				return (
+					<BufferedTextInput
+						value={value}
+						onValueSubmit={(newValue) => {
+							onValueSubmit(newValue);
+							setValue(newValue ?? "");
+						}}
+					/>
+				);
+			}
+
+			const { container } = render(<Controlled />);
+			const input = getInput(container);
+
+			await userEvent.click(input);
+			await userEvent.fill(input, "en");
+			await userEvent.tab();
+			expect(onValueSubmit).toHaveBeenCalledTimes(1);
+			expect(onValueSubmit).toHaveBeenCalledWith("en");
+			expect(input.value).toBe("en");
+
+			await userEvent.click(input);
+			await userEvent.tab();
+			expect(onValueSubmit).toHaveBeenCalledTimes(1);
+			expect(input.value).toBe("en");
+		});
+
+		test("uses the latest handlers after they are swapped between renders", async () => {
+			const firstSubmit = vi.fn();
+			const firstChange = vi.fn();
+			const secondSubmit = vi.fn();
+			const secondChange = vi.fn();
+			const { container, rerender } = render(
+				<BufferedTextInput onValueChange={firstChange} onValueSubmit={firstSubmit} />
+			);
+			const input = getInput(container);
+
+			await userEvent.click(input);
+			await userEvent.fill(input, "one");
+			expect(firstChange).toHaveBeenCalledWith("one");
+
+			rerender(<BufferedTextInput onValueChange={secondChange} onValueSubmit={secondSubmit} />);
+
+			await userEvent.fill(input, "two");
+			await userEvent.tab();
+
+			expect(secondChange).toHaveBeenCalledWith("two");
+			expect(secondSubmit).toHaveBeenCalledTimes(1);
+			expect(secondSubmit).toHaveBeenCalledWith("two");
+			expect(firstChange).toHaveBeenCalledTimes(1);
+			expect(firstSubmit).not.toHaveBeenCalled();
+		});
+
+		test("forwards the underlying input through a callback inputRef", () => {
+			const inputRef = vi.fn();
+			const { container, rerender, unmount } = render(
+				<BufferedTextInput inputRef={inputRef} value="initial" onValueSubmit={noop} />
+			);
+			const input = getInput(container);
+
+			expect(inputRef).toHaveBeenLastCalledWith(input);
+
+			rerender(<BufferedTextInput inputRef={inputRef} value="changed" onValueSubmit={noop} />);
+			expect(inputRef).toHaveBeenLastCalledWith(input);
+
+			unmount();
+			expect(inputRef).toHaveBeenLastCalledWith(null);
+		});
+
+		test("forwards the underlying input through an object inputRef", () => {
+			const inputRef: RefObject<HTMLInputElement | HTMLTextAreaElement | null> = createRef();
+			const { container, unmount } = render(<BufferedTextInput inputRef={inputRef} onValueSubmit={noop} />);
+
+			expect(inputRef.current).toBe(getInput(container));
+
+			unmount();
+			expect(inputRef.current).toBeNull();
+		});
+
+		test("does not submit an edited buffer on unmount", async () => {
+			const onValueSubmit = vi.fn();
+			const { container, unmount } = render(<BufferedTextInput onValueSubmit={onValueSubmit} />);
+			const input = getInput(container);
+
+			await userEvent.click(input);
+			await userEvent.fill(input, "unsaved");
+
+			unmount();
+			expect(onValueSubmit).not.toHaveBeenCalled();
+		});
+
+		test("does not buffer or submit while disabled", async () => {
+			const onValueChange = vi.fn();
+			const onValueSubmit = vi.fn();
+			const { container } = render(
+				<BufferedTextInput
+					value="de"
+					disabled
+					submitOnEnter
+					alwaysSubmit
+					onValueChange={onValueChange}
+					onValueSubmit={onValueSubmit}
+				/>
+			);
+			const input = getInput(container);
+
+			expect(input).toBeDisabled();
+
+			// Playwright refuses to click a disabled element; force it to prove the disabled input stays inert
+			await userEvent.click(input, { force: true });
+			await userEvent.keyboard("typed{Enter}");
+			await userEvent.tab();
+
+			expect(input.value).toBe("de");
+			expect(onValueChange).not.toHaveBeenCalled();
+			expect(onValueSubmit).not.toHaveBeenCalled();
+		});
+
+		test("does not change or submit the value while readOnly", async () => {
+			const onValueChange = vi.fn();
+			const onValueSubmit = vi.fn();
+			const { container } = render(
+				<BufferedTextInput value="de" readOnly onValueChange={onValueChange} onValueSubmit={onValueSubmit} />
+			);
+			const input = getInput(container);
+
+			expect(input).toHaveAttribute("readonly");
+
+			await userEvent.click(input);
+			await userEvent.keyboard("typed");
+			await userEvent.tab();
+
+			expect(input.value).toBe("de");
+			expect(onValueChange).not.toHaveBeenCalled();
+			expect(onValueSubmit).not.toHaveBeenCalled();
+		});
+
+		test("passes id, className and ARIA attributes through and keeps buffered-only props off the DOM", () => {
+			const { container } = render(
+				<BufferedTextInput
+					id="buffered-id"
+					className="buffered-class"
+					aria-label="Buffered label"
+					aria-invalid
+					initialValue="draft"
+					alwaysSubmit
+					submitOnEnter
+					onValueSubmit={noop}
+				/>
+			);
+			const input = getInput(container);
+
+			expect(input).toHaveAttribute("id", "buffered-id");
+			expect(input).toHaveClass("buffered-class");
+			expect(input).toHaveAttribute("aria-label", "Buffered label");
+			expect(input).toHaveAttribute("aria-invalid", "true");
+			expect(input).not.toHaveAttribute("initialvalue");
+			expect(input).not.toHaveAttribute("submitonenter");
+		});
+
+		test("a change while the input is not focused (autofill) submits immediately without buffering", () => {
+			const onValueChange = vi.fn();
+			const onSubmit = vi.fn();
+			const onValueSubmit = vi.fn();
+			const { container } = render(
+				<BufferedTextInput value="de" onValueChange={onValueChange} onSubmit={onSubmit} onValueSubmit={onValueSubmit} />
+			);
+			const input = getInput(container);
+
+			expect(document.activeElement).not.toBe(input);
+			autofill(input, "autofilled");
+
+			expect(onValueSubmit).toHaveBeenCalledTimes(1);
+			expect(onValueSubmit).toHaveBeenCalledWith("autofilled");
+			expect(onSubmit).toHaveBeenCalledTimes(1);
+			expect(onValueChange).not.toHaveBeenCalled();
+		});
+
+		test("an unfocused change equal to the controlled value is not submitted", () => {
+			const onValueSubmit = vi.fn();
+			const { container } = render(<BufferedTextInput initialValue="draft" value="de" onValueSubmit={onValueSubmit} />);
+			const input = getInput(container);
+
+			expect(input.value).toBe("draft");
+			autofill(input, "de");
+
+			expect(onValueSubmit).not.toHaveBeenCalled();
+		});
 	});
 });

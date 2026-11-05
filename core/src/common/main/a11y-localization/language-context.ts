@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { createContext } from "react";
 import merge from "deepmerge";
+import { createContext } from "react";
 
-import { A11yResourceDefinitions } from "./a11y-resources.js";
 import type { A11yDefinition, A11yResourceTypeDefinition } from "./a11y-key-definition.api.js";
+import { A11yResourceDefinitions } from "./a11y-resources.js";
 
 /**
  * Return an object with type {@link A11yDefinition} containing localized text used for accessibility hidden text.

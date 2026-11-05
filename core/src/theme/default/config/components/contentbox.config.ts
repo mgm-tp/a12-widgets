@@ -32,9 +32,9 @@
 
 import { rgba } from "polished";
 
-import type { BaseThemeType } from "../../../schema/base-theme.js";
-import { GeneralFlatColorsConfig } from "../../../flat/config/base/colors.config.js";
 import type { Duration } from "../../../../common/main/type-utilities.js";
+import { GeneralFlatColorsConfig } from "../../../flat/config/base/colors.config.js";
+import type { BaseThemeType } from "../../../schema/base-theme.js";
 
 import { commonButtonConfigs } from "./button.config.js";
 

@@ -31,13 +31,16 @@
  */
 
 import { getByDataRole, render } from "test-utils";
-import { describe, vi, expect, test } from "vitest";
+import { describe, vi, expect, test, afterEach } from "vitest";
 
-import { Toast } from "../../main/toast/toast.view.js";
-import { ToastGroupContext } from "../../main/toast-group.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { ToastGroupContext } from "../../main/toast-group.view.js";
+import { Toast } from "../../main/toast/toast.view.js";
 
 describe("com.mgmtp.a12.widgets.toast", () => {
+	afterEach(() => {
+		vi.useRealTimers();
+	});
 	test("render with id, class, style, wrapperRef", () => {
 		const id = "id";
 		const customClass = "class";

@@ -94,8 +94,7 @@ export const StyledFilterOptionsTemplate = styled(FilterSelectorTemplate).withCo
 		border-radius: ${spacingXs}px;
 		overflow: hidden;
 
-		[data-role="${DataRoles.Typography.Headline}"],
-		[data-role="${DataRoles.Typography.Body}"] {
+		[data-role="${DataRoles.Typography.Headline}"], [data-role="${DataRoles.Typography.Body}"] {
 			margin: 0;
 			padding: 0;
 		}

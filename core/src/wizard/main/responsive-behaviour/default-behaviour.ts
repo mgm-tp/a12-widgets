@@ -31,7 +31,6 @@
  */
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import type { ResponsiveBehaviour, Step, WizardElements, WizardState } from "../wizard.internal.js";
 import { computeCondensedStepCount, StepHelper, WizardHelper } from "../wizard.internal.js";
 

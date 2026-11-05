@@ -30,12 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { getAllByDataRole, getByDataRole, queryByDataRole, render, waitFor } from "test-utils";
 import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
-import { getAllByDataRole, getByDataRole, queryByDataRole, render, waitFor } from "test-utils";
 
 import { DataRoles } from "../../common/main/data-roles.js";
-
 import { editorThemeClasses } from "../main/themes/themes.js";
 
 import { DefaultEditorCombination } from "./default-editor-combination.js";
@@ -333,7 +332,7 @@ describe("List Plugin", () => {
 		editorInput.focus();
 
 		await userEvent.keyboard("{Home}");
-		await new Promise((r) => setTimeout(r, 100)); // Wait for cursor to move to the beginning
+		await waitFor(() => expect(window.getSelection()?.anchorOffset).toBe(0));
 		await userEvent.keyboard("{Enter}");
 
 		await waitFor(() => {

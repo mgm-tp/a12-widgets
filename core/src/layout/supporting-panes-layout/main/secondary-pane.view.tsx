@@ -36,8 +36,8 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import { useIsMount } from "../../../common/main/hooks.js";
 
 import { ResizeHandle } from "./resize/resize-handle.view.js";
-import type { SupportingPanesLayoutProps } from "./supporting-panes-layout.api.js";
 import { SecondaryPaneAnimation } from "./secondary-pane-animation.js";
+import type { SupportingPanesLayoutProps } from "./supporting-panes-layout.api.js";
 import { useLayoutWidth } from "./supporting-panes-layout.utils.js";
 
 export function SPLSecondaryPane(props: SupportingPanesLayoutProps.SecondaryPaneProps): ReactNode {

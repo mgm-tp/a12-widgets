@@ -12,7 +12,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering disabled year sel
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -55,7 +55,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering disabled year sel
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -112,7 +112,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering disabled year sel
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
@@ -258,23 +258,19 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering disabled year sel
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-selector > rendering readonly year selector 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -294,27 +290,27 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering readonly year sel
   opacity: 1;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -326,11 +322,11 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering readonly year sel
   min-width: 5px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   border-radius: inherit;
   display: flex;
   flex-grow: 1;
@@ -339,7 +335,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering readonly year sel
   box-shadow: none;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -361,6 +357,268 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering readonly year sel
   overflow-wrap: normal;
 }
 
+.c4 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c4:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 field field--block "
+  data-role="year-selector"
+>
+  <div
+    class="c1 field__select field__select--readonly"
+    data-role="year-selector-control"
+  >
+    <div
+      class="c2 field__select-wrapper"
+      data-readonly="true"
+      data-role="year-selector-wrapper"
+    >
+      <select
+        class="c3 field__selectTitle"
+        data-role="year-selector-input"
+        disabled=""
+      >
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1990"
+        >
+          1990
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1991"
+        >
+          1991
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1992"
+        >
+          1992
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1993"
+        >
+          1993
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1994"
+        >
+          1994
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1995"
+        >
+          1995
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1996"
+        >
+          1996
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1997"
+        >
+          1997
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1998"
+        >
+          1998
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1999"
+        >
+          1999
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2000"
+        >
+          2000
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2001"
+        >
+          2001
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2002"
+        >
+          2002
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2003"
+        >
+          2003
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c5 field__select-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow optional value 1`] = `
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c3 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c3.c3.c3 {
+  outline: transparent solid 1px;
+}
+
+.c3::selection {
+  background-color: transparent;
+}
+
+.c3::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c1 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c2:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c6::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c4 {
+  appearance: none;
+  color: rgb(97, 111, 124);
+  font-style: italic;
+}
+
 .c5 {
   appearance: none;
   font-style: normal;
@@ -372,7 +630,20 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering readonly year sel
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
 }
 
 @media (pointer: coarse) {
@@ -391,23 +662,28 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering readonly year sel
 }
 
 <div
-  class="c0 c1 field field--block "
+  class="c0 field field--block "
   data-role="year-selector"
 >
   <div
-    class="c2 field__select field__select--readonly"
+    class="c1 field__select"
     data-role="year-selector-control"
   >
     <div
-      class="c3 field__select-wrapper"
-      data-readonly="true"
+      class="c2 field__select-wrapper"
       data-role="year-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="year-selector-input"
-        disabled=""
       >
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value=""
+        >
+          additional Item
+        </option>
         <option
           class="c5 field__selectOption"
           data-role="year-selector-option"
@@ -516,20 +792,147 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering readonly year sel
 </div>
 `;
 
-exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow optional value 1`] = `
+exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with error and warning messages 1`] = `
+.c6 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c4 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-variation-settings: normal;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c4 > span {
+  display: inline-block;
+}
+
+.c4.c4 {
+  max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
+.c9 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c9 > span {
+  display: inline-block;
+}
+
+.c9.c9 {
+  max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c9 {
+  color: inherit;
+}
+
+.c5.c5 {
+  color: rgb(201, 29, 29);
+}
+
+.c10.c10 {
+  color: rgb(175, 121, 2);
+}
+
 .c1 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(252, 233, 233);
+  color: rgb(201, 29, 29);
+}
+
+.c8 {
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0px 0px 4px;
+  padding: 4px 8px;
+  background: rgb(254, 242, 218);
+  color: rgb(22, 25, 29);
+}
+
+.c2 {
+  display: flex;
+  margin-right: 4px;
+}
+
+.c2 .c3 {
+  font-size: 1.25rem;
+}
+
+.c7 {
+  align-self: center;
+  max-width: calc(100% - 4px - 1.25rem);
+}
+
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c13 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -546,31 +949,27 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c13.c13.c13 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c13::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c13::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c8.c8 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c11 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -580,11 +979,629 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
   height: 32px;
 }
 
-.c2:focus {
+.c11:focus {
   outline: none;
 }
 
+.c12 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+}
+
+.c12:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c15::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c14 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c14:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+}
+
+@media (pointer: coarse) {
+  .c12:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c12:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c14:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c14:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 field field--block "
+  data-role="year-selector"
+>
+  <div
+    class="c1 message message--error"
+    data-role="year-selector-error-message"
+  >
+    <div
+      class="c2 messageIcon"
+    >
+      <i
+        class="c3 c4 c5 plasma-icon plasma-icon--error plasma-icon--custom"
+        data-role="plasma-icon"
+        title="Error"
+      >
+        <span
+          aria-hidden="true"
+          class="notranslate"
+          translate="no"
+        >
+          
+        </span>
+        <span
+          class="c6 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Error
+        </span>
+      </i>
+    </div>
+    <div
+      class="c7 messageText"
+      data-role="error-text"
+    >
+      Error message
+    </div>
+  </div>
+  <div
+    class="c8 message message--warning"
+    data-role="year-selector-warning-message"
+  >
+    <div
+      class="c2 messageIcon"
+    >
+      <i
+        class="c3 c9 c10 plasma-icon plasma-icon--warning"
+        data-role="plasma-icon"
+        title="Warning"
+      >
+        <span
+          aria-hidden="true"
+          class="notranslate"
+          translate="no"
+        >
+          warning
+        </span>
+        <span
+          class="c6 -u-unseenButRead"
+          data-role="hidden-text"
+        >
+          Warning
+        </span>
+      </i>
+    </div>
+    <div
+      class="c7 messageText"
+      data-role="warning-text"
+    >
+      Warning message
+    </div>
+  </div>
+  <div
+    class="c11 field__select"
+    data-role="year-selector-control"
+  >
+    <div
+      class="c12 field__select-wrapper field__select-wrapper--error field__select-wrapper--warning"
+      data-role="year-selector-wrapper"
+    >
+      <select
+        aria-invalid="true"
+        class="c13 field__selectTitle field__selectTitle--error field__selectTitle--warning"
+        data-role="year-selector-input"
+      >
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="1990"
+        >
+          1990
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="1991"
+        >
+          1991
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="1992"
+        >
+          1992
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="1993"
+        >
+          1993
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="1994"
+        >
+          1994
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="1995"
+        >
+          1995
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="1996"
+        >
+          1996
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="1997"
+        >
+          1997
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="1998"
+        >
+          1998
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="1999"
+        >
+          1999
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="2000"
+        >
+          2000
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="2001"
+        >
+          2001
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="2002"
+        >
+          2002
+        </option>
+        <option
+          class="c14 field__selectOption"
+          data-role="year-selector-option"
+          value="2003"
+        >
+          2003
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c15 field__select-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with error state 1`] = `
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
 .c3 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c3.c3.c3 {
+  outline: transparent solid 1px;
+}
+
+.c3::selection {
+  background-color: transparent;
+}
+
+.c3::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c1 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+}
+
+.c2:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c5::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c4 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c4:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 field field--block "
+  data-role="year-selector"
+>
+  <div
+    class="c1 field__select"
+    data-role="year-selector-control"
+  >
+    <div
+      class="c2 field__select-wrapper field__select-wrapper--error"
+      data-role="year-selector-wrapper"
+    >
+      <select
+        aria-invalid="true"
+        class="c3 field__selectTitle field__selectTitle--error"
+        data-role="year-selector-input"
+      >
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1990"
+        >
+          1990
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1991"
+        >
+          1991
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1992"
+        >
+          1992
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1993"
+        >
+          1993
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1994"
+        >
+          1994
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1995"
+        >
+          1995
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1996"
+        >
+          1996
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1997"
+        >
+          1997
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1998"
+        >
+          1998
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1999"
+        >
+          1999
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2000"
+        >
+          2000
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2001"
+        >
+          2001
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2002"
+        >
+          2002
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2003"
+        >
+          2003
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c5 field__select-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with helper text 1`] = `
+.c7 {
+  color: rgb(97, 111, 124);
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  margin: 4px 0px 0px;
+  width: fit-content;
+}
+
+.c6 {
+  display: flex;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c3 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c3.c3.c3 {
+  outline: transparent solid 1px;
+}
+
+.c3::selection {
+  background-color: transparent;
+}
+
+.c3::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c1 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -593,7 +1610,320 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
   position: relative;
 }
 
-.c3:focus-within {
+.c2:focus-within {
+  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  outline-offset: 0px;
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+.c5::after {
+  align-items: center;
+  color: rgb(127, 140, 155);
+  content: "";
+  display: flex;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1.5rem;
+  font-style: normal;
+  justify-content: center;
+  height: 100%;
+  line-height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0px;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  overflow-wrap: normal;
+}
+
+.c4 {
+  appearance: none;
+  font-style: normal;
+  color: rgb(77, 77, 77);
+  font-size: inherit;
+}
+
+.c4:focus {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+}
+
+@media (pointer: coarse) {
+  .c2:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: fine) {
+  .c2:hover {
+    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
+  }
+}
+
+@media (pointer: coarse) {
+  .c4:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (pointer: fine) {
+  .c4:hover {
+    background-color: rgb(213, 0, 117);
+    color: rgb(255, 255, 255);
+  }
+}
+
+<div
+  class="c0 field field--block "
+  data-role="year-selector"
+>
+  <div
+    class="c1 field__select"
+    data-role="year-selector-control"
+  >
+    <div
+      class="c2 field__select-wrapper"
+      data-role="year-selector-wrapper"
+    >
+      <select
+        class="c3 field__selectTitle"
+        data-role="year-selector-input"
+      >
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1990"
+        >
+          1990
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1991"
+        >
+          1991
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1992"
+        >
+          1992
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1993"
+        >
+          1993
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1994"
+        >
+          1994
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1995"
+        >
+          1995
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1996"
+        >
+          1996
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1997"
+        >
+          1997
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1998"
+        >
+          1998
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="1999"
+        >
+          1999
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2000"
+        >
+          2000
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2001"
+        >
+          2001
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2002"
+        >
+          2002
+        </option>
+        <option
+          class="c4 field__selectOption"
+          data-role="year-selector-option"
+          value="2003"
+        >
+          2003
+        </option>
+      </select>
+      <span
+        aria-hidden="true"
+        class="c5 field__select-arrow"
+      />
+    </div>
+  </div>
+  <div
+    class="c6 field__helper"
+    data-role="year-selector-helper-text"
+  >
+    <label
+      class="c7 field__helper-text"
+    >
+      Helper text
+    </label>
+  </div>
+</div>
+`;
+
+exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with hidden label 1`] = `
+.c2 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c2:empty {
+  display: none;
+}
+
+.c2 * {
+  width: 1px;
+  height: 1px;
+}
+
+.c0 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c0 .c1 {
+  display: block;
+  width: fit-content;
+}
+
+.c5 {
+  appearance: none;
+  background-color: inherit;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  border-radius: 0px;
+  caret-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+  font-style: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  height: 100%;
+  padding: 0px 32px 0px 12px;
+  text-align: inherit;
+  text-transform: inherit;
+  width: 100%;
+  cursor: pointer;
+}
+
+.c5.c5.c5 {
+  outline: transparent solid 1px;
+}
+
+.c5::selection {
+  background-color: transparent;
+}
+
+.c5::placeholder {
+  font-style: italic;
+  color: rgb(89, 102, 115);
+  opacity: 1;
+}
+
+.c3 {
+  background-color: transparent;
+  box-shadow: none;
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  height: 32px;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c4 {
+  background-color: rgb(241, 242, 244);
+  border-radius: inherit;
+  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+}
+
+.c4:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
@@ -632,24 +1962,18 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
-}
-
-.c5 {
-  appearance: none;
-  color: rgb(97, 111, 124);
-  font-style: italic;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c4:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -670,28 +1994,27 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
 }
 
 <div
-  class="c0 c1 field field--block "
+  class="c0 field field--block "
   data-role="year-selector"
 >
+  <label
+    class="c1 c2 label field__label -u-unseenButRead"
+    data-role="year-selector-label"
+  >
+    Test Year Selector
+  </label>
   <div
-    class="c2 field__select"
+    class="c3 field__select"
     data-role="year-selector-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c4 field__select-wrapper"
       data-role="year-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle"
+        class="c5 field__selectTitle"
         data-role="year-selector-input"
       >
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value=""
-        >
-          additional Item
-        </option>
         <option
           class="c6 field__selectOption"
           data-role="year-selector-option"
@@ -800,1357 +2123,8 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with allow option
 </div>
 `;
 
-exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with error and warning messages 1`] = `
-.c7 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 1px;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  width: 1px;
-  margin: -1px !important;
-}
-
-.c7 * {
-  width: 1px;
-  height: 1px;
-}
-
-.c5 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: custom-icons;
-  font-variation-settings: normal;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c5 > span {
-  display: inline-block;
-}
-
-.c5.c5 {
-  max-width: unset;
-}
-
-.c10 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c10 > span {
-  display: inline-block;
-}
-
-.c10.c10 {
-  max-width: unset;
-}
-
-.c6.c6 {
-  color: rgb(201, 29, 29);
-}
-
-.c11.c11 {
-  color: rgb(175, 121, 2);
-}
-
-.c2 {
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  margin: 0px 0px 4px;
-  padding: 4px 8px;
-  background: rgb(252, 233, 233);
-  color: rgb(201, 29, 29);
-}
-
-.c9 {
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  margin: 0px 0px 4px;
-  padding: 4px 8px;
-  background: rgb(254, 242, 218);
-  color: rgb(22, 25, 29);
-}
-
-.c3 {
-  display: flex;
-  margin-right: 4px;
-}
-
-.c3 .c4 {
-  font-size: 1.25rem;
-}
-
-.c8 {
-  align-self: center;
-  max-width: calc(100% - 4px - 1.25rem);
-}
-
-.c1 {
-  box-sizing: border-box;
-  flex-grow: 1;
-  width: 100%;
-}
-
-.c14 {
-  appearance: none;
-  background-color: inherit;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  caret-color: transparent;
-  color: inherit;
-  font-size: inherit;
-  flex-grow: 1;
-  font-style: inherit;
-  font-weight: inherit;
-  font-family: inherit;
-  height: 100%;
-  padding: 0px 32px 0px 12px;
-  text-align: inherit;
-  text-transform: inherit;
-  width: 100%;
-  cursor: pointer;
-}
-
-.c14.c14.c14 {
-  outline: transparent solid 1px;
-}
-
-.c14::selection {
-  background-color: transparent;
-}
-
-.c14::placeholder {
-  font-style: italic;
-  color: rgb(89, 102, 115);
-  opacity: 1;
-}
-
-.c0[class*="h_"] .c17.c17 {
-  background-color: inherit !important;
-}
-
-.c12 {
-  background-color: transparent;
-  box-shadow: none;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 32px;
-}
-
-.c12:focus {
-  outline: none;
-}
-
-.c13 {
-  background-color: rgb(241, 242, 244);
-  border-radius: inherit;
-  display: flex;
-  flex-grow: 1;
-  position: relative;
-  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
-}
-
-.c13:focus-within {
-  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  outline-offset: 0px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c16::after {
-  align-items: center;
-  color: rgb(127, 140, 155);
-  content: "";
-  display: flex;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1.5rem;
-  font-style: normal;
-  justify-content: center;
-  height: 100%;
-  line-height: 0;
-  pointer-events: none;
-  position: absolute;
-  right: 0px;
-  text-transform: none;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  overflow-wrap: normal;
-}
-
-.c15 {
-  appearance: none;
-  font-style: normal;
-  color: rgb(77, 77, 77);
-  font-size: inherit;
-}
-
-.c15:focus {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-}
-
-@media (pointer: coarse) {
-  .c13:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c13:hover {
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c15:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c15:hover {
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-  }
-}
-
-<div
-  class="c0 c1 field field--block "
-  data-role="year-selector"
->
-  <div
-    class="c2 message message--error"
-    data-role="year-selector-error-message"
-  >
-    <div
-      class="c3 messageIcon"
-    >
-      <i
-        class="c4 c5 c6 plasma-icon plasma-icon--error plasma-icon--custom"
-        data-role="plasma-icon"
-        title="Error"
-      >
-        <span
-          aria-hidden="true"
-        >
-          
-        </span>
-        <span
-          class="c7 -u-unseenButRead"
-          data-role="hidden-text"
-        >
-          Error
-        </span>
-      </i>
-    </div>
-    <div
-      class="c8 messageText"
-      data-role="error-text"
-    >
-      Error message
-    </div>
-  </div>
-  <div
-    class="c9 message message--warning"
-    data-role="year-selector-warning-message"
-  >
-    <div
-      class="c3 messageIcon"
-    >
-      <i
-        class="c4 c10 c11 plasma-icon plasma-icon--warning"
-        data-role="plasma-icon"
-        title="Warning"
-      >
-        <span
-          aria-hidden="true"
-        >
-          warning
-        </span>
-        <span
-          class="c7 -u-unseenButRead"
-          data-role="hidden-text"
-        >
-          Warning
-        </span>
-      </i>
-    </div>
-    <div
-      class="c8 messageText"
-      data-role="warning-text"
-    >
-      Warning message
-    </div>
-  </div>
-  <div
-    class="c12 field__select"
-    data-role="year-selector-control"
-  >
-    <div
-      class="c13 field__select-wrapper field__select-wrapper--error field__select-wrapper--warning"
-      data-role="year-selector-wrapper"
-    >
-      <select
-        class="c14 field__selectTitle field__selectTitle--error field__selectTitle--warning"
-        data-role="year-selector-input"
-      >
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="1990"
-        >
-          1990
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="1991"
-        >
-          1991
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="1992"
-        >
-          1992
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="1993"
-        >
-          1993
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="1994"
-        >
-          1994
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="1995"
-        >
-          1995
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="1996"
-        >
-          1996
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="1997"
-        >
-          1997
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="1998"
-        >
-          1998
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="1999"
-        >
-          1999
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="2000"
-        >
-          2000
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="2001"
-        >
-          2001
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="2002"
-        >
-          2002
-        </option>
-        <option
-          class="c15 field__selectOption"
-          data-role="year-selector-option"
-          value="2003"
-        >
-          2003
-        </option>
-      </select>
-      <span
-        aria-hidden="true"
-        class="c16 field__select-arrow"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with error state 1`] = `
-.c1 {
-  box-sizing: border-box;
-  flex-grow: 1;
-  width: 100%;
-}
-
-.c4 {
-  appearance: none;
-  background-color: inherit;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  caret-color: transparent;
-  color: inherit;
-  font-size: inherit;
-  flex-grow: 1;
-  font-style: inherit;
-  font-weight: inherit;
-  font-family: inherit;
-  height: 100%;
-  padding: 0px 32px 0px 12px;
-  text-align: inherit;
-  text-transform: inherit;
-  width: 100%;
-  cursor: pointer;
-}
-
-.c4.c4.c4 {
-  outline: transparent solid 1px;
-}
-
-.c4::selection {
-  background-color: transparent;
-}
-
-.c4::placeholder {
-  font-style: italic;
-  color: rgb(89, 102, 115);
-  opacity: 1;
-}
-
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c2 {
-  background-color: transparent;
-  box-shadow: none;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 32px;
-}
-
-.c2:focus {
-  outline: none;
-}
-
-.c3 {
-  background-color: rgb(241, 242, 244);
-  border-radius: inherit;
-  display: flex;
-  flex-grow: 1;
-  position: relative;
-  box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
-}
-
-.c3:focus-within {
-  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  outline-offset: 0px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c6::after {
-  align-items: center;
-  color: rgb(127, 140, 155);
-  content: "";
-  display: flex;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1.5rem;
-  font-style: normal;
-  justify-content: center;
-  height: 100%;
-  line-height: 0;
-  pointer-events: none;
-  position: absolute;
-  right: 0px;
-  text-transform: none;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  overflow-wrap: normal;
-}
-
-.c5 {
-  appearance: none;
-  font-style: normal;
-  color: rgb(77, 77, 77);
-  font-size: inherit;
-}
-
-.c5:focus {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-}
-
-@media (pointer: coarse) {
-  .c3:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c3:hover {
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c5:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c5:hover {
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-  }
-}
-
-<div
-  class="c0 c1 field field--block "
-  data-role="year-selector"
->
-  <div
-    class="c2 field__select"
-    data-role="year-selector-control"
-  >
-    <div
-      class="c3 field__select-wrapper field__select-wrapper--error"
-      data-role="year-selector-wrapper"
-    >
-      <select
-        class="c4 field__selectTitle field__selectTitle--error"
-        data-role="year-selector-input"
-      >
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1990"
-        >
-          1990
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1991"
-        >
-          1991
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1992"
-        >
-          1992
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1993"
-        >
-          1993
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1994"
-        >
-          1994
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1995"
-        >
-          1995
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1996"
-        >
-          1996
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1997"
-        >
-          1997
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1998"
-        >
-          1998
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1999"
-        >
-          1999
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="2000"
-        >
-          2000
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="2001"
-        >
-          2001
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="2002"
-        >
-          2002
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="2003"
-        >
-          2003
-        </option>
-      </select>
-      <span
-        aria-hidden="true"
-        class="c6 field__select-arrow"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with helper text 1`] = `
-.c8 {
-  color: rgb(97, 111, 124);
-  display: block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  line-height: 1.25;
-  margin: 4px 0px 0px;
-  width: fit-content;
-}
-
-.c7 {
-  display: flex;
-}
-
-.c1 {
-  box-sizing: border-box;
-  flex-grow: 1;
-  width: 100%;
-}
-
-.c4 {
-  appearance: none;
-  background-color: inherit;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  caret-color: transparent;
-  color: inherit;
-  font-size: inherit;
-  flex-grow: 1;
-  font-style: inherit;
-  font-weight: inherit;
-  font-family: inherit;
-  height: 100%;
-  padding: 0px 32px 0px 12px;
-  text-align: inherit;
-  text-transform: inherit;
-  width: 100%;
-  cursor: pointer;
-}
-
-.c4.c4.c4 {
-  outline: transparent solid 1px;
-}
-
-.c4::selection {
-  background-color: transparent;
-}
-
-.c4::placeholder {
-  font-style: italic;
-  color: rgb(89, 102, 115);
-  opacity: 1;
-}
-
-.c0[class*="h_"] .c9.c9 {
-  background-color: inherit !important;
-}
-
-.c2 {
-  background-color: transparent;
-  box-shadow: none;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 32px;
-}
-
-.c2:focus {
-  outline: none;
-}
-
-.c3 {
-  background-color: rgb(241, 242, 244);
-  border-radius: inherit;
-  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
-  display: flex;
-  flex-grow: 1;
-  position: relative;
-}
-
-.c3:focus-within {
-  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  outline-offset: 0px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c6::after {
-  align-items: center;
-  color: rgb(127, 140, 155);
-  content: "";
-  display: flex;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1.5rem;
-  font-style: normal;
-  justify-content: center;
-  height: 100%;
-  line-height: 0;
-  pointer-events: none;
-  position: absolute;
-  right: 0px;
-  text-transform: none;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  overflow-wrap: normal;
-}
-
-.c5 {
-  appearance: none;
-  font-style: normal;
-  color: rgb(77, 77, 77);
-  font-size: inherit;
-}
-
-.c5:focus {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-}
-
-@media (pointer: coarse) {
-  .c3:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c3:hover {
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c5:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c5:hover {
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-  }
-}
-
-<div
-  class="c0 c1 field field--block "
-  data-role="year-selector"
->
-  <div
-    class="c2 field__select"
-    data-role="year-selector-control"
-  >
-    <div
-      class="c3 field__select-wrapper"
-      data-role="year-selector-wrapper"
-    >
-      <select
-        class="c4 field__selectTitle"
-        data-role="year-selector-input"
-      >
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1990"
-        >
-          1990
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1991"
-        >
-          1991
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1992"
-        >
-          1992
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1993"
-        >
-          1993
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1994"
-        >
-          1994
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1995"
-        >
-          1995
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1996"
-        >
-          1996
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1997"
-        >
-          1997
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1998"
-        >
-          1998
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="1999"
-        >
-          1999
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="2000"
-        >
-          2000
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="2001"
-        >
-          2001
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="2002"
-        >
-          2002
-        </option>
-        <option
-          class="c5 field__selectOption"
-          data-role="year-selector-option"
-          value="2003"
-        >
-          2003
-        </option>
-      </select>
-      <span
-        aria-hidden="true"
-        class="c6 field__select-arrow"
-      />
-    </div>
-  </div>
-  <div
-    class="c7 field__helper"
-    data-role="year-selector-helper-text"
-  >
-    <label
-      class="c8 field__helper-text"
-    >
-      Helper text
-    </label>
-  </div>
-</div>
-`;
-
-exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with hidden label 1`] = `
-.c3 {
-  color: rgb(77, 77, 77);
-  display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.45;
-  text-transform: none;
-  align-self: center;
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 1px;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  width: 1px;
-  margin: -1px !important;
-}
-
-.c3:empty {
-  display: none;
-}
-
-.c3 * {
-  width: 1px;
-  height: 1px;
-}
-
-.c1 {
-  box-sizing: border-box;
-  flex-grow: 1;
-  width: 100%;
-}
-
-.c1 .c2 {
-  display: block;
-  width: fit-content;
-}
-
-.c9 .c2 {
-  display: block;
-  width: fit-content;
-}
-
-.c9[class*="h_"] .c2 {
-  color: rgb(169, 179, 188) !important;
-}
-
-.c10[data-role="checkbox-group"] .c2,
-.c10[data-role="radio-group"] .c2,
-.c10[data-role="file-upload"] .c2 {
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-.c6 {
-  appearance: none;
-  background-color: inherit;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  caret-color: transparent;
-  color: inherit;
-  font-size: inherit;
-  flex-grow: 1;
-  font-style: inherit;
-  font-weight: inherit;
-  font-family: inherit;
-  height: 100%;
-  padding: 0px 32px 0px 12px;
-  text-align: inherit;
-  text-transform: inherit;
-  width: 100%;
-  cursor: pointer;
-}
-
-.c6.c6.c6 {
-  outline: transparent solid 1px;
-}
-
-.c6::selection {
-  background-color: transparent;
-}
-
-.c6::placeholder {
-  font-style: italic;
-  color: rgb(89, 102, 115);
-  opacity: 1;
-}
-
-.c0[class*="h_"] .c11.c11 {
-  background-color: inherit !important;
-}
-
-.c4 {
-  background-color: transparent;
-  box-shadow: none;
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  height: 32px;
-}
-
-.c4:focus {
-  outline: none;
-}
-
-.c5 {
-  background-color: rgb(241, 242, 244);
-  border-radius: inherit;
-  box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
-  display: flex;
-  flex-grow: 1;
-  position: relative;
-}
-
-.c5:focus-within {
-  box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  outline-offset: 0px;
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c8::after {
-  align-items: center;
-  color: rgb(127, 140, 155);
-  content: "";
-  display: flex;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1.5rem;
-  font-style: normal;
-  justify-content: center;
-  height: 100%;
-  line-height: 0;
-  pointer-events: none;
-  position: absolute;
-  right: 0px;
-  text-transform: none;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  overflow-wrap: normal;
-}
-
-.c7 {
-  appearance: none;
-  font-style: normal;
-  color: rgb(77, 77, 77);
-  font-size: inherit;
-}
-
-.c7:focus {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-}
-
-@media (pointer: coarse) {
-  .c5:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: fine) {
-  .c5:hover {
-    box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c7:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-  }
-}
-
-@media (pointer: fine) {
-  .c7:hover {
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-  }
-}
-
-<div
-  class="c0 c1 field field--block "
-  data-role="year-selector"
->
-  <label
-    class="c2 c3 label field__label -u-unseenButRead"
-    data-role="year-selector-label"
-  >
-    Test Year Selector
-  </label>
-  <div
-    class="c4 field__select"
-    data-role="year-selector-control"
-  >
-    <div
-      class="c5 field__select-wrapper"
-      data-role="year-selector-wrapper"
-    >
-      <select
-        class="c6 field__selectTitle"
-        data-role="year-selector-input"
-      >
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="1990"
-        >
-          1990
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="1991"
-        >
-          1991
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="1992"
-        >
-          1992
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="1993"
-        >
-          1993
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="1994"
-        >
-          1994
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="1995"
-        >
-          1995
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="1996"
-        >
-          1996
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="1997"
-        >
-          1997
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="1998"
-        >
-          1998
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="1999"
-        >
-          1999
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="2000"
-        >
-          2000
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="2001"
-        >
-          2001
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="2002"
-        >
-          2002
-        </option>
-        <option
-          class="c7 field__selectOption"
-          data-role="year-selector-option"
-          value="2003"
-        >
-          2003
-        </option>
-      </select>
-      <span
-        aria-hidden="true"
-        class="c8 field__select-arrow"
-      />
-    </div>
-  </div>
-</div>
-`;
-
 exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message 1`] = `
-.c7 {
+.c6 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -2164,12 +2138,12 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
   margin: -1px !important;
 }
 
-.c7 * {
+.c6 * {
   width: 1px;
   height: 1px;
 }
 
-.c5 {
+.c4 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -2189,19 +2163,23 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
   font-feature-settings: "liga";
 }
 
-.c5 > span {
+.c4 > span {
   display: inline-block;
 }
 
-.c5.c5 {
+.c4.c4 {
   max-width: unset;
 }
 
-.c6.c6 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
+.c5.c5 {
   color: rgb(5, 104, 174);
 }
 
-.c2 {
+.c1 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2212,33 +2190,33 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
   color: rgb(5, 104, 174);
 }
 
-.c3 {
+.c2 {
   display: flex;
   margin-right: 4px;
 }
 
-.c3 .c4 {
+.c2 .c3 {
   font-size: 1.25rem;
 }
 
-.c8 {
+.c7 {
   align-self: center;
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c11 {
+.c10 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2255,31 +2233,27 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
   cursor: pointer;
 }
 
-.c11.c11.c11 {
+.c10.c10.c10 {
   outline: transparent solid 1px;
 }
 
-.c11::selection {
+.c10::selection {
   background-color: transparent;
 }
 
-.c11::placeholder {
+.c10::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c14.c14 {
-  background-color: inherit !important;
-}
-
-.c9 {
+.c8 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2289,11 +2263,11 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
   height: 32px;
 }
 
-.c9:focus {
+.c8:focus {
   outline: none;
 }
 
-.c10 {
+.c9 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   display: flex;
@@ -2302,13 +2276,13 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
   box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
 }
 
-.c10:focus-within {
+.c9:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c13::after {
+.c12::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -2330,35 +2304,35 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
   overflow-wrap: normal;
 }
 
-.c12 {
+.c11 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c12:focus {
+.c11:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c10:active {
+  .c9:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c10:hover {
+  .c9:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c12:active {
+  .c11:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -2366,35 +2340,37 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
 }
 
 @media (pointer: fine) {
-  .c12:hover {
+  .c11:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block "
+  class="c0 field field--block "
   data-role="year-selector"
 >
   <div
-    class="c2"
+    class="c1"
     data-role="year-selector-info-message"
   >
     <div
-      class="c3"
+      class="c2"
     >
       <i
-        class="c4 c5 c6 plasma-icon plasma-icon--info"
+        class="c3 c4 c5 plasma-icon plasma-icon--info"
         data-role="plasma-icon"
         title="Information"
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
         <span
-          class="c7 -u-unseenButRead"
+          class="c6 -u-unseenButRead"
           data-role="hidden-text"
         >
           Information
@@ -2402,117 +2378,117 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
       </i>
     </div>
     <div
-      class="c8"
+      class="c7"
       data-role="info-text"
     >
       Info message
     </div>
   </div>
   <div
-    class="c9 field__select"
+    class="c8 field__select"
     data-role="year-selector-control"
   >
     <div
-      class="c10 field__select-wrapper"
+      class="c9 field__select-wrapper"
       data-role="year-selector-wrapper"
     >
       <select
-        class="c11 field__selectTitle"
+        class="c10 field__selectTitle"
         data-role="year-selector-input"
       >
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="1990"
         >
           1990
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="1991"
         >
           1991
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="1992"
         >
           1992
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="1993"
         >
           1993
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="1994"
         >
           1994
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="1995"
         >
           1995
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="1996"
         >
           1996
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="1997"
         >
           1997
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="1998"
         >
           1998
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="1999"
         >
           1999
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="2000"
         >
           2000
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="2001"
         >
           2001
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="2002"
         >
           2002
         </option>
         <option
-          class="c12 field__selectOption"
+          class="c11 field__selectOption"
           data-role="year-selector-option"
           value="2003"
         >
@@ -2521,7 +2497,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
       </select>
       <span
         aria-hidden="true"
-        class="c13 field__select-arrow"
+        class="c12 field__select-arrow"
       />
     </div>
   </div>
@@ -2529,19 +2505,19 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info message
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info state 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2558,31 +2534,27 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info state 1
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2592,11 +2564,11 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info state 1
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   display: flex;
@@ -2605,13 +2577,13 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info state 1
   box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -2633,35 +2605,35 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info state 1
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -2669,121 +2641,121 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info state 1
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block "
+  class="c0 field field--block "
   data-role="year-selector"
 >
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="year-selector-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-role="year-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="year-selector-input"
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1990"
         >
           1990
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1991"
         >
           1991
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1992"
         >
           1992
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1993"
         >
           1993
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1994"
         >
           1994
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1995"
         >
           1995
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1996"
         >
           1996
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1997"
         >
           1997
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1998"
         >
           1998
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1999"
         >
           1999
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2000"
         >
           2000
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2001"
         >
           2001
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2002"
         >
           2002
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2003"
         >
@@ -2792,7 +2764,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info state 1
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
   </div>
@@ -2800,19 +2772,19 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with info state 1
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with inline tooltip 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2829,31 +2801,27 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with inline toolt
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2863,11 +2831,11 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with inline toolt
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -2876,13 +2844,13 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with inline toolt
   position: relative;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -2904,35 +2872,35 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with inline toolt
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -2940,121 +2908,121 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with inline toolt
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--tooltips field--tooltips-1 field--block "
+  class="c0 field field--tooltips field--tooltips-1 field--block "
   data-role="year-selector"
 >
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="year-selector-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-role="year-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="year-selector-input"
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1990"
         >
           1990
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1991"
         >
           1991
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1992"
         >
           1992
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1993"
         >
           1993
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1994"
         >
           1994
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1995"
         >
           1995
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1996"
         >
           1996
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1997"
         >
           1997
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1998"
         >
           1998
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1999"
         >
           1999
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2000"
         >
           2000
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2001"
         >
           2001
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2002"
         >
           2002
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2003"
         >
@@ -3063,7 +3031,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with inline toolt
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
     Test Tooltip
@@ -3072,19 +3040,19 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with inline toolt
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with tooltip in new line 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -3101,31 +3069,27 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with tooltip in n
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3135,11 +3099,11 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with tooltip in n
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
@@ -3148,13 +3112,13 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with tooltip in n
   position: relative;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -3176,35 +3140,35 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with tooltip in n
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -3212,122 +3176,122 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with tooltip in n
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block "
+  class="c0 field field--block "
   data-role="year-selector"
 >
   Test Tooltip
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="year-selector-control"
   >
     <div
-      class="c3 field__select-wrapper"
+      class="c2 field__select-wrapper"
       data-role="year-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle"
+        class="c3 field__selectTitle"
         data-role="year-selector-input"
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1990"
         >
           1990
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1991"
         >
           1991
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1992"
         >
           1992
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1993"
         >
           1993
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1994"
         >
           1994
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1995"
         >
           1995
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1996"
         >
           1996
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1997"
         >
           1997
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1998"
         >
           1998
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1999"
         >
           1999
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2000"
         >
           2000
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2001"
         >
           2001
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2002"
         >
           2002
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2003"
         >
@@ -3336,7 +3300,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with tooltip in n
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
   </div>
@@ -3344,19 +3308,19 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with tooltip in n
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with warning state 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c4 {
+.c3 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -3373,31 +3337,27 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with warning stat
   cursor: pointer;
 }
 
-.c4.c4.c4 {
+.c3.c3.c3 {
   outline: transparent solid 1px;
 }
 
-.c4::selection {
+.c3::selection {
   background-color: transparent;
 }
 
-.c4::placeholder {
+.c3::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c0[class*="h_"] .c7.c7 {
-  background-color: inherit !important;
-}
-
-.c2 {
+.c1 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3407,11 +3367,11 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with warning stat
   height: 32px;
 }
 
-.c2:focus {
+.c1:focus {
   outline: none;
 }
 
-.c3 {
+.c2 {
   background-color: rgb(241, 242, 244);
   border-radius: inherit;
   display: flex;
@@ -3420,13 +3380,13 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with warning stat
   box-shadow: rgb(175, 121, 2) 0px 1px 0px 0px;
 }
 
-.c3:focus-within {
+.c2:focus-within {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   outline-offset: 0px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6::after {
+.c5::after {
   align-items: center;
   color: rgb(127, 140, 155);
   content: "";
@@ -3448,35 +3408,35 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with warning stat
   overflow-wrap: normal;
 }
 
-.c5 {
+.c4 {
   appearance: none;
   font-style: normal;
   color: rgb(77, 77, 77);
   font-size: inherit;
 }
 
-.c5:focus {
+.c4:focus {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover {
+  .c2:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c5:active {
+  .c4:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
@@ -3484,121 +3444,121 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with warning stat
 }
 
 @media (pointer: fine) {
-  .c5:hover {
+  .c4:hover {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
   }
 }
 
 <div
-  class="c0 c1 field field--block "
+  class="c0 field field--block "
   data-role="year-selector"
 >
   <div
-    class="c2 field__select"
+    class="c1 field__select"
     data-role="year-selector-control"
   >
     <div
-      class="c3 field__select-wrapper field__select-wrapper--warning"
+      class="c2 field__select-wrapper field__select-wrapper--warning"
       data-role="year-selector-wrapper"
     >
       <select
-        class="c4 field__selectTitle field__selectTitle--warning"
+        class="c3 field__selectTitle field__selectTitle--warning"
         data-role="year-selector-input"
       >
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1990"
         >
           1990
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1991"
         >
           1991
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1992"
         >
           1992
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1993"
         >
           1993
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1994"
         >
           1994
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1995"
         >
           1995
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1996"
         >
           1996
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1997"
         >
           1997
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1998"
         >
           1998
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="1999"
         >
           1999
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2000"
         >
           2000
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2001"
         >
           2001
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2002"
         >
           2002
         </option>
         <option
-          class="c5 field__selectOption"
+          class="c4 field__selectOption"
           data-role="year-selector-option"
           value="2003"
         >
@@ -3607,7 +3567,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering with warning stat
       </select>
       <span
         aria-hidden="true"
-        class="c6 field__select-arrow"
+        class="c5 field__select-arrow"
       />
     </div>
   </div>
@@ -3648,7 +3608,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering year selector 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -3685,7 +3645,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering year selector 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3747,7 +3707,7 @@ exports[`com.mgmtp.a12.widgets.input.year-selector > rendering year selector 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 @media (pointer: coarse) {

@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { TextProps as RechartsTextProps } from "recharts";
 import type { MouseEvent, ReactNode } from "react";
+import type { TextProps as RechartsTextProps } from "recharts";
 
 import type { Styleable, Identifiable } from "../../../../common/main/base-props.js";
 import type { ChartProps } from "../../../main/chart.api.js";

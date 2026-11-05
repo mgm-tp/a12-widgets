@@ -36,15 +36,15 @@ import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseBulletListInMessageBox } from "../../helpers/showcase-styles.js";
 
 import { BackgroundColor } from "./background-color.js";
+import { CommonHelperList } from "./common.js";
 import { FontColor } from "./font-color.js";
 import { FontSize } from "./font-size.js";
 import { FontStyle } from "./font-style.js";
 import { FontWeight } from "./font-weight.js";
+import { Introduction } from "./introduction.js";
 import { LineHeight } from "./line-height.js";
 import { TextAlign } from "./text-align.js";
 import { TextTransform } from "./text-transform.js";
-import { CommonHelperList } from "./common.js";
-import { Introduction } from "./introduction.js";
 
 const showcases: Showcase[] = [
 	{

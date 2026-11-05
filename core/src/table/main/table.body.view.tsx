@@ -32,10 +32,10 @@
 
 import { memo, useEffect, useRef } from "react";
 
-import { TableTemplate } from "./template/index.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
-import { getRowKey } from "./table.utils.js";
 import { useTableContext } from "./table.context.js";
+import { getRowKey } from "./table.utils.js";
+import { TableTemplate } from "./template/index.js";
 
 /** @internal */
 export const Body = memo(function Body(props: TableRenderPropsType.BodyProps) {

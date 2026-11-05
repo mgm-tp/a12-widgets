@@ -1,0 +1,74 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as TooltipStories from "./Tooltip.stories";
+import * as TooltipAdvancedStories from "./TooltipAdvanced.stories";
+
+<Meta of={TooltipStories} />
+
+<Title />
+
+The `Tooltip` widget wraps a single child element and shows a short `text` when the user hovers
+over or focuses the element on desktop, or touches it on mobile devices. Use it to provide extra
+context for icons, buttons, links or form labels without cluttering the layout.
+
+- `text` accepts any `ReactNode`, so tooltips can contain structured content as well as plain strings.
+- `variant` (`success`, `hint`, `warning`, `error`) colors the bubble for semantic feedback.
+- `invert` adjusts the trigger style of variant tooltips for dark backgrounds, and `useDesktopView`
+  forces the desktop presentation on mobile devices.
+- `showDelay` and `hideDelay` tune the hover timing in milliseconds (default `200` each). `TooltipConfigProvider`
+  applies them to every tooltip in a subtree.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={TooltipStories.Playground} />
+
+## Examples
+
+### Variants
+
+<Canvas of={TooltipStories.Variants} />
+
+### Anchor elements
+
+<Canvas of={TooltipStories.Anchors} />
+
+### Disabled
+
+<Canvas of={TooltipStories.Disabled} />
+
+### Long text
+
+<Canvas of={TooltipStories.LongText} />
+
+### Rich content
+
+<Canvas of={TooltipStories.WithRichContent} />
+
+### Inverted
+
+<Canvas of={TooltipStories.Inverted} />
+
+## Advanced
+
+The advanced stories cover tooltip positioning in non-trivial host environments — for example a
+tooltip whose trigger lives inside nested `<iframe>` elements while the tooltip portal renders in
+the parent document.
+
+<Canvas of={TooltipAdvancedStories.InNestedIframe} />

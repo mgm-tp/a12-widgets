@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { BaseThemeCore } from "../../schema.js";
 import type { CustomBorder } from "../../../base/mixins/_borderEffects.js";
+import type { BaseThemeCore } from "../../schema.js";
 
 export type MultiselectConfigType = {
 	disabledCounterColor: string;

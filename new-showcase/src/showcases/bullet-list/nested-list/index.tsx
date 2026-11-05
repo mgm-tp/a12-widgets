@@ -30,14 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import nestedListCode from "!./nested.tsx?raw";
+
 import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
 import BulletListAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/bullet-list/main/bullet-list.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { NestedList } from "./nested.js";
-
-import nestedListCode from "!./nested.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

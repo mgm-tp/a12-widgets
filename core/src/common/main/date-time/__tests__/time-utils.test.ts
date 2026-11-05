@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { de } from "date-fns/locale/de";
 import { enUS } from "date-fns/locale/en-US";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 
 import { TimeUtils } from "../time-utils.js";
 
@@ -45,6 +45,7 @@ describe("com.mgmtp.a12.widgets.common.utils.time", () => {
 	});
 
 	afterEach(() => {
+		vi.useRealTimers();
 		vi.restoreAllMocks();
 	});
 

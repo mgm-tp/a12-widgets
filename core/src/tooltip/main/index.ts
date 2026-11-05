@@ -30,6 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+export * from "./tooltip-context.js";
 export * from "./tooltip-portal.api.js";
 export * from "./tooltip-portal.view.js";
 export * from "./tooltip.api.js";

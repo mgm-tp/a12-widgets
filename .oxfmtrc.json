@@ -1,0 +1,32 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "useTabs": true,
+  "trailingComma": "none",
+  "arrowParens": "always",
+  "printWidth": 120,
+  "endOfLine": "lf",
+  "sortPackageJson": false,
+  "sortImports": {
+    "groups": [
+      "side_effect",
+      "builtin",
+      "external",
+      "internal",
+      "parent",
+      "sibling",
+      "index"
+    ],
+    "internalPattern": ["@com.mgmtp.a12"]
+  },
+  "ignorePatterns": [
+    "pnpm-lock.yaml",
+    "*.api.md",
+    "storybook-static",
+    "lib",
+    "dist",
+    ".*",
+    "*.mdx",
+    "THIRD_PARTY_NOTICES",
+    "licenses"
+  ]
+}

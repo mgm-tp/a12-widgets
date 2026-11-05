@@ -32,10 +32,10 @@
 
 import type { ReactElement } from "react";
 import { useRef, useState, useCallback } from "react";
-import { useResizeDetector } from "react-resize-detector";
-import type { OnResizeCallback, ResizePayload } from "react-resize-detector";
 
 import { DataRoles } from "../../common/main/data-roles.js";
+import type { OnResizeCallback, ResizePayload } from "../../common/main/resize-observer/resize-observer.api.js";
+import { useResizeObserver } from "../../common/main/resize-observer/use-resize-observer.js";
 
 import type { StatusProps } from "./status.api.js";
 import {
@@ -59,11 +59,9 @@ export function Status(props: StatusProps): ReactElement<StatusProps> {
 		[iconRef]
 	);
 
-	const { ref } = useResizeDetector({
+	const { ref } = useResizeObserver({
 		handleWidth: false,
-		onResize: handleSizeChange,
-		refreshMode: "debounce",
-		refreshRate: 0
+		onResize: handleSizeChange
 	});
 
 	return (

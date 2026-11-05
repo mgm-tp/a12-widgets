@@ -36,7 +36,6 @@ import type { ReactElement } from "react";
 import { Comment, Tag, TagGroup, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { fixedRandomNumber } from "../../../helpers/utils.js";
-
 import { getComments } from "../shared-data.js";
 
 const comment = getComments(1)[0];

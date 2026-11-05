@@ -33,13 +33,13 @@
 import type { ReactElement } from "react";
 import { useState, useCallback } from "react";
 import { styled } from "styled-components";
-import { useResizeDetector } from "react-resize-detector";
 
-import { ElementSizeMeasurer } from "../../common/main/responsive-handler.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { useResizeObserver } from "../../common/main/resize-observer/use-resize-observer.js";
+import { ElementSizeMeasurer } from "../../common/main/responsive-handler.js";
 
-import { WidgetHtmlLinesEllipsis, WidgetLinesEllipsis } from "./widget-lines-ellipsis.js";
 import type { LinesEllipsisProps } from "./lines-ellipsis.api.js";
+import { WidgetHtmlLinesEllipsis, WidgetLinesEllipsis } from "./widget-lines-ellipsis.js";
 
 export const StyledLinesEllipsis = styled.div.withConfig({ displayName: "StyledLinesEllipsis-sc-" })`
 	width: 100%;
@@ -57,7 +57,7 @@ export function LinesEllipsis({
 	...rest
 }: LinesEllipsisProps): ReactElement<LinesEllipsisProps> {
 	const [content, setContent] = useState<string>(text as string);
-	const { ref, width } = useResizeDetector({ refreshMode: "debounce", refreshRate: 0 });
+	const { ref, width } = useResizeObserver();
 	const setText = useCallback((ref: HTMLElement | null) => {
 		if (ref) {
 			setContent(ref?.innerHTML);

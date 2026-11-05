@@ -33,10 +33,9 @@
 import { render } from "test-utils";
 import { describe, expect, test } from "vitest";
 
+import { noop } from "../../common/main/utils.js";
 import { Pagination } from "../../pagination/main/pagination.view.js";
 import { QuickAccessButton } from "../../quick-access-button/main/quick-access-button.view.js";
-import { noop } from "../../common/main/utils.js";
-
 import { ValidationBar } from "../main/validation-bar.view.js";
 
 describe("com.mgmtp.a12.widgets.validation-bar.view", () => {

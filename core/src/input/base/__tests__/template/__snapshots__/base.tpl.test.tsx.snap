@@ -101,7 +101,7 @@ exports[`com.mgmtp.a12.widgets.input.base.label > render hidden label 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.input.base.selection.suffix > render basic selection-suffix 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -121,19 +121,19 @@ exports[`com.mgmtp.a12.widgets.input.base.selection.suffix > render basic select
   font-feature-settings: "liga";
 }
 
-.c1 > span {
+.c0 > span {
   display: inline-block;
 }
 
-.c1.c1 {
+.c0.c0 {
   max-width: unset;
 }
 
-.c3 .c0 {
-  font-size: 1.25rem;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0 {
+  color: inherit;
 }
 
-.c2 {
+.c1 {
   color: rgb(127, 140, 155);
   user-select: none;
   cursor: pointer;
@@ -141,13 +141,15 @@ exports[`com.mgmtp.a12.widgets.input.base.selection.suffix > render basic select
 
 <i
   aria-hidden="true"
-  class="c0 c1 plasma-icon plasma-icon--big c2 test-class"
+  class="c0 plasma-icon plasma-icon--big c1 test-class"
   data-role="selection-suffix"
   id="test-id"
   style="color: red;"
 >
   <span
     aria-hidden="true"
+    class="notranslate"
+    translate="no"
   >
     expand_more
   </span>
@@ -155,7 +157,7 @@ exports[`com.mgmtp.a12.widgets.input.base.selection.suffix > render basic select
 `;
 
 exports[`com.mgmtp.a12.widgets.input.base.selection.suffix > render disabled selection-suffix 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -175,19 +177,19 @@ exports[`com.mgmtp.a12.widgets.input.base.selection.suffix > render disabled sel
   font-feature-settings: "liga";
 }
 
-.c1 > span {
+.c0 > span {
   display: inline-block;
 }
 
-.c1.c1 {
+.c0.c0 {
   max-width: unset;
 }
 
-.c3 .c0 {
-  font-size: 1.25rem;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c0 {
+  color: inherit;
 }
 
-.c2 {
+.c1 {
   user-select: none;
   color: inherit;
   cursor: default;
@@ -195,12 +197,14 @@ exports[`com.mgmtp.a12.widgets.input.base.selection.suffix > render disabled sel
 
 <i
   aria-hidden="true"
-  class="c0 c1 plasma-icon plasma-icon--big c2 test-class"
+  class="c0 plasma-icon plasma-icon--big c1 test-class"
   data-role="selection-suffix"
   id="test-id"
 >
   <span
     aria-hidden="true"
+    class="notranslate"
+    translate="no"
   >
     expand_more
   </span>
@@ -255,6 +259,10 @@ exports[`com.mgmtp.a12.widgets.input.base.warning.error.and.info > render basic 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c4.c4 {
   color: rgb(201, 29, 29);
 }
@@ -300,6 +308,8 @@ exports[`com.mgmtp.a12.widgets.input.base.warning.error.and.info > render basic 
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         
       </span>
@@ -368,6 +378,10 @@ exports[`com.mgmtp.a12.widgets.input.base.warning.error.and.info > render basic 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c4.c4 {
   color: rgb(5, 104, 174);
 }
@@ -412,6 +426,8 @@ exports[`com.mgmtp.a12.widgets.input.base.warning.error.and.info > render basic 
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -480,6 +496,10 @@ exports[`com.mgmtp.a12.widgets.input.base.warning.error.and.info > render basic 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c4.c4 {
   color: rgb(175, 121, 2);
 }
@@ -525,6 +545,8 @@ exports[`com.mgmtp.a12.widgets.input.base.warning.error.and.info > render basic 
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         warning
       </span>

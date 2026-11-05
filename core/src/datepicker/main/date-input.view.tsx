@@ -31,23 +31,23 @@
  */
 
 import type { ReactElement } from "react";
-import { useRef, useContext, useState, useMemo, useCallback, useEffect } from "react";
-import { isDateRange, isMatch } from "react-day-picker";
+import { useRef, useContext, useState, useMemo, useCallback, useEffect, useId } from "react";
+import { isDateRange, dateMatchModifiers } from "react-day-picker";
 
 import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
 import { Button } from "../../button/main/button.view.js";
-import { convertToArr, generateUid, inputWithSuffixName, StringUtils } from "../../common/main/utils.js";
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
 import { DateTimeUtils, isMatcher } from "../../common/main/date-time/date-utils.js";
 import { provider } from "../../common/main/device-detector.js";
-import { Icon } from "../../icon/main/icon.view.js";
 import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { convertToArr, inputWithSuffixName, StringUtils } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 
 import type { DateInputProps } from "./date-input.api.js";
 import { DatePickerDialog } from "./date-picker.mobile.view.js";
+import { StyledBufferedStringDatePickerInput } from "./date-picker.styled.js";
 import { DatePicker } from "./date-picker.view.js";
 import type { DateRange } from "./date-range.api.js";
-import { StyledBufferedStringDatePickerInput } from "./date-picker.styled.js";
 
 import isRangeMatcher = DateTimeUtils.isRangeMatcher;
 
@@ -215,7 +215,12 @@ export function DateInput(props: DateInputProps): ReactElement<DateInputProps> {
 				const convertedRange = dateConverter(value);
 				const fromDate = isDateRange(convertedRange) ? convertedRange?.from : undefined;
 				const toDate = isDateRange(convertedRange) ? convertedRange?.to : undefined;
-				const validRange = !!(fromDate && toDate && !isMatch(fromDate, disabledDays) && !isMatch(toDate, disabledDays));
+				const validRange = !!(
+					fromDate &&
+					toDate &&
+					!dateMatchModifiers(fromDate, disabledDays) &&
+					!dateMatchModifiers(toDate, disabledDays)
+				);
 
 				setRange(validRange ? { from: fromDate, to: toDate } : undefined);
 				triggerCallback(() =>
@@ -228,7 +233,7 @@ export function DateInput(props: DateInputProps): ReactElement<DateInputProps> {
 			} else {
 				const convertedDate = dateConverter(value);
 				const returnedDate = convertedDate && !isRangeMatcher(convertedDate) ? convertedDate : undefined;
-				const validDate = returnedDate && !isMatch(returnedDate, disabledDays);
+				const validDate = returnedDate && !dateMatchModifiers(returnedDate, disabledDays);
 				setSelectedDate(validDate ? returnedDate : undefined);
 				triggerCallback(() =>
 					onSelectedDayChange?.(validDate && !isDateRange(convertedDate) ? returnedDate : undefined)
@@ -310,8 +315,8 @@ export function DateInput(props: DateInputProps): ReactElement<DateInputProps> {
 					const validRange =
 						convertedDateRange.from &&
 						convertedDateRange.to &&
-						!isMatch(convertedDateRange.from, disabledDays) &&
-						!isMatch(convertedDateRange.to, disabledDays);
+						!dateMatchModifiers(convertedDateRange.from, disabledDays) &&
+						!dateMatchModifiers(convertedDateRange.to, disabledDays);
 
 					if (validRange) {
 						onDateRangeAccept(convertedDateRange, false);
@@ -329,7 +334,7 @@ export function DateInput(props: DateInputProps): ReactElement<DateInputProps> {
 				const convertedDate = dateConverter(dateFormatter(value));
 
 				if (convertedDate && !isRangeMatcher(convertedDate)) {
-					const validDate = !isMatch(convertedDate, disabledDays);
+					const validDate = !dateMatchModifiers(convertedDate, disabledDays);
 
 					if (validDate) {
 						handleDatePickerChange(convertedDate, false);
@@ -418,7 +423,8 @@ export function DateInput(props: DateInputProps): ReactElement<DateInputProps> {
 	}, [dateFormatter, newDate, newRange?.from, newRange?.to, datePickerDialogProps?.title]);
 
 	const id = useMemo(() => datePickerProps?.id || dateInputId, [datePickerProps?.id, dateInputId]);
-	const inputId = inputWithSuffixName(id) ?? generateUid();
+	const generatedInputId = useId();
+	const inputId = inputWithSuffixName(id) ?? generatedInputId;
 	const buttonTitleId = id ? `${id}-trigger-button-title` : undefined;
 	const pickerButtonTriggerTitle =
 		pickerButtonTitle ?? (customPickerButtonIcon ? undefined : pickerTitles?.datePickerTrigger);

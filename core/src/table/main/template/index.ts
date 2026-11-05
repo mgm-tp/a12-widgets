@@ -30,10 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { StyledTableHeadGrid, StyledTableHeadGridRow } from "./table-head-grid/table.head-grid.tpl.styled.js";
+import { HeadGridTpl, HeadGridRowTpl } from "./table-head-grid/table.head-grid.tpl.view.js";
 import { BodyCellTpl, StyledTableBodyCell } from "./table.body-cell.tpl.view.js";
 import { BodyRowSegmentTpl, StyledTableBodyRowSegment } from "./table.body-row-segment.tpl.view.js";
 import { BodyRowTpl, StyledTableBodyRow } from "./table.body-row.tpl.view.js";
 import { BodyTpl, StyledTableBody } from "./table.body.tpl.view.js";
+import { ContextMenuTpl } from "./table.context-menu.tpl.view.js";
 import {
 	ExpandableBodyRowWrapperTpl,
 	StyledTableExpandableWrapper
@@ -53,10 +56,7 @@ import { HeadRowTpl, StyledTableHeadRow } from "./table.head-row.tpl.view.js";
 import { HeadTpl, StyledTableHead } from "./table.head.tpl.view.js";
 import { RowGroupHeaderTpl, StyledTableRowGroupHeader } from "./table.row-group-header.tpl.view.js";
 import { RowGroupTpl, StyledTableRowGroup } from "./table.row-group.tpl.view.js";
-import { ContextMenuTpl } from "./table.context-menu.tpl.view.js";
 import { StyledTableTpl, TableTpl } from "./table.tpl.view.js";
-import { HeadGridTpl, HeadGridRowTpl } from "./table-head-grid/table.head-grid.tpl.view.js";
-import { StyledTableHeadGrid, StyledTableHeadGridRow } from "./table-head-grid/table.head-grid.tpl.styled.js";
 
 export namespace TableTemplate {
 	export const RowGroup = RowGroupTpl;

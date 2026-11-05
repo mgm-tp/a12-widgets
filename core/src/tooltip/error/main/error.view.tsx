@@ -33,11 +33,11 @@
 import type { ReactElement } from "react";
 import { useContext } from "react";
 
-import { Icon } from "../../../icon/main/icon.view.js";
 import { Button } from "../../../button/main/button.view.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { provider } from "../../../common/main/device-detector.js";
+import { Icon } from "../../../icon/main/icon.view.js";
 import { Tooltip } from "../../main/tooltip.view.js";
 
 import type { ErrorTooltipProps } from "./error.api.js";
@@ -61,6 +61,8 @@ export function ErrorTooltip(props: ErrorTooltipProps): ReactElement<ErrorToolti
 			id={props.id}
 			dataRole={props.dataRole || "tooltip-error"}
 			useDesktopView={props.useDesktopView}
+			showDelay={props.showDelay}
+			hideDelay={props.hideDelay}
 		>
 			<Button
 				invert={props.invert}

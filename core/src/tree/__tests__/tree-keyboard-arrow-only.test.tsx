@@ -30,18 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, test, expect, vi, beforeEach } from "vitest";
 import { render, getAllByDataRole, queryAllByDataRole } from "test-utils";
+import { describe, test, expect, vi, beforeEach } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { KeyboardNavigationConfigProvider } from "../../keyboard-navigation/main/keyboard-navigation-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
-import { Tree } from "../main/tpl/tree.tpl.view.js";
+import { KeyboardNavigationConfigProvider } from "../../keyboard-navigation/main/keyboard-navigation-context.js";
+import type { InsertableTreeProps } from "../main/insertable/insertable-tree.api.js";
+import { InsertableTree } from "../main/insertable/insertable-tree.view.js";
 import { TreeContainer, TreeNode } from "../main/tpl/tree-elements.tpl.js";
 import type { TreeNodeTemplateModel } from "../main/tpl/tree.tpl.api.js";
-import { InsertableTree } from "../main/insertable/insertable-tree.view.js";
-import type { InsertableTreeProps } from "../main/insertable/insertable-tree.api.js";
+import { Tree } from "../main/tpl/tree.tpl.view.js";
 
 describe("com.mgmtp.a12.widgets.tree", () => {
 	describe("arrow-only mode", () => {
@@ -70,8 +69,8 @@ describe("com.mgmtp.a12.widgets.tree", () => {
 					<Tree root={treeData} hideRoot />
 				</KeyboardNavigationConfigProvider>
 			);
-			const expanderButtons = getAllByDataRole(container, DataRoles.Tree.Node.Expander).map(
-				(el) => el.querySelector<HTMLElement>("button")!
+			const expanderButtons = getAllByDataRole(container, DataRoles.Tree.Node.Expander).map((el) =>
+				el.querySelector<HTMLElement>("button")!
 			);
 			expanderButtons.forEach((btn) => {
 				expect(btn.tabIndex).toBe(-1);

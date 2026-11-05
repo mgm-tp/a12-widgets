@@ -32,19 +32,32 @@
 
 import type { CSSProperties, ReactElement } from "react";
 import { useState, useRef, useCallback, useContext, useMemo } from "react";
-import { styled } from "styled-components";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
+import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
 import dracula from "react-syntax-highlighter/dist/esm/styles/prism/dracula";
+import { styled } from "styled-components";
 
 import { Icon, Button, Typography, FlyoutMenu, SizeContext, ConnectedToast } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { AnimationWrapper } from "../animation-wrapper/animation-wrapper.view.js";
 
+import { LICENSE_HEADER } from "./code-example.api.js";
 import type { SourceCode, CodeExampleProps, CodeModule } from "./code-example.api.js";
 
 SyntaxHighlighter.registerLanguage("jsx", jsx);
+// Snippets are `.tsx` sources. The `jsx` grammar mistakes a type argument like `Foo<Bar>` for an opening JSX
+// tag and stops tokenizing at that point, which leaves the rest of the file - comments included - unstyled.
+SyntaxHighlighter.registerLanguage("tsx", tsx);
 
+/**
+ * The props of {@link SourceCodeSection}.
+ *
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. The code viewer exists to render the showcase's own snippets and has no
+ * counterpart in `widgets-core`. Render highlighted code with `react-syntax-highlighter` (or any other highlighter)
+ * directly, or copy this component's source out of the package.
+ */
 export type SourceCodeSectionProps = Omit<CodeExampleProps, "className"> & {
 	onToggle?: () => void;
 	hasSkeletonCode?: boolean;
@@ -65,6 +78,12 @@ const CopyButton = styled(StyledButton)`
 	right: 4px;
 `;
 
+/**
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. The code viewer exists to render the showcase's own snippets and has no
+ * counterpart in `widgets-core`. Render highlighted code with `react-syntax-highlighter` (or any other highlighter)
+ * directly, or copy this component's source out of the package.
+ */
 export const SourceCodeSection = (props: SourceCodeSectionProps): ReactElement => {
 	const [showCopyToast, setShowCopyToast] = useState(false);
 	const [currentFileIndex, setCurrentFileIndex] = useState(0);
@@ -78,9 +97,7 @@ export const SourceCodeSection = (props: SourceCodeSectionProps): ReactElement =
 				? currentCode.code
 				: currentCode.code.default;
 
-	const codeContent = codeToReplace
-		? codeToReplace.replace(/\/\*[\s\S]*?\*\/(?:[\t ]*(?:\r?\n|\r))+/g, "")
-		: codeToReplace;
+	const codeContent = codeToReplace ? codeToReplace.replace(LICENSE_HEADER, "") : codeToReplace;
 
 	const copyButtonRef = useRef<HTMLElement | null>(null);
 
@@ -135,7 +152,7 @@ export const SourceCodeSection = (props: SourceCodeSectionProps): ReactElement =
 			)}
 			<div style={{ position: "relative" }}>
 				<SyntaxHighlighter
-					language={props.language || "jsx"}
+					language={props.language || "tsx"}
 					style={dracula}
 					showLineNumbers
 					codeTagProps={codeTagProps}
@@ -182,6 +199,12 @@ export const SourceCodeSection = (props: SourceCodeSectionProps): ReactElement =
 	);
 };
 
+/**
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. The code viewer exists to render the showcase's own snippets and has no
+ * counterpart in `widgets-core`. Render highlighted code with `react-syntax-highlighter` (or any other highlighter)
+ * directly, or copy this component's source out of the package.
+ */
 export const CodeExample = (props: CodeExampleProps) => {
 	const context = useContext(SizeContext);
 	const [showSourceCode, setShowSourceCode] = useState(false);

@@ -30,13 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { waitFor } from "@testing-library/dom";
 import { render, getByDataRole, findByDataRole } from "test-utils";
 import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
-import { waitFor } from "@testing-library/dom";
 
 import { DataRoles } from "../../common/main/data-roles.js";
-
 import { CssEllipsis } from "../main/css-ellipsis.view.js";
 
 const SHORT_TEXT = "Lorem ipsum dolor sit amet, consectetur adipisicing elit.";

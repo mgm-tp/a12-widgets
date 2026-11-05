@@ -32,8 +32,8 @@
 
 import { rgba } from "polished";
 
-import type { BaseThemeColorsType } from "../../../schema/base-colors.api.js";
 import type { DivisionLineStyle } from "../../../schema/application-styles.api.js";
+import type { BaseThemeColorsType } from "../../../schema/base-colors.api.js";
 
 export const DivisionLineStyles = (params: { colors: BaseThemeColorsType }): DivisionLineStyle => ({
 	lineHeight: "1px",

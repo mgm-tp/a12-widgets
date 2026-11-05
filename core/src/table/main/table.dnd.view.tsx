@@ -30,22 +30,22 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { shallowEqual } from "@react-dnd/shallowequal";
 import type { CSSProperties, MouseEvent, ReactElement } from "react";
 import { useState, useCallback, useRef, useMemo, useEffect } from "react";
 import type { DragLayerMonitor, XYCoord } from "react-dnd";
 import { useDrag, useDragLayer, useDrop } from "react-dnd";
 import { getEmptyImage } from "react-dnd-html5-backend";
 import { styled, css } from "styled-components";
-import { shallowEqual } from "@react-dnd/shallowequal";
 
-import { joinClassNames } from "../../common/main/utils.js";
 import { useKeepEditableCursorInDraggable } from "../../common/main/hooks.js";
+import { joinClassNames } from "../../common/main/utils.js";
 
-import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
-import { StyledTableBodyRow } from "./template/table.body-row.tpl.view.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
 import { useTableContext } from "./table.context.js";
+import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
 import { TableInternalUtils } from "./table.utils.js";
+import { StyledTableBodyRow } from "./template/table.body-row.tpl.view.js";
 
 export const StyledTableDnDBody = styled.div.withConfig({ displayName: "StyledTableDnDBody-sc-" })(({ theme }) => {
 	const { bodyRow } = theme.components.table;
@@ -97,18 +97,22 @@ export const StyledTableDnDBodyHint = styled.div.withConfig({ displayName: "Styl
 		position: absolute;
 		width: 100%;
 		display: ${isOpen ? "block" : "none"};
-		${isOpen &&
-		css`
-			z-index: 1;
-			${isOver &&
+		${
+			isOpen &&
 			css`
-				background-color: ${bodyRowDnD.hint.openedBG};
-				border: ${bodyRowDnD.hint.openedBorder};
-			`}
-			&:first-child {
-				top: 0;
-			}
-		`}
+				z-index: 1;
+				${
+					isOver &&
+					css`
+						background-color: ${bodyRowDnD.hint.openedBG};
+						border: ${bodyRowDnD.hint.openedBorder};
+					`
+				}
+				&:first-child {
+					top: 0;
+				}
+			`
+		}
 	`;
 });
 

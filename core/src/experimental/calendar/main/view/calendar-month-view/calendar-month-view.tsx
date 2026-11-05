@@ -30,25 +30,24 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { getMonth, getWeeksInMonth, isSameDay } from "date-fns";
 import type { ReactElement } from "react";
 import { useContext, useRef } from "react";
-import { getMonth, getWeeksInMonth, isSameDay } from "date-fns";
 
-import type { CalendarDay, CalendarMonthViewProps } from "../../calendar.api.js";
-import { DateTimeContext } from "../../../../../common/main/date-time/date-time-context.js";
 import { DataRoles } from "../../../../../common/main/data-roles.js";
-
-import { getMonthViewDates } from "../utils.internal.js";
-import { useMonthViewNavigateByKey, WEEK_DAYS_NUM } from "../calendar-hook.internal.js";
+import { DateTimeContext } from "../../../../../common/main/date-time/date-time-context.js";
+import type { CalendarDay, CalendarMonthViewProps } from "../../calendar.api.js";
 import { CalendarDayCell } from "../calendar-day.js";
+import { useMonthViewNavigateByKey, WEEK_DAYS_NUM } from "../calendar-hook.internal.js";
+import { getMonthViewDates } from "../utils.internal.js";
 
+import { CalendarInfiniteView } from "./calendar-infinite-view/calendar-infinite-view.js";
+import { CalendarMonthViewHeader } from "./calendar-month-view-header.js";
 import {
 	StyledCalendarMonthViewTable,
 	StyledCalendarMonthViewWeek,
 	StyledCalendarMonthViewWrapper
 } from "./calendar-month-view.styled.js";
-import { CalendarInfiniteView } from "./calendar-infinite-view/calendar-infinite-view.js";
-import { CalendarMonthViewHeader } from "./calendar-month-view-header.js";
 
 const CalendarMonthViewInternal = <T extends CalendarDay<E>, E>(props: CalendarMonthViewProps<T, E>): ReactElement => {
 	const {

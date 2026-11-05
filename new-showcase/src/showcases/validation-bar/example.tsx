@@ -52,8 +52,8 @@ import {
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { ValidationBarMobile } from "./mobile.js";
-import { useForm } from "./use-form.js";
 import type { FieldName, ValidationResult } from "./showcase-validation-bar.api.js";
+import { useForm } from "./use-form.js";
 
 const { Grid, Row, Column } = LayoutGrid;
 
@@ -261,6 +261,7 @@ export const ExampleShowcase = (): ReactElement => {
 
 						<Column size={{ sm: 12, md: 12, lg: 12 }}>
 							<Checkbox
+								id="validation-bar-example-checkbox"
 								label={
 									<>
 										I agree to the <Link>Terms of Services</Link> and <Link>Privacy Policy</Link>

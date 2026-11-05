@@ -60,6 +60,7 @@ export function BasicShowcase(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<Checkbox
+					id="pop-up-menu-basic-checkbox"
 					checked={hasHeader}
 					label={<span>Show the Header on Mobile</span>}
 					onChange={setHasHeader}

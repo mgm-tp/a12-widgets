@@ -30,12 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Key } from "ts-key-enum";
-import { styled, css } from "styled-components";
 import type { TouchEvent as ReactTouchEvent, MouseEvent, KeyboardEvent as ReactKeyboardEvent, FC } from "react";
 import { useRef, useLayoutEffect, useEffect, useMemo } from "react";
+import { styled, css } from "styled-components";
+import { Key } from "ts-key-enum";
 
-import { Portal } from "../../portal/main/portal.view.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { getMobileOperatingSystem, provider } from "../../common/main/device-detector.js";
 import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
 import { joinClassNames, addPrefix, handleAriaHiddenOfWrapper, getParentElement } from "../../common/main/utils.js";
@@ -44,11 +44,11 @@ import {
 	StyledContentBoxContent,
 	StyledContentBoxHeading
 } from "../../contentbox/main/template/contentbox.tpl.styled.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { Portal } from "../../portal/main/portal.view.js";
 
 import type { ModalOverlayProps } from "./modal-overlay.api.js";
-import { getTopActiveModalOverlay, modalOverlayClassName } from "./modal-overlay.utils.js";
 import { useModalTabTrap } from "./modal-overlay.hooks.js";
+import { getTopActiveModalOverlay, modalOverlayClassName } from "./modal-overlay.utils.js";
 
 const modalOverlayContainerClassName = `${modalOverlayClassName}__container`;
 const portalClassName = addPrefix("portal");
@@ -70,10 +70,12 @@ export const StyledModalOverlayWrapper = styled.div.withConfig({ displayName: "S
 		position: fixed;
 		top: 0;
 		width: 100%;
-		${fitToParent &&
-		css`
-			position: absolute;
-		`}
+		${
+			fitToParent &&
+			css`
+				position: absolute;
+			`
+		}
 	`;
 });
 
@@ -110,56 +112,68 @@ export const StyledModalOverlayContainer = styled.div.withConfig({ displayName: 
 			width: ${$noGutter ? "100%" : `calc(100% - ${modalOverlay.gutterHorizontalMargin} * 2)`};
 		}
 
-		${$preventScroll &&
-		css`
-			touch-action: none;
-		`}
+		${
+			$preventScroll &&
+			css`
+				touch-action: none;
+			`
+		}
 
-		${$fullscreen
-			? css`
-					align-items: center;
-					background-color: transparent;
-					height: 100%;
-					justify-content: center;
-					position: relative;
-					width: ${$noGutter ? "100%" : `calc(100% - ${modalOverlay.gutterHorizontalMargin} * 2)`};
+		${
+			$fullscreen
+				? css`
+						align-items: center;
+						background-color: transparent;
+						height: 100%;
+						justify-content: center;
+						position: relative;
+						width: ${$noGutter ? "100%" : `calc(100% - ${modalOverlay.gutterHorizontalMargin} * 2)`};
 
-					${$noGutter &&
-					css`
-						${StyledContentBox} {
-							border-radius: 0;
-						}
-					`}
-				`
-			: css`
-					max-width: ${modalOverlay.container.maxWidth};
-
-					${$fitToParent
-						? css`
-								width: calc(100% - ${modalOverlay.gutterHorizontalMargin} * 2);
+						${
+							$noGutter &&
+							css`
+								${StyledContentBox} {
+									border-radius: 0;
+								}
 							`
-						: $maxWidth
-							? css`
-									max-width: ${typeof $maxWidth === "number" ? `${$maxWidth}px` : $maxWidth};
-								`
-							: css`
-									width: ${modalOverlay.container.maxWidth};
-								`}
-
-					${!$noGutter &&
-					css`
-						*${StyledContentBox} {
-							width: calc(100vw - ${modalOverlay.gutterHorizontalMargin} * 2);
 						}
-					`}
-				`}
+					`
+				: css`
+						max-width: ${modalOverlay.container.maxWidth};
 
-		${$isPhone &&
-		css`
-			${StyledContentBoxHeading} {
-				min-height: ${theme.components.modalOverlay.mobileContentboxHeaderMinHeight};
-			}
-		`}
+						${
+							$fitToParent
+								? css`
+										width: calc(100% - ${modalOverlay.gutterHorizontalMargin} * 2);
+									`
+								: $maxWidth
+									? css`
+											max-width: ${typeof $maxWidth === "number" ? `${$maxWidth}px` : $maxWidth};
+										`
+									: css`
+											width: ${modalOverlay.container.maxWidth};
+										`
+						}
+
+						${
+							!$noGutter &&
+							css`
+								*${StyledContentBox} {
+									width: calc(100vw - ${modalOverlay.gutterHorizontalMargin} * 2);
+								}
+							`
+						}
+					`
+		}
+
+		${
+			$isPhone &&
+			css`
+				${StyledContentBoxHeading} {
+					min-height: ${theme.components.modalOverlay.mobileContentboxHeaderMinHeight};
+				}
+			`
+		}
 	`;
 });
 

@@ -34,23 +34,23 @@ import type { ContextType, RefObject, ReactNode, ReactElement } from "react";
 import { createRef, Component } from "react";
 import { ThemeContext } from "styled-components";
 
+import { ButtonGroup } from "../../../button-group/main/button-group.view.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-import { ButtonGroup } from "../../../button-group/main/button-group.view.js";
-import { addPrefix, bindMethods, joinClassNames } from "../../../common/main/utils.js";
 import {
 	ElementSizeMeasurer,
 	getHorizontalSpacing,
 	ResponsiveHandler
 } from "../../../common/main/responsive-handler.js";
+import { addPrefix, bindMethods, joinClassNames } from "../../../common/main/utils.js";
 import { WidgetsResizeDetector } from "../../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
 import { Icon } from "../../../icon/main/icon.view.js";
 import { PopUpMenu } from "../../../pop-up-menu/main/pop-up-menu.view.js";
 import { defaultTheme } from "../../../theme/default/default-theme.js";
 
 import type { ButtonGroupContainerLegacyProps } from "./button-group-container-legacy.api.js";
-import { cloneButtonsWithKeys, getAvailableWidth } from "./button-group-container.utils.js";
 import { StyledButtonGroupContainer, StyledButtonGroupResponsiveContainer } from "./button-group-container.styled.js";
+import { cloneButtonsWithKeys, getAvailableWidth } from "./button-group-container.utils.js";
 
 const baseClassName = addPrefix("button-group-container");
 

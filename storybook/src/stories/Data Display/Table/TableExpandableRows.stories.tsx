@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode } from "react";
-import { useState, useCallback } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ReactNode } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 import type { BaseColumnType, TableRenderPropsType } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
@@ -301,10 +301,157 @@ function WithHeaderFilterDemo() {
 	);
 }
 
+interface VirtualEmployee {
+	id: number;
+	name: string;
+	department: string;
+	role: string;
+	note: string;
+}
+
+const VIRTUAL_DEPARTMENTS = ["Engineering", "Sales", "Marketing", "Finance", "HR"];
+const VIRTUAL_ROLES = ["Engineer", "Manager", "Designer", "Analyst", "Recruiter"];
+
+// A note whose length varies per row, so each expansion panel is a different height —
+// the case that needs `measureRowHeight` to keep the virtualizer's row heights correct.
+const VIRTUAL_NOTE =
+	"Joined the team and has since contributed across multiple projects, mentored new hires, and driven several cross-functional initiatives. ";
+
+const VIRTUAL_EMPLOYEES: VirtualEmployee[] = Array.from({ length: 1000 }, (_, i) => ({
+	id: i + 1,
+	name: `Employee ${i + 1}`,
+	department: VIRTUAL_DEPARTMENTS[i % VIRTUAL_DEPARTMENTS.length],
+	role: VIRTUAL_ROLES[i % VIRTUAL_ROLES.length],
+	note: VIRTUAL_NOTE.repeat((i % 4) + 1)
+}));
+
+const VIRTUAL_COLUMNS: BaseColumnType<VirtualEmployee>[] = [
+	{ label: "", dataKey: "expand", actionColumn: true, pinning: "left", width: 0.5 },
+	{ label: "ID", dataKey: "id", width: 0.5, fixedWidth: true, verticalAlignment: "middle" },
+	{ label: "Name", dataKey: "name", width: 1.5, verticalAlignment: "middle" },
+	{ label: "Department", dataKey: "department", width: 1.2, verticalAlignment: "middle" },
+	{ label: "Role", dataKey: "role", width: 1.2, verticalAlignment: "middle" }
+];
+
+/**
+ * Wraps the expanded content and pings `measureRowHeight` whenever it mounts or
+ * unmounts, so react-virtualized recomputes the (now taller / shorter) row height
+ * and keeps the windowed rows and scrollbar aligned.
+ */
+function MeasuredExpansion({ measure, children }: { measure?: () => void; children: ReactNode }) {
+	useEffect(() => {
+		measure?.();
+
+		// Defer the collapse re-measure: react-virtualized's CellMeasurer reads the
+		// row's natural height, so it must run *after* the panel is removed and the
+		// row has reflowed. Measuring synchronously would re-read the still-expanded
+		// height and ratchet the cached row height, leaving blank space.
+		return () => {
+			setTimeout(() => measure?.(), 10);
+		};
+	}, [measure]);
+
+	return <>{children}</>;
+}
+
+function VirtualizedExpandableDemo() {
+	const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());
+
+	const toggleRow = useCallback((row: VirtualEmployee, event: React.MouseEvent) => {
+		event.stopPropagation();
+		setExpandedIds((prev) => {
+			const next = new Set(prev);
+
+			next.has(row.id) ? next.delete(row.id) : next.add(row.id);
+
+			return next;
+		});
+	}, []);
+
+	const bodyContentRenderer = useCallback(
+		({ column, row }: TableRenderPropsType.BodyContentProps<VirtualEmployee>): ReactNode => {
+			if (column.actionColumn) {
+				const isExpanded = expandedIds.has(row.id);
+
+				return (
+					<>
+						<HiddenText>Profile details</HiddenText>
+						<Button
+							icon={<Icon size="big">{isExpanded ? "keyboard_arrow_down" : "keyboard_arrow_right"}</Icon>}
+							title={isExpanded ? `Collapse ${row.name}` : `Expand ${row.name}`}
+							onClick={(e) => toggleRow(row, e)}
+							buttonAttributes={{ "aria-expanded": isExpanded }}
+						/>
+					</>
+				);
+			}
+
+			return getDataByKey(row, column.dataKey ?? "") as string;
+		},
+		[expandedIds, toggleRow]
+	);
+
+	const additionalContentRenderer = useCallback(
+		({ row, measureRowHeight }: TableRenderPropsType.BodyRowProps<VirtualEmployee>): ReactNode => {
+			if (!expandedIds.has(row.id)) {
+				return null;
+			}
+
+			return (
+				<TableTemplate.BodyRow>
+					<TableTemplate.ExpandableRow>
+						<TableTemplate.ExpandableRowBody>
+							<MeasuredExpansion measure={measureRowHeight}>
+								<div style={{ display: "grid", gap: 12, padding: 12, minHeight: 200 }}>
+									<strong>
+										{row.name} — {row.role}, {row.department}
+									</strong>
+									<div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 12 }}>
+										<div>
+											<em>Employee ID</em>
+											<div>{row.id}</div>
+										</div>
+										<div>
+											<em>Department</em>
+											<div>{row.department}</div>
+										</div>
+										<div>
+											<em>Role</em>
+											<div>{row.role}</div>
+										</div>
+										<div>
+											<em>Status</em>
+											<div>Active</div>
+										</div>
+									</div>
+									<span>{row.note}</span>
+								</div>
+							</MeasuredExpansion>
+						</TableTemplate.ExpandableRowBody>
+					</TableTemplate.ExpandableRow>
+				</TableTemplate.BodyRow>
+			);
+		},
+		[expandedIds]
+	);
+
+	return (
+		<div style={{ height: 400 }}>
+			<Table<VirtualEmployee>
+				data={VIRTUAL_EMPLOYEES}
+				columns={VIRTUAL_COLUMNS}
+				rowKey="id"
+				virtualScrollOptions
+				componentRenderers={{ bodyContentRenderer, additionalContentRenderer }}
+				style={{ height: "100%" }}
+			/>
+		</div>
+	);
+}
+
 const meta: Meta = {
 	title: "Data Display/Table/Table Expandable Rows",
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;
@@ -344,6 +491,19 @@ export const WithHeaderFilter: Story = {
 			description: {
 				story:
 					"Supply `headFilterContentRenderer` to render a filter input inside each column header. Filter logic is handled externally by updating the `data` prop."
+			}
+		}
+	}
+};
+
+export const Virtualized: Story = {
+	name: "Virtualized + Expandable",
+	render: () => <VirtualizedExpandableDemo />,
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Legacy `Table` counterpart to DataTable's *Virtualized + Expandable* story, for side-by-side comparison. Expansion is wired through `componentRenderers.additionalContentRenderer`; because the panels have varying heights, the renderer calls the `measureRowHeight` callback (here on mount/unmount via `MeasuredExpansion`) so react-virtualized recomputes the affected row's height. The table needs an explicit container height. Expand a few rows, then scroll to compare windowing/alignment behavior against the new DataTable."
 			}
 		}
 	}

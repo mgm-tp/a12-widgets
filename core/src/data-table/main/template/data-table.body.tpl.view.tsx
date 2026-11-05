@@ -33,7 +33,6 @@
 import type { ReactElement } from "react";
 
 import type { Container, DataRole, Identifiable, Styleable } from "../../../common/main/base-props.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
 export interface DataTableBodyTplProps extends Container, DataRole, Identifiable, Styleable {
@@ -52,20 +51,12 @@ export interface DataTableBodyTplProps extends Container, DataRole, Identifiable
  * @experimental
  */
 export function DataTableBodyTpl({ className, style, id, dataRole, children }: DataTableBodyTplProps): ReactElement {
-	// Card view's `role="list"` root makes the implicit `<tbody>` rowgroup an
-	// invalid child between the list and its `listitem` rows — neutralize with
-	// `role="presentation"`. Default view uses the implicit `rowgroup` role.
-	const cardView = useDataTableContext((ctx) => ctx.cardView);
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
+	// (tree)grid mode overrides the table role, dropping the native `<tbody>` rowgroup
+	// mapping, so restate it. Default view uses the implicit `rowgroup` role.
+	const gridRole = useDataTableContext().gridRole;
 
 	return (
-		<tbody
-			className={className}
-			style={style}
-			id={id}
-			data-role={dataRole}
-			role={cardView ? "presentation" : gridRole ? "rowgroup" : undefined}
-		>
+		<tbody className={className} style={style} id={id} data-role={dataRole} role={gridRole ? "rowgroup" : undefined}>
 			{children}
 		</tbody>
 	);

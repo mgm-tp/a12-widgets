@@ -30,21 +30,27 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import appFrameCode from "!../../app.tsx?raw";
+import appFrameText from "!../../docs/application-frame.md?raw";
 import type { JSONOutput } from "typedoc";
 
 import ApplicationFrameAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/application-frame/main/application-frame.api.json" with { type: "json" };
 
-import { MarkdownViewer } from "../../helpers/markdown-viewer.js";
 import type { Showcase } from "../../helpers/definitions.js";
-
-import appFrameText from "!../../docs/application-frame.md?raw";
-import appFrameCode from "!../../app.tsx?raw";
+import { MarkdownViewer } from "../../helpers/markdown-viewer.js";
 
 const showcases: Showcase[] = [
 	{
 		label: "Application Frame",
 		description: <MarkdownViewer source={appFrameText} />,
-		sections: [{ code: { name: "app.tsx", code: appFrameCode } }]
+		sections: [
+			{
+				code: { name: "app.tsx", code: appFrameCode },
+				// app.tsx is a reference snippet showing the full app setup, not a self-contained runnable example
+				// it imports app-level files that are not available in the playground.
+				hidePlaygroundButton: true
+			}
+		]
 	}
 ];
 

@@ -46,10 +46,12 @@ export const StyledFilterBarWrapper = styled.div.withConfig({ displayName: "Styl
 		overflow-x: hidden;
 		overflow-y: auto;
 		padding: ${filterBar.padding};
-		${$compact &&
-		css`
-			align-items: center;
-		`}
+		${
+			$compact &&
+			css`
+				align-items: center;
+			`
+		}
 	`;
 });
 
@@ -62,10 +64,12 @@ export const StyledFilterBarContent = styled.div.withConfig({ displayName: "Styl
 	return css`
 		align-items: center;
 		display: flex;
-		${!$compact &&
-		css`
-			flex-grow: 1;
-		`}
+		${
+			!$compact &&
+			css`
+				flex-grow: 1;
+			`
+		}
 		flex-wrap: wrap;
 		max-height: ${content.maxHeight};
 		min-width: 0;
@@ -74,23 +78,27 @@ export const StyledFilterBarContent = styled.div.withConfig({ displayName: "Styl
 			display: none;
 		}
 
-		${!$mobile &&
-		!$compact &&
-		css`
-			padding-bottom: 0;
-			&:after {
-				content: "";
-				height: ${content.spacingBottom};
-				width: 100%;
-			}
-		`}
+		${
+			!$mobile &&
+			!$compact &&
+			css`
+				padding-bottom: 0;
+				&:after {
+					content: "";
+					height: ${content.spacingBottom};
+					width: 100%;
+				}
+			`
+		}
 
-		${$compact &&
-		css`
-			overflow: hidden;
-			flex-wrap: nowrap;
-			padding-bottom: ${content.spacingBottom};
-		`}
+		${
+			$compact &&
+			css`
+				overflow: hidden;
+				flex-wrap: nowrap;
+				padding-bottom: ${content.spacingBottom};
+			`
+		}
 	`;
 });
 
@@ -107,10 +115,12 @@ export const StyledFilterBarAction = styled.div.withConfig({ displayName: "Style
 		padding: ${action.padding};
 		position: sticky;
 		top: 0;
-		${!$hasCustomActions &&
-		css`
-			width: ${action.width};
-		`};
+		${
+			!$hasCustomActions &&
+			css`
+				width: ${action.width};
+			`
+		};
 	`;
 });
 
@@ -122,23 +132,27 @@ export const StyledFilterBarActionButton = styled(Button).withConfig({
 	return css`
 		align-self: flex-end;
 
-		${collapsed &&
-		css`
-			align-self: center;
-		`}
-		${!disabled &&
-		css`
-			${activeFn(css`
-				color: unset;
-			`)}
+		${
+			collapsed &&
+			css`
+				align-self: center;
+			`
+		}
+		${
+			!disabled &&
+			css`
+				${activeFn(css`
+					color: unset;
+				`)}
 
-			${hover(css`
-				color: unset;
-			`)}
-			
-			&:focus {
-				color: unset;
-			}
-		`}
+				${hover(css`
+					color: unset;
+				`)}
+
+				&:focus {
+					color: unset;
+				}
+			`
+		}
 	`;
 });

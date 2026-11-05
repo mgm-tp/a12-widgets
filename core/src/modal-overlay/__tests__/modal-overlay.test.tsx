@@ -30,25 +30,24 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { waitFor } from "@testing-library/dom";
 import type { ReactElement } from "react";
 import { useState } from "react";
 import { getByDataRole, render, setupDevice } from "test-utils";
-import { beforeAll, describe, expect, test, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { userEvent } from "vitest/browser";
-import { waitFor } from "@testing-library/dom";
 
-import { ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
-import { ActionContentbox } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
+import { Button } from "../../button/main/button.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { TabPanel } from "../../tab-panel/main/tab-panel.view.js";
-import { TabPanelTemplate } from "../../tab-panel/main/template/tab-panel.tpl.view.js";
-import type { TabPanelTemplateProps } from "../../tab-panel/main/template/tab-panel.tpl.api.js";
-import { Icon } from "../../icon/main/icon.view.js";
-import { Button } from "../../button/main/button.view.js";
-import { TextField } from "../../input/text-field/main/template/text-field.tpl.view.js";
 import { noop } from "../../common/main/utils.js";
-
+import { ActionContentbox } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
+import { ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
+import { Icon } from "../../icon/main/icon.view.js";
+import { TextField } from "../../input/text-field/main/template/text-field.tpl.view.js";
+import { TabPanel } from "../../tab-panel/main/tab-panel.view.js";
+import type { TabPanelTemplateProps } from "../../tab-panel/main/template/tab-panel.tpl.api.js";
+import { TabPanelTemplate } from "../../tab-panel/main/template/tab-panel.tpl.view.js";
 import { ModalOverlay } from "../main/modal-overlay.view.js";
 
 const getModalContentByText = (element: HTMLElement): HTMLElement => {
@@ -1159,10 +1158,12 @@ describe("com.mgmtp.a12.widgets.modal-overlay", () => {
 	});
 
 	describe("mobile", () => {
-		beforeAll(() => {
+		beforeEach(() => {
 			setupDevice();
 		});
-
+		afterEach(() => {
+			vi.restoreAllMocks();
+		});
 		test("should not have unnecessary empty space when heading is invisible", () => {
 			const { container } = render(
 				<div style={{ height: "250px", width: "250px" }}>
@@ -1448,10 +1449,12 @@ describe("com.mgmtp.a12.widgets.modal-overlay", () => {
 			);
 
 		describe("non-iOS", () => {
-			beforeAll(() => {
+			beforeEach(() => {
 				setupDevice("phone", true);
 			});
-
+			afterEach(() => {
+				vi.restoreAllMocks();
+			});
 			test("should NOT bypass scroll-prevention when input has an active text selection", () => {
 				const { container } = renderModalWithChild(<TextField value="some text" onChange={noop} />);
 
@@ -1468,14 +1471,17 @@ describe("com.mgmtp.a12.widgets.modal-overlay", () => {
 		});
 
 		describe("iOS", () => {
-			beforeAll(() => {
+			beforeEach(() => {
+				setupDevice("phone", true);
 				Object.defineProperty(navigator, "userAgent", {
 					configurable: true,
 					get: () =>
 						"Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1"
 				});
 			});
-
+			afterEach(() => {
+				vi.restoreAllMocks();
+			});
 			test("should bypass scroll-prevention when input has an active text selection", () => {
 				const { container } = renderModalWithChild(<TextField value="some text" onChange={noop} />);
 

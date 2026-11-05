@@ -30,19 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement, ReactNode } from "react";
+import type { ReactElement, ReactNode, ThHTMLAttributes } from "react";
 import { css, styled } from "styled-components";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { StyledBaseInput } from "../../../input/base-input-styled/base.styled.js";
 import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
-import { StyledTagGroup } from "../../../tag/main/tag-group.view.js";
 import { StyledTagInputFieldWrapper } from "../../../tag-input/main/tag-input.styled.js";
+import { StyledTagGroup } from "../../../tag/main/tag-group.view.js";
 import { StyledTimePickerWrapper } from "../../../time-picker/main/time-picker.styled.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
-import { cellBase, pinnedCell, useCellPinning } from "./data-table.styled-utils.js";
+import { HeadHiddenText } from "./data-table.head-hidden-text.js";
+import { cellBase, cellPadding, pinnedCell, useCellPinning } from "./data-table.styled-utils.js";
 import { DataTableZIndex } from "./data-table.z-index.js";
 
 export const StyledDataTableHeadFilterCell = styled.th.withConfig({
@@ -50,15 +50,18 @@ export const StyledDataTableHeadFilterCell = styled.th.withConfig({
 })<{
 	$pinned?: "left" | "right";
 	$pinnedEdge?: boolean;
-}>(({ theme, $pinned, $pinnedEdge }) => {
+
+	/** Whether this cell sits in the table's first column, which earns the inset. */
+	$firstCell?: boolean;
+}>(({ theme, $pinned, $pinnedEdge, $firstCell }) => {
 	const { table } = theme.components;
 
 	const { headRow } = table;
 
 	return css`
-		${cellBase(theme)}
+		${cellBase(theme, $firstCell)}
 		background: ${table.header.background};
-		padding: ${table.headCell.padding};
+		${cellPadding(theme, table.headCell.padding, $firstCell)}
 		height: ${table.headCell.minHeight};
 		text-align: left;
 		vertical-align: top;
@@ -66,16 +69,16 @@ export const StyledDataTableHeadFilterCell = styled.th.withConfig({
 		font-weight: normal;
 
 		// Spacing between stacked filter field/timepicker wrappers.
-		${StyledBaseInput.StyledFieldWrapper}:not(:last-child),
+		:is(${StyledBaseInput.StyledFieldWrapper}):not(:last-child),
 		${StyledTimePickerWrapper}:not(:last-child) {
 			margin-bottom: ${headRow.filter.fieldInputMarginBottom};
 		}
 
 		// Distinct background for editable filter inputs.
+		${StyledTagInputFieldWrapper} ${StyledTagGroup},
 		${StyledBaseInput.StyledFieldInput}:not([data-readonly="true"]):not([data-disabled="true"]),
 		${StyledSelectTemplate.StyledSelectInput}:not(:read-only):not(:disabled),
-		${StyledSelectTemplate.StyledFieldSelectWrapper}:not([data-readonly="true"]):not([data-disabled="true"]),
-		${StyledTagInputFieldWrapper} ${StyledTagGroup} {
+		${StyledSelectTemplate.StyledFieldSelectWrapper}:not([data-readonly="true"]):not([data-disabled="true"]) {
 			background-color: ${headRow.filter.fieldInputBG};
 		}
 
@@ -95,6 +98,22 @@ export interface DataTableHeadFilterCellTplProps {
 	/** Pinning side for the column (sticky positioning + shadow). */
 	pinning?: "left" | "right";
 
+	/** Sanitized consumer-provided `htmlAttributes` from `column.htmlAttributes`. */
+	htmlAttributes?: ThHTMLAttributes<HTMLTableCellElement>;
+
+	/**
+	 * Screen-reader-only text appended after the cell content.
+	 *
+	 * - An empty string renders nothing, not even the action-column fallback.
+	 * - A non-empty value is rendered as-is.
+	 * - When `undefined`, an `actionColumn` cell falls back to the localized
+	 *   "Action" label from `A11YLanguageContext`.
+	 */
+	hiddenText?: string;
+
+	/** Whether the column holds action buttons, which selects the hidden-text fallback. */
+	actionColumn?: boolean;
+
 	/**
 	 * Filter cell content. When provided, it is wrapped in a `<span>` carrying
 	 * `data-role={DataRoles.Table.Filter.Cell.Content}`; when `null`/`undefined`,
@@ -112,26 +131,35 @@ export interface DataTableHeadFilterCellTplProps {
 export function DataTableHeadFilterCellTpl({
 	columnIndex,
 	pinning,
+	htmlAttributes,
+	hiddenText,
+	actionColumn,
 	children
 }: DataTableHeadFilterCellTplProps): ReactElement {
 	const { pinStyle, isPinnedEdge } = useCellPinning(pinning, columnIndex);
 	// In (tree)grid mode restate the suppressed native cell role.
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
+	const gridRole = useDataTableContext().gridRole;
+	// Consumer style merges over the pin offsets (same precedence as head/body cells) —
+	// a later plain `style={pinStyle}` would silently discard `htmlAttributes.style`.
+	const resolvedStyle = pinStyle ? { ...pinStyle, ...htmlAttributes?.style } : htmlAttributes?.style;
 
 	return (
 		<StyledDataTableHeadFilterCell
+			{...htmlAttributes}
 			data-role={DataRoles.Table.Filter.Cell}
 			role={gridRole ? "gridcell" : undefined}
 			data-pinned={pinning}
 			$pinned={pinning}
 			$pinnedEdge={isPinnedEdge}
-			style={pinStyle}
+			$firstCell={columnIndex === 0}
+			style={resolvedStyle}
 		>
 			{children != null ? (
 				<span data-role={DataRoles.Table.Filter.Cell.Content} style={{ display: "contents" }}>
 					{children}
 				</span>
 			) : null}
+			<HeadHiddenText hiddenText={hiddenText} actionColumn={actionColumn} />
 		</StyledDataTableHeadFilterCell>
 	);
 }

@@ -30,17 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import focusableRemoveButtonsCode from "!./focusable-remove-buttons.tsx?raw";
+import statesAndMessagesCode from "!./states-and-messages.tsx?raw";
+
 import TagInputAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tag-input/main/tag-input.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../../helpers/showcase-styles.js";
 
-import { Introduction } from "./introduction.js";
 import { Basic } from "./basic.js";
+import { FocusableRemoveButtons } from "./focusable-remove-buttons.js";
+import { Introduction } from "./introduction.js";
 import { StatesAndMessages } from "./states-and-messages.js";
-
-import basicCode from "!./basic.tsx?raw";
-import statesAndMessagesCode from "!./states-and-messages.tsx?raw";
 
 const showcases: Showcase[] = [
 	{
@@ -74,6 +76,25 @@ const showcases: Showcase[] = [
 				),
 				content: <Basic />,
 				code: { name: "basic.tsx", code: basicCode }
+			},
+			{
+				label: "Focusable Remove Buttons",
+				description: (
+					<>
+						<p>
+							By default, navigation between tags is done with the arrow keys, and removing a tag is done with
+							Backspace/Delete key. Because of this, a tag's remove button cannot be reached with Tab.
+						</p>
+						<p>
+							If you'd like to focus directly to a tag's remove button instead, set <code>focusableRemoveButtons</code>{" "}
+							property to <b>true</b>. Each remove button then becomes part of the Tab order, so Tab and Shift+Tab move
+							through them just like any other button on the page. When focused, you can use
+							Enter/Backspace/Space/Delete key to remove the tag.
+						</p>
+					</>
+				),
+				content: <FocusableRemoveButtons />,
+				code: { name: "focusable-remove-buttons.tsx", code: focusableRemoveButtonsCode }
 			},
 			{
 				label: "States & Messages",

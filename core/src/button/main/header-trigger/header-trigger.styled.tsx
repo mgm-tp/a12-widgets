@@ -32,8 +32,8 @@
 
 import { styled, css } from "styled-components";
 
-import { active, activeAndHover, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
 import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
+import { active, activeAndHover, darkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
 
 export const StyledHeaderTriggerContainer = styled.button<{
 	$activated?: boolean;
@@ -64,125 +64,145 @@ export const StyledHeaderTriggerContainer = styled.button<{
 				color: inherit;
 			`)}
 		}
-		${!$disabled &&
-		css`
-			${active(css`
-				text-decoration: ${headerTrigger.active.textDecoration};
-			`)}
-			${hover(css`
-				text-decoration: ${headerTrigger.hover.textDecoration};
-			`)}
-		`}
-		${!$vertical &&
-		css`
-			background: ${$activated && !$light && headerTrigger.activatedBackground};
-			border: ${headerTrigger.border};
-			color: ${$activated ? headerTrigger.activatedColor : headerTrigger.color};
-			font-family: ${headerTrigger.fontFamily};
-			font-size: ${headerTrigger.fontSize};
-			font-weight: ${headerTrigger.fontWeight};
-			gap: ${headerTrigger.gap};
-			padding: ${headerTrigger.padding};
-			position: relative;
-			text-transform: ${headerTrigger.textTransform};
+		${
+			!$disabled &&
+			css`
+				${active(css`
+					text-decoration: ${headerTrigger.active.textDecoration};
+				`)}
+				${hover(css`
+					text-decoration: ${headerTrigger.hover.textDecoration};
+				`)}
+			`
+		}
+		${
+			!$vertical &&
+			css`
+				background: ${$activated && !$light && headerTrigger.activatedBackground};
+				border: ${headerTrigger.border};
+				color: ${$activated ? headerTrigger.activatedColor : headerTrigger.color};
+				font-family: ${headerTrigger.fontFamily};
+				font-size: ${headerTrigger.fontSize};
+				font-weight: ${headerTrigger.fontWeight};
+				gap: ${headerTrigger.gap};
+				padding: ${headerTrigger.padding};
+				position: relative;
+				text-transform: ${headerTrigger.textTransform};
 
-			${onlyIcon
-				? css`
-						border-radius: ${headerTrigger.onlyIcon.borderRadius};
-						justify-content: center;
-						min-height: ${headerTrigger.onlyIcon.minHeight};
-						min-width: ${headerTrigger.onlyIcon.minWidth};
+				${
+					onlyIcon
+						? css`
+								border-radius: ${headerTrigger.onlyIcon.borderRadius};
+								justify-content: center;
+								min-height: ${headerTrigger.onlyIcon.minHeight};
+								min-width: ${headerTrigger.onlyIcon.minWidth};
+							`
+						: css`
+								border-radius: ${headerTrigger.borderRadius};
+								min-height: ${headerTrigger.minHeight};
+								min-width: ${headerTrigger.minHeight};
+							`
+				}
+
+				${
+					$multilingual &&
+					css`
+						background-color: ${
+							$light ? headerTrigger.multilingual.light.background : headerTrigger.multilingual.background
+						};
+						color: ${$light && headerTrigger.multilingual.light.color};
+						gap: ${headerTrigger.multilingual.contentGap};
+						height: 100%;
+						min-height: inherit;
+						padding: ${headerTrigger.multilingual.padding};
+						width: 100%;
 					`
-				: css`
-						border-radius: ${headerTrigger.borderRadius};
-						min-height: ${headerTrigger.minHeight};
-						min-width: ${headerTrigger.minHeight};
-					`}
+				}
 
-			${$multilingual &&
-			css`
-				background-color: ${$light
-					? headerTrigger.multilingual.light.background
-					: headerTrigger.multilingual.background};
-				color: ${$light && headerTrigger.multilingual.light.color};
-				gap: ${headerTrigger.multilingual.contentGap};
-				height: 100%;
-				min-height: inherit;
-				padding: ${headerTrigger.multilingual.padding};
-				width: 100%;
-			`}
-			
-			${!$disabled &&
-			css`
-				${active(css`
-					background: ${!$multilingual && headerTrigger.active.background};
-					border: ${headerTrigger.active.border};
-					color: ${headerTrigger.active.color};
-					${$multilingual &&
-					$light &&
+				${
+					!$disabled &&
 					css`
-						border-color: ${headerTrigger.multilingual.light.active.borderColor};
-						color: ${headerTrigger.multilingual.light.active.color};
-					`}
-				`)}
-				${hover(css`
-					background: ${!$multilingual && headerTrigger.hover.background};
-					border: ${headerTrigger.hover.border};
-					color: ${headerTrigger.hover.color};
-					${$multilingual &&
-					$light &&
-					css`
-						border-color: ${headerTrigger.multilingual.light.hover.borderColor};
-						color: ${headerTrigger.multilingual.light.hover.color};
-					`}
-				`)}
-				&:focus {
-					background: ${!$multilingual && headerTrigger.focus.background};
-					border: ${headerTrigger.focus.border};
-					color: ${headerTrigger.focus.color};
-					outline: ${headerTrigger.focus.outline};
-					${$multilingual &&
-					$light &&
-					css`
-						border-color: ${headerTrigger.multilingual.light.focus.borderColor};
-						color: ${headerTrigger.multilingual.light.focus.color};
-						${darkFocus}
-					`}
+						${active(css`
+							background: ${!$multilingual && headerTrigger.active.background};
+							border: ${headerTrigger.active.border};
+							color: ${headerTrigger.active.color};
+							${
+								$multilingual &&
+								$light &&
+								css`
+									border-color: ${headerTrigger.multilingual.light.active.borderColor};
+									color: ${headerTrigger.multilingual.light.active.color};
+								`
+							}
+						`)}
+						${hover(css`
+							background: ${!$multilingual && headerTrigger.hover.background};
+							border: ${headerTrigger.hover.border};
+							color: ${headerTrigger.hover.color};
+							${
+								$multilingual &&
+								$light &&
+								css`
+									border-color: ${headerTrigger.multilingual.light.hover.borderColor};
+									color: ${headerTrigger.multilingual.light.hover.color};
+								`
+							}
+						`)}
+						&:focus {
+							background: ${!$multilingual && headerTrigger.focus.background};
+							border: ${headerTrigger.focus.border};
+							color: ${headerTrigger.focus.color};
+							outline: ${headerTrigger.focus.outline};
+							${
+								$multilingual &&
+								$light &&
+								css`
+									border-color: ${headerTrigger.multilingual.light.focus.borderColor};
+									color: ${headerTrigger.multilingual.light.focus.color};
+									${darkFocus}
+								`
+							}
+						}
+					`
 				}
-			`}
-		`}
-		
-		${$vertical &&
-		$multilingual &&
-		css`
-			border: ${headerTrigger.border};
-			border-radius: ${button.secondary.borderRadius};
-			color: ${button.secondary.color};
-			flex-direction: column;
-			font-family: ${button.fontFamily};
-			font-size: ${headerTrigger.vertical.languageFontSize};
-			font-weight: ${button.fontWeight};
-			height: ${baseInput.input.buttonIconSize};
-			justify-content: center;
-			padding: 0;
-			width: ${baseInput.input.buttonIconSize};
-			${!$disabled &&
+			`
+		}
+
+		${
+			$vertical &&
+			$multilingual &&
 			css`
-				${active(css`
-					border-color: ${button.secondary.interaction.active.color};
-					color: ${headerTrigger.vertical.icon.activeColor};
-				`)}
-				${hover(css`
-					border-color: ${button.secondary.interaction.hover.color};
-					color: ${headerTrigger.vertical.icon.hoverColor};
-				`)}
-				&:focus {
-					border-color: ${button.secondary.interaction.focus.color};
-					color: ${headerTrigger.vertical.icon.focusColor};
-					${darkFocus}
+				border: ${headerTrigger.border};
+				border-radius: ${button.secondary.borderRadius};
+				color: ${button.secondary.color};
+				flex-direction: column;
+				font-family: ${button.fontFamily};
+				font-size: ${headerTrigger.vertical.languageFontSize};
+				font-weight: ${button.fontWeight};
+				height: ${baseInput.input.buttonIconSize};
+				justify-content: center;
+				padding: 0;
+				width: ${baseInput.input.buttonIconSize};
+				${
+					!$disabled &&
+					css`
+						${active(css`
+							border-color: ${button.secondary.interaction.active.color};
+							color: ${headerTrigger.vertical.icon.activeColor};
+						`)}
+						${hover(css`
+							border-color: ${button.secondary.interaction.hover.color};
+							color: ${headerTrigger.vertical.icon.hoverColor};
+						`)}
+						&:focus {
+							border-color: ${button.secondary.interaction.focus.color};
+							color: ${headerTrigger.vertical.icon.focusColor};
+							${darkFocus}
+						}
+					`
 				}
-			`}
-		`}
+			`
+		}
 	`;
 });
 
@@ -219,13 +239,15 @@ export const StyledHeaderTriggerTextAbbreviation = styled.abbr<{ $vertical?: boo
 
 	return css`
 		text-decoration: none;
-		${$vertical &&
-		css`
-			display: block;
-			font-size: ${headerTrigger.vertical.languageFontSize};
-			line-height: 1;
-			text-decoration: none;
-			text-transform: uppercase;
-		`}
+		${
+			$vertical &&
+			css`
+				display: block;
+				font-size: ${headerTrigger.vertical.languageFontSize};
+				line-height: 1;
+				text-decoration: none;
+				text-transform: uppercase;
+			`
+		}
 	`;
 });

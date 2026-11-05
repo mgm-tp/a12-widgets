@@ -29,34 +29,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering a header trigger with 
   max-width: unset;
 }
 
-.c4 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c5 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c6 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c7 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c8 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
 }
 
 .c0 {
@@ -98,71 +72,6 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering a header trigger with 
 
 .c3.c3.c3 {
   font-size: 1.125rem;
-}
-
-@media (pointer: coarse) {
-  .c4 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c4 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c5 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c5 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c6 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c6 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c7 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c7 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c8 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c8 .c1:hover {
-    color: inherit;
-  }
 }
 
 @media (pointer: coarse) {
@@ -221,6 +130,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering a header trigger with 
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       public
     </span>
@@ -257,34 +168,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering a header trigger with 
   max-width: unset;
 }
 
-.c4 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c5 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c6 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c7 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c8 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
 }
 
 .c0 {
@@ -326,71 +211,6 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering a header trigger with 
 
 .c3.c3.c3 {
   font-size: 1rem;
-}
-
-@media (pointer: coarse) {
-  .c4 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c4 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c5 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c5 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c6 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c6 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c7 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c7 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c8 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c8 .c1:hover {
-    color: inherit;
-  }
 }
 
 @media (pointer: coarse) {
@@ -449,6 +269,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering a header trigger with 
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       arrow_drop_down
     </span>
@@ -504,10 +326,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering disabled header trigge
   max-width: unset;
 }
 
-.c8 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-  margin: 0px;
-  padding: 0px;
 }
 
 .c0 {
@@ -556,19 +376,6 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering disabled header trigge
 }
 
 @media (pointer: coarse) {
-  .c8 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c8 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
   .c0 .c1:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: inherit;
@@ -594,6 +401,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering disabled header trigge
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       info
     </span>
@@ -620,6 +429,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering disabled header trigge
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       keyboard_arrow_down
     </span>
@@ -673,6 +484,10 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering header trigger 1`] = `
 
 .c2.c2 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
+  color: inherit;
 }
 
 .c0 {
@@ -782,6 +597,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering header trigger 1`] = `
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       info
     </span>
@@ -808,6 +625,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering header trigger 1`] = `
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       keyboard_arrow_down
     </span>
@@ -863,16 +682,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering horizontal multilingua
   max-width: unset;
 }
 
-.c8 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c9 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
 }
 
 .c0 {
@@ -929,32 +740,6 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering horizontal multilingua
 }
 
 @media (pointer: coarse) {
-  .c8 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c8 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c9 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c9 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
   .c0 .c1:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: inherit;
@@ -1007,6 +792,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering horizontal multilingua
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       public
     </span>
@@ -1033,6 +820,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering horizontal multilingua
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       arrow_drop_down
     </span>
@@ -1088,22 +877,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering light horizontal multi
   max-width: unset;
 }
 
-.c8 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c9 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c10 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
 }
 
 .c0 {
@@ -1160,45 +935,6 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering light horizontal multi
 }
 
 @media (pointer: coarse) {
-  .c8 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c8 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c9 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c9 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c10 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c10 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
   .c0 .c1:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: inherit;
@@ -1251,6 +987,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering light horizontal multi
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       public
     </span>
@@ -1277,6 +1015,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering light horizontal multi
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       arrow_drop_down
     </span>
@@ -1332,28 +1072,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering vertical multilingual 
   max-width: unset;
 }
 
-.c8 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c9 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c10 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
-}
-
-.c11 .c1 {
-  color: inherit;
-  margin: 0px;
-  padding: 0px;
 }
 
 .c0 {
@@ -1411,58 +1131,6 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering vertical multilingual 
 }
 
 @media (pointer: coarse) {
-  .c8 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c8 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c9 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c9 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c10 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c10 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
-  .c11 .c1:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    color: inherit;
-  }
-}
-
-@media (pointer: fine) {
-  .c11 .c1:hover {
-    color: inherit;
-  }
-}
-
-@media (pointer: coarse) {
   .c0 .c1:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: inherit;
@@ -1515,6 +1183,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering vertical multilingual 
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       public
     </span>
@@ -1541,6 +1211,8 @@ exports[`com.mgmtp.a12.widgets.header-trigger > rendering vertical multilingual 
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       arrow_drop_down
     </span>

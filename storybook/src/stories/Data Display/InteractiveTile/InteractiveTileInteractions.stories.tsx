@@ -40,43 +40,13 @@ const meta: Meta<typeof InteractiveTile> = {
 	component: InteractiveTile,
 	parameters: {
 		layout: "centered"
-	},
-	tags: ["autodocs"]
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof InteractiveTile>;
 
 export const Default: Story = {
-	render: () => (
-		<InteractionHintConfigProvider componentConfigs={{ interactiveTile: { followCursor: true } }}>
-			<div style={{ display: "flex", gap: "16px", padding: "20px" }}>
-				<InteractiveTile title="Follow cursor hint">
-					<Icon>mouse</Icon>
-					<div>Follow</div>
-				</InteractiveTile>
-				<InteractiveTile title="Moves with mouse">
-					<Icon>touch_app</Icon>
-					<div>Moves</div>
-				</InteractiveTile>
-				<InteractiveTile title="Dynamic positioning">
-					<Icon>open_with</Icon>
-					<div>Dynamic</div>
-				</InteractiveTile>
-			</div>
-		</InteractionHintConfigProvider>
-	),
-	parameters: {
-		docs: {
-			description: {
-				story:
-					"Interactive tiles with hints that follow the cursor position. Move your mouse over the tiles to see the tooltip follow your cursor."
-			}
-		}
-	}
-};
-
-export const WithInteractionHintFollowCursor: Story = {
 	render: () => (
 		<InteractionHintConfigProvider componentConfigs={{ interactiveTile: { followCursor: true } }}>
 			<div style={{ display: "flex", gap: "16px", padding: "20px" }}>
@@ -181,63 +151,59 @@ export const InteractionHintVariations: Story = {
 };
 
 export const AllVariants: Story = {
-	render: () => {
-		const TileShowcase = () => {
-			const [selectedId, setSelectedId] = useState<string | undefined>("tile-2");
+	render: function TileShowcaseExample() {
+		const [selectedId, setSelectedId] = useState<string | undefined>("tile-2");
 
-			return (
-				<InteractionHintConfigProvider componentConfigs={{ interactiveTile: true }}>
-					<div style={{ display: "flex", flexDirection: "column", gap: "24px", padding: "20px" }}>
-						<div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-							<InteractiveTile
-								id="tile-1"
-								title="Default tile"
-								selected={selectedId === "tile-1"}
-								onClick={() => setSelectedId("tile-1")}
-							>
-								<Icon>dashboard</Icon>
-								<div>Default</div>
-							</InteractiveTile>
-							<InteractiveTile
-								id="tile-2"
-								title="Selected tile"
-								selected={selectedId === "tile-2"}
-								onClick={() => setSelectedId("tile-2")}
-							>
-								<Icon>check_circle</Icon>
-								<div>Selected</div>
-							</InteractiveTile>
-							<InteractiveTile
-								id="tile-3"
-								title="Tile with meta"
-								selected={selectedId === "tile-3"}
-								onClick={() => setSelectedId("tile-3")}
-							>
-								<Icon>folder</Icon>
-								<div>With Meta</div>
-							</InteractiveTile>
-							<InteractiveTile id="tile-4" title="Disabled tile" disabled>
-								<Icon>block</Icon>
-								<div>Disabled</div>
-							</InteractiveTile>
-						</div>
-						<div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-							<InteractiveTile
-								id="tile-5"
-								title="Interactive tile with hint"
-								selected={selectedId === "tile-5"}
-								onClick={() => setSelectedId("tile-5")}
-							>
-								<Icon>help</Icon>
-								<div>With Hint</div>
-							</InteractiveTile>
-						</div>
+		return (
+			<InteractionHintConfigProvider componentConfigs={{ interactiveTile: true }}>
+				<div style={{ display: "flex", flexDirection: "column", gap: "24px", padding: "20px" }}>
+					<div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+						<InteractiveTile
+							id="tile-1"
+							title="Default tile"
+							selected={selectedId === "tile-1"}
+							onClick={() => setSelectedId("tile-1")}
+						>
+							<Icon>dashboard</Icon>
+							<div>Default</div>
+						</InteractiveTile>
+						<InteractiveTile
+							id="tile-2"
+							title="Selected tile"
+							selected={selectedId === "tile-2"}
+							onClick={() => setSelectedId("tile-2")}
+						>
+							<Icon>check_circle</Icon>
+							<div>Selected</div>
+						</InteractiveTile>
+						<InteractiveTile
+							id="tile-3"
+							title="Tile with meta"
+							selected={selectedId === "tile-3"}
+							onClick={() => setSelectedId("tile-3")}
+						>
+							<Icon>folder</Icon>
+							<div>With Meta</div>
+						</InteractiveTile>
+						<InteractiveTile id="tile-4" title="Disabled tile" disabled>
+							<Icon>block</Icon>
+							<div>Disabled</div>
+						</InteractiveTile>
 					</div>
-				</InteractionHintConfigProvider>
-			);
-		};
-
-		return <TileShowcase />;
+					<div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+						<InteractiveTile
+							id="tile-5"
+							title="Interactive tile with hint"
+							selected={selectedId === "tile-5"}
+							onClick={() => setSelectedId("tile-5")}
+						>
+							<Icon>help</Icon>
+							<div>With Hint</div>
+						</InteractiveTile>
+					</div>
+				</div>
+			</InteractionHintConfigProvider>
+		);
 	},
 	parameters: {
 		docs: {

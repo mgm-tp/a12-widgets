@@ -32,58 +32,44 @@
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import type { DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+import type { DataTableColumn, DataTableProps } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import type { Employee } from "../Table/table.data.js";
 import { EMPLOYEES } from "../Table/table.data.js";
 
 const ALIGNMENT_COLUMNS: DataTableColumn<Employee>[] = [
-	{ label: "ID (right)", dataKey: "id", width: 0.5, fixedWidth: true, horizontalAlignment: "right", pinning: "left" },
+	{ label: "ID (right)", dataKey: "id", width: 0.7, fixedWidth: true, horizontalAlignment: "right", pinning: "left" },
 	{ label: "Name (left)", dataKey: "firstName", width: 1, horizontalAlignment: "left", pinning: "left" },
 	{ label: "Dept (center)", dataKey: "department", width: 1.5, horizontalAlignment: "center" },
 	{ label: "Role", dataKey: "role", width: 1.5 }
 ];
 
 const FIXED_VS_FLUID_COLUMNS: DataTableColumn<Employee>[] = [
-	{ label: "ID (fixed 60px)", dataKey: "id", width: 0.4, fixedWidth: true, pinning: "left" },
+	{ label: "ID (fixed 105px)", dataKey: "id", width: 0.7, fixedWidth: true, pinning: "left" },
 	{ label: "Name (fluid 1fr)", dataKey: "firstName", width: 1, pinning: "left" },
 	{ label: "Department (fluid 2fr)", dataKey: "department", width: 2 },
 	{ label: "Role (fluid 1fr)", dataKey: "role", width: 1 }
 ];
 
 const SUBINFO_COLUMNS: DataTableColumn<Employee>[] = [
-	{ label: "ID", dataKey: "id", width: 0.4, fixedWidth: true, pinning: "left" },
+	{ label: "ID", dataKey: "id", width: 0.7, fixedWidth: true, pinning: "left" },
 	{ label: "First Name", dataKey: "firstName", width: 1 },
 	{ label: "Last Name", dataKey: "lastName", width: 1, subInfo: true },
 	{ label: "Department", dataKey: "department", width: 1.5 },
 	{ label: "Role", dataKey: "role", width: 1.5, subInfo: true }
 ];
 
-function AlignmentDemo() {
-	return (
-		<DataTable<Employee> ariaLabel="Alignment variants" data={EMPLOYEES} columns={ALIGNMENT_COLUMNS} rowKey="id" />
-	);
-}
+const BASE_ARGS: DataTableProps<Employee> = {
+	ariaLabel: "Alignment variants",
+	data: EMPLOYEES,
+	columns: ALIGNMENT_COLUMNS,
+	rowKey: "id"
+};
 
-function FixedVsFluidDemo() {
-	return (
-		<DataTable<Employee>
-			ariaLabel="Fixed vs fluid widths"
-			data={EMPLOYEES}
-			columns={FIXED_VS_FLUID_COLUMNS}
-			rowKey="id"
-		/>
-	);
-}
-
-function SubInfoDemo() {
-	return <DataTable<Employee> ariaLabel="Sub info columns" data={EMPLOYEES} columns={SUBINFO_COLUMNS} rowKey="id" />;
-}
-
-const meta: Meta<typeof AlignmentDemo> = {
+const meta: Meta<typeof DataTable<Employee>> = {
 	title: "Data Display/DataTable/Columns",
-	component: AlignmentDemo,
+	component: DataTable,
 	parameters: { layout: "padded" },
 	tags: ["autodocs"]
 };
@@ -92,7 +78,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Alignment: Story = {
-	render: () => <AlignmentDemo />,
+	args: BASE_ARGS,
 	parameters: {
 		docs: {
 			description: {
@@ -104,7 +90,7 @@ export const Alignment: Story = {
 
 export const FixedVsFluid: Story = {
 	name: "Fixed vs Fluid Widths",
-	render: () => <FixedVsFluidDemo />,
+	args: { ...BASE_ARGS, ariaLabel: "Fixed vs fluid widths", columns: FIXED_VS_FLUID_COLUMNS },
 	parameters: {
 		docs: {
 			description: {
@@ -117,7 +103,7 @@ export const FixedVsFluid: Story = {
 
 export const SubInfo: Story = {
 	name: "Sub-Info Columns",
-	render: () => <SubInfoDemo />,
+	args: { ...BASE_ARGS, ariaLabel: "Sub info columns", columns: SUBINFO_COLUMNS },
 	parameters: {
 		docs: {
 			description: {

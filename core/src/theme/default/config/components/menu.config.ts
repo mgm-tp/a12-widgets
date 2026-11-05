@@ -32,8 +32,8 @@
 
 import { rgba } from "polished";
 
-import type { BaseThemeType } from "../../../schema/base-theme.js";
 import type { CustomBorder } from "../../../base/mixins/_borderEffects.js";
+import type { BaseThemeType } from "../../../schema/base-theme.js";
 
 export type MenuConfigType = {
 	header: { item: { focus: { borderBottom: string } } };
@@ -549,6 +549,7 @@ export const menuConfig = (theme: BaseThemeType): MenuConfigType => {
 							info: colors.variant.infoColor,
 							error: colors.variant.errorColor,
 							warning: colors.variant.warningColorDark,
+							inProgress: colors.variant.infoColorDark,
 							done: colors.variant.successColor
 						}
 					}

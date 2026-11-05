@@ -37,13 +37,12 @@ import { useTheme } from "styled-components";
 
 import type { ButtonGroupContainerProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import { ButtonGroupContainer, Button, Icon, Checkbox } from "@com.mgmtp.a12.widgets/widgets-core";
-
 // end code removal
 
-// start code removal
-import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 import { ConfigurationView } from "../../helpers/configuration-view.js";
 import { CodeSnippetGenerationWrapper } from "../../helpers/showcase-example.js";
+// start code removal
+import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 
 const leftSlotButtons: ButtonGroupContainerProps.ButtonProps[] = [
 	{ title: "Disabled", icon: <Icon>block</Icon>, disabled: true, id: "icon-disabled" },
@@ -112,6 +111,7 @@ export const PreserveSemanticStyles: FC = () => {
 						range={{ max: 1200, min: 32 }}
 					/>
 					<Checkbox
+						id="preserve-semantic-styles-collapsing-direction"
 						label="Collapsing from right to left"
 						checked={collapsingDirection === "right-to-left"}
 						onChange={(value) => setCollapsingDirection(value ? "right-to-left" : "left-to-right")}

@@ -33,22 +33,23 @@
 import type { MouseEvent, ReactElement } from "react";
 import { Fragment, useContext } from "react";
 
-import { addPrefix, joinClassNames, StringUtils } from "../../common/main/utils.js";
+import { Button } from "../../button/main/button.view.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { provider } from "../../common/main/device-detector.js";
+import { addPrefix, joinClassNames, StringUtils } from "../../common/main/utils.js";
 import { Counter } from "../../counter/main/counter.view.js";
-import { Checkbox } from "../../input/checkbox/main/checkbox.view.js";
 import type { DropDownItem } from "../../dropdown/main/template/dropdown.tpl.api.js";
 import { Icon } from "../../icon/main/icon.view.js";
-import { Button } from "../../button/main/button.view.js";
 import { SelectionSuffix } from "../../input/base/template/base.tpl.view.js";
-import { provider } from "../../common/main/device-detector.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { Checkbox } from "../../input/checkbox/main/checkbox.view.js";
+import { useFieldDefaultsConfig } from "../../input/field-default-config/main/field-default-config.utils.js";
 
-import type { MultiselectTplProps } from "./multiselect.tpl.api.js";
 import type { MultiselectProps } from "./multiselect.api.js";
 import { getFlattenItems } from "./multiselect.internal.js";
 import { StyledMultiselectDropdown, StyledMultiselectInput, StyledMultiselectWrapper } from "./multiselect.styled.js";
+import type { MultiselectTplProps } from "./multiselect.tpl.api.js";
 
 const baseClassName = addPrefix("multiselect");
 
@@ -90,9 +91,11 @@ export function MultiselectTemplate(props: MultiselectTplProps): ReactElement<Mu
 		infoMessage,
 		warningMessage,
 		errorMessage,
+		info,
+		warning,
+		error,
 		tooltips,
 		ariaDescribedby,
-		breakTooltipsToNewLine,
 		helperText,
 		readonly,
 		disabled,
@@ -105,8 +108,14 @@ export function MultiselectTemplate(props: MultiselectTplProps): ReactElement<Mu
 		labelRef,
 		labelGraphic,
 		enableSelectAllOption,
+		breakTooltipsToNewLine: breakTooltipsToNewLineProp,
+		messagePosition: messagePositionProp,
 		...rest
 	} = props;
+	const { breakTooltipsToNewLine, messagePosition } = useFieldDefaultsConfig(
+		{ messagePosition: messagePositionProp, breakTooltipsToNewLine: breakTooltipsToNewLineProp },
+		false
+	);
 
 	let localDropdownRef: HTMLDivElement | null = null;
 	const flattenItems = getFlattenItems(items);
@@ -273,6 +282,9 @@ export function MultiselectTemplate(props: MultiselectTplProps): ReactElement<Mu
 				errorMessage={errorMessage}
 				warningMessage={warningMessage}
 				infoMessage={infoMessage}
+				error={error}
+				warning={warning}
+				info={info}
 				ariaDescribedby={StringUtils.join(ariaDescribedby, { [`${props.id}-counter`]: props.id })}
 				id={props.id ? `${props.id}-multiselect__input` : undefined}
 				helperText={((mobile && !showDropdown) || !mobile) && helperText}
@@ -280,6 +292,8 @@ export function MultiselectTemplate(props: MultiselectTplProps): ReactElement<Mu
 				labelRef={labelRef}
 				readonly={readonly}
 				disabled={disabled}
+				breakTooltipsToNewLine={breakTooltipsToNewLine}
+				messagePosition={messagePosition}
 				inputProps={{
 					...inputProps,
 					role: unavailableInput ? undefined : "combobox",
@@ -308,6 +322,7 @@ export function MultiselectTemplate(props: MultiselectTplProps): ReactElement<Mu
 									{ [`${props.id}-multiselect__input-error`]: props.id && props.errorMessage }
 								),
 								[`aria-placeholder`]: !inputValue ? placeholder : undefined,
+								[`aria-invalid`]: error || errorMessage ? true : undefined,
 								[`aria-flowto`]: ariaFlowTo
 							}
 						: undefined

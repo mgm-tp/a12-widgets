@@ -53,7 +53,6 @@ import {
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { ContextualCard } from "../../../helpers/definitions.js";
-
 import { Utils } from "../utils.js";
 
 type RowType = ContextualCard;

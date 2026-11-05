@@ -30,49 +30,53 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import DataTableAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/data-table/main/data-table.api.json" with { type: "json" };
-import ColumnAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/column.api.json" with { type: "json" };
+import { BulletList, ExternalLink, Link } from "@com.mgmtp.a12.widgets/widgets-core";
 import DataTableRowsGroupAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/data-table/main/data-table-rows-group/data-table-rows-group.api.json" with { type: "json" };
 import DataTableSlotsAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/data-table/main/data-table-slots.api.json" with { type: "json" };
-import { BulletList, ExternalLink, Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import DataTableAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/data-table/main/data-table.api.json" with { type: "json" };
+import ColumnAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/table/main/column.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseBulletListInMessageBox } from "../../helpers/showcase-styles.js";
 
-import { BasicTableShowcase } from "./basic-table.js";
-import { ExpandableTableShowcase } from "./expandable-table.js";
-import { ColumnGroupTableShowcase } from "./column-group.js";
-import { RowGroupTableShowcase } from "./row-group.js";
-import { ResizableTableShowcase } from "./advanced/resizable-column.js";
-import { ResizableTableFlatShowcase } from "./advanced/resizable-column-flat.js";
-import { CrossTabulationShowcase } from "./cross-tabulation.js";
-import { CellSpanShowcase } from "./cell-span.js";
-import { CustomizationTableShowcase } from "./customization.js";
-import { SlotsTableShowcase } from "./slots.js";
-import { DnDTableShowcase } from "./advanced/dnd.js";
-import { ContextMenuTableShowcase } from "./advanced/context-menu.js";
-import { VirtualizedTableShowcase } from "./advanced/virtualized.js";
-import { ScrollToNodeTableShowcase } from "./scroll-to-node.js";
-import { ColumnGroupAccessibility } from "./column-group-accessibility.js";
 import { Accessibility } from "./accessibility.js";
-import basicCode from "./basic-table.tsx?raw";
-import expandableCode from "./expandable-table.tsx?raw";
-import columnGroupCode from "./column-group.tsx?raw";
-import columnGroupAccessibilityCode from "./column-group-accessibility.tsx?raw";
-import rowGroupCode from "./row-group.tsx?raw";
-import resizableCode from "./advanced/resizable-column.tsx?raw";
-import resizableFlatCode from "./advanced/resizable-column-flat.tsx?raw";
-import crossTabulationCode from "./cross-tabulation.tsx?raw";
-import cellSpanCode from "./cell-span.tsx?raw";
-import customizationCode from "./customization.tsx?raw";
-import slotsCode from "./slots.tsx?raw";
-import dnDCode from "./advanced/dnd.tsx?raw";
-import contextMenuCode from "./advanced/context-menu.tsx?raw";
-import virtualizedCode from "./advanced/virtualized.tsx?raw";
-import scrollToNodeCode from "./scroll-to-node.tsx?raw";
-import utilsCode from "./utils.ts?raw";
 import accessibilityCode from "./accessibility.tsx?raw";
+import { ContextMenuTableShowcase } from "./advanced/context-menu.js";
+import contextMenuCode from "./advanced/context-menu.tsx?raw";
+import { DnDTableShowcase } from "./advanced/dnd.js";
+import dnDCode from "./advanced/dnd.tsx?raw";
+import { InfiniteScrollTableShowcase } from "./advanced/infinite-scroll.js";
+import infiniteScrollCode from "./advanced/infinite-scroll.tsx?raw";
+import { ResizableTableShowcase } from "./advanced/resizable-column.js";
+import resizableCode from "./advanced/resizable-column.tsx?raw";
+import { VirtualizedDynamicHeightsShowcase } from "./advanced/virtualized-dynamic.js";
+import virtualizedDynamicCode from "./advanced/virtualized-dynamic.tsx?raw";
+import { VirtualizedTableShowcase } from "./advanced/virtualized.js";
+import virtualizedCode from "./advanced/virtualized.tsx?raw";
+import { BasicTableShowcase } from "./basic-table.js";
+import basicCode from "./basic-table.tsx?raw";
+import { CardViewShowcase } from "./card-view.js";
+import cardViewCode from "./card-view.tsx?raw";
+import { CellSpanShowcase } from "./cell-span.js";
+import cellSpanCode from "./cell-span.tsx?raw";
+import { ColumnGroupAccessibility } from "./column-group-accessibility.js";
+import columnGroupAccessibilityCode from "./column-group-accessibility.tsx?raw";
+import { ColumnGroupTableShowcase } from "./column-group.js";
+import columnGroupCode from "./column-group.tsx?raw";
+import { CrossTabulationShowcase } from "./cross-tabulation.js";
+import crossTabulationCode from "./cross-tabulation.tsx?raw";
+import { CustomizationTableShowcase } from "./customization.js";
+import customizationCode from "./customization.tsx?raw";
 import dataCode from "./data.ts?raw";
+import { ExpandableTableShowcase } from "./expandable-table.js";
+import expandableCode from "./expandable-table.tsx?raw";
+import { RowGroupTableShowcase } from "./row-group.js";
+import rowGroupCode from "./row-group.tsx?raw";
+import { ScrollToNodeTableShowcase } from "./scroll-to-node.js";
+import scrollToNodeCode from "./scroll-to-node.tsx?raw";
+import { SlotsTableShowcase } from "./slots.js";
+import slotsCode from "./slots.tsx?raw";
+import utilsCode from "./utils.ts?raw";
 
 const showcases: Showcase[] = [
 	{
@@ -127,18 +131,23 @@ const showcases: Showcase[] = [
 								<p>
 									However, for columns where <code>fixedWidth</code> is set to <strong>true</strong>, a fixed width of{" "}
 									<strong>width*150px</strong> will be applied. Unlike normal columns, those with fixed widths will NOT
-									shrink/expand as the width of the table changes. By default, columns have <code>fixedWidth</code> set
-									to <strong>false</strong>, except for pinned columns where its set to <strong>true</strong>.
+									shrink/expand as the width of the table changes. <code>fixedWidth</code> defaults to{" "}
+									<strong>false</strong> for every column, pinned ones included — set it explicitly where a column must
+									keep its width.
 								</p>
 								<p>
 									Speaking of pinned columns, when screen space is limited it may not be possible for all of your
 									columns to display at once without scrolling. If some of your columns are particularly important, you
-									can prioritize them to display without scrolling by setting their <code>pinning</code> property to{" "}
-									<strong>true</strong>.
+									can keep them in view by setting their <code>pinning</code> property to <strong>"left"</strong> or{" "}
+									<strong>"right"</strong>. <code>pinning</code> is only allowed on top-level columns; sub-columns
+									inherit their group's side.
 								</p>
 								<p>
 									If you need to include some type of actions in your table such as editing or deleting, you can use an{" "}
-									<code>actionColumn</code> (or multiple action columns).
+									<code>actionColumn</code> (or multiple action columns). A width-less action column auto-sizes to fit
+									its buttons and header; give it a <code>width</code> / <code>fixedWidth</code>, or set{" "}
+									<code>{"actionColumnAutoSize={false}"}</code> on the table, to opt out (it then takes a fixed 150px
+									track).
 								</p>
 								<p>The example below uses many features of the DataTable widget:</p>
 								<BulletList.Unordered>
@@ -153,6 +162,32 @@ const showcases: Showcase[] = [
 						fullSize: true,
 						code: [
 							{ name: "basic-table.tsx", code: basicCode },
+							{ name: "utils.ts", code: utilsCode }
+						]
+					},
+					{
+						label: "Card View",
+						content: <CardViewShowcase />,
+						description: (
+							<>
+								<p>
+									<code>cardView</code> renders the same <code>data</code> and <code>columns</code> as a list of cards
+									instead of a <code>&lt;table&gt;</code> — one card per row, each field labelled with its column's{" "}
+									<code>label</code>. It is a separate layout, not a restyled table: there is no header, no footer, and{" "}
+									<code>pinning</code>, <code>rowHeight</code>, column resizing and <code>cellHighlighting</code> are
+									ignored. It suits small screens and short lists.
+								</p>
+								<p>
+									Everything above the DOM is shared with the table layout, so <code>rowStyling</code>,{" "}
+									<code>rowEventHandlers</code> and arrow-key navigation work on cards exactly as they do on rows —
+									click a card in the example to select it.
+								</p>
+							</>
+						),
+						fitToSection: true,
+						fullSize: true,
+						code: [
+							{ name: "card-view.tsx", code: cardViewCode },
 							{ name: "utils.ts", code: utilsCode }
 						]
 					},
@@ -405,7 +440,7 @@ const showcases: Showcase[] = [
 									as the horizontal header, so it could only be sorted vertically.
 								</p>
 								<p>
-									It is recommended to also use the <code>cellHiglighting</code> property for Cross Tabulation to make
+									It is recommended to also use the <code>cellHighlighting</code> property for Cross Tabulation to make
 									the corresponding Header Cells highlighted when hovering over the Body Cells.
 								</p>
 							</>
@@ -513,21 +548,37 @@ const showcases: Showcase[] = [
 						code: { name: "accessibility.tsx", code: accessibilityCode },
 						fitToSection: true,
 						fullSize: true,
-						description: (
-							<>
+						description: {
+							info: (
+								<>
+									<p>
+										The <code>slots</code> property and the column-level render hooks (<code>renderCell</code>,{" "}
+										<code>renderHeader</code>) let you replace the content of the cells. Custom content has to keep the
+										table accessible: the selection Checkbox and the Buttons of the Action Column carry no row data on
+										their own, so name them after the row. Each row below shows one way to do it:
+									</p>
+									<BulletList.Unordered>
+										<BulletList.Item>
+											<strong>Row 1</strong> puts the row data in the Action Button&apos;s <code>title</code>.
+										</BulletList.Item>
+										<BulletList.Item>
+											<strong>Row 2</strong> links the Action Button to the ID cell via <code>aria-labelledby</code>.
+										</BulletList.Item>
+										<BulletList.Item>
+											<strong>Row 3</strong> links the Action Buttons to the TextField of the ID cell via{" "}
+											<code>aria-labelledby</code>, so the name follows the value that is currently typed in.
+										</BulletList.Item>
+									</BulletList.Unordered>
+								</>
+							),
+							note: (
 								<p>
-									The <code>slots</code> property and the column-level render hooks (<code>renderCell</code>,{" "}
-									<code>renderHeader</code>) let you customize what the table renders. When providing custom content,
-									ensure accessibility is preserved by including the appropriate ARIA attributes and roles.
+									In rows 2 and 3 the <code>aria-labelledby</code> of a Button points to the Button itself as well as to
+									the ID cell. That self reference pulls in the Button&apos;s own <code>aria-label</code> (<em>Edit</em>{" "}
+									or <em>Delete</em>), so there is no need for a hidden text element just to hold it.
 								</p>
-								<p>
-									To expose row data to the screen reader (e.g. reading the row ID when an action button is focused),
-									include it in the button's <code>title</code> or use a <code>HiddenText</code> linked via button's{" "}
-									<code>aria-describedby</code>/<code>aria-labelledby</code>. See the Checkbox and Action Column in the
-									example below.
-								</p>
-							</>
-						)
+							)
+						}
 					}
 				]
 			},
@@ -545,8 +596,10 @@ const showcases: Showcase[] = [
 									<code>minResizeWidth</code> is <code>0.1</code>.
 								</p>
 								<p>
-									For the action column, the resizing behavior will not be applied since its width always requires
-									keeping all of its children visible.
+									Every leaf header cell gets a handle, including <code>fixedWidth</code> and action columns. The handle
+									is keyboard-accessible: focus it, adjust with <code>ArrowLeft</code> / <code>ArrowRight</code>, and
+									press <code>Escape</code> to cancel. A width-less action column keeps auto-sizing to its buttons until
+									the user drags it; from then on the dragged width is kept.
 								</p>
 							</>
 						),
@@ -558,32 +611,13 @@ const showcases: Showcase[] = [
 						]
 					},
 					{
-						label: "Resizable Columns (Flat)",
-						content: <ResizableTableFlatShowcase />,
-						description: (
-							<>
-								<p>
-									Same as the previous example but with a flat list of columns (no nested <code>subColumns</code>/column
-									groups). Useful when every column is a leaf and you want to verify resizing behavior in the simpler
-									single-row header case.
-								</p>
-							</>
-						),
-						fitToSection: true,
-						fullSize: true,
-						code: [
-							{ name: "resizable-column-flat.tsx", code: resizableFlatCode },
-							{ name: "utils.ts", code: utilsCode }
-						]
-					},
-					{
 						label: "Drag and Drop",
 						content: <DnDTableShowcase />,
 						description: (
 							<>
 								<p>
-									To implement a "Drag and Drop DataTable", an object of type <code>DragDropOptions</code> should be
-									passed to <code>DataTable</code> via the <code>dragDropOptions</code> property.
+									To implement a "Drag and Drop DataTable", an object of type <code>DataTableDragDropOptions</code>{" "}
+									should be passed to <code>DataTable</code> via the <code>dragDropOptions</code> property.
 								</p>
 								<p>
 									In this example, the "onDrop" function is defined to handle the <code>onDrop</code> event. Once the
@@ -594,6 +628,12 @@ const showcases: Showcase[] = [
 									<strong>Note:</strong> We can still disable the drag and drop feature for specific interactive
 									elements on the table rows (such as buttons, checkboxes, and radio buttons) by setting the{" "}
 									<code>canDrag</code> return value to <code>false</code> via the <code>dragDropOptions</code> property.
+								</p>
+								<p>
+									Drag and drop also works from the keyboard: focus a row and press <kbd>Space</kbd> to pick it up,{" "}
+									<kbd>ArrowUp</kbd> / <kbd>ArrowDown</kbd> to move it one slot at a time, <kbd>Space</kbd> to drop it
+									or <kbd>Escape</kbd> to put it back. Every step is announced to screen readers, and{" "}
+									<code>canDrag</code> / <code>canDrop</code> apply exactly as they do for pointer drags.
 								</p>
 							</>
 						),
@@ -617,9 +657,9 @@ const showcases: Showcase[] = [
 										committed to the DOM. Windowing keeps scroll performance constant regardless of dataset size.
 									</p>
 									<p>
-										Pass an object to <code>virtualScrollOptions</code> with at minimum a fixed <code>rowHeight</code>{" "}
-										and optionally an <code>overscan</code> (number of rows rendered above and below the viewport).
-										Internally, DataTable virtualizes with&nbsp;
+										Pass <code>virtualScrollOptions</code> with a fixed <code>rowHeight</code> (as here) and optionally
+										an <code>overscan</code> (number of rows rendered above and below the viewport). Internally,
+										DataTable virtualizes with&nbsp;
 										<ExternalLink href="https://tanstack.com/virtual">@tanstack/react-virtual</ExternalLink>, but the
 										virtualizer is not part of the public surface — consumers configure it only through{" "}
 										<code>virtualScrollOptions</code>.
@@ -627,10 +667,10 @@ const showcases: Showcase[] = [
 									<p>
 										Virtualized mode requires <code>maxHeight</code> so the table has a bounded scroll container. Column
 										widths resolve exactly as in non-virtualized mode (a column without a <code>width</code> defaults to{" "}
-										<code>width: 1</code> and flexes), since all rows share one <code>colgroup</code>. Dynamic row
-										heights <em>are not supported</em> in this v1 surface — set a single <code>rowHeight</code> that
-										fits every row. To programmatically scroll to a row, use the table-level <code>scrollToNode</code>{" "}
-										prop (see the &quot;Scroll to Node&quot; example).
+										<code>width: 1</code> and flexes), since all rows share one <code>colgroup</code>. Row groups are
+										not available while virtualizing; drag and drop and column resizing are. Rows whose height varies
+										are covered by the next example. To programmatically scroll to a row, use the table-level{" "}
+										<code>scrollToNode</code> prop (see the &quot;Scroll to Node&quot; example).
 									</p>
 									<p>
 										For escape-hatch control, the&nbsp;
@@ -653,6 +693,64 @@ const showcases: Showcase[] = [
 						},
 						code: [
 							{ name: "virtualized.tsx", code: virtualizedCode },
+							{ name: "utils.ts", code: utilsCode }
+						]
+					},
+					{
+						label: "Virtualized (Dynamic Row Heights)",
+						content: <VirtualizedDynamicHeightsShowcase />,
+						fitToSection: true,
+						fullSize: true,
+						description: (
+							<>
+								<p>
+									Omit <code>rowHeight</code> and every rendered row is measured from the DOM (and re-measured when its
+									content resizes), so rows of different heights virtualize correctly. <code>estimatedRowHeight</code>{" "}
+									sizes rows that have not been measured yet — keep it close to your median row height to minimise
+									scrollbar jitter. <code>{"virtualScrollOptions={true}"}</code> is shorthand for this mode with
+									defaults.
+								</p>
+								<p>
+									Dynamic heights are also what <code>rowExpansion</code> needs under virtualization: with a fixed{" "}
+									<code>rowHeight</code> the expansion panel cannot be measured and is suppressed.
+								</p>
+								<p>
+									<code>virtualizerRef</code> receives an imperative handle with <code>scrollToIndex</code>,{" "}
+									<code>scrollToOffset</code> and <code>measure</code> for the vertical axis of the virtualized body.
+									Prefer the table-level <code>scrollToNode</code> when you only need to reach a row; it works in every
+									mode.
+								</p>
+							</>
+						),
+						code: [
+							{ name: "virtualized-dynamic.tsx", code: virtualizedDynamicCode },
+							{ name: "utils.ts", code: utilsCode }
+						]
+					},
+					{
+						label: "Infinite Scroll",
+						content: <InfiniteScrollTableShowcase />,
+						fitToSection: true,
+						fullSize: true,
+						description: (
+							<>
+								<p>
+									<code>infiniteScrollOptions</code> builds on virtualization and additionally fetches rows in batches
+									as they approach the viewport. Provide the total <code>rowCount</code>, a fixed <code>rowHeight</code>
+									, a <code>rowLoadingStatus</code> lookup, and a <code>loadData</code> callback that resolves once the
+									requested range is in <code>data</code>. Rows whose status is not <strong>"loaded"</strong> render as
+									skeleton placeholders. <code>threshold</code> and <code>minimumBatchSize</code> tune how early and how
+									much is requested.
+								</p>
+								<p>
+									Like virtualization it requires <code>maxHeight</code>; when both <code>infiniteScrollOptions</code>{" "}
+									and <code>virtualScrollOptions</code> are set, infinite scroll wins. The example simulates a 600 ms
+									network round-trip — scroll quickly to see the placeholders.
+								</p>
+							</>
+						),
+						code: [
+							{ name: "infinite-scroll.tsx", code: infiniteScrollCode },
 							{ name: "utils.ts", code: utilsCode }
 						]
 					},

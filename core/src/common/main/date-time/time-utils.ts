@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { TZDate, tz } from "@date-fns/tz";
 import type { Locale } from "date-fns";
 import { format, isEqual, addMinutes } from "date-fns";
-import { TZDate, tz } from "@date-fns/tz";
 
 import { convertMomentToDateFnsFormat } from "./date-fns-utils.js";
 

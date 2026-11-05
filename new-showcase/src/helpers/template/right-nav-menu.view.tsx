@@ -67,10 +67,12 @@ const StyledShowcaseNavMenu = styled(SplitView.Area)<{ $hideable?: boolean }>(({
 		height: fit-content;
 		margin-top: 158px;
 		position: sticky;
-		${$hideable &&
-		css`
-			display: none;
-		`};
+		${
+			$hideable &&
+			css`
+				display: none;
+			`
+		};
 		top: 0;
 		@media (max-width: 965px) {
 			display: none;
@@ -92,14 +94,18 @@ const StyledShowcaseNavItem = styled.li<{ $selected?: boolean; $isLastExample?: 
 			a {
 				font-size: ${typography.fontSize.smallFontSize};
 			}
-			${$isLastExample &&
-			css`
-				margin-bottom: ${spacing.verticalSpacing.vertWhiteSpacingsm}px;
-			`}
-			${$selected &&
-			css`
-				border-left: 2px solid ${colors.interaction.selected.color};
-			`}
+			${
+				$isLastExample &&
+				css`
+					margin-bottom: ${spacing.verticalSpacing.vertWhiteSpacingsm}px;
+				`
+			}
+			${
+				$selected &&
+				css`
+					border-left: 2px solid ${colors.interaction.selected.color};
+				`
+			}
 		`;
 	}
 );

@@ -30,17 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { styled, css } from "styled-components";
 import type { ReactElement, MouseEvent, KeyboardEvent } from "react";
 import { useCallback, useRef } from "react";
+import { styled, css } from "styled-components";
 
-import { joinClassNames, addPrefix, Key as CustomKey } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { joinClassNames, addPrefix, Key as CustomKey } from "../../../common/main/utils.js";
 import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
-import { active as activeMixin, activeAndHover, hover as hoverMixin } from "../../../theme/base/mixins/_interaction.js";
 import { useInteractionHint } from "../../../interaction-hint/main/use-interaction-hint.js";
 import { createBorder } from "../../../theme/base/mixins/_borderEffects.js";
-import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { active as activeMixin, activeAndHover, hover as hoverMixin } from "../../../theme/base/mixins/_interaction.js";
 
 import type { LinkProps } from "./link.api.js";
 
@@ -79,42 +79,46 @@ export const StyledLink = styled.a.withConfig({ displayName: "StyledLink-sc-" })
 				vertical-align: ${icon.verticalAlign};
 			}
 
-			${!$disabled &&
-			css`
-				&:visited {
-					color: ${visitedColor};
-				}
+			${
+				!$disabled &&
+				css`
+					&:visited {
+						color: ${visitedColor};
+					}
 
-				${activeAndHover(css`
-					background-position: left bottom;
-					transition: background-position ${transitionTiming};
-				`)}
+					${activeAndHover(css`
+						background-position: left bottom;
+						transition: background-position ${transitionTiming};
+					`)}
 
-				${activeMixin(css`
-					background-image: ${active.backgroundImage};
-					color: ${active.color};
-					text-decoration: ${active.textDecoration};
-				`)}
+					${activeMixin(css`
+						background-image: ${active.backgroundImage};
+						color: ${active.color};
+						text-decoration: ${active.textDecoration};
+					`)}
 
-				${hoverMixin(css`
-					background-image: ${hover.backgroundImage};
-					color: ${hover.color};
-					cursor: pointer;
-					text-decoration: ${hover.textDecoration};
-				`)}
+					${hoverMixin(css`
+						background-image: ${hover.backgroundImage};
+						color: ${hover.color};
+						cursor: pointer;
+						text-decoration: ${hover.textDecoration};
+					`)}
 
-        	&:focus {
-					background-image: ${focus.backgroundImage};
-					background-position: left bottom;
-					color: ${focus.color};
-					outline: ${focus.outline};
-					text-decoration: ${focus.textDecoration};
-					${focus.customBorder &&
-					css`
-						${createBorder(focus.customBorder)};
-					`}
-				}
-			`}
+					&:focus {
+						background-image: ${focus.backgroundImage};
+						background-position: left bottom;
+						color: ${focus.color};
+						outline: ${focus.outline};
+						text-decoration: ${focus.textDecoration};
+						${
+							focus.customBorder &&
+							css`
+								${createBorder(focus.customBorder)};
+							`
+						}
+					}
+				`
+			}
 		`;
 	}
 );

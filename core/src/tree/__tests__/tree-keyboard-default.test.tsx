@@ -30,15 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, test, expect, vi, beforeEach } from "vitest";
 import { render, getAllByDataRole } from "test-utils";
+import { describe, test, expect, vi, beforeEach } from "vitest";
 import { userEvent } from "vitest/browser";
 
 import { DataRoles } from "../../common/main/data-roles.js";
-
-import { Tree } from "../main/tpl/tree.tpl.view.js";
 import { TreeContainer, TreeNode } from "../main/tpl/tree-elements.tpl.js";
 import type { TreeNodeTemplateModel } from "../main/tpl/tree.tpl.api.js";
+import { Tree } from "../main/tpl/tree.tpl.view.js";
 
 describe("com.mgmtp.a12.widgets.tree", () => {
 	describe("default mode", () => {
@@ -529,8 +528,8 @@ describe("com.mgmtp.a12.widgets.tree", () => {
 			const nodeContents = getAllByDataRole(container, DataRoles.Tree.Node.Content).filter(
 				(el) => el.tabIndex === 0
 			) as HTMLElement[];
-			const expanders = getAllByDataRole(container, DataRoles.Tree.Node.Expander).map(
-				(el) => el.querySelector<HTMLElement>("button")!
+			const expanders = getAllByDataRole(container, DataRoles.Tree.Node.Expander).map((el) =>
+				el.querySelector<HTMLElement>("button")!
 			);
 
 			nodeContents[0].focus();

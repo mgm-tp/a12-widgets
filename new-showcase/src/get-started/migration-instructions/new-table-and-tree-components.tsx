@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { MarkdownViewer } from "../../helpers/markdown-viewer.js";
-import type { Showcase } from "../../helpers/definitions.js";
-
 import newTableAndTreeComponentsNotes from "!../../docs/migration/new-table-and-tree-components.md?raw";
+
+import type { Showcase } from "../../helpers/definitions.js";
+import { MarkdownViewer } from "../../helpers/markdown-viewer.js";
 
 const showcases: Showcase[] = [
 	{

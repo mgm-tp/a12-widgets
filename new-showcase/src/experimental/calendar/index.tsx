@@ -30,20 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import CalendarAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/experimental/calendar/main/calendar.api.json" with { type: "json" };
+import infiniteViewCode from "!./infinite-view.js?raw";
+import monthViewCode from "!./month-view.tsx?raw";
+import styledCode from "!./shared/calendar.styled.tsx?raw";
+import dataCode from "!./shared/data.ts?raw";
+import weekViewCode from "!./week-view.tsx?raw";
+
 import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import CalendarAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/experimental/calendar/main/calendar.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
+import { InfiniteView } from "./infinite-view.js";
 import { MonthView } from "./month-view.js";
 import { WeekView } from "./week-view.js";
-import { InfiniteView } from "./infinite-view.js";
-
-import monthViewCode from "!./month-view.tsx?raw";
-import infiniteViewCode from "!./infinite-view.js?raw";
-import weekViewCode from "!./week-view.tsx?raw";
-import dataCode from "!./shared/data.ts?raw";
-import styledCode from "!./shared/calendar.styled.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

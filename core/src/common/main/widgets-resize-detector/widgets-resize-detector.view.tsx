@@ -31,78 +31,41 @@
  */
 
 import type { FunctionComponent, ReactNode } from "react";
-import { useState, useCallback, useRef, useLayoutEffect, useEffect } from "react";
-import { useResizeDetector } from "react-resize-detector";
-import { type ResizePayload, type OnResizeCallback } from "react-resize-detector";
+import { useEffect, useEffectEvent } from "react";
+
+import { useResizeObserver } from "../resize-observer/use-resize-observer.js";
 
 import type { WidgetsResizeDetectorProps } from "./widgets-resize-detector.api.js";
 
 /**
- * Wrapper around the useResizeDetector hook to make it easier to use with class components.
+ * Wrapper around the {@link useResizeObserver} hook to make it easier to use
+ * with class components.
  * @param props see {@link WidgetsResizeDetectorProps}
  * @constructor
  */
 export const WidgetsResizeDetector: FunctionComponent<WidgetsResizeDetectorProps> = (props): ReactNode => {
-	const {
-		children,
+	const { children, onResize, handleHeight, handleWidth, skipOnMount, refreshRate, observerOptions, targetRef } = props;
+
+	// The detector has always emitted one `onResize` with an empty payload on
+	// mount (before any measurement); consumers rely on it to run their
+	// initial positioning and width/height synchronization.
+	const emitInitialResize = useEffectEvent(() => {
+		onResize?.({ width: null, height: null, entry: null });
+	});
+
+	useEffect(() => {
+		emitInitialResize();
+	}, []);
+
+	useResizeObserver({
 		onResize,
 		handleHeight,
 		handleWidth,
 		skipOnMount,
-		refreshMode = "debounce",
-		refreshRate = 0,
-		refreshOptions,
-		observerOptions,
-		targetRef
-	} = props;
-
-	const [resizePayload, setResizePayload] = useState<ResizePayload>({
-		height: null,
-		width: null,
-		entry: null
-	});
-
-	const handleOnResize = useCallback<OnResizeCallback>((payload: ResizePayload) => {
-		setResizePayload(payload);
-	}, []);
-
-	const { ref: resizeRef } = useResizeDetector<HTMLElement>({
-		onResize: handleOnResize,
-		handleHeight,
-		handleWidth,
-		skipOnMount,
-		refreshMode,
 		refreshRate,
-		refreshOptions,
 		observerOptions,
 		targetRef
 	});
-
-	const onResizeRef = useRef(onResize);
-
-	/*
-	 * Using the latest ref pattern with an onResize callback, ensure that the latest onResize is called in subsequent hooks without adding it to the dependencies.
-	 * You can refer to the pattern here: https://www.epicreact.dev/the-latest-ref-pattern-in-react
-	 * We keep this React.useLayoutEffect without dependencies, similar to how this pattern is used in ReactJS internal code.
-	 */
-	useLayoutEffect(() => {
-		onResizeRef.current = onResize;
-	});
-
-	// Calling onResize directly in the useResizeDetector hook causes the onResize to trigger when the parent component is rendering. In case there is some setState for parent state in onResize, it will cause the issue of not being able to update during an existing state transition.
-	useEffect(() => {
-		onResizeRef.current?.(resizePayload);
-	}, [resizePayload]);
-
-	const observedElement = targetRef?.current;
-
-	const attachRef = useCallback(() => {
-		resizeRef.current = observedElement;
-	}, [observedElement, resizeRef]);
-
-	useEffect(() => {
-		attachRef();
-	}, [attachRef]);
 
 	return children;
 };

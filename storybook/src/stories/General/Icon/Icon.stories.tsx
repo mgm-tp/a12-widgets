@@ -40,7 +40,6 @@ const meta: Meta<typeof Icon> = {
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		children: {
 			control: "text",
@@ -50,9 +49,15 @@ const meta: Meta<typeof Icon> = {
 			control: "text",
 			description: "Specifies the title attribute for the icon"
 		},
+		hiddenText: {
+			control: "text",
+			description:
+				"Screen-reader text for the icon. Defaults to `title`; set to an empty string to render no hidden text"
+		},
 		showTitleAsTooltip: {
 			control: "boolean",
-			description: "If true, the title will be shown as a tooltip"
+			description:
+				"If true (default), the title is shown as a tooltip; otherwise it stays readable by screen readers only"
 		},
 		iconTheme: {
 			control: "select",
@@ -67,7 +72,7 @@ const meta: Meta<typeof Icon> = {
 		variant: {
 			control: "select",
 			options: [undefined, "info", "success", "warning", "error"],
-			description: "Variant of the icon"
+			description: "Semantic color variant of the icon"
 		}
 	}
 };
@@ -75,9 +80,10 @@ const meta: Meta<typeof Icon> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
-		children: "home"
+		children: "home",
+		title: "Home"
 	}
 };
 
@@ -85,69 +91,105 @@ export const WithTitle: Story = {
 	args: {
 		children: "settings",
 		title: "Settings"
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`title` adds a tooltip and an accessible name. Set `showTitleAsTooltip` to `false` to keep the name for screen readers without showing the tooltip."
+			}
+		}
 	}
 };
 
-export const Filled: Story = {
-	args: {
-		children: "favorite",
-		iconTheme: "filled"
+export const IconThemes: Story = {
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+			<div style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
+				<span style={{ width: "100px" }}>Filled:</span>
+				<Icon iconTheme="filled">favorite</Icon>
+				<Icon iconTheme="filled">star</Icon>
+				<Icon iconTheme="filled">home</Icon>
+			</div>
+			<div style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
+				<span style={{ width: "100px" }}>Outlined:</span>
+				<Icon iconTheme="outlined">favorite</Icon>
+				<Icon iconTheme="outlined">star</Icon>
+				<Icon iconTheme="outlined">home</Icon>
+			</div>
+			<div style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
+				<span style={{ width: "100px" }}>Rounded:</span>
+				<Icon iconTheme="rounded">favorite</Icon>
+				<Icon iconTheme="rounded">star</Icon>
+				<Icon iconTheme="rounded">home</Icon>
+			</div>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`iconTheme` selects the Material Symbols style: `filled` (default), `outlined` or `rounded`. A `custom` theme is also available for project-specific icon implementations."
+			}
+		}
 	}
 };
 
-export const Outlined: Story = {
-	args: {
-		children: "favorite",
-		iconTheme: "outlined"
+export const Sizes: Story = {
+	render: () => (
+		<div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+			<Icon size="medium" title="Medium">
+				star
+			</Icon>
+			<Icon size="big" title="Big">
+				star
+			</Icon>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`size` defines the font-size of the icon: `medium` (default) or `big`."
+			}
+		}
 	}
 };
 
-export const Rounded: Story = {
-	args: {
-		children: "favorite",
-		iconTheme: "rounded"
-	}
-};
-
-export const MediumSize: Story = {
-	args: {
-		children: "star",
-		size: "medium"
-	}
-};
-
-export const BigSize: Story = {
-	args: {
-		children: "star",
-		size: "big"
-	}
-};
-
-export const InfoVariant: Story = {
-	args: {
-		children: "info",
-		variant: "info"
-	}
-};
-
-export const SuccessVariant: Story = {
-	args: {
-		children: "check_circle",
-		variant: "success"
-	}
-};
-
-export const WarningVariant: Story = {
-	args: {
-		children: "warning",
-		variant: "warning"
-	}
-};
-
-export const ErrorVariant: Story = {
-	args: {
-		children: "error",
-		variant: "error"
+export const Variants: Story = {
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+			<div style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
+				<span style={{ width: "100px" }}>Default:</span>
+				<Icon>info</Icon>
+				<Icon>check_circle</Icon>
+				<Icon>warning</Icon>
+				<Icon>error</Icon>
+			</div>
+			<div style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
+				<span style={{ width: "100px" }}>Info:</span>
+				<Icon variant="info">info</Icon>
+			</div>
+			<div style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
+				<span style={{ width: "100px" }}>Success:</span>
+				<Icon variant="success">check_circle</Icon>
+			</div>
+			<div style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
+				<span style={{ width: "100px" }}>Warning:</span>
+				<Icon variant="warning">warning</Icon>
+			</div>
+			<div style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
+				<span style={{ width: "100px" }}>Error:</span>
+				<Icon variant="error">error</Icon>
+			</div>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`variant` applies a semantic color: `info`, `success`, `warning` or `error`. Without a variant the icon inherits the surrounding text color."
+			}
+		}
 	}
 };
 
@@ -170,60 +212,12 @@ export const CommonIcons: Story = {
 			<Icon title="Star">star</Icon>
 			<Icon title="Check">check</Icon>
 		</div>
-	)
-};
-
-export const AllVariants: Story = {
-	render: () => (
-		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-			<div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-				<span style={{ width: "100px" }}>Default:</span>
-				<Icon>info</Icon>
-				<Icon>check_circle</Icon>
-				<Icon>warning</Icon>
-				<Icon>error</Icon>
-			</div>
-			<div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-				<span style={{ width: "100px" }}>Info:</span>
-				<Icon variant="info">info</Icon>
-			</div>
-			<div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-				<span style={{ width: "100px" }}>Success:</span>
-				<Icon variant="success">check_circle</Icon>
-			</div>
-			<div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-				<span style={{ width: "100px" }}>Warning:</span>
-				<Icon variant="warning">warning</Icon>
-			</div>
-			<div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-				<span style={{ width: "100px" }}>Error:</span>
-				<Icon variant="error">error</Icon>
-			</div>
-		</div>
-	)
-};
-
-export const IconThemes: Story = {
-	render: () => (
-		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-			<div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-				<span style={{ width: "100px" }}>Filled:</span>
-				<Icon iconTheme="filled">favorite</Icon>
-				<Icon iconTheme="filled">star</Icon>
-				<Icon iconTheme="filled">home</Icon>
-			</div>
-			<div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-				<span style={{ width: "100px" }}>Outlined:</span>
-				<Icon iconTheme="outlined">favorite</Icon>
-				<Icon iconTheme="outlined">star</Icon>
-				<Icon iconTheme="outlined">home</Icon>
-			</div>
-			<div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-				<span style={{ width: "100px" }}>Rounded:</span>
-				<Icon iconTheme="rounded">favorite</Icon>
-				<Icon iconTheme="rounded">star</Icon>
-				<Icon iconTheme="rounded">home</Icon>
-			</div>
-		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "A selection of frequently used Material Symbols names passed as `children`."
+			}
+		}
+	}
 };

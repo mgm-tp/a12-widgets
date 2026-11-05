@@ -34,12 +34,12 @@ import type { ReactNode } from "react";
 import { Component, isValidElement } from "react";
 import { css, styled } from "styled-components";
 
+import { Callout } from "../../../callout/main/callout.view.js";
+import type { CalloutHeaderProps } from "../../../callout/main/template/callout.tpl.api.js";
+import { StyledCalloutBody, StyledCalloutFooter } from "../../../callout/main/template/callout.tpl.view.js";
+import type { Orientation } from "../../../common/main/alignment.js";
 import { provider as DeviceDetector } from "../../../common/main/device-detector.js";
 import { addPrefix, bindMethods, joinClassNames } from "../../../common/main/utils.js";
-import type { Orientation } from "../../../common/main/alignment.js";
-import type { CalloutHeaderProps } from "../../../callout/main/template/callout.tpl.api.js";
-import { Callout } from "../../../callout/main/callout.view.js";
-import { StyledCalloutBody, StyledCalloutFooter } from "../../../callout/main/template/callout.tpl.view.js";
 import { StyledCommentListWrapper } from "../../comment.styled.js";
 
 import type { CommentContainerProps } from "./comment-container.api.js";
@@ -74,10 +74,12 @@ const StyledCallout = styled(Callout).withConfig({ displayName: "StyledCallout-s
 					}
 				}
 
-				${$isPhone &&
-				css`
-					max-height: 100%;
-				`}
+				${
+					$isPhone &&
+					css`
+						max-height: 100%;
+					`
+				}
 			`
 		);
 	}

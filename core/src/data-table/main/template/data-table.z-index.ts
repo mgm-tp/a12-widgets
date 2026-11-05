@@ -59,12 +59,24 @@ export const DataTableZIndex = {
 	stickyHeadFootAndDnd: 3,
 
 	/**
-	 * Pinned header / filter-header cells — paint above the sticky `<thead>`
-	 * stacking context so the sticky head still wins over scrolling head cells
-	 * during horizontal scroll.
+	 * Column resize handle on a head cell. Head cells are `z-index: auto`, so a handle
+	 * competes directly in the `<thead>` context and paints above the neighbouring
+	 * cells it overhangs into. Below the pinned head cells, so a handle scrolled behind
+	 * a pinned column stays hidden and ungrabbable.
 	 */
-	pinnedHeadCell: 4,
+	resizeHandle: 4,
 
-	/** Column resize handle on a head cell — always topmost. */
-	resizeHandle: 5
+	/**
+	 * Pinned header / filter-header cells — above the sticky `<thead>` context, so they
+	 * win over scrolling head cells and their handles during horizontal scroll.
+	 */
+	pinnedHeadCell: 5,
+
+	/**
+	 * A pinned column-group head cell hosting a group resize handle. A pinned cell is a
+	 * stacking context, so its handle is trapped and the group's own pinned children
+	 * (same z-index, later in DOM) paint over the handle's downward overflow. Raising
+	 * the host one step clears it. Scrolling group cells need no raise.
+	 */
+	pinnedHeadCellGroupResize: 6
 } as const;

@@ -32,11 +32,11 @@
 
 import { styled, css } from "styled-components";
 
-import { StyledDropdownWrapper } from "../../../dropdown/main/template/dropdown.tpl.styled.js";
-import { StyledModalOverlayContainer, ModalOverlay } from "../../../modal-overlay/main/modal-overlay.view.js";
 import { StyledContentBoxContent } from "../../../contentbox/main/template/contentbox.tpl.styled.js";
-import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
+import { StyledDropdownContent, StyledDropdownWrapper } from "../../../dropdown/main/template/dropdown.tpl.styled.js";
+import { StyledModalOverlayContainer, ModalOverlay } from "../../../modal-overlay/main/modal-overlay.view.js";
 import { createBoxShadow } from "../../../theme/base/mixins/_borderEffects.js";
+import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
 
 const { helperClassInDisabledStyles, StyledFieldInput } = StyledBaseInput;
 
@@ -51,18 +51,20 @@ export const StyledAutocompleteWrapper = styled.div.withConfig({ displayName: "S
 
 		${$disabled && helperClassInDisabledStyles}
 
-		${input?.focus?.customBorder &&
-		css`
-			${StyledFieldInput}[data-isfocused="true"] {
-				${createBoxShadow(input.focus.customBorder)}
-			}
-		`}
+		${
+			input?.focus?.customBorder &&
+			css`
+				${StyledFieldInput}[data-isfocused="true"] {
+					${createBoxShadow(input.focus.customBorder)}
+				}
+			`
+		}
 	`;
 });
 
 export const StyledAutocompleteDropdownWrapper = styled.div.withConfig({
 	displayName: "StyledAutocompleteDropdownWrapper-sc-"
-})<{ isLoading?: boolean }>(({ theme, isLoading }) => {
+})<{ isLoading?: boolean; $attached?: boolean }>(({ theme, isLoading, $attached }) => {
 	const { dropdown } = theme.components.autocomplete;
 
 	return css`
@@ -73,6 +75,19 @@ export const StyledAutocompleteDropdownWrapper = styled.div.withConfig({
 
 		${StyledDropdownWrapper} {
 			min-height: inherit;
+		}
+
+		${
+			$attached &&
+			css`
+				${StyledDropdownContent} {
+					// This popup is anchored to the field even on touch, where the template lifts its cap for
+					// the lists embedded in a bounded container. It has to stay bounded itself, so that it
+					// neither runs off-screen nor disappears behind the on-screen keyboard.
+					max-height: ${theme.components.dropdown.contentMaxHeight};
+					flex: 0 1 auto;
+				}
+			`
 		}
 	`;
 });
@@ -86,12 +101,46 @@ export const StyledAutocompleteModal = styled(ModalOverlay).withConfig({ display
 				padding: ${theme.components.baseInput.input.mobileContentboxPadding};
 			}
 
-			${input?.focus?.customBorder &&
-			css`
-				${StyledFieldInput}[data-isfocused="true"] {
-					${createBoxShadow(input.focus.customBorder)}
-				}
-			`}
+			${
+				input?.focus?.customBorder &&
+				css`
+					${StyledFieldInput}[data-isfocused="true"] {
+						${createBoxShadow(input.focus.customBorder)}
+					}
+				`
+			}
 		`;
 	}
 );
+
+/**
+ * Stacks the dialog's search field above the option list.
+ *
+ * The list keeps its natural height and only shrinks — and scrolls — once it would outgrow the dialog.
+ * It must not *grow*: stretching it would paint the list background over the empty part of the dialog
+ * below a short list.
+ */
+export const StyledAutocompleteModalContent = styled.div.withConfig({
+	displayName: "StyledAutocompleteModalContent-sc-"
+})`
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	height: 100%;
+
+	${StyledAutocompleteDropdownWrapper}, ${StyledDropdownWrapper} {
+		flex: 0 1 auto;
+		min-height: 0;
+	}
+
+	${StyledDropdownWrapper} {
+		width: 100%;
+	}
+
+	${StyledDropdownContent} {
+		// The dialog is already bounded by the viewport, so the theme's dropdown cap — which exists to
+		// keep a popup anchored to a field on screen — would pointlessly limit the list to a few rows.
+		max-height: none;
+		flex: 0 1 auto;
+	}
+`;

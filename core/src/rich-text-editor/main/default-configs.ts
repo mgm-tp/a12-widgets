@@ -32,8 +32,8 @@
 
 import type { InitialConfigType } from "@lexical/react/LexicalComposer";
 
-import { editorThemeClasses } from "./themes/themes.js";
 import { EditorNodes } from "./nodes/nodes.js";
+import { editorThemeClasses } from "./themes/themes.js";
 
 export const defaultConfig = (): InitialConfigType => {
 	return {

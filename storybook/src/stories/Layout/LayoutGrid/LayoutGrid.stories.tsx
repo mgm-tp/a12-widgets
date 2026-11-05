@@ -51,7 +51,6 @@ const meta: Meta<typeof Grid> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		noGutter: {
 			control: "boolean",
@@ -69,6 +68,10 @@ const meta: Meta<typeof Grid> = {
 			control: "select",
 			options: ["top", "middle", "bottom"],
 			description: "Vertical alignment of column content"
+		},
+		disableNegativeMargin: {
+			control: "boolean",
+			description: "Wrap the grid in a div so it keeps a spacing around instead of using negative margins"
 		}
 	}
 };
@@ -76,9 +79,14 @@ const meta: Meta<typeof Grid> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => (
-		<Grid>
+export const Playground: Story = {
+	args: {
+		noGutter: false,
+		fitToParent: false,
+		cellBorder: false
+	},
+	render: (args) => (
+		<Grid {...args}>
 			<Row>
 				<Column size={{ lg: 4 }}>
 					<div style={cellStyle}>Column 1 (4/12)</div>
@@ -94,24 +102,28 @@ export const Default: Story = {
 	)
 };
 
-export const TwoColumns: Story = {
+export const ColumnSizes: Story = {
 	render: () => (
 		<Grid>
 			<Row>
-				<Column size={{ lg: 6 }}>
-					<div style={cellStyle}>Left (6/12)</div>
+				<Column size={{ lg: 4 }}>
+					<div style={cellStyle}>4/12</div>
 				</Column>
-				<Column size={{ lg: 6 }}>
-					<div style={cellStyle}>Right (6/12)</div>
+				<Column size={{ lg: 4 }}>
+					<div style={cellStyle}>4/12</div>
+				</Column>
+				<Column size={{ lg: 4 }}>
+					<div style={cellStyle}>4/12</div>
 				</Column>
 			</Row>
-		</Grid>
-	)
-};
-
-export const UnequallySized: Story = {
-	render: () => (
-		<Grid>
+			<Row>
+				<Column size={{ lg: 6 }}>
+					<div style={cellStyle}>6/12</div>
+				</Column>
+				<Column size={{ lg: 6 }}>
+					<div style={cellStyle}>6/12</div>
+				</Column>
+			</Row>
 			<Row>
 				<Column size={{ lg: 3 }}>
 					<div style={cellStyle}>3/12</div>
@@ -124,33 +136,15 @@ export const UnequallySized: Story = {
 				</Column>
 			</Row>
 		</Grid>
-	)
-};
-
-export const MultipleRows: Story = {
-	render: () => (
-		<Grid>
-			<Row>
-				<Column size={{ lg: 6 }}>
-					<div style={cellStyle}>Row 1, Col 1</div>
-				</Column>
-				<Column size={{ lg: 6 }}>
-					<div style={cellStyle}>Row 1, Col 2</div>
-				</Column>
-			</Row>
-			<Row>
-				<Column size={{ lg: 4 }}>
-					<div style={cellStyle}>Row 2, Col 1</div>
-				</Column>
-				<Column size={{ lg: 4 }}>
-					<div style={cellStyle}>Row 2, Col 2</div>
-				</Column>
-				<Column size={{ lg: 4 }}>
-					<div style={cellStyle}>Row 2, Col 3</div>
-				</Column>
-			</Row>
-		</Grid>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Each `Column` takes a `size` per breakpoint on a 12-unit scale. A `Grid` can contain multiple `Row`s, each with its own column split."
+			}
+		}
+	}
 };
 
 export const ResponsiveColumns: Story = {
@@ -173,7 +167,45 @@ export const ResponsiveColumns: Story = {
 				</Row>
 			</Grid>
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`size` accepts a value per breakpoint (`sm`, `md`, `lg`). The grid tracks its own container width — not the viewport — so resizing the panel switches breakpoints."
+			}
+		}
+	}
+};
+
+export const RowLayoutConfig: Story = {
+	render: () => (
+		<Grid>
+			<Row
+				layoutConfig={{
+					layout: { lg: [3, 6, 3], md: [6, 6, 12], sm: [12, 12, 12] }
+				}}
+			>
+				<Column>
+					<div style={cellStyle}>lg:3 md:6 sm:12</div>
+				</Column>
+				<Column>
+					<div style={cellStyle}>lg:6 md:6 sm:12</div>
+				</Column>
+				<Column>
+					<div style={cellStyle}>lg:3 md:12 sm:12</div>
+				</Column>
+			</Row>
+		</Grid>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Instead of sizing each column individually, `layoutConfig` on a `Row` declares the whole layout per breakpoint — columns inside then need no `size` prop."
+			}
+		}
+	}
 };
 
 export const NoGutter: Story = {
@@ -191,7 +223,14 @@ export const NoGutter: Story = {
 				</Column>
 			</Row>
 		</Grid>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`noGutter` removes all spacing between rows and columns."
+			}
+		}
+	}
 };
 
 export const VerticalAlignment: Story = {
@@ -209,7 +248,15 @@ export const VerticalAlignment: Story = {
 				</Column>
 			</Row>
 		</Grid>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`verticalAlignment` (`top`, `middle`, `bottom`) can be set on the `Grid`, a `Row` or a single `Column`. Without it, columns stretch to the row height."
+			}
+		}
+	}
 };
 
 export const WithCellBorder: Story = {
@@ -227,5 +274,12 @@ export const WithCellBorder: Story = {
 				</Column>
 			</Row>
 		</Grid>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`cellBorder` draws a border around the content of every column."
+			}
+		}
+	}
 };

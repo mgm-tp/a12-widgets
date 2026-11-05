@@ -32,8 +32,8 @@
 
 import type { ReactElement } from "react";
 
-import type { PaginationProps } from "./pagination.api.js";
 import { DefaultPagination } from "./default-pagination.view.js";
+import type { PaginationProps } from "./pagination.api.js";
 import { SimplePagination } from "./simple-pagination.view.js";
 
 /**

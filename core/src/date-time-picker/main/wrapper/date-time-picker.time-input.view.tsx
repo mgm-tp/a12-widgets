@@ -34,19 +34,18 @@ import { type Locale, enUS } from "date-fns/locale";
 import type { ContextType, ReactElement, MouseEvent as ReactMouseEvent, ReactNode } from "react";
 import { Component } from "react";
 
-import { bindMethods } from "../../../common/main/utils.js";
-import { TimeUtils } from "../../../common/main/date-time/time-utils.js";
-import { DateTimeUtils } from "../../../common/main/date-time/date-utils.js";
-import { provider } from "../../../common/main/device-detector.js";
-import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { Button } from "../../../button/main/button.view.js";
+import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
+import { DateTimeContext } from "../../../common/main/date-time/date-time-context.js";
+import { DateTimeUtils } from "../../../common/main/date-time/date-utils.js";
+import { TimeUtils } from "../../../common/main/date-time/time-utils.js";
+import { provider } from "../../../common/main/device-detector.js";
+import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { bindMethods } from "../../../common/main/utils.js";
 import { Icon } from "../../../icon/main/icon.view.js";
 import { TimePickerInput } from "../../../time-picker/main/time-picker-input.view.js";
-import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
-import { DateTimeContext } from "../../../common/main/date-time/date-time-context.js";
-
-import { DateTimePickerFooter } from "../date-time-picker.tpl.view.js";
 import type { DateTimePickerProps } from "../date-time-picker.api.js";
+import { DateTimePickerFooter } from "../date-time-picker.tpl.view.js";
 import { DateTimePicker } from "../date-time-picker.view.js";
 
 import type { DateTimePickerTimeInputProps } from "./date-time-picker.time-input.api.js";

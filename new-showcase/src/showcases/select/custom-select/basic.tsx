@@ -32,8 +32,8 @@
 
 import type { FC, ReactNode } from "react";
 import { useState } from "react";
-import { Key } from "ts-key-enum";
 import { css, styled } from "styled-components";
+import { Key } from "ts-key-enum";
 
 import { CustomSelect, Icon, StyledIconWrapper } from "@com.mgmtp.a12.widgets/widgets-core";
 import type { DropDownItem } from "@com.mgmtp.a12.widgets/widgets-core";

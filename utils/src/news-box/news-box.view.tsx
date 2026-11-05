@@ -38,6 +38,12 @@ import { LayoutGrid, CssEllipsis, ResponsiveImageContainer } from "@com.mgmtp.a1
 import type { NewsBoxProps } from "./news-box.api.js";
 
 const { Column, Row } = LayoutGrid;
+
+/**
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. It lays out the news items of the showcase start page. Compose the
+ * same layout from `LayoutGrid`, `CssEllipsis` and `ResponsiveImageContainer` in `widgets-core`.
+ */
 export const StyledNewsBoxSection = styled(Column)(({ theme }) => {
 	const { typography, applicationStyles } = theme;
 	const { responsive } = applicationStyles;
@@ -61,6 +67,11 @@ export const StyledNewsBoxSection = styled(Column)(({ theme }) => {
 	`;
 });
 
+/**
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. It lays out the news items of the showcase start page. Compose the
+ * same layout from `LayoutGrid`, `CssEllipsis` and `ResponsiveImageContainer` in `widgets-core`.
+ */
 export const StyledNewsBoxWrapper = styled(Row)(({ theme }) => {
 	const { spacing, applicationStyles } = theme;
 	const { responsive } = applicationStyles;
@@ -74,6 +85,11 @@ export const StyledNewsBoxWrapper = styled(Row)(({ theme }) => {
 	`;
 });
 
+/**
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. It lays out the news items of the showcase start page. Compose the
+ * same layout from `LayoutGrid`, `CssEllipsis` and `ResponsiveImageContainer` in `widgets-core`.
+ */
 export function NewsBox(props: NewsBoxProps): ReactElement<NewsBoxProps> {
 	const { header, footer, content, image, info, maxLines = 4 } = props;
 

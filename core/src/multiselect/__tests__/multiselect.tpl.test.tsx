@@ -30,15 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { getByDataRole, render, fireEvent } from "test-utils";
+import { getByDataRole, isAfter, render, fireEvent } from "test-utils";
 import { Key } from "ts-key-enum";
 import { describe, vi, expect, test } from "vitest";
 
-import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
 import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
-import { noop } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
+import { noop } from "../../common/main/utils.js";
+import type { MessagePosition, TooltipLineBreak } from "../../input/base/template/base.tpl.api.js";
+import { HintTooltip } from "../../tooltip/hint/main/hint.view.js";
 import type { MultiselectProps } from "../main/multiselect.api.js";
 import { MultiselectTemplate } from "../main/multiselect.tpl.view.js";
 
@@ -337,5 +337,160 @@ describe("com.mgmtp.a12.widgets.multiselect.template", () => {
 		fireEvent.focus(dropdown);
 		fireEvent.keyDown(dropdown, { key: Key.ArrowDown });
 		expect(onDropdownKeyDownSpy).toHaveBeenCalledTimes(1);
+	});
+
+	describe("message position", () => {
+		/**
+		 * The multiselect registers no message roles of its own: the messages are rendered by the
+		 * text-field it delegates to and carry that component's roles.
+		 */
+		const messageRoles = [
+			DataRoles.TextField.ErrorMessage,
+			DataRoles.TextField.WarningMessage,
+			DataRoles.TextField.InfoMessage
+		];
+
+		const renderWithMessages = (messagePosition: MessagePosition) =>
+			render(
+				<MultiselectTemplate
+					items={ITEMS}
+					label="Test Label"
+					id={properties.id}
+					helperText="Test Helper Text"
+					errorMessage="Test error message"
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					messagePosition={messagePosition}
+					onChange={noop}
+				/>
+			);
+
+		test("renders the messages above the control for above", () => {
+			const { getByDataRole } = renderWithMessages("above");
+			const control = getByDataRole(DataRoles.TextField.Control);
+			const inputWrapper = getByDataRole(DataRoles.TextField.Input.Wrapper);
+			const label = getByDataRole(DataRoles.TextField.Label);
+			const helperText = getByDataRole(DataRoles.TextField.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(true);
+				expect(isAfter(message, inputWrapper)).toBe(true);
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the control for below", () => {
+			const { getByDataRole } = renderWithMessages("below");
+			const control = getByDataRole(DataRoles.TextField.Control);
+			const inputWrapper = getByDataRole(DataRoles.TextField.Input.Wrapper);
+			const label = getByDataRole(DataRoles.TextField.Label);
+			const helperText = getByDataRole(DataRoles.TextField.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(true);
+				expect(isAfter(inputWrapper, message)).toBe(true);
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const renderWithTooltips = (breakTooltipsToNewLine: TooltipLineBreak, helperText?: string) =>
+			render(
+				<MultiselectTemplate
+					items={ITEMS}
+					label={properties.label}
+					id={properties.id}
+					helperText={helperText}
+					tooltips={<div>Test tooltip</div>}
+					breakTooltipsToNewLine={breakTooltipsToNewLine}
+					onChange={noop}
+				/>
+			);
+
+		/**
+		 * Inline tooltips do not use the text-field's tooltip slot at all: the multiselect hands them to
+		 * the text-field as `addonAfter`, so they arrive in the after-addon beside the control.
+		 */
+		test("renders the tooltips in the after-addon beside the control for false", () => {
+			const { getByDataRole, getByText, queryByDataRole } = renderWithTooltips(false);
+			const control = getByDataRole(DataRoles.TextField.Control);
+			const addon = getByDataRole("text-field--addon-after-0");
+			const tooltip = getByText("Test tooltip");
+
+			expect(queryByDataRole(DataRoles.TextField.TooltipAddon)).toBeNull();
+			expect(addon.contains(tooltip)).toBe(true);
+			expect(isAfter(control, addon)).toBe(true);
+		});
+
+		test("renders the tooltips above the control for above", () => {
+			const { getByDataRole, getByText, queryByDataRole } = renderWithTooltips("above");
+			const control = getByDataRole(DataRoles.TextField.Control);
+			const inputWrapper = getByDataRole(DataRoles.TextField.Input.Wrapper);
+			const tooltip = getByText("Test tooltip");
+
+			expect(queryByDataRole("text-field--addon-after-0")).toBeNull();
+			expect(control.contains(tooltip)).toBe(true);
+			expect(isAfter(tooltip, inputWrapper)).toBe(true);
+		});
+
+		test("renders the tooltips below the whole control row for below", () => {
+			const { getByDataRole, getByText } = renderWithTooltips("below", properties.helperText);
+			const control = getByDataRole(DataRoles.TextField.Control);
+			const fieldMain = control.parentElement as HTMLElement;
+			const helperText = getByDataRole(DataRoles.TextField.HelperText);
+			const tooltip = getByText("Test tooltip");
+
+			expect(fieldMain.contains(tooltip)).toBe(false);
+			expect(isAfter(fieldMain, tooltip)).toBe(true);
+			expect(isAfter(tooltip, helperText)).toBe(true);
+		});
+	});
+
+	describe("aria-invalid", () => {
+		test("marks the input as invalid for error", () => {
+			const { getByDataRole } = render(
+				<MultiselectTemplate items={ITEMS} label={properties.label} id={properties.id} error onChange={noop} />
+			);
+
+			expect(getByDataRole(DataRoles.TextField.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("marks the input as invalid for errorMessage", () => {
+			const { getByDataRole } = render(
+				<MultiselectTemplate
+					items={ITEMS}
+					label={properties.label}
+					id={properties.id}
+					errorMessage="Test error message"
+					onChange={noop}
+				/>
+			);
+
+			expect(getByDataRole(DataRoles.TextField.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("does not mark the input as invalid for a warning or an info", () => {
+			const { getByDataRole } = render(
+				<MultiselectTemplate
+					items={ITEMS}
+					label={properties.label}
+					id={properties.id}
+					warning
+					info
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					onChange={noop}
+				/>
+			);
+
+			expect(getByDataRole(DataRoles.TextField.Input)).not.toHaveAttribute("aria-invalid");
+		});
 	});
 });

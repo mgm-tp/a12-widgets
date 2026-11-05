@@ -32,8 +32,8 @@
 
 import { memo } from "react";
 
-import type { TableRenderPropsType } from "./table-renderer.api.js";
 import type { BaseColumnType } from "./column.api.js";
+import type { TableRenderPropsType } from "./table-renderer.api.js";
 
 /** @internal */
 export const HeadContent = memo(function HeadContent(props: TableRenderPropsType.HeadContentProps<BaseColumnType>) {

@@ -33,11 +33,11 @@
 import type { ReactNode, MouseEvent, KeyboardEvent, ReactElement } from "react";
 import { Component } from "react";
 
-import { Button } from "../../../../button/main/button.view.js";
-import { Icon } from "../../../../icon/main/icon.view.js";
 import { AttachedPortal } from "../../../../attached-portal/main/attached-portal.view.js";
-import { bindMethods, addPrefix, joinClassNames } from "../../../../common/main/utils.js";
+import { Button } from "../../../../button/main/button.view.js";
 import { DataRoles } from "../../../../common/main/data-roles.js";
+import { bindMethods, addPrefix, joinClassNames } from "../../../../common/main/utils.js";
+import { Icon } from "../../../../icon/main/icon.view.js";
 import {
 	StyledRechartsLegend,
 	StyledRechartsLegendItem,

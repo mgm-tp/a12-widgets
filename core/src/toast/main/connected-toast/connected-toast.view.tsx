@@ -35,10 +35,10 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import { styled, css } from "styled-components";
 import { Key } from "ts-key-enum";
 
-import { fadeIn } from "../../../theme/base/mixins/_animation.js";
 import { AttachedPortal } from "../../../attached-portal/main/attached-portal.view.js";
 import type { Orientation } from "../../../common/main/alignment.js";
 import { addPrefix } from "../../../common/main/utils.js";
+import { fadeIn } from "../../../theme/base/mixins/_animation.js";
 
 import type { ConnectedToastProps } from "./connected-toast.api.js";
 import { ConnectedToastTemplate } from "./template/connected-toast.template.view.js";

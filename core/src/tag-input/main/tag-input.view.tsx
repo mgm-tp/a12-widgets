@@ -46,8 +46,11 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Key } from "ts-key-enum";
 
 import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
-import { Button } from "../../button/main/button.view.js";
 import { ButtonGroup } from "../../button-group/main/button-group.view.js";
+import { Button } from "../../button/main/button.view.js";
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { getDesktopOperatingSystem, provider } from "../../common/main/device-detector.js";
 import {
 	addPrefix,
 	bindMethods,
@@ -56,19 +59,19 @@ import {
 	getParentElement,
 	joinClassNames
 } from "../../common/main/utils.js";
-import { getDesktopOperatingSystem, provider } from "../../common/main/device-detector.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { WidgetsResizeDetector } from "../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
 import { ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
 import type { DropDownItem } from "../../dropdown/main/template/dropdown.tpl.api.js";
 import { DropDown } from "../../dropdown/main/template/dropdown.tpl.view.js";
 import { Icon } from "../../icon/main/icon.view.js";
-import { InputElements } from "../../input/base/template/base.tpl.view.js";
-import { ModalOverlay } from "../../modal-overlay/main/modal-overlay.view.js";
 import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
+import { InputElements } from "../../input/base/template/base.tpl.view.js";
+import type { FieldOverrideProps } from "../../input/field-default-config/main/field-default-config.api.js";
+import { FieldDefaultsConfig } from "../../input/field-default-config/main/field-default-config.utils.js";
+import { ModalOverlay } from "../../modal-overlay/main/modal-overlay.view.js";
 import { ConnectedToast } from "../../toast/main/connected-toast/connected-toast.view.js";
-import { WidgetsResizeDetector } from "../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
 
+import type { TagInputProps } from "./tag-input.api.js";
 import type { TagInternalProps } from "./tag-input.internal.js";
 import {
 	createDataTag,
@@ -79,7 +82,6 @@ import {
 	getFocusedTag,
 	unFocusAllTags
 } from "./tag-input.internal.js";
-import type { TagInputProps } from "./tag-input.api.js";
 import {
 	StyledTagInputActionContentBox,
 	StyledTagInputFieldAddon,
@@ -138,7 +140,6 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 	private inputInitHeight = 0;
 	private alreadyInNewLine = false;
 	private noEffect = false;
-	private tagHover = false;
 	private hasTouch = provider.hasTouch() && !provider.isDesktop();
 	private timeoutHandle: ReturnType<typeof setTimeout> | undefined;
 
@@ -170,7 +171,9 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 
 		// Support delete all text in text area when selected text and press Backspace or Delete.
 		const handleChangeText = (): void =>
-			this.state.inputText ? this.handleInputValueChange(event as any) : this.handlePressDelete(key, isSelectText);
+			this.state.inputText
+				? this.handleInputValueChange(event as any)
+				: this.handlePressDelete(key, event, isSelectText);
 
 		// Allowing to delete previous tags when the text area is empty and pressing Backspace or Delete
 		if (isSelectText) {
@@ -178,6 +181,14 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 		}
 
 		handleChangeText();
+	}
+
+	private resetFocusToTextArea(event: KeyboardEvent<HTMLDivElement>): void {
+		this.setState((prevState) => ({
+			tags: unFocusAllTags(prevState.tags),
+			isDisplayDropDownTags: event.key !== Key.Escape
+		}));
+		this.focusTextArea();
 	}
 
 	private handleTagGroupKeyDown(event: KeyboardEvent<HTMLDivElement>): void {
@@ -192,24 +203,37 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 				case Key.Backspace:
 				case Key.Delete:
 					this.handleDeleteInputValue(event, key);
+
 					break;
 				case Key.ArrowRight:
 				case Key.ArrowLeft:
-					this.handlePressArrowKeys(key);
+					this.handlePressArrowKeys(key, event);
+
 					break;
 				case Key.Tab:
 					break;
+				case Key.Enter:
+				case " ":
+					if ((event.target as HTMLElement | null)?.getAttribute("data-role") !== `${DataRoles.Button}`) {
+						this.resetFocusToTextArea(event);
+					}
+
+					break;
+				case Key.Shift: {
+					if (!this.props.focusableRemoveButtons) {
+						this.resetFocusToTextArea(event);
+					}
+
+					break;
+				}
+
 				default:
-					this.setState((prevState) => ({
-						tags: unFocusAllTags(prevState.tags),
-						isDisplayDropDownTags: event.key !== Key.Escape
-					}));
-					this.focusTextArea();
+					this.resetFocusToTextArea(event);
 			}
 		}
 	}
 
-	private handlePressDelete(key: string, keepFocusInput = false): void {
+	private handlePressDelete(key: string, event: KeyboardEvent<HTMLDivElement>, keepFocusInput = false): void {
 		if (this.state.inputText) {
 			this.setState({ value: this.state.inputText });
 		}
@@ -219,40 +243,51 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 
 		if (focusedTag) {
 			this.removeTag(focusedTag.id);
-		} else if (tags.length > 0 && key === Key.Backspace && !keepFocusInput) {
-			this.blurTextArea();
+
+			return;
+		}
+
+		const focusedButtonTagIndex = this.getFocusedButtonTagIndex(event);
+
+		if (focusedButtonTagIndex >= 0) {
+			this.removeTag(tags[focusedButtonTagIndex].id);
+
+			return;
+		}
+
+		if (tags.length > 0 && key === Key.Backspace && !keepFocusInput) {
+			this.focusTagWrapper(tags.length - 1);
 			tags[tags.length - 1].isFocus = true;
 			this.setState({ tags });
 		}
 	}
 
-	private handlePressArrowKeys(key: string): void {
+	private handlePressArrowKeys(key: string, event: KeyboardEvent<HTMLDivElement>): void {
 		const tags = [...this.state.tags];
 		const focusedTag = getFocusedTag(tags);
+		const focusedTagIndex = focusedTag ? tags.indexOf(focusedTag) : this.getFocusedButtonTagIndex(event);
 
 		switch (key) {
 			case Key.ArrowLeft:
-				if (focusedTag) {
-					const focusedTagIndex = tags.indexOf(focusedTag);
-
+				if (focusedTagIndex >= 0) {
 					if (focusedTagIndex > 0) {
+						this.focusTagWrapper(focusedTagIndex - 1);
 						tags[focusedTagIndex - 1].isFocus = true;
 					}
 
 					tags[focusedTagIndex].isFocus = false;
 					this.setState({ tags });
 				} else if (tags.length > 0) {
-					this.blurTextArea();
+					this.focusTagWrapper(tags.length - 1);
 					tags[tags.length - 1].isFocus = true;
 					this.setState({ tags });
 				}
 
 				break;
 			case Key.ArrowRight:
-				if (focusedTag) {
-					const focusedTagIndex = tags.indexOf(focusedTag);
-
+				if (focusedTagIndex >= 0) {
 					if (focusedTagIndex < tags.length - 1) {
+						this.focusTagWrapper(focusedTagIndex + 1);
 						tags[focusedTagIndex + 1].isFocus = true;
 					}
 
@@ -268,6 +303,18 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 			default:
 				return;
 		}
+	}
+
+	private getFocusedButtonTagIndex(event: KeyboardEvent<HTMLDivElement>): number {
+		const target = event.target as HTMLElement | null;
+
+		if (target?.getAttribute("data-role") !== `${DataRoles.Button}`) {
+			return -1;
+		}
+
+		const tagElements = this.tagGroupRef.current?.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Tag}"]`);
+
+		return tagElements ? Array.from(tagElements).findIndex((tagElement) => tagElement.contains(target)) : -1;
 	}
 
 	private handleInputValueChange(event: ChangeEvent<HTMLTextAreaElement>): void {
@@ -416,8 +463,19 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 		this.setState({ focus: false });
 	}
 
-	private blurTextArea(): void {
+	private focusTagWrapper(tagIndex: number): void {
 		this.inputRef?.blur();
+
+		const tagElement = this.tagGroupRef.current?.querySelectorAll<HTMLElement>(`[data-role="${DataRoles.Tag}"]`)[
+			tagIndex
+		];
+
+		if (tagElement) {
+			tagElement.focus();
+
+			return;
+		}
+
 		this.tagGroupRef.current?.focus();
 	}
 
@@ -427,15 +485,11 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 		}
 
 		const target = event.target as HTMLElement;
-		const targetIsRemoveButton =
-			target.getAttribute("data-role") === `${DataRoles.Button}` ||
-			!!getParentElement(target, (p) => p.getAttribute("data-role") === `${DataRoles.Button}`);
 		const targetIsTag =
 			target.getAttribute("data-role") === `${DataRoles.Tag}` ||
 			!!getParentElement(target, (p) => p.getAttribute("data-role") === `${DataRoles.Tag}`);
 
 		this.noEffect = targetIsTag;
-		this.tagHover = targetIsTag && !targetIsRemoveButton;
 
 		if (!this.hasTouch) {
 			this.setState({ focus: document.activeElement === this.inputRef && !this.noEffect });
@@ -444,7 +498,6 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 
 	private removeEffectedStyle(): void {
 		this.noEffect = false;
-		this.tagHover = false;
 	}
 
 	private focusTextArea(): void {
@@ -563,7 +616,8 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 	}
 
 	private renderCreatedTags(): ReactNode {
-		const { disabled, readonly } = this.props;
+		const { disabled, readonly, focusableRemoveButtons = false } = this.props;
+		const isDesktop = provider.isDesktop();
 
 		return this.state.tags.map((tag, index) => {
 			const { isFocus, id, text } = tag;
@@ -578,14 +632,14 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 						{ [`${BASE_TAG_CLASS}--readonly`]: readonly },
 						{ [`${BASE_TAG_CLASS}--disabled`]: disabled }
 					)}
-					tabIndex={provider.isDesktop() ? -1 : undefined} // prevent Talkback from reading the text twice.
+					tabIndex={isDesktop ? -1 : undefined} // prevent Talkback from reading the text twice.
+					removeButtonTabIndex={isDesktop ? (focusableRemoveButtons ? 0 : -1) : undefined}
 					onRemove={(): void => this.removeTag(id)}
 					onMouseDown={this.handleMouseDownOnTag}
 					disabledRemoveButton={disabled}
 					$focus={isFocus && !disabled && !readonly}
 					$readonly={readonly}
 					$disabled={disabled}
-					$hover={this.tagHover}
 				>
 					{text}
 				</StyledTagInputTag>
@@ -1005,6 +1059,14 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 	}
 
 	render(): ReactNode {
+		return (
+			<FieldDefaultsConfig inputProps={this.props} tooltipFallback="above">
+				{(positions): ReactNode => this.renderContent(positions)}
+			</FieldDefaultsConfig>
+		);
+	}
+
+	private renderContent({ messagePosition, breakTooltipsToNewLine }: Required<FieldOverrideProps>): ReactNode {
 		const {
 			label,
 			placeholder,
@@ -1045,6 +1107,39 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 		);
 		const textAreaId = id ? `${id}-textarea` : undefined;
 		const unavailableInput = readonly || disabled;
+		const messagesElement = (
+			<>
+				{errorMessage && (
+					<InputElements.Error
+						id={id}
+						className={`${BASE_FIELD_CLASS}__message`}
+						errorMessage={errorMessage}
+						dataRole={DataRoles.TagInput.ErrorMessage}
+						wrapperRef={this.getErrorRef}
+						position={messagePosition}
+					/>
+				)}
+				{warningMessage && (
+					<InputElements.Warning
+						id={id}
+						className={`${BASE_FIELD_CLASS}__message`}
+						warningMessage={warningMessage}
+						dataRole={DataRoles.TagInput.WarningMessage}
+						wrapperRef={this.getWarningRef}
+						position={messagePosition}
+					/>
+				)}
+				{infoMessage && (
+					<InputElements.Info
+						id={id}
+						infoMessage={infoMessage}
+						dataRole={DataRoles.TagInput.InfoMessage}
+						wrapperRef={this.getInfoRef}
+						position={messagePosition}
+					/>
+				)}
+			</>
+		);
 
 		const renderAddonBefore = (): ReactNode => {
 			const addons = Children.toArray(this.props.addonBefore).filter(Boolean);
@@ -1104,33 +1199,8 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 								graphic={labelGraphic}
 							/>
 						)}
-						{tooltips}
-						{errorMessage && (
-							<InputElements.Error
-								id={id}
-								className={`${BASE_FIELD_CLASS}__message`}
-								errorMessage={errorMessage}
-								dataRole={DataRoles.TagInput.ErrorMessage}
-								wrapperRef={this.getErrorRef}
-							/>
-						)}
-						{warningMessage && (
-							<InputElements.Warning
-								id={id}
-								className={`${BASE_FIELD_CLASS}__message`}
-								warningMessage={warningMessage}
-								dataRole={DataRoles.TagInput.WarningMessage}
-								wrapperRef={this.getWarningRef}
-							/>
-						)}
-						{infoMessage && (
-							<InputElements.Info
-								id={id}
-								infoMessage={infoMessage}
-								dataRole={DataRoles.TagInput.InfoMessage}
-								wrapperRef={this.getInfoRef}
-							/>
-						)}
+						{(breakTooltipsToNewLine === true || breakTooltipsToNewLine === "above") && tooltips}
+						{messagePosition !== "below" && messagesElement}
 						<StyledTagInputGroupWrapper
 							className={`${BASE_TAG_INPUT_CLASS}__group-wrapper`}
 							data-role={DataRoles.TagInput.Group}
@@ -1161,6 +1231,8 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 								>
 									{tags && this.renderCreatedTags()}
 									<StyledTextAreaStateless
+										messagePosition="above"
+										breakTooltipsToNewLine="above"
 										id={`${textAreaId}${props.idSuffix ?? ""}`}
 										key={`${props.key}-textarea`}
 										inputRef={this.getInputRef}
@@ -1174,7 +1246,7 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 										autoFocus={autoFocus ?? (this.hasTouch && isDisplayDropDownTags)}
 										autoExpand
 										showHiddenText
-										inputProps={inputProps}
+										inputProps={{ "aria-invalid": error || errorMessage ? true : undefined, ...inputProps }}
 										role={unavailableInput ? undefined : "combobox"}
 										wrapperRole="listitem"
 										ariaExpanded={unavailableInput ? undefined : isDisplayDropDownTags}
@@ -1186,16 +1258,30 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 												? `${this.props.id}-${value.trim() ? "suggestion" : "popular"}-dropdown`
 												: undefined
 										}
-										inputWrapperProps={{ "aria-labelledby": id && `${id}-label` }}
+										inputWrapperProps={{
+											"aria-labelledby": id && `${id}-label`,
+											"aria-invalid": error || errorMessage ? true : undefined
+										}}
 										onClick={this.showTagList}
 										onBlur={this.handleInputBlur}
 									/>
 								</StyledTagInputTagGroup>
 							</WidgetsResizeDetector>
 							{renderAddonAfter()}
+							{!breakTooltipsToNewLine && tooltips && (
+								<StyledTagInputFieldAddon
+									$position="after"
+									className={`${BASE_FIELD_CLASS}-addon ${BASE_FIELD_CLASS}-addon--after`}
+									data-role={DataRoles.TagInput.TooltipAddon}
+								>
+									{tooltips}
+								</StyledTagInputFieldAddon>
+							)}
 						</StyledTagInputGroupWrapper>
+						{messagePosition === "below" && messagesElement}
 					</StyledBaseInput.StyledField>
 				</StyledBaseInput.StyledFieldMain>
+				{breakTooltipsToNewLine === "below" && tooltips}
 				{helperText && (!this.hasTouch || !isDisplayDropDownTags) && (
 					<StyledBaseInput.StyledFieldHelperWrapper
 						className={`${BASE_FIELD_CLASS}__helper`}
@@ -1244,6 +1330,7 @@ export class TagInput extends Component<TagInputProps, TagInputState> {
 				role="region"
 				data-role={DataRoles.TagInput}
 				$block
+				$tooltipPosition={breakTooltipsToNewLine}
 			>
 				{tagInputContent({ key: "tag-input" })}
 				{!this.hasTouch &&

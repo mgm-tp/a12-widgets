@@ -36,13 +36,13 @@ import {
 	StyledContentBoxContent,
 	StyledContentBoxFooter
 } from "../../../contentbox/main/template/contentbox.tpl.styled.js";
+import { SubHeadingElements } from "../../../contentbox/main/template/elements/sub-heading.tpl.view.js";
 import { StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { ModalOverlay, StyledModalOverlayContainer } from "../../../modal-overlay/main/modal-overlay.view.js";
+import { createBoxShadow } from "../../../theme/base/mixins/_borderEffects.js";
 import { active, inputDarkFocus, hover } from "../../../theme/base/mixins/_interaction.js";
 import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
 import { TextField } from "../../text-field/main/template/text-field.tpl.view.js";
-import { SubHeadingElements } from "../../../contentbox/main/template/elements/sub-heading.tpl.view.js";
-import { createBoxShadow } from "../../../theme/base/mixins/_borderEffects.js";
 
 const { StyledFieldPrefixWrapper, StyledFieldTextInput, StyledFieldInput } = StyledBaseInput;
 export namespace StyledSelectTemplate {
@@ -77,21 +77,25 @@ export namespace StyledSelectTemplate {
 			text-transform: inherit;
 			width: 100%;
 
-			${$isHidden &&
-			css`
-				position: absolute;
-				width: 0;
-				height: 0;
-				padding: 0;
-			`}
+			${
+				$isHidden &&
+				css`
+					position: absolute;
+					width: 0;
+					height: 0;
+					padding: 0;
+				`
+			}
 
-			${$isEmptyValue &&
-			css`
-				color: ${select.empty.color};
-				font-style: ${select.empty.fontStyle};
-			`}
+			${
+				$isEmptyValue &&
+				css`
+					color: ${select.empty.color};
+					font-style: ${select.empty.fontStyle};
+				`
+			}
 
-				&::selection {
+			&::selection {
 				background-color: transparent;
 			}
 
@@ -101,32 +105,38 @@ export namespace StyledSelectTemplate {
 				opacity: 1;
 			}
 
-			${$readonly &&
-			css`
-				margin: 0;
-				min-width: 5px;
-			`}
+			${
+				$readonly &&
+				css`
+					margin: 0;
+					min-width: 5px;
+				`
+			}
 
-			${$disabled &&
-			css`
-				background-color: inherit;
-				${StyledBaseInput.StyledField}[class*="h_"] && {
-					background-color: inherit !important;
-				}
-			`}
+			${
+				$disabled &&
+				css`
+					background-color: inherit;
+					${StyledBaseInput.StyledField}[class*="h_"] && {
+						background-color: inherit !important;
+					}
+				`
+			}
 
-			${$readonly || $disabled
-				? css`
-						cursor: default;
-						opacity: 1;
-					`
-				: css`
-						cursor: pointer;
-						${StyledContentBoxFooter} &,
-					${SubHeadingElements.StyledSubHeading} & {
-							background-color: ${contentBox.subHeading.inputBackground};
-						}
-					`}
+			${
+				$readonly || $disabled
+					? css`
+							cursor: default;
+							opacity: 1;
+						`
+					: css`
+							cursor: pointer;
+							${StyledContentBoxFooter} &,
+							${SubHeadingElements.StyledSubHeading} & {
+								background-color: ${contentBox.subHeading.inputBackground};
+							}
+						`
+			}
 		`;
 	});
 
@@ -152,18 +162,20 @@ export namespace StyledSelectTemplate {
 				outline: none;
 			}
 
-			${$readonly
-				? css`
-						border-right: none;
-						cursor: default;
-						min-width: 5px;
-					`
-				: !$disabled &&
-					css`
-						${SubHeadingElements.StyledSubHeading} &&& ${StyledSelectInput}, ${StyledContentBoxFooter} &&& ${StyledSelectInput} {
-							background-color: ${contentBox.subHeading.inputBackground};
-						}
-					`}
+			${
+				$readonly
+					? css`
+							border-right: none;
+							cursor: default;
+							min-width: 5px;
+						`
+					: !$disabled &&
+						css`
+							${SubHeadingElements.StyledSubHeading} &&& ${StyledSelectInput}, ${StyledContentBoxFooter} &&& ${StyledSelectInput} {
+								background-color: ${contentBox.subHeading.inputBackground};
+							}
+						`
+			}
 		`;
 	});
 
@@ -186,43 +198,51 @@ export namespace StyledSelectTemplate {
 			flex-grow: 1;
 			position: relative;
 
-			${variant &&
-			css`
-				box-shadow: ${baseInput.input[variant].boxShadow};
-			`}
+			${
+				variant &&
+				css`
+					box-shadow: ${baseInput.input[variant].boxShadow};
+				`
+			}
 
-			${$readonly &&
-			css`
-				background-color: ${baseInput.input.readonly.background};
-				box-shadow: ${baseInput.input.readonly.boxShadow};
-			`}
+			${
+				$readonly &&
+				css`
+					background-color: ${baseInput.input.readonly.background};
+					box-shadow: ${baseInput.input.readonly.boxShadow};
+				`
+			}
 
-			${$disabled &&
-			css`
-				background-color: ${baseInput.input.disabled.background};
-				box-shadow: ${baseInput.input.disabled.boxShadow};
-				color: ${baseInput.input.disabled.color};
-			`}
+			${
+				$disabled &&
+				css`
+					background-color: ${baseInput.input.disabled.background};
+					box-shadow: ${baseInput.input.disabled.boxShadow};
+					color: ${baseInput.input.disabled.color};
+				`
+			}
 
-			${!$readonly &&
-			!$disabled &&
-			css`
-				${active(css`
-					box-shadow: ${variant ? baseInput.input[variant].activeBoxShadow : input.activeBoxShadow};
-				`)}
-				${hover(css`
-					box-shadow: ${variant ? baseInput.input[variant].hoverBoxShadow : input.hoverBoxShadow};
-				`)}
-				&:focus-within {
-					${createBoxShadow(
-						variant
-							? (baseInput.input[variant].customDashedFocus ?? baseInput.input[variant].focusBoxShadow)
-							: (select.input?.focus?.customBorder ?? input.focusCustomBoxShadow ?? input.focusBoxShadow)
-					)}
-					outline-offset: ${baseInput.input.outlineOffset};
-					${inputDarkFocus}
-				}
-			`}
+			${
+				!$readonly &&
+				!$disabled &&
+				css`
+					${active(css`
+						box-shadow: ${variant ? baseInput.input[variant].activeBoxShadow : input.activeBoxShadow};
+					`)}
+					${hover(css`
+						box-shadow: ${variant ? baseInput.input[variant].hoverBoxShadow : input.hoverBoxShadow};
+					`)}
+					&:focus-within {
+						${createBoxShadow(
+							variant
+								? (baseInput.input[variant].customDashedFocus ?? baseInput.input[variant].focusBoxShadow)
+								: (select.input?.focus?.customBorder ?? input.focusCustomBoxShadow ?? input.focusBoxShadow)
+						)}
+						outline-offset: ${baseInput.input.outlineOffset};
+						${inputDarkFocus}
+					}
+				`
+			}
 
 			${StyledFieldPrefixWrapper} > ${StyledIconWrapper} {
 				color: inherit;
@@ -277,32 +297,36 @@ export namespace StyledNativeSelect {
 			appearance: none;
 			font-style: normal;
 
-			${$isEmptyValue &&
-			css`
-				color: ${select.empty.color};
-				font-style: ${select.empty.fontStyle};
-			`}
+			${
+				$isEmptyValue &&
+				css`
+					color: ${select.empty.color};
+					font-style: ${select.empty.fontStyle};
+				`
+			}
 
-			${!disabled &&
-			!$isEmptyValue &&
-			css`
-				color: ${select.color};
-				font-size: inherit;
+			${
+				!disabled &&
+				!$isEmptyValue &&
+				css`
+					color: ${select.color};
+					font-size: inherit;
 
-				&:focus {
-					border: none;
-				}
+					&:focus {
+						border: none;
+					}
 
-				${active(css`
-					background-color: ${select.option.active.backgroundColor};
-					color: ${select.option.active.color};
-				`)}
+					${active(css`
+						background-color: ${select.option.active.backgroundColor};
+						color: ${select.option.active.color};
+					`)}
 
-				${hover(css`
-					background-color: ${select.option.hover.backgroundColor};
-					color: ${select.option.hover.color};
-				`)}
-			`}
+					${hover(css`
+						background-color: ${select.option.hover.backgroundColor};
+						color: ${select.option.hover.color};
+					`)}
+				`
+			}
 		`;
 	});
 }
@@ -346,11 +370,13 @@ export namespace StyledCustomSelect {
 				height: ${mobile?.height};
 				pointer-events: none;
 
-				${$isEmptyValue &&
-				css`
-					color: ${select.empty.color};
-					font-style: ${select.empty.fontStyle};
-				`}
+				${
+					$isEmptyValue &&
+					css`
+						color: ${select.empty.color};
+						font-style: ${select.empty.fontStyle};
+					`
+				}
 			}
 
 			${StyledFieldInput} {
@@ -415,11 +441,13 @@ export namespace StyledCustomSelect {
 			> ${StyledSelectRichLabelWrapper} {
 				position: absolute;
 				width: auto;
-				${$prefixWidth &&
-				css`
-					left: ${$prefixWidth}px;
-					padding-left: 0;
-				`}
+				${
+					$prefixWidth &&
+					css`
+						left: ${$prefixWidth}px;
+						padding-left: 0;
+					`
+				}
 			}
 		`;
 	});

@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import barChartCode from "!./bar-charts.tsx?raw";
+import dashboardCode from "!./dashboard.tsx?raw";
+import pieChartCode from "!./pie-charts.tsx?raw";
+
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { DashboardShowcase } from "./dashboard.js";
-
-import dashboardCode from "!./dashboard.tsx?raw";
-import pieChartCode from "!./pie-charts.tsx?raw";
-import barChartCode from "!./bar-charts.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

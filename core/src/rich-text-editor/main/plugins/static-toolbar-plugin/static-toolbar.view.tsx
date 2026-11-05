@@ -34,9 +34,9 @@ import type { FC, KeyboardEvent } from "react";
 import { useState, useRef, useCallback, isValidElement, cloneElement } from "react";
 import { Key } from "ts-key-enum";
 
+import { DataRoles } from "../../../../common/main/data-roles.js";
 import { moveItemFocusBack, moveItemFocusNext } from "../../../../common/main/utils.js";
 import { StyledEditorToolbar } from "../../rich-text-editor.styled.js";
-import { DataRoles } from "../../../../common/main/data-roles.js";
 
 import type { BaseStaticToolbarProps } from "./static-toolbar.api.js";
 import { ButtonType } from "./toolbar-button/toolbar-button.api.js";
@@ -81,6 +81,7 @@ export const ToolbarPlugin: FC<BaseStaticToolbarProps> = (props: BaseStaticToolb
 	);
 
 	return (
+		// oxlint-disable-next-line jsx-a11y/interactive-supports-focus -- custom component; toolbar items use roving tabindex internally
 		<StyledEditorToolbar
 			style={props.style}
 			id={props.id}

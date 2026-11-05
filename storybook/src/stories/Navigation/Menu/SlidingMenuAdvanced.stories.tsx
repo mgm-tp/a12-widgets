@@ -48,8 +48,7 @@ const meta: Meta<typeof SlidingMenu> = {
 	component: SlidingMenu,
 	parameters: {
 		layout: "fullscreen"
-	},
-	tags: ["autodocs"]
+	}
 };
 
 export default meta;
@@ -159,124 +158,6 @@ const itemsWithVariants: MenuItem[] = [
 		variant: "done"
 	}
 ];
-
-const itemsWithCustomBackward: MenuItem[] = [
-	{
-		label: "Products",
-		icon: <Icon>inventory_2</Icon>,
-		title: "Products menu",
-		items: [
-			{ label: "All Products", title: "View all products" },
-			{ label: "Categories", title: "Product categories" },
-			{ label: "Inventory", title: "Manage inventory" }
-		],
-		backwardItemProps: {
-			label: "Go Back",
-			icon: <Icon>arrow_back</Icon>
-		}
-	},
-	{
-		label: "Users",
-		icon: <Icon>people</Icon>,
-		title: "Users",
-		items: [
-			{ label: "All Users", title: "View all users" },
-			{ label: "Roles & Permissions", title: "Manage roles" }
-		]
-	},
-	{ label: "Settings", icon: <Icon>settings</Icon>, title: "Settings" },
-	{ label: "Help", icon: <Icon>help</Icon>, title: "Help center" }
-];
-
-const DefaultStory = () => {
-	const [expandedDefault, setExpandedDefault] = useState(false);
-	const [expandedLeft, setExpandedLeft] = useState(false);
-	const [expandedRight, setExpandedRight] = useState(false);
-
-	return (
-		<div style={{ minHeight: "100vh" }}>
-			<div style={{ padding: "20px", borderBottom: "1px solid #ddd" }}>
-				<Typography.Headline level={3} style={{ marginBottom: "20px" }}>
-					Comparison: All Hint Positions for Sliding Menu
-				</Typography.Headline>
-				<Typography.Body color="#666" style={{ marginBottom: "20px" }}>
-					Open each menu to see how hints appear in different positions
-				</Typography.Body>
-			</div>
-
-			<div style={{ display: "flex", flexDirection: "column", gap: "40px", padding: "20px" }}>
-				<div>
-					<Typography.Headline level={4} style={{ marginBottom: "15px" }}>
-						Default Position (Bottom)
-					</Typography.Headline>
-					<Button
-						label={expandedDefault ? "Close Menu" : "Open Menu"}
-						onClick={() => setExpandedDefault(!expandedDefault)}
-						primary
-					/>
-					<Typography.Body color="#666" style={{ marginTop: "10px", fontSize: "14px" }}>
-						Default behavior - hints appear below items
-					</Typography.Body>
-					<div style={{ height: "400px", position: "relative", marginTop: "10px" }}>
-						<InteractionHintConfigProvider componentConfigs={{ slidingMenu: true }}>
-							<div style={{ width: "320px" }}>
-								<SlidingMenu id="sliding-menu-hint-comparison-default" items={itemsWithSubmenus} />
-							</div>
-						</InteractionHintConfigProvider>
-					</div>
-				</div>
-
-				<div>
-					<Typography.Headline level={4} style={{ marginBottom: "15px" }}>
-						Position Left
-					</Typography.Headline>
-					<Button
-						label={expandedLeft ? "Close Menu" : "Open Menu"}
-						onClick={() => setExpandedLeft(!expandedLeft)}
-						primary
-					/>
-					<Typography.Body color="#666" style={{ marginTop: "10px", fontSize: "14px" }}>
-						Hints appear on the left side
-					</Typography.Body>
-					<div style={{ height: "400px", position: "relative", marginTop: "10px" }}>
-						<InteractionHintConfigProvider componentConfigs={{ slidingMenu: { enabled: true, position: "left" } }}>
-							<SlidingMenu.MainWrapper expanded={expandedLeft}>
-								<div style={{ width: "320px" }}>
-									<SlidingMenu id="sliding-menu-hint-comparison-left" items={itemsWithSubmenus} />
-								</div>
-							</SlidingMenu.MainWrapper>
-						</InteractionHintConfigProvider>
-					</div>
-				</div>
-
-				<div>
-					<Typography.Headline level={4} style={{ marginBottom: "15px" }}>
-						Position Right
-					</Typography.Headline>
-					<Button
-						label={expandedRight ? "Close Menu" : "Open Menu"}
-						onClick={() => setExpandedRight(!expandedRight)}
-						primary
-					/>
-					<Typography.Body color="#666" style={{ marginTop: "10px", fontSize: "14px" }}>
-						Hints appear on the right side
-					</Typography.Body>
-					<div style={{ height: "400px", position: "relative", marginTop: "10px" }}>
-						<InteractionHintConfigProvider componentConfigs={{ slidingMenu: { enabled: true, position: "right" } }}>
-							<div style={{ width: "320px" }}>
-								<SlidingMenu id="sliding-menu-hint-comparison-right" items={itemsWithSubmenus} />
-							</div>
-						</InteractionHintConfigProvider>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
-};
-
-export const Default: Story = {
-	render: () => <DefaultStory />
-};
 
 const WithInteractionHintAllPositionsStory = () => {
 	const [expandedDefault, setExpandedDefault] = useState(false);
@@ -474,7 +355,7 @@ const ComprehensiveShowcaseStory = () => {
 	const [variantsExpanded, setVariantsExpanded] = useState(false);
 
 	return (
-		<div style={{ display: "flex", gap: "40px", padding: "20px", minHeight: "100vh" }}>
+		<div style={{ display: "flex", gap: "40px", padding: "20px", minHeight: "100vh", flexWrap: "wrap" }}>
 			<div style={{ flex: 1 }}>
 				<Typography.Headline level={3}>Basic Sliding Menu</Typography.Headline>
 				<Button label="Toggle" onClick={() => setBasicExpanded(!basicExpanded)} />
@@ -516,31 +397,4 @@ const ComprehensiveShowcaseStory = () => {
 
 export const ComprehensiveShowcase: Story = {
 	render: () => <ComprehensiveShowcaseStory />
-};
-
-const CustomizeBackwardItemStory = () => {
-	return (
-		<div style={{ height: "100vh", position: "relative" }}>
-			<div style={{ padding: "20px" }}>
-				<p style={{ marginTop: "10px", color: "#666" }}>
-					Click on "Products" menu item to see the custom backward item with "Go Back" label in the submenu
-				</p>
-			</div>
-			<div style={{ width: "320px" }}>
-				<SlidingMenu id="sliding-menu-custom-backward" items={itemsWithCustomBackward} />
-			</div>
-		</div>
-	);
-};
-
-export const CustomizeBackwardItem: Story = {
-	render: () => <CustomizeBackwardItemStory />,
-	parameters: {
-		docs: {
-			description: {
-				story:
-					"Demonstrates customizing the backward navigation item using `backwardItemProps`. The first item (Products) has a custom backward item with a 'Go Back' label and arrow icon, while other items inherit default behavior."
-			}
-		}
-	}
 };

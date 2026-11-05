@@ -45,8 +45,7 @@ const meta: Meta<typeof Tooltip> = {
 	component: Tooltip,
 	parameters: {
 		layout: "padded"
-	},
-	tags: ["autodocs"]
+	}
 };
 
 export default meta;

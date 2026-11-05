@@ -32,17 +32,23 @@
 
 import type { RefObject } from "react";
 import type React from "react";
-import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
-import type { DraggableData, DraggableEvent } from "react-draggable";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import type { BaseColumnType, Column } from "./foundation/column.api.js";
 import type { DataTableColumnResizingOptions } from "./data-table.api.js";
+import { writeLeafPinOffsets } from "./data-table.pin-offsets.js";
+import { getColumnId } from "./data-table.sort.js";
+import { useTheadMeasure } from "./data-table.thead-measure.js";
 import { FIXED_WIDTH_BASE_PX } from "./data-table.utils.js";
+import type { BaseColumnType, Column } from "./foundation/column.api.js";
+import type { ColumnResizeDragData, ColumnResizeDragEvent } from "./foundation/table.api.js";
 
 const MIN_COLUMN_WIDTH_PX = 30;
 const KEYBOARD_STEP_PX = 10;
+// Trailing window after the last keyboard resize step before `data-resizing` clears
+// — longer than any OS key-repeat interval so a held arrow key stays one burst.
+const KEYBOARD_RESIZE_BURST_MS = 250;
 
 /**
  * Announce a resize handle's current column width to assistive tech. A focusable
@@ -61,6 +67,14 @@ function setHandleWidthValue(handleEl: HTMLElement, widthPx: number): void {
 interface UseColumnResizeParams<RowType> {
 	tableRef: RefObject<HTMLTableElement | null>;
 	leafColumns: readonly BaseColumnType<RowType>[];
+
+	/**
+	 * Pinning side per leaf column, index-aligned with {@link leafColumns}. Needed
+	 * because resizing a pinned column shifts the sticky offsets of the pinned
+	 * columns beside it, and the `<thead>` measure that normally owns those offsets
+	 * is deferred for the duration of the gesture (see `syncPinOffsets`).
+	 */
+	leafPinning: readonly (("left" | "right") | undefined)[];
 	resizingOptions?: DataTableColumnResizingOptions<BaseColumnType<RowType>>;
 	disabled?: boolean;
 }
@@ -74,9 +88,38 @@ interface ResizeHandleProps {
 	"aria-orientation": "vertical";
 }
 
-interface UseColumnResizeResult {
+interface UseColumnResizeResult<RowType> {
 	resizeHandleProps: (columnIndex: number) => ResizeHandleProps;
+
+	/**
+	 * Handle props for a column group: resizes its whole leaf range
+	 * `[leafFrom, leafTo]` proportionally (every leaf scales by the same factor,
+	 * preserving the group's internal column ratios). `groupColumn` / `groupLabel`
+	 * are reported back through the resize callbacks and the accessible name.
+	 */
+	groupResizeHandleProps: (
+		leafFrom: number,
+		leafTo: number,
+		groupColumn: BaseColumnType<RowType>,
+		groupLabel: string
+	) => ResizeHandleProps;
 	isResizable: (columnIndex: number) => boolean;
+
+	/**
+	 * Leaf indices the user manually resized this session. Action-column auto-size
+	 * reads this to leave a dragged column alone (a manual resize must not be
+	 * clobbered by a later re-measure). Empty when resizing is disabled.
+	 */
+	pinnedByResize: RefObject<ReadonlySet<number>>;
+
+	/**
+	 * Counter bumped whenever {@link resetAllColumnWidths} (Escape) clears every
+	 * `--a12-col-N-width` override. Action-column auto-size depends on it so the
+	 * reverse path is closed: an Escape reset also wipes auto-size's fitted widths,
+	 * and this signal re-triggers the measure so those columns re-fit instead of
+	 * snapping to the `getColumnWidths` fallback.
+	 */
+	remeasureSignal: number;
 }
 
 /**
@@ -88,27 +131,130 @@ interface UseColumnResizeResult {
  *
  * @internal
  */
-export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>): UseColumnResizeResult {
-	const { tableRef, leafColumns, resizingOptions, disabled } = params;
+export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>): UseColumnResizeResult<RowType> {
+	const { tableRef, leafColumns, leafPinning, resizingOptions, disabled } = params;
 
 	const dragState = useRef<{
-		columnIndex: number;
+		// Leaf indices this gesture resizes. A single-leaf handle has one entry; a
+		// column group's handle has its whole leaf range (resized proportionally).
+		leaves: number[];
 		startX: number;
-		startWidthPx: number;
-		column: BaseColumnType<RowType>;
+		// Rendered px width of each leaf at drag start (index-aligned with `leaves`).
+		startWidths: number[];
+		// Sum of `startWidths` — the group's total width at drag start.
+		groupStartPx: number;
+		// Column reported back to consumers via the resize callbacks (the leaf, or
+		// the group column for a group resize).
+		reportColumn: BaseColumnType<RowType>;
 	} | null>(null);
+
+	// Leaf indices the user manually resized this session — exposed so action-column
+	// auto-size skips them. A stable ref (never reassigned) so consumers can read the
+	// live set without re-subscribing.
+	const pinnedByResize = useRef<Set<number>>(new Set());
+
+	// Bumped by `resetAllColumnWidths` (Escape) so action-column auto-size re-fits
+	// after every override — including its own fitted widths — has been cleared.
+	const [remeasureSignal, setRemeasureSignal] = useState(0);
 
 	// Teardown for the drag in progress, if any. Lets unmount restore global
 	// state (document listeners, body user-select, `data-resizing`) without
 	// firing consumer callbacks.
 	const activeDragTeardown = useRef<(() => void) | null>(null);
 
+	// Trailing-debounce timer marking a keyboard resize burst (held arrow key).
+	const keyboardBurstTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+	// Immediately clears the keyboard burst marker (Escape, unmount).
+	const clearKeyboardResizeBurst = useCallback((): void => {
+		if (keyboardBurstTimer.current !== null) {
+			clearTimeout(keyboardBurstTimer.current);
+			keyboardBurstTimer.current = null;
+		}
+
+		const tableEl = tableRef.current;
+
+		if (tableEl) {
+			delete tableEl.dataset.resizing;
+		}
+	}, [tableRef]);
+
+	// Marks a keyboard resize step as an in-flight resize (`data-resizing`, the same
+	// flag the pointer drag sets) so the `useTheadMeasure` loops defer instead of
+	// re-measuring the header per keypress: a held arrow key auto-repeats at key-repeat
+	// rate — exactly the per-frame thrash the defer policy exists to avoid. The flag
+	// clears on a trailing debounce, after which the loops measure once.
+	const markKeyboardResizeStep = useCallback((): void => {
+		const tableEl = tableRef.current;
+
+		if (!tableEl) {
+			return;
+		}
+
+		tableEl.dataset.resizing = "true";
+
+		if (keyboardBurstTimer.current !== null) {
+			clearTimeout(keyboardBurstTimer.current);
+		}
+
+		keyboardBurstTimer.current = setTimeout(() => {
+			keyboardBurstTimer.current = null;
+			delete tableEl.dataset.resizing;
+		}, KEYBOARD_RESIZE_BURST_MS);
+	}, [tableRef]);
+
 	useEffect(
 		() => (): void => {
 			activeDragTeardown.current?.();
+			clearKeyboardResizeBurst();
 		},
-		[]
+		[clearKeyboardResizeBurst]
 	);
+
+	// Manual widths (`--a12-col-N-width`), the `pinnedByResize` set and the
+	// `data-resized` layout flag are all keyed by leaf *index*. When the column set
+	// changes (add / remove / reorder) index N now addresses a different column, so a
+	// stale override would silently re-apply to the wrong one (and auto-size would
+	// skip it as "pinned"). Invalidate everything when the ordered column identity
+	// signature changes — but not on the initial mount.
+	const columnSignature = leafColumns.map((column, index) => getColumnId(column) ?? `@${index}`).join("|");
+	const prevSignatureRef = useRef<string | null>(null);
+	const prevLeafCountRef = useRef<number>(leafColumns.length);
+
+	useEffect(() => {
+		if (prevSignatureRef.current === null) {
+			prevSignatureRef.current = columnSignature;
+
+			return;
+		}
+
+		if (prevSignatureRef.current === columnSignature) {
+			return;
+		}
+
+		prevSignatureRef.current = columnSignature;
+
+		const tableEl = tableRef.current;
+
+		if (tableEl) {
+			// Clear a generous range: the previous layout may have written vars at
+			// indices beyond the new leaf count.
+			const clearCount = Math.max(prevLeafCountRef.current, leafColumns.length);
+
+			for (let index = 0; index < clearCount; index += 1) {
+				tableEl.style.removeProperty(`--a12-col-${index}-width`);
+			}
+
+			delete tableEl.dataset.resized;
+		}
+
+		pinnedByResize.current.clear();
+		prevLeafCountRef.current = leafColumns.length;
+
+		// The cleared vars also wiped auto-size's fitted widths; re-trigger the measure
+		// so action columns re-fit rather than stranding on the fallback track.
+		setRemeasureSignal((signal) => signal + 1);
+	}, [columnSignature, leafColumns.length, tableRef]);
 
 	const getHeadCell = useCallback(
 		(columnIndex: number): HTMLTableCellElement | null => {
@@ -151,6 +297,41 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 	);
 
 	/**
+	 * Re-write the pinned leaves' sticky offset vars from the column widths this
+	 * gesture just applied.
+	 *
+	 * Resizing a pinned column changes the cumulative width of the pinned block, so
+	 * every pinned leaf beside the resized one needs a new offset: a right-pinned
+	 * leaf sticks at the total width of the right-pinned leaves after it, a
+	 * left-pinned leaf at the width of those before it. `useLeafPinOffsetCssVars`
+	 * owns these vars in steady state, but its `<thead>` measure is deliberately
+	 * deferred while `data-resizing` is set, so without this the offsets stay frozen
+	 * at their pre-drag values for the whole gesture. A group header cell sticks at
+	 * the offset of its *last* leaf, which the resize does not change, so the group
+	 * cell tracks the drag while its own leaves lag behind — the group's edge visibly
+	 * separates from the column border beneath it until the drag ends.
+	 *
+	 * Widths are read from the `--a12-col-N-width` vars rather than measured: every
+	 * leaf carries one for the duration of a gesture (`freezeAllColumnWidths` runs
+	 * first), so this stays a string read and adds no layout to the drag frame.
+	 */
+	const syncPinOffsets = useCallback((): void => {
+		const tableEl = tableRef.current;
+
+		if (!tableEl || !leafPinning.some((pinning) => pinning !== undefined)) {
+			return;
+		}
+
+		const widths = leafColumns.map((_column, index) => {
+			const frozen = Number.parseFloat(tableEl.style.getPropertyValue(`--a12-col-${index}-width`));
+
+			return Number.isFinite(frozen) ? frozen : getColumnWidthPx(index);
+		});
+
+		writeLeafPinOffsets(tableEl, widths, leafPinning);
+	}, [tableRef, leafColumns, leafPinning, getColumnWidthPx]);
+
+	/**
 	 * Pin *every* resizable column to its current rendered pixel width and flip the
 	 * table into its resized layout (`data-resized="true"`, which switches the table
 	 * to `width: max-content`).
@@ -174,9 +355,12 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 			return;
 		}
 
-		leafColumns.forEach((_column, index) => {
-			setColumnWidthPx(index, getColumnWidthPx(index));
-		});
+		// READ pass then WRITE pass: each `setColumnWidthPx` writes a CSS var on the
+		// table root and invalidates layout, so interleaving the reads would force a
+		// synchronous reflow before every `getColumnWidthPx`. Measure all widths first,
+		// then write them (mirrors the auto-size read-all/write-all pattern).
+		const frozenWidths = leafColumns.map((_column, index) => getColumnWidthPx(index));
+		frozenWidths.forEach((widthPx, index) => setColumnWidthPx(index, widthPx));
 
 		tableEl.dataset.resized = "true";
 	}, [tableRef, leafColumns, setColumnWidthPx, getColumnWidthPx]);
@@ -201,8 +385,23 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 			tableEl.style.removeProperty(`--a12-col-${index}-width`);
 		});
 
+		// Every width just reverted to its default, so auto-size may resume for action
+		// columns: drop the manual-resize pins.
+		pinnedByResize.current.clear();
+
+		// Clearing the vars also wiped auto-size's fitted widths; its effect deps
+		// (data/theme/fonts) haven't changed, so bump a signal to re-trigger the
+		// measure — otherwise action columns strand on the `getColumnWidths` fallback.
+		setRemeasureSignal((signal) => signal + 1);
+
 		delete tableEl.dataset.resized;
-	}, [tableRef, leafColumns]);
+
+		// The widths are back to their defaults, so the pinned offsets computed from
+		// the dragged widths are wrong until the `<thead>` measure runs again. Re-sync
+		// now (from the restored layout) rather than waiting on that observer tick,
+		// which may not fire at all if the reset leaves the `<thead>` box unchanged.
+		syncPinOffsets();
+	}, [tableRef, leafColumns, syncPinOffsets]);
 
 	/**
 	 * Convert a column's final pixel width back to a stored {@link Column.Width}.
@@ -242,6 +441,9 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 
 			const column = leafColumns[columnIndex];
 
+			// Every leaf column is resizable when `columnResizingOptions` is provided —
+			// including `fixedWidth` (resized to a different fixed track) and `actionColumn`
+			// (a manual width then pins it against auto-size, by design).
 			return !!column;
 		},
 		[disabled, resizingOptions, leafColumns]
@@ -253,17 +455,14 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 	// `aria-valuenow` at rest the platform reports its default `0–100` midpoint —
 	// a phantom "50" screen readers announce on every resizable column. Seed each
 	// handle's range semantics from the rendered column widths on mount, and resync
-	// on relayout. Mirrors `useLeafPinOffsets`: observe the stable <thead>, and defer
-	// while a drag is active (the gesture keeps the dragged handle's value fresh and
-	// the rest are frozen) so the per-frame CSS-variable resize path is left alone.
-	useLayoutEffect(() => {
-		const tableEl = tableRef.current;
-
-		if (!tableEl || !resizable) {
-			return;
-		}
-
-		const measure = (): void => {
+	// on relayout via the shared `<thead>` observer, deferring while a drag is active
+	// (the gesture keeps the dragged handle's value fresh and the rest are frozen) so
+	// the per-frame CSS-variable resize path is left alone.
+	useTheadMeasure({
+		tableRef,
+		enabled: resizable,
+		deferDuringResize: true,
+		measure: (tableEl, theadEl): void => {
 			// The full content width is an upper bound no single column can exceed, so it
 			// gives every handle a coherent `[min, max]` range for AT that read the numeric
 			// value rather than `aria-valuetext`.
@@ -281,64 +480,73 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 				handleEl.setAttribute("aria-valuemax", String(maxWidth));
 				setHandleWidthValue(handleEl, headCell.getBoundingClientRect().width);
 			});
-		};
 
-		measure();
+			// Column-group handles span the *whole* header height (their group-header
+			// row plus the sub-column rows below), so the handle reads as a group-wide
+			// resize rather than a single-column one. The group cell only occupies its
+			// own header row, so stretch the handle down to the <thead>'s bottom edge
+			// (`bottom - cell.top` also covers deeper nested groups correctly).
+			const theadBottom = theadEl.getBoundingClientRect().bottom;
 
-		// During a drag (`data-resizing`) the observer fires every frame; measuring then
-		// would re-introduce the per-frame React/DOM work the CSS-variable design avoids.
-		// rAF-poll until the flag clears, then measure once (mirrors useLeafPinOffsets).
-		let rafId = 0;
+			theadEl.querySelectorAll<HTMLTableCellElement>('th[scope="colgroup"]').forEach((groupCell) => {
+				const handleEl = groupCell.querySelector<HTMLElement>(`[data-role="${DataRoles.Table.Column.ResizeHandler}"]`);
 
-		const measureAfterResize = (): void => {
-			rafId = 0;
-
-			if (tableEl.dataset.resizing === "true") {
-				rafId = requestAnimationFrame(measureAfterResize);
-
-				return;
-			}
-
-			measure();
-		};
-
-		const handleResizeTick = (): void => {
-			if (tableEl.dataset.resizing === "true") {
-				if (rafId === 0) {
-					rafId = requestAnimationFrame(measureAfterResize);
+				if (!handleEl) {
+					return;
 				}
 
-				return;
-			}
+				const cellRect = groupCell.getBoundingClientRect();
+				handleEl.style.height = `${Math.max(0, Math.round(theadBottom - cellRect.top))}px`;
 
-			measure();
-		};
+				// The group's total width equals its (colspanning) header cell's width.
+				handleEl.setAttribute("aria-valuemin", String(MIN_COLUMN_WIDTH_PX));
+				handleEl.setAttribute("aria-valuemax", String(maxWidth));
+				setHandleWidthValue(handleEl, cellRect.width);
+			});
+		},
+		deps: [tableRef, resizable, leafColumns, getHeadCell]
+	});
 
-		const observer = new ResizeObserver(handleResizeTick);
-		const theadEl = tableEl.querySelector("thead");
+	// Core gesture over one or more leaf columns. A single-leaf handle passes
+	// `[index]`; a column group's handle passes its whole leaf range and every leaf
+	// scales by the same factor, preserving the group's internal ratios. The
+	// single-leaf case is the identity of the previous additive resize:
+	// `startPx * (startPx + delta) / startPx === startPx + delta`.
+	const buildHandleProps = useCallback(
+		(leaves: number[], reportColumn: BaseColumnType<RowType>, label: string): ResizeHandleProps => {
+			// Current rendered px width of each resized leaf (index-aligned with `leaves`).
+			const readStartWidths = (): number[] => leaves.map((leaf) => getColumnWidthPx(leaf));
 
-		if (theadEl) {
-			observer.observe(theadEl);
-		}
+			// Scale factor that turns the group's start width into `targetGroupPx`,
+			// clamped so no single leaf shrinks below MIN_COLUMN_WIDTH_PX.
+			const factorFor = (startWidths: number[], groupStartPx: number, targetGroupPx: number): number => {
+				const rawFactor = groupStartPx > 0 ? targetGroupPx / groupStartPx : 1;
+				const smallestLeaf = Math.min(...startWidths);
+				const minFactor = smallestLeaf > 0 ? MIN_COLUMN_WIDTH_PX / smallestLeaf : rawFactor;
 
-		return (): void => {
-			observer.disconnect();
+				return Math.max(rawFactor, minFactor);
+			};
 
-			if (rafId !== 0) {
-				cancelAnimationFrame(rafId);
-			}
-		};
-	}, [tableRef, resizable, leafColumns, getHeadCell]);
+			// Apply a scale factor to every resized leaf (writes each `--a12-col-N-width`).
+			const applyFactor = (startWidths: number[], factor: number): void => {
+				leaves.forEach((leaf, index) => setColumnWidthPx(leaf, startWidths[index] * factor));
+				// Pinned offsets follow the widths in the same frame (see syncPinOffsets).
+				syncPinOffsets();
+			};
 
-	const resizeHandleProps = useCallback(
-		(columnIndex: number): ResizeHandleProps => {
-			const column = leafColumns[columnIndex];
-			// Prefer the visible text label; fall back to `hiddenText` (action columns
-			// keep their accessible name there, with an empty `label`) and finally to the
-			// 1-based index, so every handle — including action-column handles — has a
-			// non-empty accessible name.
-			const columnLabel =
-				(typeof column?.label === "string" && column.label) || column?.hiddenText || `Column ${columnIndex + 1}`;
+			// Final stored width per resized leaf column, for onEndResize's per-column
+			// getter (consumers walk their column tree and read each match).
+			const endWidthsFor = (startWidths: number[], factor: number): Map<BaseColumnType<RowType>, Column.Width> => {
+				const widths = new Map<BaseColumnType<RowType>, Column.Width>();
+
+				leaves.forEach((leaf, index) => {
+					const leafColumn = leafColumns[leaf];
+					const endPx = Math.max(MIN_COLUMN_WIDTH_PX, startWidths[index] * factor);
+					widths.set(leafColumn, computeNewWidth(leafColumn, startWidths[index], endPx));
+				});
+
+				return widths;
+			};
 
 			/**
 			 * Swallow the synthetic `click` the browser fires right after a pointer
@@ -368,9 +576,20 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 					return;
 				}
 
+				// A gesture is already in flight (e.g. a second finger on another handle):
+				// ignore the new pointerdown rather than overwrite `dragState`/teardown, which
+				// would strand the first gesture's listeners and commit widths from mixed state.
+				if (dragState.current !== null) {
+					return;
+				}
+
 				event.preventDefault();
 				event.stopPropagation();
-				const startWidthPx = getColumnWidthPx(columnIndex);
+				const startWidths = readStartWidths();
+				const groupStartPx = startWidths.reduce((sum, width) => sum + width, 0);
+
+				// Pin every resized leaf so action-column auto-size leaves them alone from here on.
+				leaves.forEach((leaf) => pinnedByResize.current.add(leaf));
 
 				// Freeze every column to its current px before the drag begins so the
 				// non-dragged columns stop reacting to the table width (see
@@ -379,10 +598,11 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 				freezeAllColumnWidths();
 
 				dragState.current = {
-					columnIndex,
+					leaves,
 					startX: event.clientX,
-					startWidthPx,
-					column
+					startWidths,
+					groupStartPx,
+					reportColumn
 				};
 
 				// Bind the whole drag to the handle. On touch this stops the browser
@@ -415,8 +635,8 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 				let lastReportedX = event.clientX;
 				let lastReportedY = event.clientY;
 
-				const draggableData = (clientX: number, clientY: number): DraggableData => {
-					const data: DraggableData = {
+				const draggableData = (clientX: number, clientY: number): ColumnResizeDragData => {
+					const data: ColumnResizeDragData = {
 						node: handleEl,
 						x: clientX,
 						y: clientY,
@@ -432,7 +652,7 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 				};
 
 				resizingOptions.onBeginResize?.({
-					resizedColumn: column,
+					resizedColumn: reportColumn,
 					event,
 					data: draggableData(event.clientX, event.clientY)
 				});
@@ -444,9 +664,9 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 				let rafId = 0;
 				let latestClientX = event.clientX;
 				let latestClientY = event.clientY;
-				let latestEvent: DraggableEvent = event;
+				let latestEvent: ColumnResizeDragEvent = event;
 
-				setHandleWidthValue(handleEl, startWidthPx);
+				setHandleWidthValue(handleEl, groupStartPx);
 
 				const applyMove = (): void => {
 					rafId = 0;
@@ -456,12 +676,13 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 					}
 
 					const cursorDeltaX = latestClientX - dragState.current.startX;
-					const newWidthPx = dragState.current.startWidthPx + cursorDeltaX;
-					setColumnWidthPx(columnIndex, newWidthPx);
-					setHandleWidthValue(handleEl, newWidthPx);
+					const targetGroupPx = dragState.current.groupStartPx + cursorDeltaX;
+					const factor = factorFor(dragState.current.startWidths, dragState.current.groupStartPx, targetGroupPx);
+					applyFactor(dragState.current.startWidths, factor);
+					setHandleWidthValue(handleEl, dragState.current.groupStartPx * factor);
 
 					resizingOptions.onResize?.({
-						resizedColumn: column,
+						resizedColumn: reportColumn,
 						event: latestEvent,
 						data: draggableData(latestClientX, latestClientY)
 					});
@@ -507,15 +728,16 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 						// flushed the latest move to the DOM yet. Flush it here so the
 						// reported width matches what the column settles at.
 						const cursorDeltaX = latestClientX - dragState.current.startX;
-						const finalWidthPx = Math.max(MIN_COLUMN_WIDTH_PX, dragState.current.startWidthPx + cursorDeltaX);
-						setColumnWidthPx(columnIndex, finalWidthPx);
-						setHandleWidthValue(handleEl, finalWidthPx);
+						const targetGroupPx = dragState.current.groupStartPx + cursorDeltaX;
+						const factor = factorFor(dragState.current.startWidths, dragState.current.groupStartPx, targetGroupPx);
+						applyFactor(dragState.current.startWidths, factor);
+						setHandleWidthValue(handleEl, dragState.current.groupStartPx * factor);
 
-						const newWidth = computeNewWidth(column, dragState.current.startWidthPx, finalWidthPx);
+						const endWidths = endWidthsFor(dragState.current.startWidths, factor);
 
 						resizingOptions.onEndResize?.({
-							resizedColumn: column,
-							resizedWidthsGetter: (col) => (col === column ? newWidth : undefined),
+							resizedColumn: reportColumn,
+							resizedWidthsGetter: (col) => endWidths.get(col),
 							event: latestEvent,
 							data: draggableData(latestClientX, latestClientY)
 						});
@@ -553,7 +775,7 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 				// Keyboard steps have no cursor, so the react-draggable-shaped `data`
 				// reports the step delta in `deltaX` (0 for begin/reset) with zeroed
 				// coordinates, and the KeyboardEvent travels as `event`.
-				const keyboardData = (deltaX: number, node: HTMLElement): DraggableData => ({
+				const keyboardData = (deltaX: number, node: HTMLElement): ColumnResizeDragData => ({
 					node,
 					x: 0,
 					y: 0,
@@ -562,11 +784,16 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 					lastX: 0,
 					lastY: 0
 				});
-				const keyboardEvent = event as unknown as DraggableEvent;
+				const keyboardEvent = event as unknown as ColumnResizeDragEvent;
 
 				if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
 					event.preventDefault();
 					event.stopPropagation();
+					// Defer the thead measure loops for the duration of the keypress burst,
+					// like the pointer drag does for its duration.
+					markKeyboardResizeStep();
+					// Pin every resized leaf so action-column auto-size leaves them alone from here on.
+					leaves.forEach((leaf) => pinnedByResize.current.add(leaf));
 					// Same freeze as the pointer path: pin all columns to px and switch
 					// the table to its resized layout before applying the step.
 					freezeAllColumnWidths();
@@ -574,39 +801,48 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 					// Each keypress is a one-shot resize gesture: begin and end bracket
 					// the single step so consumers see the same lifecycle as a drag.
 					resizingOptions.onBeginResize?.({
-						resizedColumn: column,
+						resizedColumn: reportColumn,
 						event: keyboardEvent,
 						data: keyboardData(0, event.currentTarget)
 					});
 
+					// One step grows/shrinks the whole gesture by KEYBOARD_STEP_PX total,
+					// distributed proportionally across its leaves (single leaf → additive).
 					const delta = event.key === "ArrowRight" ? KEYBOARD_STEP_PX : -KEYBOARD_STEP_PX;
-					const currentWidthPx = getColumnWidthPx(columnIndex);
-					const newWidthPx = Math.max(MIN_COLUMN_WIDTH_PX, currentWidthPx + delta);
-					setColumnWidthPx(columnIndex, newWidthPx);
-					setHandleWidthValue(event.currentTarget, newWidthPx);
+					const startWidths = readStartWidths();
+					const groupStartPx = startWidths.reduce((sum, width) => sum + width, 0);
+					const factor = factorFor(startWidths, groupStartPx, groupStartPx + delta);
+					applyFactor(startWidths, factor);
+					setHandleWidthValue(event.currentTarget, groupStartPx * factor);
 
-					const newWidth = computeNewWidth(column, currentWidthPx, newWidthPx);
+					const endWidths = endWidthsFor(startWidths, factor);
 					resizingOptions.onEndResize?.({
-						resizedColumn: column,
-						resizedWidthsGetter: (col) => (col === column ? newWidth : undefined),
+						resizedColumn: reportColumn,
+						resizedWidthsGetter: (col) => endWidths.get(col),
 						event: keyboardEvent,
 						data: keyboardData(delta, event.currentTarget)
 					});
 				} else if (event.key === "Escape") {
 					event.preventDefault();
 					event.stopPropagation();
+					// End any keyboard burst NOW: the reset below must re-measure promptly,
+					// not after the trailing debounce.
+					clearKeyboardResizeBurst();
 					resetAllColumnWidths();
 					// Reflect the reverted width rather than dropping `aria-valuenow` — a bare
 					// focusable separator falls back to the phantom "50" (see setHandleWidthValue).
 					// Measuring after the reset's removeProperty forces layout, so this reads the
-					// restored proportional width.
-					setHandleWidthValue(event.currentTarget, getColumnWidthPx(columnIndex));
+					// restored proportional width (summed across the gesture's leaves).
+					setHandleWidthValue(
+						event.currentTarget,
+						leaves.reduce((sum, leaf) => sum + getColumnWidthPx(leaf), 0)
+					);
 
 					// All widths just reverted to their defaults; report the reset so
 					// consumers persisting widths via onEndResize can clear them — the
 					// getter returns `undefined` for every column ("no stored width").
 					resizingOptions.onEndResize?.({
-						resizedColumn: column,
+						resizedColumn: reportColumn,
 						resizedWidthsGetter: () => undefined,
 						event: keyboardEvent,
 						data: keyboardData(0, event.currentTarget)
@@ -619,7 +855,7 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 				onKeyDown,
 				tabIndex: 0,
 				role: "separator",
-				"aria-label": `Resize ${columnLabel}`,
+				"aria-label": label,
 				"aria-orientation": "vertical"
 			};
 		},
@@ -630,11 +866,42 @@ export function useColumnResize<RowType>(params: UseColumnResizeParams<RowType>)
 			getColumnWidthPx,
 			setColumnWidthPx,
 			computeNewWidth,
+			syncPinOffsets,
 			freezeAllColumnWidths,
 			resetAllColumnWidths,
+			markKeyboardResizeStep,
+			clearKeyboardResizeBurst,
 			tableRef
 		]
 	);
 
-	return { resizeHandleProps, isResizable };
+	const resizeHandleProps = useCallback(
+		(columnIndex: number): ResizeHandleProps => {
+			const column = leafColumns[columnIndex];
+			// Prefer the visible text label; fall back to `hiddenText` (action columns
+			// keep their accessible name there, with an empty `label`) and finally to the
+			// 1-based index, so every handle — including action-column handles — has a
+			// non-empty accessible name.
+			const columnLabel =
+				(typeof column?.label === "string" && column.label) || column?.hiddenText || `Column ${columnIndex + 1}`;
+
+			return buildHandleProps([columnIndex], column, `Resize ${columnLabel}`);
+		},
+		[buildHandleProps, leafColumns]
+	);
+
+	const groupResizeHandleProps = useCallback(
+		(leafFrom: number, leafTo: number, groupColumn: BaseColumnType<RowType>, groupLabel: string): ResizeHandleProps => {
+			const leaves: number[] = [];
+
+			for (let leaf = leafFrom; leaf <= leafTo; leaf++) {
+				leaves.push(leaf);
+			}
+
+			return buildHandleProps(leaves, groupColumn, `Resize ${groupLabel} group`);
+		},
+		[buildHandleProps]
+	);
+
+	return { resizeHandleProps, groupResizeHandleProps, isResizable, pinnedByResize, remeasureSignal };
 }

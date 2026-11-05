@@ -34,9 +34,8 @@ import { render, getAllByDataRole } from "test-utils";
 import { describe, expect, test } from "vitest";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
-import { DropDown } from "../template/dropdown.tpl.view.js";
 import type { DropDownItem } from "../template/dropdown.tpl.api.js";
+import { DropDown } from "../template/dropdown.tpl.view.js";
 
 const items: DropDownItem[] = [
 	{

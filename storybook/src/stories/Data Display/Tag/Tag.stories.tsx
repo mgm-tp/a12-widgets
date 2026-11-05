@@ -42,15 +42,34 @@ const meta: Meta<typeof Tag> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
+		children: {
+			control: "text",
+			description: "The content of the tag"
+		},
 		removable: {
 			control: "boolean",
 			description: "Show a remove (×) button on the tag"
 		},
+		disabledRemoveButton: {
+			control: "boolean",
+			description: "Disable the remove button of a removable tag"
+		},
+		icon: {
+			control: false,
+			description: "Icon rendered in front of the tag content"
+		},
 		color: {
 			control: "color",
 			description: "Background color of the tag"
+		},
+		tabIndex: {
+			control: "number",
+			description: "TabIndex for the tag and its remove button"
+		},
+		noWaiAria: {
+			control: "boolean",
+			description: "Exclude wai-aria attributes so screen readers cannot reach the tag"
 		}
 	},
 	args: {
@@ -62,16 +81,32 @@ const meta: Meta<typeof Tag> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
-		children: "Design"
+		children: "Design",
+		removable: false
 	}
 };
 
 export const Removable: Story = {
+	render: (args) => (
+		<div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+			<Tag {...args}>React</Tag>
+			<Tag {...args} disabledRemoveButton>
+				TypeScript
+			</Tag>
+		</div>
+	),
 	args: {
-		children: "React",
 		removable: true
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`removable` adds a remove (×) button that fires `onRemove`. `disabledRemoveButton` keeps the button visible but disabled."
+			}
+		}
 	}
 };
 
@@ -79,6 +114,13 @@ export const WithIcon: Story = {
 	args: {
 		children: "Priority",
 		icon: <Icon>flag</Icon>
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "The `icon` prop renders an icon in front of the tag content."
+			}
+		}
 	}
 };
 
@@ -86,25 +128,35 @@ export const WithColor: Story = {
 	args: {
 		children: "Approved",
 		color: "#4caf50"
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "The `color` prop overrides the background color of the tag."
+			}
+		}
 	}
 };
 
 export const TagList: Story = {
-	render: () => {
-		const TagListExample = () => {
-			const [tags, setTags] = useState(["React", "TypeScript", "Storybook", "A12"]);
+	render: function TagListExample() {
+		const [tags, setTags] = useState(["React", "TypeScript", "Storybook", "A12"]);
 
-			return (
-				<div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-					{tags.map((tag) => (
-						<Tag key={tag} removable onRemove={() => setTags((prev) => prev.filter((t) => t !== tag))}>
-							{tag}
-						</Tag>
-					))}
-				</div>
-			);
-		};
-
-		return <TagListExample />;
+		return (
+			<div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+				{tags.map((tag) => (
+					<Tag key={tag} removable onRemove={() => setTags((prev) => prev.filter((t) => t !== tag))}>
+						{tag}
+					</Tag>
+				))}
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "A realistic composition: a list of removable tags where `onRemove` deletes the clicked tag from state."
+			}
+		}
 	}
 };

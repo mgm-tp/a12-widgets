@@ -31,9 +31,9 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { ReactNode } from "react";
-import { useCallback, useState } from "react";
 import { isSameDay, parseISO } from "date-fns";
+import type { ReactElement, ReactNode } from "react";
+import { useCallback, useState } from "react";
 import styled from "styled-components";
 
 import { Calendar } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -96,7 +96,6 @@ const calendarDays: CalendarDay<DayEvent>[] = [
 ];
 
 interface CalendarMonthViewArgs {
-	view: "month" | "week";
 	weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6;
 	highlightedWeekends: boolean;
 	highlightedPublicHolidays: boolean;
@@ -106,14 +105,47 @@ interface CalendarMonthViewArgs {
 	disabledDays: string[];
 }
 
+function MonthViewExample(args: CalendarMonthViewArgs): ReactElement {
+	const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+	const [selectedItem, setSelectedItem] = useState<SelectedItem<DayEvent> | undefined>(undefined);
+
+	const dayItemContentRenderer = useCallback((_date: Date, event?: DayEvent): ReactNode => {
+		return <StyledCalendarItem>{event?.title}</StyledCalendarItem>;
+	}, []);
+
+	const holidays = args.publicHolidays.map((holiday) => parseISO(holiday));
+	const disabled = args.disabledDays.map((day) => parseISO(day));
+
+	return (
+		<div style={{ width: "min(900px, calc(100vw - 32px))", overflowX: "auto", height: "700px" }}>
+			<Calendar
+				view="month"
+				weekStartsOn={args.weekStartsOn}
+				highlightedWeekends={args.highlightedWeekends}
+				highlightedPublicHolidays={args.highlightedPublicHolidays}
+				outsideDayDisplay={args.outsideDayDisplay}
+				date={new Date(args.date)}
+				publicHolidays={holidays}
+				calendarDateItems={calendarDays}
+				selectedDate={selectedDate}
+				onDayClick={setSelectedDate}
+				selectedItem={selectedItem}
+				onItemClick={setSelectedItem}
+				componentRenderers={{
+					dayItemContentRenderer
+				}}
+				isDisabledDay={(date) => !!disabled.find((d) => isSameDay(d, date))}
+			/>
+		</div>
+	);
+}
+
 const meta: Meta<CalendarMonthViewArgs> = {
 	title: "Data Display/Calendar/Month View",
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	args: {
-		view: "month",
 		weekStartsOn: 1,
 		highlightedWeekends: true,
 		highlightedPublicHolidays: true,
@@ -123,11 +155,6 @@ const meta: Meta<CalendarMonthViewArgs> = {
 		disabledDays: ["2026-01-14", "2026-01-17"]
 	},
 	argTypes: {
-		view: {
-			control: "select",
-			options: ["month", "week"],
-			description: "The calendar view to be displayed"
-		},
 		weekStartsOn: {
 			control: "select",
 			options: [0, 1, 2, 3, 4, 5, 6],
@@ -164,32 +191,51 @@ const meta: Meta<CalendarMonthViewArgs> = {
 export default meta;
 type Story = StoryObj<CalendarMonthViewArgs>;
 
-export const Default: Story = {
-	args: {
-		view: "month",
-		weekStartsOn: 1,
-		highlightedWeekends: true,
-		highlightedPublicHolidays: true,
-		outsideDayDisplay: "disabled",
-		date: new Date(2026, 0, 6).toISOString(),
-		publicHolidays: ["2026-01-01", "2026-01-06"],
-		disabledDays: ["2026-01-14", "2026-01-17"]
-	},
-	render: (args) => {
-		const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
-		const [selectedItem, setSelectedItem] = useState<SelectedItem<DayEvent> | undefined>(undefined);
+export const Playground: Story = {
+	render: MonthViewExample
+};
 
+export const OutsideDays: Story = {
+	args: {
+		outsideDayDisplay: "active"
+	},
+	render: MonthViewExample,
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`outsideDayDisplay` controls the days falling into the previous or next month: `none` hides them, `disabled` shows them as non-interactive and `active` keeps them clickable."
+			}
+		}
+	}
+};
+
+export const WeekStartsOnSunday: Story = {
+	args: {
+		weekStartsOn: 0
+	},
+	render: MonthViewExample,
+	parameters: {
+		docs: {
+			description: {
+				story: "`weekStartsOn` sets the first weekday column of the grid (`0` = Sunday, `1` = Monday, etc.)."
+			}
+		}
+	}
+};
+
+export const CustomDayStyling: Story = {
+	render: function CustomDayStylingExample(args) {
 		const dayItemContentRenderer = useCallback((_date: Date, event?: DayEvent): ReactNode => {
 			return <StyledCalendarItem>{event?.title}</StyledCalendarItem>;
 		}, []);
 
 		const holidays = args.publicHolidays.map((holiday) => parseISO(holiday));
-		const disabled = args.disabledDays.map((day) => parseISO(day));
 
 		return (
-			<div style={{ width: "900px", height: "700px" }}>
+			<div style={{ width: "min(900px, calc(100vw - 32px))", overflowX: "auto", height: "700px" }}>
 				<Calendar
-					view={args.view}
+					view="month"
 					weekStartsOn={args.weekStartsOn}
 					highlightedWeekends={args.highlightedWeekends}
 					highlightedPublicHolidays={args.highlightedPublicHolidays}
@@ -197,16 +243,20 @@ export const Default: Story = {
 					date={new Date(args.date)}
 					publicHolidays={holidays}
 					calendarDateItems={calendarDays}
-					selectedDate={selectedDate}
-					onDayClick={setSelectedDate}
-					selectedItem={selectedItem}
-					onItemClick={setSelectedItem}
 					componentRenderers={{
 						dayItemContentRenderer
 					}}
-					isDisabledDay={(date) => !!disabled.find((d) => isSameDay(d, date))}
+					getDayStyles={(_date, items) => (items.length > 0 ? { backgroundColor: "#fff3e0" } : undefined)}
 				/>
 			</div>
 		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`getDayStyles` (and `getDayClassName`) apply custom styling per day based on its date and items — here every day with at least one event gets a tinted background."
+			}
+		}
 	}
 };

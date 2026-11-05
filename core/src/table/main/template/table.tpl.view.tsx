@@ -32,9 +32,11 @@
 
 import type { ContextType, HTMLProps, KeyboardEvent, ReactElement, RefObject } from "react";
 import { createRef, Component } from "react";
-import { Key } from "ts-key-enum";
 import { styled, css } from "styled-components";
+import { Key } from "ts-key-enum";
 
+import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { provider } from "../../../common/main/device-detector.js";
 import {
 	bindMethods,
@@ -44,25 +46,22 @@ import {
 	moveItemFocusNext,
 	StringUtils
 } from "../../../common/main/utils.js";
-import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
-import { activeAndHover } from "../../../theme/base/mixins/_interaction.js";
 import { WidgetsResizeDetector } from "../../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
-
+import { activeAndHover } from "../../../theme/base/mixins/_interaction.js";
+import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
 import type { BaseColumnType, Column } from "../column.api.js";
-import { countActionColumns, flattenAllColumns } from "../table.utils.js";
-import { BASE_TABLE_CLASSNAME, ColumnWidthSync, RowScrollManager } from "../table.internal.js";
 import { TableDataAttributes } from "../table.data-attributes.js";
+import { BASE_TABLE_CLASSNAME, ColumnWidthSync, RowScrollManager } from "../table.internal.js";
+import { countActionColumns, flattenAllColumns } from "../table.utils.js";
 
+import { StyledTableBody } from "./table.body.tpl.view.js";
+import { StyledTableFootRow } from "./table.foot-row.tpl.view.js";
+import { StyledTableFoot } from "./table.foot.tpl.view.js";
+import { StyledTableHeadCellGroup } from "./table.head-cell-group.tpl.view.js";
+import { StyledTableHeadCell } from "./table.head-cell.tpl.view.js";
 import { StyledBaseTable } from "./table.styled.js";
 import type { TableTemplateProps } from "./table.tpl.api.js";
 import { RowScrollManagerContext } from "./table.tpl.utils.js";
-import { StyledTableBody } from "./table.body.tpl.view.js";
-import { StyledTableFoot } from "./table.foot.tpl.view.js";
-import { StyledTableFootRow } from "./table.foot-row.tpl.view.js";
-import { StyledTableHeadCellGroup } from "./table.head-cell-group.tpl.view.js";
-import { StyledTableHeadCell } from "./table.head-cell.tpl.view.js";
 
 const showSeparatorPinnedColumn = (props: {
 	columnPosition?: Column.Pinning;
@@ -70,63 +69,68 @@ const showSeparatorPinnedColumn = (props: {
 	hoverBoxShadow?: string;
 }) => {
 	return css`
-		[data-role="${DataRoles.Table.Header.Row}--${props.columnPosition}"],
-		[data-role="${DataRoles.Table.Body.Row}--${props.columnPosition}"],
-		[data-role="${DataRoles.Table.Footer.Row}--${props.columnPosition}"],
-		[data-role="${DataRoles.Table.Row.Scroller}--${props.columnPosition}"] {
+		[data-role="${DataRoles.Table.Header.Row}--${props.columnPosition}"], [data-role="${
+			DataRoles.Table.Body.Row
+		}--${props.columnPosition}"], [data-role="${
+			DataRoles.Table.Footer.Row
+		}--${props.columnPosition}"], [data-role="${DataRoles.Table.Row.Scroller}--${props.columnPosition}"] {
 			box-shadow: ${props.boxShadow};
 
 			// Keep the separator pinned column when hovering/focusing on cell highlighting
-			${props.columnPosition === "right" &&
-			css`
-				[data-role="${DataRoles.Table.Header.Cell}"]:first-of-type {
-					box-shadow: ${props.hoverBoxShadow};
-				}
-
-				${activeAndHover(css`
-					[data-role="${DataRoles.Table.Body.Cell}"]:first-of-type {
+			${
+				props.columnPosition === "right" &&
+				css`
+					[data-role="${DataRoles.Table.Header.Cell}"]:first-of-type {
 						box-shadow: ${props.hoverBoxShadow};
 					}
-				`)};
 
-				&:focus-within {
-					[data-role="${DataRoles.Table.Body.Cell}"]:first-of-type {
-						box-shadow: ${props.hoverBoxShadow};
+					${activeAndHover(css`
+						[data-role="${DataRoles.Table.Body.Cell}"]:first-of-type {
+							box-shadow: ${props.hoverBoxShadow};
+						}
+					`)};
+
+					&:focus-within {
+						[data-role="${DataRoles.Table.Body.Cell}"]:first-of-type {
+							box-shadow: ${props.hoverBoxShadow};
+						}
 					}
-				}
-			`};
+				`
+			};
 
-			${props.columnPosition === "left" &&
-			css`
-				[data-role*="resize-handler"]:not(:hover) div {
-					background-color: transparent;
-				}
+			${
+				props.columnPosition === "left" &&
+				css`
+					[data-role*="resize-handler"]:not(:hover) div {
+						background-color: transparent;
+					}
 
-				// Last column of left pin - to make sure left-pin border displays correctly in column group
-				&:after,
-				& > :last-child:after {
-					border-right-color: transparent;
-				}
+					// Last column of left pin - to make sure left-pin border displays correctly in column group
+					&:after,
+					& > :last-child:after {
+						border-right-color: transparent;
+					}
 
-				/**
+					/**
 	  *	Keep the separator pinned column when hovering/focusing on cell highlighting
 	 **/
 
-				[data-role="${DataRoles.Table.Header.Cell}"]:last-of-type {
-					box-shadow: ${props.hoverBoxShadow};
-				}
+					[data-role="${DataRoles.Table.Header.Cell}"]:last-of-type {
+						box-shadow: ${props.hoverBoxShadow};
+					}
 
-				${activeAndHover(css`
-					[data-role="${DataRoles.Table.Body.Cell}"]:last-of-type {
-						box-shadow: ${props.hoverBoxShadow};
+					${activeAndHover(css`
+						[data-role="${DataRoles.Table.Body.Cell}"]:last-of-type {
+							box-shadow: ${props.hoverBoxShadow};
+						}
+					`)}
+					&:focus-within {
+						[data-role="${DataRoles.Table.Body.Cell}"]:last-of-type {
+							box-shadow: ${props.hoverBoxShadow};
+						}
 					}
-				`)}
-				&:focus-within {
-					[data-role="${DataRoles.Table.Body.Cell}"]:last-of-type {
-						box-shadow: ${props.hoverBoxShadow};
-					}
-				}
-			`};
+				`
+			};
 		}
 	`;
 };
@@ -144,68 +148,78 @@ export const StyledTableTpl = styled.div.withConfig({ displayName: "StyledTableT
 		height: 100%;
 		outline: none;
 		position: relative;
-		${virtualScroll &&
-		css`
-			${StyledTableBody} {
-				border: none;
-
-				&:focus {
+		${
+			virtualScroll &&
+			css`
+				${StyledTableBody} {
 					border: none;
-				}
 
-				&:not(:empty) {
-					overflow-y: hidden;
-				}
-			}
-		`}
-		${!virtualScroll &&
-		css`
-			${StyledTableBody}:not(:empty) {
-				flex-grow: 0;
-			}
+					&:focus {
+						border: none;
+					}
 
-			${StyledTableFoot} {
-				display: flex;
-				flex-grow: 1;
-				flex-direction: column;
-			}
-
-			${StyledTableFootRow}:last-child {
-				flex-grow: 1;
-			}
-		`}
-
-		${(horizontalScrollPosition === "left" || horizontalScrollPosition === "middle") &&
-		showSeparatorPinnedColumn({
-			columnPosition: "right",
-			boxShadow: table.pinned.rightColumn.boxShadow,
-			hoverBoxShadow: table.pinned.rightColumn.hoverBoxShadow
-		})};
-		${(horizontalScrollPosition === "right" || horizontalScrollPosition === "middle") &&
-		showSeparatorPinnedColumn({
-			columnPosition: "left",
-			boxShadow: table.pinned.leftColumn.boxShadow,
-			hoverBoxShadow: table.pinned.leftColumn.hoverBoxShadow
-		})};
-
-		${addLastBorderOnHeader &&
-		css`
-			[data-role="${DataRoles.Table.Header.Row.SegmentRight}"] {
-				${StyledTableHeadCellGroup}:last-child, > ${StyledTableHeadCell}:last-child {
-					${createPseudoElement(
-						":after",
-						css`
-							border-right: ${table.headCellGroup.rightBorderRight};
-							left: unset;
-						`
-					)};
-
-					&:focus:after {
-						border-color: transparent;
+					&:not(:empty) {
+						overflow-y: hidden;
 					}
 				}
-			}
-		`}
+			`
+		}
+		${
+			!virtualScroll &&
+			css`
+				${StyledTableBody}:not(:empty) {
+					flex-grow: 0;
+				}
+
+				${StyledTableFoot} {
+					display: flex;
+					flex-grow: 1;
+					flex-direction: column;
+				}
+
+				${StyledTableFootRow}:last-child {
+					flex-grow: 1;
+				}
+			`
+		}
+
+		${
+			(horizontalScrollPosition === "left" || horizontalScrollPosition === "middle") &&
+			showSeparatorPinnedColumn({
+				columnPosition: "right",
+				boxShadow: table.pinned.rightColumn.boxShadow,
+				hoverBoxShadow: table.pinned.rightColumn.hoverBoxShadow
+			})
+		};
+		${
+			(horizontalScrollPosition === "right" || horizontalScrollPosition === "middle") &&
+			showSeparatorPinnedColumn({
+				columnPosition: "left",
+				boxShadow: table.pinned.leftColumn.boxShadow,
+				hoverBoxShadow: table.pinned.leftColumn.hoverBoxShadow
+			})
+		};
+
+		${
+			addLastBorderOnHeader &&
+			css`
+				[data-role="${DataRoles.Table.Header.Row.SegmentRight}"] {
+					${StyledTableHeadCellGroup}:last-child, > ${StyledTableHeadCell}:last-child {
+						${createPseudoElement(
+							":after",
+							css`
+								border-right: ${table.headCellGroup.rightBorderRight};
+								left: unset;
+							`
+						)};
+
+						&:focus:after {
+							border-color: transparent;
+						}
+					}
+				}
+			`
+		}
 	`;
 });
 

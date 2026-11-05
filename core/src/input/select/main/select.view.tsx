@@ -32,9 +32,9 @@
 
 import type { ReactElement } from "react";
 
-import type { SelectProps } from "./select.api.js";
 import { CustomSelect } from "./custom-select.view.js";
 import { NativeSelect } from "./native-select.view.js";
+import type { SelectProps } from "./select.api.js";
 
 export function Select(props: SelectProps): ReactElement<SelectProps> {
 	const { customInputProps, fitToParent = true, inputProps, ...rest } = props;

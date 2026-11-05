@@ -34,14 +34,14 @@ import type { ReactElement } from "react";
 import { memo } from "react";
 import { styled, css } from "styled-components";
 
-import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
 
-import type { TableTemplateProps } from "./template/table.tpl.api.js";
-import { StyledBaseTable } from "./template/table.styled.js";
-import { RowSegments } from "./table.row-segments.view.js";
-import { FootCell } from "./table.foot-cell.view.js";
 import { useTableContext } from "./table.context.js";
+import { FootCell } from "./table.foot-cell.view.js";
+import { RowSegments } from "./table.row-segments.view.js";
+import { StyledBaseTable } from "./template/table.styled.js";
+import type { TableTemplateProps } from "./template/table.tpl.api.js";
 
 const StyledTableRowScroller = styled(StyledBaseTable.Row).withConfig({ displayName: "StyledTableRowScroller-sc-" })(
 	({ theme }) => {
@@ -61,21 +61,25 @@ const StyledTableRowScrollerSegment = styled(StyledBaseTable.Segment).withConfig
 	const { bodyRow } = theme.components.table;
 
 	return css`
-		${rowSegmentType === "left" &&
-		crossTabulation &&
-		css`
-			background: ${bodyRow.background};
-			${createPseudoElement(
-				":after",
-				css`
-					border-right: none;
-				`
-			)}
-		`}
-		${rowSegmentType === "scroll" &&
-		css`
-			overflow-x: auto;
-		`}
+		${
+			rowSegmentType === "left" &&
+			crossTabulation &&
+			css`
+				background: ${bodyRow.background};
+				${createPseudoElement(
+					":after",
+					css`
+						border-right: none;
+					`
+				)}
+			`
+		}
+		${
+			rowSegmentType === "scroll" &&
+			css`
+				overflow-x: auto;
+			`
+		}
 	`;
 });
 

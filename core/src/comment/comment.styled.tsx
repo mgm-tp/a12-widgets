@@ -32,8 +32,8 @@
 
 import { styled, css } from "styled-components";
 
-import { StyledIconWrapper } from "../icon/main/icon.view.js";
 import { ButtonGroup } from "../button-group/main/button-group.view.js";
+import { StyledIconWrapper } from "../icon/main/icon.view.js";
 import { StyledTextAreaInputWrapper } from "../input/text-area/main/template/text-area.tpl.styled.js";
 
 export const StyledCommentListWrapper = styled.ul.withConfig({ displayName: "StyledCommentListWrapper-sc-" })(
@@ -181,23 +181,25 @@ export const StyledNewCommentWrapper = styled.div.withConfig({ displayName: "Sty
 		overflow-y: auto;
 		width: 100%;
 
-		${isReply &&
-		css`
-			background-color: ${replyComment.background};
-			padding: ${replyComment.padding};
+		${
+			isReply &&
+			css`
+				background-color: ${replyComment.background};
+				padding: ${replyComment.padding};
 
-			${StyledCommentActionsCombine} {
-				margin: ${actions.replyCommentMargin};
-			}
+				${StyledCommentActionsCombine} {
+					margin: ${actions.replyCommentMargin};
+				}
 
-			${StyledCommentContent} {
-				padding: ${content.replyCommentPadding};
-			}
+				${StyledCommentContent} {
+					padding: ${content.replyCommentPadding};
+				}
 
-			${StyledTextAreaInputWrapper} {
-				background-color: ${replyComment.inputBG};
-			}
-		`}
+				${StyledTextAreaInputWrapper} {
+					background-color: ${replyComment.inputBG};
+				}
+			`
+		}
 	`;
 });
 
@@ -214,43 +216,47 @@ export const StyledCommentWrapper = styled.div.withConfig({ displayName: "Styled
 		overflow-x: auto;
 		text-size-adjust: none;
 
-		${isReply &&
-		css`
-			background-color: ${comment.replyComment.background};
-			padding: ${comment.replyComment.padding};
+		${
+			isReply &&
+			css`
+				background-color: ${comment.replyComment.background};
+				padding: ${comment.replyComment.padding};
 
-			// To keep action buttons right aligned in nested replies from level 2
-			& & & {
-				padding-right: 0;
-			}
-
-			${StyledTextAreaInputWrapper} {
-				background-color: ${comment.replyComment.inputBG};
-			}
-		`}
-
-		${inactive &&
-		css`
-			${StyledCommentMeta} {
-				&:first-child {
-					margin: ${comment.meta.inactive.margin};
+				// To keep action buttons right aligned in nested replies from level 2
+				& & & {
+					padding-right: 0;
 				}
 
-				&:only-child {
-					margin: 0;
+				${StyledTextAreaInputWrapper} {
+					background-color: ${comment.replyComment.inputBG};
 				}
-			}
+			`
+		}
 
-			${StyledCommentMetaAvatar} ${StyledIconWrapper} {
-				color: ${comment.meta.inactive.avatarColor};
-			}
+		${
+			inactive &&
+			css`
+				${StyledCommentMeta} {
+					&:first-child {
+						margin: ${comment.meta.inactive.margin};
+					}
 
-			${StyledCommentMetaAuthor},
-			${StyledCommentMetaAction},
-            	${StyledCommentMetaDate} {
-				color: ${comment.meta.inactive.color};
-			}
-		`}
+					&:only-child {
+						margin: 0;
+					}
+				}
+
+				${StyledCommentMetaAvatar} ${StyledIconWrapper} {
+					color: ${comment.meta.inactive.avatarColor};
+				}
+
+				${StyledCommentMetaAuthor},
+				${StyledCommentMetaAction},
+				${StyledCommentMetaDate} {
+					color: ${comment.meta.inactive.color};
+				}
+			`
+		}
 	`;
 });
 
@@ -267,7 +273,7 @@ export const StyledCommentMeta = styled(StyledNewCommentMeta).withConfig({ displ
 
 			${StyledCommentMetaAuthor},
 			${StyledCommentMetaAction},
-          	${StyledCommentMetaDate} {
+			${StyledCommentMetaDate} {
 				color: ${comment.meta.inactive.destructive.color};
 			}
 		`
@@ -352,12 +358,14 @@ export const StyledCommentText = styled.div.withConfig({ displayName: "StyledCom
 		color: ${inactive ? comment.meta.inactive.color : comment.text.color};
 		white-space: pre-wrap;
 
-		${minimised &&
-		css`
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-		`}
+		${
+			minimised &&
+			css`
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			`
+		}
 	`;
 });
 

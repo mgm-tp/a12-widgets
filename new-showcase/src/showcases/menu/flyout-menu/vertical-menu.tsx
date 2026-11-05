@@ -37,7 +37,6 @@ import { styled, css } from "styled-components";
 import { FlyoutMenu, Checkbox } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { ConfigurationView } from "../../../helpers/configuration-view.js";
-
 import { items } from "../menu.setup.js";
 
 export const StyledMenuShowcaseWrapper = styled.div<{ $collapsed?: boolean }>(
@@ -52,7 +51,13 @@ export function VerticalMenu(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<div>
-					<Checkbox checked={collapsed} onChange={setCollapsed} label="Collapsed" title="Collapse Menu" />
+					<Checkbox
+						id="flyout-menu-vertical-menu-collapsed"
+						checked={collapsed}
+						onChange={setCollapsed}
+						label="Collapsed"
+						title="Collapse Menu"
+					/>
 				</div>
 			}
 		>

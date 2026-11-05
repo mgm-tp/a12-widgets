@@ -36,10 +36,10 @@ import { useState } from "react";
 
 import { ButtonGroup, Button, Counter, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 
+import { ConfigurationView } from "../../helpers/configuration-view.js";
 // end code removal
 // start code removal
 import { CodeSnippetGenerationWrapper } from "../../helpers/showcase-example.js";
-import { ConfigurationView } from "../../helpers/configuration-view.js";
 // end code removal
 
 export const CounterWithAddonsShowcase: FC = () => {

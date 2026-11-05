@@ -30,11 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render } from "test-utils";
+import { getByDataRole, getByRole, queryByDataRole, render } from "test-utils";
 import { describe, expect, test } from "vitest";
+import { userEvent } from "vitest/browser";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { ResponsiveChartContainer } from "../../bar-chart/main/bar-chart.view.js";
-
 import { LineChart } from "../main/line-chart.view.js";
 
 const data = [
@@ -60,6 +61,15 @@ const linePropsMap = {
 		strokeWidth: 2
 	}
 };
+
+/**
+ * The legend renders one child element per series, so its children are the entries. Counting them keeps
+ * these assertions clear of the chart's SVG geometry, which recharts derives from measured legend text
+ * and which therefore differs by a pixel between platforms.
+ */
+const legendItemsIn = (container: HTMLElement): Element[] => [
+	...getByDataRole(container, DataRoles.LineChart.Legend).children
+];
 
 describe("com.mgmtp.a12.widgets.charts", () => {
 	test("render responsive chart container with line chart", () => {
@@ -100,7 +110,9 @@ describe("com.mgmtp.a12.widgets.charts", () => {
 				comparableAreaProps={{ dataKey: "goals" }}
 			/>
 		);
-		expect(container.firstChild).toMatchSnapshot();
+
+		// The comparable area adds a fourth legend entry alongside the three lines.
+		expect(legendItemsIn(container)).toHaveLength(Object.keys(linePropsMap).length + 1);
 	});
 
 	test("render line chart with threshold", () => {
@@ -117,7 +129,11 @@ describe("com.mgmtp.a12.widgets.charts", () => {
 				thresholdLineProps={{ dataKey: "threshold" }}
 			/>
 		);
-		expect(container.firstChild).toMatchSnapshot();
+
+		// The threshold adds a fourth legend entry, drawn dashed rather than solid.
+		const items = legendItemsIn(container);
+		expect(items).toHaveLength(Object.keys(linePropsMap).length + 1);
+		expect(items.at(-1)?.querySelector("line")).toHaveAttribute("stroke-dasharray", "5 5");
 	});
 
 	test("render line chart horizontal legend", () => {
@@ -134,7 +150,10 @@ describe("com.mgmtp.a12.widgets.charts", () => {
 				legendProps={{ layout: "horizontal" }}
 			/>
 		);
-		expect(container.firstChild).toMatchSnapshot();
+
+		const legend = getByDataRole(container, DataRoles.LineChart.Legend);
+		expect(legend.className).toContain("chart__legend--layout-horizontal");
+		expect(legendItemsIn(container)).toHaveLength(Object.keys(linePropsMap).length);
 	});
 
 	test("render line chart vertical legend", () => {
@@ -151,10 +170,13 @@ describe("com.mgmtp.a12.widgets.charts", () => {
 				legendProps={{ layout: "vertical" }}
 			/>
 		);
-		expect(container.firstChild).toMatchSnapshot();
+
+		const legend = getByDataRole(container, DataRoles.LineChart.Legend);
+		expect(legend.className).toContain("chart__legend--layout-vertical");
+		expect(legendItemsIn(container)).toHaveLength(Object.keys(linePropsMap).length);
 	});
 
-	test("render line chart with hideable legend", () => {
+	test("render line chart with hideable legend", async () => {
 		const { container } = render(
 			<LineChart
 				width={600}
@@ -168,6 +190,14 @@ describe("com.mgmtp.a12.widgets.charts", () => {
 				legendProps={{ hideable: true }}
 			/>
 		);
-		expect(container.firstChild).toMatchSnapshot();
+
+		// A hideable legend starts collapsed behind a toggle and only then opens in a portal.
+		expect(queryByDataRole(container, DataRoles.LineChart.Legend)).toBeNull();
+
+		await userEvent.click(getByRole(container, "button"));
+
+		const legend = getByDataRole(document.body, DataRoles.LineChart.Legend);
+		expect(legend.className).toContain("chart__legend--hideable");
+		expect([...legend.children]).toHaveLength(Object.keys(linePropsMap).length);
 	});
 });

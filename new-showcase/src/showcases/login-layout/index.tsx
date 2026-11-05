@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import loginLayoutCode from "!./example.tsx?raw";
+
 import LoginLayoutAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/login-layout/main/login-layout.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { LoginLayoutExample } from "./example.js";
-
-import loginLayoutCode from "!./example.tsx?raw";
 
 const showcase: Showcase = {
 	label: "Login Layout",

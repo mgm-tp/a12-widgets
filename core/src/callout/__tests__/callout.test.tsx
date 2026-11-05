@@ -30,13 +30,25 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { createReferenceElement, getAllByDataRole, getByDataRole, removeReferenceElement, render } from "test-utils";
+import type { ReactElement } from "react";
+import { createRef, useState } from "react";
+import {
+	createReferenceElement,
+	getAllByDataRole,
+	getByDataRole,
+	queryByDataRole,
+	removeReferenceElement,
+	render,
+	setupDevice,
+	within
+} from "test-utils";
 import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
+import { userEvent } from "vitest/browser";
 
-import { DataRoles } from "../../common/main/data-roles.js";
 import { Button } from "../../button/main/button.view.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { Icon } from "../../icon/main/icon.view.js";
-
+import type { CalloutProps } from "../main/callout.api.js";
 import { Callout } from "../main/callout.view.js";
 import { CalloutTpl } from "../main/template/callout.tpl.view.js";
 
@@ -132,11 +144,33 @@ describe("com.mgmtp.a12.widgets.callout.template", () => {
 
 describe("com.mgmtp.a12.widgets.callout", () => {
 	let referenceElement: HTMLElement;
+	let outsideElement: HTMLElement;
+
+	const INSIDE_LABEL = "inside";
+	const getInsideButton = (): HTMLElement => within(document.body).getByRole("button", { name: INSIDE_LABEL });
+	const getCallout = (): HTMLElement => getByDataRole(document.body, DataRoles.Callout);
+	const queryCallout = (): HTMLElement | null => queryByDataRole(document.body, DataRoles.Callout);
+	const renderCallout = (props: Partial<CalloutProps> = {}) =>
+		render(
+			<Callout referenceElement={referenceElement} {...props}>
+				<button type="button">{INSIDE_LABEL}</button>
+			</Callout>
+		);
+	// The Attached Portal registers its window click listener in a timeout after mounting.
+	const waitForPortalListeners = (): Promise<void> => new Promise((resolve) => setTimeout(resolve, 20));
+
 	beforeEach(() => {
 		referenceElement = createReferenceElement();
+		outsideElement = document.createElement("button");
+		outsideElement.textContent = "outside";
+		// Keep it far away from the callout, which opens below the reference element in the top-left corner.
+		outsideElement.style.cssText = "position: fixed; right: 0; bottom: 0;";
+		document.body.appendChild(outsideElement);
 	});
 	afterEach(() => {
 		removeReferenceElement(referenceElement);
+		document.body.removeChild(outsideElement);
+		vi.restoreAllMocks();
 	});
 	test("rendering-default-callout", async () => {
 		const { container } = render(
@@ -182,5 +216,459 @@ describe("com.mgmtp.a12.widgets.callout", () => {
 		const calloutElement = getByDataRole(DataRoles.Callout);
 		expect(calloutElement).toBeTruthy();
 		expect(calloutElement.getAttribute("aria-label")).toBe(ariaLabel);
+	});
+
+	describe("rendering and prop updates", () => {
+		test("renders header, body and footer from the public props", () => {
+			render(
+				<Callout
+					referenceElement={referenceElement}
+					header={{ title: "Title", prefix: <span>prefix</span>, suffix: <span>suffix</span> }}
+					footer={<span>footer</span>}
+				>
+					<p>body</p>
+				</Callout>
+			);
+
+			expect(getByDataRole(document.body, DataRoles.Callout.Header.Prefix)).toHaveTextContent("prefix");
+			expect(getByDataRole(document.body, DataRoles.Callout.Header.Title)).toHaveTextContent("Title");
+			expect(getByDataRole(document.body, DataRoles.Callout.Header.Suffix)).toHaveTextContent("suffix");
+			expect(getByDataRole(document.body, DataRoles.Callout.Body)).toHaveTextContent("body");
+			expect(getByDataRole(document.body, DataRoles.Callout.Footer)).toHaveTextContent("footer");
+		});
+
+		test("adds, updates and removes header, footer and children after mount", () => {
+			const { rerender } = render(
+				<Callout referenceElement={referenceElement}>
+					<p>first</p>
+				</Callout>
+			);
+
+			expect(queryByDataRole(document.body, DataRoles.Callout.Header)).toBeNull();
+			expect(queryByDataRole(document.body, DataRoles.Callout.Footer)).toBeNull();
+			expect(getByDataRole(document.body, DataRoles.Callout.Body)).toHaveTextContent("first");
+
+			rerender(
+				<Callout referenceElement={referenceElement} header={{ title: "Late title" }} footer="Late footer">
+					<p>second</p>
+				</Callout>
+			);
+
+			expect(getByDataRole(document.body, DataRoles.Callout.Header.Title)).toHaveTextContent("Late title");
+			expect(getByDataRole(document.body, DataRoles.Callout.Footer)).toHaveTextContent("Late footer");
+			expect(getByDataRole(document.body, DataRoles.Callout.Body)).toHaveTextContent("second");
+
+			rerender(
+				<Callout referenceElement={referenceElement}>
+					<p>third</p>
+				</Callout>
+			);
+
+			expect(queryByDataRole(document.body, DataRoles.Callout.Header)).toBeNull();
+			expect(queryByDataRole(document.body, DataRoles.Callout.Footer)).toBeNull();
+			expect(getByDataRole(document.body, DataRoles.Callout.Body)).toHaveTextContent("third");
+		});
+
+		test("updates id, className, style and htmlAttributes after mount", () => {
+			const { rerender } = render(
+				<Callout
+					referenceElement={referenceElement}
+					id="first"
+					className="one"
+					style={{ color: "rgb(255, 0, 0)" }}
+					htmlAttributes={{ "aria-label": "First" }}
+				/>
+			);
+
+			expect(getCallout()).toHaveAttribute("id", "first");
+			expect(getCallout()).toHaveClass("one");
+			expect(getCallout()).toHaveStyle({ color: "rgb(255, 0, 0)" });
+			expect(getCallout()).toHaveAttribute("aria-label", "First");
+
+			rerender(
+				<Callout
+					referenceElement={referenceElement}
+					id="second"
+					className="two"
+					style={{ color: "rgb(0, 0, 255)" }}
+					htmlAttributes={{ "aria-label": "Second" }}
+				/>
+			);
+
+			expect(getCallout()).toHaveAttribute("id", "second");
+			expect(getCallout()).toHaveClass("two");
+			expect(getCallout()).not.toHaveClass("one");
+			expect(getCallout()).toHaveStyle({ color: "rgb(0, 0, 255)" });
+			expect(getCallout()).toHaveAttribute("aria-label", "Second");
+		});
+
+		test("applies the body padding and updates it after mount", () => {
+			const { rerender } = render(<Callout referenceElement={referenceElement} padding={false} />);
+			expect(getByDataRole(document.body, DataRoles.Callout.Body)).toHaveStyle({ padding: "0px" });
+
+			rerender(<Callout referenceElement={referenceElement} padding={12} />);
+			expect(getByDataRole(document.body, DataRoles.Callout.Body)).toHaveStyle({ padding: "12px" });
+
+			rerender(<Callout referenceElement={referenceElement} padding="4px 8px" />);
+			expect(getByDataRole(document.body, DataRoles.Callout.Body)).toHaveStyle({ padding: "4px 8px" });
+		});
+
+		test("toggles the pointer with isPointerVisible after mount", () => {
+			const { rerender } = render(<Callout referenceElement={referenceElement} />);
+			expect(queryByDataRole(document.body, DataRoles.Callout.Pointer)).toBeNull();
+
+			rerender(<Callout referenceElement={referenceElement} isPointerVisible />);
+			expect(getByDataRole(document.body, DataRoles.Callout.Pointer)).toBeTruthy();
+
+			rerender(<Callout referenceElement={referenceElement} />);
+			expect(queryByDataRole(document.body, DataRoles.Callout.Pointer)).toBeNull();
+		});
+
+		test("uses an automatic width when bound to a contentbox", () => {
+			render(<Callout referenceElement={referenceElement} boundToContentbox />);
+			expect(getCallout().style.width).toBe("auto");
+		});
+
+		test("lets the consumer style override the automatic width", () => {
+			render(<Callout referenceElement={referenceElement} boundToContentbox style={{ width: 250 }} />);
+			expect(getCallout().style.width).toBe("250px");
+		});
+	});
+
+	describe("accessibility", () => {
+		test("labels the callout by its header title when an id is given", () => {
+			const { rerender } = render(
+				<Callout referenceElement={referenceElement} id="labelled" header={{ title: "Heading" }} />
+			);
+
+			expect(getByDataRole(document.body, DataRoles.Callout.Header.Title)).toHaveAttribute(
+				"id",
+				"labelled-header-title"
+			);
+			expect(getCallout()).toHaveAttribute("aria-labelledby", "labelled-header-title");
+
+			rerender(<Callout referenceElement={referenceElement} id="labelled" />);
+			expect(getCallout()).not.toHaveAttribute("aria-labelledby");
+		});
+
+		test("does not reference a header title without an id", () => {
+			render(<Callout referenceElement={referenceElement} header={{ title: "Heading" }} />);
+
+			expect(getCallout()).not.toHaveAttribute("aria-labelledby");
+			expect(getByDataRole(document.body, DataRoles.Callout.Header.Title)).not.toHaveAttribute("id");
+		});
+	});
+
+	describe("refs", () => {
+		test("calls wrapperRef once with the callout element and with null on unmount", () => {
+			const wrapperRef = vi.fn();
+			const { rerender, unmount } = render(
+				<Callout referenceElement={referenceElement} wrapperRef={wrapperRef}>
+					<p>first</p>
+				</Callout>
+			);
+
+			expect(wrapperRef).toHaveBeenCalledTimes(1);
+			expect(wrapperRef).toHaveBeenLastCalledWith(getCallout());
+
+			rerender(
+				<Callout referenceElement={referenceElement} wrapperRef={wrapperRef}>
+					<p>second</p>
+				</Callout>
+			);
+			expect(wrapperRef).toHaveBeenCalledTimes(1);
+
+			unmount();
+			expect(wrapperRef).toHaveBeenCalledTimes(2);
+			expect(wrapperRef).toHaveBeenLastCalledWith(null);
+		});
+
+		test("keeps the class compatibility surface: instance ref and defaultProps", () => {
+			const ref = createRef<Callout>();
+			render(
+				<Callout ref={ref} referenceElement={referenceElement}>
+					<p>body</p>
+				</Callout>
+			);
+
+			expect(ref.current).toBeInstanceOf(Callout);
+			expect(Callout.defaultProps.closeOnEsc).toBe(true);
+		});
+
+		test("binds the methods of a subclass to the instance", () => {
+			class CustomCallout extends Callout {
+				getReferenceElement(): CalloutProps["referenceElement"] {
+					return this.props.referenceElement;
+				}
+			}
+
+			const ref = createRef<CustomCallout>();
+			render(
+				<CustomCallout ref={ref} referenceElement={referenceElement}>
+					<p>body</p>
+				</CustomCallout>
+			);
+
+			const { getReferenceElement } = ref.current!;
+			expect(getReferenceElement()).toBe(referenceElement);
+		});
+	});
+
+	describe("closing", () => {
+		test("does not call onClose while the callout stays open", async () => {
+			const onClose = vi.fn();
+			renderCallout({ onClose });
+
+			await waitForPortalListeners();
+			await userEvent.click(getInsideButton());
+
+			expect(onClose).not.toHaveBeenCalled();
+			expect(getCallout()).toBeTruthy();
+		});
+
+		test("calls onClose when Escape is pressed inside the callout", async () => {
+			const onClose = vi.fn();
+			renderCallout({ onClose });
+
+			getInsideButton().focus();
+			await userEvent.keyboard("{Escape}");
+
+			expect(onClose).toHaveBeenCalledTimes(1);
+		});
+
+		test("ignores Escape while closeOnEsc is false and honours it once enabled", async () => {
+			const onClose = vi.fn();
+			const { rerender } = renderCallout({ onClose, closeOnEsc: false });
+
+			getInsideButton().focus();
+			await userEvent.keyboard("{Escape}");
+			expect(onClose).not.toHaveBeenCalled();
+
+			rerender(
+				<Callout referenceElement={referenceElement} onClose={onClose} closeOnEsc>
+					<button type="button">{INSIDE_LABEL}</button>
+				</Callout>
+			);
+
+			getInsideButton().focus();
+			await userEvent.keyboard("{Escape}");
+			expect(onClose).toHaveBeenCalledTimes(1);
+		});
+
+		test("calls the onClose handler that is current when closing", async () => {
+			const staleOnClose = vi.fn();
+			const currentOnClose = vi.fn();
+			const { rerender } = renderCallout({ onClose: staleOnClose });
+
+			rerender(
+				<Callout referenceElement={referenceElement} onClose={currentOnClose}>
+					<button type="button">{INSIDE_LABEL}</button>
+				</Callout>
+			);
+
+			getInsideButton().focus();
+			await userEvent.keyboard("{Escape}");
+
+			expect(staleOnClose).not.toHaveBeenCalled();
+			expect(currentOnClose).toHaveBeenCalledTimes(1);
+		});
+
+		test("calls onClose on an outside click by default", async () => {
+			const onClose = vi.fn();
+			renderCallout({ onClose });
+
+			await waitForPortalListeners();
+			await userEvent.click(outsideElement);
+
+			expect(onClose).toHaveBeenCalledTimes(1);
+		});
+
+		test("does not call onClose on an outside click when closeOnOutsideClick is false", async () => {
+			const onClose = vi.fn();
+			renderCallout({ onClose, closeOnOutsideClick: false });
+
+			await waitForPortalListeners();
+			await userEvent.click(outsideElement);
+
+			expect(onClose).not.toHaveBeenCalled();
+			expect(getCallout()).toBeTruthy();
+		});
+
+		test("calls onClose when the reference element is clicked by default", async () => {
+			const onClose = vi.fn();
+			renderCallout({ onClose });
+
+			await waitForPortalListeners();
+			await userEvent.click(referenceElement);
+
+			expect(onClose).toHaveBeenCalledTimes(1);
+		});
+
+		test("does not call onClose on a reference element click when closeOnClickReferenceElement is false", async () => {
+			const onClose = vi.fn();
+			renderCallout({ onClose, closeOnClickReferenceElement: false });
+
+			await waitForPortalListeners();
+			await userEvent.click(referenceElement);
+
+			expect(onClose).not.toHaveBeenCalled();
+			expect(getCallout()).toBeTruthy();
+		});
+
+		test("removes the callout from the DOM and stops reacting to clicks after unmount", async () => {
+			const onClose = vi.fn();
+			const { unmount } = renderCallout({ onClose });
+			await waitForPortalListeners();
+
+			expect(getCallout()).toBeTruthy();
+			unmount();
+
+			expect(queryCallout()).toBeNull();
+			expect(queryByDataRole(document.body, DataRoles.AttachedPortal)).toBeNull();
+
+			await userEvent.click(outsideElement);
+			await userEvent.click(referenceElement);
+			expect(onClose).not.toHaveBeenCalled();
+		});
+	});
+
+	describe("keyboard", () => {
+		test("keeps keydown events other than Tab and Escape inside the callout", async () => {
+			const onKeyDown = vi.fn();
+			render(
+				<div onKeyDown={onKeyDown}>
+					<Callout referenceElement={referenceElement}>
+						<button type="button">{INSIDE_LABEL}</button>
+					</Callout>
+				</div>
+			);
+
+			getInsideButton().focus();
+			await userEvent.keyboard("{Enter}");
+			await userEvent.keyboard("{ArrowDown}");
+			await userEvent.keyboard("a");
+			expect(onKeyDown).not.toHaveBeenCalled();
+
+			getInsideButton().focus();
+			await userEvent.keyboard("{Tab}");
+			expect(onKeyDown).toHaveBeenCalledTimes(1);
+
+			getInsideButton().focus();
+			await userEvent.keyboard("{Escape}");
+			expect(onKeyDown).toHaveBeenCalledTimes(2);
+		});
+	});
+
+	describe("focus", () => {
+		test("makes an overflowing body focusable", async () => {
+			render(
+				<Callout referenceElement={referenceElement} style={{ height: 80 }}>
+					<div style={{ minHeight: 600 }}>tall content</div>
+				</Callout>
+			);
+
+			await vi.waitFor(() =>
+				expect(getByDataRole(document.body, DataRoles.Callout.Body)).toHaveAttribute("tabindex", "0")
+			);
+		});
+
+		test("leaves a fitting body out of the tab order", async () => {
+			render(
+				<Callout referenceElement={referenceElement}>
+					<p>short content</p>
+				</Callout>
+			);
+
+			await waitForPortalListeners();
+			expect(getByDataRole(document.body, DataRoles.Callout.Body)).not.toHaveAttribute("tabindex");
+		});
+
+		test("returns focus to the previously focused element when the consumer closes the callout", async () => {
+			const Harness = (): ReactElement | null => {
+				const [open, setOpen] = useState(true);
+
+				return open ? (
+					<Callout referenceElement={referenceElement} onClose={() => setOpen(false)}>
+						<button type="button">{INSIDE_LABEL}</button>
+					</Callout>
+				) : null;
+			};
+
+			referenceElement.focus();
+			render(<Harness />);
+
+			getInsideButton().focus();
+			await userEvent.keyboard("{Escape}");
+
+			expect(queryCallout()).toBeNull();
+			expect(referenceElement).toHaveFocus();
+		});
+	});
+
+	describe("resize and drag", () => {
+		test("renders inside the resize and drag container with a draggable header title", () => {
+			render(
+				<Callout
+					referenceElement={referenceElement}
+					header={{ title: "Drag me" }}
+					resizeAndDragOptions={{ referenceElement, minWidth: 320, minHeight: 250 }}
+				>
+					<p>body</p>
+				</Callout>
+			);
+
+			expect(getByDataRole(document.body, DataRoles.ResizeAndDragContainer)).toBeTruthy();
+			expect(queryByDataRole(document.body, DataRoles.AttachedPortal)).toBeNull();
+			expect(getByDataRole(document.body, DataRoles.Callout.Header.Title)).toHaveClass("handle");
+			expect(getByDataRole(document.body, DataRoles.Callout.Body)).toHaveTextContent("body");
+		});
+
+		test("uses an automatic width when the initial size defines a width", () => {
+			render(
+				<Callout
+					referenceElement={referenceElement}
+					resizeAndDragOptions={{ referenceElement, initialSize: { width: 400, height: 300 } }}
+				/>
+			);
+
+			expect(getCallout().style.width).toBe("auto");
+		});
+
+		test("calls onClose when Escape is pressed inside the resizable callout", async () => {
+			const onClose = vi.fn();
+			renderCallout({ onClose, resizeAndDragOptions: { referenceElement, minWidth: 320, minHeight: 250 } });
+
+			// The container only reacts to Escape after it has finished positioning itself, so retry until it closes.
+			await vi.waitFor(async () => {
+				if (!onClose.mock.calls.length) {
+					getInsideButton().focus();
+					await userEvent.keyboard("{Escape}");
+				}
+
+				expect(onClose).toHaveBeenCalledTimes(1);
+			});
+			expect(queryByDataRole(document.body, DataRoles.ResizeAndDragContainer)).toBeNull();
+		});
+	});
+
+	describe("phone", () => {
+		beforeEach(() => {
+			setupDevice("phone");
+		});
+
+		test("renders in a modal overlay without a pointer and closes on Escape", async () => {
+			const onClose = vi.fn();
+			renderCallout({ onClose, isPointerVisible: true });
+
+			expect(getByDataRole(document.body, DataRoles.Modal.OverlayContent)).toBeTruthy();
+			expect(queryByDataRole(document.body, DataRoles.AttachedPortal)).toBeNull();
+			expect(getCallout()).toBeTruthy();
+			expect(queryByDataRole(document.body, DataRoles.Callout.Pointer)).toBeNull();
+
+			getInsideButton().focus();
+			await userEvent.keyboard("{Escape}");
+
+			await vi.waitFor(() => expect(onClose).toHaveBeenCalledTimes(1));
+		});
 	});
 });

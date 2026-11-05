@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import localizationHiddenText from "!../../docs/accessibility/localization-hidden-text.md?raw";
+
 import type { Showcase } from "../../helpers/definitions.js";
 import { MarkdownViewer } from "../../helpers/markdown-viewer.js";
-
-import localizationHiddenText from "!../../docs/accessibility/localization-hidden-text.md?raw";
 
 const showcases: Showcase[] = [
 	{

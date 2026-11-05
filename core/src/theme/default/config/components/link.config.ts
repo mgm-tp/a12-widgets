@@ -33,8 +33,8 @@
 import { linearGradient } from "polished";
 import type { Styles } from "polished/lib/types/style.js";
 
-import type { BaseThemeType } from "../../../schema/base-theme.js";
 import type { CustomBorder } from "../../../base/mixins/_borderEffects.js";
+import type { BaseThemeType } from "../../../schema/base-theme.js";
 
 export type LinkConfigType = {
 	active: { backgroundImage: Styles; color: string; textDecoration?: string };

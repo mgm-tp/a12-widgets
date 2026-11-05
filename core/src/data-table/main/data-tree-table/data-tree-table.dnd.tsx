@@ -41,43 +41,64 @@ import type {
 	RefObject
 } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { css, styled, useTheme } from "styled-components";
+
+import { attachInstruction, extractInstruction } from "@com.mgmtp.a12.widgets/pragmatic-drag-and-drop-hitbox/tree-item";
+import { combine } from "@com.mgmtp.a12.widgets/pragmatic-drag-and-drop/combine";
 import {
 	draggable,
 	dropTargetForElements,
 	monitorForElements
-} from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
-import { disableNativeDragPreview } from "@atlaskit/pragmatic-drag-and-drop/element/disable-native-drag-preview";
-import { combine } from "@atlaskit/pragmatic-drag-and-drop/combine";
-import {
-	attachInstruction,
-	extractInstruction,
-	type Instruction,
-	type ItemMode
-} from "@atlaskit/pragmatic-drag-and-drop-hitbox/tree-item";
-import { css, styled, useTheme } from "styled-components";
+} from "@com.mgmtp.a12.widgets/pragmatic-drag-and-drop/element/adapter";
+import { disableNativeDragPreview } from "@com.mgmtp.a12.widgets/pragmatic-drag-and-drop/element/disable-native-drag-preview";
 
+import type { DragAndDropTitles } from "../../../common/main/a11y-localization/index.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-import { useKeepEditableCursorInDraggable } from "../../../common/main/hooks.js";
+import { triggerPostMoveFlash } from "../../../common/main/dnd-flash/index.js";
+import { useKeepEditableCursorInDraggable, useLatestRef } from "../../../common/main/hooks.js";
 import type { FlatTreeRow } from "../../../tree-view/main/model/index.js";
-import { isSelfOrDescendant } from "../../../tree-view/main/model/index.js";
-
 import {
-	captureRowSnapshot,
-	DEFAULT_ACCEPT_TYPE,
-	DRAG_TYPE_KEY,
-	isInteractiveElement,
-	useLatestRef
-} from "../data-table.dnd.js";
-import { useDataTableContext } from "../data-table.context.js";
+	computeItemMode,
+	evaluateTreeCanDrop,
+	indicatorFromInstruction,
+	isSameIndicator,
+	resolveTreeDropResult
+} from "../../../tree-view/main/tree-dnd/index.js";
+import type { IndicatorState, TreeDragItem } from "../../../tree-view/main/tree-dnd/index.js";
 import type { DataTableColumn } from "../columns.js";
 import type { DataTableSlotProps } from "../data-table-slots.api.js";
+import { useDataTableContext } from "../data-table.context.js";
+import { captureRowSnapshot, DEFAULT_ACCEPT_TYPE, DRAG_TYPE_KEY, isInteractiveElement } from "../dnd/index.js";
 import { DataTableZIndex } from "../template/data-table.z-index.js";
 
-import type { DataTreeTableDragDrop, DataTreeTableDropPosition } from "./data-tree-table.api.js";
+import type { DataTreeTableDragDrop } from "./data-tree-table.api.js";
+import { useDataTreeTableKeyboardReorder } from "./data-tree-table.dnd-keyboard.js";
 import { isLoadMoreSentinel } from "./data-tree-table.load-more.js";
+
+/*
+ * The shared tree-DnD core is re-exported so this module stays the single import site for
+ * DataTreeTable's DnD (its tests already point here). `tree-view/main/tree-dnd/` is internal to
+ * `core/src` and is in no public barrel — the dependency direction `data-table → tree-view` is the
+ * one that already exists (see `useTreeModel`).
+ */
+export * from "../../../tree-view/main/tree-dnd/index.js";
 
 /** Key under which the hovered row's flat index is carried in the drop target's pragmatic data. */
 const TREE_INDEX_KEY = "dataTreeRowIndex";
+
+/** Pragmatic data key marking the table's root drop zone (the empty area below the last row). */
+const ROOT_DROP_KEY = "dataTreeRootDrop";
+
+/** Whether a drop target's pragmatic data marks the root drop zone rather than a row. */
+function isRootDropTarget(data: Record<string | symbol, unknown>): boolean {
+	return data[ROOT_DROP_KEY] === true;
+}
+
+/** Value of `data-drop-target` when the row is a valid drop destination. */
+const DROP_TARGET_DROPPABLE = "droppable";
+
+/** Value of `data-drop-target` when the row is an invalid (forbidden) drop destination. */
+const DROP_TARGET_FORBIDDEN = "forbidden";
 
 /**
  * Live tree-DnD state shared from the {@link DataTreeTable} wrapper into the DnD slot components via a
@@ -103,6 +124,24 @@ export interface TreeDnDState<RowType = unknown> {
 
 	/** Toggles a row's expansion — used by hover-to-auto-expand. */
 	toggle: (key: Key, row: RowType) => void;
+
+	/** Localized grab / move / drop / cancel announcements for keyboard drag-and-drop. */
+	titles?: DragAndDropTitles;
+
+	/** Announces a screen-reader message through the tree table's polite live region. */
+	announce?: (message: string) => void;
+
+	/** Themed background for the post-move confirmation flash. */
+	flashColor?: string;
+
+	/**
+	 * Stable ref holding the key of the row to flash on the next commit (set by a pointer drop or a
+	 * keyboard move, claimed by that row's DnD slot once it has re-rendered at its new position).
+	 */
+	pendingFlashKeyRef?: RefObject<Key | null>;
+
+	/** Moves focus to the row for `key` after a keyboard move re-renders (resolves key → row index). */
+	focusRowByKey?: (key: Key) => void;
 }
 
 /** Default hover delay (ms) before {@link DataTreeTableDragDrop.autoExpand} expands a hovered collapsed row. */
@@ -115,40 +154,6 @@ function resolveAutoExpandDelay(autoExpand: DataTreeTableDragDrop["autoExpand"])
 	}
 
 	return typeof autoExpand === "object" ? (autoExpand.delay ?? DEFAULT_AUTO_EXPAND_DELAY) : DEFAULT_AUTO_EXPAND_DELAY;
-}
-
-/** A resolved tree drop: the hovered/target row plus where the dragged node would land. */
-interface ResolvedTreeDrop<RowType> {
-	target: FlatTreeRow<RowType>;
-	targetIndex: number;
-	position: DataTreeTableDropPosition;
-}
-
-/**
- * The dragged-row payload carried in pragmatic data.
- *
- * @internal
- */
-export interface TreeDragItem<RowType = unknown> {
-	rowIndex: number;
-	row: RowType;
-}
-
-/**
- * Visual indicator derived from the current hitbox instruction.
- *
- * @internal
- */
-export interface IndicatorState {
-	/**
-	 * `reorder-top`/`reorder-bottom` draw a band in the gap above/below the row (insert as a sibling);
-	 * `child` highlights the row itself (reparent into it).
-	 */
-	type: "reorder-top" | "reorder-bottom" | "child";
-
-	/** Tree level the reorder band is indented to (so it aligns with the prospective sibling). */
-	level: number;
-	forbidden: boolean;
 }
 
 /**
@@ -190,145 +195,30 @@ const StyledTreeDnDIndicatorCell = styled.td.withConfig({ displayName: "StyledDa
 		position: relative;
 		pointer-events: none;
 
-		${$active &&
-		css`
-			z-index: ${DataTableZIndex.stickyHeadFootAndDnd};
+		${
+			$active &&
+			css`
+				z-index: ${DataTableZIndex.stickyHeadFootAndDnd};
 
-			&::before {
-				content: "";
-				position: absolute;
-				left: ${$indent}px;
-				right: 0;
-				box-sizing: border-box;
-				background-color: ${$forbidden ? target.forbiddenBG : target.droppableBG};
-				border: ${$forbidden ? target.forbiddenBorder : target.droppableBorder};
-				top: ${bandTop};
-				height: ${target.height};
-			}
-		`}
+				&::before {
+					content: "";
+					position: absolute;
+					left: ${$indent}px;
+					right: 0;
+					box-sizing: border-box;
+					background-color: ${$forbidden ? target.forbiddenBG : target.droppableBG};
+					border: ${$forbidden ? target.forbiddenBorder : target.droppableBorder};
+					top: ${bandTop};
+					height: ${target.height};
+				}
+			`
+		}
 	`;
 });
 
 /** Resolves the `acceptType` for a tree DnD config, falling back to the shared default. */
 function resolveAcceptType(options: DataTreeTableDragDrop): string {
 	return options.acceptType || DEFAULT_ACCEPT_TYPE;
-}
-
-/**
- * The pragmatic-drag-and-drop hitbox item mode for a row: `expanded` when it shows children,
- * `last-in-group` when it is the last visible child of its parent (enables the reparent affordance),
- * otherwise `standard`.
- *
- * @internal
- */
-export function computeItemMode<RowType>(rows: FlatTreeRow<RowType>[], rowIndex: number): ItemMode {
-	const row = rows[rowIndex];
-	const next = rows[rowIndex + 1];
-
-	if (next && next.level > row.level) {
-		return "expanded";
-	}
-
-	if (!next || next.level < row.level) {
-		return "last-in-group";
-	}
-
-	return "standard";
-}
-
-/**
- * Maps a hitbox {@link Instruction} for a hovered row into a {@link ResolvedTreeDrop}, or `null` when
- * the drop is blocked. Pure (no DOM / pragmatic state) so the position mapping — including the
- * `reparent` outdent's ancestor resolution — is unit-testable independently of hitbox geometry.
- *
- * @internal
- */
-export function mapInstructionToDropResult<RowType>(
-	instruction: Instruction | null,
-	targetIndex: number,
-	rows: FlatTreeRow<RowType>[]
-): ResolvedTreeDrop<RowType> | null {
-	const target = rows[targetIndex];
-
-	if (!instruction || instruction.type === "instruction-blocked" || !target) {
-		return null;
-	}
-
-	switch (instruction.type) {
-		case "reorder-above":
-			return { target, targetIndex, position: "before" };
-		case "reorder-below":
-			return { target, targetIndex, position: "after" };
-		case "make-child":
-			return { target, targetIndex, position: "inside" };
-		case "reparent": {
-			// Outdent: the dragged node becomes the next sibling of the ancestor at the (shallower)
-			// desired level — the nearest preceding row at that level in the DFS order.
-			let ancestorIndex = targetIndex;
-
-			for (let i = targetIndex; i >= 0; i--) {
-				if (rows[i].level === instruction.desiredLevel) {
-					ancestorIndex = i;
-					break;
-				}
-			}
-
-			return { target: rows[ancestorIndex], targetIndex: ancestorIndex, position: "after" };
-		}
-
-		default:
-			return null;
-	}
-}
-
-/** Translates a drop target's pragmatic data into a {@link ResolvedTreeDrop}, or `null`. */
-function resolveTreeDropResult<RowType>(
-	targetData: Record<string | symbol, unknown>,
-	state: TreeDnDState<RowType>
-): ResolvedTreeDrop<RowType> | null {
-	return mapInstructionToDropResult(extractInstruction(targetData), targetData[TREE_INDEX_KEY] as number, state.rows);
-}
-
-/**
- * Whether a drop is permitted: the consumer `canDrop` when provided, otherwise the default guard that
- * forbids dropping a node onto itself or into its own subtree (which would create a cycle).
- */
-function evaluateTreeCanDrop<RowType>(
-	state: TreeDnDState<RowType>,
-	sourceRow: RowType,
-	resolved: ResolvedTreeDrop<RowType>
-): boolean {
-	if (state.options.canDrop) {
-		return state.options.canDrop({ source: sourceRow, target: resolved.target.row, position: resolved.position });
-	}
-
-	return !isSelfOrDescendant(resolved.target.key, state.rowKeyOf(sourceRow), state.metaByKey);
-}
-
-/**
- * Maps the current hitbox instruction to the visual indicator placement, or `null` for none.
- *
- * @internal
- */
-export function indicatorFromInstruction(instruction: Instruction | null, forbidden: boolean): IndicatorState | null {
-	if (!instruction) {
-		return null;
-	}
-
-	const resolved = instruction.type === "instruction-blocked" ? instruction.desired : instruction;
-
-	switch (resolved.type) {
-		case "reorder-above":
-			return { type: "reorder-top", level: resolved.currentLevel, forbidden };
-		case "reorder-below":
-			return { type: "reorder-bottom", level: resolved.currentLevel, forbidden };
-		case "make-child":
-			return { type: "child", level: resolved.currentLevel, forbidden };
-		case "reparent":
-			return { type: "reorder-bottom", level: resolved.desiredLevel, forbidden };
-		default:
-			return null;
-	}
 }
 
 /**
@@ -364,10 +254,30 @@ export function useTreeDnDMonitor<RowType>(
 				const state = stateRef.current;
 				const dragData = source.data as unknown as TreeDragItem<RowType>;
 				const target = location.current.dropTargets[0];
-				const resolved = target ? resolveTreeDropResult(target.data, state) : null;
+
+				// Dropped on the empty area below the last row (see `useTreeRootDropZone`): move to the top level.
+				if (target && isRootDropTarget(target.data)) {
+					if (state.options.canDropToRoot?.({ source: dragData.row }) ?? true) {
+						state.options.onDropToRoot?.({ source: dragData.row });
+
+						if (state.pendingFlashKeyRef) {
+							state.pendingFlashKeyRef.current = state.rowKeyOf(dragData.row);
+						}
+					}
+
+					return;
+				}
+
+				const resolved = target ? resolveTreeDropResult<RowType>(target.data, state.rows, TREE_INDEX_KEY) : null;
 
 				if (resolved && evaluateTreeCanDrop(state, dragData.row, resolved)) {
 					state.options.onDrop?.({ source: dragData.row, target: resolved.target.row, position: resolved.position });
+
+					// Confirm the landing row with a post-move flash once the reorder re-renders (its DnD slot
+					// claims the key). Shared with the keyboard path so both drop routes light up the same way.
+					if (state.pendingFlashKeyRef) {
+						state.pendingFlashKeyRef.current = state.rowKeyOf(dragData.row);
+					}
 				}
 			}
 		});
@@ -376,15 +286,115 @@ export function useTreeDnDMonitor<RowType>(
 }
 
 /**
+ * Root drop zone: the table's viewport `<div>` becomes a drop target for the empty area below the
+ * `<table>` — the space under the last row when the table has a bounded height, or the body of an empty
+ * tree. Rows stay the innermost targets, so this never competes with a row drop; hovering the header is
+ * excluded by the geometry check. Armed only while the consumer provides `onDropToRoot` (read live from the
+ * state ref), the counterpart of the legacy TreeTable's `hideRoot` drop onto the body. Feedback is the
+ * `data-drop-target` attribute on the viewport (`droppable` / `forbidden`), which the table template turns
+ * into a 2px frame around the body (below the head), as the legacy TreeTable framed its body.
+ *
+ * @internal
+ */
+export function useTreeRootDropZone<RowType>(
+	stateRef: RefObject<TreeDnDState<RowType>>,
+	viewportEl: HTMLElement | null,
+	enabled: boolean
+): void {
+	useEffect(() => {
+		const element = viewportEl;
+
+		if (!element || !enabled) {
+			return undefined;
+		}
+
+		const acceptType = resolveAcceptType(stateRef.current.options);
+		const tableOf = (): Element | null => element.querySelector(":scope > table");
+		let forbidden = false;
+
+		const clear = (): void => {
+			forbidden = false;
+			element.removeAttribute("data-drop-target");
+			element.style.removeProperty("--a12-tree-root-zone-top");
+		};
+
+		// The zone's frame starts under the head (see the viewport's `::after` rule): measure the head's
+		// bottom edge relative to the viewport once per arming, so the frame wraps the body only.
+		const measureFrameTop = (): void => {
+			const head = tableOf()?.querySelector(":scope > thead");
+			const top = head ? head.getBoundingClientRect().bottom - element.getBoundingClientRect().top : 0;
+
+			element.style.setProperty("--a12-tree-root-zone-top", `${Math.max(0, top)}px`);
+		};
+
+		// Force a `not-allowed` cursor while the forbidden zone is hovered. `dragover` bubbles up from the
+		// rows too, so only act on events from the empty area — a row owns its own cursor feedback.
+		const forbidCursor = (event: DragEvent): void => {
+			if (forbidden && event.dataTransfer && !tableOf()?.contains(event.target as Node)) {
+				event.dataTransfer.dropEffect = "none";
+			}
+		};
+
+		element.addEventListener("dragover", forbidCursor);
+
+		const cleanup = dropTargetForElements({
+			element,
+			canDrop: ({ source, input }) => {
+				if (source.data[DRAG_TYPE_KEY] !== acceptType || !stateRef.current.options.onDropToRoot) {
+					return false;
+				}
+
+				// Only the area below the table counts — never the header, and never a row (those are
+				// innermost targets anyway). An empty tree has table bottom = header bottom.
+				const table = tableOf();
+
+				return !table || input.clientY >= table.getBoundingClientRect().bottom;
+			},
+			getData: () => ({ [ROOT_DROP_KEY]: true }),
+			onDrag: ({ source, location }) => {
+				// React only while the viewport itself is the innermost target.
+				if (location.current.dropTargets[0]?.element !== element) {
+					clear();
+
+					return;
+				}
+
+				const dragged = source.data as unknown as TreeDragItem<RowType>;
+
+				forbidden = !(stateRef.current.options.canDropToRoot?.({ source: dragged.row }) ?? true);
+
+				if (!element.hasAttribute("data-drop-target")) {
+					measureFrameTop();
+				}
+
+				element.setAttribute("data-drop-target", forbidden ? DROP_TARGET_FORBIDDEN : DROP_TARGET_DROPPABLE);
+			},
+			onDragLeave: clear,
+			onDrop: clear
+		});
+
+		return (): void => {
+			cleanup();
+			element.removeEventListener("dragover", forbidCursor);
+			clear();
+		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps -- rebind only on element swap / DnD toggle; live values are read through refs.
+	}, [viewportEl, enabled]);
+}
+
+/**
  * Creates the tree-aware `dndRow` slot component bound to the wrapper's live state ref, returning a
  * stable component identity. `localDragRef` is flipped on at this tree's drag start so
- * {@link useTreeDnDMonitor} can attribute the drop to the source tree.
+ * {@link useTreeDnDMonitor} can attribute the drop to the source tree. `grabbedKeyRef` holds the key of
+ * the row currently picked up for keyboard grab-and-move (`null` when none is grabbed), shared across all
+ * rows so only the grabbed row's arrow presses reorder.
  *
  * @internal
  */
 export function createTreeDnDSlots<RowType>(
 	stateRef: RefObject<TreeDnDState<RowType>>,
-	localDragRef: RefObject<boolean>
+	localDragRef: RefObject<boolean>,
+	grabbedKeyRef: RefObject<Key | null>
 ): {
 	DndRow: ComponentType<DataTableSlotProps.DndRow<RowType, DataTableColumn<RowType>>>;
 } {
@@ -401,9 +411,10 @@ export function createTreeDnDSlots<RowType>(
 		const styleRef = useLatestRef({ spacingLeft, draggingOpacity });
 		const rowMetaRef = useLatestRef({ row, rowIndex });
 
-		const colSpan = useDataTableContext((ctx) => ctx.leafPinning.length) || 1;
+		const tableCtx = useDataTableContext();
+		const colSpan = tableCtx.leafPinning.length || 1;
 		// Recognise the table's top/bottom edge so the edge bands stay inside the content box.
-		const rowCount = useDataTableContext((ctx) => ctx.rowCount) ?? 0;
+		const rowCount = tableCtx.rowCount ?? 0;
 		const rowRef = useRef<HTMLTableRowElement | null>(null);
 		const [rowEl, setRowEl] = useState<HTMLTableRowElement | null>(null);
 		const [indicator, setIndicator] = useState<IndicatorState | null>(null);
@@ -413,6 +424,8 @@ export function createTreeDnDSlots<RowType>(
 		// Pending hover-to-auto-expand timer for this row; cleared on leave/drop so it only fires while the
 		// drag dwells on a collapsed parent.
 		const autoExpandTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+		// Mirrors `indicator.forbidden` as a ref for the synchronous `dragover` cursor listener.
+		const forbiddenRef = useRef(false);
 
 		useEffect(() => {
 			const element = rowEl;
@@ -422,21 +435,51 @@ export function createTreeDnDSlots<RowType>(
 			}
 
 			const acceptType = resolveAcceptType(stateRef.current.options);
-			const dragItem: TreeDragItem<RowType> = {
-				rowIndex: rowMetaRef.current.rowIndex,
-				row: rowMetaRef.current.row
+
+			// Read per dragstart, not captured here: this effect rebinds only when the `<tr>` is swapped, so a
+			// snapshot goes stale as soon as the consumer's `onDrop` rebuilds the tree. Mirrors `useTreeViewDnD`.
+			const resolveDragItem = (): TreeDragItem<RowType> | undefined => {
+				const rowIndex = rowMetaRef.current.rowIndex;
+				const row = stateRef.current.rows[rowIndex]?.row;
+
+				return row === undefined ? undefined : { rowIndex, row };
 			};
+
+			// Held for the drag so `onDragStart` and `onDragEnd` report the same row — by drop time the
+			// consumer's reorder may already have replaced it.
+			let draggedItem: TreeDragItem<RowType> | undefined;
+
+			// Force a `not-allowed` cursor on forbidden positions
+			const forbidCursor = (event: DragEvent): void => {
+				if (forbiddenRef.current && event.dataTransfer) {
+					event.dataTransfer.dropEffect = "none";
+				}
+			};
+
+			element.addEventListener("dragover", forbidCursor);
 
 			const cleanup = combine(
 				draggable({
 					element,
-					canDrag: () =>
-						!dragSuppressedRef.current && (stateRef.current.options.canDrag?.({ row: dragItem.row }) ?? true),
-					getInitialData: () => ({
-						[DRAG_TYPE_KEY]: acceptType,
-						...dragItem,
-						...captureRowSnapshot(element)
-					}),
+					// An unresolvable row is not draggable, which is why `getInitialData` can assume one.
+					canDrag: () => {
+						const item = resolveDragItem();
+
+						return (
+							!dragSuppressedRef.current &&
+							item !== undefined &&
+							(stateRef.current.options.canDrag?.({ row: item.row }) ?? true)
+						);
+					},
+					getInitialData: () => {
+						draggedItem = resolveDragItem();
+
+						return {
+							[DRAG_TYPE_KEY]: acceptType,
+							...draggedItem,
+							...captureRowSnapshot(element)
+						};
+					},
 					onGenerateDragPreview: ({ nativeSetDragImage }) => {
 						disableNativeDragPreview({ nativeSetDragImage });
 					},
@@ -445,12 +488,20 @@ export function createTreeDnDSlots<RowType>(
 						// type) resolves the drop, even after the source row scrolls out of a virtualized window.
 						localDragRef.current = true;
 						element.style.opacity = String(styleRef.current.draggingOpacity);
-						stateRef.current.options.onDragStart?.({ row: rowMetaRef.current.row });
+
+						if (draggedItem) {
+							stateRef.current.options.onDragStart?.({ row: draggedItem.row });
+						}
 					},
 					onDrop: () => {
 						element.style.opacity = "";
+
 						// Fires at the end of every drag (drop, cancel, or escape) — the counterpart to onDragStart.
-						stateRef.current.options.onDragEnd?.({ row: rowMetaRef.current.row });
+						if (draggedItem) {
+							stateRef.current.options.onDragEnd?.({ row: draggedItem.row });
+						}
+
+						draggedItem = undefined;
 					}
 				}),
 				dropTargetForElements({
@@ -503,6 +554,7 @@ export function createTreeDnDSlots<RowType>(
 						// React only when this row is the innermost target; otherwise another row owns the indicator.
 						if (location.current.dropTargets[0]?.element !== element) {
 							setIndicator(null);
+							forbiddenRef.current = false;
 
 							return;
 						}
@@ -510,13 +562,19 @@ export function createTreeDnDSlots<RowType>(
 						const state = stateRef.current;
 						const dragged = source.data as unknown as TreeDragItem<RowType>;
 						const instruction = extractInstruction(self.data);
-						const resolved = resolveTreeDropResult(self.data, state);
+						const resolved = resolveTreeDropResult<RowType>(self.data, state.rows, TREE_INDEX_KEY);
 						const forbidden = resolved ? !evaluateTreeCanDrop(state, dragged.row, resolved) : true;
 
-						setIndicator(indicatorFromInstruction(instruction, forbidden));
+						// Mirror for the native `dragover` cursor listener (read synchronously during dispatch).
+						forbiddenRef.current = forbidden;
+
+						const next = indicatorFromInstruction(instruction, forbidden);
+
+						setIndicator((previous) => (isSameIndicator(previous, next) ? previous : next));
 					},
 					onDragLeave: () => {
 						setIndicator(null);
+						forbiddenRef.current = false;
 
 						if (autoExpandTimerRef.current !== null) {
 							clearTimeout(autoExpandTimerRef.current);
@@ -525,6 +583,7 @@ export function createTreeDnDSlots<RowType>(
 					},
 					onDrop: () => {
 						setIndicator(null);
+						forbiddenRef.current = false;
 
 						if (autoExpandTimerRef.current !== null) {
 							clearTimeout(autoExpandTimerRef.current);
@@ -536,6 +595,7 @@ export function createTreeDnDSlots<RowType>(
 
 			return () => {
 				cleanup();
+				element.removeEventListener("dragover", forbidCursor);
 
 				// Drop any pending auto-expand timer if the row unmounts mid-hover (e.g. under virtualization).
 				if (autoExpandTimerRef.current !== null) {
@@ -570,13 +630,38 @@ export function createTreeDnDSlots<RowType>(
 			}
 
 			if (indicator?.type === "child") {
-				element.setAttribute("data-drop-target", indicator.forbidden ? "forbidden" : "droppable");
+				element.setAttribute("data-drop-target", indicator.forbidden ? DROP_TARGET_FORBIDDEN : DROP_TARGET_DROPPABLE);
 			} else {
 				element.removeAttribute("data-drop-target");
 			}
 
 			return (): void => element.removeAttribute("data-drop-target");
 		}, [rowEl, indicator]);
+
+		// Keyboard grab-and-move (Space to grab, arrows to reorder / reparent). Bound natively on the
+		// `<tr>` — see `./data-tree-table.dnd-keyboard.ts`.
+		useDataTreeTableKeyboardReorder<RowType>({ rowEl, stateRef, rowMetaRef, grabbedKeyRef });
+
+		// Post-move flash claim: after a drop / keyboard move reorders the tree, exactly one row's key sits
+		// in the shared pending-flash ref. On each commit the row whose key matches claims and clears it,
+		// then flashes its own `<tr>` — so the moved row lights up wherever it re-rendered. No-op under
+		// reduced motion (handled inside triggerPostMoveFlash).
+		useEffect(() => {
+			const element = rowEl;
+			const state = stateRef.current;
+			const pendingRef = state.pendingFlashKeyRef;
+
+			if (!element || !pendingRef) {
+				return;
+			}
+
+			const key = state.rowKeyOf(rowMetaRef.current.row);
+
+			if (pendingRef.current !== null && pendingRef.current === key) {
+				pendingRef.current = null;
+				triggerPostMoveFlash(element, { color: state.flashColor ?? "transparent" });
+			}
+		});
 
 		const indent = indicator ? spacingLeft + bandIndentPerLevel * (1 + indicator.level) : 0;
 		const bodyRowContent = (

@@ -30,6 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { isEqual } from "lodash-es";
 import type { ReactElement, MouseEvent, ContextType, KeyboardEvent, RefObject } from "react";
 import { useContext, useCallback, useMemo, createRef, Component } from "react";
 import type {
@@ -45,24 +46,23 @@ import type {
 	DayProps
 } from "react-day-picker";
 import { Day, addToRange, useDayPicker, UI, DayFlag, SelectionState, Week, Weekday, MonthGrid } from "react-day-picker";
-import { isEqual } from "lodash-es";
 import { Key } from "ts-key-enum";
 
-import { bindMethods, addPrefix, convertToArr, joinClassNames } from "../../common/main/utils.js";
-import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
-import { TimeUtils } from "../../common/main/date-time/time-utils.js";
+import { Button } from "../../button/main/button.view.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { Button } from "../../button/main/button.view.js";
-import type { YearRange } from "../../input/year-month-selector/year-selector.api.js";
-import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
+import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
+import { TimeUtils } from "../../common/main/date-time/time-utils.js";
+import { bindMethods, addPrefix, convertToArr, joinClassNames } from "../../common/main/utils.js";
+import type { YearRange } from "../../input/year-month-selector/year-selector.api.js";
 
+import type { PickerFooter, DatePickerProps } from "./date-picker.api.js";
+import { DatePickerContext } from "./date-picker.context.js";
 import { StyledDayButton, StyledDatePicker } from "./date-picker.styled.js";
 import { DatePickerFooter, DatePickerFooterAction, PickerHeaderNavButton } from "./date-picker.tpl.view.js";
-import type { PickerFooter, DatePickerProps } from "./date-picker.api.js";
 import type { DateRange } from "./date-range.api.js";
-import { DatePickerContext } from "./date-picker.context.js";
 
 const isRangeMatcher = DateTimeUtils.isRangeMatcher;
 

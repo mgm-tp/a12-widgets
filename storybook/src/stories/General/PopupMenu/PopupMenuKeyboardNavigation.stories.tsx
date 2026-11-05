@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ReactNode } from "react";
 
 import {
 	PopUpMenu,
@@ -44,8 +44,7 @@ import {
 const meta: Meta<typeof PopUpMenu> = {
 	title: "General/PopupMenu/KeyboardNavigation",
 	component: PopUpMenu,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;

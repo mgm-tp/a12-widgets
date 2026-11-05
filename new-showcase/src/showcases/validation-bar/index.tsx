@@ -30,6 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import detailView from "!./detail-view.tsx?raw";
+import exampleCode from "!./example.tsx?raw";
+import mobileCode from "!./mobile.tsx?raw";
+import validationBarAPICode from "!./showcase-validation-bar.api.ts?raw";
+import summaryView from "!./summary-view.tsx?raw";
+import useForm from "!./use-form.ts?raw";
+import variationsCode from "!./variations.tsx?raw";
+
 import ValidationBarAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/validation-bar/main/validation-bar.api.json" with { type: "json" };
 import MobileValidationBarAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/validation-bar/main/validation-bar.mobile.api.json" with { type: "json" };
 
@@ -38,14 +46,6 @@ import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
 
 import { ExampleShowcase } from "./example.js";
 import { VariationsShowcase } from "./variations.js";
-
-import exampleCode from "!./example.tsx?raw";
-import variationsCode from "!./variations.tsx?raw";
-import mobileCode from "!./mobile.tsx?raw";
-import summaryView from "!./summary-view.tsx?raw";
-import detailView from "!./detail-view.tsx?raw";
-import useForm from "!./use-form.ts?raw";
-import validationBarAPICode from "!./showcase-validation-bar.api.ts?raw";
 
 const showcases: Showcase[] = [
 	{

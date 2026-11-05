@@ -30,8 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import DiagramAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/model-graph-diagram/main/model-graph-diagram.tpl.api.json" with { type: "json" };
+import gridCode from "!./grid.tsx?raw";
+import labelCode from "!./label.tsx?raw";
+import nodeCode from "!./node.tsx?raw";
+import portCode from "!./port.tsx?raw";
+
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
+import DiagramAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/model-graph-diagram/main/model-graph-diagram.tpl.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
@@ -39,11 +44,6 @@ import { DiagramGridShowcase } from "./grid.js";
 import { DiagramLabelShowcase } from "./label.js";
 import { DiagramNodeShowcase } from "./node.js";
 import { DiagramPortShowcase } from "./port.js";
-
-import gridCode from "!./grid.tsx?raw";
-import labelCode from "!./label.tsx?raw";
-import nodeCode from "!./node.tsx?raw";
-import portCode from "!./port.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

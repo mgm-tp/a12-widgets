@@ -44,20 +44,20 @@ const meta: Meta<typeof CssEllipsis> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		maxLine: {
 			control: { type: "number", min: 1, max: 10 },
-			description: "Maximum number of lines before truncation"
+			description:
+				"Maximum number of lines before truncation. If not specified, it is calculated automatically from the fixed height of the parent element."
 		},
 		useTooltip: {
 			control: "boolean",
-			description: "Show full text in a tooltip when truncated"
+			description: "Show the full content in a tooltip on hover when truncated"
 		},
 		tooltipVariant: {
 			control: "select",
 			options: ["success", "hint", "error", "warning"],
-			description: "Variant of the tooltip shown on hover"
+			description: "Variant of the tooltip shown on hover (default: `hint`)"
 		}
 	},
 	decorators: [
@@ -72,23 +72,47 @@ const meta: Meta<typeof CssEllipsis> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	args: {
-		children: LONG_TEXT
-	}
-};
-
-export const SingleLine: Story = {
-	args: {
-		maxLine: 1,
-		children: LONG_TEXT
-	}
-};
-
-export const TwoLines: Story = {
+export const Playground: Story = {
 	args: {
 		maxLine: 2,
+		useTooltip: false,
+		tooltipVariant: "hint",
 		children: LONG_TEXT
+	}
+};
+
+export const MaxLines: Story = {
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+			{[1, 2, 3].map((lines) => (
+				<CssEllipsis key={lines} maxLine={lines}>
+					{LONG_TEXT}
+				</CssEllipsis>
+			))}
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`maxLine` clamps the content to a fixed number of lines — here 1, 2 and 3 lines of the same text."
+			}
+		}
+	}
+};
+
+export const AutoCalculatedLines: Story = {
+	render: () => (
+		<div style={{ height: 60, border: "1px dashed #ccc" }}>
+			<CssEllipsis>{LONG_TEXT}</CssEllipsis>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Without `maxLine`, the number of visible lines is calculated automatically from the parent element. The parent height must be fixed (here `60px`) for the calculation to work."
+			}
+		}
 	}
 };
 
@@ -98,6 +122,14 @@ export const WithTooltip: Story = {
 		useTooltip: true,
 		tooltipVariant: "hint",
 		children: LONG_TEXT
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"With `useTooltip`, hovering the truncated text shows the full content in a tooltip. `tooltipVariant` selects the tooltip style (`success`, `hint`, `error` or `warning`)."
+			}
+		}
 	}
 };
 
@@ -105,5 +137,12 @@ export const ShortText: Story = {
 	args: {
 		maxLine: 2,
 		children: "Short text — no truncation."
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "Content that fits within `maxLine` is rendered as-is, without an ellipsis or tooltip."
+			}
+		}
 	}
 };

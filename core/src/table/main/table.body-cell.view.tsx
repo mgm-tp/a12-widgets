@@ -34,19 +34,19 @@ import type { MouseEvent } from "react";
 import { memo, useRef, useMemo, useCallback } from "react";
 import { styled, css } from "styled-components";
 
-import { getParentElement, joinClassNames } from "../../common/main/utils.js";
-import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
-import { activeAndHover } from "../../theme/base/mixins/_interaction.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { getParentElement, joinClassNames } from "../../common/main/utils.js";
+import { activeAndHover } from "../../theme/base/mixins/_interaction.js";
+import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
 
-import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
-import { StyledTableTemplate, TableTemplate } from "./template/index.js";
-import { StyledBaseTable } from "./template/table.styled.js";
-import { useStyledTableContext } from "./template/table.context.styled.js";
-import type { TableTemplateProps } from "./template/table.tpl.api.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
-import { isColumnGroup, TableInternalUtils as Utils, TableInternalUtils } from "./table.utils.js";
 import { useCellHighlightingTableContext, useTableContext } from "./table.context.js";
+import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
+import { isColumnGroup, TableInternalUtils as Utils, TableInternalUtils } from "./table.utils.js";
+import { StyledTableTemplate, TableTemplate } from "./template/index.js";
+import { useStyledTableContext } from "./template/table.context.styled.js";
+import { StyledBaseTable } from "./template/table.styled.js";
+import type { TableTemplateProps } from "./template/table.tpl.api.js";
 
 export const StyledTableBodyCellGroup = styled(StyledBaseTable.Group).withConfig({
 	displayName: "StyledTableBodyCellGroup-sc-"
@@ -74,26 +74,28 @@ export const StyledTableBodyCellGroup = styled(StyledBaseTable.Group).withConfig
 			`
 		)}
 		${(rowSegmentType === "right" || (rowSegmentType === "left" && crossTabulation)) && resetBorder}
-		
-        // Make sure when hover/focus, column's border not overlap with content row's border
-        ${rowInteractive &&
-		css`
-			${activeAndHover(
-				css`
+
+		// Make sure when hover/focus, column's border not overlap with content row's border
+		${
+			rowInteractive &&
+			css`
+				${activeAndHover(
+					css`
+						&:after {
+							top: 3px;
+							bottom: 3px;
+						}
+					`,
+					StyledTableTemplate.StyledBodyRow
+				)}
+				${StyledTableTemplate.StyledBodyRow}:focus & {
 					&:after {
 						top: 3px;
 						bottom: 3px;
 					}
-				`,
-				StyledTableTemplate.StyledBodyRow
-			)}
-			${StyledTableTemplate.StyledBodyRow}:focus & {
-				&:after {
-					top: 3px;
-					bottom: 3px;
 				}
-			}
-		`}
+			`
+		}
 	`;
 });
 

@@ -1,0 +1,65 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as RadioStories from "./Radio.stories";
+
+<Meta of={RadioStories} />
+
+<Title />
+
+The `Radio` widget wraps native HTML radio inputs in a group and adds a group label, tooltips,
+validation states and messages. Use it whenever the user must pick exactly one option from a small
+set of mutually exclusive choices.
+
+- Options are declared as `Radio.Item` children, each with a `label` and a `value`.
+- The group is controlled: the selected item is set via `value` and changes are reported through
+  `onValueChanged`.
+- `inline` switches from the default vertical stack to a single row.
+- `disabled` and `readonly` apply to the whole group; a single `Radio.Item` can also be disabled
+  individually.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={RadioStories.Playground} />
+
+## Examples
+
+### Inline layout
+
+<Canvas of={RadioStories.Inline} />
+
+### Disabled item
+
+<Canvas of={RadioStories.WithDisabledItem} />
+
+### Disabled group
+
+<Canvas of={RadioStories.Disabled} />
+
+### Read-only
+
+<Canvas of={RadioStories.Readonly} />
+
+### Validation states
+
+<Canvas of={RadioStories.ValidationStates} />
+
+### Controlled selection
+
+<Canvas of={RadioStories.Controlled} />

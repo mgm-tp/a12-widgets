@@ -37,12 +37,11 @@ import { styled, css } from "styled-components";
 import { joinClassNames, getRole } from "../../../common/main/utils.js";
 import { StyledContentBoxContext } from "../../../contentbox/main/template/contentbox.context.js";
 import { StyledContentBox, StyledContentBoxContent } from "../../../contentbox/main/template/contentbox.tpl.styled.js";
-
 import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
-import type { TableTemplateProps } from "./table.tpl.api.js";
 import { StyledBaseTable, StyledTableMixins } from "./table.styled.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 
 export const StyledTableHeadRow = styled(StyledBaseTable.Row).withConfig({ displayName: "StyledTableHeadRow-sc-" })<{
 	cardView?: boolean;
@@ -59,15 +58,17 @@ export const StyledTableHeadRow = styled(StyledBaseTable.Row).withConfig({ displ
 		${StyledTableMixins.setRowBG({ background: header.background, theme })}
 		${StyledTableMixins.setInputBG({ background: headRow.filter.fieldInputBG })}
 
-		${embedded &&
-		css`
-			${StyledContentBox} > ${StyledContentBoxContent} && {
-				background-color: ${contentBox.embedded.table.header.background};
-				&:first-child {
-					border-top: ${contentBox.embedded.table.header.borderTop};
+		${
+			embedded &&
+			css`
+				${StyledContentBox} > ${StyledContentBoxContent} && {
+					background-color: ${contentBox.embedded.table.header.background};
+					&:first-child {
+						border-top: ${contentBox.embedded.table.header.borderTop};
+					}
 				}
-			}
-		`}
+			`
+		}
 	`;
 });
 

@@ -35,6 +35,7 @@ import type { BaseThemeType } from "../../../schema/base-theme.js";
 export type YearMonthSelectorConfigType = {
 	labelMargin: string;
 	messageMargin: string;
+	messageMarginBelow?: string;
 	month: { minWidth: string };
 	year: { margin: string; minWidth: string };
 };
@@ -45,6 +46,7 @@ export const yearMonthSelectorConfig = (theme: BaseThemeType): YearMonthSelector
 	return {
 		labelMargin: `0 0 ${spacing.verticalSpacing.vertWhiteSpacing2xs}px 0`,
 		messageMargin: `0 0 ${spacing.verticalSpacing.vertWhiteSpacing2xs}px 0`,
+		messageMarginBelow: `${spacing.verticalSpacing.vertWhiteSpacing2xs}px 0 0 0`,
 		month: {
 			minWidth: `${3 * spacing.spacing.spacingLg}px`
 		},

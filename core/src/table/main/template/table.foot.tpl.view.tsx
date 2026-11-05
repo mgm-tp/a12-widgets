@@ -38,7 +38,6 @@ import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { joinClassNames, getRole } from "../../../common/main/utils.js";
 import { createPseudoElement } from "../../../theme/base/mixins/_pseudo.js";
-
 import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
@@ -71,12 +70,14 @@ export const StyledTableFoot = styled.div.withConfig({ displayName: "StyledTable
 			}
 		}
 
-		${!hasFootContent &&
-		css`
-			& > *:first-child:before {
-				border-bottom: none;
-			}
-		`}
+		${
+			!hasFootContent &&
+			css`
+				& > *:first-child:before {
+					border-bottom: none;
+				}
+			`
+		}
 	`;
 });
 

@@ -32,8 +32,8 @@
 
 import { rgba } from "polished";
 
-import type { BaseThemeCore } from "../../schema.js";
 import type { CustomBorder } from "../../../base/mixins/_borderEffects.js";
+import type { BaseThemeCore } from "../../schema.js";
 import { mergeConfig } from "../../utils/merge-config.js";
 
 export type MenuConfigType = {
@@ -147,6 +147,7 @@ export type MenuConfigType = {
 						info: string;
 						error: string;
 						warning: string;
+						inProgress?: string;
 						done: string;
 					};
 				};
@@ -722,6 +723,7 @@ export const menuOverrides = (theme: BaseThemeCore) => {
 					info: colors.variant.infoColor,
 					error: colors.variant.errorColor,
 					warning: colors.variant.warningColorDark,
+					inProgress: colors.variant.infoColorDark,
 					done: colors.variant.successColor
 				}
 			}
@@ -789,6 +791,13 @@ export const menuOverrides = (theme: BaseThemeCore) => {
 			vertical: {
 				selected: {
 					background: colors.interaction.selected.colorInverted
+				},
+				icon: {
+					status: {
+						variant: {
+							inProgress: colors.variant.infoColorDark
+						}
+					}
 				}
 			}
 		},

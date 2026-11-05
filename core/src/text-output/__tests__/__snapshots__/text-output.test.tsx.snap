@@ -139,15 +139,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-no-data-with-
   max-width: unset;
 }
 
-.c10 .c14 {
+:where(.c10) .c14 {
   color: inherit;
 }
 
-.c10 .c23 {
-  color: inherit;
-}
-
-.c19.c19 {
+.c18.c18 {
   color: rgb(175, 121, 2);
 }
 
@@ -203,15 +199,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-no-data-with-
   width: fit-content;
 }
 
-.c10 .c12.c12:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c10 .c12.c12:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
-  color: inherit;
-}
-
 .c10 .c12.c12:focus .c13 {
+  color: inherit;
+}
+
+:where(.c10) .c12:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -277,15 +269,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-no-data-with-
   width: fit-content;
 }
 
-.c10 .c17.c17:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c10 .c17.c17:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
-  color: inherit;
-}
-
 .c10 .c17.c17:focus .c13 {
+  color: inherit;
+}
+
+:where(.c10) .c17:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -297,10 +285,6 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-no-data-with-
 
 .h_inlineBlock.h_middleAlign .c17.c17 > .c13 {
   display: block;
-}
-
-.c24 .c13 {
-  font-size: 1.25rem;
 }
 
 .c8 {
@@ -331,12 +315,6 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-no-data-with-
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-style: italic;
-}
-
-.c22 > .c13,
-.c22 > span:first-child > .c13 {
-  vertical-align: middle;
-  transform: translateY(-5%);
 }
 
 .c5 {
@@ -389,19 +367,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-no-data-with-
   transform: translateY(-5%);
 }
 
-.c20 > .c10 {
-  margin: 0px 0px 4px 4px;
-}
-
 .c2 {
   width: 100%;
 }
 
 .c2 > .c10 {
-  margin: 0px 0px 4px 4px;
-}
-
-.c21 > .c10 {
   margin: 0px 0px 4px 4px;
 }
 
@@ -537,6 +507,8 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-no-data-with-
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   info
                 </span>
@@ -567,11 +539,13 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-no-data-with-
               type="button"
             >
               <i
-                class="c13 c18 c14 c19 plasma-icon plasma-icon--warning"
+                class="c13 c14 c18 plasma-icon plasma-icon--warning"
                 data-role="plasma-icon"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   warning
                 </span>
@@ -653,15 +627,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-addons 1
   max-width: unset;
 }
 
-.c10 .c14 {
+:where(.c10) .c14 {
   color: inherit;
 }
 
-.c10 .c21 {
-  color: inherit;
-}
-
-.c19.c19 {
+.c18.c18 {
   color: rgb(175, 121, 2);
 }
 
@@ -717,15 +687,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-addons 1
   width: fit-content;
 }
 
-.c10 .c12.c12:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c10 .c12.c12:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
-  color: inherit;
-}
-
 .c10 .c12.c12:focus .c13 {
+  color: inherit;
+}
+
+:where(.c10) .c12:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -791,15 +757,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-addons 1
   width: fit-content;
 }
 
-.c10 .c17.c17:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c10 .c17.c17:not(:active):not(:hover):not(:focus) .c13:not(.c18) {
-  color: inherit;
-}
-
 .c10 .c17.c17:focus .c13 {
+  color: inherit;
+}
+
+:where(.c10) .c17:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -811,10 +773,6 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-addons 1
 
 .h_inlineBlock.h_middleAlign .c17.c17 > .c13 {
   display: block;
-}
-
-.c22 .c13 {
-  font-size: 1.25rem;
 }
 
 .c8 {
@@ -893,10 +851,6 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-addons 1
 .c6 > span:first-child > .c13 {
   vertical-align: middle;
   transform: translateY(-5%);
-}
-
-.c20 > .c10 {
-  margin: 0px 0px 4px 4px;
 }
 
 .c2 {
@@ -1037,6 +991,8 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-addons 1
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   info
                 </span>
@@ -1067,11 +1023,13 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-addons 1
               type="button"
             >
               <i
-                class="c13 c18 c14 c19 plasma-icon plasma-icon--warning"
+                class="c13 c14 c18 plasma-icon plasma-icon--warning"
                 data-role="plasma-icon"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   warning
                 </span>
@@ -1342,34 +1300,6 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-error-&-
   height: 1px;
 }
 
-.c11 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c11 > span {
-  display: inline-block;
-}
-
-.c11.c11 {
-  max-width: unset;
-}
-
 .c6 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -1398,40 +1328,48 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-error-&-
   max-width: unset;
 }
 
-.c12.c12 {
-  color: rgb(175, 121, 2);
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c6 {
+  color: inherit;
+}
+
+.c11 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c11 > span {
+  display: inline-block;
+}
+
+.c11.c11 {
+  max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
+  color: inherit;
 }
 
 .c7.c7 {
   color: rgb(201, 29, 29);
 }
 
-.c17 .c5 {
-  user-select: none;
-}
-
-.c17 .c5 {
-  color: inherit;
-}
-
-.c17 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c17.c17 > .c5 {
-  display: block;
-}
-
-.c18 .c5 {
-  user-select: none;
-}
-
-.c18 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c18.c18 > .c5 {
-  display: block;
+.c12.c12 {
+  color: rgb(175, 121, 2);
 }
 
 .c3 {
@@ -1548,6 +1486,8 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-error-&-
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             
           </span>
@@ -1580,6 +1520,8 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-error-&-
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             warning
           </span>
@@ -1666,36 +1608,12 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-error-me
   max-width: unset;
 }
 
-.c7.c7 {
-  color: rgb(201, 29, 29);
-}
-
-.c14 .c5 {
-  user-select: none;
-}
-
-.c14 .c5 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c6 {
   color: inherit;
 }
 
-.c14 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c5 {
-  display: block;
-}
-
-.c15 .c5 {
-  user-select: none;
-}
-
-.c15 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c5 {
-  display: block;
+.c7.c7 {
+  color: rgb(201, 29, 29);
 }
 
 .c3 {
@@ -1801,6 +1719,8 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-error-me
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             
           </span>
@@ -1887,36 +1807,12 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-info-mes
   max-width: unset;
 }
 
-.c7.c7 {
-  color: rgb(5, 104, 174);
-}
-
-.c14 .c5 {
-  user-select: none;
-}
-
-.c14 .c5 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c6 {
   color: inherit;
 }
 
-.c14 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c5 {
-  display: block;
-}
-
-.c15 .c5 {
-  user-select: none;
-}
-
-.c15 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c5 {
-  display: block;
+.c7.c7 {
+  color: rgb(5, 104, 174);
 }
 
 .c3 {
@@ -2022,6 +1918,8 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-info-mes
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             info
           </span>
@@ -2122,11 +2020,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   max-width: unset;
 }
 
-.c3 .c7 {
+:where(.c3) .c7 {
   color: inherit;
 }
 
-.c12.c12 {
+.c11.c11 {
   color: rgb(175, 121, 2);
 }
 
@@ -2182,15 +2080,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   width: fit-content;
 }
 
-.c3 .c5.c5:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c3 .c5.c5:not(:active):not(:hover):not(:focus) .c6:not(.c11) {
-  color: inherit;
-}
-
 .c3 .c5.c5:focus .c6 {
+  color: inherit;
+}
+
+:where(.c3) .c5:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -2256,15 +2150,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   width: fit-content;
 }
 
-.c3 .c10.c10:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c3 .c10.c10:not(:active):not(:hover):not(:focus) .c6:not(.c11) {
-  color: inherit;
-}
-
 .c3 .c10.c10:focus .c6 {
+  color: inherit;
+}
+
+:where(.c3) .c10:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -2290,24 +2180,24 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   max-width: 100%;
 }
 
-.c14 {
+.c13 {
   color: rgb(77, 77, 77);
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
 }
 
-.c15 {
+.c14 {
   overflow: hidden;
 }
 
-.c15 > p:first-child,
-.c15 > div:first-child > p:first-child {
+.c14 > p:first-child,
+.c14 > div:first-child > p:first-child {
   margin-top: 0px;
 }
 
-.c15 > .c6,
-.c15 > span:first-child > .c6 {
+.c14 > .c6,
+.c14 > span:first-child > .c6 {
   vertical-align: middle;
   transform: translateY(-5%);
 }
@@ -2317,16 +2207,16 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   text-align: initial;
 }
 
-.c1 .c13 {
+.c1 .c12 {
   justify-content: initial;
 }
 
-.c16 {
+.c15 {
   margin: 0px;
 }
 
-.c16 > .c6,
-.c16 > span:first-child > .c6 {
+.c15 > .c6,
+.c15 > span:first-child > .c6 {
   vertical-align: middle;
   transform: translateY(-5%);
 }
@@ -2447,6 +2337,8 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             info
           </span>
@@ -2473,11 +2365,13 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
         type="button"
       >
         <i
-          class="c6 c11 c7 c12 plasma-icon plasma-icon--warning"
+          class="c6 c7 c11 plasma-icon plasma-icon--warning"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             warning
           </span>
@@ -2491,15 +2385,15 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
       </button>
     </span>
     <div
-      class="c13 c14 text-output__content"
+      class="c12 c13 text-output__content"
       data-role="text-output-content"
     >
       <div
-        class="c15 text-output__text"
+        class="c14 text-output__text"
         data-role="text-output-text"
       >
         <p
-          class="c16"
+          class="c15"
           data-role="text-output-paragraph"
         >
           Content
@@ -2572,11 +2466,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   max-width: unset;
 }
 
-.c3 .c7 {
+:where(.c3) .c7 {
   color: inherit;
 }
 
-.c16 {
+.c15 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -2596,23 +2490,23 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   font-feature-settings: "liga";
 }
 
-.c16 > span {
+.c15 > span {
   display: inline-block;
 }
 
-.c16.c16 {
+.c15.c15 {
   max-width: unset;
 }
 
-.c3 .c16 {
+:where(.c3) .c15 {
   color: inherit;
 }
 
-.c12.c12 {
+.c11.c11 {
   color: rgb(175, 121, 2);
 }
 
-.c17.c17 {
+.c16.c16 {
   color: rgb(201, 29, 29);
 }
 
@@ -2668,15 +2562,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   width: fit-content;
 }
 
-.c3 .c5.c5:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c3 .c5.c5:not(:active):not(:hover):not(:focus) .c6:not(.c11) {
-  color: inherit;
-}
-
 .c3 .c5.c5:focus .c6 {
+  color: inherit;
+}
+
+:where(.c3) .c5:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -2742,15 +2632,11 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   width: fit-content;
 }
 
-.c3 .c10.c10:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c3 .c10.c10:not(:active):not(:hover):not(:focus) .c6:not(.c11) {
-  color: inherit;
-}
-
 .c3 .c10.c10:focus .c6 {
+  color: inherit;
+}
+
+:where(.c3) .c10:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -2764,7 +2650,7 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   display: block;
 }
 
-.c14 {
+.c13 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2775,7 +2661,7 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   color: rgb(201, 29, 29);
 }
 
-.c19 {
+.c18 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2786,21 +2672,21 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   color: rgb(22, 25, 29);
 }
 
-.c15 {
+.c14 {
   display: flex;
   margin-right: 4px;
 }
 
-.c15 .c6 {
+.c14 .c6 {
   font-size: 1.25rem;
 }
 
-.c18 {
+.c17 {
   align-self: center;
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c25 {
+.c24 {
   align-items: center;
   align-self: flex-end;
   display: flex;
@@ -2822,40 +2708,40 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   max-width: 100%;
 }
 
-.c21 {
+.c20 {
   color: rgb(77, 77, 77);
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
 }
 
-.c22 {
+.c21 {
   overflow: hidden;
 }
 
-.c22 > p:first-child,
-.c22 > div:first-child > p:first-child {
+.c21 > p:first-child,
+.c21 > div:first-child > p:first-child {
   margin-top: 0px;
 }
 
-.c22 > .c6,
-.c22 > span:first-child > .c6 {
+.c21 > .c6,
+.c21 > span:first-child > .c6 {
   vertical-align: middle;
   transform: translateY(-5%);
 }
 
-.c24 {
+.c23 {
   display: flex;
   flex-shrink: 0;
   height: 100%;
 }
 
-.c26 {
+.c25 {
   align-items: flex-start;
   height: auto;
 }
 
-.c26 .c3 {
+.c25 .c3 {
   margin-top: -4px;
 }
 
@@ -2864,31 +2750,18 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
   text-align: initial;
 }
 
-.c1 .c20 {
+.c1 .c19 {
   justify-content: initial;
 }
 
-.c23 {
+.c22 {
   margin: 0px;
 }
 
-.c23 > .c6,
-.c23 > span:first-child > .c6 {
+.c22 > .c6,
+.c22 > span:first-child > .c6 {
   vertical-align: middle;
   transform: translateY(-5%);
-}
-
-.c27 > .c3 {
-  margin: 0px 0px 4px 4px;
-}
-
-.c28 > .c3 {
-  margin: 0px 0px 4px 4px;
-}
-
-.c28 > .c3:last-of-type,
-.c28 > .c13 {
-  margin-right: calc(56px);
 }
 
 .c2 {
@@ -2900,7 +2773,7 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
 }
 
 .c2 > .c3:last-of-type,
-.c2 > .c13 {
+.c2 > .c12 {
   margin-right: calc(56px);
 }
 
@@ -3012,6 +2885,8 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             info
           </span>
@@ -3038,11 +2913,13 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
         type="button"
       >
         <i
-          class="c6 c11 c7 c12 plasma-icon plasma-icon--warning"
+          class="c6 c7 c11 plasma-icon plasma-icon--warning"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             warning
           </span>
@@ -3056,19 +2933,21 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
       </button>
     </span>
     <div
-      class="c13 c14 message message--error field__message"
+      class="c12 c13 message message--error field__message"
       data-role="error-message"
     >
       <div
-        class="c15 messageIcon"
+        class="c14 messageIcon"
       >
         <i
-          class="c6 c11 c16 c17 plasma-icon plasma-icon--error plasma-icon--custom"
+          class="c6 c15 c16 plasma-icon plasma-icon--error plasma-icon--custom"
           data-role="plasma-icon"
           title="Error"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             
           </span>
@@ -3081,26 +2960,28 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
         </i>
       </div>
       <div
-        class="c18 messageText"
+        class="c17 messageText"
         data-role="error-text"
       >
         error
       </div>
     </div>
     <div
-      class="c13 c19 message message--warning field__message"
+      class="c12 c18 message message--warning field__message"
       data-role="warning-message"
     >
       <div
-        class="c15 messageIcon"
+        class="c14 messageIcon"
       >
         <i
-          class="c6 c11 c7 c12 plasma-icon plasma-icon--warning"
+          class="c6 c7 c11 plasma-icon plasma-icon--warning"
           data-role="plasma-icon"
           title="Warning"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             warning
           </span>
@@ -3113,33 +2994,33 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
         </i>
       </div>
       <div
-        class="c18 messageText"
+        class="c17 messageText"
         data-role="warning-text"
       >
         warning
       </div>
     </div>
     <div
-      class="c20 c21 text-output__content"
+      class="c19 c20 text-output__content"
       data-role="text-output-content"
     >
       <div
-        class="c22 text-output__text"
+        class="c21 text-output__text"
         data-role="text-output-text"
       >
         <p
-          class="c23"
+          class="c22"
           data-role="text-output-paragraph"
         >
           Content
         </p>
       </div>
       <div
-        class="c24 text-output__addons"
+        class="c23 text-output__addons"
         data-role="text-output-addons"
       >
         <div
-          class="c25 c26 field-addon field-addon--text-output field-addon--after"
+          class="c24 c25 field-addon field-addon--text-output field-addon--after"
         >
           <span
             class="c3 c4 tooltip tooltip--hint"
@@ -3160,6 +3041,8 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   info
                 </span>
@@ -3174,7 +3057,7 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
           </span>
         </div>
         <div
-          class="c25 c26 field-addon field-addon--text-output field-addon--after"
+          class="c24 c25 field-addon field-addon--text-output field-addon--after"
         >
           <span
             class="c3 c9 tooltip tooltip--warning"
@@ -3190,11 +3073,13 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-tooltips
               type="button"
             >
               <i
-                class="c6 c11 c7 c12 plasma-icon plasma-icon--warning"
+                class="c6 c7 c11 plasma-icon plasma-icon--warning"
                 data-role="plasma-icon"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   warning
                 </span>
@@ -3262,36 +3147,12 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-warning-
   max-width: unset;
 }
 
-.c7.c7 {
-  color: rgb(175, 121, 2);
-}
-
-.c14 .c5 {
-  user-select: none;
-}
-
-.c14 .c5 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c6 {
   color: inherit;
 }
 
-.c14 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c14.c14 > .c5 {
-  display: block;
-}
-
-.c15 .c5 {
-  user-select: none;
-}
-
-.c15 .c5 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c15.c15 > .c5 {
-  display: block;
+.c7.c7 {
+  color: rgb(175, 121, 2);
 }
 
 .c3 {
@@ -3397,6 +3258,8 @@ exports[`com.mgmtp.a12.widgets.text-output > rendering-text-output-with-warning-
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             warning
           </span>

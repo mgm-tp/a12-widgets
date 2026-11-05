@@ -96,13 +96,20 @@ export const Alignment: FC = () => {
 		<ConfigurationView
 			configuration={
 				<div>
-					<Radio inline label="Apply vertical alignment for:" value={position} onValueChanged={onPositionChange}>
+					<Radio
+						id="layout-grid-alignment-apply-vertical-alignment-for"
+						inline
+						label="Apply vertical alignment for:"
+						value={position}
+						onValueChanged={onPositionChange}
+					>
 						<Radio.Item label="Layout Grid" value="LayoutGrid" />
 						<Radio.Item label="First Row" value="Row1" />
 						<Radio.Item label="First Column" value="Column1" />
 					</Radio>
 					<br />
 					<Radio
+						id="layout-grid-alignment-vertical-alignment-value"
 						inline
 						label="Vertical alignment value:"
 						value={!verticalAlignment ? "default" : verticalAlignment}
@@ -137,6 +144,7 @@ export const Alignment: FC = () => {
 							<Column size={{ sm: 6, md: 3, lg: 2 }}>
 								{index === 0 ? (
 									<Checkbox
+										id="layout-grid-alignment-checkbox"
 										label="Checkbox"
 										checked={false}
 										onChange={noop}

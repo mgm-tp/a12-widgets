@@ -34,7 +34,6 @@ import type { ReactElement, ReactNode } from "react";
 import { styled } from "styled-components";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
 /**
@@ -62,7 +61,7 @@ export interface DataTableHeadFilterRowTplProps {
  */
 export function DataTableHeadFilterRowTpl({ ariaRowIndex, children }: DataTableHeadFilterRowTplProps): ReactElement {
 	// In (tree)grid mode restate the suppressed native row role.
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
+	const gridRole = useDataTableContext().gridRole;
 
 	return (
 		<StyledDataTableHeadFilterRow

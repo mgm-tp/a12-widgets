@@ -48,6 +48,7 @@ export function UnseenButReadUtilClassShowcase(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<Checkbox
+					id="util-classes-unseen-but-read-checkbox"
 					checked={applyClass}
 					label={
 						<span>

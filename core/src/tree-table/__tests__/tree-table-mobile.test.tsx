@@ -37,12 +37,11 @@ import { render, setupDevice } from "test-utils";
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { page } from "vitest/browser";
 
-import { DragAndDropUtils } from "../../common/main/drag-and-drop-utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { DragAndDropUtils } from "../../common/main/drag-and-drop-utils.js";
 import { TextOutput } from "../../text-output/index.js";
-
-import { TreeTable } from "../main/tree-table.view.js";
 import type { BaseTreeTableColumnType, BaseTreeTableNode } from "../main/tree-table.api.js";
+import { TreeTable } from "../main/tree-table.view.js";
 
 interface DnDNodeData {
 	type: string;

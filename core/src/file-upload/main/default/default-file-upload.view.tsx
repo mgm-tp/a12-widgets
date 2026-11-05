@@ -53,9 +53,9 @@ import { provider as DeviceDetector } from "../../../common/main/device-detector
 import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
 import { addPrefix, getHorizontalPadding, getVerticalPadding, joinClassNames } from "../../../common/main/utils.js";
 import { Icon } from "../../../icon/main/icon.view.js";
+import { useFieldDefaultsConfig } from "../../../input/field-default-config/main/field-default-config.utils.js";
 import { ProgressIndicator } from "../../../progress-indicator/main/progress-indicator.view.js";
 import { TextOutput } from "../../../text-output/main/text-output.view.js";
-
 import { StyledFileUpload } from "../file-upload.styled.js";
 import { FileUpload } from "../file-upload.view.js";
 
@@ -113,6 +113,7 @@ function getPreviewIcon(
  * This wrapper provides the default styles for FileUpload widget
  */
 export function DefaultFileUpload(props: DefaultFileUploadProps): ReactElement<DefaultFileUploadProps> {
+	const { breakTooltipsToNewLine } = useFieldDefaultsConfig(props, false);
 	const wrapperRef = useRef<HTMLElement | null>(null);
 	const [horizFit, setHorizFit] = useState(!props.uploadAreaSize);
 	const focusOnUploadArea = useRef<boolean>(false);
@@ -450,11 +451,12 @@ export function DefaultFileUpload(props: DefaultFileUploadProps): ReactElement<D
 			ref={getWrapperRef}
 			className={joinClassNames(
 				baseFieldClassName,
-				{ [`${baseFieldClassName}--tooltips`]: numberOfTooltips && !props.breakTooltipsToNewLine },
+				{ [`${baseFieldClassName}--tooltips`]: numberOfTooltips && !breakTooltipsToNewLine },
 				{ [`${baseClassName}--fit`]: horizFit || vertFit }
 			)}
 			data-role={DataRoles.FileUpload}
-			$hasTooltips={!!(numberOfTooltips && !props.breakTooltipsToNewLine)}
+			$hasTooltips={!!(numberOfTooltips && !breakTooltipsToNewLine)}
+			$tooltipPosition={breakTooltipsToNewLine}
 			$horizFit={horizFit || compact}
 			$vertFit={vertFit || compact}
 			$compact={compact}

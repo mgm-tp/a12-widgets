@@ -35,8 +35,8 @@ import { useState, useCallback } from "react";
 
 import { noop, TextField, Checkbox, TextOutput } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 import { ConfigurationView } from "../../helpers/configuration-view.js";
+import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 
 export function HyphensUtilClassShowcase(): ReactElement {
 	const [width, setWidth] = useState(230);
@@ -71,7 +71,13 @@ export function HyphensUtilClassShowcase(): ReactElement {
 		>
 			<div lang="de" style={{ width }} className="-sc-helper-border -u-padding-base -u-hyphens">
 				<TextOutput className="-u-padding-b-base">{value}</TextOutput>
-				<Checkbox className="-u-padding-b-base" checked={false} label={value} onChange={() => undefined} />
+				<Checkbox
+					id="util-classes-hyphens-checkbox"
+					className="-u-padding-b-base"
+					checked={false}
+					label={value}
+					onChange={() => undefined}
+				/>
 				<TextField
 					className="-u-padding-b-base"
 					placeholder="Placeholder"

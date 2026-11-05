@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`com.mgmtp.a12.widgets.text-field-tpl > render auto-width text-field 1`] = `
-.c7 {
+.c6 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -16,12 +16,12 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render auto-width text-field 1`]
   margin: -1px !important;
 }
 
-.c7 * {
+.c6 * {
   width: 1px;
   height: 1px;
 }
 
-.c6 {
+.c5 {
   color: rgb(77, 77, 77);
   display: inline-block;
   font-family: "Open Sans", sans-serif;
@@ -33,11 +33,11 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render auto-width text-field 1`]
   align-self: center;
 }
 
-.c6:empty {
+.c5:empty {
   display: none;
 }
 
-.c12 {
+.c11 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -47,16 +47,16 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render auto-width text-field 1`]
   width: fit-content;
 }
 
-.c11 {
+.c10 {
   display: flex;
 }
 
-.c10 {
+.c9 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -74,18 +74,18 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render auto-width text-field 1`]
   width: 100%;
 }
 
-.c10::placeholder {
+.c9::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c8 {
+.c7 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -95,11 +95,6 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render auto-width text-field 1`]
   font-weight: 400;
   outline: transparent solid 1px;
   height: 32px;
-}
-
-.c13 .c1 {
-  display: flex;
-  width: 100%;
 }
 
 .c0 {
@@ -113,31 +108,26 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render auto-width text-field 1`]
   max-width: 100%;
 }
 
-.c14 .c5 {
-  display: block;
-  width: fit-content;
-}
-
-.c4 {
+.c3 {
   box-sizing: border-box;
   display: inline-block;
 }
 
-.c4 .c5 {
+.c3 .c4 {
   display: block;
   width: fit-content;
 }
 
-.c2 {
+.c1 {
   display: inline-flex;
 }
 
-.c2 .c3 {
+.c1 .c2 {
   flex: 1 1 160px;
   max-width: 100%;
 }
 
-.c9 {
+.c8 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -149,14 +139,14 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render auto-width text-field 1`]
 }
 
 @media (pointer: coarse) {
-  .c8:active {
+  .c7:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c8:hover {
+  .c7:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -166,49 +156,49 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render auto-width text-field 1`]
   data-role="text-field"
 >
   <div
-    class="c1 c2 field__main"
+    class="c1 field__main"
   >
     <div
-      class="c3 c4 field"
+      class="c2 c3 field"
       data-role="text-field-control"
     >
       <label
-        class="c5 c6 label field__label"
+        class="c4 c5 label field__label"
         data-role="text-field-label"
       >
         Test Label
         <span
-          class="c7 -u-unseenButRead"
+          class="c6 -u-unseenButRead"
           data-role="hidden-text"
         >
           , Test placeholder
         </span>
       </label>
       <div
-        class="c8 field__input"
+        class="c7 field__input"
         data-role="text-field-input-wrapper"
       >
         <span
-          class="c9 supported-unseen-span"
+          class="c8 supported-unseen-span"
         />
         <input
-          class="c10 field__text"
+          class="c9 field__text"
           data-role="text-field-input"
           placeholder="Test placeholder"
           type="text"
           value="Test value"
         />
         <span
-          class="c9 supported-unseen-span"
+          class="c8 supported-unseen-span"
         />
       </div>
     </div>
   </div>
   <div
-    class="c11 field__helper"
+    class="c10 field__helper"
   >
     <label
-      class="c12 field__helper-text"
+      class="c11 field__helper-text"
       data-role="text-field-helper-text"
     >
       Test Helper Text
@@ -273,7 +263,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render basic text-field with cus
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -302,7 +292,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render basic text-field with cus
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -440,7 +430,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render disabled text-field 1`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -468,7 +458,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render disabled text-field 1`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   display: flex;
   font-family: "Open Sans", sans-serif;
@@ -479,11 +469,6 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render disabled text-field 1`] =
   background-color: rgb(226, 230, 233);
   box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
   color: rgb(169, 179, 188);
-}
-
-.c9 .c1 {
-  display: flex;
-  width: 100%;
 }
 
 .c0 {
@@ -575,7 +560,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render readonly text-field 1`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -603,7 +588,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render readonly text-field 1`] =
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -701,7 +686,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render readonly with value text-
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -729,7 +714,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render readonly with value text-
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -821,7 +806,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render readonly with value text-
 `;
 
 exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with addons 1`] = `
-.c4 {
+.c3 {
   align-items: center;
   align-self: flex-end;
   display: flex;
@@ -831,7 +816,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with addons 1`
   justify-content: center;
 }
 
-.c10 {
+.c9 {
   align-items: center;
   align-self: flex-end;
   display: flex;
@@ -841,17 +826,12 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with addons 1`
   justify-content: center;
 }
 
-.c11 .c3 {
-  height: auto;
-  visibility: hidden;
-}
-
-.c9 {
+.c8 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -869,18 +849,18 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with addons 1`
   width: 100%;
 }
 
-.c9::placeholder {
+.c8::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c7 {
+.c6 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -909,7 +889,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with addons 1`
   max-width: 100%;
 }
 
-.c6 {
+.c5 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
@@ -919,12 +899,12 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with addons 1`
   display: inline-flex;
 }
 
-.c2 .c5 {
+.c2 .c4 {
   flex: 1 1 160px;
   max-width: 100%;
 }
 
-.c8 {
+.c7 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -936,14 +916,14 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with addons 1`
 }
 
 @media (pointer: coarse) {
-  .c7:active {
+  .c6:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c7:hover {
+  .c6:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -956,35 +936,35 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with addons 1`
     class="c1 c2 field__main"
   >
     <div
-      class="c3 c4 field-addon field-addon--before"
+      class="c3 field-addon field-addon--before"
       data-role="text-field--addon-before-0"
     >
       Test addon before
     </div>
     <div
-      class="c5 c6 field"
+      class="c4 c5 field"
       data-role="text-field-control"
     >
       <div
-        class="c7 field__input"
+        class="c6 field__input"
         data-role="text-field-input-wrapper"
       >
         <span
-          class="c8 supported-unseen-span"
+          class="c7 supported-unseen-span"
         />
         <input
-          class="c9 field__text"
+          class="c8 field__text"
           data-role="text-field-input"
           type="text"
           value=""
         />
         <span
-          class="c8 supported-unseen-span"
+          class="c7 supported-unseen-span"
         />
       </div>
     </div>
     <div
-      class="c3 c10 field-addon field-addon--after"
+      class="c9 field-addon field-addon--after"
       data-role="text-field--addon-after-0"
     >
       Test addon after
@@ -1090,7 +1070,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with affixes 1
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1119,7 +1099,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with affixes 1
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -1272,7 +1252,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with error 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1301,7 +1281,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with error 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1401,6 +1381,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with error 1`]
           class="c6 supported-unseen-span"
         />
         <input
+          aria-invalid="true"
           class="c7 field__text"
           data-role="text-field-input"
           type="text"
@@ -1463,6 +1444,10 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with error-mes
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
 .c9.c9 {
   color: rgb(201, 29, 29);
 }
@@ -1497,7 +1482,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with error-mes
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1526,7 +1511,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with error-mes
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1632,6 +1617,8 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with error-mes
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               
             </span>
@@ -1658,6 +1645,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with error-mes
           class="c13 supported-unseen-span"
         />
         <input
+          aria-invalid="true"
           class="c14 field__text"
           data-role="text-field-input"
           type="text"
@@ -1709,7 +1697,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with hidden la
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1738,7 +1726,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with hidden la
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -1774,11 +1762,6 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with hidden la
 }
 
 .c4 .c5 {
-  display: block;
-  width: fit-content;
-}
-
-.c10 .c5 {
   display: block;
   width: fit-content;
 }
@@ -1861,7 +1844,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with info 1`] 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1890,7 +1873,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with info 1`] 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2052,6 +2035,10 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with info-mess
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
 .c9.c9 {
   color: rgb(5, 104, 174);
 }
@@ -2086,7 +2073,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with info-mess
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2115,7 +2102,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with info-mess
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2221,6 +2208,8 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with info-mess
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               info
             </span>
@@ -2267,7 +2256,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with right-ali
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2296,7 +2285,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with right-ali
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -2403,7 +2392,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with tooltip 1
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2432,7 +2421,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with tooltip 1
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -2539,7 +2528,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with warning 1
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2568,7 +2557,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with warning 1
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2730,6 +2719,10 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with warning-m
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
 .c9.c9 {
   color: rgb(175, 121, 2);
 }
@@ -2764,7 +2757,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with warning-m
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2793,7 +2786,7 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with warning-m
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2899,6 +2892,8 @@ exports[`com.mgmtp.a12.widgets.text-field-tpl > render text-field with warning-m
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               warning
             </span>

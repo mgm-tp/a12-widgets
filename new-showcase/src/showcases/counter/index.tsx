@@ -30,19 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import CounterWithAddonsCode from "!./addons.tsx?raw";
+import BasicCounterCode from "!./basic.tsx?raw";
+import CounterInteractiveCode from "!./interactive.tsx?raw";
+import CounterVariantsCode from "!./variants.tsx?raw";
+
 import CounterAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/counter/main/counter.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { CounterVariantsShowcase } from "./variants.js";
-import { BasicCounterShowcase } from "./basic.js";
 import { CounterWithAddonsShowcase } from "./addons.js";
+import { BasicCounterShowcase } from "./basic.js";
 import { CounterInteractiveShowcase } from "./interactive.js";
-
-import CounterVariantsCode from "!./variants.tsx?raw";
-import BasicCounterCode from "!./basic.tsx?raw";
-import CounterWithAddonsCode from "!./addons.tsx?raw";
-import CounterInteractiveCode from "!./interactive.tsx?raw";
+import { CounterVariantsShowcase } from "./variants.js";
 
 const showcases: Showcase[] = [
 	{

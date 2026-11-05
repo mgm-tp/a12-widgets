@@ -30,25 +30,24 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC, ReactNode } from "react";
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import type { ContentEditableProps } from "@lexical/react/LexicalContentEditable";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import merge from "deepmerge";
 import type { InitialConfigType } from "@lexical/react/LexicalComposer";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import type { ContentEditableProps } from "@lexical/react/LexicalContentEditable";
+import merge from "deepmerge";
 import type { ElementFormatType } from "lexical";
+import type { FC, ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 
-import { InputElements } from "../../../input/base/template/base.tpl.view.js";
-import type { LabelProps } from "../../../input/base/template/base.tpl.api.js";
-import { noop } from "../../../common/main/utils.js";
 import type { Container, Identifiable } from "../../../common/main/base-props.js";
-import { useSelectedText } from "../../../common/main/hooks.js";
-import { StyledBaseInput } from "../../../input/base-input-styled/base.styled.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
-import { StyledEditorInput } from "../rich-text-editor.styled.js";
+import { useSelectedText } from "../../../common/main/hooks.js";
+import { noop } from "../../../common/main/utils.js";
+import { StyledBaseInput } from "../../../input/base-input-styled/base.styled.js";
+import type { LabelProps } from "../../../input/base/template/base.tpl.api.js";
+import { InputElements } from "../../../input/base/template/base.tpl.view.js";
 import { defaultConfig } from "../default-configs.js";
+import { StyledEditorInput } from "../rich-text-editor.styled.js";
 import { editorHasContent } from "../utils/common.js";
 
 import type {
@@ -114,7 +113,22 @@ export const RichTextEditorContentEditable: FC<ContentEditableProps> = (props) =
 
 	const [isFocused, setIsFocused] = useState(false);
 
-	const allowFocus = (!readOnly || editorHasContent(editor)) && !disabled;
+	// Track content presence through the editor's update listener: the initial
+	// editor state may be applied after the first render, and `allowFocus`
+	// must be recomputed when it lands.
+	const [hasContent, setHasContent] = useState(() => editorHasContent(editor));
+
+	useEffect(() => {
+		// The initial editor state lands before this effect runs and is not
+		// replayed to the listener; read it once when subscribing.
+		setHasContent(editorHasContent(editor));
+
+		return editor.registerUpdateListener(() => {
+			setHasContent(editorHasContent(editor));
+		});
+	}, [editor]);
+
+	const allowFocus = (!readOnly || hasContent) && !disabled;
 
 	useEffect(() => {
 		editor.setEditable(!disabled && !readOnly);

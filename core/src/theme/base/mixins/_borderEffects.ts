@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { css } from "styled-components";
 import svgToTinyDataUri from "mini-svg-data-uri";
+import { css } from "styled-components";
 
 export type CustomBorder = {
 	color: string;

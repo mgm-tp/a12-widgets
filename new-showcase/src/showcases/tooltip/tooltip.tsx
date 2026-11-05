@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
 import { loremIpsum } from "lorem-ipsum";
+import type { ReactElement } from "react";
 
 import { Button, Tooltip, Icon, provider as DeviceDetector } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { fixedRandomNumber } from "../../helpers/utils.js";
 import { ShowcaseFlexBox } from "../../helpers/showcase-flex-box.js";
+import { fixedRandomNumber } from "../../helpers/utils.js";
 
 export function BasicTooltipShowcase(): ReactElement {
 	const hasTouch = DeviceDetector.hasTouch();

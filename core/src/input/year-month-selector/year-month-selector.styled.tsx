@@ -32,16 +32,16 @@
 
 import { styled, css } from "styled-components";
 
-import { addPrefix } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix } from "../../common/main/utils.js";
 import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
-
+import { StyledBaseInput } from "../base-input-styled/base.styled.js";
+import type { MessagePosition, TooltipLineBreak } from "../base/template/base.tpl.api.js";
 import {
 	StyledFieldLabel,
 	StyledFieldLabelWrapper,
 	StyledFieldMessageWrapper
 } from "../base/template/base.tpl.view.js";
-import { StyledBaseInput } from "../base-input-styled/base.styled.js";
 import { NativeSelect } from "../select/main/native-select.view.js";
 
 export const StyledMonthSelector = styled(NativeSelect).withConfig({ displayName: "StyledMonthSelector-sc-" })``;
@@ -52,7 +52,9 @@ export const StyledYearSelectorWrapper = styled.div.withConfig({ displayName: "S
 
 export const StyledYearMonthSelector = styled.div.withConfig({ displayName: "StyledYearMonthSelector-sc-" })<{
 	$numberOfTooltips?: number;
-}>(({ theme, $numberOfTooltips }) => {
+	$messagePosition?: MessagePosition;
+	$tooltipPosition?: TooltipLineBreak;
+}>(({ theme, $numberOfTooltips, $messagePosition, $tooltipPosition }) => {
 	const { yearMonthSelector, baseInput } = theme.components;
 
 	return css`
@@ -73,7 +75,13 @@ export const StyledYearMonthSelector = styled.div.withConfig({ displayName: "Sty
 			}
 
 			> ${StyledTooltipTriggerWrapper} {
-				margin: ${baseInput.input.tooltipInNewLineMargin};
+				// A tooltip below the control needs the gap on top, so that it separates the tooltip from
+				// the control instead of from whatever follows it.
+				margin: ${
+					$tooltipPosition === "below"
+						? baseInput.input.tooltipInNewLineMarginBelow
+						: baseInput.input.tooltipInNewLineMargin
+				};
 				&:first-of-type {
 					width: auto;
 				}
@@ -93,7 +101,7 @@ export const StyledYearMonthSelector = styled.div.withConfig({ displayName: "Sty
 		}
 
 		${StyledFieldMessageWrapper} {
-			margin: ${yearMonthSelector.messageMargin};
+			margin: ${$messagePosition === "below" ? yearMonthSelector.messageMarginBelow : yearMonthSelector.messageMargin};
 		}
 
 		${$numberOfTooltips && StyledBaseInput.elementWithTooltipStyles($numberOfTooltips)}

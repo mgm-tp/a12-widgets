@@ -1,0 +1,52 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ChartStories from "./Chart.stories";
+
+<Meta of={ChartStories} />
+
+<Title />
+
+⚠️ **Deprecated since v38.1.1.** `BarChart`, `LineChart` and `PieChart` are thin wrappers around
+[Recharts](https://recharts.github.io/) and are deprecated — use Recharts directly in new code. See the
+migration guide in the showcase under _Get Started → Migration Instructions → Chart Widgets to Recharts_.
+
+The widgets configure the underlying Recharts elements through prop maps: `BarChart` takes a
+`barPropsMap` keyed by `dataKey`, `LineChart` takes a `linePropsMap`, and `PieChart` takes `pieProps`.
+Common options such as `showLegend`, `showTooltip`, axis labels (`xAxisLabel`/`yAxisLabel`) and
+`cartesianGridProps` mirror the corresponding Recharts components. The charts fill their parent
+container, so wrap them in an element with an explicit width and height.
+
+## Playground
+
+Use the controls below to explore the `BarChart` props interactively.
+
+<Primary />
+
+<Controls of={ChartStories.Playground} />
+
+## Examples
+
+### Bar chart
+
+<Canvas of={ChartStories.BarChartExample} />
+
+### Line chart
+
+<Canvas of={ChartStories.LineChartExample} />
+
+### Pie chart
+
+<Canvas of={ChartStories.PieChartExample} />

@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { DataRoles } from "../../common/index.js";
 import { parseIncompleteTime } from "../../common/main/date-time/date-fns-utils.js";
 import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
 import { TimeUtils } from "../../common/main/date-time/time-utils.js";
-import { DataRoles } from "../../common/index.js";
 
-import { TimePickerTpl } from "./time-picker.tpl.view.js";
 import type { TimePickerProps } from "./time-picker.api.js";
+import { TimePickerTpl } from "./time-picker.tpl.view.js";
 
 export const timePickerBaseDataRole = DataRoles.TimePicker;
 

@@ -32,6 +32,13 @@
 
 import type { ReactNode } from "react";
 
+/**
+ * The props of {@link NewsBox}.
+ *
+ * @deprecated since 39.1.0, together with the rest of `@com.mgmtp.a12.widgets/widgets-utils`, which will be
+ * removed in a future major version. It lays out the news items of the showcase start page. Compose the
+ * same layout from `LayoutGrid`, `CssEllipsis` and `ResponsiveImageContainer` in `widgets-core`.
+ */
 export interface NewsBoxProps {
 	/**
 	 * Header to display.

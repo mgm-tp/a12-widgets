@@ -30,20 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicAccordionCode from "!./basic-accordion.tsx?raw";
+import controlledAccordionCode from "!./controlled-accordion.tsx?raw";
+import nestedAccordionCode from "!./nested.tsx?raw";
+import variantAccordionCode from "!./variant-accordion.tsx?raw";
+
 import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
 import AccordionAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/accordion/main/accordion.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { NestedAccordion } from "./nested.js";
-import { ControlledAccordion } from "./controlled-accordion.js";
 import { BasicAccordion } from "./basic-accordion.js";
+import { ControlledAccordion } from "./controlled-accordion.js";
+import { NestedAccordion } from "./nested.js";
 import { VariantAccordion } from "./variant-accordion.js";
-
-import basicAccordionCode from "!./basic-accordion.tsx?raw";
-import controlledAccordionCode from "!./controlled-accordion.tsx?raw";
-import nestedAccordionCode from "!./nested.tsx?raw";
-import variantAccordionCode from "!./variant-accordion.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

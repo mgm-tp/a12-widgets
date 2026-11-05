@@ -35,8 +35,8 @@ import { faker as Faker } from "@faker-js/faker/locale/en";
 import type { SortOrder, RowLoadingStatus } from "@com.mgmtp.a12.widgets/widgets-core";
 import { getDataByKey, Range } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { createUserCard, contextualCard, createTransaction } from "../../helpers/faker.js";
 import type { ContextualCard, Transaction } from "../../helpers/definitions.js";
+import { createUserCard, contextualCard, createTransaction } from "../../helpers/faker.js";
 
 export namespace Utils {
 	export interface Vehicle {

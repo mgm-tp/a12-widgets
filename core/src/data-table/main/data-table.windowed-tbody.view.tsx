@@ -31,21 +31,14 @@
  */
 
 import type { ReactElement, ReactNode, RefCallback } from "react";
-import { useCallback } from "react";
+import { useEffect } from "react";
 
 import { DataRoles } from "../../common/main/data-roles.js";
 
+import { useDataTableContext } from "./data-table.context.js";
+
 export interface DataTableWindowedTbodyProps {
 	setBodyRef: RefCallback<HTMLTableSectionElement>;
-
-	/**
-	 * Optional extra ref onto the `<tbody>` element, composed with
-	 * {@link setBodyRef}. {@link DataTreeTable} uses it to register a root-level
-	 * drop target on the windowed body so dropping onto empty space below the
-	 * rows reparents to the (hidden) root — the same affordance the non-windowed
-	 * tree body provides.
-	 */
-	bodyDropRef?: RefCallback<HTMLTableSectionElement | null>;
 
 	/**
 	 * Number of leaf columns — the `colSpan` for the top/bottom spacer rows. Must
@@ -69,18 +62,26 @@ export interface DataTableWindowedTbodyProps {
  * @internal
  */
 export function DataTableWindowedTbody(props: DataTableWindowedTbodyProps): ReactElement {
-	const { setBodyRef, bodyDropRef, colSpan, topSpacerHeight, bottomSpacerHeight, children } = props;
+	const { setBodyRef, colSpan, topSpacerHeight, bottomSpacerHeight, children } = props;
+	const ensureRowTabStop = useDataTableContext().ensureRowTabStop;
+	// (tree)grid mode overrides the table role, dropping the native `<tbody>` rowgroup
+	// mapping, so restate it — same as the plain-body tpl. Card view has its own
+	// windowed scaffold (`DataTableWindowedCardList`), so this is table-layout only.
+	const gridRole = useDataTableContext().gridRole;
 
-	const setRef = useCallback<RefCallback<HTMLTableSectionElement>>(
-		(node) => {
-			setBodyRef(node);
-			bodyDropRef?.(node);
-		},
-		[setBodyRef, bodyDropRef]
-	);
+	// After every commit of the rendered window: the row carrying the roving
+	// `tabIndex=0` may just have scrolled out and unmounted, which would leave the
+	// body with no tab stop at all (Tab would skip it entirely).
+	useEffect(() => {
+		ensureRowTabStop?.();
+	});
 
 	return (
-		<tbody ref={setRef} data-role={DataRoles.Table.Body.VirtualizedContainer}>
+		<tbody
+			ref={setBodyRef}
+			data-role={DataRoles.Table.Body.VirtualizedContainer}
+			role={gridRole ? "rowgroup" : undefined}
+		>
 			{topSpacerHeight > 0 ? (
 				<tr aria-hidden="true">
 					<td colSpan={colSpan} style={{ height: topSpacerHeight, padding: 0, border: 0 }} />

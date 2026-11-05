@@ -30,28 +30,28 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import betweenTreeAndTableCode from "!./between-tree-and-table.tsx?raw";
+import betweenTreeAndTreeTableCode from "!./between-tree-and-treetable.tsx?raw";
+import betweenTwoTreesCode from "!./between-two-trees.tsx?raw";
+import iFrameCode from "!./iframe.tsx?raw";
+import dragAndDropAPICode from "!./main/showcase-drag-and-drop.api.ts?raw";
+import tableCode from "!./main/table.tsx?raw";
+import treeTableCode from "!./main/tree-table.tsx?raw";
+import treeCode from "!./main/tree.tsx?raw";
+import dndStyledCode from "!./shared/dnd.styled.tsx?raw";
+import sharedTableCode from "!./shared/table.ts?raw";
+import sharedTreeCode from "!./shared/tree.ts?raw";
+import simpleDnDExampleCode from "!./simple.tsx?raw";
+
 import { ExternalLink, provider } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { BetweenTreeAndTable } from "./between-tree-and-table.js";
 import { BetweenTreeAndTreeTable } from "./between-tree-and-treetable.js";
-import { SimpleDnDExample } from "./simple.js";
 import { BetweenTwoTrees } from "./between-two-trees.js";
 import { IFrameExample } from "./iframe.js";
-
-import treeTableCode from "!./main/tree-table.tsx?raw";
-import treeCode from "!./main/tree.tsx?raw";
-import tableCode from "!./main/table.tsx?raw";
-import betweenTreeAndTableCode from "!./between-tree-and-table.tsx?raw";
-import betweenTreeAndTreeTableCode from "!./between-tree-and-treetable.tsx?raw";
-import simpleDnDExampleCode from "!./simple.tsx?raw";
-import betweenTwoTreesCode from "!./between-two-trees.tsx?raw";
-import iFrameCode from "!./iframe.tsx?raw";
-import dragAndDropAPICode from "!./main/showcase-drag-and-drop.api.ts?raw";
-import sharedTreeCode from "!./shared/tree.ts?raw";
-import sharedTableCode from "!./shared/table.ts?raw";
-import dndStyledCode from "!./shared/dnd.styled.tsx?raw";
+import { SimpleDnDExample } from "./simple.js";
 
 const showcases: Showcase[] = [
 	{

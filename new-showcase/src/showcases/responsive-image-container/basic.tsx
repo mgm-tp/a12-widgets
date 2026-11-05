@@ -37,10 +37,10 @@ import { useState, useCallback } from "react";
 
 import { ResponsiveImageContainer, provider } from "@com.mgmtp.a12.widgets/widgets-core";
 
-// start code removal
-import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 import { ConfigurationView } from "../../helpers/configuration-view.js";
 import { CodeSnippetGenerationWrapper } from "../../helpers/showcase-example.js";
+// start code removal
+import { ShowcaseSlider } from "../../helpers/showcase-slider.js";
 
 const MAX_SIZE = provider.isPhone() ? 300 : 400;
 // end code removal

@@ -30,16 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import dataCode from "!./data.tsx?raw";
+import sidebarWithTabPanelCode from "!./sidebar-with-tab-panel.tsx?raw";
+import tabPanelContentCode from "!./tab-panel-content.tsx?raw";
+import tabPanelCode from "!./tab-panel.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { SidebarWithTabPanel } from "./sidebar-with-tab-panel.js";
-
-import sidebarWithTabPanelCode from "!./sidebar-with-tab-panel.tsx?raw";
-import tabPanelCode from "!./tab-panel.tsx?raw";
-import tabPanelContentCode from "!./tab-panel-content.tsx?raw";
-import dataCode from "!./data.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

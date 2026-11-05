@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { fireEvent, getAllByDataRole, render } from "test-utils";
+import { fireEvent, getAllByDataRole, getByDataRole, render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { ResponsiveChartContainer } from "../../bar-chart/main/bar-chart.view.js";
-
 import { PieChart } from "../main/pie-chart.view.js";
 
 const data = [
@@ -121,7 +121,12 @@ describe("com.mgmtp.a12.widgets.charts", () => {
 				legendProps={{ enableLegendSorting: false }}
 			/>
 		);
-		expect(container.firstChild).toMatchSnapshot();
+
+		// Without sorting the legend keeps the order of `data` rather than ranking by value.
+		const legend = getByDataRole(container, DataRoles.PieChart.Legend);
+		expect([...legend.children].map((item) => item.textContent)).toEqual(
+			data.map((entry) => `${entry.name}${entry.value}`)
+		);
 	});
 
 	test("simulating chart legend event", () => {

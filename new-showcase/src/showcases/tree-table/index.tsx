@@ -30,6 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import accessibilityCode from "!./accessibility.tsx?raw";
+import asyncCode from "!./async.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import columnGroupCode from "!./column-group.tsx?raw";
+import dndCode from "!./dnd.tsx?raw";
+import resizableCode from "!./resizable.tsx?raw";
+import sharedComplexDataCode from "!./shared/complex-data.tsx?raw";
+import sharedDataCode from "!./shared/data.tsx?raw";
+import sharedUtilsCode from "!./shared/utils.ts?raw";
+import validationCode from "!./validation.tsx?raw";
+import virtualScrollingCode from "!./virtual-scrolling.tsx?raw";
 import type { JSONOutput } from "typedoc";
 
 import { Link, BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -38,26 +49,14 @@ import TreeTableAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/tree-
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
 
+import { Accessibility } from "./accessibility.js";
 import { Async } from "./async.js";
-import { DnDTreeTable } from "./dnd.js";
-import { ResizableTreeTable } from "./resizable.js";
 import { Basic } from "./basic.js";
 import { ColumnGroupTreeTable } from "./column-group.js";
+import { DnDTreeTable } from "./dnd.js";
+import { ResizableTreeTable } from "./resizable.js";
 import { Validation } from "./validation.js";
 import { VirtualScrolling } from "./virtual-scrolling.js";
-import { Accessibility } from "./accessibility.js";
-
-import asyncCode from "!./async.tsx?raw";
-import dndCode from "!./dnd.tsx?raw";
-import resizableCode from "!./resizable.tsx?raw";
-import basicCode from "!./basic.tsx?raw";
-import columnGroupCode from "!./column-group.tsx?raw";
-import validationCode from "!./validation.tsx?raw";
-import virtualScrollingCode from "!./virtual-scrolling.tsx?raw";
-import sharedDataCode from "!./shared/data.tsx?raw";
-import sharedComplexDataCode from "!./shared/complex-data.tsx?raw";
-import sharedUtilsCode from "!./shared/utils.ts?raw";
-import accessibilityCode from "!./accessibility.tsx?raw";
 
 const showcases: Showcase[] = [
 	{
@@ -66,7 +65,10 @@ const showcases: Showcase[] = [
 			<p>
 				The <strong>Tree Table</strong> Widget displays hierarchical data in rows and columns. It is a combination of
 				the <Link href="#/widgets/data-display/table">Table</Link> and{" "}
-				<Link href="#/widgets/data-display/tree">Tree</Link>.
+				<Link href="#/widgets/data-display/tree">Tree</Link>. It remains fully supported; its experimental counterpart
+				that works on your own row type is the <Link href="#/experimental/datatreetable">DataTreeTable</Link> (see the{" "}
+				<Link href="#/get-started/migration-instructions/new-table-and-tree-components">migration notes</Link> for a
+				mapping between the two APIs).
 			</p>
 		),
 		sections: {
@@ -146,35 +148,54 @@ const showcases: Showcase[] = [
 						content: <Accessibility />,
 						fitToSection: true,
 						fullSize: true,
-						code: [
-							{ name: "accessibility.tsx", code: accessibilityCode },
-							{ name: "shared/data.tsx", code: sharedDataCode }
-						],
-						description: (
-							<>
+						code: [{ name: "accessibility.tsx", code: accessibilityCode }],
+						description: {
+							info: (
+								<>
+									<p>
+										To fully support accessibility, the <strong>TreeTable</strong> should have its own <code>id</code>.
+										It will be used to create an <strong>id</strong> for the <strong>hidden text</strong> that is placed
+										in front of the interactive Tree Table for screen-readers. That id will be linked to the{" "}
+										<strong>aria-labelledby</strong> attribute. In addition, you can link the external ids via the{" "}
+										<code>ariaLabelledby</code> property.
+									</p>
+									<p>
+										If you'd like to add more hidden texts, you can use the <code>ariaLabel</code> property.
+									</p>
+									<p>
+										A generic control that sits in a row - here the <strong>Delete</strong> Button of the Action Column
+										- carries no data of its own, so it has to be named after its node. The Tree Table already renders
+										two elements you can point at, no custom cell needed. Each node below shows one way to do it:
+									</p>
+									<BulletList.Unordered>
+										<BulletList.Item>
+											<strong>Documents</strong> puts the name of the node in the Button's <code>title</code>.
+										</BulletList.Item>
+										<BulletList.Item>
+											<strong>Invoices</strong> links the Button via <code>aria-labelledby</code> to{" "}
+											<code>tree-node-title-&#123;id&#125;</code>, which wraps the name of the node together with the
+											hidden <em>belongs to ...</em> text, so the name of the Button states the parent node as well.
+										</BulletList.Item>
+										<BulletList.Item>
+											<strong>Archive</strong> links to <code>tree-node-name-&#123;id&#125;</code> instead, which wraps
+											the name of the node alone.
+										</BulletList.Item>
+										<BulletList.Item>
+											<strong>2025-Q4.pdf</strong> renders its name as a <strong>TextField</strong> and links the Button
+											to that input. A referenced input contributes its value, so the name of the Button follows every
+											keystroke - and the hidden label of the field stays out of it.
+										</BulletList.Item>
+									</BulletList.Unordered>
+								</>
+							),
+							note: (
 								<p>
-									To fully support accessibility, the <strong>TreeTable</strong> should have its own <code>id</code>. It
-									will be used to create an <strong>id</strong> for the <strong>hidden text</strong> that is placed in
-									front of the interactive Tree Table for screen-readers. That id will be linked to the{" "}
-									<strong>aria-labelledby</strong> attribute. In addition, you can link the external ids via the{" "}
-									<code>ariaLabelledby</code> property.
+									The <code>aria-labelledby</code> of a Button points to the Button itself as well as to the node. That
+									self reference pulls in the Button's own name (<em>Delete</em>). The arrow button of a node is named
+									this way out of the box.
 								</p>
-								<p>
-									If you'd like to add more hidden texts, you can use the <code>ariaLabel</code> property.
-								</p>
-								<p>
-									<code>componentRenderers</code> and the <code>Root</code> properties let you customize the Tree
-									Table's rendered output. When providing custom components, ensure accessibility is preserved by
-									including the appropriate ARIA attributes and roles.
-								</p>
-								<p>
-									To expose row data to the screen reader (e.g. reading the row ID when an action button is focused),
-									include it in the button's <code>title</code> or use a <code>HiddenText</code> linked via button's{" "}
-									<code>aria-describedby</code>/<code>aria-labelledby</code>. See the Remove Button in the example
-									below.
-								</p>
-							</>
-						)
+							)
+						}
 					},
 					{
 						label: "Content Type Example",

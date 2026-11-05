@@ -30,17 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useEffect } from "react";
+import { $isAutoLinkNode } from "@lexical/link";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import type { LexicalEditor, LexicalNode } from "lexical";
 import { COMMAND_PRIORITY_LOW, SELECTION_CHANGE_COMMAND } from "lexical";
-import { $isAutoLinkNode } from "@lexical/link";
+import { useEffect } from "react";
 
-import type { TextMatcher } from "../plugins/plugin.internal.api.js";
 import { $isInlineStyleTextNode, InlineStyleTextNode } from "../nodes/inline-style-text-node.js";
+import type { TextMatcher } from "../plugins/plugin.internal.api.js";
 
-import { addClassToMatchersInNode, getEffectedNodes, mergeWithSibling, removeClassFromMatchersInNode } from "./node.js";
 import { endsWithSeparator, findFirstMatch, startsWithSeparator } from "./common.js";
+import { addClassToMatchersInNode, getEffectedNodes, mergeWithSibling, removeClassFromMatchersInNode } from "./node.js";
 
 export const useEditorUpdateChange = ($updateChange: (isSelectionChange?: boolean) => void): void => {
 	const [editor] = useLexicalComposerContext();

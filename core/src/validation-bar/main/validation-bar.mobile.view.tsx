@@ -33,23 +33,23 @@
 import type { ReactElement } from "react";
 import { useContext } from "react";
 
-import { joinClassNames, addPrefix } from "../../common/main/utils.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { Icon } from "../../icon/main/icon.view.js";
+import { joinClassNames, addPrefix } from "../../common/main/utils.js";
 import {
 	ActionContentbox,
 	NavigationContentboxContext
 } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
 import { ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
 import { CssEllipsis } from "../../css-ellipsis/main/css-ellipsis.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { Icon } from "../../icon/main/icon.view.js";
 
-import { StyledMobileValidationBar } from "./validation-bar.styled.js";
-import type { MobileValidationProps } from "./validation-bar.mobile.api.js";
-import { renderValidationIcon } from "./validation-bar.view.js";
 import { ValidationBarContext } from "./validation-bar.context.js";
+import type { MobileValidationProps } from "./validation-bar.mobile.api.js";
+import { StyledMobileValidationBar } from "./validation-bar.styled.js";
+import { renderValidationIcon } from "./validation-bar.view.js";
 
 const baseClassName = addPrefix("mobile-validation");
 

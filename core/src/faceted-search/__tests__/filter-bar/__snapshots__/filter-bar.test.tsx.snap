@@ -48,6 +48,10 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10 {
+  color: inherit;
+}
+
 .c16 {
   align-items: center;
   border: 2px solid transparent;
@@ -90,6 +94,10 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 1`] = `
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c16:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c16.c16 {
@@ -141,7 +149,7 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   margin: 0px;
   padding: 0px 8px;
   position: relative;
@@ -398,6 +406,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 1`] = `
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               />
             </i>
           </span>
@@ -437,6 +447,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -464,6 +476,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 1`] = `
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           keyboard_arrow_down
         </span>
@@ -519,6 +533,10 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 2`] = `
 
 .c10.c10 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10 {
+  color: inherit;
 }
 
 .c21 .c9 {
@@ -578,6 +596,13 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 2`] = `
   color: inherit;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp .c16.c16) {
+  color: rgb(169, 179, 188);
+  width: auto;
+  height: auto;
+  min-height: 0px;
+}
+
 .h_inlineBlock.h_middleAlign .c16.c16 {
   display: block;
   height: auto;
@@ -635,7 +660,7 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 2`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   margin: 0px;
   padding: 0px 8px;
   position: relative;
@@ -822,6 +847,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 2`] = `
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               />
             </i>
           </span>
@@ -862,6 +889,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 2`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -890,6 +919,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar 2`] = `
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           keyboard_arrow_down
         </span>
@@ -947,6 +978,10 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-clas
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10 {
+  color: inherit;
+}
+
 .c16 {
   align-items: center;
   border: 2px solid transparent;
@@ -989,6 +1024,10 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-clas
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c16:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c16.c16 {
@@ -1040,7 +1079,7 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-clas
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   margin: 0px;
   padding: 0px 8px;
   position: relative;
@@ -1299,6 +1338,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-clas
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               />
             </i>
           </span>
@@ -1338,6 +1379,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-clas
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -1378,6 +1421,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-clas
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               />
             </i>
           </span>
@@ -1415,6 +1460,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-clas
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -1442,6 +1489,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > rendering-filter-bar-with-valid-clas
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           keyboard_arrow_up
         </span>
@@ -1499,6 +1548,10 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10 {
+  color: inherit;
+}
+
 .c16 {
   align-items: center;
   border: 2px solid transparent;
@@ -1543,6 +1596,10 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c16:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c16.c16 {
   display: block;
   height: auto;
@@ -1550,26 +1607,6 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
 }
 
 .h_inlineBlock.h_middleAlign .c16.c16 > .c9 {
-  display: block;
-}
-
-.c20 .c9 {
-  user-select: none;
-}
-
-.c20 .c9 {
-  color: inherit;
-}
-
-.c20 .c9 {
-  font-size: inherit;
-}
-
-.c20.c20 .c9 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c9 {
   display: block;
 }
 
@@ -1612,7 +1649,7 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   margin: 0px;
   padding: 0px 8px;
   position: relative;
@@ -1869,6 +1906,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               />
             </i>
           </span>
@@ -1908,6 +1947,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -1948,6 +1989,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               />
             </i>
           </span>
@@ -1985,6 +2028,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -2025,6 +2070,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               />
             </i>
           </span>
@@ -2064,6 +2111,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -2091,6 +2140,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           keyboard_arrow_up
         </span>
@@ -2148,6 +2199,10 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10 {
+  color: inherit;
+}
+
 .c16 {
   align-items: center;
   border: 2px solid transparent;
@@ -2192,6 +2247,10 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c16:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c16.c16 {
   display: block;
   height: auto;
@@ -2199,26 +2258,6 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
 }
 
 .h_inlineBlock.h_middleAlign .c16.c16 > .c9 {
-  display: block;
-}
-
-.c20 .c9 {
-  user-select: none;
-}
-
-.c20 .c9 {
-  color: inherit;
-}
-
-.c20 .c9 {
-  font-size: inherit;
-}
-
-.c20.c20 .c9 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c20.c20 > .c9 {
   display: block;
 }
 
@@ -2261,7 +2300,7 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   margin: 0px;
   padding: 0px 8px;
   position: relative;
@@ -2518,6 +2557,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               />
             </i>
           </span>
@@ -2557,6 +2598,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -2597,6 +2640,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               />
             </i>
           </span>
@@ -2634,6 +2679,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -2674,6 +2721,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               />
             </i>
           </span>
@@ -2713,6 +2762,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -2740,6 +2791,8 @@ exports[`com.mgmtp.a12.widgets.filter-bar > simulate-expand-and-collapse-filter-
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           keyboard_arrow_down
         </span>

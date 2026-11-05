@@ -29,6 +29,10 @@ exports[`com.mgmtp.a12.widgets.contentbox.tile > redering-contentbox-with-provid
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c6 {
+  color: inherit;
+}
+
 .c4 {
   align-items: center;
   background-color: rgb(78, 89, 101);
@@ -208,6 +212,8 @@ exports[`com.mgmtp.a12.widgets.contentbox.tile > redering-contentbox-with-provid
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             info
           </span>

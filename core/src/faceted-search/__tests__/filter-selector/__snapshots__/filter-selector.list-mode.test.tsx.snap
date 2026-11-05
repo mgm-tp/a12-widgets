@@ -29,6 +29,10 @@ exports[`FilterSelector – new items-based list mode > renders items in list mo
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
+  color: inherit;
+}
+
 .c6 {
   box-sizing: border-box;
   background-color: transparent;
@@ -238,6 +242,8 @@ exports[`FilterSelector – new items-based list mode > renders items in list mo
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     keyboard_arrow_down
                   </span>
@@ -300,6 +306,8 @@ exports[`FilterSelector – new items-based list mode > renders items in list mo
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     keyboard_arrow_down
                   </span>
@@ -362,6 +370,8 @@ exports[`FilterSelector – new items-based list mode > renders items in list mo
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     keyboard_arrow_down
                   </span>

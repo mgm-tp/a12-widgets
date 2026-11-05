@@ -47,16 +47,11 @@ export class FocusLastLayout<T extends Layoutable> implements MasterDetailLayout
 	layout(): LayoutResult<T> {
 		const last = this.views.indexOf(this.head);
 		const first = Math.max(last - this.columnCount + 1, 0);
-		const result: LayoutResult<T> = {
-			items: []
-		};
+		const result: LayoutResult<T> = { items: [] };
 		const visibleCount = last - first + 1;
 
 		for (let i = 0; i < first; i++) {
-			result.items.push({
-				layoutable: this.views[i],
-				width: undefined
-			});
+			result.items.push({ layoutable: this.views[i], width: undefined });
 		}
 
 		for (let i = first; i <= last; i++) {
@@ -66,10 +61,7 @@ export class FocusLastLayout<T extends Layoutable> implements MasterDetailLayout
 					? lastPreferredWidth
 					: 12 - lastPreferredWidth
 				: 12 / visibleCount;
-			result.items.push({
-				layoutable: this.views[i],
-				width: width as ViewWidth
-			});
+			result.items.push({ layoutable: this.views[i], width: width as ViewWidth });
 		}
 
 		return result;

@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] = `
-.c9 {
+.c8 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -21,15 +21,19 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
   font-feature-settings: "liga";
 }
 
-.c9 > span {
+.c8 > span {
   display: inline-block;
 }
 
-.c9.c9 {
+.c8.c8 {
   max-width: unset;
 }
 
-.c3 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
+  color: inherit;
+}
+
+.c2 {
   background-color: rgb(226, 230, 233);
   border-radius: inherit;
   inset: 0px;
@@ -39,12 +43,12 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
   position: absolute;
 }
 
-.c3 > * {
+.c2 > * {
   inset: 0px;
   position: absolute;
 }
 
-.c4 {
+.c3 {
   background-color: rgb(255, 255, 255);
   outline: transparent solid 1px;
   transition: width 1s ease-out;
@@ -52,7 +56,7 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
   z-index: 1;
 }
 
-.c5 {
+.c4 {
   background-color: rgb(226, 230, 233);
 }
 
@@ -64,7 +68,7 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
   padding: 0px;
 }
 
-.c2 {
+.c1 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   display: flex;
@@ -75,39 +79,7 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
   color: rgb(169, 179, 188);
 }
 
-.c13 .c8 {
-  user-select: none;
-}
-
-.c1:not([data-role*="filter-selector"]) .c14.c14 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c1:not([data-role*="filter-selector"]) .c14.c14::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c1:not([data-role*="filter-selector"]) .c14.c14:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c15 .c8 {
-  user-select: none;
-}
-
-.c1:not([data-role*="filter-selector"]) .c15.c15 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c1:not([data-role*="filter-selector"]) .c15.c15::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c1:not([data-role*="filter-selector"]) .c15.c15:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c6 {
+.c5 {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -119,40 +91,22 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
   padding: 8px 16px;
 }
 
-.c6::before {
+.c5::before {
   content: "";
   inset: 0px;
   position: absolute;
   display: block;
 }
 
-.c6 .c8 {
+.c5 .c7 {
   user-select: none;
 }
 
-.c6:focus::before {
+.c5:focus::before {
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c17 .c8 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c17 .c8:not(.c21) {
-  color: inherit;
-}
-
-.c18 .c8 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c18 .c8:not(.c21) {
-  color: inherit;
-}
-
-.c7 {
+.c6 {
   align-items: center;
   color: inherit;
   display: inline-flex;
@@ -161,17 +115,17 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
   position: relative;
 }
 
-.c7 .c8 {
+.c6 .c7 {
   display: inline-flex;
   font-size: 1.5rem;
   color: inherit;
 }
 
-.c7 .c8:not(.c21) {
+.c6 .c7:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c10 {
+.c9 {
   color: inherit;
   display: flex;
   flex: 1 1 auto;
@@ -181,7 +135,7 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
   position: relative;
 }
 
-.c11 {
+.c10 {
   color: inherit;
   display: block;
   font-size: 0.75rem;
@@ -190,59 +144,15 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
   overflow: hidden;
 }
 
-.c12 {
+.c11 {
   color: inherit;
   font-size: 0.75rem;
   position: relative;
   text-align: right;
 }
 
-.c12 .c8 {
+.c11 .c7 {
   color: inherit;
-}
-
-.c16 .c8 {
-  user-select: none;
-}
-
-.c20 .c8 {
-  color: inherit;
-}
-
-.c19 .c8 {
-  color: inherit;
-}
-
-@media (pointer: coarse) {
-  .c1:not([data-role*="filter-selector"]) .c14.c14:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c1:not([data-role*="filter-selector"]) .c14.c14:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c1:not([data-role*="filter-selector"]) .c14.c14:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: coarse) {
-  .c1:not([data-role*="filter-selector"]) .c15.c15:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c1:not([data-role*="filter-selector"]) .c15.c15:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c1:not([data-role*="filter-selector"]) .c15.c15:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
 }
 
 <ul
@@ -250,60 +160,62 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
   data-role="list"
 >
   <li
-    class="c1 c2 list-item"
+    class="c1 list-item"
     data-role="list-item"
     style="cursor: default; position: relative;"
   >
     <span
-      class="c3"
+      class="c2"
       data-role="progress-bar"
     >
       <span
-        class="c4"
+        class="c3"
         data-role="progress-bar-fill"
       />
       <span
-        class="c5"
+        class="c4"
         data-role="progress-bar-buffer"
       />
     </span>
     <div
       aria-disabled="true"
-      class="c6 list-item__content"
+      class="c5 list-item__content"
       data-role="list-item-content"
       role="button"
       tabindex="0"
     >
       <div
         aria-hidden="true"
-        class="c7"
+        class="c6"
         data-role="list-item-graphic"
       >
         <i
-          class="c8 c9 plasma-icon"
+          class="c7 c8 plasma-icon"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             folder
           </span>
         </i>
       </div>
       <div
-        class="c10 list-item__text"
+        class="c9 list-item__text"
         data-role="list-item-text"
       >
         Photos
         <div
-          class="c11 list-item__secondary-text"
+          class="c10 list-item__secondary-text"
           data-role="list-item-secondary-text"
         >
           Aug 5, 2007
         </div>
       </div>
       <div
-        class="c12 list-item__meta"
+        class="c11 list-item__meta"
         data-role="list-item-meta"
       >
         900 MB
@@ -311,45 +223,47 @@ exports[`com.mgmtp.a12.widgets.list > rendering list item with progress bar 1`] 
     </div>
   </li>
   <li
-    class="c1 c2 list-item list-item--disabled list-item--non-interactive"
+    class="c1 list-item list-item--disabled list-item--non-interactive"
     data-role="list-item"
   >
     <div
       aria-disabled="true"
-      class="c6 list-item__content"
+      class="c5 list-item__content"
       data-role="list-item-content"
       role="button"
     >
       <div
         aria-hidden="true"
-        class="c7"
+        class="c6"
         data-role="list-item-graphic"
       >
         <i
-          class="c8 c9 plasma-icon"
+          class="c7 c8 plasma-icon"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             folder
           </span>
         </i>
       </div>
       <div
-        class="c10 list-item__text"
+        class="c9 list-item__text"
         data-role="list-item-text"
       >
         Photos
         <div
-          class="c11 list-item__secondary-text"
+          class="c10 list-item__secondary-text"
           data-role="list-item-secondary-text"
         >
           Sept 30, 2014
         </div>
       </div>
       <div
-        class="c12 list-item__meta"
+        class="c11 list-item__meta"
         data-role="list-item-meta"
       >
         900 MB
@@ -634,17 +548,6 @@ exports[`com.mgmtp.a12.widgets.list > test render divider list item 1`] = `
   padding: 0px;
 }
 
-.c4 {
-  box-sizing: border-box;
-  background-color: rgb(255, 255, 255);
-  color: rgb(77, 77, 77);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
 .c1 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
@@ -655,6 +558,17 @@ exports[`com.mgmtp.a12.widgets.list > test render divider list item 1`] = `
   position: relative;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-bottom: 1px solid rgb(226, 230, 233);
+}
+
+.c4 {
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .c2 {
@@ -907,7 +821,7 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic and meta list item 1`]
   padding: 0px;
 }
 
-.c2 {
+.c1 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   color: rgb(77, 77, 77);
@@ -918,7 +832,7 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic and meta list item 1`]
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.c3 {
+.c2 {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -930,44 +844,20 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic and meta list item 1`]
   padding: 8px 16px;
 }
 
-.c3::before {
+.c2::before {
   content: "";
   inset: 0px;
   position: absolute;
   display: block;
 }
 
-.c3:focus::before {
+.c2:focus::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c1:not([data-role*="filter-selector"]) .c7.c7 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c1:not([data-role*="filter-selector"]) .c7.c7::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c1:not([data-role*="filter-selector"]) .c7.c7:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c1:not([data-role*="filter-selector"]) .c8.c8 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c1:not([data-role*="filter-selector"]) .c8.c8::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c1:not([data-role*="filter-selector"]) .c8.c8:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c4 {
+.c3 {
   align-items: center;
   display: inline-flex;
   flex-shrink: 0;
@@ -981,7 +871,7 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic and meta list item 1`]
   width: 24px;
 }
 
-.c5 {
+.c4 {
   color: inherit;
   display: flex;
   flex: 1 1 auto;
@@ -991,7 +881,7 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic and meta list item 1`]
   position: relative;
 }
 
-.c6 {
+.c5 {
   color: rgb(97, 111, 124);
   font-size: 0.75rem;
   position: relative;
@@ -999,54 +889,22 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic and meta list item 1`]
 }
 
 @media (pointer: coarse) {
-  .c3:active {
+  .c2:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c3:active::before {
+  .c2:active::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c3:hover::before {
+  .c2:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 
-  .c3:hover > :not([data-role="list-item-graphic"]) {
+  .c2:hover > :not([data-role="list-item-graphic"]) {
     text-decoration: none;
-  }
-}
-
-@media (pointer: coarse) {
-  .c1:not([data-role*="filter-selector"]) .c7.c7:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c1:not([data-role*="filter-selector"]) .c7.c7:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c1:not([data-role*="filter-selector"]) .c7.c7:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: coarse) {
-  .c1:not([data-role*="filter-selector"]) .c8.c8:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c1:not([data-role*="filter-selector"]) .c8.c8:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c1:not([data-role*="filter-selector"]) .c8.c8:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
@@ -1055,31 +913,31 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic and meta list item 1`]
   data-role="list"
 >
   <li
-    class="c1 c2 list-item"
+    class="c1 list-item"
     data-role="list-item"
   >
     <div
       aria-disabled="false"
-      class="c3 list-item__content"
+      class="c2 list-item__content"
       data-role="list-item-content"
       role="button"
       tabindex="0"
     >
       <div
         aria-hidden="true"
-        class="c4"
+        class="c3"
         data-role="list-item-graphic"
       >
         T
       </div>
       <div
-        class="c5 list-item__text"
+        class="c4 list-item__text"
         data-role="list-item-text"
       >
         test
       </div>
       <div
-        class="c6 list-item__meta"
+        class="c5 list-item__meta"
         data-role="list-item-meta"
       >
         T
@@ -1118,7 +976,11 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
   max-width: unset;
 }
 
-.c16.c16 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
+.c15.c15 {
   color: rgb(5, 104, 174);
 }
 
@@ -1130,7 +992,7 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
   padding: 0px;
 }
 
-.c11 {
+.c10 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   color: rgb(77, 77, 77);
@@ -1141,7 +1003,7 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.c17 {
+.c16 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   display: flex;
@@ -1152,7 +1014,7 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
   color: rgb(169, 179, 188);
 }
 
-.c12 {
+.c11 {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -1164,52 +1026,24 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
   padding: 8px 16px;
 }
 
-.c12::before {
+.c11::before {
   content: "";
   inset: 0px;
   position: absolute;
   display: block;
 }
 
-.c12 .c6 {
+.c11 .c6 {
   user-select: none;
 }
 
-.c12:focus::before {
+.c11:focus::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c10:not([data-role*="filter-selector"]) .c21.c21 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c10:not([data-role*="filter-selector"]) .c21.c21::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c10:not([data-role*="filter-selector"]) .c21.c21:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c22 .c6 {
-  user-select: none;
-}
-
-.c10:not([data-role*="filter-selector"]) .c22.c22 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c10:not([data-role*="filter-selector"]) .c22.c22::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c10:not([data-role*="filter-selector"]) .c22.c22:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c18 {
+.c17 {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -1221,28 +1055,19 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
   padding: 8px 16px;
 }
 
-.c18::before {
+.c17::before {
   content: "";
   inset: 0px;
   position: absolute;
   display: block;
 }
 
-.c18 .c6 {
+.c17 .c6 {
   user-select: none;
 }
 
-.c18:focus::before {
+.c17:focus::before {
   outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c23 .c6 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c23 .c6:not(.c15) {
-  color: inherit;
 }
 
 .c4 {
@@ -1259,11 +1084,11 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
   font-size: 1.5rem;
 }
 
-.c4 .c6:not(.c15) {
+.c4 .c6:not(.c14) {
   color: inherit;
 }
 
-.c19 {
+.c18 {
   align-items: center;
   color: inherit;
   display: inline-flex;
@@ -1272,17 +1097,17 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
   position: relative;
 }
 
-.c19 .c6 {
+.c18 .c6 {
   display: inline-flex;
   font-size: 1.5rem;
   color: inherit;
 }
 
-.c19 .c6:not(.c15) {
+.c18 .c6:not(.c14) {
   color: inherit;
 }
 
-.c13 {
+.c12 {
   color: inherit;
   display: flex;
   flex: 1 1 auto;
@@ -1292,21 +1117,21 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
   position: relative;
 }
 
-.c14 {
+.c13 {
   color: rgb(97, 111, 124);
   font-size: 0.75rem;
   position: relative;
   text-align: right;
 }
 
-.c20 {
+.c19 {
   color: inherit;
   font-size: 0.75rem;
   position: relative;
   text-align: right;
 }
 
-.c20 .c6 {
+.c19 .c6 {
   color: inherit;
 }
 
@@ -1355,54 +1180,22 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
 }
 
 @media (pointer: coarse) {
-  .c12:active {
+  .c11:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c12:active::before {
+  .c11:active::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c12:hover::before {
+  .c11:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 
-  .c12:hover > :not([data-role="list-item-graphic"]) {
+  .c11:hover > :not([data-role="list-item-graphic"]) {
     text-decoration: none;
-  }
-}
-
-@media (pointer: coarse) {
-  .c10:not([data-role*="filter-selector"]) .c21.c21:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c10:not([data-role*="filter-selector"]) .c21.c21:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c10:not([data-role*="filter-selector"]) .c21.c21:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: coarse) {
-  .c10:not([data-role*="filter-selector"]) .c22.c22:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c10:not([data-role*="filter-selector"]) .c22.c22:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c10:not([data-role*="filter-selector"]) .c22.c22:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
@@ -1434,6 +1227,8 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               folder
             </span>
@@ -1454,6 +1249,8 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               edit
             </span>
@@ -1463,12 +1260,12 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
     </div>
   </li>
   <li
-    class="c10 c11 list-item"
+    class="c10 list-item"
     data-role="list-item"
   >
     <div
       aria-disabled="false"
-      class="c12 list-item__content"
+      class="c11 list-item__content"
       data-role="list-item-content"
       role="button"
       tabindex="0"
@@ -1484,19 +1281,21 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             Wifi
           </span>
         </i>
       </div>
       <div
-        class="c13 list-item__text"
+        class="c12 list-item__text"
         data-role="list-item-text"
       >
         test
       </div>
       <div
-        class="c14 list-item__meta"
+        class="c13 list-item__meta"
         data-role="list-item-meta"
       >
         <i
@@ -1505,6 +1304,8 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             Wifi
           </span>
@@ -1513,12 +1314,12 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
     </div>
   </li>
   <li
-    class="c10 c11 list-item"
+    class="c10 list-item"
     data-role="list-item"
   >
     <div
       aria-disabled="false"
-      class="c12 list-item__content"
+      class="c11 list-item__content"
       data-role="list-item-content"
       role="button"
       tabindex="0"
@@ -1529,32 +1330,36 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
         data-role="list-item-graphic"
       >
         <i
-          class="c6 c15 c7 c16 plasma-icon plasma-icon--info"
+          class="c6 c14 c7 c15 plasma-icon plasma-icon--info"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             Wifi
           </span>
         </i>
       </div>
       <div
-        class="c13 list-item__text"
+        class="c12 list-item__text"
         data-role="list-item-text"
       >
         test
       </div>
       <div
-        class="c14 list-item__meta"
+        class="c13 list-item__meta"
         data-role="list-item-meta"
       >
         <i
-          class="c6 c15 c7 c16 plasma-icon plasma-icon--info"
+          class="c6 c14 c7 c15 plasma-icon plasma-icon--info"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             Wifi
           </span>
@@ -1563,47 +1368,51 @@ exports[`com.mgmtp.a12.widgets.list > test render graphic-icon and meta-icon 1`]
     </div>
   </li>
   <li
-    class="c10 c17 list-item list-item--disabled list-item--non-interactive"
+    class="c16 list-item list-item--disabled list-item--non-interactive"
     data-role="list-item"
   >
     <div
       aria-disabled="true"
-      class="c18 list-item__content"
+      class="c17 list-item__content"
       data-role="list-item-content"
       role="button"
     >
       <div
         aria-hidden="true"
-        class="c19"
+        class="c18"
         data-role="list-item-graphic"
       >
         <i
-          class="c6 c15 c7 c16 plasma-icon plasma-icon--info"
+          class="c6 c14 c7 c15 plasma-icon plasma-icon--info"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             Wifi
           </span>
         </i>
       </div>
       <div
-        class="c13 list-item__text"
+        class="c12 list-item__text"
         data-role="list-item-text"
       >
         test (disabled)
       </div>
       <div
-        class="c20 list-item__meta"
+        class="c19 list-item__meta"
         data-role="list-item-meta"
       >
         <i
-          class="c6 c15 c7 c16 plasma-icon plasma-icon--info"
+          class="c6 c14 c7 c15 plasma-icon plasma-icon--info"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             Wifi
           </span>
@@ -1797,6 +1606,10 @@ exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c0 {
   background: rgb(255, 255, 255);
   font-family: "Open Sans", sans-serif;
@@ -1805,7 +1618,7 @@ exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
   padding: 0px;
 }
 
-.c11 {
+.c10 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   color: rgb(77, 77, 77);
@@ -1816,7 +1629,7 @@ exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.c12 {
+.c11 {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -1828,62 +1641,21 @@ exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
   padding: 8px 16px;
 }
 
-.c12::before {
+.c11::before {
   content: "";
   inset: 0px;
   position: absolute;
   display: block;
 }
 
-.c12 .c6 {
+.c11 .c6 {
   user-select: none;
 }
 
-.c12:focus::before {
+.c11:focus::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c10:not([data-role*="filter-selector"]) .c15.c15 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c10:not([data-role*="filter-selector"]) .c15.c15::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c10:not([data-role*="filter-selector"]) .c15.c15:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c16 .c6 {
-  user-select: none;
-}
-
-.c10:not([data-role*="filter-selector"]) .c16.c16 {
-  background-color: rgb(245, 251, 255);
-}
-
-.c10:not([data-role*="filter-selector"]) .c16.c16::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c10:not([data-role*="filter-selector"]) .c16.c16:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c17 .c6 {
-  user-select: none;
-}
-
-.c18 .c6 {
-  display: inline-flex;
-  font-size: 1.5rem;
-}
-
-.c18 .c6:not(.c21) {
-  color: inherit;
 }
 
 .c4 {
@@ -1900,21 +1672,11 @@ exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
   font-size: 1.5rem;
 }
 
-.c4 .c6:not(.c21) {
+.c4 .c6:not(.StyledVariantIconWrapper-sc-cNOyXs) {
   color: inherit;
 }
 
-.c19 .c6 {
-  display: inline-flex;
-  font-size: 1.5rem;
-  color: inherit;
-}
-
-.c19 .c6:not(.c21) {
-  color: inherit;
-}
-
-.c13 {
+.c12 {
   color: inherit;
   display: flex;
   flex: 1 1 auto;
@@ -1924,15 +1686,11 @@ exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
   position: relative;
 }
 
-.c14 {
+.c13 {
   color: rgb(97, 111, 124);
   font-size: 0.75rem;
   position: relative;
   text-align: right;
-}
-
-.c20 .c6 {
-  color: inherit;
 }
 
 .c1 {
@@ -2002,54 +1760,22 @@ exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
 }
 
 @media (pointer: coarse) {
-  .c12:active {
+  .c11:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c12:active::before {
+  .c11:active::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c12:hover::before {
+  .c11:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 
-  .c12:hover > :not([data-role="list-item-graphic"]) {
+  .c11:hover > :not([data-role="list-item-graphic"]) {
     text-decoration: none;
-  }
-}
-
-@media (pointer: coarse) {
-  .c10:not([data-role*="filter-selector"]) .c15.c15:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c10:not([data-role*="filter-selector"]) .c15.c15:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c10:not([data-role*="filter-selector"]) .c15.c15:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: coarse) {
-  .c10:not([data-role*="filter-selector"]) .c16.c16:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c10:not([data-role*="filter-selector"]) .c16.c16:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c10:not([data-role*="filter-selector"]) .c16.c16:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
@@ -2106,6 +1832,8 @@ exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               folder
             </span>
@@ -2126,6 +1854,8 @@ exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               edit
             </span>
@@ -2135,24 +1865,24 @@ exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
     </div>
   </li>
   <li
-    class="c10 c11 list-item"
+    class="c10 list-item"
     data-role="list-item"
   >
     <div
       aria-disabled="false"
-      class="c12 list-item__content"
+      class="c11 list-item__content"
       data-role="list-item-content"
       role="button"
       tabindex="0"
     >
       <div
-        class="c13 list-item__text"
+        class="c12 list-item__text"
         data-role="list-item-text"
       >
         test
       </div>
       <div
-        class="c14 list-item__meta"
+        class="c13 list-item__meta"
         data-role="list-item-meta"
       >
         <i
@@ -2161,6 +1891,8 @@ exports[`com.mgmtp.a12.widgets.list > test render sub header and item 1`] = `
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             Wifi
           </span>

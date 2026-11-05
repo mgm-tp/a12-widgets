@@ -30,6 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { FC, ReactNode } from "react";
+import { useCallback, useState } from "react";
 import {
 	findAllByDataRole,
 	getAllByDataRole,
@@ -41,22 +43,19 @@ import {
 } from "test-utils";
 import { describe, expect, test, vi } from "vitest";
 import { userEvent } from "vitest/browser";
-import type { FC, ReactNode } from "react";
-import { useCallback, useState } from "react";
 
-import { Icon } from "../../icon/main/icon.view.js";
 import { getBadgeTitle } from "../../badge/main/badge-utils.js";
 import { Badge } from "../../badge/main/badge.view.js";
+import { Button } from "../../button/main/button.view.js";
 import { A11YLanguageContext, getA11yResource } from "../../common/main/a11y-localization/language-context.js";
-import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 import { ActionContentbox } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
-import { Button } from "../../button/main/button.view.js";
-
+import { Icon } from "../../icon/main/icon.view.js";
+import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
+import type { TabPanelProps } from "../main/tab-panel.api.js";
 import { TabPanel } from "../main/tab-panel.view.js";
 import type { TabPanelTemplateProps } from "../main/template/tab-panel.tpl.api.js";
 import { TabPanelTemplate } from "../main/template/tab-panel.tpl.view.js";
-import type { TabPanelProps } from "../main/tab-panel.api.js";
 
 // -- Story components inlined for tab-panel behavior tests --
 
@@ -365,8 +364,12 @@ describe("com.mgmtp.a12.widgets.tab-panel", () => {
 	});
 
 	describe("Interaction Hint", () => {
+		// showDelay={0}: these cases are about what the hint says, not about how long it waits before
+		// saying it. Left at the default 500 ms, moving the focus from one tab to the next has to
+		// out-wait the delay twice within a single `waitFor`, which a loaded machine does not always
+		// manage — the hint is then still showing the tab the focus came from when the wait gives up.
 		const TabPanelWithHint = (props: TabPanelProps) => (
-			<InteractionHintConfigProvider enableInteractionHint>
+			<InteractionHintConfigProvider enableInteractionHint showDelay={0}>
 				<TabPanel {...props} />
 			</InteractionHintConfigProvider>
 		);
@@ -385,17 +388,31 @@ describe("com.mgmtp.a12.widgets.tab-panel", () => {
 
 		test("showing the hint include badge content when focusing to tab item", async () => {
 			const { container } = render(<TabPanelWithHint tabs={tabs} />);
+			// Re-queried on every poll: the responsive recount can re-render the tab list, which would
+			// leave a list captured once pointing at detached nodes.
+			const expectTabToHaveFocus = (index: number): Promise<void> =>
+				waitFor(() => expect(getAllByDataRole(container, DataRoles.TabPanel.Tab)[index]).toHaveFocus());
+
+			// Arrow key navigation is bound to the tab list, so an ArrowDown sent before the focus has
+			// landed on a tab is dropped without a trace and the hint stays on the first tab forever.
+			// Wait for each focus move instead of assuming it, so a lost key fails here and not on the
+			// hint text.
+			await userEvent.tab();
+			await expectTabToHaveFocus(0);
 
 			// Focus second tab
-			await userEvent.tab();
 			await userEvent.keyboard("{ArrowDown}");
+			await expectTabToHaveFocus(1);
 
+			const expectedTitle = `${tabs[1].title}, ${getBadgeTitle((tabs[1].children as any).props, getA11yResource("en").badgeTitles)}`;
+
+			// Only the focused tab may show a hint, so the hint of the tab left behind has to be gone.
 			await waitFor(() => {
-				expect(getByDataRole(container, DataRoles.InteractionHint).textContent).toEqual(
-					`${tabs[1].title}, ${getBadgeTitle((tabs[1].children as any).props, getA11yResource("en").badgeTitles)}`
-				);
+				const hints = getAllByDataRole(container, DataRoles.InteractionHint);
+
+				expect(hints).toHaveLength(1);
+				expect(hints[0].textContent).toEqual(expectedTitle);
 			});
-			expect(getByDataRole(container, DataRoles.InteractionHint)).toMatchSnapshot();
 		});
 	});
 

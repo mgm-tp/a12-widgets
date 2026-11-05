@@ -34,9 +34,9 @@ import type { FC, ReactNode } from "react";
 import { Fragment, useContext, useEffect, useState } from "react";
 
 import { Badge } from "../../../badge/main/badge.view.js";
-import { Typography } from "../../../typography/main/typography.view.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
+import { Typography } from "../../../typography/main/typography.view.js";
 
 import type {
 	FilterItemData,

@@ -33,11 +33,10 @@
 import type { ReactElement } from "react";
 import { useContext } from "react";
 
-import { Icon } from "../../../icon/main/icon.view.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
-
+import { Icon } from "../../../icon/main/icon.view.js";
 import { Link } from "../link/link.view.js";
 
 import type { MailtoLinkProps } from "./mailto-link.api.js";

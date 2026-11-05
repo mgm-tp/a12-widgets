@@ -33,12 +33,12 @@
 import type { TouchEvent, MouseEvent, ReactNode, ReactElement } from "react";
 import { PureComponent } from "react";
 
-import { addPrefix, joinClassNames, bindMethods, noop } from "../../common/main/utils.js";
-import { TimeUtils } from "../../common/main/date-time/time-utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { TimeUtils } from "../../common/main/date-time/time-utils.js";
+import { addPrefix, joinClassNames, bindMethods, noop } from "../../common/main/utils.js";
 
-import type { ClockProps } from "./time-picker.clock.api.js";
 import type { TimePickerProps } from "./time-picker.api.js";
+import type { ClockProps } from "./time-picker.clock.api.js";
 import {
 	StyledTimePickerClockNum,
 	StyledTimePickerClock,

@@ -30,48 +30,36 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC } from "react";
-import { useCallback, useEffect, useRef, useState } from "react";
-import type {
-	BaseSelection,
-	LexicalEditor,
-	LexicalNode,
-	PointType,
-	RangeSelection,
-	TextFormatType,
-	TextNode
-} from "lexical";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import type { BaseSelection, LexicalNode, PointType, RangeSelection, TextNode } from "lexical";
 import {
 	$getNodeByKey,
 	$getSelection,
 	$insertNodes,
 	$isRangeSelection,
 	COMMAND_PRIORITY_EDITOR,
-	COMMAND_PRIORITY_LOW,
 	COMMAND_PRIORITY_NORMAL,
 	CONTROLLED_TEXT_INSERTION_COMMAND,
-	FORMAT_TEXT_COMMAND,
 	SELECTION_CHANGE_COMMAND
 } from "lexical";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { mergeRegister } from "@lexical/utils";
 import { isEqual } from "lodash-es";
+import type { FC } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import {
 	$createInlineStyleTextNode,
 	$isInlineStyleTextNode,
 	InlineStyleTextNode
 } from "../../nodes/inline-style-text-node.js";
+import { useRichTextEditorCache } from "../../template/rich-text-editor.tpl.view.js";
+import { APPLY_TEXT_FORMAT_COMMAND } from "../../utils/commands.js";
+import { mergeWithSibling } from "../../utils/node.js";
 import {
 	$getRangeSelectionPoint,
 	$getSelectionNodes,
 	$splitText,
 	$updateTextSelection
 } from "../../utils/selection.js";
-import { APPLY_TEXT_FORMAT_COMMAND } from "../../utils/commands.js";
-import { useRichTextEditorCache } from "../../template/rich-text-editor.tpl.view.js";
-import { mergeWithSibling } from "../../utils/node.js";
-import { useLastInteractionType } from "../../../../common/main/hooks.js";
 
 export const TextFormatPlugin: FC = () => {
 	const [editor] = useLexicalComposerContext();
@@ -79,7 +67,6 @@ export const TextFormatPlugin: FC = () => {
 	const { setClassList, classList } = useRichTextEditorCache();
 	const editorPreviousTextContentRef = useRef("");
 	const editorPreviousSelectionRef = useRef<BaseSelection | null>(null);
-	const lastInteraction = useLastInteractionType();
 
 	const toggleCollapsedSelectionStyle = useCallback(
 		(styleName: string, isSelectionActiveStyleName: boolean) => {
@@ -151,16 +138,7 @@ export const TextFormatPlugin: FC = () => {
 	useEffect(() => {
 		return editor.registerCommand(
 			APPLY_TEXT_FORMAT_COMMAND,
-			(payload: {
-				styleName: string;
-				allowCollapseStyle: boolean;
-				isActive: (
-					selection: BaseSelection | null,
-					editor: LexicalEditor,
-					selectionCLassListCache?: string[]
-				) => boolean;
-				isolateStyle: boolean;
-			}) => {
+			(payload) => {
 				const selection = $getSelection();
 				const isActiveSelection = payload.isActive(selection, editor, classList);
 
@@ -177,45 +155,6 @@ export const TextFormatPlugin: FC = () => {
 			COMMAND_PRIORITY_EDITOR
 		);
 	}, [classList, editor, toggleCollapsedSelectionStyle, toggleRangeSelectionStyle]);
-
-	useEffect(() => {
-		const removeNormalizedCommands = mergeRegister(
-			editor.registerCommand<TextFormatType>(
-				FORMAT_TEXT_COMMAND,
-				(format) => {
-					const selection = $getSelection();
-
-					if (!$isRangeSelection(selection)) {
-						return false;
-					}
-
-					if (selection.isCollapsed()) {
-						// Let Lexical handle this case
-						return false;
-					}
-
-					const hasFormat = selection.hasFormat(format);
-					selection.toggleFormat(format);
-					$updateTextSelection(selection, (node) => {
-						if ($isInlineStyleTextNode(node)) {
-							if (hasFormat) {
-								node.removeFormat(format);
-							} else {
-								node.addFormat(format);
-							}
-						}
-					});
-
-					return true;
-				},
-				COMMAND_PRIORITY_LOW
-			)
-		);
-
-		return (): void => {
-			removeNormalizedCommands();
-		};
-	}, [classList, editor, lastInteraction, setClassList]);
 
 	// Update class list cached when selection change
 	useEffect(() => {
@@ -277,7 +216,7 @@ export const TextFormatPlugin: FC = () => {
 			(mutatedNodes) => {
 				editor.update(() => {
 					for (const [nodeKey] of mutatedNodes) {
-						const textNode: InlineStyleTextNode | null = $getNodeByKey(nodeKey);
+						const textNode = $getNodeByKey(nodeKey);
 
 						if (!textNode || !textNode.isAttached()) {
 							continue;

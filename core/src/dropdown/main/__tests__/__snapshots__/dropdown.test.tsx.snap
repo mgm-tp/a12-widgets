@@ -29,6 +29,10 @@ exports[`com.mgmtp.a12.widgets.dropdown > basic-dropdown 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
+}
+
 .c0 {
   background-color: rgb(241, 242, 244);
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
@@ -76,7 +80,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > basic-dropdown 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -121,7 +125,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > basic-dropdown 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -165,7 +169,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > basic-dropdown 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -322,6 +326,8 @@ exports[`com.mgmtp.a12.widgets.dropdown > basic-dropdown 1`] = `
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             edit
           </span>
@@ -415,7 +421,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown with \`isEmptyValue\` item 1`
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -524,6 +530,10 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-footer 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
+}
+
 .c10 {
   background-position: -10000% bottom;
   background-repeat: no-repeat;
@@ -570,10 +580,6 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-footer 1`] = `
   outline: none;
 }
 
-.c11 .c4 {
-  font-size: 1.125rem;
-}
-
 .c9 {
   align-items: center;
   box-sizing: border-box;
@@ -617,7 +623,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-footer 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -662,7 +668,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-footer 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -706,7 +712,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-footer 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -725,10 +731,6 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-footer 1`] = `
   border-bottom: 1px solid rgb(169, 179, 188);
 }
 
-.c12 .c4 {
-  color: inherit;
-}
-
 .c3 {
   align-items: center;
   display: flex;
@@ -737,10 +739,6 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-footer 1`] = `
 }
 
 .c3 .c4 {
-  color: inherit;
-}
-
-.c13 .c4 {
   color: inherit;
 }
 
@@ -904,6 +902,8 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-footer 1`] = `
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             edit
           </span>
@@ -1012,6 +1012,10 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-hint 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c6 {
+  color: inherit;
+}
+
 .c0 {
   background-color: rgb(241, 242, 244);
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
@@ -1024,10 +1028,6 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-hint 1`] = `
 
 .c0:focus {
   outline: none;
-}
-
-.c10 .c5 {
-  font-size: 1.125rem;
 }
 
 .c1 {
@@ -1073,7 +1073,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-hint 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -1118,7 +1118,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-hint 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -1162,7 +1162,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-hint 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -1181,10 +1181,6 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-hint 1`] = `
   border-bottom: 1px solid rgb(169, 179, 188);
 }
 
-.c11 .c5 {
-  color: inherit;
-}
-
 .c4 {
   align-items: center;
   display: flex;
@@ -1193,10 +1189,6 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-hint 1`] = `
 }
 
 .c4 .c5 {
-  color: inherit;
-}
-
-.c12 .c5 {
   color: inherit;
 }
 
@@ -1333,6 +1325,8 @@ exports[`com.mgmtp.a12.widgets.dropdown > dropdown-with-hint 1`] = `
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             edit
           </span>
@@ -1429,6 +1423,10 @@ exports[`com.mgmtp.a12.widgets.dropdown > horizontal-dropdown 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
+}
+
 .c0 {
   background-color: rgb(241, 242, 244);
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
@@ -1466,10 +1464,6 @@ exports[`com.mgmtp.a12.widgets.dropdown > horizontal-dropdown 1`] = `
   width: 36px;
 }
 
-.c9 .c4 {
-  color: inherit;
-}
-
 .c2 {
   box-sizing: border-box;
   flex-shrink: 0;
@@ -1490,7 +1484,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > horizontal-dropdown 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -1537,7 +1531,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > horizontal-dropdown 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -1583,7 +1577,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > horizontal-dropdown 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -1600,10 +1594,6 @@ exports[`com.mgmtp.a12.widgets.dropdown > horizontal-dropdown 1`] = `
 
 .c8[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
   border-bottom: 1px solid rgb(169, 179, 188);
-}
-
-.c10 .c4 {
-  color: inherit;
 }
 
 .c3 {
@@ -1762,6 +1752,8 @@ exports[`com.mgmtp.a12.widgets.dropdown > horizontal-dropdown 1`] = `
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             edit
           </span>
@@ -1858,8 +1850,8 @@ exports[`com.mgmtp.a12.widgets.dropdown > light-background-dropdown 1`] = `
   max-width: unset;
 }
 
-.c9 .c4 {
-  font-size: 1.125rem;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
 }
 
 .c0 {
@@ -1909,7 +1901,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > light-background-dropdown 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -1954,7 +1946,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > light-background-dropdown 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -1998,7 +1990,7 @@ exports[`com.mgmtp.a12.widgets.dropdown > light-background-dropdown 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -2017,10 +2009,6 @@ exports[`com.mgmtp.a12.widgets.dropdown > light-background-dropdown 1`] = `
   border-bottom: 1px solid rgb(169, 179, 188);
 }
 
-.c10 .c4 {
-  color: inherit;
-}
-
 .c3 {
   align-items: center;
   display: flex;
@@ -2029,10 +2017,6 @@ exports[`com.mgmtp.a12.widgets.dropdown > light-background-dropdown 1`] = `
 }
 
 .c3 .c4 {
-  color: inherit;
-}
-
-.c11 .c4 {
   color: inherit;
 }
 
@@ -2163,6 +2147,8 @@ exports[`com.mgmtp.a12.widgets.dropdown > light-background-dropdown 1`] = `
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             edit
           </span>

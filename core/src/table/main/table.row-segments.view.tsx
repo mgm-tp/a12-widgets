@@ -33,10 +33,10 @@
 import type { FC, ComponentType, ReactNode } from "react";
 import { useMemo, useCallback } from "react";
 
-import type { TableTemplateProps } from "./template/table.tpl.api.js";
 import type { BaseColumnType } from "./column.api.js";
 import { useTableContext } from "./table.context.js";
 import { getRowSegments } from "./table.utils.js";
+import type { TableTemplateProps } from "./template/table.tpl.api.js";
 
 /** @internal */
 export const RowSegments: FC<RowSegments.Props> = ({ SegmentComponent, cellRenderer }) => {

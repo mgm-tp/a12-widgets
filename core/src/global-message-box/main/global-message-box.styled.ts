@@ -32,9 +32,10 @@
 
 import { styled, css } from "styled-components";
 
-import type { DefaultThemeType } from "../../theme/schema.js";
-import { StyledIconWrapper } from "../../icon/main/icon.view.js";
+import { StyledBulletListContent, StyledBulletListItem } from "../../bullet-list/main/bullet-list.view.js";
 import { variantButtonStyles } from "../../button/main/button.styled.js";
+import { StyledIconWrapper } from "../../icon/main/icon.view.js";
+import type { DefaultThemeType } from "../../theme/schema.js";
 
 import type { GlobalMessageBoxVariant } from "./global-message-box.api.js";
 
@@ -65,12 +66,14 @@ export const StyledGlobalMessageBoxWrapper = styled.div.withConfig({
 			outline: none;
 		}
 
-		${isMobile &&
-		ellipsis &&
-		css`
-			flex-wrap: wrap;
-			justify-content: flex-end;
-		`}
+		${
+			isMobile &&
+			ellipsis &&
+			css`
+				flex-wrap: wrap;
+				justify-content: flex-end;
+			`
+		}
 	`;
 });
 
@@ -85,10 +88,13 @@ export const StyledGlobalMessageBoxContent = styled.div.withConfig({
 		display: flex;
 		flex: 1 1 auto;
 		overflow: hidden;
-		${!ellipsis &&
-		css`
-			padding: ${content.padding};
-		`}
+		align-items: center;
+		${
+			!ellipsis &&
+			css`
+				padding: ${content.padding};
+			`
+		}
 	`;
 });
 
@@ -124,6 +130,11 @@ export const StyledGlobalMessageBoxText = styled.div.withConfig({ displayName: "
 		overflow: hidden;
 		text-overflow: ${$ellipsis ? "ellipsis" : "clip"};
 		white-space: ${$ellipsis ? "nowrap" : "normal"};
+
+		${StyledBulletListItem}, ${StyledBulletListContent} {
+			color: inherit;
+			font-weight: inherit;
+		}
 	`;
 });
 
@@ -142,12 +153,14 @@ export const StyledGlobalMessageBoxActions = styled.div.withConfig({
 		flex: 0 0 auto;
 		margin: ${$isMobile && $ellipsis ? actions.mobile.margin : actions.margin};
 
-		${!$ellipsis &&
-		css`
-			align-items: center;
-			align-self: flex-start;
-			min-height: ${actions.minHeight};
-		`}
+		${
+			!$ellipsis &&
+			css`
+				align-items: center;
+				align-self: flex-start;
+				min-height: ${actions.minHeight};
+			`
+		}
 
 		${variantButtonStyles({ theme, isWarning: $variant === "warning" })}
 	`;

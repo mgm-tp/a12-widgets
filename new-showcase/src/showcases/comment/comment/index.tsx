@@ -30,23 +30,23 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import sharedDataCode from "!../shared-data.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import commentActionsCode from "!./comment-actions.tsx?raw";
+import commentTagCode from "!./comment-tag.tsx?raw";
+import inactiveCommentCode from "!./inactive-comment.tsx?raw";
+
 import { Link, BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
-import CommentAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/comment/comment/main/comment.api.json" with { type: "json" };
 import CommentListAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/comment/comment-list/main/comment-list.api.json" with { type: "json" };
+import CommentAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/comment/comment/main/comment.api.json" with { type: "json" };
 import NewCommentAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/comment/new-comment/main/new-comment.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { Basic } from "./basic.js";
 import { CommentActions } from "./comment-actions.js";
-import { InactiveComment } from "./inactive-comment.js";
 import { CommentTag } from "./comment-tag.js";
-
-import sharedDataCode from "!../shared-data.tsx?raw";
-import basicCode from "!./basic.tsx?raw";
-import commentActionsCode from "!./comment-actions.tsx?raw";
-import inactiveCommentCode from "!./inactive-comment.tsx?raw";
-import commentTagCode from "!./comment-tag.tsx?raw";
+import { InactiveComment } from "./inactive-comment.js";
 
 const showcases: Showcase[] = [
 	{

@@ -32,10 +32,10 @@
 
 import { styled, css } from "styled-components";
 
-import { breakWord } from "../../theme/base/mixins/_break-word.js";
+import { StyledBulletListItem, StyledBulletListContent } from "../../bullet-list/main/bullet-list.view.js";
 import type { Orientation } from "../../common/main/alignment.js";
 import { adjustParentMarginForEdges } from "../../common/main/portal-utils.js";
-import { StyledBulletListItem, StyledBulletListContent } from "../../bullet-list/main/bullet-list.view.js";
+import { breakWord } from "../../theme/base/mixins/_break-word.js";
 import { basePortalArrow } from "../../theme/base/mixins/_portal-arrow.js";
 
 export const StyledTooltipContent = styled.div.withConfig({ displayName: "StyledTooltipContent-sc-" })(({ theme }) => {
@@ -105,14 +105,16 @@ export const StyledTooltipContainer = styled.div.withConfig({ displayName: "Styl
 			outline: none;
 		}
 		// Arrow of portal
-		${$tooltipOrientation &&
-		basePortalArrow({
-			orientation: $tooltipOrientation,
-			arrow: arrow,
-			selector: "&:after",
-			referenceElement: $referenceElement,
-			containerPosition: $position
-		})}
+		${
+			$tooltipOrientation &&
+			basePortalArrow({
+				orientation: $tooltipOrientation,
+				arrow: arrow,
+				selector: "&:after",
+				referenceElement: $referenceElement,
+				containerPosition: $position
+			})
+		}
 
 		${$variant === "error" && tooltipState(error.color, error.color, error.background)}
 		${$variant === "warning" && tooltipState(warning.color, warning.contentColor, warning.background)}

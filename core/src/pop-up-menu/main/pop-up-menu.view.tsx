@@ -30,27 +30,30 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { CSSTransition } from "react-transition-group";
 import type { FC, SyntheticEvent, MouseEvent, ReactNode, ReactElement } from "react";
 import { cloneElement, isValidElement, useCallback, useContext, useEffect, useRef, Children } from "react";
+import { CSSTransition } from "react-transition-group";
 import { Key } from "ts-key-enum";
 
-import { addPrefix, getParentElement, joinClassNames, Key as CustomKey } from "../../common/main/utils.js";
-import type { Orientation } from "../../common/main/alignment.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
 import type { ButtonProps } from "../../button/main/button.api.js";
 import { Button } from "../../button/main/button.view.js";
-import { Icon } from "../../icon/main/icon.view.js";
-import { useIsMount, useStateWithCallback } from "../../common/main/hooks.js";
-import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import type { Orientation } from "../../common/main/alignment.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { provider } from "../../common/main/device-detector.js";
 import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
-import { List } from "../../list/main/list.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { useIsMount, useStateWithCallback } from "../../common/main/hooks.js";
+import { TabSandbox } from "../../common/main/tab-sandbox.view.js";
+import { addPrefix, getParentElement, joinClassNames, Key as CustomKey } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { useKeyboardNavigationMode } from "../../keyboard-navigation/main/keyboard-navigation-context.js";
+import { List } from "../../list/main/list.view.js";
 
 import type { PopUpMenuCloseReason, PopUpMenuProps } from "./pop-up-menu.api.js";
+import { PopupMenuConfigContext } from "./popup-menu-context.js";
+import { PopupMenuLegacyButtons } from "./popup-menu-legacy.view.js";
+import { StyledPopupMenuModalOverlay } from "./popup-menu-overlay.styled.js";
 import {
 	StyledPopup,
 	StyledPopupMenu,
@@ -58,9 +61,6 @@ import {
 	StyledPopupMenuHeaderWrapper,
 	StyledPopupMenuWrapper
 } from "./popup-menu.styled.js";
-import { PopupMenuConfigContext } from "./popup-menu-context.js";
-import { StyledPopupMenuModalOverlay } from "./popup-menu-overlay.styled.js";
-import { PopupMenuLegacyButtons } from "./popup-menu-legacy.view.js";
 import { usePopupMenuFocus } from "./use-popup-menu-focus.js";
 import { usePopupMenuKeyboard } from "./use-popup-menu-keyboard.js";
 

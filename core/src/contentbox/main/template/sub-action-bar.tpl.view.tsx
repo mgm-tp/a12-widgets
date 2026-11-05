@@ -33,15 +33,15 @@
 import type { ReactElement } from "react";
 import { styled, css } from "styled-components";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
-import { StyledFilterWrapper } from "../../../faceted-search/main/filter/filter.styled.js";
+import { StyledCounter } from "../../../counter/main/counter.view.js";
+import { StyledMobileFilterBarWrapper } from "../../../faceted-search/main/filter-bar/filter-bar.mobile.styled.js";
 import {
 	StyledFilterBarWrapper,
 	StyledFilterBarContent
 } from "../../../faceted-search/main/filter-bar/filter-bar.styled.js";
-import { StyledMobileFilterBarWrapper } from "../../../faceted-search/main/filter-bar/filter-bar.mobile.styled.js";
-import { StyledCounter } from "../../../counter/main/counter.view.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
+import { StyledFilterWrapper } from "../../../faceted-search/main/filter/filter.styled.js";
 
 import type { SubActionBarTplProps } from "./sub-action-bar.tpl.api.js";
 
@@ -97,17 +97,19 @@ export const StyledSubActionBarItem = styled.div.withConfig({ displayName: "Styl
 			}
 		}
 
-		${$hidden
-			? css`
-					margin-top: -100px;
-					visibility: hidden;
-					transition:
-						margin-top 0.3s ease-in 0s,
-						visibility 0.3s;
-				`
-			: css`
-					transition: margin-top 0.3s ease-out;
-				`}
+		${
+			$hidden
+				? css`
+						margin-top: -100px;
+						visibility: hidden;
+						transition:
+							margin-top 0.3s ease-in 0s,
+							visibility 0.3s;
+					`
+				: css`
+						transition: margin-top 0.3s ease-out;
+					`
+		}
 	`;
 });
 

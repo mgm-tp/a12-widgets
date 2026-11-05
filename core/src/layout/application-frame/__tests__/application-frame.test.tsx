@@ -43,16 +43,15 @@ import {
 import { describe, vi, expect, test, beforeAll, afterEach } from "vitest";
 import { page } from "vitest/browser";
 
-import { DataRoles } from "../../../common/main/data-roles.js";
 import { ApplicationHeader } from "../../../application-header/main/application-header.view.js";
-import { Button } from "../../../button/main/button.view.js";
 import { ButtonGroup } from "../../../button-group/main/button-group.view.js";
+import { Button } from "../../../button/main/button.view.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { ContentBox } from "../../../contentbox/main/template/contentbox.tpl.view.js";
-import { FlyoutMenu } from "../../../menu/main/flyout-menu.view.js";
 import { Icon } from "../../../icon/main/icon.view.js";
-import { MasterDetail } from "../../master-detail/main/master-detail.view.js";
+import { FlyoutMenu } from "../../../menu/main/flyout-menu.view.js";
 import type { MenuItem } from "../../../menu/main/menu.api.js";
-
+import { MasterDetail } from "../../master-detail/main/master-detail.view.js";
 import { ApplicationFrame } from "../main/application-frame.view.js";
 
 const properties = {

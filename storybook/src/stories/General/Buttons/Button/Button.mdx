@@ -1,0 +1,87 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+<Title />
+
+The `Button` widget wraps the native HTML button element and adds the A12 button styles plus extra
+functionality such as icons, badges and loading progress. It is the default trigger for actions
+throughout the platform.
+
+- Pick a style with the boolean props `primary`, `secondary` and `destructive`; `disabled` works with all of them.
+- Set `icon` without a `label` to get an icon button — always add a `title` for accessibility.
+- Use `loading` with `processedPercentage` to show progress for long-running actions.
+- Use `invert` on dark backgrounds, `block` to fill the parent and `labelHidden` to keep the label accessible while hiding it visually.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ButtonStories.Playground} />
+
+## Examples
+
+### Variants
+
+<Canvas of={ButtonStories.Variants} />
+
+### With icon
+
+<Canvas of={ButtonStories.WithIcon} />
+
+### Icon only
+
+<Canvas of={ButtonStories.IconOnly} />
+
+### With badge
+
+<Canvas of={ButtonStories.WithBadge} />
+
+### Loading
+
+<Canvas of={ButtonStories.Loading} />
+
+### Animated progress
+
+<Canvas of={ButtonStories.AnimatedProgress} />
+
+### Active
+
+<Canvas of={ButtonStories.Active} />
+
+### Block
+
+<Canvas of={ButtonStories.Block} />
+
+### Vertical
+
+<Canvas of={ButtonStories.Vertical} />
+
+### Inverted
+
+<Canvas of={ButtonStories.Inverted} />
+
+### Hidden label
+
+<Canvas of={ButtonStories.HiddenLabel} />
+
+### Interaction hints
+
+<Canvas of={ButtonStories.InteractionHint} />

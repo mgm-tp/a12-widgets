@@ -34,13 +34,12 @@ import type { ContextType, ChangeEvent, FocusEvent, ReactNode, KeyboardEvent } f
 import { Component } from "react";
 import { Key } from "ts-key-enum";
 
-import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { AttachedPortal } from "../../../attached-portal/main/attached-portal.view.js";
 import { Button } from "../../../button/main/button.view.js";
-import type { DropDown } from "../../../dropdown/main/template/dropdown.tpl.view.js";
-import { Icon as IconWidget } from "../../../icon/main/icon.view.js";
+import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import type { Orientation } from "../../../common/main/alignment.js";
-import { Tooltip } from "../../../tooltip/main/tooltip.view.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
+import { provider } from "../../../common/main/device-detector.js";
 import {
 	addPrefix,
 	bindMethods,
@@ -49,10 +48,11 @@ import {
 	joinClassNames,
 	StringUtils
 } from "../../../common/main/utils.js";
-import { provider } from "../../../common/main/device-detector.js";
-import { TextField } from "../../text-field/main/template/text-field.tpl.view.js";
+import type { DropDown } from "../../../dropdown/main/template/dropdown.tpl.view.js";
+import { Icon as IconWidget } from "../../../icon/main/icon.view.js";
+import { Tooltip } from "../../../tooltip/main/tooltip.view.js";
 import { SelectionSuffix } from "../../base/template/base.tpl.view.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
+import { TextField } from "../../text-field/main/template/text-field.tpl.view.js";
 
 import type { IconPickerProps } from "./icon-picker.api.js";
 import { IconPickerUtils } from "./icon-picker.internal.js";

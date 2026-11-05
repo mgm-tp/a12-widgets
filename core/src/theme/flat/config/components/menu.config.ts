@@ -31,7 +31,6 @@
  */
 
 import type { FlatThemeType } from "../../../schema.js";
-
 import { GeneralFlatColorsConfig } from "../base/colors.config.js";
 
 const commonItemConfigs = (theme: FlatThemeType) => {
@@ -156,6 +155,18 @@ export const menuFlatConfig = (theme: FlatThemeType) => {
 			vertical: {
 				selected: {
 					background: colors.interaction.selected.colorInverted
+				},
+				icon: {
+					status: {
+						variant: {
+							open: colors.text.color,
+							info: colors.variant.infoColor,
+							error: colors.variant.errorColor,
+							warning: colors.variant.warningColorDark,
+							inProgress: colors.variant.infoColorDark,
+							done: colors.variant.successColor
+						}
+					}
 				}
 			}
 		},

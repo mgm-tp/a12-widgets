@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { MarkdownViewer } from "../../helpers/markdown-viewer.js";
-import type { Showcase } from "../../helpers/definitions.js";
-
 import PatchInstructionMD from "!../../docs/migration/patch-instruction.md?raw";
+
+import type { Showcase } from "../../helpers/definitions.js";
+import { MarkdownViewer } from "../../helpers/markdown-viewer.js";
 
 const showcases: Showcase[] = [
 	{ label: "Patch Instruction", description: <MarkdownViewer source={PatchInstructionMD} />, sections: [] }

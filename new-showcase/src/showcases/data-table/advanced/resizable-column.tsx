@@ -34,6 +34,7 @@ import type { ReactElement, ReactNode } from "react";
 import { useMemo, useState, useCallback } from "react";
 
 import type { RowEventHandlerGetter, Column } from "@com.mgmtp.a12.widgets/widgets-core";
+import { provider, ExternalLink, MailtoLink } from "@com.mgmtp.a12.widgets/widgets-core";
 import type {
 	DataTableRowStyleGetter,
 	DataTableColumn,
@@ -42,11 +43,9 @@ import type {
 	DataTableSortOrder,
 	DataTableColumnResizeEventHandler
 } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
-import { provider, ExternalLink, MailtoLink } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import type { ContextualCard } from "../../../helpers/definitions.js";
-
 import { Utils } from "../utils.js";
 
 type RowType = ContextualCard;

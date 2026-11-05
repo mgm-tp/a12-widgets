@@ -47,6 +47,7 @@ export * from "./charts.config.js";
 export * from "./chat.config.js";
 export * from "./checkbox.config.js";
 export * from "./collapsible-panel.config.js";
+export * from "./column-visibility-panel.config.js";
 export * from "./comment-list.config.js";
 export * from "./comment.config.js";
 export * from "./components.js";

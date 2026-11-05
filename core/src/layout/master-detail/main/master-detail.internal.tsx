@@ -33,43 +33,38 @@
 /**
  * This is an internal module extracted for automated testing. Do not use.
  */
-import type { ReactElement, ReactNode, RefObject } from "react";
-import { createRef, Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { CSSTransition } from "react-transition-group";
+import type { AnimationDefinition } from "motion/react";
+import { AnimatePresence } from "motion/react";
+import type { ReactElement, ReactNode } from "react";
+import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useTheme } from "styled-components";
-import DOMPurify from "dompurify";
-import type { CSSTransitionClassNames } from "react-transition-group/CSSTransition.js";
 
-import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import type { Container, Identifiable, Styleable } from "../../../common/main/base-props.js";
-import { parseShorthandSpacing } from "../../../common/main/utils/css-utils.js";
-import { ResizeHandler } from "../../resizable/resize-handler.view.js";
-import type { ResizeCallbackData, ResizeHandlerProps, ResizeOptions } from "../../resizable/resize-handler.api.js";
-import { useElementDimensions } from "../../resizable/resize-hook.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
+import { parseShorthandSpacing } from "../../../common/main/utils/css-utils.js";
+import type { ResizeCallbackData, ResizeHandlerProps, ResizeOptions } from "../../resizable/resize-handler.api.js";
+import { ResizeHandler } from "../../resizable/resize-handler.view.js";
+import { useElementDimensions } from "../../resizable/resize-hook.js";
 
 import type { MasterDetailBodyProps, MasterDetailHeaderProps, VisibleView } from "./master-detail.api.js";
+import { useTransitionContext } from "./master-detail.context.js";
+import {
+	useAnimationEvents,
+	useMasterDetailAnimationConfig,
+	usePaneWidthState
+} from "./master-detail.hook.internal.js";
 import {
 	StyledMasterDetailHeader,
 	StyledMasterDetailLayoutBody,
-	StyledMasterDetailLayoutBodyWithoutAnimation,
 	StyledMasterDetailLayoutPane,
-	StyledMasterDetailPlaceholder,
+	StyledMasterDetailLayoutPaneContent,
+	StyledMasterDetailLayoutPaneContentWrapper,
 	StyledMasterDetailTitle
 } from "./master-detail.styled.js";
-import { useTransitionContext } from "./master-detail.context.js";
-import { useAnimationEvents, usePaneWidthState } from "./master-detail.hook.internal.js";
+import { getTransformOrigins, updateSeenOrder, type PaneTransformOrigin } from "./master-detail.utils.js";
 
 const baseClassName = addPrefix("masterDetailLayout");
-
-// CSS classes set when new items enter/ leave
-// the - active classes are placeholders required by library
-const CSS_CLASSES: CSSTransitionClassNames = {
-	enter: `${baseClassName}Pane--enter`,
-	enterActive: `${baseClassName}Pane--enter-active`,
-	exit: `${baseClassName}Pane--exit`,
-	exitActive: `${baseClassName}Pane--exit-active`
-};
 
 type ResizeablePaneOptions = ResizeOptions & { position: ResizeHandlerProps["position"] };
 
@@ -79,16 +74,31 @@ type LayoutPaneInternalProps = Container &
 		isRtl: boolean;
 		numOfColumns: number;
 		smallView?: boolean;
-		wrapperRef?: RefObject<HTMLDivElement | null>;
 		resizableOptions?: ResizeablePaneOptions;
 		columnsCount: number;
 		dataResizeStop?: { width: number; maxWidth: number };
-		firstResizablePaneOptions?: ResizeablePaneOptions;
-		duration?: number;
+		enterTransformOrigin?: PaneTransformOrigin;
+		exitTransformOrigin?: PaneTransformOrigin;
+
+		/** True while an adjacent pane is animating out, so this pane should grow to fill the freed space. */
+		siblingExiting?: boolean;
+
+		/** When true, the pane runs the enter animation on mount */
+		animateEnter?: boolean;
+		onEnterComplete?: () => void;
+		isExistingPane?: boolean;
 	};
 
 const LayoutPane = (props: LayoutPaneInternalProps): ReactNode => {
+	const { isTransitioning } = useTransitionContext();
 	const paneRef = useRef<HTMLDivElement | null>(null);
+	const contentRef = useRef<HTMLDivElement | null>(null);
+	const [borderRadius, setBorderRadius] = useState(0);
+	const isSinglePane = props.columnsCount <= 1;
+	// When a pane is added, if it animates from right to left, its order should be greater than all existing panes (9999). If it animates from left to right, its order should be smaller than all existing panes (-1). This ensures the animation moves in the correct direction.
+	const [enteringOrder, setEnteringOrder] = useState<number | undefined>(() =>
+		props.animateEnter && isSinglePane ? (props.isRtl ? 9999 : -1) : undefined
+	);
 	const isResizable = props.columnsCount === 2 && Boolean(props.resizableOptions);
 
 	const [width, setWidth] = usePaneWidthState({
@@ -113,13 +123,6 @@ const LayoutPane = (props: LayoutPaneInternalProps): ReactNode => {
 		}
 	} = useTheme();
 
-	useEffect(() => {
-		if (props.wrapperRef) {
-			// Updates paneRef to point to the same element as props.wrapperRef if props.wrapperRef is defined. This ensures that both references are synchronized.
-			paneRef.current = props.wrapperRef.current;
-		}
-	}, [props.wrapperRef]);
-
 	const handleResizeStart = (event: MouseEvent, data: ResizeCallbackData): void => {
 		setWidth(data.width);
 		props.resizableOptions?.onResizeStart?.(event, data);
@@ -137,30 +140,53 @@ const LayoutPane = (props: LayoutPaneInternalProps): ReactNode => {
 		return parseFloat(padding) * 2;
 	};
 
-	const getPadding = (): { $left: number; $right: number } | undefined => {
-		const layoutGap = getLayoutGap();
+	useLayoutEffect(() => {
+		const contentChild = contentRef.current?.firstElementChild;
 
-		if (!layoutGap || !props.firstResizablePaneOptions) {
-			return undefined;
+		if (!isResizable || !contentChild) {
+			return;
 		}
 
-		const isLeftPosition = props.firstResizablePaneOptions.position === "left";
+		const { borderRadius: contentBorderRadius } = getComputedStyle(contentChild);
+		setBorderRadius(parseFloat(contentBorderRadius.split(" ")[0] || "0") || 0);
+	}, [isResizable, spacingBetweenPanes]);
 
-		return {
-			$left: isLeftPosition ? layoutGap : 0,
-			$right: !isLeftPosition ? layoutGap : 0
-		};
-	};
+	const handleWrapperRef = useCallback((element: HTMLDivElement | null): void => {
+		paneRef.current = element;
+	}, []);
 
-	const handleWrapperRef = useCallback(
-		(element: HTMLDivElement | null): void => {
-			paneRef.current = element;
+	const targetWidth: string | undefined = props.smallView
+		? "100%"
+		: isResizable && typeof width === "number"
+			? `${width}px`
+			: isResizable && typeof width === "string"
+				? width
+				: undefined;
 
-			if (props.wrapperRef) {
-				props.wrapperRef.current = element;
+	const {
+		paneVariants,
+		contentVariants,
+		MDAnimationStates: { hidden, visible, exit }
+	} = useMasterDetailAnimationConfig({
+		numOfColumns: props.numOfColumns,
+		isResizable: isResizable,
+		enterTransformOrigin: props.enterTransformOrigin,
+		exitTransformOrigin: props.exitTransformOrigin,
+		isSinglePane: props.columnsCount <= 1,
+		siblingExiting: props.siblingExiting,
+		isExistingPane: props.isExistingPane
+	});
+
+	const { onEnterComplete } = props;
+
+	const handleAnimationComplete = useCallback(
+		(definition: AnimationDefinition): void => {
+			if (definition === visible) {
+				setEnteringOrder(undefined);
+				onEnterComplete?.();
 			}
 		},
-		[props.wrapperRef]
+		[onEnterComplete, visible]
 	);
 
 	return (
@@ -173,28 +199,41 @@ const LayoutPane = (props: LayoutPaneInternalProps): ReactNode => {
 			minWidth={absoluteMinWidth}
 			maxWidth={absoluteMaxWidth}
 			layoutGap={getLayoutGap()}
+			borderRadius={borderRadius}
 		>
 			<StyledMasterDetailLayoutPane
-				$numOfColumns={props.numOfColumns}
-				$smallView={props.smallView}
-				$isRtl={props.isRtl}
 				className={joinClassNames(
 					`${baseClassName}Pane`,
-					{ [`${baseClassName}Pane--rtl`]: props.isRtl },
 					`${baseClassName}Pane--col-${props.numOfColumns}`,
 					props.className
 				)}
-				style={props.style}
+				style={enteringOrder !== undefined ? { ...props.style, order: enteringOrder } : props.style}
 				id={props.id}
-				data-role={DataRoles.MasterDetail.Layout.Pane}
+				data-role={`${DataRoles.MasterDetail.Layout.Pane}`}
 				ref={handleWrapperRef}
-				$width={width}
-				$columnsCount={props.columnsCount}
-				$maxWidth={isResizable ? props.resizableOptions?.maxWidth : props.dataResizeStop?.maxWidth}
-				$padding={getPadding()}
+				$width={targetWidth}
+				$flexGrow={props.numOfColumns}
 				$isResizable={Boolean(props.resizableOptions)}
+				$isTransitioning={isTransitioning}
+				variants={paneVariants}
+				custom={props.exitTransformOrigin}
+				initial={props.animateEnter ? hidden : false}
+				animate={visible}
+				exit={exit}
+				onAnimationComplete={handleAnimationComplete}
 			>
-				{props.children}
+				<StyledMasterDetailLayoutPaneContentWrapper data-role={DataRoles.MasterDetail.Layout.Pane.ContentWrapper}>
+					<StyledMasterDetailLayoutPaneContent
+						ref={contentRef}
+						variants={contentVariants}
+						initial={props.animateEnter ? hidden : false}
+						animate={visible}
+						exit={exit}
+						data-role={`${DataRoles.MasterDetail.Layout.Pane.Content}`}
+					>
+						{props.children}
+					</StyledMasterDetailLayoutPaneContent>
+				</StyledMasterDetailLayoutPaneContentWrapper>
 			</StyledMasterDetailLayoutPane>
 		</ResizeHandler>
 	);
@@ -202,12 +241,8 @@ const LayoutPane = (props: LayoutPaneInternalProps): ReactNode => {
 
 LayoutPane.displayName = "LayoutPane";
 
-// transitionEnterTimeout=1ms has the effect that onEnter, the masterDetailLayoutPane--exit class is added
-// but immediately removed again to achieve the animation
 /**
  * @internal
- * transitionEnterTimeout=1ms has the effect that onEnter, the masterDetailLayoutPane--exit class is added
- * but immediately removed again to achieve the animation
  */
 export function Body(props: MasterDetailBodyProps): ReactElement {
 	/**
@@ -217,26 +252,25 @@ export function Body(props: MasterDetailBodyProps): ReactElement {
 	 */
 	const { setIsTransitioning, isTransitioning } = useTransitionContext();
 	const { onComponentMounted, visibleViews, animation, smallView, className, style, id } = props;
-	const [dataResize, setDataResize] = useState<{ width: number; maxWidth: number }>();
+	const [dataResize, setDataResize] = useState<{
+		width: number;
+		maxWidth: number;
+	}>();
 	const animate = !(animation && animation.enabled === false);
 	const totalVisibleViewColumns = visibleViews.reduce((current, view) => current + (view.width || 0), 0);
+	const actualColumnsCount = props.visibleViews.length;
+
+	const [committedColumnsCount, setCommittedColumnsCount] = useState(actualColumnsCount);
+
+	if (animate && actualColumnsCount > committedColumnsCount) {
+		setCommittedColumnsCount(actualColumnsCount);
+	}
+
+	const columnsCount = animate ? Math.max(actualColumnsCount, committedColumnsCount) : actualColumnsCount;
+	const isSinglePane = columnsCount <= 1;
+
+	const isClosing = columnsCount > actualColumnsCount;
 	const isRtl = animation?.animateSingleItem === "rtl";
-
-	const {
-		components: {
-			masterDetailLayout: {
-				pane: { animationDuration }
-			}
-		}
-	} = useTheme();
-
-	const duration = useMemo(() => {
-		if (animationDuration.includes("ms")) {
-			return Number(animationDuration.split("ms")[0]);
-		}
-
-		return animationDuration.includes("s") ? Number(animationDuration.split("s")[0]) * 1000 : 300;
-	}, [animationDuration]);
 
 	const handleComponentMounted = useCallback(() => {
 		if (onComponentMounted) {
@@ -245,13 +279,6 @@ export function Body(props: MasterDetailBodyProps): ReactElement {
 
 		setIsTransitioning(false);
 	}, [onComponentMounted, setIsTransitioning]);
-
-	const BodyWrapper = useMemo(
-		() => (animate ? StyledMasterDetailLayoutBody : StyledMasterDetailLayoutBodyWithoutAnimation),
-		[animate]
-	);
-
-	const columnsCount = props.visibleViews.length;
 
 	const handleResizeStop = (
 		event: MouseEvent,
@@ -292,92 +319,119 @@ export function Body(props: MasterDetailBodyProps): ReactElement {
 		};
 	};
 
-	const firstResizablePaneOptions = props.visibleViews
-		.map((view, index) => getResizableOptions(view, index))
-		.find((options) => !!options);
-
 	useAnimationEvents(isTransitioning, {
 		onAnimationStart: animation?.onAnimationStart,
 		onAnimationEnd: animation?.onAnimationEnd
 	});
 
+	const seenOrderRef = useRef<string[]>([]);
+	const prevViewKeysRef = useRef<string[]>([]);
+	const isFirstRender = useRef(true);
+
+	// Synchronously track the historical order of pane keys so that exiting panes
+	// (kept in the DOM by AnimatePresence) receive a CSS `order` that preserves
+	// their visual position in the flex row, regardless of DOM insertion order.
+	const currentKeys = props.visibleViews.map((v, i) => v.key ?? v.id ?? "view-" + i);
+
+	updateSeenOrder(seenOrderRef.current, currentKeys);
+
+	const enteringKeys = currentKeys.filter((key) => !prevViewKeysRef.current.includes(key));
+	const hasEnteringPane = !isFirstRender.current && enteringKeys.length > 0;
+
+	useEffect(() => {
+		const currKeys = props.visibleViews.map((v, i) => v.key ?? v.id ?? "view-" + i);
+
+		if (isFirstRender.current) {
+			isFirstRender.current = false;
+			prevViewKeysRef.current = currKeys;
+
+			return;
+		}
+
+		if (animate) {
+			const prevSet = new Set(prevViewKeysRef.current);
+			const currSet = new Set(currKeys);
+			const hasChange = currKeys.some((k) => !prevSet.has(k)) || prevViewKeysRef.current.some((k) => !currSet.has(k));
+
+			if (hasChange) {
+				setIsTransitioning(true);
+			}
+		}
+
+		prevViewKeysRef.current = currKeys;
+	}, [animate, props.visibleViews, setIsTransitioning]);
+
+	const handleEnterComplete = useCallback(() => {
+		handleComponentMounted();
+	}, [handleComponentMounted]);
+
+	const handleExitComplete = useCallback(() => {
+		setCommittedColumnsCount(actualColumnsCount);
+		setIsTransitioning(false);
+	}, [actualColumnsCount, setIsTransitioning]);
+
+	const renderPane = (view: VisibleView, index: number): ReactElement => {
+		let num: number;
+
+		if (isSinglePane) {
+			num = 12;
+		} else {
+			num =
+				typeof view.width === "number"
+					? view.width
+					: totalVisibleViewColumns === 0
+						? 12 / columnsCount
+						: 12 - totalVisibleViewColumns;
+		}
+
+		const key = view.key ?? view.id ?? "view-" + index;
+		const paneOrder = seenOrderRef.current.indexOf(key);
+		const isExistingPane = hasEnteringPane && !enteringKeys.includes(key);
+
+		return (
+			<LayoutPane
+				key={key}
+				numOfColumns={num}
+				smallView={smallView}
+				isRtl={isRtl}
+				className={className}
+				style={{ ...style, order: paneOrder >= 0 ? paneOrder : index }}
+				id={id}
+				columnsCount={columnsCount}
+				siblingExiting={isClosing}
+				dataResizeStop={dataResize}
+				resizableOptions={getResizableOptions(view, index)}
+				{...getTransformOrigins(index, columnsCount, isRtl)}
+				animateEnter={animate}
+				isExistingPane={isExistingPane}
+				onEnterComplete={animate ? handleEnterComplete : undefined}
+			>
+				{view.element}
+			</LayoutPane>
+		);
+	};
+
 	return (
-		<BodyWrapper
+		<StyledMasterDetailLayoutBody
 			$smallView={!!smallView}
-			$isAnimateRtl={isRtl}
-			$animation={animate}
-			className={joinClassNames(`${baseClassName}__body`, {
-				[`${baseClassName}__body--row-reverse`]: isRtl
-			})}
+			$isSingleView={animation?.animateSingleItem !== undefined}
+			className={`${baseClassName}__body`}
 			data-role={DataRoles.MasterDetail.Layout.Body}
 		>
-			{props.visibleViews.map((view, index) => {
-				let num: number;
-
-				if (props.visibleViews.length <= 1) {
-					num = 12;
-				} else {
-					num =
-						typeof view.width === "number"
-							? view.width
-							: totalVisibleViewColumns === 0
-								? 12 / props.visibleViews.length
-								: 12 - totalVisibleViewColumns;
-				}
-
-				const wrapperRef = createRef<HTMLDivElement | null>();
-
-				const paneRenderer = (shouldRenderPlaceholder?: boolean): ReactElement => {
-					return (
-						<LayoutPane
-							numOfColumns={num}
-							smallView={smallView}
-							isRtl={isRtl}
-							className={className}
-							style={style}
-							id={id}
-							wrapperRef={wrapperRef}
-							columnsCount={columnsCount}
-							dataResizeStop={dataResize}
-							resizableOptions={getResizableOptions(view, index)}
-							firstResizablePaneOptions={firstResizablePaneOptions}
-							duration={duration}
-						>
-							{shouldRenderPlaceholder && wrapperRef.current?.innerHTML ? (
-								<StyledMasterDetailPlaceholder
-									dangerouslySetInnerHTML={{
-										__html: DOMPurify.sanitize(wrapperRef.current.innerHTML) ?? ""
-									}}
-								/>
-							) : (
-								view.element
-							)}
-						</LayoutPane>
-					);
-				};
-
-				if (animate) {
-					return (
-						<CSSTransition
-							key={view.key || "view-" + index}
-							classNames={CSS_CLASSES}
-							timeout={{ enter: duration, exit: duration }}
-							enter
-							exit
-							nodeRef={wrapperRef}
-							onEnter={() => setIsTransitioning(true)}
-							onEntered={handleComponentMounted}
-							onExit={() => setIsTransitioning(true)}
-							onExited={() => setIsTransitioning(false)}
-						>
-							{(status) => paneRenderer(status === "exiting" || status === "exited" || status === "unmounted")}
-						</CSSTransition>
-					);
-				}
-
-				return <Fragment key={view.key || "view-" + index}>{paneRenderer()}</Fragment>;
-			})}
-		</BodyWrapper>
+			{animate ? (
+				<AnimatePresence
+					initial={false}
+					onExitComplete={handleExitComplete}
+					custom={isSinglePane ? (isRtl ? "left center" : "right center") : undefined}
+				>
+					{props.visibleViews.map((view, index) => renderPane(view, index))}
+				</AnimatePresence>
+			) : (
+				props.visibleViews.map((view, index) => (
+					<Fragment key={view.key ?? view.id ?? "view-" + index}>{renderPane(view, index)}</Fragment>
+				))
+			)}
+		</StyledMasterDetailLayoutBody>
 	);
 }
 

@@ -1,0 +1,54 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as TagStories from "./Tag.stories";
+
+<Meta of={TagStories} />
+
+<Title />
+
+The `Tag` widget renders a compact label, typically used to categorize or mark content with
+keywords such as statuses, topics or filter criteria. Tags are often displayed in groups.
+
+- Use `removable` to show a remove (×) button that fires `onRemove`; combine it with
+  `disabledRemoveButton` to keep the button visible but inactive.
+- Use `icon` to prepend an icon and `color` to override the background color.
+- Tags are keyboard-reachable and support `onClick` and `onKeyDown` handlers.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={TagStories.Playground} />
+
+## Examples
+
+### Removable
+
+<Canvas of={TagStories.Removable} />
+
+### With icon
+
+<Canvas of={TagStories.WithIcon} />
+
+### With color
+
+<Canvas of={TagStories.WithColor} />
+
+### Tag list
+
+<Canvas of={TagStories.TagList} />

@@ -33,7 +33,6 @@
 import type { RefCallback } from "react";
 
 import type { DataRole } from "../../common/main/base-props.js";
-
 import type { BaseInputProps, InputDOMProps } from "../base/template/base.tpl.api.js";
 
 export type OptionalYearMonthItem = {

@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { round } from "lodash-es";
 import type { ComponentType, ReactElement, ReactNode } from "react";
 import { useCallback, useMemo, useRef, useState } from "react";
-import { round } from "lodash-es";
 import { css, styled } from "styled-components";
 
 import type {

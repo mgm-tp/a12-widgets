@@ -33,15 +33,15 @@
 import type { ReactElement, FC } from "react";
 import { useRef, useCallback, useEffect } from "react";
 
-import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
 import type { Ref } from "../../../common/main/base-props.js";
-import { useElementSizeDetector, useWindowSize } from "../../size-detector/main/size-detector.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
+import { useElementSizeDetector, useWindowSize } from "../../size-detector/main/size-detector.view.js";
 
 import type { MasterDetailProps } from "./master-detail.api.js";
+import { TransitionProvider } from "./master-detail.context.js";
 import { Body, Header } from "./master-detail.internal.js";
 import { StyledMasterDetailLayoutView } from "./master-detail.styled.js";
-import { TransitionProvider } from "./master-detail.context.js";
 
 const baseClassName = addPrefix("masterDetailLayout");
 

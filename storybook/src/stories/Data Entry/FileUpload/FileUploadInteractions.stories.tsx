@@ -48,51 +48,11 @@ const meta: Meta<typeof DefaultFileUpload> = {
 	component: DefaultFileUpload,
 	parameters: {
 		layout: "centered"
-	},
-	tags: ["autodocs"]
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
-	render: () => (
-		<A11YLanguageContext.Provider
-			value={{
-				...getA11yResource("en"),
-				fileUploadTitles: {
-					uploadButton: "Upload your documents",
-					loading: "Loading",
-					cancelUpload: "Cancel upload",
-					menuActionsOpen: "Open menu",
-					menuActionsClose: "Close menu",
-					menuActionConnector: "for"
-				}
-			}}
-		>
-			<InteractionHintConfigProvider
-				enableInteractionHint={true}
-				componentConfigs={{
-					fileUpload: {
-						enabled: true,
-						followCursor: true,
-						hideArrow: true
-					}
-				}}
-			>
-				<div style={{ padding: "50px", width: "400px" }}>
-					<DefaultFileUpload
-						id="file-upload-interactions-default"
-						label="File upload with follow cursor hint"
-						placeholderIcon="none"
-						title="Upload your documents"
-						multiple
-					/>
-				</div>
-			</InteractionHintConfigProvider>
-		</A11YLanguageContext.Provider>
-	)
-};
 
 export const WithInteractionHintFollowCursor: Story = {
 	render: () => (
@@ -119,7 +79,7 @@ export const WithInteractionHintFollowCursor: Story = {
 					}
 				}}
 			>
-				<div style={{ padding: "50px", width: "400px" }}>
+				<div style={{ padding: "50px", width: "min(400px, calc(100vw - 132px))" }}>
 					<DefaultFileUpload
 						id="file-upload-follow-cursor"
 						label="File upload with follow cursor hint"
@@ -168,7 +128,7 @@ const CompactFileUploadStory = () => {
 					}
 				}}
 			>
-				<div style={{ padding: "50px", width: "400px" }}>
+				<div style={{ padding: "50px", width: "min(400px, calc(100vw - 132px))" }}>
 					<DefaultFileUpload
 						id="file-upload-compact-hint"
 						label="Compact file upload with hint"
@@ -199,10 +159,6 @@ export const CompactWithHint: Story = {
 	render: () => <CompactFileUploadStory />
 };
 
-export const WithActionItemsAndHint: Story = {
-	render: () => <CompactFileUploadStory />
-};
-
 const FileUploadWithHintStory = () => {
 	return (
 		<A11YLanguageContext.Provider
@@ -227,7 +183,7 @@ const FileUploadWithHintStory = () => {
 					}
 				}}
 			>
-				<div style={{ padding: "50px", width: "400px" }}>
+				<div style={{ padding: "50px", width: "min(400px, calc(100vw - 132px))" }}>
 					<DefaultFileUpload
 						id="file-upload-with-hint"
 						label="File upload with interaction hint"
@@ -272,7 +228,7 @@ const HintVariationsStory = () => {
 							}
 						}}
 					>
-						<div style={{ width: "400px" }}>
+						<div style={{ width: "min(400px, calc(100vw - 132px))" }}>
 							<DefaultFileUpload
 								id="file-upload-basic"
 								label="Basic hint"
@@ -295,7 +251,7 @@ const HintVariationsStory = () => {
 							}
 						}}
 					>
-						<div style={{ width: "400px" }}>
+						<div style={{ width: "min(400px, calc(100vw - 132px))" }}>
 							<DefaultFileUpload
 								id="file-upload-follow"
 								label="Follow cursor hint"
@@ -318,7 +274,7 @@ const HintVariationsStory = () => {
 							}
 						}}
 					>
-						<div style={{ width: "400px" }}>
+						<div style={{ width: "min(400px, calc(100vw - 132px))" }}>
 							<DefaultFileUpload
 								id="file-upload-no-arrow"
 								label="No arrow hint"

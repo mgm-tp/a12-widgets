@@ -34,9 +34,8 @@ import { render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
 import { Range } from "../../common/main/utils.js";
-
-import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
 import { BodyContent } from "../main/table.body-content.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
 
 describe("com.mgmtp.a12.widgets.table.body-content", () => {
 	test("default", () => {

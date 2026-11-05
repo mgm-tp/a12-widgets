@@ -8,6 +8,25 @@ exports[`com.mgmtp.a12.widgets.table > at large viewport head grid column widths
   width: 100vw;
 }
 
+.c2 {
+  display: grid;
+  grid-template-columns: 121px 150px 150px 150px 300px 150px 150px 150px 105px 150px;
+  grid-template-rows: repeat(3, 26px);
+  width: 100%;
+  background: rgb(241, 242, 244);
+  border-bottom: 1px solid rgb(211, 214, 220);
+  overflow: auto hidden;
+  scrollbar-width: none;
+}
+
+.c2::-webkit-scrollbar {
+  display: none;
+}
+
+.c3 {
+  display: contents;
+}
+
 .c57 {
   display: flex;
   position: relative;
@@ -395,7 +414,7 @@ exports[`com.mgmtp.a12.widgets.table > at large viewport head grid column widths
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -691,20 +710,6 @@ exports[`com.mgmtp.a12.widgets.table > at large viewport head grid column widths
   flex-grow: 1;
 }
 
-.c78 .c54:not(:empty) {
-  flex-grow: 0;
-}
-
-.c78 .c71 {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-}
-
-.c78 .c73:last-child {
-  flex-grow: 1;
-}
-
 .c1 {
   display: flex;
   flex-direction: column;
@@ -716,25 +721,6 @@ exports[`com.mgmtp.a12.widgets.table > at large viewport head grid column widths
 .c1[data-table-container-resizing="true"] .c9 {
   cursor: col-resize;
   user-select: none;
-}
-
-.c2 {
-  display: grid;
-  grid-template-columns: 121px 150px 150px 150px 300px 150px 150px 150px 105px 150px;
-  grid-template-rows: repeat(3, 26px);
-  width: 100%;
-  background: rgb(241, 242, 244);
-  border-bottom: 1px solid rgb(211, 214, 220);
-  overflow: auto hidden;
-  scrollbar-width: none;
-}
-
-.c2::-webkit-scrollbar {
-  display: none;
-}
-
-.c3 {
-  display: contents;
 }
 
 .c65 {
@@ -3433,67 +3419,23 @@ exports[`com.mgmtp.a12.widgets.table > at large viewport head grid column widths
 `;
 
 exports[`com.mgmtp.a12.widgets.table > column group head grid > head grid snapshot for grouped columns with enableColumnGroupA11y 1`] = `
-.c14 {
-  box-sizing: border-box;
-  display: flex;
-  flex: 10 1 auto;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  min-width: 150px;
-  padding: 8px;
-  text-align: left;
-  width: 150px;
-  overflow-wrap: break-word;
-  word-break: break-word;
+.c0 {
+  display: grid;
+  grid-template-columns: 76px 150px 150px 225px 225px 150px;
+  grid-template-rows: repeat(2, 26px);
+  width: 100%;
+  background: rgb(241, 242, 244);
+  border-bottom: 1px solid rgb(211, 214, 220);
+  overflow: auto hidden;
+  scrollbar-width: none;
 }
 
-.c14 p:first-child {
-  margin-top: 0px;
+.c0::-webkit-scrollbar {
+  display: none;
 }
 
-.c14 p:last-child {
-  margin-bottom: 0px;
-}
-
-.c2:first-child .c14.c14:first-child:not([data-role="table-header-cell"]) {
-  min-width: calc(166px);
-  width: calc(166px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] .c2:first-child .c14.c14:first-child:not([data-role="table-header-cell"]).c2:first-child .c14.c14:first-child:not([data-role="table-header-cell"]) {
-  padding-left: calc(24px);
-}
-
-[data-role="table-header-cell-group-children"] > .c2:first-child .c14.c14:first-child {
-  min-width: calc(166px);
-  width: calc(166px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] [data-role="table-header-cell-group-children"] > .c2:first-child .c14.c14:first-child[data-role="table-header-cell-group-children"] > .c2:first-child .c14.c14:first-child {
-  padding-left: calc(24px);
-}
-
-.c2:first-child .c30.c30:first-child:not([data-role="table-header-cell"]) {
-  min-width: calc(316px);
-  width: calc(316px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] .c2:first-child .c30.c30:first-child:not([data-role="table-header-cell"]).c2:first-child .c30.c30:first-child:not([data-role="table-header-cell"]) {
-  padding-left: calc(24px);
-}
-
-[data-role="table-header-cell-group-children"] > .c2:first-child .c30.c30:first-child {
-  min-width: calc(316px);
-  width: calc(316px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] [data-role="table-header-cell-group-children"] > .c2:first-child .c30.c30:first-child[data-role="table-header-cell-group-children"] > .c2:first-child .c30.c30:first-child {
-  padding-left: calc(24px);
+.c1 {
+  display: contents;
 }
 
 .c8 {
@@ -3536,6 +3478,49 @@ exports[`com.mgmtp.a12.widgets.table > column group head grid > head grid snapsh
 }
 
 [data-role="tree"] [data-role="table-header-cell-group-children"] > .c2:first-child .c8.c8:first-child[data-role="table-header-cell-group-children"] > .c2:first-child .c8.c8:first-child {
+  padding-left: calc(24px);
+}
+
+.c14 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 10 1 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c14 p:first-child {
+  margin-top: 0px;
+}
+
+.c14 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c2:first-child .c14.c14:first-child:not([data-role="table-header-cell"]) {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c2:first-child .c14.c14:first-child:not([data-role="table-header-cell"]).c2:first-child .c14.c14:first-child:not([data-role="table-header-cell"]) {
+  padding-left: calc(24px);
+}
+
+[data-role="table-header-cell-group-children"] > .c2:first-child .c14.c14:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] [data-role="table-header-cell-group-children"] > .c2:first-child .c14.c14:first-child[data-role="table-header-cell-group-children"] > .c2:first-child .c14.c14:first-child {
   padding-left: calc(24px);
 }
 
@@ -3648,10 +3633,6 @@ exports[`com.mgmtp.a12.widgets.table > column group head grid > head grid snapsh
   min-width: 100%;
 }
 
-.c11 .c31.c31 {
-  overflow: hidden;
-}
-
 .c23 {
   cursor: pointer;
   position: relative;
@@ -3703,121 +3684,6 @@ exports[`com.mgmtp.a12.widgets.table > column group head grid > head grid snapsh
 .c29[data-table-container-resizing="true"] .c7 {
   cursor: col-resize;
   user-select: none;
-}
-
-.c0 {
-  display: grid;
-  grid-template-columns: 76px 150px 150px 225px 225px 150px;
-  grid-template-rows: repeat(2, 26px);
-  width: 100%;
-  background: rgb(241, 242, 244);
-  border-bottom: 1px solid rgb(211, 214, 220);
-  overflow: auto hidden;
-  scrollbar-width: none;
-}
-
-.c0::-webkit-scrollbar {
-  display: none;
-}
-
-.c1 {
-  display: contents;
-}
-
-.c18 {
-  width: 1px;
-  height: 1px;
-  padding: 0px;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(0px);
-  white-space: nowrap;
-  border: 0px;
-  grid-area: 1 / 5 / span 1 / span 1;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 0px;
-}
-
-.c18 > * {
-  flex: 1 1 0%;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.c21 {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0px;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(0px);
-  white-space: nowrap;
-  border: 0px;
-}
-
-.c22 {
-  grid-area: 1 / 1 / span 1 / span 1;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 0px;
-}
-
-.c22 > * {
-  flex: 1 1 0%;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.c22 ::before {
-  border-top: 1px solid rgb(255, 255, 255);
-  content: "";
-  display: block;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-
-.c24 {
-  grid-area: 1 / 2 / span 1 / span 1;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 0px;
-}
-
-.c24 > * {
-  flex: 1 1 0%;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.c24 ::before {
-  border-top: 1px solid rgb(255, 255, 255);
-  content: "";
-  display: block;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-
-.c24 ::after {
-  content: "";
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  display: block;
-  left: unset;
-  border-right: 2px solid rgb(255, 255, 255);
 }
 
 .c6 {
@@ -3921,6 +3787,29 @@ exports[`com.mgmtp.a12.widgets.table > column group head grid > head grid snapsh
   border-right: 2px solid rgb(255, 255, 255);
 }
 
+.c18 {
+  width: 1px;
+  height: 1px;
+  padding: 0px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(0px);
+  white-space: nowrap;
+  border: 0px;
+  grid-area: 1 / 5 / span 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 0px;
+}
+
+.c18 > * {
+  flex: 1 1 0%;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
 .c19 {
   grid-area: 1 / 6 / span 2 / span 1;
   display: flex;
@@ -3937,6 +3826,79 @@ exports[`com.mgmtp.a12.widgets.table > column group head grid > head grid snapsh
 }
 
 .c19 ::after {
+  content: "";
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  display: block;
+  left: unset;
+  border-right: 2px solid rgb(255, 255, 255);
+}
+
+.c21 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(0px);
+  white-space: nowrap;
+  border: 0px;
+}
+
+.c22 {
+  grid-area: 1 / 1 / span 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 0px;
+}
+
+.c22 > * {
+  flex: 1 1 0%;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.c22 ::before {
+  border-top: 1px solid rgb(255, 255, 255);
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.c24 {
+  grid-area: 1 / 2 / span 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 0px;
+}
+
+.c24 > * {
+  flex: 1 1 0%;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.c24 ::before {
+  border-top: 1px solid rgb(255, 255, 255);
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.c24 ::after {
   content: "";
   top: 0px;
   right: 0px;
@@ -4327,6 +4289,68 @@ exports[`com.mgmtp.a12.widgets.table > column group head grid > head grid snapsh
 `;
 
 exports[`com.mgmtp.a12.widgets.table > complex nested columns head grid > head grid snapshot for complex nested columns with enableColumnGroupA11y 1`] = `
+.c0 {
+  display: grid;
+  grid-template-columns: 166px 150px 150px 150px 150px 150px 300px 150px 150px 150px 105px 150px 150px;
+  grid-template-rows: repeat(3, 26px);
+  width: 100%;
+  background: rgb(241, 242, 244);
+  border-bottom: 1px solid rgb(211, 214, 220);
+  overflow: auto hidden;
+  scrollbar-width: none;
+}
+
+.c0::-webkit-scrollbar {
+  display: none;
+}
+
+.c1 {
+  display: contents;
+}
+
+.c8 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 150px;
+  padding: 8px;
+  text-align: left;
+  width: 150px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c8 p:first-child {
+  margin-top: 0px;
+}
+
+.c8 p:last-child {
+  margin-bottom: 0px;
+}
+
+.c8:first-child:not([data-role="table-header-cell"]) {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] .c8:first-child:not([data-role="table-header-cell"]).c8:first-child:not([data-role="table-header-cell"]) {
+  padding-left: calc(24px);
+}
+
+[data-role="table-header-cell-group-children"] > .c8:first-child {
+  min-width: calc(166px);
+  width: calc(166px);
+  padding-left: calc(24px);
+}
+
+[data-role="tree"] [data-role="table-header-cell-group-children"] > .c8:first-child[data-role="table-header-cell-group-children"] > .c8:first-child {
+  padding-left: calc(24px);
+}
+
 .c18 {
   box-sizing: border-box;
   display: flex;
@@ -4393,6 +4417,29 @@ exports[`com.mgmtp.a12.widgets.table > complex nested columns head grid > head g
   margin-bottom: 0px;
 }
 
+.c44 {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  min-width: 105px;
+  padding: 8px;
+  text-align: left;
+  width: 105px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c44 p:first-child {
+  margin-top: 0px;
+}
+
+.c44 p:last-child {
+  margin-bottom: 0px;
+}
+
 .c50 {
   box-sizing: border-box;
   display: flex;
@@ -4433,112 +4480,6 @@ exports[`com.mgmtp.a12.widgets.table > complex nested columns head grid > head g
 }
 
 [data-role="tree"] [data-role="table-header-cell-group-children"] > .c2:first-child .c50.c50:first-child[data-role="table-header-cell-group-children"] > .c2:first-child .c50.c50:first-child {
-  padding-left: calc(24px);
-}
-
-.c44 {
-  box-sizing: border-box;
-  display: flex;
-  flex: 0 0 auto;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  min-width: 105px;
-  padding: 8px;
-  text-align: left;
-  width: 105px;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
-.c44 p:first-child {
-  margin-top: 0px;
-}
-
-.c44 p:last-child {
-  margin-bottom: 0px;
-}
-
-.c2:first-child .c56.c56:first-child:not([data-role="table-header-cell"]) {
-  min-width: calc(76px);
-  width: calc(76px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] .c2:first-child .c56.c56:first-child:not([data-role="table-header-cell"]).c2:first-child .c56.c56:first-child:not([data-role="table-header-cell"]) {
-  padding-left: calc(24px);
-}
-
-[data-role="table-header-cell-group-children"] > .c2:first-child .c56.c56:first-child {
-  min-width: calc(76px);
-  width: calc(76px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] [data-role="table-header-cell-group-children"] > .c2:first-child .c56.c56:first-child[data-role="table-header-cell-group-children"] > .c2:first-child .c56.c56:first-child {
-  padding-left: calc(24px);
-}
-
-.c2:first-child .c57.c57:first-child:not([data-role="table-header-cell"]) {
-  min-width: calc(241px);
-  width: calc(241px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] .c2:first-child .c57.c57:first-child:not([data-role="table-header-cell"]).c2:first-child .c57.c57:first-child:not([data-role="table-header-cell"]) {
-  padding-left: calc(24px);
-}
-
-[data-role="table-header-cell-group-children"] > .c2:first-child .c57.c57:first-child {
-  min-width: calc(241px);
-  width: calc(241px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] [data-role="table-header-cell-group-children"] > .c2:first-child .c57.c57:first-child[data-role="table-header-cell-group-children"] > .c2:first-child .c57.c57:first-child {
-  padding-left: calc(24px);
-}
-
-.c8 {
-  box-sizing: border-box;
-  display: flex;
-  flex: 0 0 auto;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  min-width: 150px;
-  padding: 8px;
-  text-align: left;
-  width: 150px;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
-.c8 p:first-child {
-  margin-top: 0px;
-}
-
-.c8 p:last-child {
-  margin-bottom: 0px;
-}
-
-.c8:first-child:not([data-role="table-header-cell"]) {
-  min-width: calc(166px);
-  width: calc(166px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] .c8:first-child:not([data-role="table-header-cell"]).c8:first-child:not([data-role="table-header-cell"]) {
-  padding-left: calc(24px);
-}
-
-[data-role="table-header-cell-group-children"] > .c8:first-child {
-  min-width: calc(166px);
-  width: calc(166px);
-  padding-left: calc(24px);
-}
-
-[data-role="tree"] [data-role="table-header-cell-group-children"] > .c8:first-child[data-role="table-header-cell-group-children"] > .c8:first-child {
   padding-left: calc(24px);
 }
 
@@ -4655,15 +4596,6 @@ exports[`com.mgmtp.a12.widgets.table > complex nested columns head grid > head g
   isolation: isolate;
 }
 
-.c21 {
-  align-items: center;
-  display: flex;
-  flex-grow: 1;
-  flex-wrap: wrap;
-  min-height: 22px;
-  line-height: 120%;
-}
-
 .c12 {
   align-items: center;
   display: flex;
@@ -4673,6 +4605,15 @@ exports[`com.mgmtp.a12.widgets.table > complex nested columns head grid > head g
   line-height: 120%;
   justify-content: center;
   text-align: center;
+}
+
+.c21 {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  min-height: 22px;
+  line-height: 120%;
 }
 
 .c9 {
@@ -4770,23 +4711,76 @@ exports[`com.mgmtp.a12.widgets.table > complex nested columns head grid > head g
   user-select: none;
 }
 
-.c0 {
-  display: grid;
-  grid-template-columns: 166px 150px 150px 150px 150px 150px 300px 150px 150px 150px 105px 150px 150px;
-  grid-template-rows: repeat(3, 26px);
+.c6 {
+  grid-area: 1 / 1 / span 1 / span 3;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 0px;
+}
+
+.c6 > * {
+  flex: 1 1 0%;
+  display: flex;
   width: 100%;
-  background: rgb(241, 242, 244);
-  border-bottom: 1px solid rgb(211, 214, 220);
-  overflow: auto hidden;
-  scrollbar-width: none;
+  height: 100%;
 }
 
-.c0::-webkit-scrollbar {
-  display: none;
+.c6 ::after {
+  content: "";
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  display: block;
+  left: unset;
+  border-right: 2px solid rgb(255, 255, 255);
 }
 
-.c1 {
-  display: contents;
+.c13 {
+  width: 1px;
+  height: 1px;
+  padding: 0px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(0px);
+  white-space: nowrap;
+  border: 0px;
+  grid-area: 1 / 2 / span 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 0px;
+}
+
+.c13 > * {
+  flex: 1 1 0%;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.c14 {
+  width: 1px;
+  height: 1px;
+  padding: 0px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(0px);
+  white-space: nowrap;
+  border: 0px;
+  grid-area: 1 / 3 / span 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 0px;
+}
+
+.c14 > * {
+  flex: 1 1 0%;
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .c17 {
@@ -4957,6 +4951,100 @@ exports[`com.mgmtp.a12.widgets.table > complex nested columns head grid > head g
   display: flex;
   width: 100%;
   height: 100%;
+}
+
+.c31 {
+  grid-area: 1 / 1 / span 2 / span 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 0px;
+}
+
+.c31 > * {
+  flex: 1 1 0%;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.c31 ::before {
+  border-top: 1px solid rgb(255, 255, 255);
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.c33 {
+  grid-area: 1 / 2 / span 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 0px;
+}
+
+.c33 > * {
+  flex: 1 1 0%;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.c33 ::before {
+  border-top: 1px solid rgb(255, 255, 255);
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.c33 ::after {
+  content: "";
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+  display: block;
+  left: unset;
+  border-right: 2px solid rgb(255, 255, 255);
+}
+
+.c34 {
+  width: 1px;
+  height: 1px;
+  padding: 0px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(0px);
+  white-space: nowrap;
+  border: 0px;
+  grid-area: 1 / 3 / span 1 / span 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 0px;
+}
+
+.c34 > * {
+  flex: 1 1 0%;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.c34 ::before {
+  border-top: 1px solid rgb(255, 255, 255);
+  content: "";
+  display: block;
+  left: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
 
 .c36 {
@@ -5225,39 +5313,6 @@ exports[`com.mgmtp.a12.widgets.table > complex nested columns head grid > head g
   border-right: 2px solid rgb(255, 255, 255);
 }
 
-.c34 {
-  width: 1px;
-  height: 1px;
-  padding: 0px;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(0px);
-  white-space: nowrap;
-  border: 0px;
-  grid-area: 1 / 3 / span 1 / span 1;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 0px;
-}
-
-.c34 > * {
-  flex: 1 1 0%;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.c34 ::before {
-  border-top: 1px solid rgb(255, 255, 255);
-  content: "";
-  display: block;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-
 .c49 {
   grid-area: 1 / 4 / span 1 / span 1;
   display: flex;
@@ -5359,139 +5414,6 @@ exports[`com.mgmtp.a12.widgets.table > complex nested columns head grid > head g
 }
 
 .c53 ::after {
-  content: "";
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  display: block;
-  left: unset;
-  border-right: 2px solid rgb(255, 255, 255);
-}
-
-.c14 {
-  width: 1px;
-  height: 1px;
-  padding: 0px;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(0px);
-  white-space: nowrap;
-  border: 0px;
-  grid-area: 1 / 3 / span 1 / span 1;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 0px;
-}
-
-.c14 > * {
-  flex: 1 1 0%;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.c6 {
-  grid-area: 1 / 1 / span 1 / span 3;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 0px;
-}
-
-.c6 > * {
-  flex: 1 1 0%;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.c6 ::after {
-  content: "";
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  position: absolute;
-  display: block;
-  left: unset;
-  border-right: 2px solid rgb(255, 255, 255);
-}
-
-.c13 {
-  width: 1px;
-  height: 1px;
-  padding: 0px;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(0px);
-  white-space: nowrap;
-  border: 0px;
-  grid-area: 1 / 2 / span 1 / span 1;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 0px;
-}
-
-.c13 > * {
-  flex: 1 1 0%;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.c31 {
-  grid-area: 1 / 1 / span 2 / span 1;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 0px;
-}
-
-.c31 > * {
-  flex: 1 1 0%;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.c31 ::before {
-  border-top: 1px solid rgb(255, 255, 255);
-  content: "";
-  display: block;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-
-.c33 {
-  grid-area: 1 / 2 / span 1 / span 2;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 0px;
-}
-
-.c33 > * {
-  flex: 1 1 0%;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.c33 ::before {
-  border-top: 1px solid rgb(255, 255, 255);
-  content: "";
-  display: block;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-
-.c33 ::after {
   content: "";
   top: 0px;
   right: 0px;
@@ -6321,6 +6243,25 @@ exports[`com.mgmtp.a12.widgets.table > complex nested columns head grid > head g
 `;
 
 exports[`com.mgmtp.a12.widgets.table > enhanced accessibility mode with complex nested columns 1`] = `
+.c2 {
+  display: grid;
+  grid-template-columns: 121px 150px 150px 150px 300px 150px 150px 150px 105px 150px;
+  grid-template-rows: repeat(3, 26px);
+  width: 100%;
+  background: rgb(241, 242, 244);
+  border-bottom: 1px solid rgb(211, 214, 220);
+  overflow: auto hidden;
+  scrollbar-width: none;
+}
+
+.c2::-webkit-scrollbar {
+  display: none;
+}
+
+.c3 {
+  display: contents;
+}
+
 .c57 {
   display: flex;
   position: relative;
@@ -6708,7 +6649,7 @@ exports[`com.mgmtp.a12.widgets.table > enhanced accessibility mode with complex 
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -7015,25 +6956,6 @@ exports[`com.mgmtp.a12.widgets.table > enhanced accessibility mode with complex 
 .c1[data-table-container-resizing="true"] .c9 {
   cursor: col-resize;
   user-select: none;
-}
-
-.c2 {
-  display: grid;
-  grid-template-columns: 121px 150px 150px 150px 300px 150px 150px 150px 105px 150px;
-  grid-template-rows: repeat(3, 26px);
-  width: 100%;
-  background: rgb(241, 242, 244);
-  border-bottom: 1px solid rgb(211, 214, 220);
-  overflow: auto hidden;
-  scrollbar-width: none;
-}
-
-.c2::-webkit-scrollbar {
-  display: none;
-}
-
-.c3 {
-  display: contents;
 }
 
 .c65 {

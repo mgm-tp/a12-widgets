@@ -220,13 +220,6 @@ exports[`com.mgmtp.a12.widgets.layout-grid > render layout grid with no gutter 1
 `;
 
 exports[`com.mgmtp.a12.widgets.layout-grid > render nested layout grid 1`] = `
-.c4 {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
-  gap: 16px 32px;
-}
-
 .c1 {
   display: flex;
   flex-wrap: wrap;
@@ -237,10 +230,11 @@ exports[`com.mgmtp.a12.widgets.layout-grid > render nested layout grid 1`] = `
   min-height: 30px;
 }
 
-.c5 {
-  display: block;
-  flex-basis: 8.33333%;
-  max-width: calc(8.33333% - 29.3333px);
+.c4 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  gap: 16px 32px;
 }
 
 .c2 {
@@ -261,8 +255,10 @@ exports[`com.mgmtp.a12.widgets.layout-grid > render nested layout grid 1`] = `
   margin-bottom: 16px;
 }
 
-.c3 {
-  width: 100%;
+.c5 {
+  display: block;
+  flex-basis: 8.33333%;
+  max-width: calc(8.33333% - 29.3333px);
 }
 
 .c0 {
@@ -272,6 +268,10 @@ exports[`com.mgmtp.a12.widgets.layout-grid > render nested layout grid 1`] = `
   height: 100%;
   gap: 16px 32px;
   overflow: auto;
+}
+
+.c3 {
+  width: 100%;
 }
 
 <div

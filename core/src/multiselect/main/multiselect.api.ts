@@ -33,8 +33,8 @@
 import type { ReactNode, RefCallback, RefObject, ChangeEvent, MouseEvent } from "react";
 
 import type { Identifiable, Styleable } from "../../common/main/base-props.js";
-import type { InputDOMProps } from "../../input/base/template/base.tpl.api.js";
 import type { DropDownItem } from "../../dropdown/main/template/dropdown.tpl.api.js";
+import type { InputDOMProps, MessagePosition, TooltipLineBreak } from "../../input/base/template/base.tpl.api.js";
 
 export interface MultiselectProps extends Styleable, Identifiable, InputDOMProps {
 	/**
@@ -137,10 +137,24 @@ export interface MultiselectProps extends Styleable, Identifiable, InputDOMProps
 	tooltips?: ReactNode;
 
 	/**
-	 * Break tooltips in new line or not.
+	 * Controls where tooltips are rendered relative to the input control.
+	 * - `false` (default): inline, beside the control
+	 * - `true` / `"above"`: on a new line above the control
+	 * - `"below"`: on a new line below the control
+	 *
+	 * The name is misleading: this sets a position, not a yes/no line break. It is kept to avoid a
+	 * breaking change and will be renamed to `tooltipPosition` in the next breaking release.
 	 * @default false
 	 */
-	breakTooltipsToNewLine?: boolean;
+	breakTooltipsToNewLine?: TooltipLineBreak;
+
+	/**
+	 * Controls where the error, warning and info message boxes are rendered relative to the input control.
+	 * - `"above"` (default): between the label and the control
+	 * - `"below"`: directly under the control
+	 * @default "above"
+	 */
+	messagePosition?: MessagePosition;
 
 	/**
 	 * The error message(s) that will be shown in the text-field error message.
@@ -156,6 +170,21 @@ export interface MultiselectProps extends Styleable, Identifiable, InputDOMProps
 	 * The info message(s) that will be shown in the text-field warning message.
 	 */
 	infoMessage?: ReactNode;
+
+	/**
+	 * Warning state for the input widget. Styles the control without rendering a message box.
+	 */
+	warning?: boolean;
+
+	/**
+	 * Error state for the input widget. Styles the control without rendering a message box.
+	 */
+	error?: boolean;
+
+	/**
+	 * Info state for the input widget. Styles the control without rendering a message box.
+	 */
+	info?: boolean;
 
 	/**
 	 * aria-describedby attribute for input

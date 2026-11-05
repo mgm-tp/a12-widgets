@@ -30,90 +30,46 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useCallback, useRef, useState } from "react";
-import type { ReactElement } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ReactElement } from "react";
+import { useRef, useState } from "react";
 
-import type {
-	DataTableColumn,
-	DataTableColumnResizeEventHandler,
-	DataTableRowLoadingStatus,
-	DataTableVirtualizerHandle
-} from "@com.mgmtp.a12.widgets/widgets-core/experimental";
+import { Button, ButtonGroup, TextField } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { DataTableColumn, DataTableVirtualizerHandle } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
-interface Row {
-	id: number;
-	name: string;
-	department: string;
-	role: string;
-	salary: number;
-	status: string;
-}
+import type { Employee } from "./data-table.data.js";
+import { EMPLOYEE_COLUMNS, makeEmployees } from "./data-table.data.js";
+import { useInfiniteScrollData, useResizableColumns } from "./data-table.helpers.js";
 
-const TOTAL_ROWS = 5000;
-const BATCH_SIZE = 50;
-const ROW_HEIGHT = 40;
 const TABLE_HEIGHT = 500;
+const ALL_ROWS = makeEmployees(5000);
 
-const ALL_ROWS: Row[] = Array.from({ length: TOTAL_ROWS }, (_, i) => ({
-	id: i + 1,
-	name: `Employee ${i + 1}`,
-	department: ["Engineering", "Sales", "Marketing", "Finance", "HR"][i % 5],
-	role: ["Engineer", "Manager", "Designer", "Analyst", "Recruiter"][i % 5],
-	salary: 50000 + (Math.floor(i * 37.3) % 100000),
-	status: i % 7 === 0 ? "On Leave" : "Active"
-}));
+// ─── Virtualized ─────────────────────────────────────────────────────────────
 
-const INITIAL_COLUMNS: DataTableColumn<Row>[] = [
-	{ label: "ID", dataKey: "id", width: 0.4, fixedWidth: true, verticalAlignment: "middle", pinning: "left" },
-	{ label: "Name", dataKey: "name", width: 1.5, verticalAlignment: "middle", pinning: "left" },
-	{ label: "Department", dataKey: "department", width: 1.2, verticalAlignment: "middle" },
-	{ label: "Role", dataKey: "role", width: 1.2, verticalAlignment: "middle" },
-	{
-		label: "Salary",
-		dataGetter: ({ row }) => `$${row.salary.toLocaleString()}`,
-		width: 1,
-		verticalAlignment: "middle",
-		horizontalAlignment: "right"
-	},
-	{ label: "Status", dataKey: "status", width: 0.8, verticalAlignment: "middle" }
-];
-
-function useResizableColumns(): {
-	columns: DataTableColumn<Row>[];
-	onEndResize: DataTableColumnResizeEventHandler<DataTableColumn<Row>>;
-} {
-	const [columns, setColumns] = useState<DataTableColumn<Row>[]>(INITIAL_COLUMNS);
-
-	const onEndResize: DataTableColumnResizeEventHandler<DataTableColumn<Row>> = useCallback(
-		({ resizedWidthsGetter }) => {
-			setColumns((prev) =>
-				prev.map((column) => {
-					const newWidth = resizedWidthsGetter?.(column);
-
-					return newWidth === undefined ? column : { ...column, width: newWidth };
-				})
-			);
-		},
-		[]
-	);
-
-	return { columns, onEndResize };
-}
-
-// ─── Virtualized + resize ───────────────────────────────────────────────────
-
-interface VirtualizedDemoProps {
-	overscan: number;
+interface VirtualizedArgs {
 	rowHeight: number;
+	overscan: number;
 }
 
-function VirtualizedResizeDemo({ overscan, rowHeight }: VirtualizedDemoProps): ReactElement {
-	const { columns, onEndResize } = useResizableColumns();
+function VirtualizedDemo({ rowHeight, overscan }: VirtualizedArgs): ReactElement {
+	return (
+		<DataTable<Employee>
+			ariaLabel="Virtualized employees"
+			data={ALL_ROWS}
+			columns={EMPLOYEE_COLUMNS}
+			rowKey="id"
+			maxHeight={TABLE_HEIGHT}
+			virtualScrollOptions={{ rowHeight, overscan }}
+		/>
+	);
+}
+
+function VirtualizedResizeDemo({ rowHeight, overscan }: VirtualizedArgs): ReactElement {
+	const { columns, onEndResize } = useResizableColumns(EMPLOYEE_COLUMNS);
 
 	return (
-		<DataTable<Row>
+		<DataTable<Employee>
 			ariaLabel="Virtualized resizable employees"
 			data={ALL_ROWS}
 			columns={columns}
@@ -125,68 +81,53 @@ function VirtualizedResizeDemo({ overscan, rowHeight }: VirtualizedDemoProps): R
 	);
 }
 
-// ─── Dynamic row heights + imperative scroll handle ─────────────────────────
+// ─── Dynamic row heights + imperative scroll handle ──────────────────────────
 
-interface DynamicRow {
-	id: number;
-	name: string;
+interface NotedEmployee extends Employee {
 	notes: string;
 }
 
 const NOTE_SENTENCE =
 	"This row's notes wrap to a different number of lines than its neighbors, so each row has its own height. ";
 
-const DYNAMIC_ROWS: DynamicRow[] = Array.from({ length: 2000 }, (_, i) => ({
-	id: i + 1,
-	name: `Employee ${i + 1}`,
-	notes: NOTE_SENTENCE.repeat((i % 5) + 1)
+const NOTED_ROWS: NotedEmployee[] = makeEmployees(2000).map((row) => ({
+	...row,
+	notes: NOTE_SENTENCE.repeat((row.id % 5) + 1)
 }));
 
-const DYNAMIC_COLUMNS: DataTableColumn<DynamicRow>[] = [
-	{ label: "ID", dataKey: "id", width: 0.4, fixedWidth: true, verticalAlignment: "middle" },
-	{ label: "Name", dataKey: "name", width: 1, verticalAlignment: "middle" },
+const NOTED_COLUMNS: DataTableColumn<NotedEmployee>[] = [
+	{ label: "ID", dataKey: "id", width: 0.7, fixedWidth: true, verticalAlignment: "middle" },
+	{ label: "First Name", dataKey: "firstName", width: 1, verticalAlignment: "middle" },
 	{ label: "Notes", dataKey: "notes", width: 3 }
 ];
 
-interface DynamicHeightDemoProps {
+interface DynamicHeightArgs {
 	estimatedRowHeight: number;
 	overscan: number;
 }
 
-function DynamicRowHeightsDemo({ estimatedRowHeight, overscan }: DynamicHeightDemoProps): ReactElement {
+function DynamicRowHeightsDemo({ estimatedRowHeight, overscan }: DynamicHeightArgs): ReactElement {
 	const virtualizerHandle = useRef<DataTableVirtualizerHandle | null>(null);
-	const [targetIndex, setTargetIndex] = useState(1500);
+	const [targetIndex, setTargetIndex] = useState("1500");
 
 	return (
-		<div>
-			<div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8 }}>
-				<label>
-					Row index{" "}
-					<input
-						type="number"
-						min={0}
-						max={DYNAMIC_ROWS.length - 1}
-						value={targetIndex}
-						onChange={(event) => setTargetIndex(Number(event.target.value))}
-					/>
-				</label>
-				<button
-					type="button"
-					onClick={() => virtualizerHandle.current?.scrollToIndex(targetIndex, { align: "center" })}
-				>
-					scrollToIndex
-				</button>
-				<button type="button" onClick={() => virtualizerHandle.current?.scrollToOffset(0)}>
-					scrollToOffset(0)
-				</button>
-				<button type="button" onClick={() => virtualizerHandle.current?.measure()}>
-					measure()
-				</button>
+		<div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+			<div style={{ display: "flex", gap: 8, alignItems: "flex-end" }}>
+				<div style={{ width: 160 }}>
+					<TextField label="Row index" value={targetIndex} onChange={(event) => setTargetIndex(event.target.value)} />
+				</div>
+				<ButtonGroup>
+					<Button onClick={() => virtualizerHandle.current?.scrollToIndex(Number(targetIndex), { align: "center" })}>
+						scrollToIndex
+					</Button>
+					<Button onClick={() => virtualizerHandle.current?.scrollToOffset(0)}>scrollToOffset(0)</Button>
+					<Button onClick={() => virtualizerHandle.current?.measure()}>measure()</Button>
+				</ButtonGroup>
 			</div>
-			<DataTable<DynamicRow>
+			<DataTable<NotedEmployee>
 				ariaLabel="Dynamic row height employees"
-				data={DYNAMIC_ROWS}
-				columns={DYNAMIC_COLUMNS}
+				data={NOTED_ROWS}
+				columns={NOTED_COLUMNS}
 				rowKey="id"
 				maxHeight={TABLE_HEIGHT}
 				virtualScrollOptions={{ estimatedRowHeight, overscan, virtualizerRef: virtualizerHandle }}
@@ -195,65 +136,35 @@ function DynamicRowHeightsDemo({ estimatedRowHeight, overscan }: DynamicHeightDe
 	);
 }
 
-// ─── Infinite scroll + resize ───────────────────────────────────────────────
+// ─── Infinite scroll ─────────────────────────────────────────────────────────
 
-function useInfiniteScrollData(latencyMs: number): {
-	data: (Row | undefined)[];
-	statusMap: Record<number, DataTableRowLoadingStatus>;
-	loadData: (range: { startIndex: number; stopIndex: number }) => Promise<void>;
-} {
-	const [data, setData] = useState<(Row | undefined)[]>(() => new Array(TOTAL_ROWS).fill(undefined));
-	const [statusMap, setStatusMap] = useState<Record<number, DataTableRowLoadingStatus>>({});
-
-	const loadData = useCallback(
-		({ startIndex, stopIndex }: { startIndex: number; stopIndex: number }) => {
-			const stop = Math.min(stopIndex, TOTAL_ROWS - 1);
-
-			setStatusMap((prev) => {
-				const next = { ...prev };
-
-				for (let i = startIndex; i <= stop; i++) {
-					next[i] = "loading";
-				}
-
-				return next;
-			});
-
-			return new Promise<void>((resolve) =>
-				setTimeout(() => {
-					setData((prev) => {
-						const next = [...prev];
-
-						for (let i = startIndex; i <= stop; i++) {
-							next[i] = ALL_ROWS[i];
-						}
-
-						return next;
-					});
-					setStatusMap((prev) => {
-						const next = { ...prev };
-
-						for (let i = startIndex; i <= stop; i++) {
-							next[i] = "loaded";
-						}
-
-						return next;
-					});
-					resolve();
-				}, latencyMs)
-			);
-		},
-		[latencyMs]
-	);
-
-	return { data, statusMap, loadData };
-}
-
-interface InfiniteScrollDemoProps {
+interface InfiniteScrollArgs {
 	latencyMs: number;
 	threshold: number;
 	minimumBatchSize: number;
 	rowHeight: number;
+}
+
+function InfiniteScrollDemo({ latencyMs, threshold, minimumBatchSize, rowHeight }: InfiniteScrollArgs): ReactElement {
+	const { data, rowLoadingStatus, loadData } = useInfiniteScrollData(ALL_ROWS, latencyMs);
+
+	return (
+		<DataTable<Employee>
+			ariaLabel="Infinite-scroll employees"
+			data={data}
+			columns={EMPLOYEE_COLUMNS}
+			rowKey="id"
+			maxHeight={TABLE_HEIGHT}
+			infiniteScrollOptions={{
+				rowHeight,
+				rowCount: ALL_ROWS.length,
+				rowLoadingStatus,
+				loadData,
+				threshold,
+				minimumBatchSize
+			}}
+		/>
+	);
 }
 
 function InfiniteScrollResizeDemo({
@@ -261,21 +172,21 @@ function InfiniteScrollResizeDemo({
 	threshold,
 	minimumBatchSize,
 	rowHeight
-}: InfiniteScrollDemoProps): ReactElement {
-	const { columns, onEndResize } = useResizableColumns();
-	const { data, statusMap, loadData } = useInfiniteScrollData(latencyMs);
+}: InfiniteScrollArgs): ReactElement {
+	const { columns, onEndResize } = useResizableColumns(EMPLOYEE_COLUMNS);
+	const { data, rowLoadingStatus, loadData } = useInfiniteScrollData(ALL_ROWS, latencyMs);
 
 	return (
-		<DataTable<Row>
+		<DataTable<Employee>
 			ariaLabel="Infinite-scroll resizable employees"
-			data={data as Row[]}
+			data={data}
 			columns={columns}
 			rowKey="id"
 			maxHeight={TABLE_HEIGHT}
 			infiniteScrollOptions={{
 				rowHeight,
-				rowCount: TOTAL_ROWS,
-				rowLoadingStatus: (index) => statusMap[index],
+				rowCount: ALL_ROWS.length,
+				rowLoadingStatus,
 				loadData,
 				threshold,
 				minimumBatchSize
@@ -285,19 +196,22 @@ function InfiniteScrollResizeDemo({
 	);
 }
 
-// ─── Meta ───────────────────────────────────────────────────────────────────
+// ─── Meta ────────────────────────────────────────────────────────────────────
 
-const meta: Meta<VirtualizedDemoProps & InfiniteScrollDemoProps & DynamicHeightDemoProps> = {
+const INFINITE_ONLY = {
+	latencyMs: { table: { disable: true } },
+	threshold: { table: { disable: true } },
+	minimumBatchSize: { table: { disable: true } }
+};
+
+const meta: Meta<VirtualizedArgs & InfiniteScrollArgs & DynamicHeightArgs> = {
 	title: "Data Display/DataTable/Large Data",
 	parameters: {
 		layout: "padded",
 		docs: {
 			description: {
 				component:
-					"DataTable rendering large datasets via virtualization or infinite-scroll, " +
-					"combined with column resize. The virtualized track template wraps each non-action column in " +
-					"`var(--a12-col-N-width, <explicit>)` so the drag handle drives layout live; on release the new " +
-					"width is reported as an `fr` ratio anchored against the rendered widths of sibling fluid columns."
+					"Two strategies for long lists, both requiring a bounded `maxHeight`: **virtualization** (`virtualScrollOptions`) renders only the rows in the viewport plus an overscan buffer, and **infinite scroll** (`infiniteScrollOptions`) additionally fetches rows in batches as they approach the viewport. Infinite scroll wins when both are set. Row groups are unavailable in either mode; expansion needs dynamic row heights (see **Expandable Rows**). Migrating from the production `Table`'s react-virtualized options is covered in the showcase migration notes."
 			}
 		}
 	},
@@ -322,7 +236,7 @@ const meta: Meta<VirtualizedDemoProps & InfiniteScrollDemoProps & DynamicHeightD
 			control: { type: "range", min: 0, max: 2000, step: 100 }
 		},
 		threshold: {
-			name: "InfiniteLoader threshold",
+			name: "Load-ahead threshold (rows)",
 			control: { type: "range", min: 5, max: 100, step: 5 }
 		},
 		minimumBatchSize: {
@@ -331,32 +245,38 @@ const meta: Meta<VirtualizedDemoProps & InfiniteScrollDemoProps & DynamicHeightD
 		}
 	},
 	args: {
-		rowHeight: ROW_HEIGHT,
+		rowHeight: 40,
 		overscan: 10,
 		estimatedRowHeight: 60,
 		latencyMs: 400,
 		threshold: 15,
-		minimumBatchSize: BATCH_SIZE
+		minimumBatchSize: 50
 	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const VirtualizedWithResize: Story = {
-	name: "Virtualized + Column Resize",
-	render: ({ overscan, rowHeight }) => <VirtualizedResizeDemo overscan={overscan} rowHeight={rowHeight} />,
-	argTypes: {
-		latencyMs: { table: { disable: true } },
-		threshold: { table: { disable: true } },
-		minimumBatchSize: { table: { disable: true } }
-	},
+export const Virtualized: Story = {
+	name: "Virtualized Scroll",
+	render: ({ rowHeight, overscan }) => <VirtualizedDemo rowHeight={rowHeight} overscan={overscan} />,
+	argTypes: { ...INFINITE_ONLY, estimatedRowHeight: { table: { disable: true } } },
 	parameters: {
 		docs: {
+			source: {
+				language: "tsx",
+				code: `<DataTable<Employee>
+	ariaLabel="Virtualized employees"
+	data={employees} // 5000 rows
+	columns={columns}
+	rowKey="id"
+	maxHeight={500}
+	virtualScrollOptions={{ rowHeight: 40, overscan: 10 }}
+/>`
+			},
 			description: {
 				story:
-					"`virtualScrollOptions` + `columnResizingOptions` on the same table. Drag a handle in the header — " +
-					"both the header and all virtualized body rows track the new width live."
+					"`virtualScrollOptions={{ rowHeight }}` with a bounded `maxHeight` renders only the viewport rows (plus `overscan`). Column widths resolve exactly as in non-virtualized mode. Omit `rowHeight` for dynamic row heights (next story)."
 			}
 		}
 	}
@@ -367,21 +287,125 @@ export const DynamicRowHeights: Story = {
 	render: ({ estimatedRowHeight, overscan }) => (
 		<DynamicRowHeightsDemo estimatedRowHeight={estimatedRowHeight} overscan={overscan} />
 	),
-	argTypes: {
-		rowHeight: { table: { disable: true } },
-		latencyMs: { table: { disable: true } },
-		threshold: { table: { disable: true } },
-		minimumBatchSize: { table: { disable: true } }
-	},
+	argTypes: { ...INFINITE_ONLY, rowHeight: { table: { disable: true } } },
 	parameters: {
 		docs: {
+			source: {
+				language: "tsx",
+				code: `const virtualizerRef = useRef<DataTableVirtualizerHandle | null>(null);
+
+<Button onClick={() => virtualizerRef.current?.scrollToIndex(1500, { align: "center" })}>scrollToIndex</Button>
+<Button onClick={() => virtualizerRef.current?.scrollToOffset(0)}>scrollToOffset(0)</Button>
+<Button onClick={() => virtualizerRef.current?.measure()}>measure()</Button>
+
+<DataTable<NotedEmployee>
+	ariaLabel="Dynamic row height employees"
+	data={rows} // 2000 rows whose "notes" column wraps to a varying number of lines
+	columns={columns}
+	rowKey="id"
+	maxHeight={500}
+	// No rowHeight: rows are measured from the DOM, estimatedRowHeight sizes unmeasured ones.
+	virtualScrollOptions={{ estimatedRowHeight: 60, overscan: 10, virtualizerRef }}
+/>`
+			},
 			description: {
 				story:
-					"`virtualScrollOptions` without `rowHeight`: each rendered row is measured from the DOM " +
-					"(and re-measured on resize), with `estimatedRowHeight` as the placeholder for unmeasured rows — " +
-					"the migration path for tables that relied on react-virtualized's `CellMeasurer`. " +
-					"`virtualizerRef` provides the imperative handle that replaces `listRef`: scrollToIndex, " +
-					"scrollToOffset and measure. Scroll up and down and use the controls to jump to a far row."
+					"`virtualScrollOptions` without `rowHeight`: each rendered row is measured from the DOM and re-measured when its content resizes, with `estimatedRowHeight` as the placeholder for unmeasured rows. `virtualizerRef` receives an imperative handle with `scrollToIndex`, `scrollToOffset` and `measure` — use the controls to jump to a far row."
+			}
+		}
+	}
+};
+
+export const VirtualizedWithResize: Story = {
+	name: "Virtualized + Column Resize",
+	render: ({ rowHeight, overscan }) => <VirtualizedResizeDemo rowHeight={rowHeight} overscan={overscan} />,
+	argTypes: { ...INFINITE_ONLY, estimatedRowHeight: { table: { disable: true } } },
+	parameters: {
+		docs: {
+			source: {
+				language: "tsx",
+				code: `// Persist widths reported by the resize handle back into the column definitions.
+const [columns, setColumns] = useState(initialColumns);
+const onEndResize: DataTableColumnResizeEventHandler<DataTableColumn<Employee>> = ({ resizedWidthsGetter }) =>
+	setColumns((prev) => prev.map((column) => ({ ...column, width: resizedWidthsGetter?.(column) ?? column.width })));
+
+<DataTable<Employee>
+	ariaLabel="Virtualized resizable employees"
+	data={employees}
+	columns={columns}
+	rowKey="id"
+	maxHeight={500}
+	virtualScrollOptions={{ rowHeight: 40, overscan: 10 }}
+	columnResizingOptions={{ onEndResize }}
+/>`
+			},
+			description: {
+				story:
+					"`virtualScrollOptions` + `columnResizingOptions` on the same table. Drag a handle in the header — the header and every virtualized body row track the new width live."
+			}
+		}
+	}
+};
+
+export const InfiniteScroll: Story = {
+	render: (args) => <InfiniteScrollDemo {...args} />,
+	argTypes: { overscan: { table: { disable: true } }, estimatedRowHeight: { table: { disable: true } } },
+	parameters: {
+		docs: {
+			source: {
+				language: "tsx",
+				code: `const TOTAL = 5000;
+const [rows, setRows] = useState<(Employee | undefined)[]>(() => new Array(TOTAL).fill(undefined));
+const [status, setStatus] = useState<Record<number, DataTableRowLoadingStatus>>({});
+
+const markRange = (start: number, stop: number, value: DataTableRowLoadingStatus) =>
+	setStatus((prev) => {
+		const next = { ...prev };
+
+		for (let i = start; i <= stop; i++) {
+			next[i] = value;
+		}
+
+		return next;
+	});
+
+// Called by the table for each not-yet-loaded range that approaches the viewport.
+const loadData = async ({ startIndex, stopIndex }: { startIndex: number; stopIndex: number }) => {
+	markRange(startIndex, stopIndex, "loading");
+
+	const batch = await fetchEmployees(startIndex, stopIndex);
+
+	setRows((prev) => {
+		const next = [...prev];
+
+		batch.forEach((row, i) => {
+			next[startIndex + i] = row;
+		});
+
+		return next;
+	});
+	markRange(startIndex, stopIndex, "loaded");
+};
+
+<DataTable<Employee>
+	ariaLabel="Infinite-scroll employees"
+	data={rows as Employee[]}
+	columns={columns}
+	rowKey="id"
+	maxHeight={500}
+	infiniteScrollOptions={{
+		rowHeight: 40,
+		rowCount: TOTAL,
+		rowLoadingStatus: (index) => status[index],
+		loadData,
+		threshold: 15,
+		minimumBatchSize: 50
+	}}
+/>`
+			},
+			description: {
+				story:
+					'Pass `infiniteScrollOptions={{ rowHeight, rowCount, rowLoadingStatus, loadData }}` to fetch rows in batches as they approach the viewport. Rows whose status is not `"loaded"` render as skeleton placeholders. Raise the latency control and scroll fast to see them.'
 			}
 		}
 	}
@@ -389,24 +413,31 @@ export const DynamicRowHeights: Story = {
 
 export const InfiniteScrollWithResize: Story = {
 	name: "Infinite Scroll + Column Resize",
-	render: ({ latencyMs, threshold, minimumBatchSize, rowHeight }) => (
-		<InfiniteScrollResizeDemo
-			latencyMs={latencyMs}
-			threshold={threshold}
-			minimumBatchSize={minimumBatchSize}
-			rowHeight={rowHeight}
-		/>
-	),
-	argTypes: {
-		overscan: { table: { disable: true } }
-	},
+	render: (args) => <InfiniteScrollResizeDemo {...args} />,
+	argTypes: { overscan: { table: { disable: true } }, estimatedRowHeight: { table: { disable: true } } },
 	parameters: {
 		docs: {
+			source: {
+				language: "tsx",
+				code: `// Same loadData / rowLoadingStatus wiring as "Infinite Scroll", plus:
+// Persist widths reported by the resize handle back into the column definitions.
+const [columns, setColumns] = useState(initialColumns);
+const onEndResize: DataTableColumnResizeEventHandler<DataTableColumn<Employee>> = ({ resizedWidthsGetter }) =>
+	setColumns((prev) => prev.map((column) => ({ ...column, width: resizedWidthsGetter?.(column) ?? column.width })));
+
+<DataTable<Employee>
+	ariaLabel="Infinite-scroll resizable employees"
+	data={rows as Employee[]}
+	columns={columns}
+	rowKey="id"
+	maxHeight={500}
+	infiniteScrollOptions={{ rowHeight: 40, rowCount: TOTAL, rowLoadingStatus: (index) => status[index], loadData }}
+	columnResizingOptions={{ onEndResize }}
+/>`
+			},
 			description: {
 				story:
-					"`infiniteScrollOptions` + `columnResizingOptions` on the same table. Rows load in batches as you " +
-					"scroll; placeholder rows render via the default skeleton slot. Column resize works live across " +
-					"loaded rows and placeholders alike."
+					"`infiniteScrollOptions` + `columnResizingOptions` on the same table. Column resize works live across loaded rows and placeholders alike."
 			}
 		}
 	}

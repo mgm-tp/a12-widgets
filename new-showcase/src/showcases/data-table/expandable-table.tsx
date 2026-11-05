@@ -30,18 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { round } from "lodash-es";
 import type { ComponentType, ReactElement, ReactNode } from "react";
 import { useCallback, useMemo, useRef, useState } from "react";
-import { round } from "lodash-es";
 import { css, styled } from "styled-components";
 
-import type {
-	DataTableColumn,
-	DataTableColumnRenderContext,
-	DataTableSortOrder,
-	DataTableSortState,
-	DataTableRowStyles
-} from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import {
 	BufferedInput,
 	Button,
@@ -55,6 +48,13 @@ import {
 	TextOutput,
 	Typography
 } from "@com.mgmtp.a12.widgets/widgets-core";
+import type {
+	DataTableColumn,
+	DataTableColumnRenderContext,
+	DataTableSortOrder,
+	DataTableSortState,
+	DataTableRowStyles
+} from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { DataTable, DataTableTemplate } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import { getCurrentTheme } from "../../helpers/theme-selector.js";

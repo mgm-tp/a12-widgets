@@ -32,9 +32,9 @@
 
 import { styled, css } from "styled-components";
 
-import { active, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
 import { StyledIconWrapper } from "../../icon/main/icon.view.js";
 import { createBorder } from "../../theme/base/mixins/_borderEffects.js";
+import { active, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
 
 import type { AccordionVariant, AccordionProps } from "./accordion.api.js";
 
@@ -94,12 +94,14 @@ export const AccordionSummary = styled.div.withConfig({ displayName: "StyledAcco
 			font-size: ${graphic.fontSize};
 			padding: ${graphic.padding};
 
-			${$variant &&
-			css`
-				&[data-variant-type="${$variant}"] {
-					color: ${summary.icon.variant[$variant]};
-				}
-			`}
+			${
+				$variant &&
+				css`
+					&[data-variant-type="${$variant}"] {
+						color: ${summary.icon.variant[$variant]};
+					}
+				`
+			}
 
 			& + ${AccordionSummaryText} {
 				padding-left: 0;
@@ -124,44 +126,46 @@ export const AccordionSummary = styled.div.withConfig({ displayName: "StyledAcco
 		&:focus {
 			position: relative;
 
-			${summary.focus.customBorder
-				? css`
-						&& {
-							${createBorder(summary.focus.customBorder, true)};
+			${
+				summary.focus.customBorder
+					? css`
+							&& {
+								${createBorder(summary.focus.customBorder, true)};
 
-							// To avoid the summary's outline is overlapped by the summary's custom border.
+								// To avoid the summary's outline is overlapped by the summary's custom border.
+								&:before {
+									height: calc(
+										100% - ${parseFloat(summary.focus.outline.split(" ")[0]) * 2}px +
+											${summary.focus.customBorder.offSet ?? 0}px
+									);
+									width: calc(
+										100% - ${parseFloat(summary.focus.outline.split(" ")[0]) * 2}px +
+											${summary.focus.customBorder.offSet ?? 0}px
+									);
+								}
+
+								&:after {
+									outline: ${summary.focus.outline};
+									content: "";
+									display: block;
+									height: calc(100% - ${parseFloat(summary.focus.outline.split(" ")[0]) * 2}px);
+									width: calc(100% - ${parseFloat(summary.focus.outline.split(" ")[0]) * 2}px);
+									left: 50%;
+									position: absolute;
+									pointer-events: none;
+									top: 50%;
+									transform: translate(-50%, -50%);
+								}
+							}
+						`
+					: css`
 							&:before {
-								height: calc(
-									100% - ${parseFloat(summary.focus.outline.split(" ")[0]) * 2}px +
-										${summary.focus.customBorder.offSet ?? 0}px
-								);
-								width: calc(
-									100% - ${parseFloat(summary.focus.outline.split(" ")[0]) * 2}px +
-										${summary.focus.customBorder.offSet ?? 0}px
-								);
-							}
-
-							&:after {
+								border: ${summary.focus.border};
+								margin: 1px;
 								outline: ${summary.focus.outline};
-								content: "";
-								display: block;
-								height: calc(100% - ${parseFloat(summary.focus.outline.split(" ")[0]) * 2}px);
-								width: calc(100% - ${parseFloat(summary.focus.outline.split(" ")[0]) * 2}px);
-								left: 50%;
-								position: absolute;
-								pointer-events: none;
-								top: 50%;
-								transform: translate(-50%, -50%);
 							}
-						}
-					`
-				: css`
-						&:before {
-							border: ${summary.focus.border};
-							margin: 1px;
-							outline: ${summary.focus.outline};
-						}
-					`}
+						`
+			}
 		}
 	`;
 });
@@ -224,40 +228,42 @@ export const AccordionSection = styled.div.withConfig({
 			top: 0;
 		}
 
-		${selected &&
-		css`
-			& > ${AccordionSummary} {
-				background-color: ${summary.selected.background};
-				border-radius: ${summary.borderRadius};
-				&:before {
-					border-left: ${summary.selected.borderLeft.nonActive};
-				}
-
-				${active(css`
+		${
+			selected &&
+			css`
+				& > ${AccordionSummary} {
+					background-color: ${summary.selected.background};
+					border-radius: ${summary.borderRadius};
 					&:before {
-						border-left: ${summary.selected.borderLeft.active};
+						border-left: ${summary.selected.borderLeft.nonActive};
 					}
-				`)}
 
-				${hover(css`
+					${active(css`
+						&:before {
+							border-left: ${summary.selected.borderLeft.active};
+						}
+					`)}
+
+					${hover(css`
+						${AccordionSummaryText} {
+							color: ${summary.selected.hover?.color};
+							font-weight: ${summary.selected.hover?.fontWeight};
+						}
+
+						&:before {
+							border-left: ${summary.selected.borderLeft.hover};
+						}
+					`)}
+
+					&:focus:before {
+						border-left: ${summary.selected.borderLeft.focus};
+					}
+
 					${AccordionSummaryText} {
-						color: ${summary.selected.hover?.color};
-						font-weight: ${summary.selected.hover?.fontWeight};
+						color: ${summary.selected.color};
 					}
-
-					&:before {
-						border-left: ${summary.selected.borderLeft.hover};
-					}
-				`)}
-
-				&:focus:before {
-					border-left: ${summary.selected.borderLeft.focus};
 				}
-
-				${AccordionSummaryText} {
-					color: ${summary.selected.color};
-				}
-			}
-		`}
+			`
+		}
 	`;
 });

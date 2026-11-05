@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
 import { rgba } from "polished";
+import type { ReactElement } from "react";
 import { css, keyframes, styled } from "styled-components";
 
 const slideGradient = keyframes`
@@ -69,10 +69,6 @@ export const StyledDataTablePlaceholderContent = styled.div.withConfig({
 		animation-timing-function: linear;
 		animation-iteration-count: infinite;
 		animation-duration: 0.5s;
-
-		@media (prefers-reduced-motion: reduce) {
-			animation: none;
-		}
 	`;
 });
 

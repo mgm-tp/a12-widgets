@@ -33,8 +33,8 @@
 import { styled, css } from "styled-components";
 
 import { StyledCalloutWrapper } from "../../callout/main/template/callout.tpl.view.js";
-import { addPrefix } from "../../common/main/utils.js";
 import type { Orientation, OrientationMap } from "../../common/main/alignment.js";
+import { addPrefix } from "../../common/main/utils.js";
 
 export const resizeAndDragContentAnimate = addPrefix("resize-and-drag-content-animate");
 
@@ -96,29 +96,33 @@ export const StyledResizeAndDragContentWrapper = styled.div.withConfig({
 			}
 		}
 
-		${!$disableDragging &&
-		!$containsHandle &&
-		css`
-			cursor: move;
+		${
+			!$disableDragging &&
+			!$containsHandle &&
+			css`
+				cursor: move;
 
-			* {
-				cursor: move !important;
-			}
-		`}
+				* {
+					cursor: move !important;
+				}
+			`
+		}
 
-		${$isDragging &&
-		css`
-			animation: none;
+		${
+			$isDragging &&
+			css`
+				animation: none;
 
-			&:after,
-			&:before,
-			*,
-			*:before,
-			*:after {
-				animation: none !important;
-			}
-		`} 
-			
+				&:after,
+				&:before,
+				*,
+				*:before,
+				*:after {
+					animation: none !important;
+				}
+			`
+		}
+
 		// The animation for Resize And Drag Container.
 		transform-origin: ${animationTransformOrigin[$orientation]};
 		&.${resizeAndDragContentAnimate}-enter {

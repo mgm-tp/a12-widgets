@@ -32,26 +32,26 @@
 
 import type { ReactElement, ReactNode, HTMLAttributes } from "react";
 
+import type { Ref, Container, Identifiable, Styleable } from "../../common/main/base-props.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix, joinClassNames } from "../../common/main/utils.js";
 import type {
 	DatePickerProps,
 	DatePickerFooterProps,
 	DatePickerFooterActionProps
 } from "../../datepicker/main/date-picker.api.js";
-import { DatePicker } from "../../datepicker/main/date-picker.view.js";
 import {
 	DatePickerFooter as DatePickerFooter,
 	DatePickerFooterAction as DatePickerFooterAction
 } from "../../datepicker/main/date-picker.tpl.view.js";
+import { DatePicker } from "../../datepicker/main/date-picker.view.js";
 import type { TimePickerProps } from "../../time-picker/main/time-picker.api.js";
 import { TimePickerDialog } from "../../time-picker/main/time-picker.mobile.view.js";
-import { addPrefix, joinClassNames } from "../../common/main/utils.js";
-import type { Ref, Container, Identifiable, Styleable } from "../../common/main/base-props.js";
 import {
 	StyledTimePickerActions,
 	StyledTimePickerHeader,
 	StyledTimePickerText
 } from "../../time-picker/main/time-picker.styled.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
 import { StyledDateTimePicker } from "./date-time-picker.styled.js";
 

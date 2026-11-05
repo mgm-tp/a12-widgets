@@ -1,0 +1,81 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as SlidingMenuStories from "./SlidingMenu.stories";
+
+<Meta of={SlidingMenuStories} />
+
+<Title />
+
+The `SlidingMenu` widget renders a vertical navigation menu, typically used as an application
+sidebar. Selecting an item with nested `items` slides the submenu in to replace the current level;
+a backward item at the top of each submenu navigates back up and can be customized per item via
+`backwardItemProps`.
+
+- Items support `icon`, `badge`, `counter`, `selected`, `disabled`, `variant` status icons and an
+  `onClick` handler; submenus can be nested multiple levels deep.
+- `collapsed` compacts the menu to an icon-only view.
+- `useAs="main"` and `mainContainerLabel` control the menu's semantics and accessible name;
+  `onTabOut` notifies you when focus leaves the menu via Tab.
+- `SlidingMenu.MainWrapper` is an optional layout wrapper whose `expanded` prop animates showing
+  and hiding the whole menu.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={SlidingMenuStories.Playground} />
+
+## Examples
+
+### With submenus
+
+<Canvas of={SlidingMenuStories.WithSubmenus} />
+
+### Badges
+
+<Canvas of={SlidingMenuStories.WithBadges} />
+
+### Variants
+
+<Canvas of={SlidingMenuStories.WithVariants} />
+
+### Nested submenus
+
+<Canvas of={SlidingMenuStories.NestedSubmenus} />
+
+### Collapsed
+
+<Canvas of={SlidingMenuStories.Collapsed} />
+
+### Customized backward item
+
+<Canvas of={SlidingMenuStories.CustomizeBackwardItem} />
+
+## Interaction hints
+
+The `Interactions` and `Advanced` sidebar entries demonstrate `InteractionHintConfigProvider` with
+the SlidingMenu: enabling hints, `followCursor`, `hideArrow`, the left/right `position` options and
+hints in collapsed mode. They are kept as separate full-screen stories because the menus need page
+height to show the hint overlays.
+
+## Keyboard navigation
+
+The `KeyboardNavigation` sidebar entry demonstrates the default keyboard navigation mode (Tab and
+arrow keys move between items, ArrowRight/Enter drills into a submenu, ArrowLeft/Escape navigates
+back) and the `arrow-only` mode configured via `KeyboardNavigationConfigProvider`, where Tab exits
+the entire menu.

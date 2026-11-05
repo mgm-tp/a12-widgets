@@ -32,10 +32,10 @@
 
 import type { ComponentType, ReactNode } from "react";
 
-import type { BaseColumnType } from "./foundation/column.api.js";
 import type { DataTableRenderPropsType } from "./data-table-renderer.api.js";
 import type { DataTableInfiniteScrollBodyProps } from "./data-table.infinite-scroll-body.view.js";
 import type { DataTableVirtualizedBodyProps } from "./data-table.virtualized-body.view.js";
+import type { BaseColumnType } from "./foundation/column.api.js";
 
 /**
  * Props received by each {@link DataTableSlots} component, one alias per slot.
@@ -109,7 +109,7 @@ export namespace DataTableSlotProps {
 		DataTableRenderPropsType.DndBodyRowProps<RowType, ColumnType>,
 		"key"
 	>;
-	export type DragPreview = Omit<DataTableRenderPropsType.DragPreviewProps, "key">;
+	export type DragPreview<RowType = unknown> = Omit<DataTableRenderPropsType.DragPreviewProps<RowType>, "key">;
 	export type RowOverlay<RowType = unknown> = Omit<DataTableRenderPropsType.RowOverlayProps<RowType>, "key">;
 }
 
@@ -121,6 +121,11 @@ export namespace DataTableSlotProps {
  * `row`, `foot`, `footRow`, `filterRow`) receive the pre-built, fully wired
  * subtree as `props.children`; either wrap `children` or compose the exported
  * `DataTable.*` primitives (`DataTable.Head`, `DataTable.Row`, …).
+ *
+ * The one exception is {@link dndRow}: its `children` is a **render-prop
+ * function**, not a `ReactNode`. The DnD wrapper must attach the drag connector
+ * to its own `<tr>`, so it calls `children(args)` to obtain the row content with
+ * `dragRef` bound (see {@link DataTableSlotProps.DndRow}).
  *
  * To suppress a structural element, render nothing (`() => null`) or use the
  * dedicated structural props (e.g. `hideHeader`). An omitted slot always means
@@ -165,7 +170,13 @@ export interface DataTableSlots<
 	/** Custom content for a filter cell. Providing any filter slot activates the filter row. */
 	filterContent?: ComponentType<DataTableSlotProps.FilterContent<RowType, ColumnType>>;
 
-	/** Custom `<tbody>` element. Receives the pre-built rows as `children`. */
+	/**
+	 * Custom `<tbody>` element. Receives the pre-built rows as `children`.
+	 *
+	 * Not honored while drag & drop is enabled (`dragDropOptions` set): the DnD
+	 * controller owns the `<tbody>` structure and renders the default template
+	 * instead (dev builds log an error). Customize rows via {@link row}/{@link dndRow}.
+	 */
 	body?: ComponentType<DataTableSlotProps.Body<RowType, ColumnType>>;
 
 	/** Escape hatch: replace the entire virtualized `<tbody>` implementation. */
@@ -220,11 +231,18 @@ export interface DataTableSlots<
 	/** Custom row-group header content, used by {@link DataTableRowsGroup}. */
 	rowGroupHeader?: ComponentType<DataTableSlotProps.RowGroupHeader<RowType>>;
 
-	/** Custom body row wrapper when drag-and-drop is enabled. */
+	/**
+	 * Custom body row wrapper when drag-and-drop is enabled. Unlike every other
+	 * slot, its `children` is a render-prop function: call `children(args)` and
+	 * attach the returned `dragRef` to your `<tr>`.
+	 */
 	dndRow?: ComponentType<DataTableSlotProps.DndRow<RowType, ColumnType>>;
 
-	/** Custom drag-preview element rendered in a fixed overlay while dragging. */
-	dragPreview?: ComponentType<DataTableSlotProps.DragPreview>;
+	/**
+	 * Custom drag-preview element rendered in a fixed overlay while dragging.
+	 * Receives the in-progress drag as `activeDrag`.
+	 */
+	dragPreview?: ComponentType<DataTableSlotProps.DragPreview<RowType>>;
 
 	/**
 	 * Optional per-row overlay, painted as a layer covering a single body row

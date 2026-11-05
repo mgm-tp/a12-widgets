@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { styled, css } from "styled-components";
 import { rgba } from "polished";
+import { styled, css } from "styled-components";
 
 import { Typography } from "@com.mgmtp.a12.widgets/widgets-core";
 

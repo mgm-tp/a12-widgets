@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { styled, css } from "styled-components";
 import { ResponsiveContainer, PieChart } from "recharts";
 import type { LayoutType } from "recharts/types/util/types.js";
+import { styled, css } from "styled-components";
 
-import { List } from "../../list/main/list.view.js";
-import { StyledListItemGraphic, StyledListItemWrapper } from "../../list/main/list.styled.js";
 import { addPrefix } from "../../common/main/utils.js";
+import { StyledListItemGraphic, StyledListItemWrapper } from "../../list/main/list.styled.js";
+import { List } from "../../list/main/list.view.js";
 import { activeAndHover } from "../../theme/base/mixins/_interaction.js";
 
 const baseLegendClassName = addPrefix("chart-legend");
@@ -87,11 +87,13 @@ export const StyledRechartsLegend = styled.ul.withConfig({ displayName: "StyledR
 		padding: 0;
 		width: 100%;
 
-		${layout === "horizontal" &&
-		css`
-			display: flex;
-			flex-wrap: wrap;
-		`}
+		${
+			layout === "horizontal" &&
+			css`
+				display: flex;
+				flex-wrap: wrap;
+			`
+		}
 	`;
 });
 
@@ -170,29 +172,33 @@ export const StyledRechartsPieChartLegend = styled(List).withConfig({
 		font-family: ${charts.fontFamily};
 		overflow: auto;
 
-		${hideable &&
-		css`
-			background-color: ${charts.pieChart.hideableBG};
-			white-space: nowrap;
-		`}
+		${
+			hideable &&
+			css`
+				background-color: ${charts.pieChart.hideableBG};
+				white-space: nowrap;
+			`
+		}
 
-		${layout === "horizontal"
-			? css`
-					display: inline-flex;
-					flex: 1;
-					flex-wrap: wrap;
-					height: auto;
-					${StyledListItemWrapper} {
-						flex-grow: 1;
-						flex-shrink: 0;
-					}
-				`
-			: layout === "vertical" &&
-				css`
-					flex: none;
-				`}
-				  
-			&.${baseLegendClassName}--top, &.${baseLegendClassName}--above {
+		${
+			layout === "horizontal"
+				? css`
+						display: inline-flex;
+						flex: 1;
+						flex-wrap: wrap;
+						height: auto;
+						${StyledListItemWrapper} {
+							flex-grow: 1;
+							flex-shrink: 0;
+						}
+					`
+				: layout === "vertical" &&
+					css`
+						flex: none;
+					`
+		}
+
+		&.${baseLegendClassName}--top, &.${baseLegendClassName}--above {
 			margin-bottom: ${chartBaseSpacing};
 		}
 
@@ -220,12 +226,14 @@ export const StyledPieChartLegendListItem = styled(List.Item).withConfig({
 	displayName: "StyledPieChartLegendListItem-sc-"
 })<{ blurred?: boolean }>(({ blurred }) => {
 	return css`
-		${blurred &&
-		css`
-			> * {
-				opacity: 0.5;
-			}
-		`};
+		${
+			blurred &&
+			css`
+				> * {
+					opacity: 0.5;
+				}
+			`
+		};
 	`;
 });
 

@@ -33,9 +33,9 @@
 import { StringUtils } from "../../common/main/utils.js";
 
 import type { MenuItem, MenuItemType } from "./menu.api.js";
+import { isMenuGroup } from "./menu.utils.js";
 import type { FlattenedMenuItemType, MainMenuProps } from "./template/menu.tpl.api.js";
 import { MenuTplUtils } from "./template/menu.tpl.internal.js";
-import { isMenuGroup } from "./menu.utils.js";
 
 export namespace MenuUtils {
 	export interface ItemMenuWrapper extends FlattenedMenuItemType {

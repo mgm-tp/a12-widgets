@@ -41,6 +41,7 @@ describe("com.mgmtp.a12.widgets.connected-toast", () => {
 		referenceElement = createReferenceElement();
 	});
 	afterEach(() => {
+		vi.useRealTimers();
 		removeReferenceElement(referenceElement);
 	});
 	test("verify the basic connected toast structure", () => {
@@ -99,6 +100,7 @@ describe("com.mgmtp.a12.widgets.connected-toast", () => {
 		const outerNode = document.createElement("div");
 		document.body.appendChild(outerNode);
 		fireEvent.mouseDown(outerNode, { bubbles: true });
+		document.body.removeChild(outerNode);
 		expect(onClose).toHaveBeenCalledTimes(1);
 	});
 });

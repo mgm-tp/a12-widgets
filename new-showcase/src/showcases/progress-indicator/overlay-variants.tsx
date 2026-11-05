@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 import { useState } from "react";
-import { loremIpsum } from "lorem-ipsum";
 
 import type { ProgressIndicatorSize } from "@com.mgmtp.a12.widgets/widgets-core";
 import { ProgressIndicator, Typography, Radio } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -56,6 +56,7 @@ export function OverlayVariant(): ReactElement {
 				<>
 					<Typography.Body>
 						<Radio
+							id="progress-indicator-overlay-variants-visibility"
 							className="-u-margin-b-sm"
 							label="Visibility and overlay variants"
 							onValueChanged={changeVisibility}

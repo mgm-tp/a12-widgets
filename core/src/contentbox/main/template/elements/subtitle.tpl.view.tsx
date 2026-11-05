@@ -31,9 +31,10 @@
  */
 
 import type { ReactElement } from "react";
+import { useContext } from "react";
 
 import { DataRoles } from "../../../../common/main/data-roles.js";
-
+import { StyledContentBoxContext } from "../contentbox.context.js";
 import type { ContentBoxProps } from "../contentbox.tpl.api.js";
 import { StyledContentBoxSubtitle } from "../contentbox.tpl.styled.js";
 
@@ -43,8 +44,16 @@ export function SubtitleTpl({
 	style,
 	text
 }: ContentBoxProps.TitleProps): ReactElement<ContentBoxProps.HeadingProps> {
+	const { embedded } = useContext(StyledContentBoxContext);
+
 	return (
-		<StyledContentBoxSubtitle id={id} className={className} style={style} data-role={DataRoles.Contentbox.Subtitle}>
+		<StyledContentBoxSubtitle
+			id={id}
+			className={className}
+			style={style}
+			data-role={DataRoles.Contentbox.Subtitle}
+			$embedded={embedded}
+		>
 			{text}
 		</StyledContentBoxSubtitle>
 	);

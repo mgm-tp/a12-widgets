@@ -33,8 +33,8 @@
 import type { ReactNode } from "react";
 import type { JSONOutput } from "typedoc";
 
-import type { SourceCode } from "@com.mgmtp.a12.widgets/widgets-utils";
 import type { DefaultComponentsType } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { SourceCode } from "@com.mgmtp.a12.widgets/widgets-utils";
 
 export interface FeaturedWidget {
 	name: string;
@@ -97,6 +97,12 @@ export interface Section {
 	 * When this mode is enabled, the user is able to toggle between displaying a skeleton code snippet or displaying the full source code.
 	 */
 	toggleBetweenPartialAndFullCode?: boolean;
+
+	/**
+	 * Hide the "Open in Playground" button. Use for reference-only code snippets that are not
+	 * self-contained runnable examples (e.g. app.tsx shown as an integration guide).
+	 */
+	hidePlaygroundButton?: boolean;
 }
 
 export interface GroupSection {

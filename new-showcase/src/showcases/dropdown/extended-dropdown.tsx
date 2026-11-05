@@ -163,6 +163,7 @@ export function ExtendedDropdownShowcase(): ReactElement {
 			reportLabel="WithLinkItems"
 			configuration={
 				<Checkbox
+					id="extended-dropdown-light-background"
 					fitToParent={false}
 					checked={lightBackground}
 					label="Light Background"

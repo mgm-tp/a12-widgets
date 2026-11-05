@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import galleryCode from "!./gallery.tsx?raw";
+
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { GalleryExample } from "./gallery.js";
-
-import galleryCode from "!./gallery.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

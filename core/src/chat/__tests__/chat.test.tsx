@@ -34,9 +34,8 @@ import { render, fireEvent, screen } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-
-import { Chat } from "../main/chat.view.js";
 import type { ChatProps } from "../main/chat.api.js";
+import { Chat } from "../main/chat.view.js";
 
 const { Message, Container, MessageGroup, UserInfo, Avatar, DateMarker, Notification, TypingMarker, SecondaryContent } =
 	Chat;

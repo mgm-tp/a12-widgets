@@ -1,0 +1,69 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as TextFieldStories from "./TextField.stories";
+
+<Meta of={TextFieldStories} />
+
+<Title />
+
+The `TextField` widget wraps the HTML input element and extends it with a label, helper text,
+validation states, tooltips and prefix/suffix slots. It has no intrinsic state — control it via
+`value` and `onChange`.
+
+- Use `label` (with optional `hideLabel`) and `helperText` to describe the field.
+- `error`, `warning` and `info` flags plus their `*Message` props communicate validation results.
+- `prefixes`/`suffixes` place icons or text inside the input; `addonBefore`/`addonAfter` place
+  elements next to it.
+- `disabled` and `readonly` cover the non-editable states; `textAlignment` supports right-aligned
+  numeric input.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={TextFieldStories.Playground} />
+
+## Examples
+
+### Helper text
+
+<Canvas of={TextFieldStories.WithHelperText} />
+
+### Disabled and read-only
+
+<Canvas of={TextFieldStories.States} />
+
+### Validation states
+
+<Canvas of={TextFieldStories.ValidationStates} />
+
+### Right-aligned text
+
+<Canvas of={TextFieldStories.RightAligned} />
+
+### Prefixes and suffixes
+
+<Canvas of={TextFieldStories.PrefixesAndSuffixes} />
+
+### Controlled input
+
+<Canvas of={TextFieldStories.Controlled} />
+
+### Form composition
+
+<Canvas of={TextFieldStories.FormExample} />

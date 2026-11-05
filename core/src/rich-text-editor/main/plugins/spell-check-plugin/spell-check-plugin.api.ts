@@ -33,7 +33,6 @@
 import type { ReactNode, ComponentType } from "react";
 
 import type { Identifiable, Styleable } from "../../../../common/main/base-props.js";
-
 import type { TextMatcher } from "../plugin.internal.api.js";
 
 export interface SpellCheckConfig {

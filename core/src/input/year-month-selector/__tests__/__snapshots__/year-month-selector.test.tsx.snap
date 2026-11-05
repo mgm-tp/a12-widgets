@@ -6,7 +6,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -34,7 +34,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   display: flex;
   font-family: "Open Sans", sans-serif;
@@ -45,11 +45,6 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
   background-color: rgb(226, 230, 233);
   box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
   color: rgb(169, 179, 188);
-}
-
-.c17 .c10 {
-  display: flex;
-  width: 100%;
 }
 
 .c9 {
@@ -74,12 +69,6 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
   color: rgb(169, 179, 188) !important;
 }
 
-.c12 {
-  box-sizing: border-box;
-  flex-grow: 1;
-  width: 100%;
-}
-
 .c3 {
   box-sizing: border-box;
   flex-grow: 1;
@@ -89,6 +78,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
 .c3[class*="h_"] .c13 {
   background-color: rgb(226, 230, 233) !important;
   color: rgb(169, 179, 188) !important;
+}
+
+.c12 {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%;
 }
 
 .c11 {
@@ -116,7 +111,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -159,7 +154,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -216,7 +211,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -414,12 +409,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering disabled ye
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly year month selector 1`] = `
-.c15 {
+.c14 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -437,17 +432,17 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
   width: 100%;
 }
 
-.c15::placeholder {
+.c14::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c13 {
+.c12 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -477,25 +472,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
   max-width: 100%;
 }
 
-.c18 .c10 {
-  display: flex;
-  width: 100%;
-}
-
-.c18[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c16[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
 }
 
 .c11 {
@@ -507,7 +487,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
   max-width: 100%;
 }
 
-.c14 {
+.c13 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -518,17 +498,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
   width: 0px;
 }
 
-.c2[class*="h_"] .c17.c17 {
-  background-color: inherit !important;
-}
-
 .c6 {
   appearance: none;
   background-color: inherit;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -568,7 +544,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -626,7 +602,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -793,15 +769,15 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
             data-role="text-field-control"
           >
             <div
-              class="c12 c13 field__input field__input--readonly"
+              class="c12 field__input field__input--readonly"
               data-readonly="true"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
               <input
-                class="c15 field__text"
+                class="c14 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -812,7 +788,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
                 value="2018"
               />
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
             </div>
           </div>
@@ -824,12 +800,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering readonly ye
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow optional value in month selector 1`] = `
-.c15 {
+.c14 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -847,18 +823,18 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
   width: 100%;
 }
 
-.c15::placeholder {
+.c14::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c13 {
+.c12 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -887,25 +863,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
   max-width: 100%;
 }
 
-.c18 .c10 {
-  display: flex;
-  width: 100%;
-}
-
-.c18[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c16[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
 }
 
 .c11 {
@@ -917,7 +878,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
   max-width: 100%;
 }
 
-.c14 {
+.c13 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -934,7 +895,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -965,17 +926,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
   opacity: 1;
 }
 
-.c2[class*="h_"] .c17.c17 {
-  background-color: inherit !important;
-}
-
 .c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1037,7 +994,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -1056,14 +1013,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
 }
 
 @media (pointer: coarse) {
-  .c13:active {
+  .c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -1234,14 +1191,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
             data-role="text-field-control"
           >
             <div
-              class="c12 c13 field__input"
+              class="c12 field__input"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
               <input
-                class="c15 field__text"
+                class="c14 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -1250,7 +1207,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with allow 
                 value="2018"
               />
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
             </div>
           </div>
@@ -1283,7 +1240,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1312,7 +1269,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -1378,7 +1335,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1415,7 +1372,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1477,7 +1434,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -1713,12 +1670,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with base p
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom month names 1`] = `
-.c15 {
+.c14 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1736,18 +1693,18 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
   width: 100%;
 }
 
-.c15::placeholder {
+.c14::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c13 {
+.c12 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -1776,25 +1733,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
   max-width: 100%;
 }
 
-.c18 .c10 {
-  display: flex;
-  width: 100%;
-}
-
-.c18[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c16[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
 }
 
 .c11 {
@@ -1806,7 +1748,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
   max-width: 100%;
 }
 
-.c14 {
+.c13 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -1823,7 +1765,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -1854,17 +1796,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
   opacity: 1;
 }
 
-.c2[class*="h_"] .c17.c17 {
-  background-color: inherit !important;
-}
-
 .c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1926,7 +1864,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -1945,14 +1883,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
 }
 
 @media (pointer: coarse) {
-  .c13:active {
+  .c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -2117,14 +2055,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
             data-role="text-field-control"
           >
             <div
-              class="c12 c13 field__input"
+              class="c12 field__input"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
               <input
-                class="c15 field__text"
+                class="c14 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -2133,7 +2071,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with custom
                 value="2018"
               />
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
             </div>
           </div>
@@ -2164,6 +2102,38 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   height: 1px;
 }
 
+.c5 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-variation-settings: normal;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c5 > span {
+  display: inline-block;
+}
+
+.c5.c5 {
+  max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
+}
+
 .c10 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -2192,32 +2162,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   max-width: unset;
 }
 
-.c5 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: custom-icons;
-  font-variation-settings: normal;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c5 > span {
-  display: inline-block;
-}
-
-.c5.c5 {
-  max-width: unset;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10 {
+  color: inherit;
 }
 
 .c6.c6 {
@@ -2264,12 +2210,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c26 {
+.c25 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2287,18 +2233,18 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   width: 100%;
 }
 
-.c26::placeholder {
+.c25::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c24 {
+.c23 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2327,25 +2273,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   max-width: 100%;
 }
 
-.c29 .c21 {
-  display: flex;
-  width: 100%;
-}
-
-.c29[class*="h_"] .c23 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c14 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c27[class*="h_"] .c23 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
 }
 
 .c22 {
@@ -2357,7 +2288,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   max-width: 100%;
 }
 
-.c25 {
+.c24 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -2374,7 +2305,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2405,17 +2336,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   opacity: 1;
 }
 
-.c13[class*="h_"] .c28.c28 {
-  background-color: inherit !important;
-}
-
 .c15 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2477,7 +2404,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -2500,27 +2427,27 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
 }
 
 @media (pointer: coarse) {
-  .c24:active {
+  .c23:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c24:hover {
+  .c23:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c24.c24:active {
+  .c23.c23:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c24.c24:hover {
+  .c23.c23:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -2571,6 +2498,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           
         </span>
@@ -2603,6 +2532,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           warning
         </span>
@@ -2638,6 +2569,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
           data-role="month-selector-wrapper"
         >
           <select
+            aria-invalid="true"
             class="c17 field__selectTitle field__selectTitle--error field__selectTitle--warning"
             data-role="month-selector-input"
           >
@@ -2749,14 +2681,15 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
             data-role="text-field-control"
           >
             <div
-              class="c23 c24 field__input field__input--warning field__input--error"
+              class="c23 field__input field__input--warning field__input--error"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c25 supported-unseen-span"
+                class="c24 supported-unseen-span"
               />
               <input
-                class="c26 field__text"
+                aria-invalid="true"
+                class="c25 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -2765,7 +2698,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
                 value="2018"
               />
               <span
-                class="c25 supported-unseen-span"
+                class="c24 supported-unseen-span"
               />
             </div>
           </div>
@@ -2777,12 +2710,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error state 1`] = `
-.c15 {
+.c14 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2800,18 +2733,18 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   width: 100%;
 }
 
-.c15::placeholder {
+.c14::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c13 {
+.c12 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2840,25 +2773,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   max-width: 100%;
 }
 
-.c18 .c10 {
-  display: flex;
-  width: 100%;
-}
-
-.c18[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c16[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
 }
 
 .c11 {
@@ -2870,7 +2788,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   max-width: 100%;
 }
 
-.c14 {
+.c13 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -2887,7 +2805,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -2918,17 +2836,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   opacity: 1;
 }
 
-.c2[class*="h_"] .c17.c17 {
-  background-color: inherit !important;
-}
-
 .c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2990,7 +2904,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -3009,27 +2923,27 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
 }
 
 @media (pointer: coarse) {
-  .c13:active {
+  .c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c13.c13:active {
+  .c12.c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c13.c13:hover {
+  .c12.c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -3083,6 +2997,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
           data-role="month-selector-wrapper"
         >
           <select
+            aria-invalid="true"
             class="c6 field__selectTitle field__selectTitle--error"
             data-role="month-selector-input"
           >
@@ -3194,14 +3109,15 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
             data-role="text-field-control"
           >
             <div
-              class="c12 c13 field__input field__input--error"
+              class="c12 field__input field__input--error"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
               <input
-                class="c15 field__text"
+                aria-invalid="true"
+                class="c14 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -3210,7 +3126,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
                 value="2018"
               />
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
             </div>
           </div>
@@ -3222,7 +3138,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with error 
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper text 1`] = `
-.c17 {
+.c16 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -3232,16 +3148,16 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   width: fit-content;
 }
 
-.c16 {
+.c15 {
   display: flex;
 }
 
-.c15 {
+.c14 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -3259,18 +3175,18 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   width: 100%;
 }
 
-.c15::placeholder {
+.c14::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c13 {
+.c12 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -3299,25 +3215,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   max-width: 100%;
 }
 
-.c20 .c10 {
-  display: flex;
-  width: 100%;
-}
-
-.c20[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c18[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
 }
 
 .c11 {
@@ -3329,7 +3230,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   max-width: 100%;
 }
 
-.c14 {
+.c13 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -3346,7 +3247,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -3377,17 +3278,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   opacity: 1;
 }
 
-.c2[class*="h_"] .c19.c19 {
-  background-color: inherit !important;
-}
-
 .c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3449,7 +3346,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -3468,14 +3365,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
 }
 
 @media (pointer: coarse) {
-  .c13:active {
+  .c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -3640,14 +3537,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
             data-role="text-field-control"
           >
             <div
-              class="c12 c13 field__input"
+              class="c12 field__input"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
               <input
-                class="c15 field__text"
+                class="c14 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -3656,7 +3553,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
                 value="2018"
               />
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
             </div>
           </div>
@@ -3665,10 +3562,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with helper
     </div>
   </div>
   <div
-    class="c16 field__helper"
+    class="c15 field__helper"
   >
     <label
-      class="c17 field__helper-text"
+      class="c16 field__helper-text"
       data-role="year-month-selector-helper-text"
     >
       Helper text
@@ -3709,12 +3606,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   height: 1px;
 }
 
-.c17 {
+.c16 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -3732,18 +3629,18 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   width: 100%;
 }
 
-.c17::placeholder {
+.c16::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c15 {
+.c14 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -3772,20 +3669,6 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   max-width: 100%;
 }
 
-.c20 .c12 {
-  display: flex;
-  width: 100%;
-}
-
-.c20[class*="h_"] .c14 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c20[class*="h_"] .c4 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c3 {
   box-sizing: border-box;
   flex-grow: 1;
@@ -3797,20 +3680,6 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   width: fit-content;
 }
 
-.c18 .c4 {
-  display: block;
-  width: fit-content;
-}
-
-.c18[class*="h_"] .c14 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c18[class*="h_"] .c4 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c13 {
   display: inline-flex;
 }
@@ -3820,7 +3689,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   max-width: 100%;
 }
 
-.c16 {
+.c15 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -3837,7 +3706,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -3868,17 +3737,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   opacity: 1;
 }
 
-.c2[class*="h_"] .c19.c19 {
-  background-color: inherit !important;
-}
-
 .c6 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -3940,7 +3805,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -3964,14 +3829,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
 }
 
 @media (pointer: coarse) {
-  .c15:active {
+  .c14:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c15:hover {
+  .c14:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -4148,14 +4013,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
               Hidden year label
             </label>
             <div
-              class="c14 c15 field__input"
+              class="c14 field__input"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c16 supported-unseen-span"
+                class="c15 supported-unseen-span"
               />
               <input
-                class="c17 field__text"
+                class="c16 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -4164,7 +4029,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with hidden
                 value="2018"
               />
               <span
-                class="c16 supported-unseen-span"
+                class="c15 supported-unseen-span"
               />
             </div>
           </div>
@@ -4223,6 +4088,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
+}
+
 .c6.c6 {
   color: rgb(5, 104, 174);
 }
@@ -4252,12 +4121,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c23 {
+.c22 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -4275,18 +4144,18 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   width: 100%;
 }
 
-.c23::placeholder {
+.c22::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c21 {
+.c20 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -4315,25 +4184,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   max-width: 100%;
 }
 
-.c26 .c18 {
-  display: flex;
-  width: 100%;
-}
-
-.c26[class*="h_"] .c20 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c11 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c24[class*="h_"] .c20 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
 }
 
 .c19 {
@@ -4345,7 +4199,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   max-width: 100%;
 }
 
-.c22 {
+.c21 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -4362,7 +4216,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -4393,17 +4247,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   opacity: 1;
 }
 
-.c10[class*="h_"] .c25.c25 {
-  background-color: inherit !important;
-}
-
 .c12 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -4465,7 +4315,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -4488,27 +4338,27 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
 }
 
 @media (pointer: coarse) {
-  .c21:active {
+  .c20:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c21:hover {
+  .c20:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c21.c21:active {
+  .c20.c20:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c21.c21:hover {
+  .c20.c20:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -4559,6 +4409,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
@@ -4705,14 +4557,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
             data-role="text-field-control"
           >
             <div
-              class="c20 c21 field__input"
+              class="c20 field__input"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c22 supported-unseen-span"
+                class="c21 supported-unseen-span"
               />
               <input
-                class="c23 field__text"
+                class="c22 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -4721,7 +4573,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
                 value="2018"
               />
               <span
-                class="c22 supported-unseen-span"
+                class="c21 supported-unseen-span"
               />
             </div>
           </div>
@@ -4733,12 +4585,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info m
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info state 1`] = `
-.c15 {
+.c14 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -4756,18 +4608,18 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
   width: 100%;
 }
 
-.c15::placeholder {
+.c14::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c13 {
+.c12 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -4796,25 +4648,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
   max-width: 100%;
 }
 
-.c18 .c10 {
-  display: flex;
-  width: 100%;
-}
-
-.c18[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c16[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
 }
 
 .c11 {
@@ -4826,7 +4663,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
   max-width: 100%;
 }
 
-.c14 {
+.c13 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -4843,7 +4680,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -4874,17 +4711,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
   opacity: 1;
 }
 
-.c2[class*="h_"] .c17.c17 {
-  background-color: inherit !important;
-}
-
 .c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -4946,7 +4779,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -4965,27 +4798,27 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
 }
 
 @media (pointer: coarse) {
-  .c13:active {
+  .c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c13.c13:active {
+  .c12.c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(5, 104, 174) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c13.c13:hover {
+  .c12.c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -5150,14 +4983,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
             data-role="text-field-control"
           >
             <div
-              class="c12 c13 field__input"
+              class="c12 field__input"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
               <input
-                class="c15 field__text"
+                class="c14 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -5166,7 +4999,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with info s
                 value="2018"
               />
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
             </div>
           </div>
@@ -5197,6 +5030,38 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   height: 1px;
 }
 
+.c5 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: custom-icons;
+  font-variation-settings: normal;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c5 > span {
+  display: inline-block;
+}
+
+.c5.c5 {
+  max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
+}
+
 .c10 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -5225,32 +5090,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   max-width: unset;
 }
 
-.c5 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: custom-icons;
-  font-variation-settings: normal;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c5 > span {
-  display: inline-block;
-}
-
-.c5.c5 {
-  max-width: unset;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c10 {
+  color: inherit;
 }
 
 .c6.c6 {
@@ -5297,12 +5138,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c26 {
+.c25 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -5320,18 +5161,18 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   width: 100%;
 }
 
-.c26::placeholder {
+.c25::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c24 {
+.c23 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -5360,25 +5201,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   max-width: 100%;
 }
 
-.c29 .c21 {
-  display: flex;
-  width: 100%;
-}
-
-.c29[class*="h_"] .c23 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c14 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c27[class*="h_"] .c23 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
 }
 
 .c22 {
@@ -5390,7 +5216,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   max-width: 100%;
 }
 
-.c25 {
+.c24 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -5407,7 +5233,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -5438,17 +5264,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   opacity: 1;
 }
 
-.c13[class*="h_"] .c28.c28 {
-  background-color: inherit !important;
-}
-
 .c15 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -5510,7 +5332,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -5533,14 +5355,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
 }
 
 @media (pointer: coarse) {
-  .c24:active {
+  .c23:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c24:hover {
+  .c23:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -5591,6 +5413,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           
         </span>
@@ -5623,6 +5447,8 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           warning
         </span>
@@ -5658,6 +5484,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
           data-role="month-selector-wrapper"
         >
           <select
+            aria-invalid="true"
             class="c17 field__selectTitle field__selectTitle--error field__selectTitle--warning"
             data-role="month-selector-input"
           >
@@ -5769,14 +5596,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
             data-role="text-field-control"
           >
             <div
-              class="c23 c24 field__input"
+              class="c23 field__input"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c25 supported-unseen-span"
+                class="c24 supported-unseen-span"
               />
               <input
-                class="c26 field__text"
+                class="c25 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -5785,7 +5612,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
                 value="2018"
               />
               <span
-                class="c25 supported-unseen-span"
+                class="c24 supported-unseen-span"
               />
             </div>
           </div>
@@ -5797,12 +5624,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with one in
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with tooltip 1`] = `
-.c15 {
+.c14 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -5820,18 +5647,18 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
   width: 100%;
 }
 
-.c15::placeholder {
+.c14::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c13 {
+.c12 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -5860,25 +5687,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
   max-width: 100%;
 }
 
-.c18 .c10 {
-  display: flex;
-  width: 100%;
-}
-
-.c18[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c16[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
 }
 
 .c11 {
@@ -5890,7 +5702,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
   max-width: 100%;
 }
 
-.c14 {
+.c13 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -5907,7 +5719,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -5938,17 +5750,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
   opacity: 1;
 }
 
-.c2[class*="h_"] .c17.c17 {
-  background-color: inherit !important;
-}
-
 .c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -6010,7 +5818,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -6029,14 +5837,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
 }
 
 @media (pointer: coarse) {
-  .c13:active {
+  .c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -6206,14 +6014,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
             data-role="text-field-control"
           >
             <div
-              class="c12 c13 field__input"
+              class="c12 field__input"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
               <input
-                class="c15 field__text"
+                class="c14 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -6222,7 +6030,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
                 value="2018"
               />
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
             </div>
           </div>
@@ -6234,12 +6042,12 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with toolti
 `;
 
 exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warning state 1`] = `
-.c15 {
+.c14 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -6257,18 +6065,18 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
   width: 100%;
 }
 
-.c15::placeholder {
+.c14::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c13 {
+.c12 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -6297,25 +6105,10 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
   max-width: 100%;
 }
 
-.c18 .c10 {
-  display: flex;
-  width: 100%;
-}
-
-.c18[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
 .c3 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
-}
-
-.c16[class*="h_"] .c12 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
 }
 
 .c11 {
@@ -6327,7 +6120,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
   max-width: 100%;
 }
 
-.c14 {
+.c13 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -6344,7 +6137,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -6375,17 +6168,13 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
   opacity: 1;
 }
 
-.c2[class*="h_"] .c17.c17 {
-  background-color: inherit !important;
-}
-
 .c4 {
   background-color: transparent;
   box-shadow: none;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -6447,7 +6236,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {
@@ -6466,27 +6255,27 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
 }
 
 @media (pointer: coarse) {
-  .c13:active {
+  .c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c13:hover {
+  .c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c13.c13:active {
+  .c12.c12:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c13.c13:hover {
+  .c12.c12:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -6651,14 +6440,14 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
             data-role="text-field-control"
           >
             <div
-              class="c12 c13 field__input field__input--warning"
+              class="c12 field__input field__input--warning"
               data-role="text-field-input-wrapper"
             >
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
               <input
-                class="c15 field__text"
+                class="c14 field__text"
                 data-role="year-selector-input"
                 inputmode="numeric"
                 maxlength="4"
@@ -6667,7 +6456,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering with warnin
                 value="2018"
               />
               <span
-                class="c14 supported-unseen-span"
+                class="c13 supported-unseen-span"
               />
             </div>
           </div>
@@ -6684,7 +6473,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -6713,7 +6502,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -6774,7 +6563,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   caret-color: transparent;
   color: inherit;
@@ -6811,7 +6600,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -6873,7 +6662,7 @@ exports[`com.mgmtp.a12.widgets.input.year-month-selector > rendering year month 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
 }
 
 .c0:not(.DayPicker-Caption) [data-role="year-selector"] {

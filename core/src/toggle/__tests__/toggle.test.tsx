@@ -31,38 +31,31 @@
  */
 
 import { fireEvent, queryHelpers, render } from "test-utils";
-import { describe, test, expect, vi, beforeEach, afterEach } from "vitest";
+import { describe, test, expect, vi } from "vitest";
 
-import { Key } from "../../common/main/utils.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { Key } from "../../common/main/utils.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-
 import { Toggle } from "../main/toggle.view.js";
 
 describe("com.mgmtp.a12.widgets.toggle", () => {
-	beforeEach(() => {
-		vi.spyOn(global.Math, "random").mockReturnValue(0.123456789);
-	});
-
-	afterEach(() => {
-		vi.spyOn(global.Math, "random").mockRestore();
-	});
-
 	const toggleLabel = "Toggles";
+	// Explicit ids on purpose. Without them the snapshots below would store the id `useId()` makes,
+	// and those count up as the tests run — so adding a test above here would break all three snapshots.
 	const toggleItems = [
-		<Toggle.Item key={1} value="1">
+		<Toggle.Item key={1} value="1" id="toggle-item-1">
 			1
 		</Toggle.Item>,
-		<Toggle.Item key={2} value="2">
+		<Toggle.Item key={2} value="2" id="toggle-item-2">
 			2
 		</Toggle.Item>,
-		<Toggle.Item key={3} value="3" id="12345">
+		<Toggle.Item key={3} value="3" id="toggle-item-3">
 			3
 		</Toggle.Item>,
-		<Toggle.Item key={4} value="4" disabled>
+		<Toggle.Item key={4} value="4" id="toggle-item-4" disabled>
 			disabled
 		</Toggle.Item>,
-		<Toggle.Item key={5} value="5" readOnly>
+		<Toggle.Item key={5} value="5" id="toggle-item-5" readOnly>
 			readonly
 		</Toggle.Item>
 	];
@@ -93,7 +86,6 @@ describe("com.mgmtp.a12.widgets.toggle", () => {
 	/**
 	 * Testing if toggle with children is rendered:
 	 *  - Toggle widget should render all passed items.
-	 *  - When not specified, toggle item should generate an id.
 	 *  - Selected item should have class ${toggleItemBaseClass}--selected.
 	 *  - Readonly item should have class ${toggleItemBaseClass}--readonly.
 	 *  - Disabled item should have class ${toggleItemBaseClass}--disabled.

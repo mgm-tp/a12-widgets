@@ -33,10 +33,10 @@
 import { styled, css } from "styled-components";
 
 import { Icon, StyledIconWrapper, StyledVariantIconWrapper } from "../../icon/main/icon.view.js";
-import { hover as hoverSelector } from "../../theme/base/mixins/_interaction.js";
-import type { DefaultThemeType } from "../../theme/schema.js";
 import type { CustomBorder } from "../../theme/base/mixins/_borderEffects.js";
 import { createBorder } from "../../theme/base/mixins/_borderEffects.js";
+import { hover as hoverSelector } from "../../theme/base/mixins/_interaction.js";
+import type { DefaultThemeType } from "../../theme/schema.js";
 
 const interactionStyles = (params: {
 	background: string;
@@ -132,13 +132,15 @@ const baseStyles = (params: {
 	const { interactiveTile } = theme.components;
 
 	return css`
-		${$disabled
-			? getDisabledStyles(interactiveTile[type].disabled)
-			: css`
-					${getBaseTileVariantStyles(interactiveTile[type])}
-					${$active && getBaseTileVariantStyles(interactiveTile[type].activated)}
-          ${$selected && getBaseTileVariantStyles(interactiveTile[type].selected)}
-				`}
+		${
+			$disabled
+				? getDisabledStyles(interactiveTile[type].disabled)
+				: css`
+						${getBaseTileVariantStyles(interactiveTile[type])}
+						${$active && getBaseTileVariantStyles(interactiveTile[type].activated)}
+						${$selected && getBaseTileVariantStyles(interactiveTile[type].selected)}
+					`
+		}
 	`;
 };
 
@@ -197,16 +199,20 @@ export const StyledInteractiveTile = styled.div.withConfig({ displayName: "Style
 		text-transform: ${interactiveTile.textTransform};
 		vertical-align: middle;
 
-		${$primary &&
-		css`
-			box-shadow: ${interactiveTile.primary.boxShadow};
-			${baseStyles({ type: "primary", theme, $active, $selected, $disabled })}
-		`}
+		${
+			$primary &&
+			css`
+				box-shadow: ${interactiveTile.primary.boxShadow};
+				${baseStyles({ type: "primary", theme, $active, $selected, $disabled })}
+			`
+		}
 
-		${isSecondary &&
-		css`
-			${baseStyles({ type: "secondary", theme, $active, $selected, $disabled })}
-		`}
+		${
+			isSecondary &&
+			css`
+				${baseStyles({ type: "secondary", theme, $active, $selected, $disabled })}
+			`
+		}
 	`;
 });
 
@@ -220,14 +226,18 @@ export const StyledSelectedTileIcon = styled(Icon).withConfig({ displayName: "St
 	return css`
 		position: absolute;
 
-		${$primary &&
-		css`
-			${selectedTileIconStyles({ type: "primary", theme })};
-		`}
+		${
+			$primary &&
+			css`
+				${selectedTileIconStyles({ type: "primary", theme })};
+			`
+		}
 
-		${isSecondary &&
-		css`
-			${selectedTileIconStyles({ type: "secondary", theme })};
-		`}
+		${
+			isSecondary &&
+			css`
+				${selectedTileIconStyles({ type: "secondary", theme })};
+			`
+		}
 	`;
 });

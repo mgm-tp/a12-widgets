@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { BaseThemeCore } from "../../schema.js";
 import type { CustomBorder } from "../../../base/mixins/_borderEffects.js";
+import type { BaseThemeCore } from "../../schema.js";
 import { mergeConfig } from "../../utils/merge-config.js";
 
 import { commonButtonConfigs } from "./button.config.js";

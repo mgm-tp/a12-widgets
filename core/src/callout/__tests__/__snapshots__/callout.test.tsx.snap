@@ -337,6 +337,10 @@ exports[`com.mgmtp.a12.widgets.callout.template > rendering-callout-inner-contai
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c6 {
+  color: inherit;
+}
+
 .c4 {
   align-items: center;
   border: 2px solid transparent;
@@ -379,6 +383,10 @@ exports[`com.mgmtp.a12.widgets.callout.template > rendering-callout-inner-contai
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c4.c4 {
@@ -552,6 +560,8 @@ exports[`com.mgmtp.a12.widgets.callout.template > rendering-callout-inner-contai
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               chevron_left
             </span>
@@ -581,6 +591,8 @@ exports[`com.mgmtp.a12.widgets.callout.template > rendering-callout-inner-contai
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>

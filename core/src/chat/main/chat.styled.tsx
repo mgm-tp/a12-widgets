@@ -88,41 +88,47 @@ export const StyledMessageGroup = styled.div.withConfig({ displayName: "StyledMe
 		${StyledMessageWrapper} ${StyledMessageBubble} {
 			background-color: ${message.background[position]};
 			border-color: ${message.borderColor[position]};
-			${position === "left"
-				? css`
-						margin-left: ${message.bubble.horizontalMargin};
-					`
-				: css`
-						margin-right: ${message.bubble.horizontalMargin};
-					`}
+			${
+				position === "left"
+					? css`
+							margin-left: ${message.bubble.horizontalMargin};
+						`
+					: css`
+							margin-right: ${message.bubble.horizontalMargin};
+						`
+			}
 		}
 
-		${position === "right" &&
-		css`
-			${StyledMessageWrapper} ${StyledMessageContainer} {
-				justify-content: flex-end;
-			}
-		`}
+		${
+			position === "right" &&
+			css`
+				${StyledMessageWrapper} ${StyledMessageContainer} {
+					justify-content: flex-end;
+				}
+			`
+		}
 
-		${position === "left"
-			? css`
-					${StyledMessageWrapper} {
-						padding-right: 5%;
-					}
-					${StyledMessageWrapper}:not(${StyledMessageWrapper} ~ ${StyledMessageWrapper}) {
-						${createLeftArrow}
-					}
-				`
-			: css`
-					${StyledMessageWrapper} {
-						padding-left: 5%;
-					}
-					${StyledMessageWrapper}:not(${StyledMessageWrapper} ~ ${StyledMessageWrapper}) {
-						${createRightArrow}
-					}
-				`}
+		${
+			position === "left"
+				? css`
+						${StyledMessageWrapper} {
+							padding-right: 5%;
+						}
+						${StyledMessageWrapper}:not(${StyledMessageWrapper} ~ ${StyledMessageWrapper}) {
+							${createLeftArrow}
+						}
+					`
+				: css`
+						${StyledMessageWrapper} {
+							padding-left: 5%;
+						}
+						${StyledMessageWrapper}:not(${StyledMessageWrapper} ~ ${StyledMessageWrapper}) {
+							${createRightArrow}
+						}
+					`
+		}
 
-			${StyledDateMarker}	+ & {
+		${StyledDateMarker} + & {
 			padding-top: 0;
 		}
 	`;
@@ -191,19 +197,23 @@ export const StyledNotificationWrapper = styled.div.withConfig({ displayName: "S
 		transition:
 			visibility 0.4s,
 			opacity 0.4s linear;
-		${!!onClick &&
-		css`
-			cursor: pointer;
-		`}
-		${show
-			? css`
-					visibility: visible;
-					opacity: 1;
-				`
-			: css`
-					visibility: hidden;
-					opacity: 0;
-				`}
+		${
+			!!onClick &&
+			css`
+				cursor: pointer;
+			`
+		}
+		${
+			show
+				? css`
+						visibility: visible;
+						opacity: 1;
+					`
+				: css`
+						visibility: hidden;
+						opacity: 0;
+					`
+		}
 	`;
 });
 
@@ -256,13 +266,15 @@ export const StyledAvatarWrapper = styled.div.withConfig({ displayName: "StyledA
 
 	return css`
 		display: flex;
-		${position === "left"
-			? css`
-					margin-right: ${spacing};
-				`
-			: css`
-					margin-left: ${spacing};
-				`}
+		${
+			position === "left"
+				? css`
+						margin-right: ${spacing};
+					`
+				: css`
+						margin-left: ${spacing};
+					`
+		}
 	`;
 });
 
@@ -282,10 +294,12 @@ export const StyledUserName = styled.div.withConfig({ displayName: "StyledUserNa
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		${position === "right" &&
-		css`
-			text-align: right;
-		`}
+		${
+			position === "right" &&
+			css`
+				text-align: right;
+			`
+		}
 	`;
 });
 
@@ -295,10 +309,12 @@ export const StyledUserInfo = styled.div.withConfig({ displayName: "StyledUserIn
 	return css`
 		display: flex;
 		width: 100%;
-		${position === "right" &&
-		css`
-			flex-direction: row-reverse;
-		`}
+		${
+			position === "right" &&
+			css`
+				flex-direction: row-reverse;
+			`
+		}
 	`;
 });
 
@@ -372,13 +388,15 @@ export const StyledMessageBubble = styled.div.withConfig({ displayName: "StyledM
 			width: 6px;
 		}
 
-		${position === "left"
-			? css`
-					margin-left: ${message.bubble.horizontalMargin};
-				`
-			: css`
-					margin-right: ${message.bubble.horizontalMargin};
-				`}
+		${
+			position === "left"
+				? css`
+						margin-left: ${message.bubble.horizontalMargin};
+					`
+				: css`
+						margin-right: ${message.bubble.horizontalMargin};
+					`
+		}
 	`;
 });
 
@@ -420,10 +438,12 @@ export const StyledMessageContainer = styled.div.withConfig({ displayName: "Styl
 		display: flex;
 		flex-wrap: wrap;
 
-		${position === "right" &&
-		css`
-			justify-content: flex-end;
-		`}
+		${
+			position === "right" &&
+			css`
+				justify-content: flex-end;
+			`
+		}
 	`;
 });
 
@@ -476,24 +496,28 @@ export const StyledNotificationContainer = styled.div.withConfig({ displayName: 
 		margin: ${notification.margin};
 		width: ${notification.width};
 
-		${fixedToBottom &&
-		css`
-			bottom: 0;
-			position: absolute;
-			left: 50%;
-			margin: ${notification.fixedToBottom.margin};
-			transform: translateX(-50%);
-			width: ${notification.fixedToBottom.width};
-		`}
+		${
+			fixedToBottom &&
+			css`
+				bottom: 0;
+				position: absolute;
+				left: 50%;
+				margin: ${notification.fixedToBottom.margin};
+				transform: translateX(-50%);
+				width: ${notification.fixedToBottom.width};
+			`
+		}
 
-		${variant !== "info" &&
-		css`
-			${StyledNotificationContent} {
-				background-color: ${notification.background[variant]};
-			}
-		`}
+		${
+			variant !== "info" &&
+			css`
+				${StyledNotificationContent} {
+					background-color: ${notification.background[variant]};
+				}
+			`
+		}
 
-			& + ${StyledMessageWrapper}, & + ${StyledMessageGroup} {
+		& + ${StyledMessageWrapper}, & + ${StyledMessageGroup} {
 			padding-top: 0;
 		}
 	`;

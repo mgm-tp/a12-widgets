@@ -33,16 +33,16 @@
 import type { ReactElement } from "react";
 import { useContext } from "react";
 
-import { addPrefix, joinClassNames } from "../../common/main/utils.js";
+import type { ButtonProps } from "../../button/main/button.api.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import type { ButtonProps } from "../../button/main/button.api.js";
-import { Icon } from "../../icon/main/icon.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { addPrefix, joinClassNames } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 
-import { StyledDatePicker, StyledDatePickerTemplate, StyledPickerHeaderButton } from "./date-picker.styled.js";
 import type { DatePickerFooterActionProps, DatePickerFooterProps } from "./date-picker.api.js";
 import { DatePickerContext } from "./date-picker.context.js";
+import { StyledDatePicker, StyledDatePickerTemplate, StyledPickerHeaderButton } from "./date-picker.styled.js";
 
 const baseClassName = addPrefix("DayPicker");
 

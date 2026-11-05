@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { RichTextEditorProps } from "../rich-text-editor.api.js";
-import type { TooltipPluginConfig } from "../plugins/tooltip-plugin/tooltip-plugin.api.js";
-import type { MentionPluginProps } from "../plugins/mentions-plugin/mention-plugin.api.js";
-import type { SpellCheckConfig, SpellCheckPopupProps } from "../plugins/spell-check-plugin/spell-check-plugin.api.js";
 import type { AutoLinkPluginProps } from "../plugins/auto-link-plugin/auto-link.api.js";
 import type { FollowLinkPopupProps } from "../plugins/follow-link-popup-plugin/follow-link-popup-plugin.api.js";
+import type { MentionPluginProps } from "../plugins/mentions-plugin/mention-plugin.api.js";
 import type { OutPutPluginProps } from "../plugins/output-plugin/output-plugin.api.js";
+import type { SpellCheckConfig, SpellCheckPopupProps } from "../plugins/spell-check-plugin/spell-check-plugin.api.js";
+import type { TooltipPluginConfig } from "../plugins/tooltip-plugin/tooltip-plugin.api.js";
+import type { RichTextEditorProps } from "../rich-text-editor.api.js";
 
 export interface DefaultRichTextEditorProps extends Partial<RichTextEditorProps> {
 	/**

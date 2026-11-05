@@ -55,7 +55,7 @@ exports[`com.mgmtp.a12.widgets.table.virtualized-body > List 1`] = `
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -108,7 +108,7 @@ exports[`com.mgmtp.a12.widgets.table.virtualized-body > List 1`] = `
     border-width: medium medium 1px;
     border-style: none none solid;
     border-color: currentcolor currentcolor rgb(211, 214, 220);
-    border-image: initial;
+    border-image: none;
     box-sizing: border-box;
   }
 
@@ -294,7 +294,7 @@ exports[`com.mgmtp.a12.widgets.table.virtualized-body > TableTemplate.Body 1`] =
   border-width: 1px 1px medium;
   border-style: solid solid none;
   border-color: rgb(241, 242, 244) rgb(241, 242, 244) transparent;
-  border-image: initial;
+  border-image: none;
   outline: none;
 }
 
@@ -347,7 +347,7 @@ exports[`com.mgmtp.a12.widgets.table.virtualized-body > TableTemplate.Body 1`] =
     border-width: medium medium 1px;
     border-style: none none solid;
     border-color: currentcolor currentcolor rgb(211, 214, 220);
-    border-image: initial;
+    border-image: none;
     box-sizing: border-box;
   }
 

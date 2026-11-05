@@ -34,18 +34,32 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Status, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 
+const variantIcons = {
+	info: "info",
+	success: "check_circle",
+	warning: "warning",
+	error: "error"
+} as const;
+
 const meta: Meta<typeof Status> = {
 	title: "Data Display/Status",
 	component: Status,
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		variant: {
 			control: "select",
 			options: ["info", "success", "warning", "error"],
-			description: "Visual variant — controls color and default icon"
+			description: "Visual variant — controls the color scheme (`info` by default)"
+		},
+		icon: {
+			control: false,
+			description: "Element shown as the status icon, typically an `Icon`"
+		},
+		children: {
+			control: "text",
+			description: "Content of the status message"
 		}
 	}
 };
@@ -53,7 +67,7 @@ const meta: Meta<typeof Status> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		variant: "info",
 		icon: <Icon>info</Icon>,
@@ -61,35 +75,30 @@ export const Default: Story = {
 	}
 };
 
-export const Info: Story = {
-	args: {
-		variant: "info",
-		icon: <Icon>info</Icon>,
-		children: "This record is currently under review."
-	}
-};
-
-export const Success: Story = {
-	args: {
-		variant: "success",
-		icon: <Icon>check_circle</Icon>,
-		children: "The process completed successfully."
-	}
-};
-
-export const Warning: Story = {
-	args: {
-		variant: "warning",
-		icon: <Icon>warning</Icon>,
-		children: "Some fields require your attention."
-	}
-};
-
-export const Error: Story = {
-	args: {
-		variant: "error",
-		icon: <Icon>error</Icon>,
-		children: "Submission failed — please correct the errors below."
+export const Variants: Story = {
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+			<Status variant="info" icon={<Icon>info</Icon>}>
+				This record is currently under review.
+			</Status>
+			<Status variant="success" icon={<Icon>check_circle</Icon>}>
+				The process completed successfully.
+			</Status>
+			<Status variant="warning" icon={<Icon>warning</Icon>}>
+				Some fields require your attention.
+			</Status>
+			<Status variant="error" icon={<Icon>error</Icon>}>
+				Submission failed — please correct the errors below.
+			</Status>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `variant` prop selects the color scheme: `info`, `success`, `warning` or `error`. Pair it with a matching `icon` to reinforce the meaning."
+			}
+		}
 	}
 };
 
@@ -97,5 +106,33 @@ export const NoIcon: Story = {
 	args: {
 		variant: "info",
 		children: "A status message without an icon."
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`icon` is optional — without it the status renders text only."
+			}
+		}
+	}
+};
+
+export const LongText: Story = {
+	render: () => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "360px" }}>
+			{(["info", "warning"] as const).map((variant) => (
+				<Status key={variant} variant={variant} icon={<Icon>{variantIcons[variant]}</Icon>}>
+					This status message is intentionally long so that it wraps onto multiple lines, demonstrating how the icon
+					aligns to the top edge of the text instead of staying vertically centered.
+				</Status>
+			))}
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"When the content wraps onto multiple lines, the `icon` automatically aligns to the top of the text instead of being vertically centered."
+			}
+		}
 	}
 };

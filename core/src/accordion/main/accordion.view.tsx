@@ -35,11 +35,12 @@ import { createContext, useCallback, useContext, useState, Children, isValidElem
 
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import { addPrefix, joinClassNames } from "../../common/main/utils.js";
+import type { IconTheme } from "../../icon/index.js";
 import { Icon } from "../../icon/main/icon.view.js";
 import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
 import type { AccordionContextType, AccordionVariant, AccordionProps } from "./accordion.api.js";
 import {
@@ -55,46 +56,25 @@ const baseClassName = addPrefix("accordion");
 export const AccordionContext = createContext<AccordionContextType>({});
 
 function renderVariantIcon(variant?: AccordionVariant): ReactNode {
-	switch (variant) {
-		case "open":
-			return (
-				<Icon iconTheme="filled" data-variant-type={variant}>
-					radio_button_unchecked
-				</Icon>
-			);
-		case "info":
-			return (
-				<Icon iconTheme="filled" data-variant-type={variant}>
-					info
-				</Icon>
-			);
-		case "error":
-			return (
-				<Icon iconTheme="custom" data-variant-type={variant}>
-					error
-				</Icon>
-			);
-		case "warning":
-			return (
-				<Icon iconTheme="filled" data-variant-type={variant}>
-					warning
-				</Icon>
-			);
-		case "done":
-			return (
-				<Icon iconTheme="filled" data-variant-type={variant}>
-					check_circle
-				</Icon>
-			);
-		case "inProgress":
-			return (
-				<Icon iconTheme="filled" data-variant-type={variant}>
-					pending
-				</Icon>
-			);
-		default:
-			return;
+	if (!variant) {
+		return;
 	}
+
+	const data: Record<AccordionVariant, { name: string; iconTheme: IconTheme }> = {
+		open: { name: "radio_button_unchecked", iconTheme: "filled" },
+		info: { name: "info", iconTheme: "filled" },
+		error: { name: "error", iconTheme: "custom" },
+		warning: { name: "warning", iconTheme: "filled" },
+		inProgress: { name: "contrast", iconTheme: "filled" },
+		done: { name: "check_circle", iconTheme: "filled" }
+	};
+	const { name, iconTheme } = data[variant];
+
+	return (
+		<Icon iconTheme={iconTheme} data-variant-type={variant}>
+			{name}
+		</Icon>
+	);
 }
 
 export namespace Accordion {

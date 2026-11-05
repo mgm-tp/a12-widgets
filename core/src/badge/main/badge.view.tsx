@@ -35,14 +35,14 @@ import { useContext, useRef, useCallback, useEffect, useMemo } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { styled, css } from "styled-components";
 
-import { joinClassNames, addPrefix } from "../../common/main/utils.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { joinClassNames, addPrefix } from "../../common/main/utils.js";
 
-import type { BadgeProps } from "./badge.api.js";
 import { getBadgeTitle } from "./badge-utils.js";
+import type { BadgeProps } from "./badge.api.js";
 
 const baseClassName = addPrefix("badge");
 const wrapperBaseClassName = addPrefix("badge-wrapper");
@@ -67,23 +67,27 @@ export const StyledBadge = styled.span.withConfig({ displayName: "StyledBadge-sc
 			transform: scale(1);
 			transition: ${badge.transition};
 
-			${light && variant == "info"
-				? css`
-						background-color: ${badge.background.light};
-						color: ${badge.colorVariant?.light};
-					`
-				: variant &&
-					css`
-						background-color: ${badge.background[variant]};
-						color: ${badge.colorVariant?.[variant]};
-					`}
+			${
+				light && variant == "info"
+					? css`
+							background-color: ${badge.background.light};
+							color: ${badge.colorVariant?.light};
+						`
+					: variant &&
+						css`
+							background-color: ${badge.background[variant]};
+							color: ${badge.colorVariant?.[variant]};
+						`
+			}
 
-			${tiny &&
-			css`
-				height: ${badge.tiny.height};
-				padding: 0;
-				width: ${badge.tiny.width};
-			`}
+			${
+				tiny &&
+				css`
+					height: ${badge.tiny.height};
+					padding: 0;
+					width: ${badge.tiny.width};
+				`
+			}
 		`;
 	}
 );
@@ -97,20 +101,22 @@ export const StyledBadgeWrapper = styled.span.withConfig({ displayName: "StyledB
 			display: inline-flex;
 			position: ${standalone ? "static" : "absolute"};
 
-			${shouldIgnoreDefaultPosition
-				? css`
-						&&& {
-							top: ${position?.top !== undefined ? `${position?.top}px` : "unset"};
-							right: ${position?.right !== undefined ? `${position?.right}px` : "unset"};
-							bottom: ${position?.bottom !== undefined ? `${position?.bottom}px` : "unset"};
-							left: ${position?.left !== undefined ? `${position?.left}px` : "unset"};
-						}
-					`
-				: !standalone &&
-					!tiny &&
-					css`
-						top: calc(${badge.height} * -0.675);
-					`}
+			${
+				shouldIgnoreDefaultPosition
+					? css`
+							&&& {
+								top: ${position?.top !== undefined ? `${position?.top}px` : "unset"};
+								right: ${position?.right !== undefined ? `${position?.right}px` : "unset"};
+								bottom: ${position?.bottom !== undefined ? `${position?.bottom}px` : "unset"};
+								left: ${position?.left !== undefined ? `${position?.left}px` : "unset"};
+							}
+						`
+					: !standalone &&
+						!tiny &&
+						css`
+							top: calc(${badge.height} * -0.675);
+						`
+			}
 
 			&.${wrapperBaseClassName}-exit-active ${StyledBadge} {
 				transform: scale(0);
@@ -133,11 +139,13 @@ export const StyledTinyBadgeWrapper = styled(StyledBadgeWrapper).withConfig({
 	const { badge } = theme.components;
 
 	return css`
-		${tiny &&
-		css`
-			right: calc(${badge.tiny.width} * -0.5);
-			top: calc(${badge.tiny.height} * -0.5);
-		`}
+		${
+			tiny &&
+			css`
+				right: calc(${badge.tiny.width} * -0.5);
+				top: calc(${badge.tiny.height} * -0.5);
+			`
+		}
 	`;
 });
 

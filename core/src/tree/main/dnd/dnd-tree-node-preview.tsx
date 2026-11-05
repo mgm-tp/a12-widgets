@@ -34,9 +34,8 @@ import type { ReactNode } from "react";
 import { useDragLayer } from "react-dnd";
 
 import { addPrefix } from "../../../common/main/utils.js";
-
-import { TreeNodeTemplateRecursive } from "../tpl/tree.tpl.view.js";
 import { StyledTreeNodePreview } from "../tpl/tree-elements.styled.js";
+import { TreeNodeTemplateRecursive } from "../tpl/tree.tpl.view.js";
 
 import type { DndTreeNodePreviewProps } from "./dnd-tree.api.js";
 

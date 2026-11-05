@@ -30,15 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC, ReactElement } from "react";
 import type { Matcher, MatcherOptions, RenderOptions } from "@testing-library/react";
 import { render, queries, queryHelpers, buildQueries, within } from "@testing-library/react";
+import type { FC, ReactElement } from "react";
 import type { DefaultTheme } from "styled-components";
 import { StyleSheetManager, ThemeProvider } from "styled-components";
 import { vi } from "vitest";
 
+import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
 import { getDefaultTheme } from "../../theme/default/default-theme.js";
-
+import { TooltipConfigProvider } from "../../tooltip/main/tooltip-context.js";
 import type { Container } from "../main/base-props.js";
 import type { DeviceClass } from "../main/device-detector.js";
 import { provider } from "../main/device-detector.js";
@@ -51,12 +52,28 @@ interface CustomRenderOptions extends Omit<RenderOptions, "wrapper" | "queries">
 
 const defaultTheme = getDefaultTheme();
 
+/**
+ * Interaction hints and tooltips wait out a delay (200-500ms in production) before appearing or
+ * disappearing, which real-timer tests would otherwise pay in full. A small non-zero delay keeps them fast
+ * without racing the first render: at 0ms the overlay intermittently never mounts at all.
+ */
+const TEST_OVERLAY_DELAY = 50;
+
 const createProviders =
 	(theme: DefaultTheme): FC<Container> =>
 	({ children }) => (
 		<StyleSheetManager shouldForwardProp={shouldForwardProp}>
 			<ThemeProvider theme={theme}>
-				<WidgetsRoot>{children}</WidgetsRoot>
+				{/*
+				 * Tests inherit a short hint delay instead of the production one. Nested
+				 * `InteractionHintConfigProvider`s in tests merge on top of this, so they keep it. Tests that assert
+				 * the delay itself must set `showDelay` explicitly.
+				 */}
+				<InteractionHintConfigProvider showDelay={TEST_OVERLAY_DELAY}>
+					<TooltipConfigProvider showDelay={TEST_OVERLAY_DELAY} hideDelay={TEST_OVERLAY_DELAY}>
+						<WidgetsRoot>{children}</WidgetsRoot>
+					</TooltipConfigProvider>
+				</InteractionHintConfigProvider>
 			</ThemeProvider>
 		</StyleSheetManager>
 	);
@@ -138,4 +155,9 @@ export function createReferenceElement(): HTMLElement {
 
 export function removeReferenceElement(referenceElement: HTMLElement): void {
 	document.body.removeChild(referenceElement);
+}
+
+/** True when `candidate` appears after `reference` in document order. */
+export function isAfter(reference: Element, candidate: Element): boolean {
+	return Boolean(reference.compareDocumentPosition(candidate) & Node.DOCUMENT_POSITION_FOLLOWING);
 }

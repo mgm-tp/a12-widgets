@@ -38,13 +38,12 @@ import { DragAndDropUtils } from "../../../common/main/drag-and-drop-utils.js";
 import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import type { TreeNodeTemplateModel } from "../../main/tpl/tree.tpl.api.js";
 import { StyledTreeContext } from "../../main/tpl/tree.tpl.api.js";
-
 import { TreeNode } from "../tpl/tree-elements.tpl.js";
 
+import { TreeInsertTarget } from "./dnd-insert-target.view.js";
+import { DndTreeNodePreview } from "./dnd-tree-node-preview.js";
 import type { DnDTreeNode, DnDTreeNodeProps, DnDTreeProps } from "./dnd-tree.api.js";
 import { TreeNodeDropType } from "./dnd-tree.api.js";
-import { DndTreeNodePreview } from "./dnd-tree-node-preview.js";
-import { TreeInsertTarget } from "./dnd-insert-target.view.js";
 
 const baseClassName = addPrefix("treeWidget");
 

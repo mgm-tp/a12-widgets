@@ -1,0 +1,65 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as ValidationBarStories from "./ValidationBar.stories";
+import * as ValidationBarKeyboardNavigationStories from "./ValidationBarKeyboardNavigation.stories";
+
+<Meta of={ValidationBarStories} />
+
+<Title />
+
+The `ValidationBar` widget summarizes validation results — errors, warnings or informational
+notices — in a prominent bar, typically shown above a form or business document. It announces the
+overall validation state and gives users a starting point to resolve the reported issues.
+
+- The `variant` prop (`error`, `warning`, `info`) selects the severity styling; `error` is the default.
+- `primaryTitle` carries the main message, with an optional `secondaryTitle` below it and an `icon` in the header.
+- `quickAccessMenu` and `pagination` add controls for stepping through individual validation issues.
+- The bar receives focus on mount by default (`autoFocus`) so screen-reader users are notified immediately.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={ValidationBarStories.Playground} />
+
+## Examples
+
+### Variants
+
+<Canvas of={ValidationBarStories.Variants} />
+
+### With Quick Access Menu
+
+<Canvas of={ValidationBarStories.WithQuickAccessMenu} />
+
+### With Pagination
+
+<Canvas of={ValidationBarStories.WithPagination} />
+
+### With Actions
+
+<Canvas of={ValidationBarStories.WithActions} />
+
+## Keyboard navigation
+
+The keyboard navigation stories demonstrate how focus moves through the validation bar: by default
+**Tab** steps through each action button, while `KeyboardNavigationConfigProvider` with
+`validationBar: "arrow-only"` switches to **← / →** navigation inside the bar so **Tab** skips it
+entirely.
+
+<Canvas of={ValidationBarKeyboardNavigationStories.DefaultMode} />

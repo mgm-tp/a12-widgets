@@ -34,7 +34,6 @@ import type { ReactNode } from "react";
 import { PureComponent } from "react";
 
 import { addPrefix, bindMethods, joinClassNames } from "../../../common/main/utils.js";
-
 import { TreeContainer } from "../tpl/tree-elements.tpl.js";
 
 import type { DnDTreeProps } from "./dnd-tree.api.js";

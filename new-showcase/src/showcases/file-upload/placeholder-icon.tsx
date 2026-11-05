@@ -128,6 +128,7 @@ export function PlaceHolderIcon(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<Checkbox
+					id="file-upload-placeholder-icon-set-preview-icon"
 					label="Set Preview Icon"
 					title="Set Preview Icon"
 					checked={enablePreviewIcon}

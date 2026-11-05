@@ -43,17 +43,16 @@ import {
 } from "test-utils";
 import { describe, test, expect, vi, afterAll, beforeEach, beforeAll } from "vitest";
 
-import { Range } from "../../common/main/utils.js";
-import { getA11yResource } from "../../common/main/a11y-localization/language-context.js";
 import { Button } from "../../button/main/button.view.js";
-import { Icon } from "../../icon/main/icon.view.js";
+import { getA11yResource } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { Range } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-
-import type { TableTemplateProps } from "../main/template/table.tpl.api.js";
 import type { BaseColumnType } from "../main/column.api.js";
 import type { InfiniteScrollOptions, RowLoadingStatus } from "../main/infinite-scroll.api.js";
 import { DefaultTableComponentRenderers, Table } from "../main/table.view.js";
+import type { TableTemplateProps } from "../main/template/table.tpl.api.js";
 
 describe("com.mgmtp.a12.widgets.table", () => {
 	const languageContext = getA11yResource("en");

@@ -59,7 +59,7 @@ When you need to override Widgets styles, we recommend following these approache
 
 ## What do I need to do now?
 
-We've written [migration instructions](#/get-started/migration-instructions/migration-to-styled-components) to help you migrate your existing codebase to the new styling approach.
+We've written [migration instructions](#/get-started/migration-instructions/migration-notes#styled-components-v6-upgrade) to help you migrate your existing codebase to the new styling approach.
 
 ## Need help?
 

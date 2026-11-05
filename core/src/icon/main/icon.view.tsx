@@ -34,15 +34,15 @@ import type { ReactElement } from "react";
 import { useContext } from "react";
 import { styled, css } from "styled-components";
 
-import { joinClassNames, addPrefix } from "../../common/main/utils.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import { StyledBreadcrumbSeparator } from "../../breadcrumb/main/breadcrumb.styled.js";
-import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { joinClassNames, addPrefix } from "../../common/main/utils.js";
+import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
 
 import { CUSTOM_ICONS } from "./custom-icons-data.js";
-import type { IconProps } from "./icon.api.js";
 import { IconMappingContext, getMappedIconDefinition } from "./icon-mapping-context.js";
+import type { IconProps } from "./icon.api.js";
 
 export const StyledIconWrapper = styled.i.withConfig({
 	displayName: "StyledIconWrapper-sc-"
@@ -97,7 +97,9 @@ export const StyledIconWrapper = styled.i.withConfig({
 			max-width: unset;
 		}
 
-		${StyledTooltipTriggerWrapper} & {
+		// :where() keeps this at single-class specificity; it still wins over the
+		// own-color declaration above by source order, but stays easy to override.
+		:where(${StyledTooltipTriggerWrapper}) & {
 			color: inherit;
 		}
 
@@ -206,7 +208,7 @@ export function Icon(props: IconProps): ReactElement<IconProps> {
 			data-role={dataRole ?? DataRoles.Icon}
 			onClick={onClick}
 		>
-			<span aria-hidden="true">
+			<span aria-hidden="true" translate="no" className="notranslate">
 				{iconTheme === "custom" && codePoint ? String.fromCodePoint(codePoint) : iconLabel}
 			</span>
 			{hiddenTextContent && <HiddenText>{hiddenTextContent}</HiddenText>}

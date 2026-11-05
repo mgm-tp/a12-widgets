@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
-import { useRef, useState, useCallback, useEffect } from "react";
+import type { ChangeEvent, ReactElement } from "react";
+import { useCallback, useState } from "react";
 
 import type {
 	CollapsibleTreeNodeModel,
@@ -40,78 +40,152 @@ import type {
 	TreeNodeModel
 } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
-	HiddenText,
 	Button,
-	Icon,
 	Collapsible,
-	find,
 	findById,
+	Icon,
 	Selectable,
+	TextField,
 	Tree,
-	TreeAdapter,
-	walkTreeNode
+	TreeAdapter
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { Icons } from "./common.js";
 
+/**
+ * How the Edit Button of a node gets its accessible name:
+ *
+ * - `title`: the name of the node is embedded in the Button's own `title`. This only works for a node whose
+ *   name is available as plain text.
+ * - `node-ref`: the Button is linked via `aria-labelledby` to itself and to the element that the Tree renders
+ *   around the label of the node. The label may be arbitrary markup - the element is referenced, not its text.
+ * - `input-ref`: the label of the node is a TextField, and the Button is linked to that input. A referenced
+ *   input contributes its value to the name, so the name follows every keystroke.
+ *
+ * Note that `tree-node-title-{id}` must not be used here, unlike in the Tree Table: in a Tree that element
+ * wraps the action buttons as well, so a Button pointing at it would fold itself into its own name.
+ */
+type LabelPatternType = "title" | "node-ref" | "input-ref";
+
 interface FileNode extends CollapsibleTreeNodeModel, SelectableTreeNodeModel {
-	type: "computer" | "drive" | "folder" | "file";
+	labelPattern: LabelPatternType;
+
+	/** Plain-text name. Only the `title` pattern needs it - the other two reference the rendered element. */
+	name: string;
 	children?: FileNode[];
-	locked?: boolean;
 }
 
 const InteractiveTree = Selectable(Collapsible(TreeAdapter(Tree)));
 
-export function Accessibility(): ReactElement {
-	const expandedNodeIds = useRef<Set<string>>(new Set(getNodeIDs()));
+/** Id of the Edit Button of a node, which the Button links to in order to contribute its own name. */
+const editButtonId = (node: FileNode): string => `${node.id}-edit`;
 
-	const [selectedNode, setSelectedNode] = useState<string>(find(TREE, (node) => !!node.selected)?.id);
+/** Id of the TextField that renders the label of a node labelled via `input-ref`. */
+const nodeInputId = (node: FileNode): string => `${node.id}-name`;
 
-	const onNodeToggleExpansion = useCallback(
-		(nodeId: string): void => {
-			if (expandedNodeIds.current.has(nodeId)) {
-				expandedNodeIds.current.delete(nodeId);
-			} else {
-				expandedNodeIds.current.add(nodeId);
-			}
+/**
+ * Links the Edit Button of a node to itself and to the element that the Tree already renders around the
+ * label, e.g. "Edit Documents". A self reference is skipped while `aria-labelledby` is resolved, so the Button
+ * contributes its own name - the verb of the action - before the name of the node. No hidden text element is
+ * needed to hold the verb, and none is needed to restate a label that is not plain text.
+ * Nodes labelled via `title` carry the name on the Button itself and need no link at all.
+ */
+const labelledBy = (node: FileNode): string | undefined => {
+	switch (node.labelPattern) {
+		case "node-ref":
+			// `tree-node-name-{id}` wraps the rendered label, whether that is plain text or markup.
+			return `${editButtonId(node)} tree-node-name-${node.id}`;
+		case "input-ref":
+			// The input itself, not the element around it - a referenced input contributes only its value, so the
+			// hidden label of the TextField stays out of the name.
+			return `${editButtonId(node)} ${nodeInputId(node)}`;
+		default:
+			return undefined;
+	}
+};
+
+const TREE: FileNode = {
+	id: "a11y-tree-documents",
+	// A label made of markup: no plain string exists to put into a `title`, which is exactly what the
+	// `node-ref` pattern solves.
+	label: <span style={{ fontWeight: "bold" }}>Documents</span>,
+	name: "Documents",
+	labelPattern: "node-ref",
+	icon: Icons.FOLDER,
+	initiallyExpanded: true,
+	children: [
+		{
+			id: "a11y-tree-invoices",
+			label: "Invoices",
+			name: "Invoices",
+			labelPattern: "title",
+			icon: Icons.FOLDER
 		},
-		[expandedNodeIds]
-	);
+		{
+			id: "a11y-tree-contracts",
+			label: "Contracts",
+			name: "Contracts",
+			labelPattern: "input-ref",
+			icon: <Icon style={{ alignSelf: "center" }}>insert_drive_file</Icon>
+		}
+	]
+};
 
-	const addToggleCallbackToNode = useCallback(() => {
-		walkTreeNode(TREE, (node) => {
-			if (node.children) {
-				node.onToggleExpansion = () => {
-					onNodeToggleExpansion(node.id);
-				};
-			}
-		});
-	}, [onNodeToggleExpansion]);
+export function Accessibility(): ReactElement {
+	const [selectedNode, setSelectedNode] = useState<string | undefined>();
+	const [contractsName, setContractsName] = useState("Contracts");
 
 	const updateSelectedNode = useCallback(
 		(node: TreeNodeModel): void => {
-			if (selectedNode) {
-				if (selectedNode === node.id) {
-					return;
-				}
-
-				const prevNode = findById(TREE, selectedNode);
-				const newNode = findById(TREE, node.id);
-
-				prevNode.selected = false;
-				newNode.selected = true;
-			} else {
-				findById(TREE, node.id).selected = true;
+			if (selectedNode === node.id) {
+				return;
 			}
 
+			if (selectedNode) {
+				findById(TREE, selectedNode).selected = false;
+			}
+
+			findById(TREE, node.id).selected = true;
 			setSelectedNode(node.id);
 		},
 		[selectedNode]
 	);
 
-	useEffect(() => {
-		addToggleCallbackToNode();
-	}, [addToggleCallbackToNode]);
+	const tplTreeNode: MapTreeNode = useCallback(
+		(node, chained) => {
+			const fileNode = node as FileNode;
+
+			return {
+				...chained,
+				// The label of a node labelled via `input-ref` is rendered as an editable field instead of text.
+				label:
+					fileNode.labelPattern === "input-ref" ? (
+						<TextField
+							style={{ padding: 3 }}
+							id={nodeInputId(fileNode)}
+							label="File name"
+							hideLabel
+							value={contractsName}
+							onChange={(event: ChangeEvent<HTMLInputElement>): void => setContractsName(event.target.value)}
+						/>
+					) : (
+						chained.label
+					),
+				actionButtons: (
+					<Button
+						id={editButtonId(fileNode)}
+						icon={<Icon>edit</Icon>}
+						title={fileNode.labelPattern === "title" ? `Edit ${fileNode.name}` : "Edit"}
+						buttonAttributes={{ "aria-labelledby": labelledBy(fileNode) }}
+						onClick={(event): void => {
+							event.stopPropagation();
+						}}
+					/>
+				)
+			};
+		},
+		[contractsName]
+	);
 
 	return (
 		<InteractiveTree
@@ -122,121 +196,3 @@ export function Accessibility(): ReactElement {
 		/>
 	);
 }
-
-const tplTreeNode: MapTreeNode = (n, chained) => {
-	const buttonLabelId = typeof n.label === "string" ? undefined : `${n.id}-label`;
-	const buttonTitle = typeof n.label === "string" ? `Edit ${n.label}` : "Edit Button";
-
-	return {
-		...chained,
-		fileNode: n,
-		actionButtons: (
-			<>
-				<Button
-					icon={<Icon>edit</Icon>}
-					title={buttonTitle}
-					disabled={n.disabled}
-					onClick={(e) => {
-						e.stopPropagation();
-						alert(`You clicked on action button of ${n.label}`);
-					}}
-					buttonAttributes={{
-						"aria-labelledby": buttonLabelId
-					}}
-				/>
-				{buttonLabelId && <HiddenText id={buttonLabelId}>Edit {n.label}</HiddenText>}
-			</>
-		)
-	};
-};
-
-const TREE: FileNode = {
-	id: "accessibility-1",
-	label: <span style={{ fontWeight: "bold" }}>My Computer</span>,
-	icon: Icons.COMPUTER,
-	type: "computer",
-	locked: true,
-	initiallyExpanded: true,
-	children: [
-		{
-			id: "accessibility-2",
-			label: "C:",
-			icon: Icons.DRIVE,
-			type: "drive",
-			initiallyExpanded: true,
-			children: [
-				{
-					id: "accessibility-3",
-					label: "Programs",
-					type: "folder",
-					icon: Icons.FOLDER
-				},
-				{
-					id: "accessibility-5",
-					label: "ZANS and quiet a long text, that it has to display multiline",
-					type: "folder",
-					icon: Icons.FOLDER,
-					initiallyExpanded: true,
-					selected: true,
-					children: [
-						{
-							id: "accessibility-6",
-							label: "System32",
-							type: "folder",
-							icon: Icons.FOLDER,
-							initiallyExpanded: true,
-							children: [
-								{
-									id: "accessibility-7",
-									label: "sasser.dll",
-									type: "file",
-									icon: Icons.FILE,
-									disabled: true
-								}
-							]
-						}
-					]
-				},
-				{
-					id: "accessibility-8",
-					label: "swap.sys",
-					type: "file",
-					icon: Icons.FILE
-				}
-			]
-		},
-		{
-			id: "accessibility-9",
-			label: "D:",
-			type: "drive",
-			icon: Icons.DRIVE
-		},
-		{
-			id: "accessibility-10",
-			label: "E:",
-			type: "drive",
-			icon: Icons.DRIVE,
-			disabled: true,
-			children: [
-				{
-					id: "accessibility-11",
-					label: "autostart.bat",
-					type: "file",
-					icon: Icons.FILE
-				}
-			]
-		}
-	]
-};
-
-const getNodeIDs = (): string[] => {
-	const nodes: string[] = [];
-
-	walkTreeNode(TREE, (node) => {
-		if (node.children) {
-			nodes.push(node.id);
-		}
-	});
-
-	return nodes;
-};

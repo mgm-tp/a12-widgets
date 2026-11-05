@@ -29,6 +29,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render basic toast template 1`] 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c7 {
   align-items: center;
   border: 2px solid transparent;
@@ -73,6 +77,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render basic toast template 1`] 
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c7.c7 {
   display: block;
   height: auto;
@@ -110,7 +118,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render basic toast template 1`] 
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -183,6 +191,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render basic toast template 1`] 
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -193,8 +203,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render basic toast template 1`] 
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
         class="c6 toast__actions"
@@ -214,6 +224,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render basic toast template 1`] 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -254,6 +266,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c7 {
   align-items: center;
   border: 2px solid transparent;
@@ -298,6 +314,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c7.c7 {
   display: block;
   height: auto;
@@ -335,7 +355,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -408,6 +428,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -418,8 +440,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
         class="c6 toast__actions"
@@ -439,6 +461,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -477,6 +501,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
 
 .c3.c3 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
 }
 
 .c7 {
@@ -521,6 +549,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c7.c7 {
@@ -565,7 +597,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -638,6 +670,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         check_circle
       </span>
@@ -648,8 +682,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
         class="c6 toast__actions"
@@ -669,6 +703,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -709,6 +745,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c9 {
+  color: inherit;
+}
+
 .c3 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -735,6 +775,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
 
 .c3.c3 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
 }
 
 .c7 {
@@ -779,6 +823,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c7.c7 {
@@ -828,7 +876,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -901,6 +949,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         warning_amber
       </span>
@@ -911,8 +961,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
         class="c6 toast__actions"
@@ -932,6 +982,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -972,6 +1024,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c9 {
+  color: inherit;
+}
+
 .c3 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -998,6 +1054,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
 
 .c3.c3 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
 }
 
 .c7 {
@@ -1042,6 +1102,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
   box-shadow: none;
   color: rgb(213, 0, 117);
   border: 2px solid rgb(213, 0, 117);
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
 }
 
 .h_inlineBlock.h_middleAlign .c7.c7 {
@@ -1096,7 +1160,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -1169,6 +1233,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         
       </span>
@@ -1179,8 +1245,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
         class="c6 toast__actions"
@@ -1200,6 +1266,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render class and icon matching w
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -1238,6 +1306,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render toast template with custo
 
 .c3.c3 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
 }
 
 .c7 {
@@ -1284,6 +1356,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render toast template with custo
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c7.c7 {
   display: block;
   height: auto;
@@ -1321,7 +1397,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render toast template with custo
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -1395,6 +1471,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render toast template with custo
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -1405,8 +1483,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render toast template with custo
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
         class="c6 toast__actions"
@@ -1426,6 +1504,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render toast template with custo
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -1466,7 +1546,11 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
   max-width: unset;
 }
 
-.c7 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
+.c9 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -1490,19 +1574,19 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
   color: rgb(5, 104, 174);
 }
 
-.c7 .c2 {
+.c9 .c2 {
   user-select: none;
 }
 
-.c7 .c2 {
+.c9 .c2 {
   color: inherit;
 }
 
-.c7 .c2 {
+.c9 .c2 {
   font-size: inherit;
 }
 
-.c7:not(:disabled):focus {
+.c9:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -1510,13 +1594,17 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c7.c7 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c9:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+.h_inlineBlock.h_middleAlign .c9.c9 > .c2 {
   display: block;
 }
 
@@ -1541,28 +1629,13 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
   font-size: 1.5rem;
 }
 
-.c11 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
-.c12 .c2 {
-  color: rgb(22, 25, 29);
-  font-size: 1.5rem;
-}
-
-.c13 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
 .c4 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -1581,7 +1654,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
   display: flex;
 }
 
-.c6 {
+.c8 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -1590,17 +1663,17 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
   width: 48px;
 }
 
-.c8 {
+.c10 {
   font-size: 1.5rem;
 }
 
-.c9 {
+.c6 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c10 {
+.c7 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -1608,7 +1681,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
 }
 
 @media (pointer: coarse) {
-  .c7:not(:disabled):active {
+  .c9:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -1618,7 +1691,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
 }
 
 @media (pointer: fine) {
-  .c7:not(:disabled):hover {
+  .c9:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -1627,7 +1700,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
 }
 
 @media (pointer: fine) {
-  .c7:hover {
+  .c9:hover {
     outline: transparent solid 1px;
   }
 }
@@ -1648,6 +1721,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -1658,16 +1733,28 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
-        class="c6 toast__actions"
+        class="c6 toast__content"
+        data-role="toast-content"
+        style="height: 100px;"
+      >
+        <div
+          class="c7 toast__message"
+          data-role="toast-message"
+        >
+          Message
+        </div>
+      </div>
+      <div
+        class="c8 toast__actions"
         data-role="toast-action"
       >
         <button
           aria-label="Close"
-          class="c7 button button--icon c8"
+          class="c9 button button--icon c10"
           data-role="button"
           data-type="icon"
           title="Close"
@@ -1679,23 +1766,13 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with content height 1`] =
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
           </i>
         </button>
-      </div>
-    </div>
-    <div
-      class="c9 toast__content"
-      data-role="toast-content"
-      style="height: 100px;"
-    >
-      <div
-        class="c10 toast__message"
-        data-role="toast-message"
-      >
-        Message
       </div>
     </div>
   </div>
@@ -1731,6 +1808,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with custom icon 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c7 {
   align-items: center;
   border: 2px solid transparent;
@@ -1775,6 +1856,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with custom icon 1`] = `
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c7.c7 {
   display: block;
   height: auto;
@@ -1806,28 +1891,13 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with custom icon 1`] = `
   font-size: 1.5rem;
 }
 
-.c9 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
-.c10 .c2 {
-  color: rgb(22, 25, 29);
-  font-size: 1.5rem;
-}
-
-.c11 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
 .c4 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -1900,6 +1970,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with custom icon 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         clear
       </span>
@@ -1910,8 +1982,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with custom icon 1`] = `
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
         class="c6 toast__actions"
@@ -1931,6 +2003,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with custom icon 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -1971,7 +2045,11 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
   max-width: unset;
 }
 
-.c7 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
+.c9 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -1995,19 +2073,19 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
   color: rgb(5, 104, 174);
 }
 
-.c7 .c2 {
+.c9 .c2 {
   user-select: none;
 }
 
-.c7 .c2 {
+.c9 .c2 {
   color: inherit;
 }
 
-.c7 .c2 {
+.c9 .c2 {
   font-size: inherit;
 }
 
-.c7:not(:disabled):focus {
+.c9:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -2015,13 +2093,17 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c7.c7 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c9:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+.h_inlineBlock.h_middleAlign .c9.c9 > .c2 {
   display: block;
 }
 
@@ -2046,28 +2128,13 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
   font-size: 1.5rem;
 }
 
-.c11 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
-.c12 .c2 {
-  color: rgb(22, 25, 29);
-  font-size: 1.5rem;
-}
-
-.c13 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
 .c4 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -2086,7 +2153,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
   display: flex;
 }
 
-.c6 {
+.c8 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -2095,22 +2162,22 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
   width: 48px;
 }
 
-.c8 {
+.c10 {
   font-size: 1.5rem;
 }
 
-.c9 {
+.c6 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c10 {
+.c7 {
   padding: 8px 0px 0px;
 }
 
 @media (pointer: coarse) {
-  .c7:not(:disabled):active {
+  .c9:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -2120,7 +2187,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
 }
 
 @media (pointer: fine) {
-  .c7:not(:disabled):hover {
+  .c9:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -2129,7 +2196,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
 }
 
 @media (pointer: fine) {
-  .c7:hover {
+  .c9:hover {
     outline: transparent solid 1px;
   }
 }
@@ -2150,6 +2217,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -2160,16 +2229,27 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
-        class="c6 toast__actions"
+        class="c6 toast__content"
+        data-role="toast-content"
+      >
+        <div
+          class="c7 toast__collapse"
+          data-role="toast-collapse"
+        >
+          Collapse text
+        </div>
+      </div>
+      <div
+        class="c8 toast__actions"
         data-role="toast-action"
       >
         <button
           aria-label="Close"
-          class="c7 button button--icon c8"
+          class="c9 button button--icon c10"
           data-role="button"
           data-type="icon"
           title="Close"
@@ -2181,22 +2261,13 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the collapse 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
           </i>
         </button>
-      </div>
-    </div>
-    <div
-      class="c9 toast__content"
-      data-role="toast-content"
-    >
-      <div
-        class="c10 toast__collapse"
-        data-role="toast-collapse"
-      >
-        Collapse text
       </div>
     </div>
   </div>
@@ -2232,6 +2303,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the footer 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c7 {
   align-items: center;
   border: 2px solid transparent;
@@ -2276,6 +2351,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the footer 1`] = `
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c7.c7 {
   display: block;
   height: auto;
@@ -2307,28 +2386,13 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the footer 1`] = `
   font-size: 1.5rem;
 }
 
-.c10 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
-.c11 .c2 {
-  color: rgb(22, 25, 29);
-  font-size: 1.5rem;
-}
-
-.c12 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
 .c4 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -2407,6 +2471,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the footer 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -2417,8 +2483,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the footer 1`] = `
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
         class="c6 toast__actions"
@@ -2438,6 +2504,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the footer 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -2484,6 +2552,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the header 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c8 {
   align-items: center;
   border: 2px solid transparent;
@@ -2528,6 +2600,10 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the header 1`] = `
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c8.c8 {
   display: block;
   height: auto;
@@ -2559,28 +2635,13 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the header 1`] = `
   font-size: 1.5rem;
 }
 
-.c10 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
-.c11 .c2 {
-  color: rgb(22, 25, 29);
-  font-size: 1.5rem;
-}
-
-.c12 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
 .c4 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -2665,6 +2726,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the header 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -2704,6 +2767,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the header 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
@@ -2744,7 +2809,11 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
   max-width: unset;
 }
 
-.c7 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
+.c9 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -2768,19 +2837,19 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
   color: rgb(5, 104, 174);
 }
 
-.c7 .c2 {
+.c9 .c2 {
   user-select: none;
 }
 
-.c7 .c2 {
+.c9 .c2 {
   color: inherit;
 }
 
-.c7 .c2 {
+.c9 .c2 {
   font-size: inherit;
 }
 
-.c7:not(:disabled):focus {
+.c9:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -2788,13 +2857,17 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
   border: 2px solid rgb(213, 0, 117);
 }
 
-.h_inlineBlock.h_middleAlign .c7.c7 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c9:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
+.h_inlineBlock.h_middleAlign .c9.c9 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c7.c7 > .c2 {
+.h_inlineBlock.h_middleAlign .c9.c9 > .c2 {
   display: block;
 }
 
@@ -2819,28 +2892,13 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
   font-size: 1.5rem;
 }
 
-.c11 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
-.c12 .c2 {
-  color: rgb(22, 25, 29);
-  font-size: 1.5rem;
-}
-
-.c13 .c2 {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
-}
-
 .c4 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -2859,7 +2917,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
   display: flex;
 }
 
-.c6 {
+.c8 {
   box-sizing: border-box;
   flex: 0 0 auto;
   margin-left: auto;
@@ -2868,17 +2926,17 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
   width: 48px;
 }
 
-.c8 {
+.c10 {
   font-size: 1.5rem;
 }
 
-.c9 {
+.c6 {
   box-sizing: border-box;
   flex: 0 1 auto;
-  padding: 0px 16px 16px;
+  padding: 16px;
 }
 
-.c10 {
+.c7 {
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2886,7 +2944,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
 }
 
 @media (pointer: coarse) {
-  .c7:not(:disabled):active {
+  .c9:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -2896,7 +2954,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
 }
 
 @media (pointer: fine) {
-  .c7:not(:disabled):hover {
+  .c9:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -2905,7 +2963,7 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
 }
 
 @media (pointer: fine) {
-  .c7:hover {
+  .c9:hover {
     outline: transparent solid 1px;
   }
 }
@@ -2926,6 +2984,8 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -2936,16 +2996,27 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
-        class="c6 toast__actions"
+        class="c6 toast__content"
+        data-role="toast-content"
+      >
+        <div
+          class="c7 toast__message"
+          data-role="toast-message"
+        >
+          Message
+        </div>
+      </div>
+      <div
+        class="c8 toast__actions"
         data-role="toast-action"
       >
         <button
           aria-label="Close"
-          class="c7 button button--icon c8"
+          class="c9 button button--icon c10"
           data-role="button"
           data-type="icon"
           title="Close"
@@ -2957,22 +3028,13 @@ exports[`com.mgmtp.a12.widgets.toast.template > render with the message 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>
           </i>
         </button>
-      </div>
-    </div>
-    <div
-      class="c9 toast__content"
-      data-role="toast-content"
-    >
-      <div
-        class="c10 toast__message"
-        data-role="toast-message"
-      >
-        Message
       </div>
     </div>
   </div>

@@ -1,0 +1,76 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as DatePickerStories from "./DatePicker.stories";
+import * as DatePickerInputStories from "./DatePicker.Input.stories";
+import * as DatePickerAdvancedStories from "./DatePicker.Advanced.stories";
+
+<Meta of={DatePickerStories} />
+
+<Title />
+
+The `DatePicker` widget renders an inline calendar for selecting a single date or a date range.
+It is built on top of react-day-picker, so its props extend `DayPickerProps` — including
+`disabled` day matchers, `modifiers` and custom styling per day.
+
+- The calendar header offers month navigation plus a configurable year selector
+  (`yearSelectorVariant`: `select`, `textbox` or `autocomplete`, constrained by `yearRange`).
+- Single-date selection uses `value`/`onChange`; range selection uses `selected`/`onDateRangeChange`
+  together with the `footer` accept/clear buttons.
+- A `timezone` (IANA database name) can be provided so dates are interpreted in that zone.
+
+For a date picker attached to a text input, use the `DateInput` widget shown in the
+[Input integration](#input-integration) section below.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={DatePickerStories.Playground} />
+
+## Examples
+
+### Year selector as textbox
+
+<Canvas of={DatePickerStories.YearSelectorTextbox} />
+
+### Year selector as select and autocomplete
+
+<Canvas of={DatePickerStories.YearSelectorVariants} />
+
+### Date range picker
+
+<Canvas of={DatePickerStories.DateRangePicker} />
+
+### Disabled dates
+
+<Canvas of={DatePickerStories.WithDisabledDates} />
+
+## Input integration
+
+The `DateInput` widget combines a text field with the `DatePicker` in a popup, including input
+parsing (`dateConverter`), formatting (`dateFormatter`) and validation errors. See the
+`DatePicker/Input` sidebar entry for all variants (disabled, readonly, input-only, range input).
+
+<Canvas of={DatePickerInputStories.Basic} />
+
+## Advanced
+
+The `DatePicker/Advanced` sidebar entry covers timezone handling, custom day modifiers,
+range inputs with custom converters and accessibility attributes for the desktop and mobile picker.
+
+<Canvas of={DatePickerAdvancedStories.Timezone} />

@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { DataRoles } from "./data-roles.js";
+import { provider } from "./device-detector.js";
 import type { CustomClientRect } from "./utils.js";
 import { addPrefix, getElementDocument, getIframeOffset } from "./utils.js";
-import { provider } from "./device-detector.js";
-import { DataRoles } from "./data-roles.js";
 
 // tslint:disable-next-line:no-any
 export interface OrientationMap<K = any> {

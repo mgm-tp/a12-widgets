@@ -30,6 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import externalCode from "!./external-link.tsx?raw";
+import mailtoCode from "!./mailto-link.tsx?raw";
+
 import LinkAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/link/main/link/link.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
@@ -38,10 +42,6 @@ import { StyledShowcaseLinkInMessageBox } from "../../helpers/showcase-styles.js
 import { BasicLinkShowcase } from "./basic.js";
 import { ExternalLinkShowcase } from "./external-link.js";
 import { MailtoLinkShowcase } from "./mailto-link.js";
-
-import basicCode from "!./basic.tsx?raw";
-import externalCode from "!./external-link.tsx?raw";
-import mailtoCode from "!./mailto-link.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

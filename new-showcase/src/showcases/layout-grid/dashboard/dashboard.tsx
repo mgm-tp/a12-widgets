@@ -34,8 +34,8 @@ import type { ReactElement } from "react";
 
 import { BulletList, noop, Tile, TextField, LayoutGrid } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { PieChartExample } from "./pie-charts.js";
 import { BarChartsExample } from "./bar-charts.js";
+import { PieChartExample } from "./pie-charts.js";
 
 const { Grid, Row, Column } = LayoutGrid;
 

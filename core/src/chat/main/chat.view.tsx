@@ -38,10 +38,10 @@ import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-ke
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { useLiveRegionMirror } from "../../common/main/live-region/index.js";
 import { addPrefix, bindMethods, generateUid, joinClassNames } from "../../common/main/utils.js";
 import { WidgetsResizeDetector } from "../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
 import { Icon } from "../../icon/main/icon.view.js";
-import { useLiveRegion } from "../../common/main/use-live-region.js";
 
 import type { ChatProps } from "./chat.api.js";
 import {
@@ -79,7 +79,7 @@ interface ChatInnerContainerProps {
 }
 
 function ChatInnerContainer({ containerId, innerRef, onScroll, children }: ChatInnerContainerProps): ReactElement {
-	const { liveRegion, containerRef } = useLiveRegion({
+	const { liveRegion, containerRef } = useLiveRegionMirror({
 		contentSelector: `[data-role="${DataRoles.Chat.Message}"], [data-role="${DataRoles.Chat.Notification}"]`,
 		dataRole: DataRoles.Chat.A11yLiveRegion
 	});

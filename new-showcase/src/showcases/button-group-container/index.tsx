@@ -30,19 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import AlignmentCode from "!./alignment.tsx?raw";
+import IconButtonResponsiveCode from "!./icon-button-responsive.tsx?raw";
+import PreserveSemanticStylesCode from "!./preserve-semantic-styles.tsx?raw";
+import ResponsiveCode from "!./responsive.tsx?raw";
+
 import ButtonGroupContainerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/button-group-container/main/button-group-container.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { AlignmentShowcase } from "./alignment.js";
 import { IconButtonResponsiveShowcase } from "./icon-button-responsive.js";
-import { ResponsiveShowcase } from "./responsive.js";
 import { PreserveSemanticStyles } from "./preserve-semantic-styles.js";
-
-import AlignmentCode from "!./alignment.tsx?raw";
-import IconButtonResponsiveCode from "!./icon-button-responsive.tsx?raw";
-import ResponsiveCode from "!./responsive.tsx?raw";
-import PreserveSemanticStylesCode from "!./preserve-semantic-styles.tsx?raw";
+import { ResponsiveShowcase } from "./responsive.js";
 
 const showcases: Showcase[] = [
 	{

@@ -34,7 +34,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { FocusEvent } from "react";
 import { useState, useCallback, useMemo } from "react";
 
-import { DateInput, DateTimeUtils } from "@com.mgmtp.a12.widgets/widgets-core";
+import { DateInput, DateTimeUtils, HintTooltip } from "@com.mgmtp.a12.widgets/widgets-core";
 import type { DateRange } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { validateYearInput } from "../YearMonthSelector/utils/year-validation";
@@ -63,7 +63,6 @@ const meta: Meta<typeof DateInput> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		disabled: {
 			control: "boolean",
@@ -76,6 +75,18 @@ const meta: Meta<typeof DateInput> = {
 		hidePickerButton: {
 			control: "boolean",
 			description: "When true, the calendar button is hidden"
+		},
+		messagePosition: {
+			control: "select",
+			options: ["above", "below"],
+			description:
+				'Where the error, warning and info message boxes render: `"above"` (default) between the label and the control, `"below"` directly under the control'
+		},
+		breakTooltipsToNewLine: {
+			control: "select",
+			options: [false, true, "above", "below"],
+			description:
+				'Where tooltips render: `true` / `"above"` (default for this widget) on a new line above the control, `false` inline beside the control, `"below"` on a new line below'
 		}
 	}
 };
@@ -295,5 +306,61 @@ export const DateRangePicker: Story = {
 				/>
 			</div>
 		);
+	}
+};
+
+export const MessagePosition: Story = {
+	args: {
+		id: "date-input-message-position",
+		label: "Date",
+		helperText: "Helper text explaining the field",
+		placeholder: DATE_FORMAT,
+		dateFormatter: makeDateFormatter(),
+		dateConverter: makeDateConverter(),
+		error: true,
+		errorMessage: "Please enter a valid date",
+		messagePosition: "below"
+	},
+	render: (args) => (
+		<div style={{ width: "360px" }}>
+			<DateInput {...args} />
+		</div>
+	),
+	parameters: {
+		controls: { include: ["messagePosition"] },
+		docs: {
+			description: {
+				story:
+					'`messagePosition` places the message box relative to the control. This story starts at `"below"`, which renders it directly under the control — switch the control to `"above"` for the default placement between the label and the control.'
+			}
+		}
+	}
+};
+
+export const TooltipPosition: Story = {
+	args: {
+		id: "date-input-tooltip-position",
+		label: "Date",
+		helperText: "Helper text explaining the field",
+		placeholder: DATE_FORMAT,
+		dateFormatter: makeDateFormatter(),
+		dateConverter: makeDateConverter(),
+		tooltips: <HintTooltip text="This is a hint" id="date-input-tooltip-position-hint" />,
+		ariaDescribedby: "date-input-tooltip-position-hint",
+		breakTooltipsToNewLine: "below"
+	},
+	render: (args) => (
+		<div style={{ width: "360px" }}>
+			<DateInput {...args} />
+		</div>
+	),
+	parameters: {
+		controls: { include: ["breakTooltipsToNewLine"] },
+		docs: {
+			description: {
+				story:
+					'`breakTooltipsToNewLine` places the tooltips relative to the control. This story starts at `"below"`, which puts them on their own line under the control — switch the control to `false` to place them inline beside it, or to `"above"` / `true` for a line above, which is the default for this widget.'
+			}
+		}
 	}
 };

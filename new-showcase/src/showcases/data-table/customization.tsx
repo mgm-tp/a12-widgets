@@ -33,6 +33,7 @@
 import type { FC, ReactElement } from "react";
 import { useState, useCallback } from "react";
 
+import { Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 import type {
 	DataTableColumn,
 	DataTableCellStyles,
@@ -40,7 +41,6 @@ import type {
 	DataTableCellStyleGetter,
 	DataTableRowStyleGetter
 } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
-import { Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 interface DataType {

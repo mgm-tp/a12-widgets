@@ -33,7 +33,6 @@
 import { afterEach, describe, expect, test } from "vitest";
 
 import { DataRoles } from "../../common/main/data-roles.js";
-
 import {
 	getModalOverlayContent,
 	getTopActiveModalOverlay,

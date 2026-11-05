@@ -34,7 +34,6 @@ import { getAllByDataRole, queryByDataRole, render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
 import { DataRoles } from "../../common/main/data-roles.js";
-
 import type { BaseColumnType, Column } from "../main/column.api.js";
 import { Table } from "../main/table.view.js";
 

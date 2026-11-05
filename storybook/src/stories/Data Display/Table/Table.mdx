@@ -1,0 +1,115 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as TableStories from "./Table.stories";
+import * as TableColumnsStories from "./TableColumns.stories";
+import * as TableRenderersStories from "./TableRenderers.stories";
+import * as TableExpandableRowsStories from "./TableExpandableRows.stories";
+import * as TableGroupingStories from "./TableGrouping.stories";
+import * as TableAdvancedStories from "./TableAdvanced.stories";
+import * as InfiniteScrollTableStories from "./InfiniteScrollTable.stories";
+
+<Meta of={TableStories} />
+
+<Title />
+
+The `Table` widget renders tabular data from a `data` array and a declarative `columns` definition
+(`label`, `dataKey`, `width`, `sortable`, `pinning`, ...). It is the foundation for data-heavy
+screens and scales from a simple read-only listing to fully interactive setups.
+
+- Rows can be made selectable and styleable via `rowStyling` and `rowEventHandlers`; cells via `cellStyling`.
+- Columns support sorting (`sortOptions`), pinning, grouping with `subColumns` and interactive resizing (`columnResizingOptions`).
+- Every visual part can be overridden through `componentRenderers` — body content, footer, filter row, context menus and more.
+- Large datasets are covered by `virtualScrollOptions` (windowed rendering) and `infiniteScrollOptions` (batched loading).
+- Keyboard users can navigate cells with the arrow keys; turn this off with `disableArrowNavigation`.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={TableStories.Playground} />
+
+## Examples
+
+### Sortable columns
+
+<Canvas of={TableStories.Sortable} />
+
+### Selectable rows
+
+<Canvas of={TableStories.Selectable} />
+
+### Empty table
+
+<Canvas of={TableStories.Empty} />
+
+### Disabled table
+
+<Canvas of={TableStories.Disabled} />
+
+### Card view
+
+<Canvas of={TableStories.CardView} />
+
+### Cell highlighting
+
+<Canvas of={TableStories.CellHighlighting} />
+
+## Column features
+
+The `Table Columns` sidebar entry covers pinned columns, column groups (`subColumns`),
+the `enableColumnGroupA11y` mode and interactive column resizing.
+
+<Canvas of={TableColumnsStories.PinnedColumns} />
+
+## Custom renderers
+
+The `Table Renderers` sidebar entry shows `componentRenderers` and styling getters in action:
+status and action columns, row highlighting, multi-row selection, cell styling and context menus.
+
+<Canvas of={TableRenderersStories.WithActionColumn} />
+
+## Expandable rows, footer and filter
+
+The `Table Expandable Rows` sidebar entry demonstrates `additionalContentRenderer` for nested
+detail panels, `hasFootContent` with `footContentRenderer` for summary rows and
+`headFilterContentRenderer` for a filter row in the header.
+
+<Canvas of={TableExpandableRowsStories.ExpandableRows} />
+
+## Grouping
+
+The `Table Grouping` sidebar entry covers the `TableRowsGroup` wrapper with collapsible group
+headers as well as cross-tabulation layouts using `verticalHeader` columns.
+
+<Canvas of={TableGroupingStories.RowGrouping} />
+
+## Advanced
+
+The `Table Advanced` sidebar entry shows drag-and-drop row reordering (`dragDropOptions`),
+virtualized scrolling for large datasets (`virtualScrollOptions`) and programmatic scrolling
+via the `scrollToNode` handler.
+
+<Canvas of={TableAdvancedStories.ScrollToNode} />
+
+## Infinite scroll
+
+The `Infinite Scroll` sidebar entry demonstrates `infiniteScrollOptions` — data is fetched in
+batches as the user scrolls, with placeholder skeleton rows (customisable via
+`placeHolderBodyRowRenderer`) shown while loading.
+
+<Canvas of={InfiniteScrollTableStories.Default} />

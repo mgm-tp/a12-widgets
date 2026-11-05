@@ -30,14 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import dataCode from "!./data.tsx?raw";
+import stylingInTreeCode from "!./styling-in-tree.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { StylingInTree } from "./styling-in-tree.js";
-
-import stylingInTreeCode from "!./styling-in-tree.tsx?raw";
-import dataCode from "!./data.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

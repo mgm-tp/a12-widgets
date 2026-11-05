@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render, fireEvent, getByDataRole } from "test-utils";
+import { render, fireEvent, getByDataRole, isAfter } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
-import { noop } from "../../../common/main/utils.js";
-import { HintTooltip } from "../../../tooltip/hint/main/hint.view.js";
 import { DataRoles } from "../../../common/index.js";
-
+import { addPrefix, noop } from "../../../common/main/utils.js";
+import { HintTooltip } from "../../../tooltip/hint/main/hint.view.js";
+import type { MessagePosition, TooltipLineBreak } from "../../base/template/base.tpl.api.js";
 import { Switch } from "../main/switch.view.js";
 
 const properties = {
@@ -280,6 +280,161 @@ describe("com.mgmtp.a12.widgets.switch", () => {
 			expect(label).toBeTruthy();
 			expect(queryByDataRole(DataRoles.Switch.InlineWrapper)).toBeNull();
 			expect(label.previousElementSibling).toBe(control);
+		});
+	});
+
+	describe("message position", () => {
+		const messageRoles = [DataRoles.Switch.ErrorMessage, DataRoles.Switch.WarningMessage, DataRoles.Switch.InfoMessage];
+
+		const renderWithMessages = (messagePosition: MessagePosition) =>
+			render(
+				<Switch
+					onChange={noop}
+					id={properties.id}
+					label={properties.label}
+					helperText={properties.helperText}
+					errorMessage={properties.errorMessage}
+					warningMessage={properties.warningMessage}
+					infoMessage={properties.infoMessage}
+					messagePosition={messagePosition}
+				/>
+			);
+
+		test("renders the messages above the control for above", () => {
+			const { getByDataRole } = renderWithMessages("above");
+			const control = getByDataRole(DataRoles.Switch.Control);
+			const label = getByDataRole(DataRoles.Switch.Label);
+			const helperText = getByDataRole(DataRoles.Switch.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				// unlike text-field, the switch keeps its messages beside the control rather than inside it
+				expect(control.contains(message)).toBe(false);
+				expect(isAfter(message, control)).toBe(true);
+				// the message stays inside the label -> helper text envelope
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the control for below", () => {
+			const { getByDataRole } = renderWithMessages("below");
+			const control = getByDataRole(DataRoles.Switch.Control);
+			const label = getByDataRole(DataRoles.Switch.Label);
+			const helperText = getByDataRole(DataRoles.Switch.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(false);
+				expect(isAfter(control, message)).toBe(true);
+				// the message stays inside the label -> helper text envelope
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const renderWithTooltips = (breakTooltipsToNewLine: TooltipLineBreak) =>
+			render(
+				<Switch
+					onChange={noop}
+					id={properties.id}
+					label={properties.label}
+					helperText={properties.helperText}
+					tooltips={<div>Test tooltip</div>}
+					breakTooltipsToNewLine={breakTooltipsToNewLine}
+				/>
+			);
+
+		test("renders the tooltips inline inside the control for false, with the default top label", () => {
+			const { getByDataRole, getByText } = renderWithTooltips(false);
+			const control = getByDataRole(DataRoles.Switch.Control);
+			const interactive = getByDataRole(DataRoles.Switch.Interactive);
+			const addon = getByDataRole(DataRoles.Switch.TooltipAddon);
+			const tooltip = getByText("Test tooltip");
+
+			expect(addon.contains(tooltip)).toBe(true);
+			// without an inline label the beside slot is the last child of the control itself,
+			// not a sibling of it as in text-field
+			expect(addon.parentElement).toBe(control);
+			expect(isAfter(interactive, addon)).toBe(true);
+		});
+
+		test("renders the tooltips above the control for above", () => {
+			const { getByDataRole, getByText, queryByDataRole } = renderWithTooltips("above");
+			const control = getByDataRole(DataRoles.Switch.Control);
+			const label = getByDataRole(DataRoles.Switch.Label);
+			const tooltip = getByText("Test tooltip");
+
+			expect(queryByDataRole(DataRoles.Switch.TooltipAddon)).toBeNull();
+			expect(control.contains(tooltip)).toBe(false);
+			expect(isAfter(label, tooltip)).toBe(true);
+			expect(isAfter(tooltip, control)).toBe(true);
+		});
+
+		test("renders the tooltips below the control for below", () => {
+			const { getByDataRole, getByText, queryByDataRole } = renderWithTooltips("below");
+			const control = getByDataRole(DataRoles.Switch.Control);
+			const helperText = getByDataRole(DataRoles.Switch.HelperText);
+			const tooltip = getByText("Test tooltip");
+
+			expect(queryByDataRole(DataRoles.Switch.TooltipAddon)).toBeNull();
+			expect(control.contains(tooltip)).toBe(false);
+			expect(isAfter(control, tooltip)).toBe(true);
+			expect(isAfter(tooltip, helperText)).toBe(true);
+		});
+	});
+
+	describe("tooltip content", () => {
+		test("renders a plain string tooltip", () => {
+			const { getByDataRole, getByText } = render(
+				<Switch
+					onChange={noop}
+					id={properties.id}
+					label={properties.label}
+					tooltips="String tooltip"
+					breakTooltipsToNewLine={false}
+				/>
+			);
+			const addon = getByDataRole(DataRoles.Switch.TooltipAddon);
+			const tooltip = getByText("String tooltip");
+
+			expect(addon.contains(tooltip)).toBe(true);
+			expect(tooltip).toHaveClass(addPrefix("field") + "__tooltip");
+		});
+	});
+
+	describe("aria-invalid", () => {
+		test("marks the input as invalid for error", () => {
+			const { getByDataRole } = render(<Switch onChange={noop} id={properties.id} error />);
+
+			expect(getByDataRole(DataRoles.Switch.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("marks the input as invalid for errorMessage", () => {
+			const { getByDataRole } = render(
+				<Switch onChange={noop} id={properties.id} errorMessage={properties.errorMessage} />
+			);
+
+			expect(getByDataRole(DataRoles.Switch.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("does not mark the input as invalid for a warning or an info", () => {
+			const { getByDataRole } = render(
+				<Switch
+					onChange={noop}
+					id={properties.id}
+					warning
+					info
+					warningMessage={properties.warningMessage}
+					infoMessage={properties.infoMessage}
+				/>
+			);
+
+			expect(getByDataRole(DataRoles.Switch.Input)).not.toHaveAttribute("aria-invalid");
 		});
 	});
 });

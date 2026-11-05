@@ -30,19 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import YearSelectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/year-month-selector/year-selector.api.json" with { type: "json" };
+import basicCode from "!./basic.tsx?raw";
+import customYearRangeCode from "!./custom-year-range-selector.tsx?raw";
+import withOptionalValueCode from "!./optional-value.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import YearSelectorAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/input/year-month-selector/year-selector.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../../helpers/showcase-styles.js";
 
-import { CustomYearRangeSelectorExample } from "./custom-year-range-selector.js";
 import { BasicYearSelector } from "./basic.js";
+import { CustomYearRangeSelectorExample } from "./custom-year-range-selector.js";
 import { YearSelectorWithOptionalValue } from "./optional-value.js";
-
-import customYearRangeCode from "!./custom-year-range-selector.tsx?raw";
-import basicCode from "!./basic.tsx?raw";
-import withOptionalValueCode from "!./optional-value.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

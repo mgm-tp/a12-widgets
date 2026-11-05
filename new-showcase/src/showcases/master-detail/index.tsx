@@ -30,22 +30,21 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import dummyContentCode from "!./dummy-content.tsx?raw";
+import managedMasterDetailCode from "!./managed-master-detail.tsx?raw";
+import masterDetailCode from "!./master-detail.tsx?raw";
+import masterDetailAPICode from "!./showcase-master-detail.api.ts?raw";
 import type { JSONOutput } from "typedoc";
 
-import MasterDetailAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/master-detail/main/master-detail.api.json" with { type: "json" };
-import ManagedMasterDetailAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/master-detail/main/managed-master-detail/managed-master-detail.api.json" with { type: "json" };
 import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import ManagedMasterDetailAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/master-detail/main/managed-master-detail/managed-master-detail.api.json" with { type: "json" };
+import MasterDetailAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/master-detail/main/master-detail.api.json" with { type: "json" };
 import ResizeHandlerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/resizable/resize-handler.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { MasterDetailShowcase } from "./master-detail.js";
 import { ManagedMasterDetailShowcase } from "./managed-master-detail.js";
-
-import masterDetailCode from "!./master-detail.tsx?raw";
-import managedMasterDetailCode from "!./managed-master-detail.tsx?raw";
-import dummyContentCode from "!./dummy-content.tsx?raw";
-import masterDetailAPICode from "!./showcase-master-detail.api.ts?raw";
+import { MasterDetailShowcase } from "./master-detail.js";
 
 const showcases: Showcase[] = [
 	{

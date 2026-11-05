@@ -39,8 +39,8 @@
 
 import type { ReactNode } from "react";
 
-import type { Container, Identifiable, Styleable } from "../../../common/main/base-props.js";
 import type { ButtonGroupProps } from "../../../button-group/main/button-group.api.js";
+import type { Container, Identifiable, Styleable } from "../../../common/main/base-props.js";
 
 /**
  * The props of ButtonGroupContainerLegacy using the deprecated API.

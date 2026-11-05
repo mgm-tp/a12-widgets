@@ -41,11 +41,10 @@ const meta: Meta<typeof ProgressBar> = {
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		percentage: {
 			control: { type: "range", min: 0, max: 100, step: 1 },
-			description: "Progressed percentage of the process"
+			description: "Progressed percentage of the process (0–100)"
 		}
 	}
 };
@@ -53,68 +52,47 @@ const meta: Meta<typeof ProgressBar> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		percentage: 50
+	},
+	render: (args) => (
+		<div style={{ width: "300px", padding: "20px", backgroundColor: "#f5f5f5" }}>
+			<ProgressBar {...args} />
+		</div>
+	)
+};
+
+export const Animated: Story = {
+	render: function AnimatedExample() {
+		const [progress, setProgress] = useState(0);
+
+		useEffect(() => {
+			const interval = setInterval(() => {
+				setProgress((prev) => (prev >= 100 ? 0 : prev + 2));
+			}, 100);
+
+			return () => clearInterval(interval);
+		}, []);
+
+		return (
+			<div style={{ width: "300px", padding: "8px", backgroundColor: "#f5f5f5" }}>
+				<ProgressBar percentage={progress} />
+				<div style={{ marginTop: "8px", textAlign: "center" }}>{progress}%</div>
+			</div>
+		);
 	},
 	parameters: {
 		docs: {
 			description: {
 				story:
-					"ProgressBar inside a parent with no background. The component uses its own theme colors for the track and fill."
+					"Changes to `percentage` are animated with a smooth fill transition, so continuously updating the prop produces a live progress animation."
 			}
 		}
-	},
-	decorators: [
-		(Story) => (
-			<div style={{ width: "300px", padding: "20px" }}>
-				<Story />
-			</div>
-		)
-	]
-};
-
-export const Animated: Story = {
-	parameters: {
-		docs: {
-			description: {
-				story: "ProgressBar advancing continuously. Demonstrates the CSS transition on the fill width."
-			}
-		}
-	},
-	render: () => {
-		const AnimatedProgressBar = () => {
-			const [progress, setProgress] = useState(0);
-
-			useEffect(() => {
-				const interval = setInterval(() => {
-					setProgress((prev) => (prev >= 100 ? 0 : prev + 2));
-				}, 100);
-
-				return () => clearInterval(interval);
-			}, []);
-
-			return (
-				<div style={{ width: "300px", padding: "8px" }}>
-					<ProgressBar percentage={progress} />
-					<div style={{ marginTop: "8px", textAlign: "center" }}>{progress}%</div>
-				</div>
-			);
-		};
-
-		return <AnimatedProgressBar />;
 	}
 };
 
 export const MultipleSteps: Story = {
-	parameters: {
-		docs: {
-			description: {
-				story:
-					"Several ProgressBars representing independent steps in a multi-stage process, each at a different completion state."
-			}
-		}
-	},
 	render: () => (
 		<div
 			style={{
@@ -122,7 +100,8 @@ export const MultipleSteps: Story = {
 				flexDirection: "column",
 				gap: "16px",
 				width: "300px",
-				padding: "20px"
+				padding: "20px",
+				backgroundColor: "#f5f5f5"
 			}}
 		>
 			<div>
@@ -138,13 +117,52 @@ export const MultipleSteps: Story = {
 				<ProgressBar percentage={0} />
 			</div>
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Several progress bars composed into a multi-step flow. Each bar fills its own parent container, so each step gets its own labelled wrapper."
+			}
+		}
+	}
+};
+
+export const TransparentParent: Story = {
+	args: {
+		percentage: 65
+	},
+	render: (args) => (
+		<div style={{ width: "300px", padding: "20px" }}>
+			<ProgressBar {...args} />
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"When the parent element has no background color of its own, the bar automatically renders its themed track background instead of inheriting the parent's."
+			}
+		}
+	}
 };
 
 export const WithColoredParentBackground: Story = {
 	args: {
 		percentage: 50
 	},
+	render: (args) => (
+		<div
+			style={{
+				backgroundColor: "#4a90d9",
+				borderRadius: "4px",
+				padding: "8px",
+				width: "300px"
+			}}
+		>
+			<ProgressBar {...args} />
+		</div>
+	),
 	parameters: {
 		docs: {
 			description: {
@@ -152,19 +170,5 @@ export const WithColoredParentBackground: Story = {
 					"ProgressBar inside a parent that has a background color. The components uses parent's background color for the track and fill."
 			}
 		}
-	},
-	decorators: [
-		(Story) => (
-			<div
-				style={{
-					backgroundColor: "#4a90d9",
-					borderRadius: "4px",
-					padding: "8px",
-					width: "300px"
-				}}
-			>
-				<Story />
-			</div>
-		)
-	]
+	}
 };

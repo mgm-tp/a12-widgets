@@ -34,11 +34,11 @@ import type { ReactElement } from "react";
 import { useContext } from "react";
 
 import { A11YLanguageContext } from "../../../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../../../common/main/data-roles.js";
+import { provider } from "../../../../common/main/device-detector.js";
 import { HiddenText } from "../../../../common/main/hidden-text/hidden-text.view.js";
 import { joinClassNames } from "../../../../common/main/utils.js";
-import { provider } from "../../../../common/main/device-detector.js";
-import { DataRoles } from "../../../../common/main/data-roles.js";
-
+import { StyledContentBoxContext } from "../contentbox.context.js";
 import type { ContentBoxProps } from "../contentbox.tpl.api.js";
 import { StyledContentBoxFooter } from "../contentbox.tpl.styled.js";
 
@@ -46,6 +46,7 @@ import { BASE_CONTENTBOX_CLASS_NAME } from "./config.js";
 
 export function FooterTpl(props: ContentBoxProps.FooterProps): ReactElement<ContentBoxProps.FooterProps> {
 	const { contentboxTitles } = useContext(A11YLanguageContext);
+	const { embedded } = useContext(StyledContentBoxContext);
 	const className = joinClassNames(`${BASE_CONTENTBOX_CLASS_NAME}__footer`, props.className);
 
 	return (
@@ -54,8 +55,10 @@ export function FooterTpl(props: ContentBoxProps.FooterProps): ReactElement<Cont
 			style={props.style}
 			id={props.id}
 			data-role={DataRoles.Contentbox.Footer}
+			$embedded={embedded}
 		>
 			{props.children && provider.isDesktop() && (
+				// oxlint-disable-next-line jsx-a11y/role-has-required-aria-props -- HiddenText maps ariaLevel to aria-level
 				<HiddenText role="heading" ariaLevel={props.ariaLevel || 2}>
 					{props.headingTitle ?? contentboxTitles?.footerTitle}
 				</HiddenText>

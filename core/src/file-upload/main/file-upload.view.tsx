@@ -43,7 +43,11 @@ import type {
 import { useContext, createRef, Component, useRef, useCallback } from "react";
 import { Key } from "ts-key-enum";
 
+import type { FileUploadTitles } from "../../common/main/a11y-localization/index.js";
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { provider as DeviceDetector } from "../../common/main/device-detector.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import {
 	addPrefix,
 	bindMethods,
@@ -53,13 +57,12 @@ import {
 	StringUtils
 } from "../../common/main/utils.js";
 import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
+import type { MessagePosition } from "../../input/base/template/base.tpl.api.js";
 import { Error, Info, Label, Warning } from "../../input/base/template/base.tpl.view.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { DataRoles } from "../../common/main/data-roles.js";
-import { PopupMenuConfigContext } from "../../pop-up-menu/main/popup-menu-context.js";
-import type { FileUploadTitles } from "../../common/main/a11y-localization/index.js";
+import type { FieldOverrideProps } from "../../input/field-default-config/main/field-default-config.api.js";
+import { FieldDefaultsConfig } from "../../input/field-default-config/main/field-default-config.utils.js";
 import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
+import { PopupMenuConfigContext } from "../../pop-up-menu/main/popup-menu-context.js";
 
 import type { FileUploadProps } from "./file-upload.api.js";
 import { StyledFileUpload } from "./file-upload.styled.js";
@@ -80,6 +83,12 @@ interface FileUploadInternalProps {
 	fileNameAfterUploadId?: string;
 	hintRenderer?: (() => React.ReactElement | null) | null;
 	uploadButtonTitle?: string;
+
+	/**
+	 * Controls where the error, warning and info message boxes are rendered relative to the upload control.
+	 * @default "above"
+	 */
+	messagePosition?: MessagePosition;
 }
 
 export interface FileUploadState {
@@ -257,8 +266,8 @@ class FileUploadInternal extends Component<FileUploadProps & FileUploadInternalP
 			baseClassName,
 			{ [`${baseClassName}--readonly`]: this.props.readOnly },
 			{ [`${baseClassName}--disabled`]: this.props.disabled },
-			{ [`${baseClassName}--error`]: this.props.errorMessage },
-			{ [`${baseClassName}--warning`]: this.props.warningMessage },
+			{ [`${baseClassName}--error`]: this.props.error || this.props.errorMessage },
+			{ [`${baseClassName}--warning`]: this.props.warning || this.props.warningMessage },
 			{ [`${baseClassName}--isOver`]: this.state.isDraggingOver },
 			this.props.className
 		);
@@ -360,9 +369,9 @@ class FileUploadInternal extends Component<FileUploadProps & FileUploadInternalP
 					onKeyDown={fileNameDisplay ? undefined : this.handleOnKeyDown}
 					$hasChild={this.props.hasChild}
 					$loading={this.props.loading}
-					$error={!!this.props.errorMessage}
-					$warning={!!this.props.warningMessage}
-					$info={!!this.props.infoMessage}
+					$error={this.props.error || !!this.props.errorMessage}
+					$warning={this.props.warning || !!this.props.warningMessage}
+					$info={this.props.info || !!this.props.infoMessage}
 					$dragOver={this.state.isDraggingOver}
 					$withPlaceholder={this.props.placeholder}
 					$cancelable={this.props.cancelable}
@@ -406,6 +415,7 @@ class FileUploadInternal extends Component<FileUploadProps & FileUploadInternalP
 						accept={this.props.accept}
 						id={this.props.id}
 						data-role={inputWithSuffixName(DataRoles.FileUpload)}
+						aria-invalid={this.props.error || this.props.errorMessage ? true : undefined}
 						onChange={this.handleOnFileInputChange}
 						onClick={this.onInputClick}
 					/>
@@ -433,7 +443,46 @@ class FileUploadInternal extends Component<FileUploadProps & FileUploadInternalP
 		}
 	}
 
-	public render(): ReactNode {
+	render(): ReactNode {
+		return (
+			<FieldDefaultsConfig inputProps={this.props} tooltipFallback={false}>
+				{(positions): ReactNode => this.renderContent(positions)}
+			</FieldDefaultsConfig>
+		);
+	}
+
+	private renderContent({ messagePosition, breakTooltipsToNewLine }: Required<FieldOverrideProps>): ReactNode {
+		// The message props are typed to allow booleans, which only switch the state on and carry no
+		// text to render.
+		const messagesElement = (
+			<>
+				{this.props.errorMessage && typeof this.props.errorMessage !== "boolean" && (
+					<Error
+						errorMessage={this.props.errorMessage}
+						dataRole={DataRoles.FileUpload.ErrorMessage}
+						id={this.props.id}
+						position={messagePosition}
+					/>
+				)}
+				{this.props.warningMessage && typeof this.props.warningMessage !== "boolean" && (
+					<Warning
+						warningMessage={this.props.warningMessage}
+						dataRole={DataRoles.FileUpload.WarningMessage}
+						id={this.props.id}
+						position={messagePosition}
+					/>
+				)}
+				{this.props.infoMessage && typeof this.props.infoMessage !== "boolean" && (
+					<Info
+						infoMessage={this.props.infoMessage}
+						dataRole={DataRoles.FileUpload.InfoMessage}
+						id={this.props.id}
+						position={messagePosition}
+					/>
+				)}
+			</>
+		);
+
 		return (
 			<>
 				<div style={{ width: this.props.uploadAreaSize?.width }}>
@@ -451,26 +500,13 @@ class FileUploadInternal extends Component<FileUploadProps & FileUploadInternalP
 						}
 						dataRole={DataRoles.FileUpload.Label}
 					/>
-					{!this.props.compact && this.props.tooltips}
-					{this.props.errorMessage && typeof this.props.errorMessage !== "boolean" && (
-						<Error
-							errorMessage={this.props.errorMessage}
-							dataRole={DataRoles.FileUpload.ErrorMessage}
-							id={this.props.id}
-						/>
-					)}
-					{this.props.warningMessage && typeof this.props.warningMessage !== "boolean" && (
-						<Warning
-							warningMessage={this.props.warningMessage}
-							dataRole={DataRoles.FileUpload.WarningMessage}
-							id={this.props.id}
-						/>
-					)}
-					{this.props.infoMessage && typeof this.props.infoMessage !== "boolean" && (
-						<Info infoMessage={this.props.infoMessage} dataRole={DataRoles.FileUpload.InfoMessage} id={this.props.id} />
-					)}
+					{(breakTooltipsToNewLine === true ||
+						breakTooltipsToNewLine === "above" ||
+						(!this.props.compact && !breakTooltipsToNewLine)) &&
+						this.props.tooltips}
+					{messagePosition !== "below" && messagesElement}
 				</div>
-				{this.props.compact && this.props.tooltips ? (
+				{this.props.compact && !breakTooltipsToNewLine && this.props.tooltips ? (
 					<StyledFileUpload.StyledFieldUploadInlineWrapper>
 						{this.renderedFileUpload()}
 						{this.props.tooltips}
@@ -478,6 +514,8 @@ class FileUploadInternal extends Component<FileUploadProps & FileUploadInternalP
 				) : (
 					this.renderedFileUpload()
 				)}
+				{messagePosition === "below" && messagesElement}
+				{breakTooltipsToNewLine === "below" && this.props.tooltips}
 				{this.props.helperText && (
 					<StyledBaseInput.StyledFieldHelperWrapper
 						className={addPrefix("field__helper")}

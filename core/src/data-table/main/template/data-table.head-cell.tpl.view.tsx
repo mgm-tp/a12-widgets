@@ -32,13 +32,14 @@
 
 import type {
 	CSSProperties,
+	HTMLAttributes,
 	KeyboardEventHandler,
 	MouseEventHandler,
 	ReactElement,
 	ReactNode,
 	ThHTMLAttributes
 } from "react";
-import { useContext, useMemo } from "react";
+import { useContext, useId, useMemo } from "react";
 import { css, styled } from "styled-components";
 
 import { StyledButton } from "../../../button/main/button.styled.js";
@@ -48,12 +49,42 @@ import { provider } from "../../../common/main/device-detector.js";
 import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
 import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { darkFocus } from "../../../theme/base/mixins/_interaction.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
+import { HeadHiddenText, resolveHeadHiddenText } from "./data-table.head-hidden-text.js";
 import { DataTableResizeHandleTpl, StyledDataTableResizeHandle } from "./data-table.resize-handle.tpl.view.js";
-import { cellBase, pinnedCell, useCellPinning } from "./data-table.styled-utils.js";
+import { cellBase, cellPadding, parseBorder, pinnedCell, useCellPinning } from "./data-table.styled-utils.js";
 import { DataTableZIndex } from "./data-table.z-index.js";
+
+/**
+ * The cell's right-edge column divider, drawn as an inset shadow rather than a `border-right`.
+ *
+ * An absolutely positioned child's containing block is its ancestor's *padding* box, so a border
+ * here would push the hosted resize handle inside the column boundary. An inset shadow costs no
+ * layout and paints on the same pixels: it is drawn inside the padding edge, which without a
+ * border is the border-box edge — exactly where the border sat.
+ */
+const dividerShadowValue = (border: string | undefined): string | undefined => {
+	if (!border) {
+		return undefined;
+	}
+
+	const { width, color } = parseBorder(border);
+
+	return `inset -${width} 0 0 0 ${color}`;
+};
+
+const dividerShadow = (border: string | undefined): ReturnType<typeof css> | undefined => {
+	const shadow = dividerShadowValue(border);
+
+	if (!shadow) {
+		return undefined;
+	}
+
+	return css`
+		box-shadow: ${shadow};
+	`;
+};
 
 export const StyledDataTableHeadCell = styled.th.withConfig({ displayName: "StyledDataTableHeadCell-sc-" })<{
 	$pinned?: "left" | "right";
@@ -64,8 +95,20 @@ export const StyledDataTableHeadCell = styled.th.withConfig({ displayName: "Styl
 	$subInfo?: boolean;
 	$isGroup?: boolean;
 	$actionColumn?: boolean;
-	$hasResizeHandleRight?: boolean;
 	$rightDivider?: "group" | "single";
+
+	/**
+	 * Whether this cell covers the table's first column, which earns the first-column inset. Keyed
+	 * off `leafFrom`, not row position: a `rowSpan`'d leaf makes a lower header row start at leaf 1.
+	 */
+	$firstCell?: boolean;
+
+	/**
+	 * Whether this is a column-group cell hosting a group resize handle. Only affects
+	 * pinned cells, which are raised one step so the handle's downward overflow clears
+	 * the group's own pinned children. Scrolling cells need no raise.
+	 */
+	$groupResize?: boolean;
 	$touch?: boolean;
 }>(
 	({
@@ -78,27 +121,37 @@ export const StyledDataTableHeadCell = styled.th.withConfig({ displayName: "Styl
 		$subInfo,
 		$isGroup,
 		$actionColumn,
-		$hasResizeHandleRight,
 		$rightDivider,
+		$firstCell,
+		$groupResize,
 		$touch
 	}) => {
 		const { table } = theme.components;
 		const groupAlignment = $horizontalAlignment ?? ($isGroup ? "center" : "left");
 
+		/* A right-pinned edge cell's freeze line sits on its left edge, so — unlike a left-pinned
+		 * one — it does not stand in for the right-edge divider. `pinnedCell` sets `box-shadow`
+		 * wholesale, so the divider rides along with it instead of as its own declaration. */
+		const rightPinnedEdgeDivider =
+			$pinnedEdge && $pinned === "right" && !$isGroup && $rightDivider
+				? dividerShadowValue(
+						$rightDivider === "group" ? table.headCellGroup?.gapForGroup : table.headCellGroup?.gapForSingle
+					)
+				: undefined;
+
 		return css`
-			${cellBase(theme)}
+			${cellBase(theme, $firstCell)}
 			position: relative;
-			/* Lowest-level stacking context so the hosted resize handle stays
-			 * contained and renders BELOW pinned head cells when this column scrolls
-			 * behind them; otherwise the handle's z-index would compete in the
-			 * <thead> context and paint over the pinned cells. Pinned cells raise
-			 * their own z-index below, so this 0 only applies to scrolling cells. */
-			z-index: 0;
+			/* \`auto\`, not a number: a non-auto z-index would form a stacking context and
+			 * trap the hosted resize handle, letting the next head cell paint over the
+			 * half that straddles their shared boundary. Pinned cells set their own
+			 * z-index below and do stay stacking contexts — their handles sit flush. */
+			z-index: auto;
 			background: ${$subInfo ? table.bodyCell.subInfo.background : table.header.background};
 			color: ${table.headCell.color};
 			font-weight: ${table.headCell.fontWeight};
 			font-size: ${table.headCell.fontSize};
-			padding: ${$actionColumn ? table.actionCell.padding : table.headCell.padding};
+			${cellPadding(theme, $actionColumn ? table.actionCell.padding : table.headCell.padding, $firstCell)}
 			height: ${$touch ? table.headCell.touchMinHeight : table.headCell.minHeight};
 			text-align: ${groupAlignment};
 			vertical-align: ${$verticalAlignment === "top" ? "top" : $verticalAlignment === "bottom" ? "bottom" : "middle"};
@@ -108,78 +161,88 @@ export const StyledDataTableHeadCell = styled.th.withConfig({ displayName: "Styl
 			 * to separate their row from the leaf row. */
 			border-bottom: none;
 
-			${$isGroup &&
-			css`
-				border-bottom: ${table.headCellGroup?.gapForSingle};
-				/* Suppress the group cell's right border when a resize handle is
-				 * mounted on this boundary (the handle draws its own 2px bar) or on a
-				 * pinned edge (the freeze-line box-shadow below already paints the
-				 * separator, and the group border would paint over it). */
-				${!$hasResizeHandleRight &&
-				!$pinnedEdge &&
+			${
+				$isGroup &&
 				css`
-					border-right: ${table.headCellGroup?.gapForGroup};
-				`}
-			`}
+					border-bottom: ${table.headCellGroup?.gapForSingle};
+					/* Suppress the group cell's divider on a pinned edge (the freeze-line
+				 * shadow below already paints that separator, and the two would fight
+				 * over the same \`box-shadow\` declaration). A resize handle no longer
+				 * suppresses it: the handle straddles only the leaf row, so relying on
+				 * it left the group-header row (which has no handle) with no divider. */
+					${!$pinnedEdge && dividerShadow(table.headCellGroup?.gapForGroup)}
+				`
+			}
 
-			${!$isGroup &&
-			$rightDivider &&
-			!$hasResizeHandleRight &&
-			!$pinnedEdge &&
-			css`
-				border-right: ${$rightDivider === "group"
-					? table.headCellGroup?.gapForGroup
-					: table.headCellGroup?.gapForSingle};
-			`}
+			${
+				!$isGroup &&
+				$rightDivider &&
+				!$pinnedEdge &&
+				dividerShadow($rightDivider === "group" ? table.headCellGroup?.gapForGroup : table.headCellGroup?.gapForSingle)
+			}
 
-			${pinnedCell(theme, { $pinned, $pinnedEdge, zIndex: DataTableZIndex.pinnedHeadCell })}
+			/* Mutually exclusive with the divider above: that applies only when
+			 * \`!$pinnedEdge\`, this paints its freeze-line shadow only when \`$pinnedEdge\`,
+			 * so the later declaration never overwrites an active divider. */
 
-		${$sortable &&
-			!$isGroup &&
-			css`
-				cursor: pointer;
-				user-select: none;
-				color: ${table.headCell.sortable.color};
-				/* Hover bottom border, drawn on an absolutely-positioned overlay
+			${pinnedCell(theme, {
+				$pinned,
+				$pinnedEdge,
+				edgeExtraShadow: rightPinnedEdgeDivider,
+				zIndex: $groupResize ? DataTableZIndex.pinnedHeadCellGroupResize : DataTableZIndex.pinnedHeadCell
+			})}
+
+			${
+				$sortable &&
+				!$isGroup &&
+				css`
+					cursor: pointer;
+					user-select: none;
+					color: ${table.headCell.sortable.color};
+					/* Hover bottom border, drawn on an absolutely-positioned overlay
 				 * (inset: 0) rather than the cell's own border-bottom so it sits on top
 				 * of the continuous thead underline without shifting the label. */
-				&::before {
-					content: "";
-					position: absolute;
-					inset: 0;
-					pointer-events: none;
-				}
-				/* Suppress the sortable hover affordance while the column resize
+					&::before {
+						content: "";
+						position: absolute;
+						inset: 0;
+						pointer-events: none;
+					}
+					/* Suppress the sortable hover affordance while the column resize
 				 * handle is hovered — the pointer is over the handle (a child of this
 				 * cell), so the bare :hover would otherwise light up the header as
 				 * if it were about to sort. */
-				&:hover:not(:has(${StyledDataTableResizeHandle}:hover)) {
-					color: ${table.headCell.sortable.hoverColor};
-					&::before {
-						border-bottom: ${table.headCell.sortable.hoverBorder};
+					&:hover:not(:has(${StyledDataTableResizeHandle}:hover)) {
+						color: ${table.headCell.sortable.hoverColor};
+						&::before {
+							border-bottom: ${table.headCell.sortable.hoverBorder};
+						}
 					}
-				}
-				/* Sortable-header focus: colored label + underline on the ::before
+					/* Sortable-header focus: colored label + underline on the ::before
 				 * overlay + a dotted dark ring, not a solid box. Keyed off \`:focus\`
 				 * (not \`:focus-visible\`) to match the row focus ring, keeping the
 				 * focus model consistent across rows and headers. */
-				&:focus {
-					color: ${table.headCell.sortable.focusColor};
-					&::before {
-						border-bottom: ${table.headCell.sortable.focusBorder};
-						outline-offset: -1px;
-						${darkFocus}
+					&:focus {
+						outline: none;
+						color: ${table.headCell.sortable.focusColor};
+						&::before {
+							border-bottom: ${table.headCell.sortable.focusBorder};
+							outline-offset: -1px;
+							${darkFocus}
+						}
 					}
-				}
-			`}
+				`
+			}
 
-		${!$isGroup &&
-			css`
-				&[aria-sort="ascending"],
-				&[aria-sort="descending"] {
-					color: ${table.headCell.sortable.activeColor};
-				}
-			`}
+			${
+				!$isGroup &&
+				css`
+					&[aria-sort="ascending"],
+					&[aria-sort="descending"] {
+						color: ${table.headCell.sortable.activeColor};
+					}
+				`
+			}
 		`;
 	}
 );
@@ -286,16 +349,21 @@ export interface DataTableHeadCellTplProps {
 	leafTo: number;
 
 	/**
-	 * `aria-label` override. When `undefined`, action-column cells with no visible
-	 * `label` fall back to the localized "Actions" label from `A11YLanguageContext`.
+	 * `aria-label` override for a custom head-cell renderer. Overrides the
+	 * accessible name contributed by the cell's own content, so prefer
+	 * {@link hiddenText} unless the visible label must be replaced.
 	 */
 	ariaLabel?: string;
 
 	/**
-	 * Whether the column has a non-empty `label`. When `false` and `actionColumn`
-	 * is `true`, the template injects the localized "Actions" fallback `aria-label`.
+	 * Screen-reader-only text appended after the cell content.
+	 *
+	 * - An empty string renders nothing, not even the action-column fallback.
+	 * - A non-empty value is rendered as-is.
+	 * - When `undefined`, an `actionColumn` cell falls back to the localized
+	 *   "Action" label from `A11YLanguageContext`.
 	 */
-	hasLabel?: boolean;
+	hiddenText?: string;
 
 	/**
 	 * `title` attribute. Enriched with the localized sortable hint when `sortable`.
@@ -318,19 +386,27 @@ export interface DataTableHeadCellTplProps {
 	onContextMenu?: MouseEventHandler<HTMLTableCellElement>;
 
 	/**
-	 * Whether a resize handle is mounted on this cell's right edge. When `true`,
-	 * the group cell's `border-right` is suppressed to avoid double-painting the
-	 * handle's 2px bar.
-	 */
-	hasResizeHandleRight?: boolean;
-
-	/**
-	 * Vertical divider on this leaf cell's right edge under a column group:
-	 * `"group"` extends the group cell's 2px border down through the leaf row,
-	 * `"single"` is a 1px divider between sibling leaves. `undefined` = no divider.
-	 * Ignored for group cells and suppressed when `hasResizeHandleRight` is true.
+	 * Vertical divider on this cell's right edge: `"group"` is the heavier 2px rule
+	 * at a column group's right boundary, `"single"` is the 1px rule between
+	 * adjacent columns. `undefined` = no divider (the last leaf / table edge).
+	 * Suppressed at pinned edges, where the freeze-line already paints the separator.
 	 */
 	rightDivider?: "group" | "single";
+
+	/**
+	 * Resolved DOM props for a column group's resize handle (from the orchestrator's
+	 * `groupResizeHandleProps`). When present on a group cell (`isLeaf === false`),
+	 * the handle is rendered at the group's right edge and resizes the whole group
+	 * proportionally. Leaf cells source their handle from context instead.
+	 */
+	groupResizeHandleProps?: HTMLAttributes<HTMLDivElement>;
+
+	/**
+	 * Whether the group's right edge is the table's right edge (its last leaf is the
+	 * last column). Keeps the handle flush inside the cell to avoid the overhang that
+	 * would force a permanent horizontal scrollbar.
+	 */
+	groupResizeIsLastLeaf?: boolean;
 
 	/** `id` for the `<th>`. */
 	id?: string;
@@ -361,40 +437,66 @@ export function DataTableHeadCellTpl({
 	leafFrom,
 	leafTo,
 	ariaLabel,
-	hasLabel,
+	hiddenText,
 	title,
 	style,
 	htmlAttributes,
 	onSort,
 	onSortKeyDown,
 	onContextMenu,
-	hasResizeHandleRight,
 	rightDivider,
+	groupResizeHandleProps,
+	groupResizeIsLastLeaf,
 	id,
 	children
 }: DataTableHeadCellTplProps): ReactElement {
-	// Action-column fallback label from `DataTableContext`; falls back to the
-	// language context when rendered outside `<DataTable>`.
-	const contextActionColumnFallbackLabel = useDataTableContext((ctx) => ctx.actionColumnFallbackLabel);
-	const isResizable = useDataTableContext((ctx) => ctx.isResizable);
-	const getResizeHandleProps = useDataTableContext((ctx) => ctx.resizeHandleProps);
+	const isResizable = useDataTableContext().isResizable;
+	const leafColumnCount = useDataTableContext().leafColumnCount;
+	const getResizeHandleProps = useDataTableContext().resizeHandleProps;
+	const resizeEdgeOwner = useDataTableContext().resizeEdgeOwner;
 	// (tree)grid mode overrides the table role, dropping the native `<th>`
 	// columnheader mapping, so restate it as `role="columnheader"`.
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
+	const gridRole = useDataTableContext().gridRole;
+	const actionColumnHiddenText = useDataTableContext().actionColumnHiddenText;
 	const { tableTitles } = useContext(A11YLanguageContext);
-	const actionColumnFallbackLabel =
-		contextActionColumnFallbackLabel ?? tableTitles?.actionColumnDefaultLabel ?? "Actions";
 	const a11ySortableTitle = tableTitles?.sortableTitle?.trim();
 	// Memoized: `provider.isPhone()` runs regex-backed device detection, too
 	// costly to repeat per render. Not hoisted to module scope so tests can spy
 	// the provider.
 	const isMobile = useMemo(() => provider.isPhone(), []);
-	const resolvedAriaLabel = ariaLabel ?? (actionColumn && !hasLabel ? actionColumnFallbackLabel : undefined);
 	const resolvedTitle =
 		sortable && a11ySortableTitle ? (title ? `${title}, ${a11ySortableTitle}` : a11ySortableTitle) : title;
 	const scope: "col" | "colgroup" = isLeaf ? "col" : "colgroup";
 	const { pinStyle, isPinnedEdge } = useCellPinning(pinning, leafFrom, leafTo);
 	const resolvedStyle: CSSProperties | undefined = pinStyle ? { ...pinStyle, ...style } : style;
+
+	// The resize handle is a focusable `role="separator"` *inside* the `<th>`, so the
+	// cell's name-from-content would fold the handle's own `aria-label` into the column
+	// name ("Col A Resize Col A"). Name the cell explicitly from its label parts instead:
+	// the visible content, the touch-only "sortable" hint and the screen-reader-only
+	// `hiddenText`. Only spans that actually render are referenced, so the name never
+	// resolves to an empty string (which would not fall back to the content).
+	const nameId = useId();
+	const contentId = `${nameId}-label`;
+	const sortableHintId = `${nameId}-sortable`;
+	const hiddenTextId = `${nameId}-hidden`;
+	const showSortableHint = sortable && isMobile && !!a11ySortableTitle;
+	const resolvedHiddenText = resolveHeadHiddenText({
+		hiddenText,
+		actionColumn,
+		contextHiddenText: actionColumnHiddenText,
+		fallbackTitle: tableTitles?.actionTitle
+	});
+	const hasContent = children !== undefined && children !== null && children !== "" && children !== false;
+	const nameIds = [
+		hasContent ? contentId : undefined,
+		showSortableHint ? sortableHintId : undefined,
+		resolvedHiddenText ? hiddenTextId : undefined
+	].filter(Boolean);
+	// An explicit `aria-label` / `aria-labelledby` (prop or consumer `htmlAttributes`) wins.
+	const resolvedAriaLabel = ariaLabel ?? htmlAttributes?.["aria-label"];
+	const ariaLabelledby =
+		htmlAttributes?.["aria-labelledby"] ?? (resolvedAriaLabel || nameIds.length === 0 ? undefined : nameIds.join(" "));
 
 	return (
 		<StyledDataTableHeadCell
@@ -418,19 +520,29 @@ export function DataTableHeadCellTpl({
 			$subInfo={!!subInfo}
 			$isGroup={!isLeaf}
 			$actionColumn={!!actionColumn}
-			$hasResizeHandleRight={hasResizeHandleRight}
 			$rightDivider={rightDivider}
+			$firstCell={leafFrom === 0}
+			$groupResize={!isLeaf && !!groupResizeHandleProps}
 			$touch={isMobile}
 			aria-sort={ariaSort}
 			data-col-index={columnIndex + 1}
+			data-auto-size-col={actionColumn ? columnIndex : undefined}
 			aria-label={resolvedAriaLabel}
+			aria-labelledby={ariaLabelledby}
 			title={resolvedTitle}
 			tabIndex={sortable ? 0 : undefined}
-			onClick={sortable ? onSort : undefined}
-			onKeyDown={sortable ? onSortKeyDown : undefined}
-			onContextMenu={onContextMenu}
+			// Fall back to the consumer's `htmlAttributes` handlers on non-sortable columns
+			// instead of clobbering them with `undefined` (the sort handler takes precedence
+			// on sortable columns), matching the body cell's compose-don't-clobber idiom.
+			onClick={sortable ? onSort : htmlAttributes?.onClick}
+			onKeyDown={sortable ? onSortKeyDown : htmlAttributes?.onKeyDown}
+			onContextMenu={onContextMenu ?? htmlAttributes?.onContextMenu}
 		>
-			<StyledDataTableHeadCellContent as={sortable ? "span" : "div"} data-role={DataRoles.Table.Header.Cell.Content}>
+			<StyledDataTableHeadCellContent
+				as={sortable ? "span" : "div"}
+				id={hasContent ? contentId : undefined}
+				data-role={DataRoles.Table.Header.Cell.Content}
+			>
 				{children}
 				{ariaSort === "ascending" || ariaSort === "descending" ? (
 					<StyledDataTableHeadCellSortIcon>
@@ -438,9 +550,22 @@ export function DataTableHeadCellTpl({
 					</StyledDataTableHeadCellSortIcon>
 				) : null}
 			</StyledDataTableHeadCellContent>
-			{sortable && isMobile && a11ySortableTitle ? <HiddenText>{a11ySortableTitle}</HiddenText> : null}
-			{isLeaf && isResizable?.(leafTo) ? (
-				<DataTableResizeHandleTpl handleProps={getResizeHandleProps?.(leafTo)} />
+			{showSortableHint ? <HiddenText id={sortableHintId}>{a11ySortableTitle}</HiddenText> : null}
+			<HeadHiddenText hiddenText={hiddenText} actionColumn={actionColumn} id={hiddenTextId} />
+			{/* No leaf handle where a group handle already owns the boundary. */}
+			{isLeaf && isResizable?.(leafTo) && !resizeEdgeOwner?.[leafTo] ? (
+				<DataTableResizeHandleTpl
+					handleProps={getResizeHandleProps?.(leafTo)}
+					isLastLeaf={leafColumnCount !== undefined && leafTo === leafColumnCount - 1}
+					pinned={!!pinning}
+				/>
+			) : null}
+			{!isLeaf && groupResizeHandleProps ? (
+				<DataTableResizeHandleTpl
+					handleProps={groupResizeHandleProps}
+					isLastLeaf={groupResizeIsLastLeaf}
+					pinned={!!pinning}
+				/>
 			) : null}
 		</StyledDataTableHeadCell>
 	);

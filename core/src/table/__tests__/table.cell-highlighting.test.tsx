@@ -34,7 +34,6 @@ import { fireEvent, getAllByDataRole, render } from "test-utils";
 import { describe, expect, test } from "vitest";
 
 import { Range } from "../../common/main/utils.js";
-
 import type { BaseColumnType } from "../main/column.api.js";
 import { Table } from "../main/table.view.js";
 

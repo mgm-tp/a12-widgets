@@ -33,10 +33,10 @@
 import type { ReactNode, ReactElement } from "react";
 import { Component } from "react";
 
-import { Button } from "../../../button/main/button.view.js";
 import { ButtonGroup } from "../../../button-group/main/button-group.view.js";
-import { bindMethods, addPrefix, joinClassNames } from "../../../common/main/utils.js";
+import { Button } from "../../../button/main/button.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { bindMethods, addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import {
 	StyledCommentMeta,
 	StyledCommentMetaAvatar,

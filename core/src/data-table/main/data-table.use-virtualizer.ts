@@ -30,19 +30,57 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { VirtualItem } from "@tanstack/react-virtual";
+import type { VirtualItem, Virtualizer } from "@tanstack/react-virtual";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import type { Key, Ref, RefCallback, RefObject } from "react";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 
+import { DataRoles } from "../../common/main/data-roles.js";
 import { focusEnsuringTabIndex } from "../../common/main/utils.js";
 
-import type { TableScrollToNodeHandler } from "./foundation/table-renderer.api.js";
 import type { DataTableVirtualizerHandle } from "./data-table-virtualizer.api.js";
+import type { TableScrollToNodeHandler } from "./foundation/table-renderer.api.js";
 
 const DEFAULT_OVERSCAN = 10;
 
 const DEFAULT_ESTIMATED_ROW_HEIGHT = 50;
+
+// `DataRoles` is a path-stringifying Proxy: `DataRoles.Table.Expandable.Row` is a
+// proxy object (it has child roles) that only yields the `"table-expandable-row"`
+// string under coercion — so it must be stringified before an `===` comparison.
+const EXPANDABLE_ROW_ROLE = `${DataRoles.Table.Expandable.Row}`;
+
+/**
+ * Virtualizer `measureElement` that reports a body row's height **including its
+ * expansion panel**. Expanded content is a sibling `<tr>` (it cannot live inside the
+ * measured row's own `<tr>`), so measuring the row alone would under-report its real
+ * height and desync the spacer math. When the row's immediate next sibling is an
+ * expandable row (matched by `data-role`), its height is added to the row's own.
+ *
+ * For the observed row this mirrors TanStack's default (border-box from the
+ * `ResizeObserver` entry when present, else `offsetHeight`); the unobserved expansion
+ * sibling is always read via `offsetHeight`. Harmless when no expansion is present —
+ * the sibling is then the next body row and is ignored.
+ */
+function measureRowWithExpansion(
+	element: Element,
+	entry: ResizeObserverEntry | undefined,
+	instance: Virtualizer<HTMLElement, Element>
+): number {
+	const horizontal = instance.options.horizontal;
+	const box = entry?.borderBoxSize?.[0];
+	let size = box
+		? Math.round(box[horizontal ? "inlineSize" : "blockSize"])
+		: (element as HTMLElement)[horizontal ? "offsetWidth" : "offsetHeight"];
+
+	const sibling = element.nextElementSibling;
+
+	if (sibling instanceof HTMLElement && sibling.getAttribute("data-role") === EXPANDABLE_ROW_ROLE) {
+		size += sibling.offsetHeight;
+	}
+
+	return size;
+}
 
 /** Supports both callback and object refs for {@link UseDataTableVirtualizerParams#virtualizerRef}. */
 function assignHandleRef(
@@ -93,8 +131,12 @@ export interface UseDataTableVirtualizerParams {
 }
 
 export interface UseDataTableVirtualizerResult {
-	/** Attach to the virtualized `<tbody>`; drives the `scrollMargin` measurement. */
-	setBodyRef: RefCallback<HTMLTableSectionElement>;
+	/**
+	 * Attach to the element holding the rendered window — the virtualized `<tbody>`
+	 * in the table layout, the card list in card view. Drives the `scrollMargin`
+	 * measurement, which only needs the element's box, so either works.
+	 */
+	setBodyRef: RefCallback<HTMLElement>;
 
 	/** Currently rendered rows (visible window + overscan). */
 	virtualItems: VirtualItem[];
@@ -153,7 +195,7 @@ export function useDataTableVirtualizer(params: UseDataTableVirtualizerParams): 
 	// measurement.
 	const isDynamic = rowHeight === undefined;
 
-	const bodyElRef = useRef<HTMLTableSectionElement | null>(null);
+	const bodyElRef = useRef<HTMLElement | null>(null);
 	const [scrollMargin, setScrollMargin] = useState(0);
 
 	// Distance from the scroll container's content top to the `<tbody>` top. The
@@ -172,7 +214,7 @@ export function useDataTableVirtualizer(params: UseDataTableVirtualizerParams): 
 	}, [scrollElementRef]);
 
 	const setBodyRef = useCallback(
-		(node: HTMLTableSectionElement | null): void => {
+		(node: HTMLElement | null): void => {
 			bodyElRef.current = node;
 			measureScrollMargin();
 		},
@@ -204,13 +246,17 @@ export function useDataTableVirtualizer(params: UseDataTableVirtualizerParams): 
 		return (): void => observer.disconnect();
 	}, [scrollEl, measureScrollMargin]);
 
-	const virtualizer = useVirtualizer({
+	const virtualizer = useVirtualizer<HTMLElement, Element>({
 		count: rowCount,
 		getScrollElement: () => scrollElementRef.current,
 		estimateSize: () => rowHeight ?? estimatedRowHeight ?? DEFAULT_ESTIMATED_ROW_HEIGHT,
 		overscan: overscan ?? DEFAULT_OVERSCAN,
 		scrollMargin,
-		getItemKey
+		getItemKey,
+		// Measure each row together with its expansion sibling so a row that is
+		// expanded reserves the panel's height too (dynamic-height mode only — fixed
+		// `rowHeight` never invokes `measureElement`). No-op when there is no expansion.
+		measureElement: measureRowWithExpansion
 	});
 
 	// In dynamic mode every rendered row reports its real height. The returned ref

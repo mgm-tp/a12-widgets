@@ -30,26 +30,26 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import itemsCode from "!../menu.setup.tsx?raw";
+import horizontalMenuWithGroupCode from "!./horizontal-menu-with-group.tsx?raw";
+import horizontalMenuCode from "!./horizontal-menu.tsx?raw";
+import menuWithA11yTitlesCode from "!./menu-with-a11y-titles.tsx?raw";
+import scrollToSelectedItemMenuCode from "!./scroll-to-selected-item.tsx?raw";
+import verticalMenuCode from "!./vertical-menu.tsx?raw";
+import menuWithVariantsCode from "!./with-variants.tsx?raw";
+
+import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
 import FlyoutMenuAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/menu/main/flyout-menu.api.json" with { type: "json" };
 import MenuAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/menu/main/menu.api.json" with { type: "json" };
-import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { HorizontalMenuWithGroup } from "./horizontal-menu-with-group.js";
 import { HorizontalMenu } from "./horizontal-menu.js";
 import { MenuWithA11yTitles } from "./menu-with-a11y-titles.js";
-import { VerticalMenu } from "./vertical-menu.js";
 import { ScrollToSelectedItemMenu } from "./scroll-to-selected-item.js";
+import { VerticalMenu } from "./vertical-menu.js";
 import { MenuWithVariants } from "./with-variants.js";
-
-import itemsCode from "!../menu.setup.tsx?raw";
-import horizontalMenuWithGroupCode from "!./horizontal-menu-with-group.tsx?raw";
-import horizontalMenuCode from "!./horizontal-menu.tsx?raw";
-import menuWithA11yTitlesCode from "!./menu-with-a11y-titles.tsx?raw";
-import verticalMenuCode from "!./vertical-menu.tsx?raw";
-import scrollToSelectedItemMenuCode from "!./scroll-to-selected-item.tsx?raw";
-import menuWithVariantsCode from "!./with-variants.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

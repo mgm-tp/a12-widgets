@@ -1,0 +1,57 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as MasterDetailStories from "./MasterDetail.stories";
+
+<Meta of={MasterDetailStories} />
+
+<Title />
+
+The `MasterDetail` widget arranges content panes in a responsive master/detail layout, such as a
+list of records next to the details of the selected record. Each pane is described by a
+`VisibleView` entry with a `key`, an `element` and an optional `width` based on a 12-column grid.
+
+- Designed to be responsive across desktop, tablet and smartphone — on small screens a single
+  full-width pane is shown at a time.
+- Changing the set of `visibleViews` animates the pane transition; configure or disable this via
+  the `animation` prop.
+- Panes can be made resizable through `resizableOptions` per view, or `firstViewResizableOptions`
+  for the first pane only.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={MasterDetailStories.Playground} />
+
+## Examples
+
+### Three panes
+
+<Canvas of={MasterDetailStories.ThreePane} />
+
+### Single pane
+
+<Canvas of={MasterDetailStories.SinglePane} />
+
+### Navigation between panes
+
+<Canvas of={MasterDetailStories.NavigationBetweenPanes} />
+
+### Animated view transitions
+
+<Canvas of={MasterDetailStories.WithAnimation} />

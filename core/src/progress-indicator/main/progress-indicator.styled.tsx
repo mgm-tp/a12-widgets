@@ -32,9 +32,9 @@
 
 import { styled, css, keyframes } from "styled-components";
 
-import { brightFocus } from "../../theme/base/mixins/_interaction.js";
-import { fadeIn } from "../../theme/base/mixins/_animation.js";
 import { provider } from "../../common/main/device-detector.js";
+import { fadeIn } from "../../theme/base/mixins/_animation.js";
+import { brightFocus } from "../../theme/base/mixins/_interaction.js";
 
 import type { OverlayVariant, ProgressIndicatorSize } from "./progress-indicator.api.js";
 
@@ -148,10 +148,12 @@ export const StyledLoadingOuterOverlay = styled.span.withConfig({ displayName: "
 		user-select: none;
 		visibility: ${!visible && "hidden"};
 		// Remove animation since the outer overlay is flickering on the iPad
-		${provider.isTablet() &&
-		css`
-			animation-name: none;
-		`}
+		${
+			provider.isTablet() &&
+			css`
+				animation-name: none;
+			`
+		}
 	`;
 });
 
@@ -187,12 +189,14 @@ export const StyledLoadingInnerOverlay = styled.span.withConfig({ displayName: "
 		transform-origin: top left;
 		user-select: none;
 
-		${!noAnimation &&
-		css`
-			animation:
-				${fadeIn()} ${innerOverlay.animationDuration},
-				${scale} ${innerOverlay.animationDuration};
-		`}
+		${
+			!noAnimation &&
+			css`
+				animation:
+					${fadeIn()} ${innerOverlay.animationDuration},
+					${scale} ${innerOverlay.animationDuration};
+			`
+		}
 
 		&:focus {
 			${brightFocus}
@@ -215,34 +219,40 @@ export const StyledLoadingCircle = styled.span.withConfig({ displayName: "Styled
 		margin: ${circle.margin};
 		position: relative;
 		width: ${sizeValue};
-		${!noAnimation &&
-		css`
-			animation: ${fadeIn()} ${circle.animation.duration} ${circle.animation.timingFunction};
-		`}
+		${
+			!noAnimation &&
+			css`
+				animation: ${fadeIn()} ${circle.animation.duration} ${circle.animation.timingFunction};
+			`
+		}
 
 		~ ${StyledLoadingLabel} {
 			margin: ${label.withCircleMargin};
 		}
-		${size === "small" &&
-		css`
-			font-size: 0;
-			margin: ${circle.smallMargin};
-
-			~ ${StyledLoadingLabel} {
-				margin: ${label.small.margin};
-			}
-		`}
-		${horizontal &&
-		css`
-			&:not(:only-child) {
-				margin-left: 0;
+		${
+			size === "small" &&
+			css`
+				font-size: 0;
+				margin: ${circle.smallMargin};
 
 				~ ${StyledLoadingLabel} {
-					margin: ${label.horizontalWithCircleMargin};
-					text-align: left;
+					margin: ${label.small.margin};
 				}
-			}
-		`}
+			`
+		}
+		${
+			horizontal &&
+			css`
+				&:not(:only-child) {
+					margin-left: 0;
+
+					~ ${StyledLoadingLabel} {
+						margin: ${label.horizontalWithCircleMargin};
+						text-align: left;
+					}
+				}
+			`
+		}
 	`;
 });
 
@@ -286,20 +296,24 @@ export const StyledLoadingCircleSpinner = styled.span.withConfig({ displayName: 
 		position: absolute;
 		top: 0;
 		width: 200%; // To get the width of circle layer selector
-		${position === "left" &&
-		css`
-			animation-name: ${leftSpin};
-			border-right-color: transparent;
-			border-right-style: dotted;
-			left: 0;
-		`}
-		${position === "right" &&
-		css`
-			animation-name: ${rightSpin};
-			border-left-color: transparent;
-			border-left-style: dotted;
-			right: 0;
-		`}
+		${
+			position === "left" &&
+			css`
+				animation-name: ${leftSpin};
+				border-right-color: transparent;
+				border-right-style: dotted;
+				left: 0;
+			`
+		}
+		${
+			position === "right" &&
+			css`
+				animation-name: ${rightSpin};
+				border-left-color: transparent;
+				border-left-style: dotted;
+				right: 0;
+			`
+		}
 	`;
 });
 
@@ -325,23 +339,27 @@ export const StyledLoadingLabel = styled.span.withConfig({ displayName: "StyledL
 		margin: ${label.margin};
 		user-select: none;
 		text-align: center;
-		${!noAnimation &&
-		css`
-			animation: ${fadeIn()} ${circle.animation.duration} ${circle.animation.timingFunction};
-		`}
-		${useDots &&
-		css`
-			flex: 1;
-			padding-right: 12px;
-			position: relative;
+		${
+			!noAnimation &&
+			css`
+				animation: ${fadeIn()} ${circle.animation.duration} ${circle.animation.timingFunction};
+			`
+		}
+		${
+			useDots &&
+			css`
+				flex: 1;
+				padding-right: 12px;
+				position: relative;
 
-			&:after {
-				content: "...";
-				overflow: hidden;
-				position: absolute;
-				animation: ${dots} 2s ease-in-out infinite;
-				text-align: left;
-			}
-		`}
+				&:after {
+					content: "...";
+					overflow: hidden;
+					position: absolute;
+					animation: ${dots} 2s ease-in-out infinite;
+					text-align: left;
+				}
+			`
+		}
 	`;
 });

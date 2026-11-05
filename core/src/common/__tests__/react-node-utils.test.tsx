@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, expect, test } from "vitest";
 import { createElement } from "react";
+import { describe, expect, test } from "vitest";
 
 import { isSimilarElement, isSimilarNode } from "../main/react-node-utils.js";
 

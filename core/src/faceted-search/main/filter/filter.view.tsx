@@ -33,16 +33,16 @@
 import type { ReactNode, ReactElement } from "react";
 import { useContext, useCallback, Children, Fragment, useRef } from "react";
 
-import { Icon } from "../../../icon/main/icon.view.js";
 import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
-import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
-import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
-import { useInteractionHint } from "../../../interaction-hint/main/use-interaction-hint.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
+import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
+import { joinClassNames, addPrefix } from "../../../common/main/utils.js";
+import { Icon } from "../../../icon/main/icon.view.js";
+import { useInteractionHint } from "../../../interaction-hint/main/use-interaction-hint.js";
 import { FilterContext } from "../filter-bar/filter-context.js";
 
+import type { FilterProps } from "./filter.api.js";
 import {
 	StyledFilterOptions,
 	StyledFilterWrapper,
@@ -55,7 +55,6 @@ import {
 	StyledFilterPrefix,
 	StyledFilterNameArrow
 } from "./filter.styled.js";
-import type { FilterProps } from "./filter.api.js";
 
 const baseClassName = addPrefix("filter");
 

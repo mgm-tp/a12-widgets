@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import type { ReactNode } from "react";
 import { useState, useCallback } from "react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import type {
 	BaseColumnType,
@@ -317,8 +317,7 @@ function ContextMenuDemo() {
 
 const meta: Meta = {
 	title: "Data Display/Table/Table Renderers",
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;

@@ -1,11 +1,30 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link options 1`] = `
-.c15 {
+.c16 {
   left: 0px;
   position: fixed;
   top: 0px;
   width: 100vw;
+}
+
+.c15 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c15 * {
+  width: 1px;
+  height: 1px;
 }
 
 .c13 {
@@ -36,18 +55,22 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
   max-width: unset;
 }
 
-.c16 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c13 {
+  color: inherit;
+}
+
+.c17 {
   display: flex;
   max-height: 100vh;
   outline: transparent solid 0px;
   position: absolute;
 }
 
-.c16 > * {
+.c17 > * {
   max-height: inherit;
 }
 
-.c23 {
+.c24 {
   background-position: -10000% bottom;
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) calc(0.1rem);
@@ -59,7 +82,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
   text-decoration: none;
 }
 
-.c23 .c12 {
+.c24 .c12 {
   color: inherit;
   display: inline;
   font-size: 0.75rem;
@@ -67,32 +90,16 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
   vertical-align: -2px;
 }
 
-.c23:visited {
+.c24:visited {
   color: rgb(5, 104, 174);
 }
 
-.c23:focus {
+.c24:focus {
   background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
   background-position: left bottom;
   color: rgb(213, 0, 117);
   outline: rgb(51, 51, 51) dotted 1px;
   text-decoration: none;
-}
-
-.c29 .c12 {
-  user-select: none;
-}
-
-.c29 .c12 {
-  color: inherit;
-}
-
-.c29 .c12 {
-  font-size: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c29.c29 > .c12 {
-  display: block;
 }
 
 .c7 {
@@ -109,10 +116,6 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
 
 .c7:empty {
   display: none;
-}
-
-.c28 .c12 {
-  font-size: 1.25rem;
 }
 
 .c14 {
@@ -141,7 +144,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -170,7 +173,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -220,112 +223,6 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
   max-width: 100%;
 }
 
-.c19 {
-  background-color: rgb(241, 242, 244);
-  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
-  display: flex;
-  font-family: "Open Sans", sans-serif;
-  flex-direction: column;
-  outline: rgb(211, 214, 220) solid 1px;
-  width: 100%;
-}
-
-.c19:focus {
-  outline: none;
-}
-
-.c24 {
-  background-color: rgb(226, 230, 233);
-  box-sizing: border-box;
-  color: rgb(77, 77, 77);
-  font-size: 0.75rem;
-  height: auto;
-  min-height: 24px;
-  padding: 2px 8px;
-}
-
-.c25 {
-  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
-  display: flex;
-  flex-direction: column;
-  max-height: 252px;
-  overflow-y: auto;
-}
-
-.c27 {
-  display: flex;
-  align-items: center;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
-.c26 {
-  box-sizing: border-box;
-  color: rgb(77, 77, 77);
-  display: flex;
-  flex-shrink: 0;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  min-height: 24px;
-  outline: none;
-  padding: 4px 8px;
-  position: relative;
-}
-
-.c26::after {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  inset: 0px;
-  display: block;
-  pointer-events: none;
-  position: absolute;
-}
-
-.c26:focus::after {
-  border: 1px dotted rgb(22, 25, 29);
-  content: "";
-}
-
-.c26[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
-  font-weight: 700;
-}
-
-.c26[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
-  content: "";
-}
-
-.c26[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
-  border-bottom: 1px solid rgb(169, 179, 188);
-}
-
-.c21 {
-  display: flex;
-  flex-shrink: 0;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  min-height: 24px;
-  outline: none;
-  padding: 4px 8px;
-  position: relative;
-  cursor: pointer;
-}
-
-.c21::after {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  inset: 0px;
-  display: block;
-  position: absolute;
-}
-
-.c20 {
-  border-bottom: 1px solid rgb(226, 230, 233);
-}
-
 .c9 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
@@ -337,23 +234,134 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
   width: 0px;
 }
 
+.c20 {
+  background-color: rgb(241, 242, 244);
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  outline: rgb(211, 214, 220) solid 1px;
+  width: 100%;
+}
+
+.c20:focus {
+  outline: none;
+}
+
+.c25 {
+  background-color: rgb(226, 230, 233);
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  height: auto;
+  min-height: 24px;
+  padding: 2px 8px;
+}
+
+.c27 {
+  animation: 0.1s ease 0s 1 normal none running pulse-dropdown-content;
+  display: flex;
+  flex-direction: column;
+  max-height: 252px;
+  overflow-y: auto;
+}
+
+.c29 {
+  display: flex;
+  align-items: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.c28 {
+  box-sizing: border-box;
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+}
+
+.c28::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  inset: 0px;
+  display: block;
+  pointer-events: none;
+  position: absolute;
+}
+
+.c28:focus::after {
+  border: 1px dotted rgb(22, 25, 29);
+  content: "";
+}
+
+.c28[data-type="multiselect-item"]:has([data-role="checkbox-input-indeterminate"]):first-child {
+  font-weight: 700;
+}
+
+.c28[data-type="multiselect-item"]:not(:last-child):not(:focus)::after {
+  content: "";
+}
+
+.c28[data-type="multiselect-item"]:not(:last-child):not(:focus):has([data-role="checkbox-input-indeterminate"]):not(:active):not(:hover):first-child::after {
+  border-bottom: 1px solid rgb(169, 179, 188);
+}
+
+.c22 {
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  min-height: 24px;
+  outline: none;
+  padding: 4px 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.c22::after {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  inset: 0px;
+  display: block;
+  position: absolute;
+}
+
+.c21 {
+  border-bottom: 1px solid rgb(226, 230, 233);
+}
+
 .c0 {
   position: relative;
   width: 100%;
 }
 
-.c17 {
+.c18 {
   display: flex;
   outline: transparent solid 1px;
   margin: 2px 0px 0px;
 }
 
-.c17 .c18 {
+.c18 .c19 {
   min-height: inherit;
 }
 
+.c18 .c26 {
+  max-height: 252px;
+  flex: 0 1 auto;
+}
+
 @media (pointer: coarse) {
-  .c23:active {
+  .c24:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-position: left bottom;
     transition: background-position 0.3s;
@@ -361,14 +369,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
 }
 
 @media (pointer: fine) {
-  .c23:hover {
+  .c24:hover {
     background-position: left bottom;
     transition: background-position 0.3s;
   }
 }
 
 @media (pointer: coarse) {
-  .c23:active {
+  .c24:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
     color: rgb(213, 0, 117);
@@ -377,7 +385,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
 }
 
 @media (pointer: fine) {
-  .c23:hover {
+  .c24:hover {
     background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
     color: rgb(213, 0, 117);
     cursor: pointer;
@@ -386,72 +394,72 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
 }
 
 @media (pointer: coarse) {
-  .c26:not([data-type="icon-selected"]):active {
+  .c28:not([data-type="icon-selected"]):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c26:not([data-type="icon-selected"]):active::after {
+  .c28:not([data-type="icon-selected"]):active::after {
     border: 2px solid rgb(213, 0, 117);
     content: "";
   }
 }
 
 @media (pointer: fine) {
-  .c26:not([data-type="icon-selected"]):hover {
+  .c28:not([data-type="icon-selected"]):hover {
     cursor: pointer;
   }
 
-  .c26:not([data-type="icon-selected"]):hover::after {
+  .c28:not([data-type="icon-selected"]):hover::after {
     border: 2px solid rgb(213, 0, 117);
     content: "";
   }
 }
 
 @media (pointer: coarse) {
-  .c26[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
+  .c28[data-type="multiselect-item"]:not(:last-child):not(:focus):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c26[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
+  .c28[data-type="multiselect-item"]:not(:last-child):not(:focus):active::after {
     border-bottom: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c26[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
+  .c28[data-type="multiselect-item"]:not(:last-child):not(:focus):hover::after {
     border-bottom: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c21:active {
+  .c22:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c21:active .c22 {
+  .c22:active .c23 {
     background-position: left bottom;
     transition: background-position 0.3s;
   }
 }
 
 @media (pointer: fine) {
-  .c21:hover .c22 {
+  .c22:hover .c23 {
     background-position: left bottom;
     transition: background-position 0.3s;
   }
 }
 
 @media (pointer: coarse) {
-  .c21:active {
+  .c22:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c21:active::after {
+  .c22:active::after {
     border: 2px solid rgb(213, 0, 117);
     content: "";
   }
 
-  .c21:active .c22 {
+  .c22:active .c23 {
     background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
     color: rgb(213, 0, 117);
     text-decoration: none;
@@ -459,16 +467,16 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
 }
 
 @media (pointer: fine) {
-  .c21:hover {
+  .c22:hover {
     cursor: pointer;
   }
 
-  .c21:hover::after {
+  .c22:hover::after {
     border: 2px solid rgb(213, 0, 117);
     content: "";
   }
 
-  .c21:hover .c22 {
+  .c22:hover .c23 {
     background-image: linear-gradient(rgb(213, 0, 117), rgb(213, 0, 117));
     color: rgb(213, 0, 117);
     cursor: pointer;
@@ -501,6 +509,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
             Autocomplete with Links
           </label>
           <div
+            aria-owns="test-id-dropdown"
             class="c8 field__input"
             data-isfocused="true"
             data-role="text-field-input-wrapper"
@@ -509,7 +518,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
               class="c9 supported-unseen-span"
             />
             <input
-              aria-autocomplete="list"
+              aria-autocomplete="both"
+              aria-controls="test-id-dropdown"
               aria-expanded="true"
               aria-haspopup="listbox"
               autocomplete="off"
@@ -535,6 +545,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   expand_more
                 </span>
@@ -544,9 +556,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
         </div>
       </div>
     </div>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c15 -u-unseenButRead"
+      data-role="autocomplete-live-region"
+      role="status"
+    >
+      22 out of 22 options shown
+    </span>
   </div>
   <div
-    class="c15"
+    class="c16"
     data-role="portal-placeholder"
   >
     <div
@@ -555,16 +576,17 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
     >
       <div>
         <div
-          class="c16 attached-portal h_bottomStart"
+          class="c17 attached-portal h_bottomStart"
           data-role="attached-portal"
           style="top: 53px; left: 0px; visibility: visible; opacity: 1;"
           tabindex="-1"
         >
           <div
-            class="c17 autocomplete__dropdown"
+            class="c18 autocomplete__dropdown"
+            style="width: 1280px;"
           >
             <div
-              class="c18 c19 dropdown"
+              class="c19 c20 dropdown"
               data-role="dropdown"
               id="test-id-dropdown"
               role="presentation"
@@ -573,20 +595,20 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
             >
               <div
                 aria-labelledby="test-id-label"
-                class="c20"
+                class="c21"
                 data-role="dropdown-links"
                 id="test-id-dropdown--links"
                 role="listbox"
               >
                 <div
                   aria-selected="false"
-                  class="c21"
+                  class="c22"
                   data-role="dropdown-link-item-wrapper"
                   id="test-id-dropdown--link-0"
                   role="option"
                 >
                   <a
-                    class="c22 c23 link"
+                    class="c23 c24 link"
                     data-role="link"
                     href="#"
                     tabindex="0"
@@ -596,13 +618,13 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c21"
+                  class="c22"
                   data-role="dropdown-link-item-wrapper"
                   id="test-id-dropdown--link-1"
                   role="option"
                 >
                   <a
-                    class="c22 c23 link"
+                    class="c23 c24 link"
                     data-role="link"
                     href="#"
                     tabindex="0"
@@ -613,6 +635,8 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                     >
                       <span
                         aria-hidden="true"
+                        class="notranslate"
+                        translate="no"
                       >
                         person_remove
                       </span>
@@ -622,7 +646,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
               </div>
               <div
-                class="c24 dropdown__hint"
+                class="c25 dropdown__hint"
                 data-role="dropdown-hint"
                 id="test-id-dropdown--hint"
               >
@@ -630,13 +654,13 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
               </div>
               <div
                 aria-labelledby="test-id-label test-id-dropdown--hint"
-                class="c25 dropdown__content"
+                class="c26 c27 dropdown__content"
                 data-role="dropdown-content"
                 role="listbox"
               >
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="ActionScript"
@@ -644,7 +668,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     ActionScript
@@ -652,7 +676,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="AppleScript"
@@ -660,7 +684,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     AppleScript
@@ -668,7 +692,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Asp"
@@ -676,7 +700,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Asp
@@ -684,7 +708,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="BASIC"
@@ -692,7 +716,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     BASIC
@@ -700,7 +724,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="C"
@@ -708,7 +732,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     C
@@ -716,7 +740,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="C++"
@@ -724,7 +748,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     C++
@@ -732,7 +756,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Clojure"
@@ -740,7 +764,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Clojure
@@ -748,7 +772,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="COBOL"
@@ -756,7 +780,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     COBOL
@@ -764,7 +788,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="ColdFusion"
@@ -772,7 +796,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     ColdFusion
@@ -780,7 +804,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Erlang"
@@ -788,7 +812,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Erlang
@@ -796,7 +820,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Fortran"
@@ -804,7 +828,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Fortran
@@ -812,7 +836,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Groovy"
@@ -820,7 +844,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Groovy
@@ -828,7 +852,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Haskell"
@@ -836,7 +860,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Haskell
@@ -844,7 +868,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Java"
@@ -852,7 +876,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Java
@@ -860,7 +884,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="JavaScript"
@@ -868,7 +892,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     JavaScript
@@ -876,7 +900,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Lisp"
@@ -884,7 +908,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Lisp
@@ -892,7 +916,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Perl"
@@ -900,7 +924,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Perl
@@ -908,7 +932,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="PHP"
@@ -916,7 +940,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     PHP
@@ -924,7 +948,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Python"
@@ -932,7 +956,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Python
@@ -940,7 +964,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Ruby"
@@ -948,7 +972,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Ruby
@@ -956,7 +980,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Scala"
@@ -964,7 +988,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Scala
@@ -972,7 +996,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                 </div>
                 <div
                   aria-selected="false"
-                  class="c26 dropdown__item"
+                  class="c28 dropdown__item"
                   data-preselect="false"
                   data-role="dropdown-item"
                   id="Scheme"
@@ -980,7 +1004,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
                   tabindex="0"
                 >
                   <div
-                    class="c27 dropdown__text"
+                    class="c29 dropdown__text"
                     data-role="dropdown-text"
                   >
                     Scheme
@@ -991,7 +1015,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render autocomplete with link opti
           </div>
         </div>
         <div
-          class="c15"
+          class="c16"
           data-role="portal-placeholder"
         />
       </div>
@@ -1020,14 +1044,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   height: 1px;
 }
 
-.c33 {
+.c32 {
   display: inline-block;
   font-size: 0px;
   vertical-align: middle;
   color: rgb(5, 104, 174);
 }
 
-.c13 {
+.c12 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -1047,19 +1071,19 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   font-feature-settings: "liga";
 }
 
-.c13 > span {
+.c12 > span {
   display: inline-block;
 }
 
-.c13.c13 {
+.c12.c12 {
   max-width: unset;
 }
 
-.c32 .c13 {
+:where(.c31) .c12 {
   color: inherit;
 }
 
-.c17 {
+.c16 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -1079,36 +1103,36 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   font-feature-settings: "liga";
 }
 
-.c17 > span {
+.c16 > span {
   display: inline-block;
 }
 
-.c17.c17 {
+.c16.c16 {
   max-width: unset;
 }
 
-.c32 .c17 {
+:where(.c31) .c16 {
   color: inherit;
 }
 
-.c28.c28.c28,
-.c32 .c28.c28.c28 {
+.c27.c27.c27,
+.c31 .c27.c27.c27 {
   font-size: 1.5rem;
 }
 
-.c14.c14 {
+.c13.c13 {
   color: rgb(201, 29, 29);
 }
 
-.c18.c18 {
+.c17.c17 {
   color: rgb(175, 121, 2);
 }
 
-.c20.c20 {
+.c19.c19 {
   color: rgb(5, 104, 174);
 }
 
-.c26 {
+.c25 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -1132,19 +1156,19 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   color: rgb(5, 104, 174);
 }
 
-.c26 .c11 {
+.c25 .c11 {
   user-select: none;
 }
 
-.c26 .c11 {
+.c25 .c11 {
   color: inherit;
 }
 
-.c26 .c11 {
+.c25 .c11 {
   font-size: inherit;
 }
 
-.c26:not(:disabled):focus {
+.c25:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -1152,7 +1176,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   border: 2px solid rgb(213, 0, 117);
 }
 
-.c32 .c26.c26 {
+.c31 .c25.c25 {
   font-size: 1.25rem;
   height: fit-content;
   min-height: 0px;
@@ -1160,25 +1184,21 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   width: fit-content;
 }
 
-.c32 .c26.c26:not(:active):not(:hover):not(:focus) {
+.c31 .c25.c25:focus .c11 {
   color: inherit;
 }
 
-.c32 .c26.c26:not(:active):not(:hover):not(:focus) .c11:not(.c12) {
+:where(.c31) .c25:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
-.c32 .c26.c26:focus .c11 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c26.c26 {
+.h_inlineBlock.h_middleAlign .c25.c25 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c26.c26 > .c11 {
+.h_inlineBlock.h_middleAlign .c25.c25 > .c11 {
   display: block;
 }
 
@@ -1209,7 +1229,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   color: rgb(201, 29, 29);
 }
 
-.c16 {
+.c15 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -1220,7 +1240,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   color: rgb(22, 25, 29);
 }
 
-.c19 {
+.c18 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -1240,18 +1260,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   font-size: 1.25rem;
 }
 
-.c15 {
+.c14 {
   align-self: center;
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c29 {
+.c28 {
   color: rgb(127, 140, 155);
   user-select: none;
   cursor: pointer;
 }
 
-.c31 {
+.c30 {
   align-items: center;
   align-self: flex-end;
   display: flex;
@@ -1261,7 +1281,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   justify-content: center;
 }
 
-.c35 {
+.c34 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -1271,16 +1291,16 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   width: fit-content;
 }
 
-.c34 {
+.c33 {
   display: flex;
 }
 
-.c34 .c30 {
+.c33 .c29 {
   height: auto;
   visibility: hidden;
 }
 
-.c24 {
+.c23 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -1290,12 +1310,12 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   margin-left: -12px;
 }
 
-.c24:last-child {
+.c23:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c27 {
+.c26 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -1304,17 +1324,17 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   min-width: 32px;
 }
 
-.c27:last-child {
+.c26:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c23 {
+.c22 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1332,18 +1352,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   width: 100%;
 }
 
-.c23::placeholder {
+.c22::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c21 {
+.c20 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -1355,7 +1375,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
 }
 
-.c21 .c25 {
+.c20 .c24 {
   border-radius: 0px;
 }
 
@@ -1382,7 +1402,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   width: 100%;
 }
 
-.c5 > .c32 {
+.c5 > .c31 {
   margin: 0px 4px 4px 0px;
 }
 
@@ -1400,7 +1420,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
   max-width: 100%;
 }
 
-.c22 {
+.c21 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -1417,7 +1437,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
 }
 
 @media (pointer: coarse) {
-  .c26:not(:disabled):active {
+  .c25:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -1427,7 +1447,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
 }
 
 @media (pointer: fine) {
-  .c26:not(:disabled):hover {
+  .c25:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -1436,49 +1456,49 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
 }
 
 @media (pointer: fine) {
-  .c26:hover {
+  .c25:hover {
     outline: transparent solid 1px;
   }
 }
 
 @media (pointer: coarse) {
-  .c32 .c26.c26:active {
+  .c31 .c25.c25:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c32 .c26.c26:active .c11 {
+  .c31 .c25.c25:active .c11 {
     color: inherit;
   }
 }
 
 @media (pointer: fine) {
-  .c32 .c26.c26:hover .c11 {
+  .c31 .c25.c25:hover .c11 {
     color: inherit;
   }
 }
 
 @media (pointer: coarse) {
-  .c21:active {
+  .c20:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c21:hover {
+  .c20:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c21.c21:active {
+  .c20.c20:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c21.c21:hover {
+  .c20.c20:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -1521,12 +1541,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
             class="c10 messageIcon"
           >
             <i
-              class="c11 c12 c13 c14 plasma-icon plasma-icon--error plasma-icon--custom"
+              class="c11 c12 c13 plasma-icon plasma-icon--error plasma-icon--custom"
               data-role="plasma-icon"
               title="Error"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 
               </span>
@@ -1539,14 +1561,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
             </i>
           </div>
           <div
-            class="c15 messageText"
+            class="c14 messageText"
             data-role="error-text"
           >
             Error message
           </div>
         </div>
         <div
-          class="c16 message message--warning field__message"
+          class="c15 message message--warning field__message"
           data-role="text-field-warning-message"
           id="test-id-warning"
         >
@@ -1554,12 +1576,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
             class="c10 messageIcon"
           >
             <i
-              class="c11 c12 c17 c18 plasma-icon plasma-icon--warning"
+              class="c11 c16 c17 plasma-icon plasma-icon--warning"
               data-role="plasma-icon"
               title="Warning"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 warning
               </span>
@@ -1572,14 +1596,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
             </i>
           </div>
           <div
-            class="c15 messageText"
+            class="c14 messageText"
             data-role="warning-text"
           >
             Warning message
           </div>
         </div>
         <div
-          class="c19 field__message"
+          class="c18 field__message"
           data-role="text-field-info-message"
           id="test-id-info"
         >
@@ -1587,12 +1611,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
             class="c10"
           >
             <i
-              class="c11 c12 c17 c20 plasma-icon plasma-icon--info"
+              class="c11 c16 c19 plasma-icon plasma-icon--info"
               data-role="plasma-icon"
               title="Information"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 info
               </span>
@@ -1605,28 +1631,28 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
             </i>
           </div>
           <div
-            class="c15"
+            class="c14"
             data-role="info-text"
           >
             Info message
           </div>
         </div>
         <div
-          class="c21 field__input field__input--warning field__input--error"
+          class="c20 field__input field__input--warning field__input--error"
           data-role="text-field-input-wrapper"
         >
           <span
-            class="c22 supported-unseen-span"
+            class="c21 supported-unseen-span"
           />
           <input
-            aria-autocomplete="list"
+            aria-autocomplete="both"
             aria-describedby="test-id-warning test-id-error test-id-info warning-tooltip test-id-label"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label=""
+            aria-invalid="true"
             aria-required="true"
             autocomplete="off"
-            class="c23 field__text"
+            class="c22 field__text"
             data-role="text-field-input"
             id="test-id"
             placeholder="Autocomplete placeholder"
@@ -1636,25 +1662,27 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
             value=""
           />
           <span
-            class="c22 supported-unseen-span"
+            class="c21 supported-unseen-span"
           />
           <div
-            class="c24 field__suffix field__suffix--first"
+            class="c23 field__suffix field__suffix--first"
             data-role="text-field-suffix-0"
           >
             <button
-              class="c25 c26 button button--icon"
+              class="c24 c25 button button--icon"
               data-role="button"
               data-type="icon"
               title=""
               type="button"
             >
               <i
-                class="c11 c17 plasma-icon"
+                class="c11 c16 plasma-icon"
                 data-role="plasma-icon"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   description
                 </span>
@@ -1662,16 +1690,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
             </button>
           </div>
           <div
-            class="c27 field__suffix"
+            class="c26 field__suffix"
             data-role="text-field-suffix-1"
           >
             <i
               aria-hidden="true"
-              class="c11 c17 c28 plasma-icon plasma-icon--big c29"
+              class="c11 c16 c27 plasma-icon plasma-icon--big c28"
               data-role="selection-suffix"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 expand_more
               </span>
@@ -1680,28 +1710,30 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
         </div>
       </div>
       <div
-        class="c30 c31 field-addon field-addon--after"
+        class="c29 c30 field-addon field-addon--after"
         data-role="text-field--addon-after-0"
       >
         <span
-          class="c32 c33 tooltip tooltip--hint"
+          class="c31 c32 tooltip tooltip--hint"
           data-role="tooltip-hint"
           role="tooltip"
           title=""
         >
           <button
-            class="c25 c26 button button--icon"
+            class="c24 c25 button button--icon"
             data-role="button"
             data-type="icon"
             title=""
             type="button"
           >
             <i
-              class="c11 c17 plasma-icon"
+              class="c11 c16 plasma-icon"
               data-role="plasma-icon"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 info
               </span>
@@ -1717,37 +1749,39 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
       </div>
     </div>
     <div
-      class="c34 field__helper"
+      class="c33 field__helper"
     >
       <label
-        class="c35 field__helper-text"
+        class="c34 field__helper-text"
         data-role="text-field-helper-text"
         for="test-id"
       >
         Helper text
       </label>
       <div
-        class="c30 c31 field-addon field-addon--after"
+        class="c29 c30 field-addon field-addon--after"
       >
         <span
-          class="c32 c33 tooltip tooltip--hint"
+          class="c31 c32 tooltip tooltip--hint"
           data-role="tooltip-hint"
           role="tooltip"
           title=""
         >
           <button
-            class="c25 c26 button button--icon"
+            class="c24 c25 button button--icon"
             data-role="button"
             data-type="icon"
             title=""
             type="button"
           >
             <i
-              class="c11 c17 plasma-icon"
+              class="c11 c16 plasma-icon"
               data-role="plasma-icon"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 info
               </span>
@@ -1763,11 +1797,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 1`] = `
       </div>
     </div>
   </div>
+  <span
+    aria-atomic="true"
+    aria-live="polite"
+    class="c8 -u-unseenButRead"
+    data-role="autocomplete-live-region"
+    role="status"
+  />
 </div>
 `;
 
 exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
-.c36 {
+.c35 {
   left: 0px;
   position: fixed;
   top: 0px;
@@ -1793,14 +1834,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   height: 1px;
 }
 
-.c33 {
+.c32 {
   display: inline-block;
   font-size: 0px;
   vertical-align: middle;
   color: rgb(5, 104, 174);
 }
 
-.c13 {
+.c12 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -1820,19 +1861,19 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   font-feature-settings: "liga";
 }
 
-.c13 > span {
+.c12 > span {
   display: inline-block;
 }
 
-.c13.c13 {
+.c12.c12 {
   max-width: unset;
 }
 
-.c32 .c13 {
+:where(.c31) .c12 {
   color: inherit;
 }
 
-.c17 {
+.c16 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -1852,47 +1893,47 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   font-feature-settings: "liga";
 }
 
-.c17 > span {
+.c16 > span {
   display: inline-block;
 }
 
-.c17.c17 {
+.c16.c16 {
   max-width: unset;
 }
 
-.c32 .c17 {
+:where(.c31) .c16 {
   color: inherit;
 }
 
-.c28.c28.c28,
-.c32 .c28.c28.c28 {
+.c27.c27.c27,
+.c31 .c27.c27.c27 {
   font-size: 1.5rem;
 }
 
-.c14.c14 {
+.c13.c13 {
   color: rgb(201, 29, 29);
 }
 
-.c18.c18 {
+.c17.c17 {
   color: rgb(175, 121, 2);
 }
 
-.c20.c20 {
+.c19.c19 {
   color: rgb(5, 104, 174);
 }
 
-.c37 {
+.c36 {
   display: flex;
   max-height: 100vh;
   outline: transparent solid 0px;
   position: absolute;
 }
 
-.c37 > * {
+.c36 > * {
   max-height: inherit;
 }
 
-.c26 {
+.c25 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -1916,19 +1957,19 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   color: rgb(5, 104, 174);
 }
 
-.c26 .c11 {
+.c25 .c11 {
   user-select: none;
 }
 
-.c26 .c11 {
+.c25 .c11 {
   color: inherit;
 }
 
-.c26 .c11 {
+.c25 .c11 {
   font-size: inherit;
 }
 
-.c26:not(:disabled):focus {
+.c25:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -1936,7 +1977,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   border: 2px solid rgb(213, 0, 117);
 }
 
-.c32 .c26.c26 {
+.c31 .c25.c25 {
   font-size: 1.25rem;
   height: fit-content;
   min-height: 0px;
@@ -1944,25 +1985,21 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   width: fit-content;
 }
 
-.c32 .c26.c26:not(:active):not(:hover):not(:focus) {
+.c31 .c25.c25:focus .c11 {
   color: inherit;
 }
 
-.c32 .c26.c26:not(:active):not(:hover):not(:focus) .c11:not(.c12) {
+:where(.c31) .c25:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
-.c32 .c26.c26:focus .c11 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c26.c26 {
+.h_inlineBlock.h_middleAlign .c25.c25 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c26.c26 > .c11 {
+.h_inlineBlock.h_middleAlign .c25.c25 > .c11 {
   display: block;
 }
 
@@ -1993,7 +2030,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   color: rgb(201, 29, 29);
 }
 
-.c16 {
+.c15 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2004,7 +2041,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   color: rgb(22, 25, 29);
 }
 
-.c19 {
+.c18 {
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2024,18 +2061,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   font-size: 1.25rem;
 }
 
-.c15 {
+.c14 {
   align-self: center;
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c29 {
+.c28 {
   color: rgb(127, 140, 155);
   user-select: none;
   cursor: pointer;
 }
 
-.c31 {
+.c30 {
   align-items: center;
   align-self: flex-end;
   display: flex;
@@ -2045,7 +2082,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   justify-content: center;
 }
 
-.c35 {
+.c34 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -2055,16 +2092,16 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   width: fit-content;
 }
 
-.c34 {
+.c33 {
   display: flex;
 }
 
-.c34 .c30 {
+.c33 .c29 {
   height: auto;
   visibility: hidden;
 }
 
-.c24 {
+.c23 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -2074,12 +2111,12 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   margin-left: -12px;
 }
 
-.c24:last-child {
+.c23:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c27 {
+.c26 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -2088,17 +2125,17 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   min-width: 32px;
 }
 
-.c27:last-child {
+.c26:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c23 {
+.c22 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2116,22 +2153,22 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   width: 100%;
 }
 
-.c23::placeholder {
+.c22::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c45 .c25 {
+.c45 .c24 {
   border-radius: 0px;
 }
 
-.c21 {
+.c20 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2144,15 +2181,15 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
 }
 
-.c21 .c25 {
+.c20 .c24 {
   border-radius: 0px;
 }
 
-.c21.c21 {
+.c20.c20 {
   box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
 }
 
-.c21.c21::before {
+.c20.c20::before {
   display: none;
 }
 
@@ -2179,7 +2216,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   width: 100%;
 }
 
-.c5 > .c32 {
+.c5 > .c31 {
   margin: 0px 4px 4px 0px;
 }
 
@@ -2197,7 +2234,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   max-width: 100%;
 }
 
-.c40 {
+.c21 {
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 0px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  width: 0px;
+}
+
+.c39 {
   background-color: rgb(241, 242, 244);
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
   display: flex;
@@ -2207,11 +2255,11 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   width: 100%;
 }
 
-.c40:focus {
+.c39:focus {
   outline: none;
 }
 
-.c41 {
+.c40 {
   background-color: rgb(226, 230, 233);
   box-sizing: border-box;
   color: rgb(77, 77, 77);
@@ -2253,7 +2301,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -2277,34 +2325,28 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
   border-bottom: 1px solid rgb(169, 179, 188);
 }
 
-.c22 {
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 0px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  width: 0px;
-}
-
 .c0 {
   position: relative;
   width: 100%;
 }
 
-.c38 {
+.c37 {
   display: flex;
   outline: transparent solid 1px;
   margin: 2px 0px 0px;
 }
 
-.c38 .c39 {
+.c37 .c38 {
   min-height: inherit;
 }
 
+.c37 .c41 {
+  max-height: 252px;
+  flex: 0 1 auto;
+}
+
 @media (pointer: coarse) {
-  .c26:not(:disabled):active {
+  .c25:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -2314,7 +2356,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
 }
 
 @media (pointer: fine) {
-  .c26:not(:disabled):hover {
+  .c25:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -2323,36 +2365,36 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
 }
 
 @media (pointer: fine) {
-  .c26:hover {
+  .c25:hover {
     outline: transparent solid 1px;
   }
 }
 
 @media (pointer: coarse) {
-  .c32 .c26.c26:active {
+  .c31 .c25.c25:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c32 .c26.c26:active .c11 {
+  .c31 .c25.c25:active .c11 {
     color: inherit;
   }
 }
 
 @media (pointer: fine) {
-  .c32 .c26.c26:hover .c11 {
+  .c31 .c25.c25:hover .c11 {
     color: inherit;
   }
 }
 
 @media (pointer: coarse) {
-  .c21.c21:active {
+  .c20.c20:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c21.c21:hover {
+  .c20.c20:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -2434,12 +2476,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
               class="c10 messageIcon"
             >
               <i
-                class="c11 c12 c13 c14 plasma-icon plasma-icon--error plasma-icon--custom"
+                class="c11 c12 c13 plasma-icon plasma-icon--error plasma-icon--custom"
                 data-role="plasma-icon"
                 title="Error"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   
                 </span>
@@ -2452,14 +2496,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
               </i>
             </div>
             <div
-              class="c15 messageText"
+              class="c14 messageText"
               data-role="error-text"
             >
               Error message
             </div>
           </div>
           <div
-            class="c16 message message--warning field__message"
+            class="c15 message message--warning field__message"
             data-role="text-field-warning-message"
             id="test-id-warning"
           >
@@ -2467,12 +2511,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
               class="c10 messageIcon"
             >
               <i
-                class="c11 c12 c17 c18 plasma-icon plasma-icon--warning"
+                class="c11 c16 c17 plasma-icon plasma-icon--warning"
                 data-role="plasma-icon"
                 title="Warning"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   warning
                 </span>
@@ -2485,14 +2531,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
               </i>
             </div>
             <div
-              class="c15 messageText"
+              class="c14 messageText"
               data-role="warning-text"
             >
               Warning message
             </div>
           </div>
           <div
-            class="c19 field__message"
+            class="c18 field__message"
             data-role="text-field-info-message"
             id="test-id-info"
           >
@@ -2500,12 +2546,14 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
               class="c10"
             >
               <i
-                class="c11 c12 c17 c20 plasma-icon plasma-icon--info"
+                class="c11 c16 c19 plasma-icon plasma-icon--info"
                 data-role="plasma-icon"
                 title="Information"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   info
                 </span>
@@ -2518,29 +2566,31 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
               </i>
             </div>
             <div
-              class="c15"
+              class="c14"
               data-role="info-text"
             >
               Info message
             </div>
           </div>
           <div
-            class="c21 field__input field__input--warning field__input--error"
+            aria-owns="test-id-dropdown"
+            class="c20 field__input field__input--warning field__input--error"
             data-isfocused="true"
             data-role="text-field-input-wrapper"
           >
             <span
-              class="c22 supported-unseen-span"
+              class="c21 supported-unseen-span"
             />
             <input
-              aria-autocomplete="list"
+              aria-autocomplete="both"
+              aria-controls="test-id-dropdown"
               aria-describedby="test-id-warning test-id-error test-id-info warning-tooltip test-id-label"
               aria-expanded="true"
               aria-haspopup="listbox"
-              aria-label=""
+              aria-invalid="true"
               aria-required="true"
               autocomplete="off"
-              class="c23 field__text"
+              class="c22 field__text"
               data-role="text-field-input"
               id="test-id"
               placeholder="Autocomplete placeholder"
@@ -2550,25 +2600,27 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
               value=""
             />
             <span
-              class="c22 supported-unseen-span"
+              class="c21 supported-unseen-span"
             />
             <div
-              class="c24 field__suffix field__suffix--first"
+              class="c23 field__suffix field__suffix--first"
               data-role="text-field-suffix-0"
             >
               <button
-                class="c25 c26 button button--icon"
+                class="c24 c25 button button--icon"
                 data-role="button"
                 data-type="icon"
                 title=""
                 type="button"
               >
                 <i
-                  class="c11 c17 plasma-icon"
+                  class="c11 c16 plasma-icon"
                   data-role="plasma-icon"
                 >
                   <span
                     aria-hidden="true"
+                    class="notranslate"
+                    translate="no"
                   >
                     description
                   </span>
@@ -2576,16 +2628,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
               </button>
             </div>
             <div
-              class="c27 field__suffix"
+              class="c26 field__suffix"
               data-role="text-field-suffix-1"
             >
               <i
                 aria-hidden="true"
-                class="c11 c17 c28 plasma-icon plasma-icon--big c29"
+                class="c11 c16 c27 plasma-icon plasma-icon--big c28"
                 data-role="selection-suffix"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   expand_more
                 </span>
@@ -2594,28 +2648,30 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
           </div>
         </div>
         <div
-          class="c30 c31 field-addon field-addon--after"
+          class="c29 c30 field-addon field-addon--after"
           data-role="text-field--addon-after-0"
         >
           <span
-            class="c32 c33 tooltip tooltip--hint"
+            class="c31 c32 tooltip tooltip--hint"
             data-role="tooltip-hint"
             role="tooltip"
             title=""
           >
             <button
-              class="c25 c26 button button--icon"
+              class="c24 c25 button button--icon"
               data-role="button"
               data-type="icon"
               title=""
               type="button"
             >
               <i
-                class="c11 c17 plasma-icon"
+                class="c11 c16 plasma-icon"
                 data-role="plasma-icon"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   info
                 </span>
@@ -2631,37 +2687,39 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
         </div>
       </div>
       <div
-        class="c34 field__helper"
+        class="c33 field__helper"
       >
         <label
-          class="c35 field__helper-text"
+          class="c34 field__helper-text"
           data-role="text-field-helper-text"
           for="test-id"
         >
           Helper text
         </label>
         <div
-          class="c30 c31 field-addon field-addon--after"
+          class="c29 c30 field-addon field-addon--after"
         >
           <span
-            class="c32 c33 tooltip tooltip--hint"
+            class="c31 c32 tooltip tooltip--hint"
             data-role="tooltip-hint"
             role="tooltip"
             title=""
           >
             <button
-              class="c25 c26 button button--icon"
+              class="c24 c25 button button--icon"
               data-role="button"
               data-type="icon"
               title=""
               type="button"
             >
               <i
-                class="c11 c17 plasma-icon"
+                class="c11 c16 plasma-icon"
                 data-role="plasma-icon"
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   info
                 </span>
@@ -2677,9 +2735,18 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
         </div>
       </div>
     </div>
+    <span
+      aria-atomic="true"
+      aria-live="polite"
+      class="c8 -u-unseenButRead"
+      data-role="autocomplete-live-region"
+      role="status"
+    >
+      22 out of 22 options shown
+    </span>
   </div>
   <div
-    class="c36"
+    class="c35"
     data-role="portal-placeholder"
   >
     <div
@@ -2688,16 +2755,17 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
     >
       <div>
         <div
-          class="c37 attached-portal h_bottomStart"
+          class="c36 attached-portal h_bottomStart"
           data-role="attached-portal"
           style="top: 149px; left: 0px; visibility: visible; opacity: 1;"
           tabindex="-1"
         >
           <div
-            class="c38 autocomplete__dropdown"
+            class="c37 autocomplete__dropdown"
+            style="width: 1280px;"
           >
             <div
-              class="c39 c40 dropdown"
+              class="c38 c39 dropdown"
               data-role="dropdown"
               id="test-id-dropdown"
               role="presentation"
@@ -2705,7 +2773,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
               tabindex="0"
             >
               <div
-                class="c41 dropdown__hint"
+                class="c40 dropdown__hint"
                 data-role="dropdown-hint"
                 id="test-id-dropdown--hint"
               >
@@ -2713,7 +2781,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
               </div>
               <div
                 aria-labelledby="test-id-info test-id-warning test-id-error warning-tooltip test-id-label test-id-dropdown--hint"
-                class="c42 dropdown__content"
+                class="c41 c42 dropdown__content"
                 data-role="dropdown-content"
                 role="listbox"
               >
@@ -3074,7 +3142,7 @@ exports[`com.mgmtp.a12.widgets.autocomplete > render basic autocomplete 2`] = `
           </div>
         </div>
         <div
-          class="c36"
+          class="c35"
           data-role="portal-placeholder"
         />
       </div>

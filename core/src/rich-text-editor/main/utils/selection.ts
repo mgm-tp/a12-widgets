@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { $isLinkNode } from "@lexical/link";
+import { $forEachSelectedTextNode, $setBlocksType } from "@lexical/selection";
+import { $findMatchingParent, $getNearestNodeOfType } from "@lexical/utils";
 import type { ElementNode, Klass, LexicalNode, PointType, RangeSelection, TextNode } from "lexical";
 import { $isLineBreakNode, $createParagraphNode, $getSelection, $isElementNode, $isRangeSelection } from "lexical";
-import { $findMatchingParent, $getNearestNodeOfType } from "@lexical/utils";
-import { $forEachSelectedTextNode, $setBlocksType } from "@lexical/selection";
-import { $isLinkNode } from "@lexical/link";
 
 import type { InlineStyleTextNode } from "../nodes/inline-style-text-node.js";
 import { $isInlineStyleTextNode } from "../nodes/inline-style-text-node.js";

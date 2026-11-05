@@ -34,29 +34,31 @@ import type { MouseEvent, ReactElement } from "react";
 import { useRef, useContext, useState, useEffect, useCallback, cloneElement } from "react";
 import { Key } from "ts-key-enum";
 
+import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import type { Orientation } from "../../common/main/alignment.js";
+import { ORIENTATION_LIST } from "../../common/main/alignment.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { provider as DeviceDetector } from "../../common/main/device-detector.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import {
 	addPrefix,
 	getAllFocusableElements,
 	IntersectionObserverHelper,
 	joinClassNames
 } from "../../common/main/utils.js";
-import { provider as DeviceDetector } from "../../common/main/device-detector.js";
-import { ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
 import { ActionContentbox } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
-import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
+import { ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
 import { ModalNotification } from "../../modal-notification/main/modal-notification.view.js";
 import { ModalOverlay } from "../../modal-overlay/main/modal-overlay.view.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import type { Orientation } from "../../common/main/alignment.js";
-import { ORIENTATION_LIST } from "../../common/main/alignment.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
-import { StyledTooltipContainer, StyledTooltipContent, StyledTooltipTriggerWrapper } from "./tooltip.styled.js";
+import { TooltipConfigContext } from "./tooltip-context.js";
 import type { TooltipProps } from "./tooltip.api.js";
+import { StyledTooltipContainer, StyledTooltipContent, StyledTooltipTriggerWrapper } from "./tooltip.styled.js";
 
 const baseClassName = addPrefix("tooltip");
 
+/** Default show/hide delay. Overridable per instance or through `TooltipConfigProvider`. */
 const DELAY_TIME = 200;
 
 /**
@@ -75,6 +77,10 @@ export function Tooltip(props: TooltipProps): ReactElement<TooltipProps> {
 	const intersectionObserverRef = useRef<IntersectionObserverHelper>(new IntersectionObserverHelper());
 
 	const context = useContext(A11YLanguageContext);
+	const tooltipConfig = useContext(TooltipConfigContext);
+	// Instance prop wins, then any application-wide configuration, then the built-in default.
+	const showDelay = props.showDelay ?? tooltipConfig.showDelay ?? DELAY_TIME;
+	const hideDelay = props.hideDelay ?? tooltipConfig.hideDelay ?? DELAY_TIME;
 
 	const [show, setShow] = useState(false);
 	const [orientation, setOrientation] = useState<Orientation>("top-start");
@@ -123,7 +129,7 @@ export function Tooltip(props: TooltipProps): ReactElement<TooltipProps> {
 
 		// Only schedule showing the tooltip if it's not already visible
 		if (!show) {
-			showTimeoutId.current = window.setTimeout(showTooltip, DELAY_TIME);
+			showTimeoutId.current = window.setTimeout(showTooltip, showDelay);
 		}
 	};
 
@@ -153,7 +159,7 @@ export function Tooltip(props: TooltipProps): ReactElement<TooltipProps> {
 		clearTimeouts();
 		hideTimeoutId.current = window.setTimeout(() => {
 			hideTooltip();
-		}, DELAY_TIME);
+		}, hideDelay);
 	};
 
 	const handleTriggerElementMouseOut = (event: MouseEvent<HTMLElement>): void => {

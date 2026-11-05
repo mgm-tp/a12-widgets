@@ -35,7 +35,9 @@ import { useState, useRef, useCallback, useMemo, useEffect } from "react";
 import type { TimePickerProps } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DateTimeUtils } from "@com.mgmtp.a12.widgets/widgets-core";
 
-export default {};
+const noStories = {};
+
+export default noStories;
 export function useTimePickerProps(props?: { id?: string; defaultValue?: Date; timezone?: string }): TimePickerProps {
 	const { defaultValue, timezone, id } = props ?? {};
 	const [value, setValue] = useState<Date | undefined>(defaultValue);

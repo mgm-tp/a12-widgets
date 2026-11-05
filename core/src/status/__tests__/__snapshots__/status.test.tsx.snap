@@ -29,6 +29,10 @@ exports[`com.mgmtp.a12.widgets.status > render status with icon and text 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
+}
+
 .c2 {
   box-sizing: border-box;
   border-radius: 3px;
@@ -96,6 +100,8 @@ exports[`com.mgmtp.a12.widgets.status > render status with icon and text 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -144,6 +150,10 @@ exports[`com.mgmtp.a12.widgets.status > render status with icon only 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c1 {
   box-sizing: border-box;
   border-radius: 3px;
@@ -179,6 +189,8 @@ exports[`com.mgmtp.a12.widgets.status > render status with icon only 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -214,6 +226,10 @@ exports[`com.mgmtp.a12.widgets.status > render status with long text in narrow c
 
 .c4.c4 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c4 {
+  color: inherit;
 }
 
 .c2 {
@@ -286,6 +302,8 @@ exports[`com.mgmtp.a12.widgets.status > render status with long text in narrow c
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>

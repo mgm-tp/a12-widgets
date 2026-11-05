@@ -33,14 +33,14 @@
 import type { ReactElement } from "react";
 import { useContext } from "react";
 
-import { StringUtils, Range, joinClassNames, addPrefix } from "../../common/main/utils.js";
-import { Icon } from "../../icon/main/icon.view.js";
-import { Select } from "../../input/select/main/select.view.js";
-import type { SelectItem } from "../../input/select/main/select.api.js";
+import { Button } from "../../button/main/button.view.js";
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { Button } from "../../button/main/button.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { StringUtils, Range, joinClassNames, addPrefix } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
+import type { SelectItem } from "../../input/select/main/select.api.js";
+import { Select } from "../../input/select/main/select.view.js";
 
 import type { PaginationProps } from "./pagination.api.js";
 import { StyledPaginationWrapper } from "./pagination.styled.js";

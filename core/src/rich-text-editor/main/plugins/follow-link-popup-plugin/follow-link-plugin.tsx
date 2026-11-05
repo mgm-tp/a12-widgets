@@ -30,19 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement, ComponentType } from "react";
-import { useEffect } from "react";
-import { NodeEventPlugin } from "@lexical/react/LexicalNodeEventPlugin";
 import { $isLinkNode, LinkNode } from "@lexical/link";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { NodeEventPlugin } from "@lexical/react/LexicalNodeEventPlugin";
 import type { LexicalEditor } from "lexical";
 import { $getNodeByKey } from "lexical";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import type { ReactElement, ComponentType } from "react";
+import { useEffect } from "react";
 
-import { decorateComponentWithProps } from "../../utils/decorate-component-with-props.js";
 import type { Container } from "../../../../common/main/base-props.js";
-import { InlineStyleTextNode } from "../../nodes/inline-style-text-node.js";
 import { DataRoles } from "../../../../common/main/data-roles.js";
-
+import { InlineStyleTextNode } from "../../nodes/inline-style-text-node.js";
+import { decorateComponentWithProps } from "../../utils/decorate-component-with-props.js";
 import type { TooltipPluginProps } from "../tooltip-plugin/view/tooltip.api.js";
 import { TooltipPlugin } from "../tooltip-plugin/view/tooltip.view.js";
 

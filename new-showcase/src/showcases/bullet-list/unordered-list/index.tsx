@@ -30,19 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import inlineCode from "!./inline.tsx?raw";
+import noindentCode from "!./no-indent.tsx?raw";
+import typesCode from "!./types.tsx?raw";
+
 import BulletListAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/bullet-list/main/bullet-list.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
 
 import { BasicUnorderedList } from "./basic.js";
 import { InlineUnorderedList } from "./inline.js";
-import { TypesUnorderedList } from "./types.js";
 import { NoindentUnorderedList } from "./no-indent.js";
-
-import basicCode from "!./basic.tsx?raw";
-import inlineCode from "!./inline.tsx?raw";
-import typesCode from "!./types.tsx?raw";
-import noindentCode from "!./no-indent.tsx?raw";
+import { TypesUnorderedList } from "./types.js";
 
 const showcases: Showcase[] = [
 	{

@@ -34,9 +34,9 @@ import type { ReactElement } from "react";
 import { Children } from "react";
 
 import { addPrefix, joinClassNames } from "../../../../common/main/utils.js";
-import { InputElements } from "../../../base/template/base.tpl.view.js";
 import { StyledBaseInput } from "../../../base-input-styled/base.styled.js";
-
+import { InputElements } from "../../../base/template/base.tpl.view.js";
+import { useFieldDefaultsConfig } from "../../../field-default-config/main/field-default-config.utils.js";
 import { StyledSelectTemplate } from "../select.styled.js";
 
 import type { SelectTemplateProps } from "./select.tpl.api.js";
@@ -47,7 +47,7 @@ export const selectBaseFieldClassName = addPrefix("field__select");
 export const baseFieldClassName = addPrefix("field");
 
 export function SelectTemplate({
-	breakTooltipsToNewLine,
+	breakTooltipsToNewLine: breakTooltipsToNewLineProp,
 	children,
 	className,
 	dataRole,
@@ -69,11 +69,16 @@ export function SelectTemplate({
 	readonly,
 	selectWrapperDOMProps,
 	selectWrapperRef,
+	messagePosition: messagePositionProp,
 	style,
 	tooltips,
 	warning,
 	warningMessage
 }: SelectTemplateProps): ReactElement<SelectTemplateProps> {
+	const { breakTooltipsToNewLine, messagePosition } = useFieldDefaultsConfig(
+		{ messagePosition: messagePositionProp, breakTooltipsToNewLine: breakTooltipsToNewLineProp },
+		false
+	);
 	const baseClassNames = joinClassNames(
 		selectBaseFieldClassName,
 		{ [`${selectBaseFieldClassName}--disabled`]: disabled },
@@ -93,6 +98,35 @@ export function SelectTemplate({
 
 	const dataRolePrefix = dataRole || "select";
 
+	const messagesElement = (
+		<>
+			{errorMessage && (
+				<InputElements.Error
+					dataRole={`${dataRolePrefix}-error-message`}
+					id={id}
+					errorMessage={errorMessage}
+					position={messagePosition}
+				/>
+			)}
+			{warningMessage && (
+				<InputElements.Warning
+					dataRole={`${dataRolePrefix}-warning-message`}
+					id={id}
+					warningMessage={warningMessage}
+					position={messagePosition}
+				/>
+			)}
+			{infoMessage && (
+				<InputElements.Info
+					dataRole={`${dataRolePrefix}-info-message`}
+					id={id}
+					infoMessage={infoMessage}
+					position={messagePosition}
+				/>
+			)}
+		</>
+	);
+
 	return (
 		<StyledBaseInput.StyledField
 			className={wrapperClassNames}
@@ -102,6 +136,7 @@ export function SelectTemplate({
 			$disabled={disabled}
 			$hasTooltips={!!(numberOfTooltips && !breakTooltipsToNewLine)}
 			$numberOfTooltips={numberOfTooltips}
+			$tooltipPosition={breakTooltipsToNewLine}
 		>
 			<InputElements.Label
 				dataRole={`${dataRolePrefix}-label`}
@@ -113,16 +148,8 @@ export function SelectTemplate({
 				htmlFor={id}
 				wrapperRef={labelRef}
 			/>
-			{breakTooltipsToNewLine && tooltips}
-			{errorMessage && (
-				<InputElements.Error dataRole={`${dataRolePrefix}-error-message`} id={id} errorMessage={errorMessage} />
-			)}
-			{warningMessage && (
-				<InputElements.Warning dataRole={`${dataRolePrefix}-warning-message`} id={id} warningMessage={warningMessage} />
-			)}
-			{infoMessage && (
-				<InputElements.Info dataRole={`${dataRolePrefix}-info-message`} id={id} infoMessage={infoMessage} />
-			)}
+			{(breakTooltipsToNewLine === true || breakTooltipsToNewLine === "above") && tooltips}
+			{messagePosition !== "below" && messagesElement}
 			<StyledFieldSelectControl
 				className={baseClassNames}
 				data-role={`${dataRolePrefix}-control`}
@@ -159,6 +186,8 @@ export function SelectTemplate({
 				</StyledFieldSelectWrapper>
 				{!breakTooltipsToNewLine && tooltips}
 			</StyledFieldSelectControl>
+			{messagePosition === "below" && messagesElement}
+			{breakTooltipsToNewLine === "below" && tooltips}
 			{helperText && (
 				<StyledBaseInput.StyledFieldHelperWrapper
 					className={`${baseFieldClassName}__helper`}

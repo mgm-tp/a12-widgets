@@ -32,16 +32,16 @@
 
 import type { ReactNode, ReactElement } from "react";
 import { Children } from "react";
-import { styled, css } from "styled-components";
 import type { Options as ReactMarkdownOptions } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { styled, css } from "styled-components";
 
 import { joinClassNames, Typography, provider as DeviceDetector } from "@com.mgmtp.a12.widgets/widgets-core";
 import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils";
 
-import { toLink } from "./utils.js";
 import { StyledShowcaseLink } from "./showcase-styles.js";
+import { toLink } from "./utils.js";
 
 const renderHeadline = (props: { children?: ReactNode }, level: 2 | 1 | 3 | 4 | 5): ReactElement => {
 	const childCount = Children.count(props.children);
@@ -84,7 +84,10 @@ const customRenderers = {
 	h5: (props: { children?: ReactNode }) => renderHeadline(props, 5)
 };
 
-const StyledReactMarkdown = styled(ReactMarkdown)(({ theme }) => {
+// react-markdown 10 no longer renders a wrapping element, so `className` cannot be passed to it.
+// The styles and the layout classes now live on an explicit wrapper div, which keeps the same
+// element structure the `.two-columns-layout` direct-child selectors rely on.
+const StyledMarkdownWrapper = styled.div(({ theme }) => {
 	const { colors, typography } = theme;
 
 	return css`
@@ -131,14 +134,17 @@ export interface MarkdownViewerProps {
 
 export function MarkdownViewer(props: MarkdownViewerProps): ReactElement<{}> {
 	return (
-		<StyledReactMarkdown
-			components={props.renderers ? { ...customRenderers, ...props.renderers } : customRenderers}
-			remarkPlugins={[remarkGfm]}
+		<StyledMarkdownWrapper
 			className={joinClassNames("markdown", {
 				["two-columns-layout"]: props.twoColumnsLayout && DeviceDetector.isDesktop()
 			})}
 		>
-			{props.source}
-		</StyledReactMarkdown>
+			<ReactMarkdown
+				components={props.renderers ? { ...customRenderers, ...props.renderers } : customRenderers}
+				remarkPlugins={[remarkGfm]}
+			>
+				{props.source}
+			</ReactMarkdown>
+		</StyledMarkdownWrapper>
 	);
 }

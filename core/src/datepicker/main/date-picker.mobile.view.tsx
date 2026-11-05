@@ -32,14 +32,14 @@
 
 import type { ReactElement } from "react";
 
-import { addPrefix, joinClassNames } from "../../common/main/utils.js";
-import { provider } from "../../common/main/device-detector.js";
-import { ModalOverlay } from "../../modal-overlay/main/modal-overlay.view.js";
-import { PickerHeaderCloseButton, DatePickerFooterAction } from "../../datepicker/main/date-picker.tpl.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { provider } from "../../common/main/device-detector.js";
+import { addPrefix, joinClassNames } from "../../common/main/utils.js";
+import { PickerHeaderCloseButton, DatePickerFooterAction } from "../../datepicker/main/date-picker.tpl.view.js";
+import { ModalOverlay } from "../../modal-overlay/main/modal-overlay.view.js";
 
-import { StyledDatePickerMobile } from "./date-picker.mobile.styled.js";
 import type { DatePickerDialogProps } from "./date-picker.mobile.api.js";
+import { StyledDatePickerMobile } from "./date-picker.mobile.styled.js";
 import { DatePicker } from "./date-picker.view.js";
 
 const baseClassName = addPrefix("DayPicker");

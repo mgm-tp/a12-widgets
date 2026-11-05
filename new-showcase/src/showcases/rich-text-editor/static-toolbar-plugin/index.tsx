@@ -30,13 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
+
 import type { FC } from "react";
 
-import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
 import { ListPlugin, RichTextEditor, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { EditorStyle } from "../style/inline-styled-editor-wrapper.styled.js";
 import { BUTTONS } from "../share/data.js";
+import { EditorStyle } from "../style/inline-styled-editor-wrapper.styled.js";
 
 export const StaticToolbarGroupPlugin: FC = () => {
 	return (

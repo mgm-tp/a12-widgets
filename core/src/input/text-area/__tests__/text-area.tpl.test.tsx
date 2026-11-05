@@ -31,14 +31,15 @@
  */
 
 import { useState } from "react";
+import { getByDataRole, isAfter, render, fireEvent } from "test-utils";
 import { Key } from "ts-key-enum";
-import { getByDataRole, render, fireEvent } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
-import { noop } from "../../../common/main/utils.js";
-
-import { TextAreaStateless } from "../main/template/text-area.tpl.view.js";
+import { DataRoles } from "../../../common/index.js";
+import { addPrefix, noop } from "../../../common/main/utils.js";
+import type { MessagePosition, TooltipLineBreak } from "../../base/template/base.tpl.api.js";
 import type { TextAreaStatelessProps } from "../main/template/text-area.tpl.api.js";
+import { TextAreaStateless } from "../main/template/text-area.tpl.view.js";
 
 const baseTextAreaDataRole = "textarea";
 const properties: Partial<TextAreaStatelessProps> = {
@@ -257,5 +258,180 @@ describe("com.mgmtp.a12.widgets.text-area-tpl", () => {
 		fireEvent.change(input, { target: { value: "test onChange event" } });
 		input.focus();
 		expect(input.value).toBe("test onChange event");
+	});
+
+	describe("message position", () => {
+		const messageRoles = [
+			DataRoles.Textarea.ErrorMessage,
+			DataRoles.Textarea.WarningMessage,
+			DataRoles.Textarea.InfoMessage
+		];
+
+		const renderWithMessages = (messagePosition: MessagePosition) =>
+			render(
+				<TextAreaStateless
+					id={properties.id}
+					label={properties.label}
+					helperText={properties.helperText}
+					errorMessage={properties.errorMessage}
+					warningMessage={properties.warningMessage}
+					infoMessage={properties.infoMessage}
+					messagePosition={messagePosition}
+					onChange={noop}
+				/>
+			);
+
+		test("renders the messages above the control for above", () => {
+			const { getByDataRole } = renderWithMessages("above");
+			const control = getByDataRole(DataRoles.Textarea.Control);
+			const input = getByDataRole(DataRoles.Textarea.Input);
+			const label = getByDataRole(DataRoles.Textarea.Label);
+			const helperText = getByDataRole(DataRoles.Textarea.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(true);
+				expect(isAfter(message, input)).toBe(true);
+				// the message stays inside the label -> helper text envelope
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the control for below", () => {
+			const { getByDataRole } = renderWithMessages("below");
+			const control = getByDataRole(DataRoles.Textarea.Control);
+			const input = getByDataRole(DataRoles.Textarea.Input);
+			const label = getByDataRole(DataRoles.Textarea.Label);
+			const helperText = getByDataRole(DataRoles.Textarea.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(true);
+				expect(isAfter(input, message)).toBe(true);
+				// the message stays inside the label -> helper text envelope
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const renderWithTooltips = (breakTooltipsToNewLine: TooltipLineBreak) =>
+			render(
+				<TextAreaStateless
+					id={properties.id}
+					helperText={properties.helperText}
+					tooltips={<div>Test tooltip</div>}
+					breakTooltipsToNewLine={breakTooltipsToNewLine}
+					onChange={noop}
+				/>
+			);
+
+		test("renders the tooltips above the control by default", () => {
+			const { getByDataRole, getByText, queryByDataRole } = render(
+				<TextAreaStateless
+					id={properties.id}
+					helperText={properties.helperText}
+					tooltips={<div>Test tooltip</div>}
+					onChange={noop}
+				/>
+			);
+			const control = getByDataRole(DataRoles.Textarea.Control);
+			const input = getByDataRole(DataRoles.Textarea.Input);
+			const tooltip = getByText("Test tooltip");
+
+			expect(queryByDataRole(DataRoles.Textarea.TooltipAddon)).toBeNull();
+			expect(control.contains(tooltip)).toBe(true);
+			expect(isAfter(tooltip, input)).toBe(true);
+		});
+
+		test("renders the tooltips inline beside the control for false", () => {
+			const { getByDataRole, getByText } = renderWithTooltips(false);
+			const control = getByDataRole(DataRoles.Textarea.Control);
+			const addon = getByDataRole(DataRoles.Textarea.TooltipAddon);
+			const tooltip = getByText("Test tooltip");
+
+			expect(addon.contains(tooltip)).toBe(true);
+			// the addon is a sibling of the control inside the field's main row
+			expect(control.parentElement?.contains(addon)).toBe(true);
+			expect(isAfter(control, addon)).toBe(true);
+		});
+
+		test("renders the tooltips above the control for above", () => {
+			const { getByDataRole, getByText, queryByDataRole } = renderWithTooltips("above");
+			const control = getByDataRole(DataRoles.Textarea.Control);
+			const input = getByDataRole(DataRoles.Textarea.Input);
+			const tooltip = getByText("Test tooltip");
+
+			expect(queryByDataRole(DataRoles.Textarea.TooltipAddon)).toBeNull();
+			expect(control.contains(tooltip)).toBe(true);
+			expect(isAfter(tooltip, input)).toBe(true);
+		});
+
+		test("renders the tooltips below the whole control row for below", () => {
+			const { container, getByDataRole, getByText, queryByDataRole } = renderWithTooltips("below");
+			const control = getByDataRole(DataRoles.Textarea.Control);
+			const fieldMain = control.parentElement as HTMLElement;
+			const helperText = getByDataRole(DataRoles.Textarea.HelperText);
+			const tooltip = getByText("Test tooltip");
+
+			expect(queryByDataRole(DataRoles.Textarea.TooltipAddon)).toBeNull();
+			expect(fieldMain.contains(tooltip)).toBe(false);
+			expect(tooltip.parentElement).toBe(container.firstChild);
+			expect(isAfter(fieldMain, tooltip)).toBe(true);
+			expect(isAfter(tooltip, helperText)).toBe(true);
+		});
+	});
+
+	describe("tooltip content", () => {
+		test("renders a plain string tooltip", () => {
+			const { getByDataRole, getByText } = render(
+				<TextAreaStateless
+					id={properties.id}
+					tooltips="String tooltip"
+					breakTooltipsToNewLine={false}
+					onChange={noop}
+				/>
+			);
+			const addon = getByDataRole(DataRoles.Textarea.TooltipAddon);
+			const tooltip = getByText("String tooltip");
+
+			expect(addon.contains(tooltip)).toBe(true);
+			expect(tooltip).toHaveClass(addPrefix("field") + "__tooltip");
+		});
+	});
+
+	describe("aria-invalid", () => {
+		test("marks the input as invalid for error", () => {
+			const { getByDataRole } = render(<TextAreaStateless id={properties.id} error onChange={noop} />);
+
+			expect(getByDataRole(DataRoles.Textarea.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("marks the input as invalid for errorMessage", () => {
+			const { getByDataRole } = render(
+				<TextAreaStateless id={properties.id} errorMessage={properties.errorMessage} onChange={noop} />
+			);
+
+			expect(getByDataRole(DataRoles.Textarea.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("does not mark the input as invalid for a warning or an info", () => {
+			const { getByDataRole } = render(
+				<TextAreaStateless
+					id={properties.id}
+					warning
+					info
+					warningMessage={properties.warningMessage}
+					infoMessage={properties.infoMessage}
+					onChange={noop}
+				/>
+			);
+
+			expect(getByDataRole(DataRoles.Textarea.Input)).not.toHaveAttribute("aria-invalid");
+		});
 	});
 });

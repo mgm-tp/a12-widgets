@@ -34,19 +34,26 @@ import type { ReactElement } from "react";
 import { useContext } from "react";
 import { styled, css } from "styled-components";
 
-import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
-import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
-import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
-import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
-import { unseenButRead } from "../../../theme/base/mixins/_unseenButRead.js";
 import {
 	StyledBulletList,
 	StyledBulletListContent,
 	StyledBulletListItem
 } from "../../../bullet-list/main/bullet-list.view.js";
+import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
+import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
+import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
+import { unseenButRead } from "../../../theme/base/mixins/_unseenButRead.js";
 
-import type { ErrorProps, InfoProps, LabelProps, SelectionSuffixProps, WarningProps } from "./base.tpl.api.js";
+import type {
+	ErrorProps,
+	InfoProps,
+	LabelProps,
+	MessagePosition,
+	SelectionSuffixProps,
+	WarningProps
+} from "./base.tpl.api.js";
 
 const baseLabelClassName = addPrefix("label");
 const baseMessageClassName = addPrefix("message");
@@ -83,10 +90,12 @@ export const StyledFieldLabelWrapper = styled.div.withConfig({ displayName: "Sty
 			margin: 0;
 		}
 
-		${!$hidden &&
-		css`
-			margin: ${input.labelMargin};
-		`}
+		${
+			!$hidden &&
+			css`
+				margin: ${input.labelMargin};
+			`
+		}
 	`;
 });
 
@@ -109,10 +118,12 @@ export const StyledFieldLabel = styled.label.withConfig({ displayName: "StyledFi
 		margin: ${input.labelMargin};
 		align-self: center;
 
-		${$disabled &&
-		css`
-			color: ${label.disabledColor};
-		`}
+		${
+			$disabled &&
+			css`
+				color: ${label.disabledColor};
+			`
+		}
 
 		&:empty {
 			display: none;
@@ -126,7 +137,8 @@ export const StyledFieldMessageWrapper = styled.div.withConfig({ displayName: "S
 	$error?: boolean;
 	$warning?: boolean;
 	$info?: boolean;
-}>(({ theme, $warning, $error, $info }) => {
+	$position?: MessagePosition;
+}>(({ theme, $warning, $error, $info, $position }) => {
 	const { message, input } = theme.components.baseInput;
 
 	return css`
@@ -134,29 +146,34 @@ export const StyledFieldMessageWrapper = styled.div.withConfig({ displayName: "S
 		font-family: ${message.fontFamily};
 		font-size: ${message.fontSize};
 		font-weight: ${message.fontWeight};
-		margin: ${input.messageMargin};
+		margin: ${$position === "below" ? input.messageMarginBelow : input.messageMargin};
 		padding: ${message.padding};
 
-		${StyledBulletList} > ${StyledBulletListItem},
-      	${StyledBulletListContent} {
+		${StyledBulletList} > ${StyledBulletListItem}, ${StyledBulletListContent} {
 			color: inherit;
 		}
 
-		${$warning &&
-		css`
-			background: ${message.warning.background};
-			color: ${message.warning.color};
-		`}
-		${$error &&
-		css`
-			background: ${message.error.background};
-			color: ${message.error.color};
-		`}
-		${$info &&
-		css`
-			background: ${message.info.background};
-			color: ${message.info.color};
-		`}
+		${
+			$warning &&
+			css`
+				background: ${message.warning.background};
+				color: ${message.warning.color};
+			`
+		}
+		${
+			$error &&
+			css`
+				background: ${message.error.background};
+				color: ${message.error.color};
+			`
+		}
+		${
+			$info &&
+			css`
+				background: ${message.info.background};
+				color: ${message.info.color};
+			`
+		}
 	`;
 });
 
@@ -200,14 +217,16 @@ export const StyledSelectionSuffix = styled(Icon).withConfig({ displayName: "Sty
 	return css`
 		color: ${selectionSuffixColor};
 		user-select: none;
-		${$disabled
-			? css`
-					color: inherit;
-					cursor: default;
-				`
-			: css`
-					cursor: pointer;
-				`}
+		${
+			$disabled
+				? css`
+						color: inherit;
+						cursor: default;
+					`
+				: css`
+						cursor: pointer;
+					`
+		}
 	`;
 });
 
@@ -278,6 +297,7 @@ export function Error(props: ErrorProps): ReactElement<ErrorProps> {
 		<StyledFieldMessageWrapper
 			id={props.id ? `${props.id}-error` : undefined}
 			$error={true}
+			$position={props.position}
 			data-role={props.dataRole ?? DataRoles.Error.Message}
 			className={classNames}
 			style={props.style}
@@ -305,6 +325,7 @@ export function Warning(props: WarningProps): ReactElement<WarningProps> {
 		<StyledFieldMessageWrapper
 			id={props.id ? `${props.id}-warning` : undefined}
 			$warning={true}
+			$position={props.position}
 			data-role={props.dataRole ?? DataRoles.Warning.Message}
 			className={classNames}
 			style={props.style}
@@ -331,6 +352,7 @@ export function Info(props: InfoProps): ReactElement<InfoProps> {
 		<StyledFieldMessageWrapper
 			id={props.id ? `${props.id}-info` : undefined}
 			$info={true}
+			$position={props.position}
 			data-role={props.dataRole ?? DataRoles.Info.Message}
 			className={props.className}
 			style={props.style}

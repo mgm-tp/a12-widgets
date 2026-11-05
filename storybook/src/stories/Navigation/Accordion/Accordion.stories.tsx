@@ -41,15 +41,23 @@ const meta: Meta<typeof Accordion.Container> = {
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		role: {
 			control: "text",
-			description: "Custom role for the accordion"
+			description: "Custom role for the accordion root element. Defaults to `navigation`."
 		},
 		controlled: {
 			control: "boolean",
-			description: "Determines if the Accordion will be controlled manually"
+			description:
+				"Determines if the Accordion will be controlled manually. When set, each section's `expanded` prop dictates its state."
+		},
+		expandIcon: {
+			control: false,
+			description: "Default icon shown on collapsed sections. Defaults to the `add` icon."
+		},
+		collapseIcon: {
+			control: false,
+			description: "Default icon shown on expanded sections. Defaults to the `remove` icon."
 		}
 	}
 };
@@ -57,10 +65,13 @@ const meta: Meta<typeof Accordion.Container> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => (
-		<div style={{ width: "400px" }}>
-			<Accordion.Container>
+export const Playground: Story = {
+	args: {
+		controlled: false
+	},
+	render: (args) => (
+		<div style={{ width: "min(400px, calc(100vw - 32px))" }}>
+			<Accordion.Container {...args}>
 				<Accordion.Section>
 					<Accordion.Summary>Section 1</Accordion.Summary>
 					<Accordion.Details>
@@ -88,9 +99,9 @@ export const Default: Story = {
 	)
 };
 
-export const WithExpandedSection: Story = {
+export const ExpandedSection: Story = {
 	render: () => (
-		<div style={{ width: "400px" }}>
+		<div style={{ width: "min(400px, calc(100vw - 32px))" }}>
 			<Accordion.Container>
 				<Accordion.Section expanded>
 					<Accordion.Summary>Expanded by Default</Accordion.Summary>
@@ -106,12 +117,19 @@ export const WithExpandedSection: Story = {
 				</Accordion.Section>
 			</Accordion.Container>
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`expanded` on a section sets its initial state, so it is already open when the accordion first renders."
+			}
+		}
+	}
 };
 
-export const WithCustomIcons: Story = {
+export const CustomIcons: Story = {
 	render: () => (
-		<div style={{ width: "400px" }}>
+		<div style={{ width: "min(400px, calc(100vw - 32px))" }}>
 			<Accordion.Container expandIcon={<Icon>arrow_forward</Icon>} collapseIcon={<Icon>arrow_downward</Icon>}>
 				<Accordion.Section>
 					<Accordion.Summary>Custom Icons</Accordion.Summary>
@@ -127,12 +145,20 @@ export const WithCustomIcons: Story = {
 				</Accordion.Section>
 			</Accordion.Container>
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`expandIcon` and `collapseIcon` on the container replace the default `add`/`remove` icons for all sections. A section can override them with its own `expandIcon`/`collapseIcon`."
+			}
+		}
+	}
 };
 
 export const SelectedSection: Story = {
 	render: () => (
-		<div style={{ width: "400px" }}>
+		<div style={{ width: "min(400px, calc(100vw - 32px))" }}>
 			<Accordion.Container>
 				<Accordion.Section selected>
 					<Accordion.Summary>Selected Section</Accordion.Summary>
@@ -148,12 +174,20 @@ export const SelectedSection: Story = {
 				</Accordion.Section>
 			</Accordion.Container>
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`selected` highlights a section visually — useful when the accordion is used for navigation and one entry is the current location."
+			}
+		}
+	}
 };
 
-export const WithVariants: Story = {
+export const Variants: Story = {
 	render: () => (
-		<div style={{ width: "400px" }}>
+		<div style={{ width: "min(400px, calc(100vw - 32px))" }}>
 			<Accordion.Container>
 				<Accordion.Section>
 					<Accordion.Summary variant="info">Info Variant</Accordion.Summary>
@@ -181,57 +215,65 @@ export const WithVariants: Story = {
 				</Accordion.Section>
 			</Accordion.Container>
 		</div>
-	)
-};
-
-export const Controlled: Story = {
-	render: () => {
-		const ControlledAccordion = () => {
-			const [expandedSections, setExpandedSections] = useState<Set<number>>(new Set([0]));
-
-			const toggleSection = (index: number) => {
-				setExpandedSections((prev) => {
-					const newSet = new Set(prev);
-
-					if (newSet.has(index)) {
-						newSet.delete(index);
-					} else {
-						newSet.add(index);
-					}
-
-					return newSet;
-				});
-			};
-
-			return (
-				<div style={{ width: "400px" }}>
-					<Accordion.Container controlled>
-						{[0, 1, 2].map((index) => (
-							<Accordion.Section
-								key={index}
-								expanded={expandedSections.has(index)}
-								onClick={() => toggleSection(index)}
-							>
-								<Accordion.Summary>Section {index + 1}</Accordion.Summary>
-								<Accordion.Details>
-									<Typography.Body>
-										Content for section {index + 1}. This accordion is controlled programmatically.
-									</Typography.Body>
-								</Accordion.Details>
-							</Accordion.Section>
-						))}
-					</Accordion.Container>
-				</div>
-			);
-		};
-
-		return <ControlledAccordion />;
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `variant` prop on `Accordion.Summary` (`open`, `info`, `error`, `warning`, `done`, `inProgress`) displays a status icon next to the title."
+			}
+		}
 	}
 };
 
-export const WithGraphicIcon: Story = {
+export const Controlled: Story = {
+	render: function ControlledExample() {
+		const [expandedSections, setExpandedSections] = useState<Set<number>>(new Set([0]));
+
+		const toggleSection = (index: number) => {
+			setExpandedSections((prev) => {
+				const newSet = new Set(prev);
+
+				if (newSet.has(index)) {
+					newSet.delete(index);
+				} else {
+					newSet.add(index);
+				}
+
+				return newSet;
+			});
+		};
+
+		return (
+			<div style={{ width: "min(400px, calc(100vw - 32px))" }}>
+				<Accordion.Container controlled>
+					{[0, 1, 2].map((index) => (
+						<Accordion.Section key={index} expanded={expandedSections.has(index)} onClick={() => toggleSection(index)}>
+							<Accordion.Summary>Section {index + 1}</Accordion.Summary>
+							<Accordion.Details>
+								<Typography.Body>
+									Content for section {index + 1}. This accordion is controlled programmatically.
+								</Typography.Body>
+							</Accordion.Details>
+						</Accordion.Section>
+					))}
+				</Accordion.Container>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"With `controlled` on the container, each section's `expanded` prop dictates its state. Use the section's `onClick` handler to update your own state."
+			}
+		}
+	}
+};
+
+export const WithGraphic: Story = {
 	render: () => (
-		<div style={{ width: "400px" }}>
+		<div style={{ width: "min(400px, calc(100vw - 32px))" }}>
 			<Accordion.Container>
 				<Accordion.Section>
 					<Accordion.Summary graphic={<Icon>person</Icon>}>Personal Information</Accordion.Summary>
@@ -283,5 +325,13 @@ export const WithGraphicIcon: Story = {
 				</Accordion.Section>
 			</Accordion.Container>
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`graphic` on `Accordion.Summary` shows an additional icon to the left of the title. If `variant` is also set, the variant icon takes priority."
+			}
+		}
+	}
 };

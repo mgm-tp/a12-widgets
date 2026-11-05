@@ -33,12 +33,11 @@
 import type { ReactElement } from "react";
 import { useState } from "react";
 
-import type { DataTableDragDropOptions, DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { Button, Icon, provider } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { DataTableDragDropOptions, DataTableColumn } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import type { UserCard } from "../../../helpers/definitions.js";
-
 import { Utils } from "../utils.js";
 
 type RowType = UserCard & { index: number };

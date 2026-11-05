@@ -37,10 +37,10 @@ import { getAllFocusableElements, Button, Icon, Filter, Badge, Toggle } from "@c
 
 import type { FilterItem } from "./filter-configuration.js";
 import { FilterOptionsMenu, StyledToggleShowcaseWrapper } from "./filter-configuration.js";
+import { FilterOptions } from "./filter-options.js";
+import { StyledFilterBar } from "./filter.styled.js";
 import { LanguageFilterSection, PriceFilterSection, GenericStringFilterSection } from "./shared-filter-sections.js";
 import type { FilterInFilterBarData } from "./type.js";
-import { StyledFilterBar } from "./filter.styled.js";
-import { FilterOptions } from "./filter-options.js";
 
 interface FilterBarProps {
 	isSmallSize?: boolean;

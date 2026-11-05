@@ -34,18 +34,28 @@ import { render, getAllByDataRole, getByDataRole, screen, queryByDataRole, waitF
 import { describe, test, expect } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { FlyoutMenu } from "../../main/flyout-menu.view.js";
-import { items, itemsWithChildren, itemWithGroups, itemWithVariants } from "../../test/menu.setup.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-import type { MenuItem } from "../../main/menu.api.js";
-import { getA11yResource } from "../../../common/main/a11y-localization/language-context.js";
-import { InteractionHintConfigProvider } from "../../../interaction-hint/main/interaction-hint-context.js";
 import { Badge } from "../../../badge/index.js";
+import { getA11yResource } from "../../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
+import { InteractionHintConfigProvider } from "../../../interaction-hint/main/interaction-hint-context.js";
 import { KeyboardNavigationConfigProvider } from "../../../keyboard-navigation/main/keyboard-navigation-context.js";
+import { FlyoutMenu } from "../../main/flyout-menu.view.js";
+import type { MenuItem } from "../../main/menu.api.js";
+import { items, itemsWithChildren, itemWithGroups, itemWithVariants } from "../../test/menu.setup.js";
+
+/**
+ * A horizontal Flyout Menu condenses whatever does not fit its own width, so a test about condensing has
+ * to pin that width down. Left to the 1280px viewport the `items` fixture fits whole and nothing condenses
+ * - it only used to condense because the Material Symbols font had not loaded yet and every icon was still
+ * being laid out as its ligature spelt out in full.
+ */
+const CONDENSING_WIDTH = 400;
 
 describe("com.mgmtp.a12.widgets.menu.flyout", () => {
 	test("horizontal-flyout-menu-condensed", () => {
-		const { container } = render(<FlyoutMenu type="horizontal" id="test-flyout" items={items} />);
+		const { container } = render(
+			<FlyoutMenu type="horizontal" id="test-flyout" items={items} style={{ width: CONDENSING_WIDTH }} />
+		);
 
 		expect(container.firstChild).toMatchSnapshot();
 	});
@@ -98,6 +108,7 @@ describe("com.mgmtp.a12.widgets.menu.flyout", () => {
 				id="horizontal-menu-with-badge"
 				items={items}
 				condensedBadge={<Badge count={2} />}
+				style={{ width: CONDENSING_WIDTH }}
 			/>
 		);
 
@@ -910,5 +921,60 @@ describe("com.mgmtp.a12.widgets.menu.flyout", () => {
 			// In default mode, Tab is not intercepted — browser moves to the next item
 			expect(menuItems[1]).toHaveFocus();
 		});
+	});
+});
+
+describe("com.mgmtp.a12.widgets.menu.flyout.generated-id", () => {
+	const mainMenuId = (container: HTMLElement): string | undefined => container.querySelector("[id$='_mainmenu']")?.id;
+
+	// Items without an own id are the only ones named after the menu's id.
+	const unnamedItems: MenuItem[] = [{ label: "First" }, { label: "Second" }];
+
+	test("derives the main menu and item ids from a generated id when none is given", () => {
+		const { container } = render(<FlyoutMenu type="horizontal" items={unnamedItems} />);
+		const id = mainMenuId(container);
+
+		expect(id).toBeTruthy();
+		// Items are named after the menu, so a missing id would produce "undefined.first".
+		expect(getAllByDataRole(container, DataRoles.Menu.Item)[0].id).toBe(`${id}.first`);
+		expect(container.querySelector("[id*='undefined']")).toBeNull();
+	});
+
+	test("keeps the generated id stable across re-renders", () => {
+		const { container, rerender } = render(<FlyoutMenu type="horizontal" items={items} />);
+		const before = mainMenuId(container);
+
+		rerender(<FlyoutMenu type="horizontal" items={items} collapsed />);
+
+		expect(mainMenuId(container)).toBe(before);
+	});
+
+	test("gives the main menu and the condensed item distinct generated ids", () => {
+		const { container } = render(<FlyoutMenu type="horizontal" style={{ width: 100 }} items={items} />);
+
+		const main = mainMenuId(container);
+		const condensed = container.querySelector("[id$='_condensed-item']")?.id;
+
+		expect(main).toBeTruthy();
+		expect(condensed).toBeTruthy();
+		expect(condensed).not.toBe(main);
+	});
+
+	test("gives sibling instances distinct generated ids", () => {
+		const { container } = render(
+			<>
+				<FlyoutMenu type="horizontal" items={items} />
+				<FlyoutMenu type="horizontal" items={items} />
+			</>
+		);
+		const [first, second] = container.querySelectorAll("[id$='_mainmenu']");
+
+		expect(first.id).not.toBe(second.id);
+	});
+
+	test("uses a given id verbatim", () => {
+		const { container } = render(<FlyoutMenu type="horizontal" id="test-flyout" items={items} />);
+
+		expect(mainMenuId(container)).toBe("test-flyout_mainmenu");
 	});
 });

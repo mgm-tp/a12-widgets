@@ -29,7 +29,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active primary tile 1`]
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
 }
 
@@ -111,6 +111,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active primary tile 1`]
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       location_on
     </span>
@@ -147,23 +149,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active secondary tile 1
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c6 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
 }
 
@@ -244,6 +230,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render active secondary tile 1
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       location_on
     </span>
@@ -280,19 +268,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render default tile same as th
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c5 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
 }
 
@@ -328,34 +304,6 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render default tile same as th
   color: inherit;
 }
 
-.c6 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c6 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c7 .c1 {
-  color: inherit;
-}
-
-.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c9 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c9 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
 @media (pointer: fine) {
   .c0:hover {
     background-color: rgb(255, 255, 255);
@@ -380,6 +328,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render default tile same as th
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       location_on
     </span>
@@ -416,15 +366,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render disabled primary tile 1
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
 }
 
@@ -469,6 +411,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render disabled primary tile 1
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       location_on
     </span>
@@ -505,31 +449,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render disabled secondary tile
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c5 .c1 {
-  color: inherit;
-}
-
-.c6 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c7 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c7 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
 }
 
@@ -574,6 +494,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render disabled secondary tile
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       location_on
     </span>
@@ -610,35 +532,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary selected tile 1
   max-width: unset;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c5 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c5 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.c7 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c9 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
 }
 
@@ -725,6 +619,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary selected tile 1
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       check_circle
     </span>
@@ -738,6 +634,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary selected tile 1
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       location_on
     </span>
@@ -772,6 +670,10 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary tile 1`] = `
 
 .c2.c2 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
+  color: inherit;
 }
 
 .c0 {
@@ -831,6 +733,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render primary tile 1`] = `
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       location_on
     </span>
@@ -867,43 +771,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary selected tile
   max-width: unset;
 }
 
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c5 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c5 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c6 .c1 {
-  color: inherit;
-}
-
-.c7 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c8 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c9 .c1 {
-  color: inherit;
-}
-
-.c10 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c10 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
 }
 
@@ -989,6 +857,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary selected tile
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       check_circle
     </span>
@@ -999,6 +869,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary selected tile
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       location_on
     </span>
@@ -1012,6 +884,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary selected tile
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       location_on
     </span>
@@ -1048,19 +922,7 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary tile 1`] = `
   max-width: unset;
 }
 
-.c3 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c4 .c1:not(.StyledVariantIconWrapper-sc-cNOyXs) {
-  color: inherit;
-}
-
-.c5 .c1 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c2 {
   color: inherit;
 }
 
@@ -1120,6 +982,8 @@ exports[`com.mgmtp.a12.widgets.interactive-tile > render secondary tile 1`] = `
   >
     <span
       aria-hidden="true"
+      class="notranslate"
+      translate="no"
     >
       location_on
     </span>

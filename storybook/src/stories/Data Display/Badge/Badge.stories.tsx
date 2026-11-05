@@ -41,7 +41,6 @@ const meta: Meta<typeof Badge> = {
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		count: {
 			control: { type: "number", min: 0, max: 10000 },
@@ -86,85 +85,60 @@ const meta: Meta<typeof Badge> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
-		count: 5
-	},
-	render: (args) => (
-		<div style={{ position: "relative", display: "inline-block", padding: "10px" }}>
-			<Icon>notifications</Icon>
-			<Badge {...args} />
-		</div>
-	)
-};
-
-export const InfoVariant: Story = {
-	args: {
-		count: 3,
-		variant: "info"
-	},
-	render: (args) => (
-		<div style={{ position: "relative", display: "inline-block", padding: "10px" }}>
-			<Icon>mail</Icon>
-			<Badge {...args} />
-		</div>
-	)
-};
-
-export const SuccessVariant: Story = {
-	args: {
-		count: 7,
-		variant: "success"
-	},
-	render: (args) => (
-		<div style={{ position: "relative", display: "inline-block", padding: "10px" }}>
-			<Icon>check_circle</Icon>
-			<Badge {...args} />
-		</div>
-	)
-};
-
-export const WarningVariant: Story = {
-	args: {
-		count: 2,
-		variant: "warning"
-	},
-	render: (args) => (
-		<div style={{ position: "relative", display: "inline-block", padding: "10px" }}>
-			<Icon>warning</Icon>
-			<Badge {...args} />
-		</div>
-	)
-};
-
-export const ErrorVariant: Story = {
-	args: {
-		count: 9,
+		count: 5,
 		variant: "error"
 	},
 	render: (args) => (
 		<div style={{ position: "relative", display: "inline-block", padding: "10px" }}>
-			<Icon>error</Icon>
-			<Badge {...args} />
-		</div>
-	)
-};
-
-export const LightVariant: Story = {
-	args: {
-		count: 5,
-		variant: "info",
-		light: true
-	},
-	render: (args) => (
-		<div style={{ position: "relative", display: "inline-block", padding: "10px" }}>
 			<Icon>notifications</Icon>
 			<Badge {...args} />
 		</div>
 	)
 };
 
-export const WithOverflow: Story = {
+export const Variants: Story = {
+	render: () => (
+		<div style={{ display: "flex", gap: "32px" }}>
+			{(["info", "success", "warning", "error"] as const).map((variant) => (
+				<div key={variant} style={{ position: "relative", display: "inline-block", padding: "10px" }}>
+					<Icon>notifications</Icon>
+					<Badge count={5} variant={variant} />
+				</div>
+			))}
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "The `variant` prop selects the badge color: `info`, `success`, `warning` or `error`."
+			}
+		}
+	}
+};
+
+export const Light: Story = {
+	render: () => (
+		<div style={{ display: "flex", gap: "32px" }}>
+			{(["info", "success", "warning", "error"] as const).map((variant) => (
+				<div key={variant} style={{ position: "relative", display: "inline-block", padding: "10px" }}>
+					<Icon>notifications</Icon>
+					<Badge count={5} variant={variant} light />
+				</div>
+			))}
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`light` combines with every variant to use a lighter color scheme."
+			}
+		}
+	}
+};
+
+export const Overflow: Story = {
 	args: {
 		count: 150,
 		overflowCount: 99
@@ -174,18 +148,17 @@ export const WithOverflow: Story = {
 			<Icon>mail</Icon>
 			<Badge {...args} />
 		</div>
-	)
-};
-
-export const Standalone: Story = {
-	args: {
-		count: 42,
-		standalone: true,
-		variant: "info"
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "Counts above `overflowCount` are rendered as `{overflowCount}+`."
+			}
+		}
 	}
 };
 
-export const StandaloneVariants: Story = {
+export const Standalone: Story = {
 	render: () => (
 		<div style={{ display: "flex", gap: "16px" }}>
 			<Badge count={5} standalone variant="info" />
@@ -193,103 +166,83 @@ export const StandaloneVariants: Story = {
 			<Badge count={3} standalone variant="warning" />
 			<Badge count={99} standalone variant="error" />
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`standalone` renders the badge as a regular inline element instead of anchoring it to a sibling."
+			}
+		}
+	}
 };
 
 export const Tiny: Story = {
-	args: {
-		tiny: true,
-		variant: "error"
-	},
-	render: (args) => (
-		<div style={{ position: "relative", display: "inline-block", padding: "10px" }}>
-			<Icon>person</Icon>
-			<Badge {...args} />
+	render: () => (
+		<div style={{ display: "flex", gap: "32px" }}>
+			{(["info", "success", "warning", "error"] as const).map((variant) => (
+				<div key={variant} style={{ position: "relative", display: "inline-block", padding: "10px" }}>
+					<Icon>person</Icon>
+					<Badge tiny variant={variant} />
+				</div>
+			))}
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`tiny` renders a small dot without a count — useful as a plain attention marker."
+			}
+		}
+	}
 };
 
 export const Hidden: Story = {
-	render: () => {
-		const ToggleBadge = () => {
-			const [hidden, setHidden] = useState(false);
+	render: function HiddenExample() {
+		const [hidden, setHidden] = useState(false);
 
-			return (
-				<div style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "center" }}>
-					<div style={{ position: "relative", display: "inline-block", padding: "10px" }}>
-						<Icon>notifications</Icon>
-						<Badge count={5} hidden={hidden} variant="error" />
-					</div>
-					<Button label={hidden ? "Show Badge" : "Hide Badge"} onClick={() => setHidden(!hidden)} />
+		return (
+			<div style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "center" }}>
+				<div style={{ position: "relative", display: "inline-block", padding: "10px" }}>
+					<Icon>notifications</Icon>
+					<Badge count={5} hidden={hidden} variant="error" />
 				</div>
-			);
-		};
-
-		return <ToggleBadge />;
+				<Button label={hidden ? "Show Badge" : "Hide Badge"} onClick={() => setHidden(!hidden)} />
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`hidden` toggles the badge visibility with a transition."
+			}
+		}
 	}
 };
 
 export const Animated: Story = {
-	render: () => {
-		const AnimatedBadge = () => {
-			const [count, setCount] = useState(0);
+	render: function AnimatedExample() {
+		const [count, setCount] = useState(0);
 
-			useEffect(() => {
-				const interval = setInterval(() => {
-					setCount((prev) => (prev >= 10 ? 0 : prev + 1));
-				}, 1000);
+		useEffect(() => {
+			const interval = setInterval(() => {
+				setCount((prev) => (prev >= 10 ? 0 : prev + 1));
+			}, 1000);
 
-				return () => clearInterval(interval);
-			}, []);
+			return () => clearInterval(interval);
+		}, []);
 
-			return (
-				<div style={{ position: "relative", display: "inline-block", padding: "10px" }}>
-					<Icon>notifications</Icon>
-					<Badge count={count} variant="error" animationTimeout={250} />
-				</div>
-			);
-		};
-
-		return <AnimatedBadge />;
+		return (
+			<div style={{ position: "relative", display: "inline-block", padding: "10px" }}>
+				<Icon>notifications</Icon>
+				<Badge count={count} variant="error" animationTimeout={250} />
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "When the count changes, the badge animates. `animationTimeout` controls the animation duration."
+			}
+		}
 	}
-};
-
-export const AllVariants: Story = {
-	render: () => (
-		<div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-			<div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
-				<span style={{ width: "80px" }}>Normal:</span>
-				{(["info", "success", "warning", "error"] as const).map((variant) => (
-					<div key={variant} style={{ position: "relative", display: "inline-block", padding: "10px" }}>
-						<Icon>notifications</Icon>
-						<Badge count={5} variant={variant} />
-					</div>
-				))}
-			</div>
-			<div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
-				<span style={{ width: "80px" }}>Light:</span>
-				{(["info", "success", "warning", "error"] as const).map((variant) => (
-					<div key={variant} style={{ position: "relative", display: "inline-block", padding: "10px" }}>
-						<Icon>notifications</Icon>
-						<Badge count={5} variant={variant} light />
-					</div>
-				))}
-			</div>
-			<div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
-				<span style={{ width: "80px" }}>Tiny:</span>
-				{(["info", "success", "warning", "error"] as const).map((variant) => (
-					<div key={variant} style={{ position: "relative", display: "inline-block", padding: "10px" }}>
-						<Icon>notifications</Icon>
-						<Badge tiny variant={variant} />
-					</div>
-				))}
-			</div>
-			<div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
-				<span style={{ width: "80px" }}>Standalone:</span>
-				{(["info", "success", "warning", "error"] as const).map((variant) => (
-					<Badge key={variant} count={5} standalone variant={variant} />
-				))}
-			</div>
-		</div>
-	)
 };

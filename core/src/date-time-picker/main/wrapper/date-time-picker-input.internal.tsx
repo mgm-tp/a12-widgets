@@ -30,13 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { type Locale } from "date-fns/locale";
-import { enUS } from "date-fns/locale";
 import { TZDate } from "@date-fns/tz";
 import { isValid, parse } from "date-fns";
+import { type Locale } from "date-fns/locale";
+import { enUS } from "date-fns/locale";
 
 import { DateTimeUtils } from "../../../common/main/date-time/date-utils.js";
-
 import type { DateTimePickerProps } from "../date-time-picker.api.js";
 
 import type { DateTimePickerInputProps } from "./date-time-picker-input.api.js";

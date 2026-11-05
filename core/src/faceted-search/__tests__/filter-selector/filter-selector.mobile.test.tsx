@@ -34,12 +34,12 @@ import { render, getByDataRole, getAllByDataRole } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { filterData, filterSectionData } from "../../test/setup.js";
 import { Button } from "../../../button/main/button.view.js";
-import { FilterSelectorMobile } from "../../main/filter-selector/filter-selector.mobile.js";
-import type { FilterSelectorMobileProps } from "../../main/filter-selector/filter-selector.mobile.api.js";
-import { ContentBoxElements } from "../../../contentbox/main/template/contentbox.tpl.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { ContentBoxElements } from "../../../contentbox/main/template/contentbox.tpl.view.js";
+import type { FilterSelectorMobileProps } from "../../main/filter-selector/filter-selector.mobile.api.js";
+import { FilterSelectorMobile } from "../../main/filter-selector/filter-selector.mobile.js";
+import { filterData, filterSectionData } from "../../test/setup.js";
 
 const headingElement = <ContentBoxElements.Title text="Filter Selector" id="header-filter-test" />;
 

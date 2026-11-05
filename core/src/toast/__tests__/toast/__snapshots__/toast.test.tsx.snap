@@ -29,6 +29,10 @@ exports[`com.mgmtp.a12.widgets.toast > render with id, class, style, wrapperRef 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c7 {
   align-items: center;
   border: 2px solid transparent;
@@ -73,6 +77,10 @@ exports[`com.mgmtp.a12.widgets.toast > render with id, class, style, wrapperRef 
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c7.c7 {
   display: block;
   height: auto;
@@ -110,7 +118,7 @@ exports[`com.mgmtp.a12.widgets.toast > render with id, class, style, wrapperRef 
   border-width: 1px 1px 1px medium;
   border-style: solid solid solid none;
   border-color: transparent transparent transparent currentcolor;
-  border-image: initial;
+  border-image: none;
   box-shadow: rgba(22, 25, 29, 0.4) 2px 2px 2px 0px;
   display: flex;
   flex: 0 1 auto;
@@ -184,6 +192,8 @@ exports[`com.mgmtp.a12.widgets.toast > render with id, class, style, wrapperRef 
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         info
       </span>
@@ -194,8 +204,8 @@ exports[`com.mgmtp.a12.widgets.toast > render with id, class, style, wrapperRef 
     data-role="toast-right"
   >
     <div
-      class="c5 toast__header"
-      data-role="toast-header"
+      class="c5"
+      data-role="toast-body-content"
     >
       <div
         class="c6 toast__actions"
@@ -215,6 +225,8 @@ exports[`com.mgmtp.a12.widgets.toast > render with id, class, style, wrapperRef 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               close
             </span>

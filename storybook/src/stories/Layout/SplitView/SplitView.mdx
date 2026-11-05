@@ -1,0 +1,54 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas, Description } from "@storybook/addon-docs/blocks";
+
+import * as SplitViewStories from "./SplitView.stories";
+
+<Meta of={SplitViewStories} />
+
+<Title />
+
+The `SplitView` widget divides the available horizontal space into side-by-side
+`SplitView.Area` regions. Use it for multi-pane layouts such as navigation / content / details
+views where each pane manages its own content.
+
+- Areas without a `width` share the remaining space equally; `width` (pixels or any CSS length) makes an area fixed-size.
+- Pass `resizableOptions` (with required `minWidth` and `maxWidth`) to let users drag an area's edge to resize it; `onResizeStop` reports the final width.
+- A lone area expands to the full width and hides its resize handle automatically.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={SplitViewStories.Playground} />
+
+## Examples
+
+### Resizable area
+
+<Canvas of={SplitViewStories.WithResizableArea} />
+
+### Togglable area
+
+<Canvas of={SplitViewStories.TogglableArea} />
+
+### Three areas
+
+<Canvas of={SplitViewStories.ThreeAreas} />
+
+### Fixed width
+
+<Canvas of={SplitViewStories.WithFixedWidth} />

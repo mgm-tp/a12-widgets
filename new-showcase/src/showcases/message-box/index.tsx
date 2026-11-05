@@ -30,20 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import MessageBoxAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/message-box/main/message-box.api.json" with { type: "json" };
+import accessibilityCode from "!./accessibility.tsx?raw";
+import actionsCode from "!./actions.tsx?raw";
+import customThemeCode from "!./custom-theme?raw";
+import variantsCode from "!./variants.tsx?raw";
+
 import { Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import MessageBoxAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/message-box/main/message-box.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { Variants } from "./variants.js";
+import { AccessibilityMessageBoxShowcase } from "./accessibility.js";
 import { ActionsExample } from "./actions.js";
 import { CustomThemeExample } from "./custom-theme.js";
-import { AccessibilityMessageBoxShowcase } from "./accessibility.js";
-
-import variantsCode from "!./variants.tsx?raw";
-import actionsCode from "!./actions.tsx?raw";
-import customThemeCode from "!./custom-theme?raw";
-import accessibilityCode from "!./accessibility.tsx?raw";
+import { Variants } from "./variants.js";
 
 const showcases: Showcase[] = [
 	{

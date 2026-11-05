@@ -33,7 +33,6 @@
 import { describe, test, expect } from "vitest";
 
 import { getFlatCompactTheme } from "../../flat-compact/flat-compact-theme.js";
-
 import { getBaseTheme } from "../base-theme.js";
 
 /**

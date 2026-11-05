@@ -35,7 +35,9 @@ import type { ReactElement } from "react";
 import { DataTreeTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 import type { FileNode } from "./shared.js";
-import { COLUMNS, FILE_TREE, fileIcon } from "./shared.js";
+import { COLUMNS, fileIcon, fileTree, useRowSelection } from "./shared.js";
+
+const FILE_TREE = fileTree("basic");
 
 /**
  * The simplest `DataTreeTable`: pass a nested `tree`, tell it how to read children via `getChildren`,
@@ -44,6 +46,8 @@ import { COLUMNS, FILE_TREE, fileIcon } from "./shared.js";
  * is uncontrolled here, seeded with `defaultExpandedKeys`.
  */
 export function BasicDataTreeTable(): ReactElement {
+	const { rowStyling, rowEventHandlers } = useRowSelection<FileNode>();
+
 	return (
 		<DataTreeTable<FileNode>
 			ariaLabel="Files"
@@ -52,8 +56,10 @@ export function BasicDataTreeTable(): ReactElement {
 			getIcon={fileIcon}
 			columns={COLUMNS}
 			rowKey="id"
+			rowStyling={rowStyling}
+			rowEventHandlers={rowEventHandlers}
 			maxHeight={360}
-			defaultExpandedKeys={["src"]}
+			defaultExpandedKeys={["basic-src"]}
 		/>
 	);
 }

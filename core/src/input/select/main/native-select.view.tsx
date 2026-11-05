@@ -33,12 +33,12 @@
 import type { FocusEvent, ReactElement } from "react";
 import { useRef, useMemo } from "react";
 
-import { addPrefix, inputWithSuffixName, joinClassNames } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import { addPrefix, inputWithSuffixName, joinClassNames } from "../../../common/main/utils.js";
 
+import type { NativeSelectProps, SelectItem, SelectProps } from "./select.api.js";
 import { StyledNativeSelect, StyledSelectTemplate } from "./select.styled.js";
 import { SelectTemplate, selectBaseFieldClassName } from "./template/select.tpl.view.js";
-import type { NativeSelectProps, SelectItem, SelectProps } from "./select.api.js";
 
 const { StyledSelectOption } = StyledNativeSelect;
 const { StyledSelectInput } = StyledSelectTemplate;
@@ -131,6 +131,7 @@ export function NativeSelect(props: NativeSelectProps): ReactElement<SelectProps
 					{ [`${id}-error`]: id && props.errorMessage },
 					props.ariaDescribedby
 				)}
+				aria-invalid={props.error || props.errorMessage ? true : undefined}
 				onChange={(event) => props.onValueChanged?.(event.currentTarget.value)}
 				onFocus={onFocus}
 				onBlur={onBlur}

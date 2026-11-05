@@ -34,10 +34,9 @@ import type { ContextType, ReactNode, ChangeEvent, MouseEvent, KeyboardEvent, Re
 import { createRef, Component, useContext, useRef, useMemo, useCallback, Fragment } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import { ContentBoxElements } from "../../../contentbox/main/template/contentbox.tpl.view.js";
-import { SubActionBarTpl } from "../../../contentbox/main/template/sub-action-bar.tpl.view.js";
-import { Icon } from "../../../icon/main/icon.view.js";
-import { ModalOverlay } from "../../../modal-overlay/main/modal-overlay.view.js";
+import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
+import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
 import {
 	bindMethods,
 	getAllFocusableElements,
@@ -45,22 +44,23 @@ import {
 	joinClassNames,
 	inputWithSuffixName
 } from "../../../common/main/utils.js";
-import type { A11yDefinition } from "../../../common/main/a11y-localization/a11y-key-definition.api.js";
-import { A11YLanguageContext } from "../../../common/main/a11y-localization/language-context.js";
 import { WidgetsResizeDetector } from "../../../common/main/widgets-resize-detector/widgets-resize-detector.view.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
+import { ContentBoxElements } from "../../../contentbox/main/template/contentbox.tpl.view.js";
+import { SubActionBarTpl } from "../../../contentbox/main/template/sub-action-bar.tpl.view.js";
+import { Icon } from "../../../icon/main/icon.view.js";
+import { ModalOverlay } from "../../../modal-overlay/main/modal-overlay.view.js";
 
-import type { FilterSelectorMobileProps } from "./filter-selector.mobile.api.js";
 import type { FilterSelectorProps } from "./filter-selector.api.js";
-import { FilterSelectorTemplate } from "./tpl/filter-selector.tpl.view.js";
 import { getFlattenedFilters, isSection, isSectionElement } from "./filter-selector.internal.js";
+import type { FilterSelectorMobileProps } from "./filter-selector.mobile.api.js";
+import { StyledMobileFilterSelectorTemplate, StyledMobileFilterSelectorItem } from "./filter.selector.mobile.styled.js";
 import {
 	StyledFilterSelectorChildrenWrapper,
 	StyledFilterSelectorContent,
 	StyledFilterSelectorExpandButton,
 	StyledFilterSelectorTemplateWrapper
 } from "./filter.selector.styled.js";
-import { StyledMobileFilterSelectorTemplate, StyledMobileFilterSelectorItem } from "./filter.selector.mobile.styled.js";
+import { FilterSelectorTemplate } from "./tpl/filter-selector.tpl.view.js";
 
 const baseClassName = addPrefix("filter-selector");
 const { Section, List, Content } = FilterSelectorTemplate;

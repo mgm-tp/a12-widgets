@@ -34,12 +34,12 @@ import { memo, useMemo } from "react";
 
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
-import { TableTemplate } from "./template/index.js";
 import type { TableRenderPropsType } from "./table-renderer.api.js";
-import { useTableContext } from "./table.context.js";
-import { isColumnGroup, TableInternalUtils as Utils } from "./table.utils.js";
 import { StyledTableBodyCellGroup } from "./table.body-cell.view.js";
+import { useTableContext } from "./table.context.js";
+import { BASE_TABLE_CLASSNAME } from "./table.internal.js";
+import { isColumnGroup, TableInternalUtils as Utils } from "./table.utils.js";
+import { TableTemplate } from "./template/index.js";
 import { useStyledTableContext } from "./template/table.context.styled.js";
 
 /** @internal */

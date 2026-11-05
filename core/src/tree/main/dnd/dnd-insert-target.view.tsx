@@ -39,9 +39,8 @@ import type { ReactNode } from "react";
 import { useRef } from "react";
 import { useDrop } from "react-dnd";
 
-import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
+import { addPrefix, joinClassNames } from "../../../common/main/utils.js";
 import { StyledTreeDropHint, StyledTreeDropTarget } from "../tpl/tree-elements.styled.js";
 
 import type { TreeInsertTargetProps } from "./dnd-tree.api.js";

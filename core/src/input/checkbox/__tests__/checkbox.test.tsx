@@ -30,13 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { render, fireEvent, getByDataRole } from "test-utils";
+import { render, fireEvent, getByDataRole, isAfter } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
+import { userEvent } from "vitest/browser";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { noop } from "../../../common/main/utils.js";
 import { Icon } from "../../../icon/main/icon.view.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-
+import type { MessagePosition, TooltipLineBreak } from "../../base/template/base.tpl.api.js";
 import { Checkbox } from "../main/checkbox.view.js";
 
 describe("com.mgmtp.a12.widgets.checkbox", () => {
@@ -189,6 +190,142 @@ describe("com.mgmtp.a12.widgets.checkbox", () => {
 		expect(onChangeSpy).toHaveBeenCalledTimes(1);
 		expect(onClickSpy).toHaveBeenCalledTimes(1);
 	});
+
+	describe("message position", () => {
+		const messageRoles = [
+			DataRoles.Checkbox.ErrorMessage,
+			DataRoles.Checkbox.WarningMessage,
+			DataRoles.Checkbox.InfoMessage
+		];
+
+		const renderWithMessages = (messagePosition: MessagePosition) =>
+			render(
+				<Checkbox
+					id="testId"
+					checked={false}
+					onChange={noop}
+					label="Test Label"
+					helperText="Test Helper Text"
+					errorMessage="Test error message"
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					messagePosition={messagePosition}
+				/>
+			);
+
+		/**
+		 * Unlike text-field, the checkbox's label lives *inside* the control, after the box. "Above" therefore
+		 * places the messages above the label as well, not between the label and the control.
+		 */
+		test("renders the messages above both the control and the label for above", () => {
+			const { getByDataRole } = renderWithMessages("above");
+			const control = getByDataRole(DataRoles.Checkbox.Control);
+			const label = getByDataRole(DataRoles.Checkbox.Label);
+			const helperText = getByDataRole(DataRoles.Checkbox.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				// message -> control (label inside it) -> helper text
+				expect(isAfter(message, control)).toBe(true);
+				expect(isAfter(message, label)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the control and above the helper text for below", () => {
+			const { getByDataRole } = renderWithMessages("below");
+			const control = getByDataRole(DataRoles.Checkbox.Control);
+			const label = getByDataRole(DataRoles.Checkbox.Label);
+			const helperText = getByDataRole(DataRoles.Checkbox.HelperText);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				// label -> control -> message -> helper text
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(control, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const renderWithTooltips = (breakTooltipsToNewLine: TooltipLineBreak, helperText?: string) =>
+			render(
+				<Checkbox
+					id="testId"
+					checked={false}
+					onChange={noop}
+					label="Test checkbox"
+					helperText={helperText}
+					tooltips={<div>Test tooltip</div>}
+					breakTooltipsToNewLine={breakTooltipsToNewLine}
+				/>
+			);
+
+		test("renders the tooltips inside the control for false", () => {
+			const { getByDataRole, getByText } = renderWithTooltips(false);
+			const control = getByDataRole(DataRoles.Checkbox.Control);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(true);
+			// the last thing in the control row, after the box and the label
+			expect(isAfter(getByDataRole(DataRoles.Checkbox.Label), tooltip)).toBe(true);
+		});
+
+		test("renders the tooltips above the control for above", () => {
+			const { getByDataRole, getByText } = renderWithTooltips("above");
+			const control = getByDataRole(DataRoles.Checkbox.Control);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(false);
+			expect(isAfter(tooltip, control)).toBe(true);
+		});
+
+		test("renders the tooltips below the control for below", () => {
+			const { getByDataRole, getByText } = renderWithTooltips("below", "Test Helper Text");
+			const control = getByDataRole(DataRoles.Checkbox.Control);
+			const helperText = getByDataRole(DataRoles.Checkbox.HelperText);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(false);
+			expect(isAfter(control, tooltip)).toBe(true);
+			expect(isAfter(tooltip, helperText)).toBe(true);
+		});
+	});
+
+	describe("aria-invalid", () => {
+		test("marks the input as invalid for error", () => {
+			const { getByDataRole } = render(<Checkbox id="testId" checked={false} onChange={noop} error />);
+
+			expect(getByDataRole(DataRoles.Checkbox.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("marks the input as invalid for errorMessage", () => {
+			const { getByDataRole } = render(
+				<Checkbox id="testId" checked={false} onChange={noop} errorMessage="Test error message" />
+			);
+
+			expect(getByDataRole(DataRoles.Checkbox.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("does not mark the input as invalid for a warning or an info", () => {
+			const { getByDataRole } = render(
+				<Checkbox
+					id="testId"
+					checked={false}
+					onChange={noop}
+					warning
+					info
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+				/>
+			);
+
+			expect(getByDataRole(DataRoles.Checkbox.Input)).not.toHaveAttribute("aria-invalid");
+		});
+	});
 });
 
 describe("com.mgmtp.a12.widgets.indeterminate.checkbox", () => {
@@ -261,5 +398,57 @@ describe("com.mgmtp.a12.widgets.indeterminate.checkbox", () => {
 
 		fireEvent.click(checkboxButton, { currentTarget: { checked: true } });
 		expect(onChangeSpy).toHaveBeenCalledTimes(1);
+	});
+
+	test("generates an id so the label stays associated when none is given", () => {
+		const { container } = render(
+			<Checkbox checked={false} onChange={noop} label="Test checkbox" helperText="Helper" errorMessage="Error" />
+		);
+		const input = container.querySelector("input") as HTMLInputElement;
+
+		// The label is a sibling with no `for` of its own, so the checkbox would be unnamed without an id.
+		expect(input.labels?.length).toBeGreaterThan(0);
+		expect(input.id).toBeTruthy();
+		expect(input.getAttribute("aria-describedby")).toContain(`${input.id}-error`);
+		// No id must never leak into a derived id such as "undefined-controls".
+		expect(container.querySelector("[id*='undefined']")).toBeNull();
+	});
+
+	test("keeps the generated id stable across re-renders", () => {
+		const { container, rerender } = render(<Checkbox checked={false} onChange={noop} label="Test checkbox" />);
+		const firstId = (container.querySelector("input") as HTMLInputElement).id;
+
+		rerender(<Checkbox checked={true} onChange={noop} label="Test checkbox" />);
+
+		expect((container.querySelector("input") as HTMLInputElement).id).toBe(firstId);
+	});
+
+	test("derives the control, helper and message ids from a given id", () => {
+		const { container } = render(
+			<Checkbox
+				id="testId"
+				checked={false}
+				onChange={noop}
+				label="Test checkbox"
+				helperText="Helper"
+				errorMessage="Error"
+			/>
+		);
+		const input = getByDataRole(container, DataRoles.Checkbox.Input);
+
+		expect(input).toHaveAttribute("id", "testId");
+		expect(input.getAttribute("aria-describedby")).toContain("testId-error");
+		expect(input.getAttribute("aria-describedby")).toContain("testId-helperText");
+		expect(getByDataRole(container, DataRoles.Checkbox.Control)).toHaveAttribute("id", "testId-controls");
+	});
+
+	test("clicking the label toggles the checkbox when an id is given", async () => {
+		const onChangeSpy = vi.fn();
+		const { container } = render(<Checkbox id="testId" checked={false} onChange={onChangeSpy} label="Test checkbox" />);
+
+		await userEvent.click(getByDataRole(container, DataRoles.Checkbox.Label));
+
+		expect(onChangeSpy).toHaveBeenCalledTimes(1);
+		expect(onChangeSpy).toHaveBeenCalledWith(true, expect.anything());
 	});
 });

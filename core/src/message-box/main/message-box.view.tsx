@@ -33,12 +33,12 @@
 import type { FC, ReactElement, ReactNode } from "react";
 import { useContext, useEffect } from "react";
 
-import { joinClassNames, addPrefix } from "../../common/main/utils.js";
 import type { A11yDefinition, MessageBoxTitles } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { Icon } from "../../icon/main/icon.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { joinClassNames, addPrefix } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 
 import type { MessageBoxProps, MessageBoxVariant } from "./message-box.api.js";
 import {

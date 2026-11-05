@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { CompactThemeType } from "../../../schema.js";
 import { typographyHeadlineCalculation } from "../../../default/config/components/typography.config.js";
+import type { CompactThemeType } from "../../../schema.js";
 
 export const typographyCompactConfig = (theme: CompactThemeType) => {
 	const compactConfig = {

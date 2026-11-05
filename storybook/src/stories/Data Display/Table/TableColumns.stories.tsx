@@ -30,14 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useState, useCallback } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useState, useCallback } from "react";
 
 import type { BaseColumnType, Column, ColumnResizeEventHandler } from "@com.mgmtp.a12.widgets/widgets-core";
 import { Table } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { Employee } from "./table.data.js";
-import { EMPLOYEES, BASIC_COLUMNS } from "./table.data.js";
+import { EMPLOYEES } from "./table.data.js";
 
 // ---------------------------------------------------------------------------
 // Pinned Columns
@@ -155,16 +155,11 @@ function ResizableColumnGroupsDemo() {
 
 const meta: Meta = {
 	title: "Data Display/Table/Table Columns",
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
-	render: () => <Table<Employee> data={EMPLOYEES} columns={BASIC_COLUMNS} />
-};
 
 export const PinnedColumns: Story = {
 	name: "Pinned Columns",

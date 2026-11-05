@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { de } from "date-fns/locale/de";
 import type { FC, FocusEvent } from "react";
 import { useCallback, useState } from "react";
-import { de } from "date-fns/locale/de";
 
 import { DateTimeContext, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 

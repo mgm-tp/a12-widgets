@@ -36,22 +36,22 @@ import {
 	StyledCollapsiblePanelLabel,
 	StyledCollapsiblePanelWrapper
 } from "../../../collapsible-panel/main/collapsible-panel.view.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
 import { addPrefix } from "../../../common/main/utils.js";
+import { StyledAutocompleteWrapper } from "../../../input/autocomplete/main/autocomplete.styled.js";
+import { StyledBaseBoolean } from "../../../input/base-input-styled/base-boolean.styled.js";
+import { StyledBaseInput } from "../../../input/base-input-styled/base.styled.js";
 import {
 	StyledFieldLabel,
 	StyledFieldLabelWrapper,
 	StyledFieldMessageWrapper
 } from "../../../input/base/template/base.tpl.view.js";
-import { StyledAutocompleteWrapper } from "../../../input/autocomplete/main/autocomplete.styled.js";
-import { StyledBaseBoolean } from "../../../input/base-input-styled/base-boolean.styled.js";
-import { StyledBaseInput } from "../../../input/base-input-styled/base.styled.js";
-import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
-import { StyledTextOutput, StyledTextOutputContent } from "../../../text-output/main/text-output.view.js";
-import { StyledMultiselectWrapper } from "../../../multiselect/main/multiselect.styled.js";
 import { StyledIconPickerWrapper } from "../../../input/icon-picker/main/icon-picker.styled.js";
-import { StyledTimePickerWrapper } from "../../../time-picker/main/time-picker.styled.js";
+import { StyledSelectTemplate } from "../../../input/select/main/select.styled.js";
 import { StyledYearMonthSelector } from "../../../input/year-month-selector/year-month-selector.styled.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
+import { StyledMultiselectWrapper } from "../../../multiselect/main/multiselect.styled.js";
+import { StyledTextOutput, StyledTextOutputContent } from "../../../text-output/main/text-output.view.js";
+import { StyledTimePickerWrapper } from "../../../time-picker/main/time-picker.styled.js";
 
 import { baseFormClassName } from "./background-color.js";
 
@@ -64,93 +64,88 @@ const textAlignStyle = (val: string) => css`
 		const { select } = theme.components;
 
 		return css`
-			> ${StyledFieldWrapper},
-				> ${StyledField},
-				> ${StyledAutocompleteWrapper},
-				> ${StyledMultiselectWrapper},
-				> ${StyledIconPickerWrapper},
-				> ${StyledTimePickerWrapper},
-				> ${StyledYearMonthSelector} {
+			> ${StyledFieldWrapper}, > ${StyledField}, > ${StyledAutocompleteWrapper}, > ${StyledMultiselectWrapper}, > ${StyledIconPickerWrapper}, > ${StyledTimePickerWrapper}, > ${StyledYearMonthSelector} {
 				text-align: ${val};
 
 				${StyledFieldMessageWrapper} {
 					text-align: left;
 				}
 
-				${(val === "right" || val === "center") &&
-				css`
-					// Input's Label
-					${StyledField} > ${StyledFieldLabel}, > ${StyledFieldLabel} {
-						margin-inline: ${val === "center" && "auto"};
-						margin-left: ${val === "right" && "auto"};
-					}
+				${
+					(val === "right" || val === "center") &&
+					css`
+						// Input's Label
+						${StyledField} > ${StyledFieldLabel}, > ${StyledFieldLabel} {
+							margin-inline: ${val === "center" && "auto"};
+							margin-left: ${val === "right" && "auto"};
+						}
 
-					// Helper Text and label with graphic
-					${StyledFieldHelperWrapper}, ${StyledFieldLabelWrapper} {
-						justify-content: ${val === "right" ? "flex-end" : "center"};
-					}
-				`}
+						// Helper Text and label with graphic
+						${StyledFieldHelperWrapper}, ${StyledFieldLabelWrapper} {
+							justify-content: ${val === "right" ? "flex-end" : "center"};
+						}
+					`
+				}
 			}
 
-			${val === "right" &&
-			css`
-				> ${StyledField} {
+			${
+				val === "right" &&
+				css`
+					> ${StyledField} {
+						// Select
+						${StyledFieldSelectControl} ${StyledSelectInput} {
+							border-right: none;
+							padding: ${select.title.rightAlignPadding};
+						}
+					}
+				`
+			}
+
+			${
+				(val === "right" || val === "center") &&
+				css`
+					// Text Output
+					> ${StyledFieldWrapper} {
+						${StyledTextOutput} {
+							width: 100%;
+						}
+						${StyledTextOutputContent} {
+							justify-content: ${val === "right" ? "flex-end" : "center"};
+						}
+					}
+
+					// Radio/Checkbox
+					> ${StyledField} {
+						${StyledFieldGroup}, ${StyledFieldGroup} ${StyledFieldControl}, > ${StyledFieldControl} {
+							justify-content: ${val === "right" ? "flex-end" : "center"};
+						}
+					}
+
 					// Select
-					${StyledFieldSelectControl} ${StyledSelectInput} {
-						border-right: none;
-						padding: ${select.title.rightAlignPadding};
+					> ${StyledField} ${StyledFieldSelectControl} {
+						text-align-last: ${val};
 					}
-				}
-			`}
 
-			${(val === "right" || val === "center") &&
-			css`
-				// Text Output
-				> ${StyledFieldWrapper} {
-					${StyledTextOutput} {
-						width: 100%;
+					// 1st/2nd level Section
+					&.${baseFormClassName}__multicolumnsection, &.${baseFormClassName}__controlgrid, &.${baseFormClassName}__repeat, &.${baseFormClassName}__section {
+						> .${baseFormClassName}__sectionTitle, > .${baseFormClassName}__section > .${baseFormClassName}__sectionTitle {
+							text-align: ${val};
+						}
 					}
-					${StyledTextOutputContent} {
+
+					// Collapsible Panel
+					&${StyledCollapsiblePanelWrapper} {
+						${StyledCollapsiblePanelLabel} {
+							text-align: ${val};
+						}
+					}
+
+					// Editor Static Toolbar
+					& > [data-role="${DataRoles.RichTextEditor.Wrapper}"] [data-role="${DataRoles.RichTextEditor.Toolbar}"] {
 						justify-content: ${val === "right" ? "flex-end" : "center"};
 					}
-				}
-
-				// Radio/Checkbox
-				> ${StyledField} {
-					${StyledFieldGroup}, ${StyledFieldGroup} ${StyledFieldControl}, > ${StyledFieldControl} {
-						justify-content: ${val === "right" ? "flex-end" : "center"};
-					}
-				}
-
-				// Select
-				> ${StyledField} ${StyledFieldSelectControl} {
-					text-align-last: ${val};
-				}
-
-				// 1st/2nd level Section
-				&.${baseFormClassName}__multicolumnsection,
-					&.${baseFormClassName}__controlgrid,
-					&.${baseFormClassName}__repeat,
-					&.${baseFormClassName}__section {
-					> .${baseFormClassName}__sectionTitle,
-						> .${baseFormClassName}__section
-						> .${baseFormClassName}__sectionTitle {
-						text-align: ${val};
-					}
-				}
-
-				// Collapsible Panel
-				&${StyledCollapsiblePanelWrapper} {
-					${StyledCollapsiblePanelLabel} {
-						text-align: ${val};
-					}
-				}
-
-				// Editor Static Toolbar
-				& > [data-role="${DataRoles.RichTextEditor.Wrapper}"] [data-role="${DataRoles.RichTextEditor.Toolbar}"] {
-					justify-content: ${val === "right" ? "flex-end" : "center"};
-				}
-			`}
+				`
+			}
 		`;
 	}}
 `;

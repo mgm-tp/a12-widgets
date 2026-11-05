@@ -30,12 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { $isAutoLinkNode, $isLinkNode, AutoLinkNode } from "@lexical/link";
+import type { LinkMatcher } from "@lexical/react/LexicalAutoLinkPlugin";
+import { mergeRegister } from "@lexical/utils";
 import type { LexicalEditor } from "lexical";
 import { $getSelection, $isRangeSelection, COMMAND_PRIORITY_LOW, SELECTION_CHANGE_COMMAND } from "lexical";
-import type { LinkMatcher } from "@lexical/react/LexicalAutoLinkPlugin";
 import { useEffect } from "react";
-import { $isAutoLinkNode, $isLinkNode, AutoLinkNode } from "@lexical/link";
-import { mergeRegister } from "@lexical/utils";
 
 import { $isInlineStyleTextNode, InlineStyleTextNode } from "../../nodes/inline-style-text-node.js";
 import { useRichTextEditorCache } from "../../template/rich-text-editor.tpl.view.js";

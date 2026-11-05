@@ -30,14 +30,14 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
+
 import type { FC } from "react";
 import { useCallback, useState } from "react";
 
 import { CheckboxGroup, DefaultRichTextEditor, Radio } from "@com.mgmtp.a12.widgets/widgets-core";
-import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
 
 import { ConfigurationView } from "../../../helpers/configuration-view.js";
-
 import { BUTTONS } from "../share/data.js";
 import { EditorStyle } from "../style/inline-styled-editor-wrapper.styled.js";
 
@@ -65,14 +65,24 @@ export const Basic: FC = () => {
 		<ConfigurationView
 			configuration={
 				<>
-					<Radio inline value={selectedValue} onValueChanged={handleRadioValueChanged} name="chicken">
+					<Radio
+						id="default-rich-text-editor-basic-radio"
+						inline
+						value={selectedValue}
+						onValueChanged={handleRadioValueChanged}
+						name="chicken"
+					>
 						<Radio.Item label="Editable" value="editable" />
 						<Radio.Item label="Readonly" value="readonly" />
 						<Radio.Item label="Disabled" value="disabled" />
 						<Radio.Item label="Auto expand" value="autoExpand" />
 					</Radio>
 					<br />
-					<CheckboxGroup inline onValueChanged={handleCheckboxChanged}>
+					<CheckboxGroup
+						id="default-rich-text-editor-basic-checkbox-group"
+						inline
+						onValueChanged={handleCheckboxChanged}
+					>
 						<CheckboxGroup.Item label="Set min-Height to 50px" value="minHeight" selected={minHeightSelected} />
 						<CheckboxGroup.Item
 							label="Set max-Height to 200px"

@@ -30,10 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { ReactElement, ReactNode } from "react";
 import {
 	findByDataRole,
 	fireEvent,
 	getByDataRole,
+	isAfter,
 	screen,
 	queryByDataRole,
 	render,
@@ -41,18 +43,17 @@ import {
 	getByTitle
 } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
-import type { ReactElement, ReactNode } from "react";
 import { userEvent } from "vitest/browser";
 
-import { Icon } from "../../icon/main/icon.view.js";
-import { noop } from "../../common/main/utils.js";
-import { DataRoles } from "../../common/main/data-roles.js";
-import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
-import { PopUpMenu } from "../../pop-up-menu/index.js";
 import { Button } from "../../button/index.js";
-import { List } from "../../list/index.js";
 import { getA11yResource } from "../../common/main/a11y-localization/index.js";
-
+import { DataRoles } from "../../common/main/data-roles.js";
+import { noop } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
+import type { MessagePosition, TooltipLineBreak } from "../../input/base/template/base.tpl.api.js";
+import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
+import { List } from "../../list/index.js";
+import { PopUpMenu } from "../../pop-up-menu/index.js";
 import type { FileUploadProps } from "../main/file-upload.api.js";
 import { FileUpload } from "../main/file-upload.view.js";
 
@@ -637,6 +638,160 @@ describe("com.mgmtp.a12.widgets.file-upload", () => {
 				actionMenu = queryByDataRole(container, DataRoles.FileUpload.Actions);
 				expect(actionMenu).toBeTruthy();
 			});
+		});
+	});
+
+	describe("message position", () => {
+		const messageRoles = [
+			DataRoles.FileUpload.ErrorMessage,
+			DataRoles.FileUpload.WarningMessage,
+			DataRoles.FileUpload.InfoMessage
+		];
+
+		const renderWithMessages = (messagePosition: MessagePosition) =>
+			render(
+				<FileUpload
+					id="test-id"
+					label="test-label"
+					helperText="Test Helper Text"
+					errorMessage="Test error message"
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					messagePosition={messagePosition}
+				/>
+			);
+
+		test("renders the messages above the control for above", () => {
+			const { getByDataRole, getByText } = renderWithMessages("above");
+			const control = getByDataRole(DataRoles.FileUpload.Control);
+			const label = getByDataRole(DataRoles.FileUpload.Label);
+			// the file-upload helper text carries no data-role, so it has to be found by its text
+			const helperText = getByText("Test Helper Text");
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(false);
+				// label → message → control → helper text
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, control)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the control for below", () => {
+			const { getByDataRole, getByText } = renderWithMessages("below");
+			const control = getByDataRole(DataRoles.FileUpload.Control);
+			const label = getByDataRole(DataRoles.FileUpload.Label);
+			const helperText = getByText("Test Helper Text");
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(false);
+				// label → control → message → helper text
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(control, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const renderWithTooltips = (
+			breakTooltipsToNewLine: TooltipLineBreak,
+			{ compact, helperText }: { compact?: boolean; helperText?: string } = {}
+		) =>
+			render(
+				<FileUpload
+					id="test-id"
+					label="test-label"
+					compact={compact}
+					helperText={helperText}
+					tooltips={<div>Test tooltip</div>}
+					breakTooltipsToNewLine={breakTooltipsToNewLine}
+				/>
+			);
+
+		/**
+		 * The file-upload has no inline placement of its own unless it is compact: a non-compact upload
+		 * renders `false` in the very slot `"above"` uses, next to the label.
+		 */
+		test("renders the tooltips above the control for false when not compact", () => {
+			const { getByDataRole, getByText } = renderWithTooltips(false);
+			const control = getByDataRole(DataRoles.FileUpload.Control);
+			const label = getByDataRole(DataRoles.FileUpload.Label);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(false);
+			expect(label.parentElement?.contains(tooltip)).toBe(true);
+			expect(isAfter(tooltip, control)).toBe(true);
+		});
+
+		test("renders the tooltips beside the control for false when compact", () => {
+			const { getByDataRole, getByText } = renderWithTooltips(false, { compact: true });
+			const control = getByDataRole(DataRoles.FileUpload.Control);
+			const label = getByDataRole(DataRoles.FileUpload.Label);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(false);
+			expect(label.parentElement?.contains(tooltip)).toBe(false);
+			// the compact layout wraps the control and the tooltip in a shared inline wrapper
+			expect(control.parentElement?.contains(tooltip)).toBe(true);
+			expect(isAfter(control, tooltip)).toBe(true);
+		});
+
+		test("renders the tooltips above the control for above", () => {
+			const { getByDataRole, getByText } = renderWithTooltips("above");
+			const control = getByDataRole(DataRoles.FileUpload.Control);
+			const label = getByDataRole(DataRoles.FileUpload.Label);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(false);
+			expect(label.parentElement?.contains(tooltip)).toBe(true);
+			expect(isAfter(tooltip, control)).toBe(true);
+		});
+
+		test("renders the tooltips below the control for below", () => {
+			const { getByDataRole, getByText } = renderWithTooltips("below", { helperText: "Test Helper Text" });
+			const control = getByDataRole(DataRoles.FileUpload.Control);
+			const helperText = getByText("Test Helper Text");
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(false);
+			expect(isAfter(control, tooltip)).toBe(true);
+			expect(isAfter(tooltip, helperText)).toBe(true);
+		});
+	});
+
+	describe("aria-invalid", () => {
+		test("marks the input as invalid for error", () => {
+			const { getByDataRole } = render(<FileUpload id="test-id" label="test-label" error />);
+
+			expect(getByDataRole(DataRoles.FileUpload.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("marks the input as invalid for errorMessage", () => {
+			const { getByDataRole } = render(
+				<FileUpload id="test-id" label="test-label" errorMessage="Test error message" />
+			);
+
+			expect(getByDataRole(DataRoles.FileUpload.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("does not mark the input as invalid for a warning or an info", () => {
+			const { getByDataRole } = render(
+				<FileUpload
+					id="test-id"
+					label="test-label"
+					warning
+					info
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+				/>
+			);
+
+			expect(getByDataRole(DataRoles.FileUpload.Input)).not.toHaveAttribute("aria-invalid");
 		});
 	});
 });

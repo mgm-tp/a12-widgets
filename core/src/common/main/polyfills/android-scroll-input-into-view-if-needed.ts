@@ -30,39 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import MobileDetect from "mobile-detect";
-
-import { isBrowser } from "../is-browser.js";
-
 /**
- * On Android devices the input is not always scrolled into view when focus as iOS would do it.
- * This polyfill fills this gap.
- */
-
-/*
- * The instantiation relies on the fact that the window variable is accessible. However, this is not the
- * case in node environment (e.g. for testing), therefore the construction is guarded behind `isBrowser`.
+ * Scrolling a focused text field into view is the browser's own job, and Android Chrome does it: as
+ * the on-screen keyboard shrinks the viewport, it brings the focused field above the keyboard and
+ * leaves the rest of the page where it stands.
  *
- * `mobile-detect` is a CommonJS/UMD module. It is imported statically (like in `device-detector.ts`) so the
- * bundler interop resolves the default export to the constructor. A dynamic `import("mobile-detect")` produces
- * a namespace whose `.default` is not reliably the constructor across bundlers, which throws at runtime.
+ * This module used to fill a gap that no longer exists, and filling it did harm. On every `resize` —
+ * which on Android means every time the keyboard opens or closes — it called
+ * `scrollIntoView(true)` on the focused field, pinning it to the very top of the viewport. That
+ * dropped the field behind any fixed or sticky page header, and it overrode what widgets had just
+ * done deliberately: a `focus({ preventScroll: true })`, or the scroll position the Autocomplete's
+ * fullscreen dialog puts back when it closes.
+ *
+ * Nothing is installed any more. The export stays so that consumers importing it keep compiling.
+ * @deprecated Since 39.1.0 this resolves without installing anything, and it can be dropped from
+ * consumer code. Android Chrome scrolls the focused field into view on its own.
  */
-
-export const AndroidScrollInputIntoViewIfNeeded = isBrowser
-	? import("../utils.js").then(({ Throttler }) => {
-			const mobileDetect = new MobileDetect(window.navigator.userAgent);
-
-			if (mobileDetect.is("AndroidOS")) {
-				const throttler = new Throttler(() => {
-					const { activeElement } = document;
-
-					if (activeElement && (activeElement.tagName === "INPUT" || activeElement.tagName === "TEXTAREA")) {
-						activeElement.scrollIntoView(true);
-					}
-				});
-				window.addEventListener("resize", () => {
-					throttler.execute();
-				});
-			}
-		})
-	: Promise.resolve();
+export const AndroidScrollInputIntoViewIfNeeded: Promise<void> = Promise.resolve();

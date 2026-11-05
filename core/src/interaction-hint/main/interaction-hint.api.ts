@@ -70,6 +70,16 @@ export interface InteractionHintBehavior {
 	 * @default false
 	 */
 	hideArrow?: boolean;
+
+	/**
+	 * Delay in milliseconds before the hint appears on hover, and before it reappears after a window resize.
+	 * Lower it to make hints feel snappier. Very small values are not recommended: the hint is positioned from
+	 * the reference element's measured rect, and showing it before that measurement lands can skip the hint
+	 * entirely.
+	 * No effects when the hint is disabled.
+	 * @default 500
+	 */
+	showDelay?: number;
 }
 
 export interface InteractionHintBaseConfig extends InteractionHintBehavior {

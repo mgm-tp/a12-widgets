@@ -48,8 +48,8 @@ import {
 
 import { DateInput } from "./filter-selector/date-input.js";
 import { useTimePickerProps } from "./filter-selector/use-time-picker-props.js";
-import type { StringRow } from "./master-view.js";
 import { AutoCompleteTpl, TableTpl } from "./master-detail-template.js";
+import type { StringRow } from "./master-view.js";
 import { DATA } from "./setup.js";
 
 const { Grid, Row, Column } = LayoutGrid;
@@ -121,7 +121,7 @@ const CalculationView = (props: CalculationViewProps) => {
 									<Grid>
 										<Row>
 											<Column size={{ sm: 12, md: 12, lg: 12 }}>
-												<DateInput label="Date" />
+												<DateInput id="trip-start-date" label="Date" />
 											</Column>
 										</Row>
 										<Row>
@@ -140,7 +140,7 @@ const CalculationView = (props: CalculationViewProps) => {
 									<Grid>
 										<Row>
 											<Column size={{ sm: 12, md: 12, lg: 12 }}>
-												<DateInput label="Date" />
+												<DateInput id="trip-end-date" label="Date" />
 											</Column>
 										</Row>
 										<Row>
@@ -242,7 +242,14 @@ const CalculationView = (props: CalculationViewProps) => {
 						</Row>
 						<Row>
 							<Column size={{ sm: 6, md: 6, lg: 6 }}>
-								<Radio inline label="Billing" onValueChanged={noop} name="billing" value="1">
+								<Radio
+									id="master-detail-detail-view-billing"
+									inline
+									label="Billing"
+									onValueChanged={noop}
+									name="billing"
+									value="1"
+								>
 									<Radio.Item label="Billable" value="1" />
 									<Radio.Item label="Not-billable" value="2" />
 								</Radio>

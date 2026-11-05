@@ -33,8 +33,8 @@
 import type { MouseEvent, ChangeEvent, RefCallback, ReactNode, FocusEvent, KeyboardEvent } from "react";
 
 import type { Ref } from "../../common/main/base-props.js";
-import type { InputDOMProps } from "../../input/base/template/base.tpl.api.js";
 import type { DropDown } from "../../dropdown/main/template/dropdown.tpl.view.js";
+import type { InputDOMProps } from "../../input/base/template/base.tpl.api.js";
 
 import type { MultiselectProps } from "./multiselect.api.js";
 

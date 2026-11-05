@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, test, expect } from "vitest";
 import { useEffect, useRef, useState } from "react";
 import { render, getAllByDataRole } from "test-utils";
+import { describe, test, expect } from "vitest";
 import { userEvent } from "vitest/browser";
 
 import { DataRoles } from "../data-roles.js";

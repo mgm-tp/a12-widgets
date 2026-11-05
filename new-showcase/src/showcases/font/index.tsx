@@ -35,9 +35,9 @@ import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 import type { Showcase } from "../../helpers/definitions.js";
 import { StyledShowcaseLink } from "../../helpers/showcase-styles.js";
 
-import { FontShowcaseContent } from "./font.js";
 import { FontSizeShowcaseContent } from "./font-size.js";
 import { FontWeightShowcaseContent } from "./font-weight.js";
+import { FontShowcaseContent } from "./font.js";
 
 const showcases: Showcase[] = [
 	{

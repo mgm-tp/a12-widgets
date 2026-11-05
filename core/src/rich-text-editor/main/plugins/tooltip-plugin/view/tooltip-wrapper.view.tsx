@@ -32,9 +32,9 @@
 
 import type { FC } from "react";
 
+import { DataRoles } from "../../../../../common/main/data-roles.js";
 import { Portal } from "../../../../../portal/main/portal.view.js";
 import { StyledEditorTooltipWrapper } from "../../../rich-text-editor.styled.js";
-import { DataRoles } from "../../../../../common/main/data-roles.js";
 
 import type { TooltipPluginWrapperProps } from "./tooltip.api.js";
 

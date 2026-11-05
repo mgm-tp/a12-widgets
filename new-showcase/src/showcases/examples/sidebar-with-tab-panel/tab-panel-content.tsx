@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { FC } from "react";
 import { useMemo } from "react";
 import { styled, css } from "styled-components";
-import { loremIpsum } from "lorem-ipsum";
 
 import type { BaseColumnType, TableComponentRenderers } from "@com.mgmtp.a12.widgets/widgets-core";
 import {
@@ -51,8 +51,8 @@ import {
 	noop
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { Utils } from "../../table/utils.js";
 import type { UserCard } from "../../../helpers/definitions.js";
+import { Utils } from "../../table/utils.js";
 
 const StyledLink = styled(Link)(({ theme }) => {
 	const { typography } = theme;

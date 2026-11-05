@@ -50,8 +50,8 @@ import {
 
 import { provider } from "../../../common/main/device-detector.js";
 import { bindMethods, addPrefix, generateUid, joinClassNames } from "../../../common/main/utils.js";
-import { LegendUtils } from "../../utils/legend.utils.js";
 import { StyledRechartsContainer } from "../../main/chart.styled.js";
+import { LegendUtils } from "../../utils/legend.utils.js";
 
 import type { BarChartProps } from "./bar-chart.api.js";
 import { BarChartColors, Legend } from "./tpl/bar-chart.tpl.view.js";

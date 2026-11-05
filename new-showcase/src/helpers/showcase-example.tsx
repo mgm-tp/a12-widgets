@@ -30,22 +30,22 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactNode, ReactElement } from "react";
-import { useContext, useCallback, useEffect, isValidElement, useState, useRef, useMemo } from "react";
+import type { ReactElement, ReactNode } from "react";
+import { isValidElement, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import type { Options } from "react-element-to-jsx-string";
 import reactElementToJSXStringImport from "react-element-to-jsx-string";
 import { styled } from "styled-components";
 
 import type { Container } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { ShowcaseTypographyHeadline } from "./showcase-typography-headline.js";
 import type { Section } from "./definitions.js";
-import { getHashId } from "./utils.js";
-import { ThemeSelector } from "./theme-selector.js";
 import { ShowcaseDescription } from "./showcase-description.js";
 import { ShowcaseExampleContent } from "./showcase-example-content.js";
-import { ShowcaseExampleToolbar } from "./showcase-example-toolbar.js";
 import { ShowcaseExampleContext } from "./showcase-example-context.js";
+import { ShowcaseExampleToolbar } from "./showcase-example-toolbar.js";
+import { ShowcaseTypographyHeadline } from "./showcase-typography-headline.js";
+import { ThemeSelector } from "./theme-selector.js";
+import { getHashId } from "./utils.js";
 import { getWidgetCoreDisplayNames } from "./widget-core-display-names.js";
 
 /*
@@ -168,7 +168,8 @@ export function ShowcaseExample(props: ShowcaseExampleProps): ReactElement<Showc
 		useDarkBackground,
 		sectionUrl,
 		featuredWidgets,
-		toggleBetweenPartialAndFullCode
+		toggleBetweenPartialAndFullCode,
+		hidePlaygroundButton
 	} = props;
 	const [generatedCodeSnippet, setGeneratedCodeSnippet] = useState<string>("");
 	const [shouldContentWrapperFocusable, setShouldContentWrapperFocusable] = useState(false);
@@ -183,6 +184,8 @@ export function ShowcaseExample(props: ShowcaseExampleProps): ReactElement<Showc
 						code={code}
 						label={label}
 						toggleBetweenPartialAndFullCode={toggleBetweenPartialAndFullCode}
+						hidePlaygroundButton={hidePlaygroundButton}
+						useDarkBackground={useDarkBackground}
 					/>
 				)}
 			</>
@@ -195,6 +198,7 @@ export function ShowcaseExample(props: ShowcaseExampleProps): ReactElement<Showc
 				fitToSection={fitToSection}
 				fullSize={fullSize}
 				toggleBetweenPartialAndFullCode={toggleBetweenPartialAndFullCode}
+				hidePlaygroundButton={hidePlaygroundButton}
 			/>
 		);
 	}, [
@@ -202,6 +206,7 @@ export function ShowcaseExample(props: ShowcaseExampleProps): ReactElement<Showc
 		content,
 		fitToSection,
 		fullSize,
+		hidePlaygroundButton,
 		label,
 		reportLabel,
 		toggleBetweenPartialAndFullCode,

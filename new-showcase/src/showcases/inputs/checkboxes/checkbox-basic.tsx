@@ -44,14 +44,16 @@ export const CheckboxBasicShowcase: FC = () => {
 
 	return (
 		<div className="-u-flex -u-items-center -u-flex-wrap -u-width-full" style={{ gap: 16 }}>
-			<Checkbox checked={checked} onChange={handleChange} label="Default" title="Basic" />
+			<Checkbox id="checkbox-basic-default" checked={checked} onChange={handleChange} label="Default" title="Basic" />
 			<Checkbox
+				id="checkbox-basic-label-graphic"
 				checked={checked}
 				onChange={handleChange}
 				labelGraphic={<Icon>info</Icon>}
 				label="Checkbox with label graphic"
 			/>
 			<Checkbox
+				id="checkbox-basic-long-label"
 				checked={checked}
 				onChange={handleChange}
 				label={

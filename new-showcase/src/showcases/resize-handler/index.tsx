@@ -30,16 +30,15 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import resizeHandlerCode from "!./resize-handler.tsx?raw";
 import type { JSONOutput } from "typedoc";
 
-import ResizeHandlerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/resizable/resize-handler.api.json" with { type: "json" };
 import { BulletList, Link } from "@com.mgmtp.a12.widgets/widgets-core";
+import ResizeHandlerAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/layout/resizable/resize-handler.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { ResizeHandlerShowcase } from "./resize-handler.js";
-
-import resizeHandlerCode from "!./resize-handler.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

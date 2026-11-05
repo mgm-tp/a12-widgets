@@ -35,11 +35,10 @@ import { css, styled } from "styled-components";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { HiddenText } from "../../../common/main/hidden-text/hidden-text.view.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
 import type { DataTableBodyCellTplStyles } from "./data-table.body-cell.tpl.view.js";
-import { cellBase, pinnedCell, StyledCellContent, StyledCellLabel, useCellPinning } from "./data-table.styled-utils.js";
+import { cellBase, pinnedCell, StyledCellContent, useCellPinning } from "./data-table.styled-utils.js";
 import { DataTableZIndex } from "./data-table.z-index.js";
 
 /**
@@ -54,11 +53,17 @@ export const StyledDataTableVerticalHeaderCell = styled.th.withConfig({
 	$pinnedEdge?: boolean;
 	$horizontalAlignment?: "left" | "center" | "right";
 	$verticalAlignment?: "top" | "middle" | "bottom";
-}>(({ theme, $pinned, $pinnedEdge, $horizontalAlignment, $verticalAlignment }) => {
+
+	/** Whether this cell sits in the table's first column, which earns the inset. */
+	$firstCell?: boolean;
+}>(({ theme, $pinned, $pinnedEdge, $horizontalAlignment, $verticalAlignment, $firstCell }) => {
 	const { table } = theme.components;
 
 	return css`
-		${cellBase(theme)}
+		${cellBase(theme, $firstCell)}
+		&:focus-visible {
+			outline: none;
+		}
 		background: ${table.header.background};
 		color: ${table.headCell.color};
 		font-weight: ${table.headCell.fontWeight};
@@ -94,9 +99,6 @@ export interface DataTableVerticalHeaderCellTplProps {
 	/** Focus handler, forwarded to the `<th>`. */
 	onFocus?: FocusEventHandler<HTMLTableCellElement>;
 
-	/** Column label shown inline above the cell content in card view. */
-	cellLabel?: ReactNode;
-
 	/**
 	 * Resolved cell-styling result: optional `className`, `style` and
 	 * `secondaryCellTitle` (rendered via {@link HiddenText}).
@@ -126,14 +128,14 @@ export function DataTableVerticalHeaderCellTpl({
 	verticalAlignment,
 	tabIndex,
 	onFocus,
-	cellLabel,
 	cellStyles,
 	htmlAttributes,
 	children
 }: DataTableVerticalHeaderCellTplProps): ReactElement {
-	// Neutralized to `presentation` in card view; the default table view relies
-	// on the native `<th scope="row">`'s implicit `rowheader` role.
-	const cardView = useDataTableContext((ctx) => ctx.cardView);
+	// The default table view relies on the native `<th scope="row">`'s implicit
+	// `rowheader` role. (tree)grid mode overrides the table role and drops that native
+	// mapping, so restate `rowheader`.
+	const gridRole = useDataTableContext().gridRole;
 	const { pinStyle, isPinnedEdge } = useCellPinning(
 		pinning,
 		columnIndex,
@@ -145,7 +147,7 @@ export function DataTableVerticalHeaderCellTpl({
 		<StyledDataTableVerticalHeaderCell
 			{...htmlAttributes}
 			scope="row"
-			role={cardView ? "presentation" : undefined}
+			role={gridRole ? "rowheader" : undefined}
 			data-role={DataRoles.Table.Body.Cell}
 			colSpan={colSpan}
 			data-pinned={pinning}
@@ -154,17 +156,12 @@ export function DataTableVerticalHeaderCellTpl({
 			style={resolvedStyle}
 			$pinned={pinning}
 			$pinnedEdge={isPinnedEdge}
+			$firstCell={columnIndex === 0}
 			$horizontalAlignment={horizontalAlignment}
 			$verticalAlignment={verticalAlignment}
 			tabIndex={tabIndex}
 			onFocus={onFocus}
 		>
-			{cardView && cellLabel ? (
-				<StyledCellLabel data-role={DataRoles.Table.Body.Cell.CardLabel}>
-					{cellLabel}
-					<HiddenText>, </HiddenText>
-				</StyledCellLabel>
-			) : null}
 			<StyledCellContent $horizontalAlignment={horizontalAlignment} $verticalAlignment={verticalAlignment}>
 				{children}
 				{cellStyles?.secondaryCellTitle ? <HiddenText>{cellStyles.secondaryCellTitle}</HiddenText> : null}

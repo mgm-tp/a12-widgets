@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { enUS } from "date-fns/locale";
 import type { ReactElement, FocusEvent } from "react";
 import { useState, useCallback } from "react";
-import { enUS } from "date-fns/locale";
 
 import { DateTimeContext, DateTimePickerInput, DateTimePickerTimeInput } from "@com.mgmtp.a12.widgets/widgets-core";
 

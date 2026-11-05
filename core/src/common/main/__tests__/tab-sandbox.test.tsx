@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, test, expect, vi } from "vitest";
 import { useState } from "react";
 import { render, screen } from "test-utils";
+import { describe, test, expect, vi } from "vitest";
 import { userEvent } from "vitest/browser";
 
 import { TabSandbox } from "../tab-sandbox.view.js";

@@ -41,19 +41,43 @@ const meta: Meta<typeof InteractiveTile> = {
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		title: {
 			control: "text",
-			description: "Title text for the tile"
+			description: "Title attribute shown when hovering the tile"
+		},
+		primary: {
+			control: "boolean",
+			description: "Styles the tile as a primary tile"
+		},
+		secondary: {
+			control: "boolean",
+			description: "Styles the tile as a secondary tile (the default when neither `primary` nor `secondary` is set)"
+		},
+		active: {
+			control: "boolean",
+			description: "Highlights the tile: background color on a `primary` tile, text color on a `secondary` tile"
 		},
 		selected: {
 			control: "boolean",
-			description: "Whether the tile is selected"
+			description: "Marks the tile as selected — a checkmark icon appears in its top-right corner"
 		},
 		disabled: {
 			control: "boolean",
-			description: "Whether the tile is disabled"
+			description: "Disables the tile so it no longer reacts to clicks or keyboard input"
+		},
+		tabIndex: {
+			control: "number",
+			description: "The `tabIndex` attribute for the tile"
+		},
+		disableAriaLabel: {
+			control: "boolean",
+			description:
+				"Disables the `aria-label` attribute; with interaction hints enabled, a hidden text for the title is rendered instead"
+		},
+		onClick: {
+			action: "clicked",
+			description: "Click handler for the tile"
 		}
 	}
 };
@@ -61,81 +85,113 @@ const meta: Meta<typeof InteractiveTile> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => (
-		<InteractiveTile title="Interactive Tile">
+export const Playground: Story = {
+	args: {
+		title: "Interactive Tile",
+		selected: false,
+		disabled: false
+	},
+	render: (args) => (
+		<InteractiveTile {...args}>
 			<Icon>dashboard</Icon>
+			<div>Dashboard</div>
 		</InteractiveTile>
 	)
 };
 
-export const WithIcon: Story = {
+export const Variants: Story = {
 	render: () => (
-		<InteractiveTile title="Tile with Icon">
-			<Icon>dashboard</Icon>
-			<div>Content</div>
-		</InteractiveTile>
-	)
+		<div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+			<InteractiveTile title="Primary tile" primary>
+				<Icon>star</Icon>
+				<div>Primary</div>
+			</InteractiveTile>
+			<InteractiveTile title="Primary active tile" primary active>
+				<Icon>star</Icon>
+				<div>Primary active</div>
+			</InteractiveTile>
+			<InteractiveTile title="Secondary tile" secondary>
+				<Icon>star_outline</Icon>
+				<div>Secondary</div>
+			</InteractiveTile>
+			<InteractiveTile title="Secondary active tile" secondary active>
+				<Icon>star_outline</Icon>
+				<div>Secondary active</div>
+			</InteractiveTile>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`primary` and `secondary` select the tile style; without either flag the tile is styled as secondary. `active` highlights the tile — via the background color on a primary tile and via the text color on a secondary tile."
+			}
+		}
+	}
 };
 
-export const Selected: Story = {
+export const States: Story = {
 	render: () => (
-		<InteractiveTile title="Selected Tile" selected>
-			<Icon>check_circle</Icon>
-			<div>Selected</div>
-		</InteractiveTile>
-	)
+		<div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+			<InteractiveTile title="Default tile">
+				<Icon>dashboard</Icon>
+				<div>Default</div>
+			</InteractiveTile>
+			<InteractiveTile title="Selected tile" selected>
+				<Icon>check_circle</Icon>
+				<div>Selected</div>
+			</InteractiveTile>
+			<InteractiveTile title="Disabled tile" disabled>
+				<Icon>block</Icon>
+				<div>Disabled</div>
+			</InteractiveTile>
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`selected` adds a checkmark icon to the top-right corner of the tile, while `disabled` blocks all mouse and keyboard interaction."
+			}
+		}
+	}
 };
 
-export const Disabled: Story = {
-	render: () => (
-		<InteractiveTile title="Disabled Tile" disabled>
-			<Icon>block</Icon>
-			<div>Disabled</div>
-		</InteractiveTile>
-	)
-};
+export const Selection: Story = {
+	render: function SelectionExample() {
+		const [selectedId, setSelectedId] = useState<string | undefined>("1");
 
-export const WithMetaInfo: Story = {
-	render: () => (
-		<InteractiveTile title="Tile with Meta">
-			<Icon>check_circle</Icon>
-			<div>Meta Info</div>
-		</InteractiveTile>
-	)
-};
-
-export const Interactive: Story = {
-	render: () => {
-		const InteractiveTileDemo = () => {
-			const [selectedId, setSelectedId] = useState<string | undefined>("1");
-
-			return (
-				<div style={{ display: "flex", gap: "16px" }}>
-					<InteractiveTile id="1" title="Option 1" selected={selectedId === "1"} onClick={() => setSelectedId("1")}>
-						<Icon>home</Icon>
-						<div>Option 1</div>
-					</InteractiveTile>
-					<InteractiveTile id="2" title="Option 2" selected={selectedId === "2"} onClick={() => setSelectedId("2")}>
-						<Icon>settings</Icon>
-						<div>Option 2</div>
-					</InteractiveTile>
-					<InteractiveTile id="3" title="Option 3" selected={selectedId === "3"} onClick={() => setSelectedId("3")}>
-						<Icon>help</Icon>
-						<div>Option 3</div>
-					</InteractiveTile>
-				</div>
-			);
-		};
-
-		return <InteractiveTileDemo />;
+		return (
+			<div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+				<InteractiveTile id="1" title="Option 1" selected={selectedId === "1"} onClick={() => setSelectedId("1")}>
+					<Icon>home</Icon>
+					<div>Option 1</div>
+				</InteractiveTile>
+				<InteractiveTile id="2" title="Option 2" selected={selectedId === "2"} onClick={() => setSelectedId("2")}>
+					<Icon>settings</Icon>
+					<div>Option 2</div>
+				</InteractiveTile>
+				<InteractiveTile id="3" title="Option 3" selected={selectedId === "3"} onClick={() => setSelectedId("3")}>
+					<Icon>help</Icon>
+					<div>Option 3</div>
+				</InteractiveTile>
+			</div>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Tiles are controlled: combine `onClick` with the `selected` prop to implement single selection across a group of tiles."
+			}
+		}
 	}
 };
 
 export const WithInteractionHint: Story = {
 	render: () => (
 		<InteractionHintConfigProvider componentConfigs={{ interactiveTile: true }}>
-			<div style={{ display: "flex", gap: "16px", padding: "20px" }}>
+			<div style={{ display: "flex", gap: "16px", padding: "20px", flexWrap: "wrap" }}>
 				<InteractiveTile title="Dashboard Overview">
 					<Icon>dashboard</Icon>
 					<div>Dashboard</div>
@@ -155,7 +211,7 @@ export const WithInteractionHint: Story = {
 		docs: {
 			description: {
 				story:
-					"Interactive tiles with interaction hints enabled. Hover over or focus the tiles to see helpful tooltips."
+					"Wrapping tiles in an `InteractionHintConfigProvider` with `interactiveTile` enabled shows the `title` as a tooltip. Hover over or focus the tiles to see the hints."
 			}
 		}
 	}

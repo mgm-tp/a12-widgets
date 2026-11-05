@@ -32,4 +32,31 @@
 
 import { createCommand } from "lexical";
 
-export const APPLY_TEXT_FORMAT_COMMAND = createCommand("APPLY_TEXT_FORMAT_COMMAND");
+import type { Interactable } from "../plugins/static-toolbar-plugin/toolbar-button/toolbar-button.api.js";
+
+/**
+ * Payload of {@link APPLY_TEXT_FORMAT_COMMAND}.
+ */
+export interface ApplyTextFormatPayload {
+	/**
+	 * CSS class name of the style to toggle.
+	 */
+	styleName: string;
+
+	/**
+	 * Whether the style may also be applied to a collapsed (caret-only) selection.
+	 */
+	allowCollapseStyle: boolean;
+
+	/**
+	 * Checks whether the style is already active for the current selection.
+	 */
+	isActive: Interactable["isActive"];
+
+	/**
+	 * Whether applying the style removes the other styles of its group.
+	 */
+	isolateStyle: boolean;
+}
+
+export const APPLY_TEXT_FORMAT_COMMAND = createCommand<ApplyTextFormatPayload>("APPLY_TEXT_FORMAT_COMMAND");

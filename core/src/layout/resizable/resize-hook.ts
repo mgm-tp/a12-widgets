@@ -32,8 +32,8 @@
 
 import type { RefObject } from "react";
 import { useState, useCallback, useEffect } from "react";
-import { useResizeDetector } from "react-resize-detector";
 
+import { useResizeObserver } from "../../common/main/resize-observer/use-resize-observer.js";
 import { DOMUtils } from "../../common/main/utils/dom-utils.js";
 
 import type { ResizeOptions } from "./resize-handler.api.js";
@@ -112,7 +112,7 @@ export function useElementDimensions(params: {
 		}
 	}, [element, isMaxWidthPercentage, updateSize, widthConfig?.maxWidth]);
 
-	useResizeDetector({
+	useResizeObserver({
 		handleHeight: false,
 		onResize: handleResize,
 		targetRef: elementRef

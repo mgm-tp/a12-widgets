@@ -34,9 +34,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { defineConfig } from "@rsbuild/core";
-import { ProvidePlugin } from "@rspack/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginStyledComponents } from "@rsbuild/plugin-styled-components";
+import { ProvidePlugin } from "@rspack/core";
 
 import packageJson from "./package.json" with { type: "json" };
 
@@ -49,11 +49,18 @@ const config: ReturnType<typeof defineConfig> = defineConfig(({ env }) => {
 	return {
 		server: {
 			port: 5555,
-			publicDir: [{ name: "public" }]
+			publicDir: [{ name: "public" }],
+			// The playground preview runs in an opaque-origin sandbox iframe, so its requests for bundled
+			// assets (fonts in particular — @font-face fetches require CORS) are cross-origin. Allow them.
+			headers: {
+				"Access-Control-Allow-Origin": "*"
+			}
 		},
 		source: {
 			entry: {
-				index: ["./src/index.tsx"]
+				index: ["./src/index.tsx"],
+				// Isolated, opaque-origin bundle for the playground preview iframe (untrusted ?code= runs here).
+				sandbox: ["./src/playground/sandbox-entry.tsx"]
 			},
 			tsconfigPath: "./tsconfig.json",
 			define: {
@@ -62,7 +69,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig(({ env }) => {
 			}
 		},
 		html: {
-			template: "public/index.html"
+			template: ({ entryName }) => (entryName === "sandbox" ? "public/sandbox.html" : "public/index.html")
 		},
 		plugins: [pluginReact(), pluginStyledComponents({ fileName: false })],
 		resolve: {
@@ -76,6 +83,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig(({ env }) => {
 				"@lexical/react",
 				"@lexical/link",
 				"@lexical/list",
+				"@lexical/mdast",
 				"@lexical/utils"
 			],
 			alias: {
@@ -99,7 +107,16 @@ const config: ReturnType<typeof defineConfig> = defineConfig(({ env }) => {
 						}
 					]
 				},
-				ignoreWarnings: [/Failed to parse source map/],
+				ignoreWarnings: [
+					/Failed to parse source map/,
+					// Benign monaco-editor bundling noise: its ESM build carries an AMD `require([...])`
+					// fallback (dead in ESM) that can't be statically analyzed, and its TS worker references
+					// Node's __filename/__dirname (auto-mocked for the browser). Scoped to monaco so unrelated
+					// critical-dependency warnings still surface.
+					(warning) =>
+						/monaco-editor/.test(warning.module?.resource ?? "") &&
+						/Critical dependency|has been mocked/.test(warning.message)
+				],
 				plugins: [
 					new ProvidePlugin({
 						React: "react"
@@ -110,7 +127,11 @@ const config: ReturnType<typeof defineConfig> = defineConfig(({ env }) => {
 		output: {
 			sourceMap: env === "development",
 			distPath: { root: "./public-showcase" },
-			assetPrefix: "./",
+			// "auto" makes rspack resolve the public path at runtime from each script's own location,
+			// rather than the relative "./" — which Monaco's bundled workers cannot resolve (their
+			// `importScripts` ignores document.baseURI, so "./" double-nests the chunk path and 404s).
+			// "auto" keeps the build deploy-path-portable while yielding absolute, worker-safe URLs.
+			assetPrefix: "auto",
 			injectStyles: true
 		}
 	};

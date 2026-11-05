@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { de } from "date-fns/locale/de";
 import type { ReactElement } from "react";
 import { useCallback } from "react";
-import { de } from "date-fns/locale/de";
 
 import { DateTimeContext } from "@com.mgmtp.a12.widgets/widgets-core";
 

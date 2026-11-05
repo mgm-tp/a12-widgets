@@ -43,7 +43,7 @@ exports[`com.mgmtp.a12.widgets.accordion > interaction hint > should position hi
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(181, 76, 23) currentcolor currentcolor rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -123,6 +123,10 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c5 {
+  color: inherit;
+}
+
 .c11 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -151,6 +155,10 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
+  color: inherit;
+}
+
 .c0 {
   box-sizing: border-box;
   display: flex;
@@ -169,20 +177,6 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
   padding: 0px;
   width: 100%;
   overflow-wrap: break-word;
-}
-
-.c15 .c4 {
-  display: block;
-  flex: 0 0 auto;
-  text-align: center;
-  vertical-align: middle;
-  color: rgb(127, 140, 155);
-  font-size: 1.25rem;
-  padding: 0px 16px 0px 0px;
-}
-
-.c15 .c4 + .c6 {
-  padding-left: 0px;
 }
 
 .c3 {
@@ -385,15 +379,6 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c16 .c16 .c2 {
-  border-radius: 0px;
-  padding-left: 32px;
-}
-
-.c16 .c16 .c2 .c6 {
-  font-weight: 600;
-}
-
 .c1 {
   display: flex;
   flex-direction: column;
@@ -421,37 +406,6 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
 .c1:first-child::before {
   border-top: 1px solid rgb(226, 230, 233);
   top: 0px;
-}
-
-.c14::before,
-.c14 .c2::before {
-  bottom: 0px;
-  content: "";
-  display: block;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-}
-
-.c14 .c2::before {
-  top: 0px;
-}
-
-.c14 > .c2 {
-  background-color: rgb(245, 251, 255);
-  border-radius: 0px;
-}
-
-.c14 > .c2::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c14 > .c2:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c14 > .c2 .c6 {
-  color: rgb(77, 77, 77);
 }
 
 @media (pointer: coarse) {
@@ -559,22 +513,6 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
   }
 }
 
-@media (pointer: coarse) {
-  .c14 > .c2:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c14 > .c2:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c14 > .c2:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
 <div
   class="c0 accordion__container"
   data-role="accordion"
@@ -599,6 +537,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           radio_button_unchecked
         </span>
@@ -622,6 +562,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           add
         </span>
@@ -647,6 +589,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
@@ -670,6 +614,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           add
         </span>
@@ -695,6 +641,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           
         </span>
@@ -718,6 +666,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           add
         </span>
@@ -743,6 +693,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           warning
         </span>
@@ -766,6 +718,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           add
         </span>
@@ -791,6 +745,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           check_circle
         </span>
@@ -814,6 +770,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test accordion with variants for all 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           add
         </span>
@@ -850,6 +808,10 @@ exports[`com.mgmtp.a12.widgets.accordion > test custom icons for all sections 1`
 
 .c7.c7 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
 }
 
 .c0 {
@@ -957,37 +919,6 @@ exports[`com.mgmtp.a12.widgets.accordion > test custom icons for all sections 1`
   top: 0px;
 }
 
-.c9::before,
-.c9 .c2::before {
-  bottom: 0px;
-  content: "";
-  display: block;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-}
-
-.c9 .c2::before {
-  top: 0px;
-}
-
-.c9 > .c2 {
-  background-color: rgb(245, 251, 255);
-  border-radius: 0px;
-}
-
-.c9 > .c2::before {
-  border-left: 4px solid rgb(5, 104, 174);
-}
-
-.c9 > .c2:focus::before {
-  border-left: 4px solid rgb(213, 0, 117);
-}
-
-.c9 > .c2 .c4 {
-  color: rgb(77, 77, 77);
-}
-
 @media (pointer: coarse) {
   .c3:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -1006,22 +937,6 @@ exports[`com.mgmtp.a12.widgets.accordion > test custom icons for all sections 1`
 
   .c3:hover::before {
     border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: coarse) {
-  .c9 > .c2:active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .c9 > .c2:active::before {
-    border-left: 4px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c9 > .c2:hover::before {
-    border-left: 4px solid rgb(213, 0, 117);
   }
 }
 
@@ -1053,6 +968,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test custom icons for all sections 1`
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           expand_less
         </span>
@@ -1089,6 +1006,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test custom icons for all sections 1`
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           expand_more
         </span>
@@ -1125,6 +1044,10 @@ exports[`com.mgmtp.a12.widgets.accordion > test passed in properties 1`] = `
 
 .c7.c7 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
 }
 
 .c0 {
@@ -1268,6 +1191,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test passed in properties 1`] = `
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           add
         </span>
@@ -1304,6 +1229,10 @@ exports[`com.mgmtp.a12.widgets.accordion > test selected Section 1`] = `
 
 .c6.c6 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c6 {
+  color: inherit;
 }
 
 .c4 {
@@ -1372,20 +1301,6 @@ exports[`com.mgmtp.a12.widgets.accordion > test selected Section 1`] = `
 
 .c7:focus {
   outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c8::before,
-.c8 .c1::before {
-  bottom: 0px;
-  content: "";
-  display: block;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-}
-
-.c8 .c1::before {
-  top: 0px;
 }
 
 .c0 {
@@ -1495,6 +1410,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test selected Section 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         remove
       </span>
@@ -1537,6 +1454,10 @@ exports[`com.mgmtp.a12.widgets.accordion > test structure and base properties 1`
 
 .c7.c7 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
 }
 
 .c0 {
@@ -1673,6 +1594,8 @@ exports[`com.mgmtp.a12.widgets.accordion > test structure and base properties 1`
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           add
         </span>

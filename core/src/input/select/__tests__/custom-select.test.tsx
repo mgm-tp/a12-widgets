@@ -30,29 +30,30 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { useState } from "react";
+import type { ReactNode } from "react";
 import {
 	findAllByDataRole,
 	findByDataRole,
 	fireEvent,
 	getAllByDataRole,
 	getByDataRole,
+	isAfter,
 	queryByDataRole,
 	render,
 	setupDevice,
 	waitFor
 } from "test-utils";
 import { Key } from "ts-key-enum";
-import { beforeAll, describe, expect, test, vi } from "vitest";
-import { useState } from "react";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { userEvent } from "vitest/browser";
-import type { ReactNode } from "react";
 
-import { Icon } from "../../../icon/main/icon.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { inputWithSuffixName } from "../../../common/main/utils.js";
-import { TextField } from "../../text-field/text-field.view.js";
 import type { DropDownItem } from "../../../dropdown/main/template/dropdown.tpl.api.js";
-
+import { Icon } from "../../../icon/main/icon.view.js";
+import type { MessagePosition, TooltipLineBreak } from "../../base/template/base.tpl.api.js";
+import { TextField } from "../../text-field/text-field.view.js";
 import { CustomSelect } from "../main/custom-select.view.js";
 import type { CustomSelectProps } from "../main/select.api.js";
 
@@ -400,6 +401,29 @@ describe("com.mgmtp.a12.widgets.input.custom.select", () => {
 
 			fireEvent.keyPress(input, { key: "m", charCode: 109 });
 			expect(onValueChangedSpy).toHaveBeenCalledWith("middle");
+		});
+
+		test("saves the option the field shows after a letter is typed", async () => {
+			const onValueChangedSpy = vi.fn();
+
+			const { container, baseElement } = render(<CustomSelect items={ITEMS} onValueChanged={onValueChangedSpy} />);
+			const input = getByDataRole(container, DataRoles.Select.Input);
+
+			await userEvent.click(input);
+			await findByDataRole(baseElement, DataRoles.Dropdown);
+
+			// Walk the highlight down to Bottom.
+			fireEvent.keyDown(input, { key: Key.ArrowDown });
+			fireEvent.keyDown(input, { key: Key.ArrowDown });
+
+			// "r" picks Right. CustomSelect tells the list by marking that option and nothing else,
+			// so the highlight has to move to Right too.
+			fireEvent.keyPress(input, { key: "r", charCode: 114 });
+			expect(input).toHaveValue("Right");
+
+			// Enter saves the highlighted option, so it has to be Right and not Bottom.
+			fireEvent.keyDown(input, { key: Key.Enter });
+			expect(onValueChangedSpy).toHaveBeenLastCalledWith("right");
 		});
 
 		test("should handle keyboard navigation with letter keys when dropdown is open", async () => {
@@ -755,8 +779,12 @@ describe("com.mgmtp.a12.widgets.input.custom.select", () => {
 	});
 
 	describe("Mobile", () => {
-		beforeAll(() => {
+		beforeEach(() => {
 			setupDevice();
+		});
+
+		afterEach(() => {
+			vi.restoreAllMocks();
 		});
 
 		test("should handle onModalOpen callback", async () => {
@@ -1111,6 +1139,152 @@ describe("com.mgmtp.a12.widgets.input.custom.select", () => {
 				expect(richLabelStyles.left).toBe(prefixStyles.width);
 				expect(richLabelStyles.paddingLeft).toBe("0px");
 			}
+		});
+	});
+
+	describe("message position", () => {
+		/**
+		 * The messages come from the select template, which derives their roles from its `dataRole` prop,
+		 * falling back to `select`.
+		 */
+		const messageRoles = [
+			`${DataRoles.Select}-error-message`,
+			`${DataRoles.Select}-warning-message`,
+			`${DataRoles.Select}-info-message`
+		];
+		const controlRole = `${DataRoles.Select}-control`;
+		const labelRole = `${DataRoles.Select}-label`;
+		const helperTextRole = `${DataRoles.Select}-helper-text`;
+
+		const renderWithMessages = (messagePosition: MessagePosition) =>
+			render(
+				<CustomSelect
+					items={ITEMS}
+					label="Test Label"
+					helperText="Test Helper Text"
+					errorMessage="Test error message"
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+					messagePosition={messagePosition}
+				/>
+			);
+
+		/**
+		 * The messages are siblings of the select control rather than children of it, so they are ordered
+		 * against the control instead of being contained by it. Either position has to keep them inside the
+		 * label to helper text envelope.
+		 */
+		test("renders the messages above the control for above", () => {
+			const { getByDataRole } = renderWithMessages("above");
+			const control = getByDataRole(controlRole);
+			const label = getByDataRole(labelRole);
+			const helperText = getByDataRole(helperTextRole);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(false);
+				expect(isAfter(message, control)).toBe(true);
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+
+		test("renders the messages below the control for below", () => {
+			const { getByDataRole } = renderWithMessages("below");
+			const control = getByDataRole(controlRole);
+			const label = getByDataRole(labelRole);
+			const helperText = getByDataRole(helperTextRole);
+
+			for (const role of messageRoles) {
+				const message = getByDataRole(role);
+
+				expect(control.contains(message)).toBe(false);
+				expect(isAfter(control, message)).toBe(true);
+				expect(isAfter(label, message)).toBe(true);
+				expect(isAfter(message, helperText)).toBe(true);
+			}
+		});
+	});
+
+	describe("tooltip position", () => {
+		const controlRole = `${DataRoles.Select}-control`;
+
+		const renderWithTooltips = (breakTooltipsToNewLine: TooltipLineBreak, helperText?: string) =>
+			render(
+				<CustomSelect
+					items={ITEMS}
+					label="Test Label"
+					helperText={helperText}
+					tooltips={<div>Test tooltip</div>}
+					breakTooltipsToNewLine={breakTooltipsToNewLine}
+				/>
+			);
+
+		/**
+		 * On the desktop the tooltips are handed straight to the select template, which renders inline ones
+		 * bare inside the select control with no addon element wrapping them. The `addonAfter` routing only
+		 * applies to the text field inside the mobile modal.
+		 */
+		test("renders the tooltips inside the control beside the select wrapper for false", () => {
+			const { getByDataRole, getByText } = renderWithTooltips(false);
+			const control = getByDataRole(controlRole);
+			const selectWrapper = getByDataRole(DataRoles.Select.Wrapper);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(true);
+			expect(isAfter(selectWrapper, tooltip)).toBe(true);
+		});
+
+		test("renders the tooltips above the control for above", () => {
+			const { getByDataRole, getByText } = renderWithTooltips("above");
+			const control = getByDataRole(controlRole);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(false);
+			expect(isAfter(tooltip, control)).toBe(true);
+		});
+
+		test("renders the tooltips below the control for below", () => {
+			const { getByDataRole, getByText } = renderWithTooltips("below", "Test Helper Text");
+			const control = getByDataRole(controlRole);
+			const helperText = getByDataRole(`${DataRoles.Select}-helper-text`);
+			const tooltip = getByText("Test tooltip");
+
+			expect(control.contains(tooltip)).toBe(false);
+			expect(isAfter(control, tooltip)).toBe(true);
+			expect(isAfter(tooltip, helperText)).toBe(true);
+		});
+	});
+
+	describe("aria-invalid", () => {
+		test("marks the input as invalid for error", () => {
+			const { getByDataRole } = render(<CustomSelect items={ITEMS} label="Test Label" error />);
+
+			expect(getByDataRole(DataRoles.Select.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("marks the input as invalid for errorMessage", () => {
+			const { getByDataRole } = render(
+				<CustomSelect items={ITEMS} label="Test Label" errorMessage="Test error message" />
+			);
+
+			expect(getByDataRole(DataRoles.Select.Input)).toHaveAttribute("aria-invalid", "true");
+		});
+
+		test("does not mark the input as invalid for a warning or an info", () => {
+			const { getByDataRole } = render(
+				<CustomSelect
+					items={ITEMS}
+					label="Test Label"
+					warning
+					info
+					warningMessage="Test warning message"
+					infoMessage="Test info message"
+				/>
+			);
+
+			expect(getByDataRole(DataRoles.Select.Input)).not.toHaveAttribute("aria-invalid");
 		});
 	});
 });

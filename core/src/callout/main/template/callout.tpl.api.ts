@@ -32,8 +32,8 @@
 
 import type { ReactNode, RefCallback } from "react";
 
-import type { Container, HTMLAttributes, Identifiable, Ref, Styleable } from "../../../common/main/base-props.js";
 import type { Orientation } from "../../../common/main/alignment.js";
+import type { Container, HTMLAttributes, Identifiable, Ref, Styleable } from "../../../common/main/base-props.js";
 
 export interface CalloutTplProps extends Styleable, Identifiable, Container, Ref<HTMLDivElement>, HTMLAttributes {
 	/**

@@ -30,14 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { afterEach, describe, expect, test } from "vitest";
 import { fireEvent } from "@testing-library/dom";
 import { renderHook } from "@testing-library/react";
+import { afterEach, describe, expect, test } from "vitest";
 
 import { DataRoles } from "../../common/main/data-roles.js";
-
-import { modalOverlayClassName } from "../main/modal-overlay.utils.js";
 import { useModalTabTrap } from "../main/modal-overlay.hooks.js";
+import { modalOverlayClassName } from "../main/modal-overlay.utils.js";
 
 const fitToParentClassName = `${modalOverlayClassName}--fitToParent`;
 

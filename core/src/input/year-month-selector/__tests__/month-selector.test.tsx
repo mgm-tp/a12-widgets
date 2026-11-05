@@ -34,7 +34,6 @@ import { getByDataRole, render, fireEvent } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import type { MonthSelectorProps } from "../month-selector.api.js";
 import { MonthSelector } from "../month-selector.view.js";
 

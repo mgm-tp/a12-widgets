@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { cloneDeepWith } from "lodash-es";
 import type { ReactElement } from "react";
 import { isValidElement } from "react";
-import { cloneDeepWith } from "lodash-es";
 
 import type { MultiselectProps } from "./multiselect.api.js";
 

@@ -46,18 +46,18 @@ import {
 	getA11yResource
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import type { SearchItem } from "./helpers/global-search/search-component.js";
 import GlobalSearchProvider from "./helpers/global-search/global-search-provider.js";
 import { GlobalSearch } from "./helpers/global-search/global-search.view.js";
-import type { SiteMapMenuItem } from "./routes.js";
-import { SiteMap, Utils } from "./routes.js";
-import { disableTouchSupport, getLocalStorage, removeLocalStorage, setLocalStorage } from "./helpers/utils.js";
+import type { SearchItem } from "./helpers/global-search/search-component.js";
 import { ShowcaseFooter } from "./helpers/showcase-footer.js";
 import { Header } from "./helpers/template/header.view.js";
 import { Sidebar } from "./helpers/template/sidebar.view.js";
+import { ToastProvider } from "./helpers/toast-context.js";
 import { useInteractionHintSettings } from "./helpers/use-interaction-hint-settings.js";
 import { useKeyboardNavigationSettings } from "./helpers/use-keyboard-navigation-settings.js";
-import { ToastProvider } from "./helpers/toast-context.js";
+import { disableTouchSupport, getLocalStorage, removeLocalStorage, setLocalStorage } from "./helpers/utils.js";
+import type { SiteMapMenuItem } from "./routes.js";
+import { SiteMap, Utils } from "./routes.js";
 
 declare const __A12_VERSION__: string;
 
@@ -66,9 +66,11 @@ const StyledShowcaseApplicationFrame = styled(ApplicationFrame)<{ $isRenderingNo
 }) => {
 	return css`
 		font-family: "Roboto", sans-serif;
-		background: ${$isRenderingNotFoundPage
-			? "none"
-			: "linear-gradient(90deg, rgba(247, 247, 247, 1) 0%, rgba(253, 253, 253, 1) 45%, rgba(255, 255, 255, 1) 100%)"};
+		background: ${
+			$isRenderingNotFoundPage
+				? "none"
+				: "linear-gradient(90deg, rgba(247, 247, 247, 1) 0%, rgba(253, 253, 253, 1) 45%, rgba(255, 255, 255, 1) 100%)"
+		};
 
 		@media screen and (max-width: ${({ theme }) => theme.applicationStyles.responsive.mobileMaxWidth}) {
 			position: relative;

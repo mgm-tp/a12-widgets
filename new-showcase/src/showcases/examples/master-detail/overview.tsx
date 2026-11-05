@@ -44,13 +44,13 @@ import {
 	Button
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import type { Data, FilterInFilterBarData } from "./filter-selector/data.js";
 import * as Utils from "./filter-selector/common.js";
-import { Actions, HeadingButtons } from "./master-detail-template.js";
-import { MasterDetailFilterSelector } from "./filter-selector/filter-selector.js";
+import type { Data, FilterInFilterBarData } from "./filter-selector/data.js";
 import { MasterDetailFilterBar } from "./filter-selector/filter-bar.js";
-import { DATA } from "./setup.js";
+import { MasterDetailFilterSelector } from "./filter-selector/filter-selector.js";
 import { setFiltersOptions } from "./filter-selector/utils.js";
+import { Actions, HeadingButtons } from "./master-detail-template.js";
+import { DATA } from "./setup.js";
 import type { ContentBoxWrapperProps } from "./showcase-content-box-wrapper.api.js";
 
 export const Overview = (props: ContentBoxWrapperProps): ReactElement => {

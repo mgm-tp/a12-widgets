@@ -30,6 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { darken } from "polished";
 import type {
 	CSSProperties,
 	FocusEventHandler,
@@ -40,16 +41,14 @@ import type {
 	ReactNode,
 	Ref
 } from "react";
-import { Key } from "ts-key-enum";
-import { darken } from "polished";
 import { css, styled } from "styled-components";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
 import { active, hover } from "../../../theme/base/mixins/_interaction.js";
-
 import { useDataTableContext } from "../data-table.context.js";
 
-import { composeCellShadow } from "./data-table.styled-utils.js";
+import { useDataTableRowInteraction } from "./data-table.row-interaction.js";
+import { composeCellShadow, ROW_HEIGHT_VAR } from "./data-table.styled-utils.js";
 
 /**
  * Box-shadow rules painting one interactive row state (hover/active/focus) on
@@ -118,19 +117,31 @@ export const StyledDataTableBodyRow = styled.tr.withConfig({ displayName: "Style
 		$crossTabulation
 	}) => {
 		const { table } = theme.components;
-		const { bodyRow, pinned, header } = table;
+		const { bodyRow, bodyRowDnD, pinned, header } = table;
 		// Tree-table reparent (AS_CHILD) drop-target wash, keyed off `data-drop-target`
 		// set by the DataTreeTable DnD wrapper. Inert for the flat DataTable.
 		const treeNode = theme.components.treeTable.node;
+		const rowBackground = $selected
+			? bodyRow.selected.background
+			: $highlightVariant === "info"
+				? bodyRow.infoBG
+				: $highlightVariant === "success"
+					? bodyRow.successBG
+					: $highlighted
+						? bodyRow.highlightedBG
+						: bodyRow.background;
 
 		return css`
 			position: relative;
 			outline: none;
 
-			/* Move cursor for draggable rows. The attribute selector outranks the
-			 * $interactive \`cursor: pointer\` below. */
+			/* Grab cursor for draggable rows (grabbing while a drag is held). The
+			 * attribute selector outranks the $interactive \`cursor: pointer\` below. */
 			&[draggable="true"] {
-				cursor: move;
+				cursor: grab;
+			}
+			&[draggable="true"]:active {
+				cursor: grabbing;
 			}
 
 			/* No \`::before\`/\`::after\` row overlays: generated content on a
@@ -140,60 +151,65 @@ export const StyledDataTableBodyRow = styled.tr.withConfig({ displayName: "Style
 			 * left accent, focus ring) are painted on the cells via
 			 * \`composeCellShadow\` box-shadows instead. */
 
-			${!$interactive &&
-			!$disabled &&
-			!($cellHighlighting && $crossTabulation) &&
-			css`
-				${hover(css`
-					> td {
-						background: ${bodyRow.nonInteractive.hoverBG};
-					}
-				`)}
-				${active(css`
-					> td {
-						background: ${bodyRow.nonInteractive.activeBG};
-					}
-				`)}
-				/* Focus background for non-interactive rows only. Interactive rows
+			${
+				!$interactive &&
+				!$disabled &&
+				!$cellHighlighting &&
+				css`
+					${hover(css`
+						> td {
+							background: ${bodyRow.nonInteractive.hoverBG};
+						}
+					`)}
+					${active(css`
+						> td {
+							background: ${bodyRow.nonInteractive.activeBG};
+						}
+					`)}
+					/* Focus background for non-interactive rows only. Interactive rows
 				 * show the focus *ring* instead (below) and keep their selected /
 				 * highlighted background — its higher \`:focus\` specificity would
 				 * otherwise override those backgrounds when focused. */
-				&:focus > td {
-					background: ${bodyRow.nonInteractive.focusBG};
-				}
-			`}
+					&:focus > td {
+						background: ${bodyRow.nonInteractive.focusBG};
+					}
+				`
+			}
 
-			${$interactive &&
-			!$disabled &&
-			css`
-				cursor: pointer;
-				/* Interactive rows show hover/active as the state border only (cell
+			${
+				$interactive &&
+				!$disabled &&
+				css`
+					cursor: pointer;
+					/* Interactive rows show hover/active as the state border only (cell
 				 * box-shadows), leaving the background untouched so a selected /
 				 * highlighted row's tint stays visible while hovered. */
-				${hover(css`
-					${stateShadowRules({
-						stateBorder: bodyRow.interactive.hoverBorder,
-						accent: $selected
-							? { border: bodyRow.selected.borderLeft, color: bodyRow.selected.hoverBorderColor }
-							: undefined,
-						pinned
-					})}
-				`)}
-				${active(css`
-					${stateShadowRules({
-						stateBorder: bodyRow.interactive.activeBorder,
-						accent: $selected
-							? { border: bodyRow.selected.borderLeft, color: bodyRow.selected.activeBorderColor }
-							: undefined,
-						pinned
-					})}
-				`)}
-			`}
+					${hover(css`
+						${stateShadowRules({
+							stateBorder: bodyRow.interactive.hoverBorder,
+							accent: $selected
+								? { border: bodyRow.selected.borderLeft, color: bodyRow.selected.hoverBorderColor }
+								: undefined,
+							pinned
+						})}
+					`)}
+					${active(css`
+						${stateShadowRules({
+							stateBorder: bodyRow.interactive.activeBorder,
+							accent: $selected
+								? { border: bodyRow.selected.borderLeft, color: bodyRow.selected.activeBorderColor }
+								: undefined,
+							pinned
+						})}
+					`)}
+				`
+			}
 
-			${$interactive &&
-			!$disabled &&
-			css`
-				/* Row-scoped focus ring. The row is the focus unit (roving \`tabIndex\`
+			${
+				$interactive &&
+				!$disabled &&
+				css`
+					/* Row-scoped focus ring. The row is the focus unit (roving \`tabIndex\`
 				 * on the \`<tr>\`), so the ring is keyed off \`:focus\` (not
 				 * \`:focus-visible\`) to fire on both keyboard nav and pointer click.
 				 * Gated to \`$interactive\` rows so non-interactive rows aren't emphasized.
@@ -202,93 +218,118 @@ export const StyledDataTableBodyRow = styled.tr.withConfig({ displayName: "Style
 				 * (spawns a phantom cell, see above) or a row \`outline\` (hidden behind
 				 * the cells' opaque/sticky backgrounds). The box-shadows travel with every
 				 * cell, including pinned ones, so the ring wraps the whole row. */
-				&:focus {
-					${stateShadowRules({
-						stateBorder: bodyRow.interactive.focusBorder,
-						// On a selected row, tint the left accent to the focus color (keeping
-						// its thicker selected width) so the whole ring is one color — focus
-						// takes visual priority over the selection's blue accent rather than
-						// the two mixing. Mirrors the hover/active rings above.
-						accent: $selected
-							? { border: bodyRow.selected.borderLeft, color: bodyRow.selected.focusBorderColor }
-							: undefined,
-						pinned
-					})}
-				}
-			`}
+					&:focus {
+						${stateShadowRules({
+							stateBorder: bodyRow.interactive.focusBorder,
+							// On a selected row, tint the left accent to the focus color (keeping
+							// its thicker selected width) so the whole ring is one color — focus
+							// takes visual priority over the selection's blue accent rather than
+							// the two mixing. Mirrors the hover/active rings above.
+							accent: $selected
+								? { border: bodyRow.selected.borderLeft, color: bodyRow.selected.focusBorderColor }
+								: undefined,
+							pinned
+						})}
+					}
+				`
+			}
 
-		${$selected &&
-			css`
-				> td {
-					background: ${bodyRow.selected.background};
-				}
-				/*
+			${
+				$selected &&
+				css`
+					> td {
+						background: ${bodyRow.selected.background};
+					}
+					/*
 			 * Selected left accent, drawn as an inset left shadow on the first cell
 			 * (travels with the cell across the sticky pinned-left region; no phantom
 			 * cell). \`:first-child\` covers the non-pinned case; the pinned rules win
 			 * when the first cell is pinned and additionally layer the column
 			 * separator — split in two so the separator only lands on the edge cell.
 			 */
-				> td:first-child {
-					box-shadow: ${composeCellShadow({
-						accent: { border: bodyRow.selected.borderLeft }
-					})};
-				}
-				> td[data-pinned="left"]:first-child {
-					box-shadow: ${composeCellShadow({
-						accent: { border: bodyRow.selected.borderLeft }
-					})};
-				}
-				> td[data-pinned-edge="left"]:first-child {
-					box-shadow: ${composeCellShadow({
-						accent: { border: bodyRow.selected.borderLeft },
-						separatorShadow: pinned.leftColumn.boxShadow
-					})};
-				}
-			`}
-
-		${!$highlightVariant &&
-			$highlighted &&
-			css`
-				> td {
-					background: ${bodyRow.highlightedBG};
-				}
-			`}
-
-		${$highlightVariant === "info" &&
-			css`
-				> td {
-					background: ${bodyRow.infoBG};
-				}
-			`}
-
-		${$highlightVariant === "success" &&
-			css`
-				> td {
-					background: ${bodyRow.successBG};
-				}
-			`}
-
-		${$disabled &&
-			css`
-				> td {
-					background: ${bodyRow.disabled.background};
-					color: ${bodyRow.disabled.color};
-					pointer-events: none;
-				}
-			`}
-
-			${$cellHighlighting &&
-			$crossTabulation &&
-			!$disabled &&
-			css`
-				${hover(css`
-					> th[data-pinned="left"]:not(:hover),
-					> td[data-pinned="left"]:not(:hover) {
-						background-color: ${darken(bodyRow.subBGRatio, header.background)};
+					> td:first-child {
+						box-shadow: ${composeCellShadow({
+							accent: { border: bodyRow.selected.borderLeft }
+						})};
 					}
-				`)}
-			`}
+					> td[data-pinned="left"]:first-child {
+						box-shadow: ${composeCellShadow({
+							accent: { border: bodyRow.selected.borderLeft }
+						})};
+					}
+					> td[data-pinned-edge="left"]:first-child {
+						box-shadow: ${composeCellShadow({
+							accent: { border: bodyRow.selected.borderLeft },
+							separatorShadow: pinned.leftColumn.boxShadow
+						})};
+					}
+				`
+			}
+
+			${
+				!$highlightVariant &&
+				$highlighted &&
+				css`
+					> td {
+						background: ${bodyRow.highlightedBG};
+					}
+				`
+			}
+
+			${
+				$highlightVariant === "info" &&
+				css`
+					> td {
+						background: ${bodyRow.infoBG};
+					}
+				`
+			}
+
+			${
+				$highlightVariant === "success" &&
+				css`
+					> td {
+						background: ${bodyRow.successBG};
+					}
+				`
+			}
+
+			${
+				$disabled &&
+				css`
+					> td {
+						background: ${bodyRow.disabled.background};
+						color: ${bodyRow.disabled.color};
+						pointer-events: none;
+					}
+				`
+			}
+
+			${
+				$cellHighlighting &&
+				!$disabled &&
+				css`
+					${hover(css`
+						> td:hover {
+							background-color: ${darken(bodyRow.subBGRatio, rowBackground)};
+						}
+					`)}
+				`
+			}
+
+			${
+				$cellHighlighting &&
+				$crossTabulation &&
+				!$disabled &&
+				css`
+					${hover(css`
+						> th[data-pinned="left"]:not(:hover),
+						> td[data-pinned="left"]:not(:hover) {
+							background-color: ${darken(bodyRow.subBGRatio, header.background)};
+						}
+					`)}
+				`
+			}
 
 			/* Tree-table reparent (AS_CHILD) drop target, keyed off \`data-drop-target\`
 			 * set by the DataTreeTable DnD wrapper: a light row wash plus a thick left
@@ -321,6 +362,28 @@ export const StyledDataTableBodyRow = styled.tr.withConfig({ displayName: "Style
 					accent: { border: treeNode.borderLeft, color: treeNode.forbiddenBorderColor },
 					separatorShadow: pinned.leftColumn.boxShadow
 				})};
+			}
+
+			/* Flat-table drag drop slot: the dragged row keeps its box (staying visible)
+			 * and rides into the projected gap (\`data-drop-slot\`, set imperatively by the
+			 * DataTable DnD monitor). A dashed \`outline\` — layout-neutral, unlike a real
+			 * border, so it adds no phantom column to the fixed table layout and no
+			 * row-height shift — draws a single full-width rectangle around the row, and a
+			 * negative \`outline-offset\` insets it so it stays within the row's box and does
+			 * not touch the neighbouring rows. The cells drop their content and chrome so
+			 * the slot reads as an empty dashed placeholder (no background); the floating
+			 * preview stands in for the row itself. */
+			&[data-drop-slot] {
+				outline: ${bodyRowDnD.slot.border};
+				outline-offset: ${bodyRowDnD.slot.offset};
+			}
+			&[data-drop-slot] > td {
+				background: none;
+				box-shadow: none;
+				color: transparent;
+			}
+			&[data-drop-slot] > td > * {
+				visibility: hidden;
 			}
 		`;
 	}
@@ -482,52 +545,36 @@ export function DataTableBodyRowTpl({
 	forwardedRef,
 	children
 }: DataTableBodyRowTplProps): ReactElement {
-	const cellHighlighting = useDataTableContext((ctx) => ctx.cellHighlighting);
-	const crossTabulation = useDataTableContext((ctx) => ctx.crossTabulation);
-	// Card view's `role="list"` root makes each row a `listitem`. (tree)grid mode
-	// overrides the table role, dropping the native `<tr>` mapping, so restate it as
-	// `role="row"`. Default view uses the implicit role.
-	const cardView = useDataTableContext((ctx) => ctx.cardView);
-	const gridRole = useDataTableContext((ctx) => ctx.gridRole);
-	const rowRole = cardView ? "listitem" : gridRole ? "row" : undefined;
-	// Row-level roving tabindex: when active, exactly one row carries `tabIndex=0`
-	// and the rest `-1`; `onRowFocusChange` keeps it in sync as focus lands.
-	// Disabled rows stay non-focusable.
-	const arrowNavActive = useDataTableContext((ctx) => ctx.arrowNavActive);
-	const isRowFocused = useDataTableContext((ctx) => ctx.isRowFocused);
-	const onRowFocusChange = useDataTableContext((ctx) => ctx.onRowFocusChange);
-	const rovingTabIndex =
-		arrowNavActive && !disabled && rowIndex !== undefined ? (isRowFocused?.(rowIndex) ? 0 : -1) : undefined;
-	const mergedStyle: CSSProperties | undefined = virtualStyle ? { ...styles?.style, ...virtualStyle } : styles?.style;
-	const resolvedTabIndex = tabIndex ?? rovingTabIndex ?? (disabled ? undefined : interactive ? 0 : -1);
-	const handleOnFocus: FocusEventHandler<HTMLTableRowElement> | undefined =
-		arrowNavActive && rowIndex !== undefined
-			? (event) => {
-					if (event.target === event.currentTarget) {
-						onRowFocusChange?.(rowIndex, event.currentTarget);
-					}
-
-					onFocus?.(event);
-				}
-			: onFocus;
-	// A keydown handler may also arrive via `htmlAttributes` (the channel slot
-	// consumers / wrappers use to layer per-row accelerators). It is spread onto
-	// the `<tr>` below but would be clobbered by the explicit `onKeyDown` prop, so
-	// compose it here: native Enter-activation first, then the dedicated prop, then
-	// the external handler.
-	const externalOnKeyDown = htmlAttributes?.onKeyDown;
-	const handleOnKeyDown: KeyboardEventHandler<HTMLTableRowElement> | undefined =
-		onClick || onKeyDown || externalOnKeyDown
-			? (event) => {
-					if (!disabled && event.key === Key.Enter && event.target === event.currentTarget) {
-						// Dispatch a native click so `onClick` gets a real MouseEvent.
-						event.currentTarget.click();
-					}
-
-					onKeyDown?.(event);
-					externalOnKeyDown?.(event);
-				}
-			: undefined;
+	const cellHighlighting = useDataTableContext().cellHighlighting;
+	const crossTabulation = useDataTableContext().crossTabulation;
+	// (tree)grid mode overrides the table role, dropping the native `<tr>` mapping, so
+	// restate it as `role="row"`. Default view uses the implicit role.
+	const gridRole = useDataTableContext().gridRole;
+	const rowRole = gridRole ? "row" : undefined;
+	const baseStyle: CSSProperties | undefined = virtualStyle ? { ...styles?.style, ...virtualStyle } : styles?.style;
+	// An explicit row height has to be republished as a custom property: `height` on a `<tr>` is
+	// only a *minimum* in table layout, so on its own a wrapping cell still grows the row (the
+	// production div-based Table had no such problem, and consumers ported `rowStyling`
+	// heights over expecting them to hold). The static rule in the table tpl reads this var to
+	// clamp the row's cells and their content; unset, it emits nothing.
+	const rowHeightStyle = baseStyle?.height;
+	const mergedStyle: CSSProperties | undefined =
+		rowHeightStyle === undefined || rowHeightStyle === null || rowHeightStyle === ""
+			? baseStyle
+			: ({
+					...baseStyle,
+					[ROW_HEIGHT_VAR]: typeof rowHeightStyle === "number" ? `${rowHeightStyle}px` : rowHeightStyle
+				} as CSSProperties);
+	const interaction = useDataTableRowInteraction<HTMLTableRowElement>({
+		rowIndex,
+		disabled,
+		interactive,
+		tabIndex,
+		onClick,
+		onKeyDown,
+		onFocus,
+		htmlAttributes
+	});
 
 	return (
 		<StyledDataTableBodyRow
@@ -542,7 +589,7 @@ export function DataTableBodyRowTpl({
 			className={styles?.className}
 			style={mergedStyle}
 			title={styles?.title}
-			tabIndex={resolvedTabIndex}
+			tabIndex={interaction.tabIndex}
 			aria-rowindex={ariaRowIndex}
 			aria-selected={selected || undefined}
 			aria-disabled={disabled || undefined}
@@ -555,8 +602,8 @@ export function DataTableBodyRowTpl({
 			$cellHighlighting={!!cellHighlighting}
 			$crossTabulation={!!crossTabulation}
 			onClick={disabled ? undefined : onClick}
-			onKeyDown={disabled ? undefined : handleOnKeyDown}
-			onFocus={handleOnFocus}
+			onKeyDown={interaction.onKeyDown}
+			onFocus={interaction.onFocus}
 			onBlur={onBlur}
 			onContextMenu={onContextMenu}
 			onMouseOver={onMouseOver}

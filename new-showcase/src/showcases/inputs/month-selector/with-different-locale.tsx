@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { de } from "date-fns/locale/de";
 import type { FC } from "react";
 import { useState } from "react";
-import { de } from "date-fns/locale/de";
 
 import { MonthSelector, DateTimeContext } from "@com.mgmtp.a12.widgets/widgets-core";
 

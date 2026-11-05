@@ -33,18 +33,18 @@
 import type { FunctionComponent } from "react";
 import { cloneElement, useContext, useRef, isValidElement, useMemo, useCallback } from "react";
 
-import { addPrefix, joinClassNames, StringUtils } from "../../common/main/utils.js";
-import { ProgressBar } from "../../progress-bar/main/progress-bar.view.js";
-import { ProgressIndicator } from "../../progress-indicator/main/progress-indicator.view.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
 import { getBadgeTitle } from "../../badge/main/badge-utils.js";
 import type { BadgeProps } from "../../badge/main/badge.api.js";
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { addPrefix, joinClassNames, StringUtils } from "../../common/main/utils.js";
+import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
+import { ProgressBar } from "../../progress-bar/main/progress-bar.view.js";
+import { ProgressIndicator } from "../../progress-indicator/main/progress-indicator.view.js";
 
+import { ButtonConfigContext } from "./button-context.js";
 import type { ButtonProps } from "./button.api.js";
 import { StyledButton } from "./button.styled.js";
-import { ButtonConfigContext } from "./button-context.js";
 
 const baseClassName = addPrefix("button");
 

@@ -34,20 +34,19 @@ import type { ReactElement, MouseEvent, ReactNode } from "react";
 import { useCallback, Component } from "react";
 
 import { Button } from "../../button/main/button.view.js";
-import { addPrefix, joinClassNames, noop } from "../../common/main/utils.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
 import { TimeUtils } from "../../common/main/date-time/time-utils.js";
+import { addPrefix, joinClassNames, noop } from "../../common/main/utils.js";
 import {
 	DatePickerFooter,
 	DatePickerFooterAction,
 	PickerHeaderCloseButton
 } from "../../datepicker/main/date-picker.tpl.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
+import type { TimePickerProps } from "./time-picker.api.js";
 import { Clock } from "./time-picker.clock.view.js";
 import type { PickerProps, TimePickerDialogProps } from "./time-picker.mobile.api.js";
-import { TimePickerTpl } from "./time-picker.tpl.view.js";
-import type { TimePickerProps } from "./time-picker.api.js";
 import {
 	StyledTimePickerDialog,
 	StyledTimePickerText,
@@ -56,6 +55,7 @@ import {
 	StyledTimePickerFormatSelection,
 	StyledTimePickerBody
 } from "./time-picker.styled.js";
+import { TimePickerTpl } from "./time-picker.tpl.view.js";
 
 const baseClassName = addPrefix("TimePicker");
 

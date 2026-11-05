@@ -38,11 +38,11 @@ import type { DefaultComponentsType } from "@com.mgmtp.a12.widgets/widgets-core"
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 import { SourceCodeSection } from "@com.mgmtp.a12.widgets/widgets-utils";
 
+import type { WidgetInfo } from "./definitions.js";
 import { ShowcaseTypographyHeadline } from "./showcase-typography-headline.js";
 import { StyledCodeName, TypedocAPIComponent } from "./template/typedoc-api.view.js";
-import type { WidgetInfo } from "./definitions.js";
-import { getHashId } from "./utils.js";
 import { ThemeSelector } from "./theme-selector.js";
+import { getHashId } from "./utils.js";
 
 interface ShowcaseTypedocProps {
 	label: string;

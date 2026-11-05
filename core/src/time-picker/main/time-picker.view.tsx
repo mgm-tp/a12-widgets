@@ -33,24 +33,24 @@
 import type { FC, ReactElement, ContextType, ReactNode } from "react";
 import { useContext, useMemo, useCallback, Component } from "react";
 
-import { addPrefix, bindMethods, StringUtils } from "../../common/main/utils.js";
-import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
+import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
+import { Button } from "../../button/main/button.view.js";
+import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
+import { DateTimeUtils } from "../../common/main/date-time/date-utils.js";
 import { TimeUtils } from "../../common/main/date-time/time-utils.js";
 import { provider } from "../../common/main/device-detector.js";
-import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
-import { Button } from "../../button/main/button.view.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { addPrefix, bindMethods, StringUtils } from "../../common/main/utils.js";
+import { PickerHeaderCloseButton } from "../../datepicker/main/date-picker.tpl.view.js";
 import { Icon } from "../../icon/main/icon.view.js";
 import { ModalOverlay } from "../../modal-overlay/main/modal-overlay.view.js";
-import { AttachedPortal } from "../../attached-portal/main/attached-portal.view.js";
-import { PickerHeaderCloseButton } from "../../datepicker/main/date-picker.tpl.view.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
-import type { TimePickerProps } from "./time-picker.api.js";
-import { TimePickerDialog } from "./time-picker.mobile.view.js";
 import { TimePickerInput } from "./time-picker-input.view.js";
+import type { TimePickerProps } from "./time-picker.api.js";
 import { createDefaultTimeFormatter, createDefaultTimeConverter, Header } from "./time-picker.internal.js";
+import { TimePickerDialog } from "./time-picker.mobile.view.js";
 import { StyledTimePickerText, StyledTimePickerWrapper } from "./time-picker.styled.js";
 
 export const TimePicker: FC<TimePickerProps> = (props): ReactElement => {

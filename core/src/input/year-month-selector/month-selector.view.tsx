@@ -33,11 +33,10 @@
 import type { ReactElement } from "react";
 import { useContext } from "react";
 
-import { joinClassNames, addPrefix } from "../../common/main/utils.js";
-import { getDefaultMonths } from "../../common/main/date-time/date-utils.js";
-import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
+import { DateTimeContext } from "../../common/main/date-time/date-time-context.js";
+import { getDefaultMonths } from "../../common/main/date-time/date-utils.js";
+import { joinClassNames, addPrefix } from "../../common/main/utils.js";
 import type { SelectItem } from "../select/main/select.api.js";
 
 import type { MonthSelectorProps, OptionalYearMonthItem } from "./month-selector.api.js";

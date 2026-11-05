@@ -29,6 +29,10 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c0 {
   display: flex;
   min-height: 48px;
@@ -51,7 +55,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -109,7 +113,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
   border-width: medium medium medium 1px;
   border-style: none none none solid;
   border-color: currentcolor currentcolor currentcolor rgb(169, 179, 188);
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -180,7 +184,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
@@ -210,7 +214,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -265,7 +269,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -286,7 +290,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -423,6 +427,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_left
       </span>
@@ -455,6 +461,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               description
             </span>
@@ -497,6 +505,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               list
             </span>
@@ -537,6 +547,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               phone_android
             </span>
@@ -577,6 +589,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               people
             </span>
@@ -603,6 +617,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_right
       </span>
@@ -612,7 +628,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering default wizard 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.wizard > rendering leftout steps 1`] = `
-.c4 {
+.c3 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -626,12 +642,12 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering leftout steps 1`] = `
   margin: -1px !important;
 }
 
-.c4 * {
+.c3 * {
   width: 1px;
   height: 1px;
 }
 
-.c11 {
+.c8 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -651,68 +667,30 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering leftout steps 1`] = `
   font-feature-settings: "liga";
 }
 
-.c11 > span {
+.c8 > span {
   display: inline-block;
 }
 
-.c11.c11 {
+.c8.c8 {
   max-width: unset;
 }
 
-.c14 .c5 {
-  overflow: hidden;
-}
-
-.c14 .c12 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c15 + .c0 .c5 {
-  border-left: 1px solid rgb(169, 179, 188);
-}
-
-.c15 .c10 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8 {
   color: inherit;
-  font-size: 1.25rem;
 }
 
-.c15:not(:disabled):focus + .c0 .c5 {
-  border-left-color: transparent;
-}
-
-.c16 .c10 {
-  color: inherit;
-  font-size: 1.25rem;
-}
-
-.c7 {
+.c5 {
   display: block;
   min-height: 48px;
   padding: 10px 0px;
   position: relative;
 }
 
-.c20 .c10 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c20:focus .c8 {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c21 .c10 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c6 {
+.c4 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(77, 77, 77);
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -724,45 +702,12 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering leftout steps 1`] = `
   flex: 0 0 auto;
 }
 
-.c6 .c10 {
+.c4 .c7 {
   font-size: 1.25rem;
   color: inherit;
 }
 
-.c22 .c10 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c23 .c10 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c24 .c10 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c25 .c10 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c25 .c10 {
-  color: inherit;
-}
-
-.c26 .c10 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c26 .c10 {
-  color: inherit;
-}
-
-.c9 {
+.c6 {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -771,40 +716,20 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering leftout steps 1`] = `
   padding: 0px;
 }
 
-.c13 {
+.c9 {
   display: block;
   text-align: left;
 }
 
-.c3 {
+.c2 {
   background-image: linear-gradient(to right top, transparent 0px, transparent 46%, rgb(169, 179, 188) 48%, rgb(169, 179, 188) 50%, rgb(241, 242, 244) 54%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 46%, rgb(169, 179, 188) 48%, rgb(169, 179, 188) 50%, rgb(241, 242, 244) 54%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 90%, rgb(169, 179, 188) 93%, rgb(169, 179, 188) 100%);
 }
 
-.c17 + [data-role="wizard-step"] .c2 {
-  background-position: 0px 0px, 100% 100%, 0px 0px;
-  background-size: 100% 50%, 100% 50%, 100% 100%;
-  background-repeat: no-repeat;
-  min-width: 12px;
-  width: 12px;
-}
-
-.c18 + [data-role="wizard-step"] .c2 {
-  background-position: 0px 0px, 100% 100%, 0px 0px;
-  background-size: 100% 50%, 100% 50%, 100% 100%;
-  background-repeat: no-repeat;
-  min-width: 12px;
-  width: 12px;
-}
-
-.c18 + [data-role="wizard-step"] .c2 {
-  background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
-}
-
-.c1 {
+.c0 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   margin: -1px -12px -1px 0px;
   min-height: inherit;
@@ -813,90 +738,56 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering leftout steps 1`] = `
   flex: 0 0 auto;
 }
 
-.c1 + [data-role="wizard-step"] .c2 {
+.c0 + [data-role="wizard-step"] .c1 {
   background-position: 0px 0px, 100% 100%, 0px 0px;
   background-size: 100% 50%, 100% 50%, 100% 100%;
   background-repeat: no-repeat;
   min-width: 12px;
   width: 12px;
-}
-
-.c19 + [data-role="wizard-step"] .c2 {
-  background-position: 0px 0px, 100% 100%, 0px 0px;
-  background-size: 100% 50%, 100% 50%, 100% 100%;
-  background-repeat: no-repeat;
-  min-width: 12px;
-  width: 12px;
-}
-
-.c19 + [data-role="wizard-step"] .c2 {
-  background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
-}
-
-@media (pointer: coarse) {
-  .c18:active .c5 {
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-    text-decoration: underline;
-  }
-
-  .c18:active .c2 {
-    background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
-  }
-}
-
-@media (pointer: fine) {
-  .c18:hover .c5 {
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-    text-decoration: underline;
-  }
-
-  .c18:hover .c2 {
-    background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
-  }
 }
 
 <div
-  class="c0 c1 wizard__step wizard__step--non-interactive wizard__step--left-out"
+  class="c0 wizard__step wizard__step--non-interactive wizard__step--left-out"
   data-role="wizard-step"
 >
   <div
-    class="c2 c3 wizard__tip"
+    class="c1 c2 wizard__tip"
   />
   <span
-    class="c4 -u-unseenButRead"
+    class="c3 -u-unseenButRead"
     data-role="hidden-text"
   >
     Further steps...
   </span>
   <button
     aria-hidden="true"
-    class="c5 c6 wizard__content"
+    class="c4 wizard__content"
     data-role="wizard-content"
     disabled=""
     role="link"
   >
     <span
-      class="c7"
+      class="c5"
       data-role="wizard-content-container-wrapper"
     >
       <span
-        class="c8 c9"
+        class="c6"
         data-role="wizard-content-container"
       >
         <i
-          class="c10 c11 plasma-icon"
+          class="c7 c8 plasma-icon"
           data-role="plasma-icon"
         >
           <span
             aria-hidden="true"
+            class="notranslate"
+            translate="no"
           >
             more_horiz
           </span>
         </i>
         <span
-          class="c12 c13 wizard__text"
+          class="c9 wizard__text"
         />
       </span>
     </span>
@@ -933,6 +824,10 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c0 {
   display: flex;
   min-height: 48px;
@@ -943,7 +838,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   overflow: hidden;
 }
 
-.c0 .c13 {
+.c0 .c12 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -955,7 +850,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -1007,13 +902,13 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   color: rgb(169, 179, 188);
 }
 
-.c19 {
+.c18 {
   align-items: center;
   background: rgb(241, 242, 244);
   border-width: medium medium medium 1px;
   border-style: none none none solid;
   border-color: currentcolor currentcolor currentcolor rgb(169, 179, 188);
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -1023,38 +918,38 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   position: relative;
 }
 
-.c19::before,
-.c19::after {
+.c18::before,
+.c18::after {
   inset: 0px;
   content: "";
   display: block;
   position: absolute;
 }
 
-.c19 .c2 {
+.c18 .c2 {
   color: inherit;
   font-size: 1.25rem;
 }
 
-.c19:not(:disabled) {
+.c18:not(:disabled) {
   cursor: pointer;
 }
 
-.c19:not(:disabled):focus {
+.c18:not(:disabled):focus {
   color: rgb(213, 0, 117);
   outline: none;
   border-left-color: transparent;
 }
 
-.c19:not(:disabled):focus::before {
+.c18:not(:disabled):focus::before {
   border: 2px solid rgb(213, 0, 117);
 }
 
-.c19:not(:disabled):focus::after {
+.c18:not(:disabled):focus::after {
   border: 1px dotted rgb(255, 255, 255);
 }
 
-.c19:disabled {
+.c18:disabled {
   color: rgb(169, 179, 188);
 }
 
@@ -1065,52 +960,18 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   position: relative;
 }
 
-.c18 {
+.c17 {
   display: block;
   min-height: 48px;
   padding: 10px 0px;
   position: relative;
 }
 
-.c18::after {
+.c17::after {
   content: "";
   inset: 0px;
   position: absolute;
   border-bottom: 4px solid transparent;
-}
-
-.c22 .c2 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c22:focus .c11 {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c23 .c2 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c24 .c2 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c25 .c2 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c26 .c2 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c27 .c2 {
-  font-size: 1.25rem;
-  color: inherit;
 }
 
 .c9 {
@@ -1118,7 +979,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -1138,11 +999,11 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   color: inherit;
 }
 
-.c17 {
+.c16 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -1154,22 +1015,27 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   color: rgb(169, 179, 188);
 }
 
-.c17 .c2 {
+.c16 .c2 {
   font-size: 1.25rem;
   color: inherit;
 }
 
-.c17.c17.c17 {
+.c16.c16.c16 {
   border-left-width: medium;
   border-left-style: none;
   border-left-color: currentcolor;
 }
 
-.c17 .c2 {
+.c16 .c2 {
   color: inherit;
 }
 
-.c12 {
+.c20 .c2 {
+  font-size: 1.25rem;
+  color: inherit;
+}
+
+.c11 {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -1178,7 +1044,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   padding: 0px;
 }
 
-.c14 {
+.c13 {
   display: block;
   text-align: left;
 }
@@ -1187,7 +1053,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   background-image: linear-gradient(to right top, transparent 0px, transparent 46%, rgb(169, 179, 188) 48%, rgb(169, 179, 188) 50%, rgb(241, 242, 244) 54%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 46%, rgb(169, 179, 188) 48%, rgb(169, 179, 188) 50%, rgb(241, 242, 244) 54%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 90%, rgb(169, 179, 188) 93%, rgb(169, 179, 188) 100%);
 }
 
-.c16 {
+.c15 {
   background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(5, 104, 174) 52%, rgb(5, 104, 174) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(5, 104, 174) 52%, rgb(5, 104, 174) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
 }
 
@@ -1195,7 +1061,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -1212,11 +1078,11 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   width: 12px;
 }
 
-.c15 {
+.c14 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -1225,7 +1091,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   padding: 0px;
 }
 
-.c15 + [data-role="wizard-step"] .c6 {
+.c14 + [data-role="wizard-step"] .c6 {
   background-position: 0px 0px, 100% 100%, 0px 0px;
   background-size: 100% 50%, 100% 50%, 100% 100%;
   background-repeat: no-repeat;
@@ -1233,32 +1099,20 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   width: 12px;
 }
 
-.c15 + [data-role="wizard-navigate-button"] {
+.c14 + [data-role="wizard-navigate-button"] {
   border-color: rgb(241, 242, 244);
 }
 
-.c15 + [data-role="wizard-step"] .c6 {
+.c14 + [data-role="wizard-step"] .c6 {
   background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
 }
 
-.c20 + [data-role="wizard-step"] .c6 {
+.c19 + [data-role="wizard-step"] .c6 {
   background-position: 0px 0px, 100% 100%, 0px 0px;
   background-size: 100% 50%, 100% 50%, 100% 100%;
   background-repeat: no-repeat;
   min-width: 12px;
   width: 12px;
-}
-
-.c21 + [data-role="wizard-step"] .c6 {
-  background-position: 0px 0px, 100% 100%, 0px 0px;
-  background-size: 100% 50%, 100% 50%, 100% 100%;
-  background-repeat: no-repeat;
-  min-width: 12px;
-  width: 12px;
-}
-
-.c21 + [data-role="wizard-step"] .c6 {
-  background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
 }
 
 @media (pointer: coarse) {
@@ -1283,50 +1137,50 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
 }
 
 @media (pointer: coarse) {
-  .c19:not(:disabled):active {
+  .c18:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: rgb(181, 76, 23);
   }
 
-  .c19:not(:disabled):active::before {
+  .c18:not(:disabled):active::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c19:not(:disabled):hover {
+  .c18:not(:disabled):hover {
     color: rgb(213, 0, 117);
   }
 
-  .c19:not(:disabled):hover::before {
+  .c18:not(:disabled):hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: coarse) {
-  .c15:active {
+  .c14:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c15:active .c8 {
+  .c14:active .c8 {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
     text-decoration: underline;
   }
 
-  .c15:active .c6 {
+  .c14:active .c6 {
     background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
   }
 }
 
 @media (pointer: fine) {
-  .c15:hover .c8 {
+  .c14:hover .c8 {
     background-color: rgb(213, 0, 117);
     color: rgb(255, 255, 255);
     text-decoration: underline;
   }
 
-  .c15:hover .c6 {
+  .c14:hover .c6 {
     background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
   }
 }
@@ -1351,6 +1205,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_left
       </span>
@@ -1375,7 +1231,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
         data-role="wizard-content-container-wrapper"
       >
         <span
-          class="c11 c12"
+          class="c11"
           data-role="wizard-content-container"
         >
           <i
@@ -1384,12 +1240,14 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               description
             </span>
           </i>
           <span
-            class="c13 c14 wizard__text"
+            class="c12 c13 wizard__text"
           >
             Preconditions
           </span>
@@ -1398,27 +1256,27 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
     </button>
   </div>
   <div
-    class="c4 c15 wizard__step wizard__step--selected"
+    class="c4 c14 wizard__step wizard__step--selected"
     data-role="wizard-step"
     data-selected="true"
   >
     <div
-      class="c6 c16 wizard__tip"
+      class="c6 c15 wizard__tip"
     />
     <button
       aria-current="step"
-      class="c8 c17 wizard__content"
+      class="c8 c16 wizard__content"
       data-role="wizard-content"
       disabled=""
       role="link"
       style="white-space: nowrap;"
     >
       <span
-        class="c18"
+        class="c17"
         data-role="wizard-content-container-wrapper"
       >
         <span
-          class="c11 c12"
+          class="c11"
           data-role="wizard-content-container"
         >
           <i
@@ -1427,12 +1285,14 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               list
             </span>
           </i>
           <span
-            class="c13 c14 wizard__text"
+            class="c12 c13 wizard__text"
           >
             Master Conditions
           </span>
@@ -1459,7 +1319,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
         data-role="wizard-content-container-wrapper"
       >
         <span
-          class="c11 c12"
+          class="c11"
           data-role="wizard-content-container"
         >
           <i
@@ -1468,12 +1328,14 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               phone_android
             </span>
           </i>
           <span
-            class="c13 c14 wizard__text"
+            class="c12 c13 wizard__text"
           >
             Intl. Cover
           </span>
@@ -1500,7 +1362,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
         data-role="wizard-content-container-wrapper"
       >
         <span
-          class="c11 c12"
+          class="c11"
           data-role="wizard-content-container"
         >
           <i
@@ -1509,12 +1371,14 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               people
             </span>
           </i>
           <span
-            class="c13 c14 wizard__text"
+            class="c12 c13 wizard__text"
           >
             Partner
           </span>
@@ -1524,7 +1388,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
   </div>
   <button
     aria-label="Next"
-    class="c19 wizard__next"
+    class="c18 wizard__next"
     data-role="wizard-navigate-button"
     data-type="wizard-next"
     disabled=""
@@ -1536,6 +1400,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with disabled steps 1`]
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_right
       </span>
@@ -1573,6 +1439,10 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c0 {
   display: flex;
   min-height: 48px;
@@ -1595,7 +1465,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -1653,7 +1523,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
   border-width: medium medium medium 1px;
   border-style: none none none solid;
   border-color: currentcolor currentcolor currentcolor rgb(169, 179, 188);
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -1698,13 +1568,6 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
   color: rgb(169, 179, 188);
 }
 
-.c18 {
-  display: block;
-  min-height: 48px;
-  padding: 10px 0px;
-  position: relative;
-}
-
 .c10 {
   display: block;
   min-height: 48px;
@@ -1719,12 +1582,47 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
   border-bottom: 4px solid transparent;
 }
 
+.c18 {
+  display: block;
+  min-height: 48px;
+  padding: 10px 0px;
+  position: relative;
+}
+
+.c9 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  flex: 1 1 0%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0px;
+  outline: none;
+  padding: 0px;
+  background-color: rgb(5, 104, 174);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.c9 .c2 {
+  font-size: 1.25rem;
+  color: inherit;
+}
+
+.c9.c9.c9 {
+  border-left-width: medium;
+  border-left-style: none;
+  border-left-color: currentcolor;
+}
+
 .c17 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
@@ -1750,34 +1648,6 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c9 {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  flex: 1 1 0%;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin: 0px;
-  outline: none;
-  padding: 0px;
-  background-color: rgb(5, 104, 174);
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-}
-
-.c9 .c2 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c9.c9.c9 {
-  border-left-width: medium;
-  border-left-style: none;
-  border-left-color: currentcolor;
-}
-
 .c21 .c2 {
   font-size: 1.25rem;
   color: inherit;
@@ -1797,40 +1667,19 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
   text-align: left;
 }
 
-.c16 {
-  background-image: linear-gradient(to right top, transparent 0px, transparent 46%, rgb(169, 179, 188) 48%, rgb(169, 179, 188) 50%, rgb(241, 242, 244) 54%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 46%, rgb(169, 179, 188) 48%, rgb(169, 179, 188) 50%, rgb(241, 242, 244) 54%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 90%, rgb(169, 179, 188) 93%, rgb(169, 179, 188) 100%);
-}
-
 .c7 {
   background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(5, 104, 174) 52%, rgb(5, 104, 174) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(5, 104, 174) 52%, rgb(5, 104, 174) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
 }
 
-.c15 {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  display: flex;
-  flex: 1 1 0%;
-  margin: -1px -12px -1px 0px;
-  min-height: inherit;
-  min-width: 78px;
-  padding: 0px;
-}
-
-.c15 + [data-role="wizard-step"] .c6 {
-  background-position: 0px 0px, 100% 100%, 0px 0px;
-  background-size: 100% 50%, 100% 50%, 100% 100%;
-  background-repeat: no-repeat;
-  min-width: 12px;
-  width: 12px;
+.c16 {
+  background-image: linear-gradient(to right top, transparent 0px, transparent 46%, rgb(169, 179, 188) 48%, rgb(169, 179, 188) 50%, rgb(241, 242, 244) 54%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 46%, rgb(169, 179, 188) 48%, rgb(169, 179, 188) 50%, rgb(241, 242, 244) 54%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 90%, rgb(169, 179, 188) 93%, rgb(169, 179, 188) 100%);
 }
 
 .c5 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -1853,6 +1702,27 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
 
 .c5 + [data-role="wizard-step"] .c6 {
   background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
+}
+
+.c15 {
+  border-width: medium;
+  border-style: none;
+  border-color: currentcolor;
+  border-image: none;
+  display: flex;
+  flex: 1 1 0%;
+  margin: -1px -12px -1px 0px;
+  min-height: inherit;
+  min-width: 78px;
+  padding: 0px;
+}
+
+.c15 + [data-role="wizard-step"] .c6 {
+  background-position: 0px 0px, 100% 100%, 0px 0px;
+  background-size: 100% 50%, 100% 50%, 100% 100%;
+  background-repeat: no-repeat;
+  min-width: 12px;
+  width: 12px;
 }
 
 .c20 + [data-role="wizard-step"] .c6 {
@@ -1967,6 +1837,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_left
       </span>
@@ -2001,6 +1873,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               description
             </span>
@@ -2041,6 +1915,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               list
             </span>
@@ -2081,6 +1957,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               phone_android
             </span>
@@ -2121,6 +1999,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               people
             </span>
@@ -2147,6 +2027,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with first step selecte
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_right
       </span>
@@ -2184,6 +2066,10 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c0 {
   display: flex;
   min-height: 48px;
@@ -2206,7 +2092,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -2264,7 +2150,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
   border-width: medium medium medium 1px;
   border-style: none none none solid;
   border-color: currentcolor currentcolor currentcolor rgb(169, 179, 188);
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -2335,7 +2221,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
@@ -2365,7 +2251,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2420,7 +2306,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -2441,7 +2327,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -2578,6 +2464,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_left
       </span>
@@ -2610,6 +2498,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               description
             </span>
@@ -2650,6 +2540,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               list
             </span>
@@ -2690,6 +2582,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               phone_android
             </span>
@@ -2732,6 +2626,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               people
             </span>
@@ -2758,6 +2654,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_right
       </span>
@@ -2767,7 +2665,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with last step selected
 `;
 
 exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive steps 1`] = `
-.c11 {
+.c9 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -2787,12 +2685,16 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
   font-feature-settings: "liga";
 }
 
-.c11 > span {
+.c9 > span {
   display: inline-block;
 }
 
-.c11.c11 {
+.c9.c9 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c9 {
+  color: inherit;
 }
 
 .c0 {
@@ -2801,85 +2703,43 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
   overflow: hidden;
 }
 
-.c0 .c5 {
+.c0 .c4 {
   overflow: hidden;
 }
 
-.c0 .c12 {
+.c0 .c10 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c18 + .c1 .c5 {
-  border-left: 1px solid rgb(169, 179, 188);
-}
-
-.c18 .c10 {
-  color: inherit;
-  font-size: 1.25rem;
-}
-
-.c18:not(:disabled):focus + .c1 .c5 {
-  border-left-color: transparent;
-}
-
-.c19 .c10 {
-  color: inherit;
-  font-size: 1.25rem;
-}
-
-.c7 {
+.c6 {
   display: block;
   min-height: 48px;
   padding: 10px 0px;
   position: relative;
 }
 
-.c17 {
+.c15 {
   display: block;
   min-height: 48px;
   padding: 10px 0px;
   position: relative;
 }
 
-.c17::after {
+.c15::after {
   content: "";
   inset: 0px;
   position: absolute;
   border-bottom: 4px solid transparent;
 }
 
-.c22 .c10 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c22:focus .c8 {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c23 .c10 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c24 .c10 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c25 .c10 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c6 {
+.c5 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(77, 77, 77);
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
@@ -2890,16 +2750,16 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
   padding: 0px;
 }
 
-.c6 .c10 {
+.c5 .c8 {
   font-size: 1.25rem;
   color: inherit;
 }
 
-.c16 {
+.c14 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -2911,18 +2771,23 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
   color: rgb(255, 255, 255);
 }
 
-.c16 .c10 {
+.c14 .c8 {
   font-size: 1.25rem;
   color: inherit;
 }
 
-.c16.c16.c16 {
+.c14.c14.c14 {
   border-left-width: medium;
   border-left-style: none;
   border-left-color: currentcolor;
 }
 
-.c9 {
+.c17 .c8 {
+  font-size: 1.25rem;
+  color: inherit;
+}
+
+.c7 {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -2931,24 +2796,24 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
   padding: 0px;
 }
 
-.c13 {
+.c11 {
   display: block;
   text-align: left;
 }
 
-.c4 {
+.c3 {
   background-image: linear-gradient(to right top, transparent 0px, transparent 46%, rgb(169, 179, 188) 48%, rgb(169, 179, 188) 50%, rgb(241, 242, 244) 54%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 46%, rgb(169, 179, 188) 48%, rgb(169, 179, 188) 50%, rgb(241, 242, 244) 54%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 90%, rgb(169, 179, 188) 93%, rgb(169, 179, 188) 100%);
 }
 
-.c15 {
+.c13 {
   background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(5, 104, 174) 52%, rgb(5, 104, 174) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(5, 104, 174) 52%, rgb(5, 104, 174) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
 }
 
-.c2 {
+.c1 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -2957,7 +2822,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
   padding: 0px;
 }
 
-.c2 + [data-role="wizard-step"] .c3 {
+.c1 + [data-role="wizard-step"] .c2 {
   background-position: 0px 0px, 100% 100%, 0px 0px;
   background-size: 100% 50%, 100% 50%, 100% 100%;
   background-repeat: no-repeat;
@@ -2965,31 +2830,11 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
   width: 12px;
 }
 
-.c20 + [data-role="wizard-step"] .c3 {
-  background-position: 0px 0px, 100% 100%, 0px 0px;
-  background-size: 100% 50%, 100% 50%, 100% 100%;
-  background-repeat: no-repeat;
-  min-width: 12px;
-  width: 12px;
-}
-
-.c20 + [data-role="wizard-step"] .c3 {
-  background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
-}
-
-.c21 + [data-role="wizard-step"] .c3 {
-  background-position: 0px 0px, 100% 100%, 0px 0px;
-  background-size: 100% 50%, 100% 50%, 100% 100%;
-  background-repeat: no-repeat;
-  min-width: 12px;
-  width: 12px;
-}
-
-.c14 {
+.c12 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -2998,7 +2843,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
   padding: 0px;
 }
 
-.c14 + [data-role="wizard-step"] .c3 {
+.c12 + [data-role="wizard-step"] .c2 {
   background-position: 0px 0px, 100% 100%, 0px 0px;
   background-size: 100% 50%, 100% 50%, 100% 100%;
   background-repeat: no-repeat;
@@ -3006,36 +2851,20 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
   width: 12px;
 }
 
-.c14 + [data-role="wizard-navigate-button"] {
+.c12 + [data-role="wizard-navigate-button"] {
   border-color: rgb(241, 242, 244);
 }
 
-.c14 + [data-role="wizard-step"] .c3 {
+.c12 + [data-role="wizard-step"] .c2 {
   background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(241, 242, 244) 52%, rgb(241, 242, 244) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
 }
 
-@media (pointer: coarse) {
-  .c20:active .c5 {
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-    text-decoration: underline;
-  }
-
-  .c20:active .c3 {
-    background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
-  }
-}
-
-@media (pointer: fine) {
-  .c20:hover .c5 {
-    background-color: rgb(213, 0, 117);
-    color: rgb(255, 255, 255);
-    text-decoration: underline;
-  }
-
-  .c20:hover .c3 {
-    background-image: linear-gradient(to right top, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right bottom, transparent 0px, transparent 48%, rgb(213, 0, 117) 52%, rgb(213, 0, 117) 100%), linear-gradient(to right, transparent 0px, transparent 100%);
-  }
+.c16 + [data-role="wizard-step"] .c2 {
+  background-position: 0px 0px, 100% 100%, 0px 0px;
+  background-size: 100% 50%, 100% 50%, 100% 100%;
+  background-repeat: no-repeat;
+  min-width: 12px;
+  width: 12px;
 }
 
 <div
@@ -3045,39 +2874,41 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
   tabindex="-1"
 >
   <div
-    class="c1 c2 wizard__step wizard__step--non-interactive"
+    class="c1 wizard__step wizard__step--non-interactive"
     data-role="wizard-step"
   >
     <div
-      class="c3 c4 wizard__tip"
+      class="c2 c3 wizard__tip"
     />
     <button
-      class="c5 c6 wizard__content"
+      class="c4 c5 wizard__content"
       data-role="wizard-content"
       disabled=""
       role="link"
       style="white-space: nowrap;"
     >
       <span
-        class="c7"
+        class="c6"
         data-role="wizard-content-container-wrapper"
       >
         <span
-          class="c8 c9"
+          class="c7"
           data-role="wizard-content-container"
         >
           <i
-            class="c10 c11 plasma-icon"
+            class="c8 c9 plasma-icon"
             data-role="plasma-icon"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               description
             </span>
           </i>
           <span
-            class="c12 c13 wizard__text"
+            class="c10 c11 wizard__text"
           >
             Preconditions
           </span>
@@ -3086,41 +2917,43 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
     </button>
   </div>
   <div
-    class="c1 c14 wizard__step wizard__step--non-interactive wizard__step--selected"
+    class="c12 wizard__step wizard__step--non-interactive wizard__step--selected"
     data-role="wizard-step"
     data-selected="true"
   >
     <div
-      class="c3 c15 wizard__tip"
+      class="c2 c13 wizard__tip"
     />
     <button
       aria-current="step"
-      class="c5 c16 wizard__content"
+      class="c4 c14 wizard__content"
       data-role="wizard-content"
       disabled=""
       role="link"
       style="white-space: nowrap;"
     >
       <span
-        class="c17"
+        class="c15"
         data-role="wizard-content-container-wrapper"
       >
         <span
-          class="c8 c9"
+          class="c7"
           data-role="wizard-content-container"
         >
           <i
-            class="c10 c11 plasma-icon"
+            class="c8 c9 plasma-icon"
             data-role="plasma-icon"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               list
             </span>
           </i>
           <span
-            class="c12 c13 wizard__text"
+            class="c10 c11 wizard__text"
           >
             Master Conditions
           </span>
@@ -3129,39 +2962,41 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
     </button>
   </div>
   <div
-    class="c1 c2 wizard__step wizard__step--non-interactive"
+    class="c1 wizard__step wizard__step--non-interactive"
     data-role="wizard-step"
   >
     <div
-      class="c3 c4 wizard__tip"
+      class="c2 c3 wizard__tip"
     />
     <button
-      class="c5 c6 wizard__content"
+      class="c4 c5 wizard__content"
       data-role="wizard-content"
       disabled=""
       role="link"
       style="white-space: nowrap;"
     >
       <span
-        class="c7"
+        class="c6"
         data-role="wizard-content-container-wrapper"
       >
         <span
-          class="c8 c9"
+          class="c7"
           data-role="wizard-content-container"
         >
           <i
-            class="c10 c11 plasma-icon"
+            class="c8 c9 plasma-icon"
             data-role="plasma-icon"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               phone_android
             </span>
           </i>
           <span
-            class="c12 c13 wizard__text"
+            class="c10 c11 wizard__text"
           >
             Intl. Cover
           </span>
@@ -3170,39 +3005,41 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with non-interactive st
     </button>
   </div>
   <div
-    class="c1 c2 wizard__step wizard__step--non-interactive"
+    class="c1 wizard__step wizard__step--non-interactive"
     data-role="wizard-step"
   >
     <div
-      class="c3 c4 wizard__tip"
+      class="c2 c3 wizard__tip"
     />
     <button
-      class="c5 c6 wizard__content"
+      class="c4 c5 wizard__content"
       data-role="wizard-content"
       disabled=""
       role="link"
       style="white-space: nowrap;"
     >
       <span
-        class="c7"
+        class="c6"
         data-role="wizard-content-container-wrapper"
       >
         <span
-          class="c8 c9"
+          class="c7"
           data-role="wizard-content-container"
         >
           <i
-            class="c10 c11 plasma-icon"
+            class="c8 c9 plasma-icon"
             data-role="plasma-icon"
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               people
             </span>
           </i>
           <span
-            class="c12 c13 wizard__text"
+            class="c10 c11 wizard__text"
           >
             Partner
           </span>
@@ -3261,6 +3098,10 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c19.c19 {
   color: rgb(41, 122, 36);
 }
@@ -3287,7 +3128,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -3345,7 +3186,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
   border-width: medium medium medium 1px;
   border-style: none none none solid;
   border-color: currentcolor currentcolor currentcolor rgb(169, 179, 188);
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -3416,7 +3257,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
@@ -3442,21 +3283,11 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c23 .c2 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c24 .c2 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
 .c17 {
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -3478,6 +3309,11 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
   border-left-width: medium;
   border-left-style: none;
   border-left-color: currentcolor;
+}
+
+.c23 .c2 {
+  font-size: 1.25rem;
+  color: inherit;
 }
 
 .c12 {
@@ -3506,7 +3342,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -3527,7 +3363,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -3664,6 +3500,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_left
       </span>
@@ -3696,6 +3534,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               description
             </span>
@@ -3738,6 +3578,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               check_circle
             </span>
@@ -3784,6 +3626,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               phone_android
             </span>
@@ -3824,6 +3668,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               people
             </span>
@@ -3850,6 +3696,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected finished 
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_right
       </span>
@@ -3906,6 +3754,10 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c3 {
+  color: inherit;
+}
+
 .c19.c19 {
   color: rgb(175, 121, 2);
 }
@@ -3932,7 +3784,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -3990,7 +3842,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
   border-width: medium medium medium 1px;
   border-style: none none none solid;
   border-color: currentcolor currentcolor currentcolor rgb(169, 179, 188);
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   display: flex;
   flex-shrink: 0;
@@ -4061,7 +3913,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   color: rgb(5, 104, 174);
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
@@ -4091,7 +3943,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   flex: 1 1 0%;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -4116,11 +3968,6 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
 }
 
 .c23 .c2 {
-  font-size: 1.25rem;
-  color: inherit;
-}
-
-.c24 .c2 {
   font-size: 1.25rem;
   color: inherit;
 }
@@ -4151,7 +3998,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -4172,7 +4019,7 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   display: flex;
   flex: 1 1 0%;
   margin: -1px -12px -1px 0px;
@@ -4309,6 +4156,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_left
       </span>
@@ -4341,6 +4190,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               description
             </span>
@@ -4383,6 +4234,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               warning
             </span>
@@ -4429,6 +4282,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               phone_android
             </span>
@@ -4469,6 +4324,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               people
             </span>
@@ -4495,6 +4352,8 @@ exports[`com.mgmtp.a12.widgets.wizard > rendering wizard with selected warning s
     >
       <span
         aria-hidden="true"
+        class="notranslate"
+        translate="no"
       >
         keyboard_arrow_right
       </span>

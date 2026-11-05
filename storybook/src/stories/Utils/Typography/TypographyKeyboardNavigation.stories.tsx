@@ -36,8 +36,7 @@ import { Typography, Button, Icon, KeyboardNavigationConfigProvider } from "@com
 
 const meta: Meta = {
 	title: "Utils/Typography/KeyboardNavigation",
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	parameters: { layout: "padded" }
 };
 
 export default meta;

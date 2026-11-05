@@ -34,11 +34,11 @@ import { styled, css } from "styled-components";
 
 import { StyledButton } from "../../button/main/button.styled.js";
 import { addPrefix } from "../../common/main/utils.js";
-import { StyledIconWrapper } from "../../icon/main/icon.view.js";
-import { StyledTimePickerInput } from "../../time-picker/main/time-picker.styled.js";
 import { StyledDatePicker } from "../../datepicker/main/date-picker.styled.js";
-import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
+import { StyledIconWrapper } from "../../icon/main/icon.view.js";
 import { TextField } from "../../input/text-field/text-field.view.js";
+import { createBoxShadow } from "../../theme/base/mixins/_borderEffects.js";
+import { StyledTimePickerInput } from "../../time-picker/main/time-picker.styled.js";
 
 import StyledDatePickerContainer = StyledDatePicker.StyledDatePickerContainer;
 
@@ -48,12 +48,14 @@ export const StyledDateTimePickerInput = styled(TextField)(({ theme }) => {
 	const { input } = theme.components.dateTimePicker;
 
 	return css`
-		${input?.focus?.customBorder &&
-		css`
-			[data-isfocused="true"] {
-				${createBoxShadow(input?.focus?.customBorder)}
-			}
-		`}
+		${
+			input?.focus?.customBorder &&
+			css`
+				[data-isfocused="true"] {
+					${createBoxShadow(input?.focus?.customBorder)}
+				}
+			`
+		}
 	`;
 });
 
@@ -88,10 +90,12 @@ export const StyledDateTimePicker = styled.div.withConfig({ displayName: "Styled
 			border: none;
 		}
 
-		${isTimeScreen &&
-		css`
-			background-color: ${timePicker.dialog.background};
-		`}
+		${
+			isTimeScreen &&
+			css`
+				background-color: ${timePicker.dialog.background};
+			`
+		}
 	`;
 });
 
@@ -105,11 +109,13 @@ export const StyledDateTimePickerTimeDisplay = styled.span.withConfig({
 		flex: 1 0 0;
 		padding: ${dateScreen.timePicker.timeDisplay.padding};
 
-		${isInitialized &&
-		css`
-			font-style: ${dateScreen.timePicker.timeDisplay.fontStyle};
-			font-weight: ${dateScreen.timePicker.timeDisplay.fontWeight};
-		`}
+		${
+			isInitialized &&
+			css`
+				font-style: ${dateScreen.timePicker.timeDisplay.fontStyle};
+				font-weight: ${dateScreen.timePicker.timeDisplay.fontWeight};
+			`
+		}
 	`;
 });
 

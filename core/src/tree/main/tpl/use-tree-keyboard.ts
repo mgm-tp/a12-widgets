@@ -34,15 +34,15 @@ import type { KeyboardEvent, RefObject } from "react";
 import { useCallback, useEffect, useRef } from "react";
 import { Key } from "ts-key-enum";
 
+import { DataRoles } from "../../../common/main/data-roles.js";
 import {
 	moveItemFocusBack,
 	moveItemFocusNext,
 	getAllFocusableElements,
 	findFirstFocusableOutside
 } from "../../../common/main/utils.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-import type { KeyboardNavigationMode } from "../../../keyboard-navigation/main/keyboard-navigation.api.js";
 import { useKeyboardNavigationMode } from "../../../keyboard-navigation/main/keyboard-navigation-context.js";
+import type { KeyboardNavigationMode } from "../../../keyboard-navigation/main/keyboard-navigation.api.js";
 
 const NODE_CONTENT_SELECTOR = `[data-role="${DataRoles.Tree.Node.Content}"][tabIndex]`;
 // InsertableTree uses ButtonGroup (data-role="button-group") as its action area instead of Tree.Node.Actions

@@ -30,8 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useState, useCallback, useRef } from "react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { Decorator, Meta, StoryObj } from "@storybook/react-vite";
+import type { ReactElement } from "react";
+import { useState, useCallback, useMemo, useRef } from "react";
+import { DndProvider } from "react-dnd";
+import { styled } from "styled-components";
 
 import type {
 	BaseTreeTableColumnType,
@@ -40,124 +43,332 @@ import type {
 	TreeTableRowStyling,
 	TreeTableScrollToNodeHandler
 } from "@com.mgmtp.a12.widgets/widgets-core";
-import { TreeTable, Button, ButtonGroup } from "@com.mgmtp.a12.widgets/widgets-core";
+import {
+	TreeTable,
+	Button,
+	ButtonGroup,
+	DragAndDropUtils,
+	Icon,
+	TreeTableNodeDropPosition
+} from "@com.mgmtp.a12.widgets/widgets-core";
 
 import { COLUMNS, ROOT, getNodeById } from "./tree-table.data.js";
+import type { FileNode, FlatFileNode } from "./tree-table.dnd-data.js";
+import { DND_COLUMNS, DND_ROOT, findNode, useDndTree } from "./tree-table.dnd-data.js";
 
-function BasicTreeTableDemo() {
-	const [selectedNode, setSelectedNode] = useState<number | undefined>();
-	const [collapsedNodes, setCollapsedNodes] = useState<Record<number, boolean>>({});
+const meta: Meta<typeof TreeTable> = {
+	title: "Data Display/TreeTable",
+	component: TreeTable,
+	parameters: { layout: "padded" },
+	argTypes: {
+		root: {
+			control: false,
+			description:
+				"Root node of the tree. Each node provides an `id`, `data` (one cell per column), an optional `icon` and optional `children`."
+		},
+		columns: {
+			control: false,
+			description:
+				"Column definitions. Mark exactly one column as `hierarchical` to render the expand/collapse arrows and node icons in it."
+		},
+		hideRoot: {
+			control: "boolean",
+			description: "Hides the root node and renders its children as top-level rows."
+		},
+		enableColumnGroupA11y: {
+			control: "boolean",
+			description:
+				'Improves accessibility of grouped column headers (`scope="colgroup"`) and aligns header widths with body cells.'
+		},
+		rowStyling: {
+			control: false,
+			description:
+				"Callback returning per-row styles such as `selected`, `disabled`, `highlighted`, `interactive` and `collapsed`."
+		},
+		rowEventHandlers: {
+			control: false,
+			description:
+				"Callback returning per-row event handlers, including `onClick` and `onArrowClick` for expand/collapse."
+		},
+		scrollToNode: {
+			control: false,
+			description: "Receives a handler to programmatically scroll the table to a node by its `id`."
+		},
+		virtualScrollOptions: {
+			control: false,
+			description: "Enables virtual scrolling; requires a fixed `rowHeight`."
+		},
+		componentRenderers: {
+			control: false,
+			description: "Custom renderers for table parts, e.g. `bodyContentRenderer` for custom cell content."
+		}
+	}
+};
 
-	const rowEventHandlers: TreeTableRowEventHandlers = useCallback(
-		({ row }) => ({
-			onArrowClick() {
-				setCollapsedNodes((prev) => ({ ...prev, [row.id]: !prev[row.id] }));
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Playground: Story = {
+	args: {
+		id: "playground-tree-table",
+		root: ROOT,
+		columns: COLUMNS,
+		hideRoot: false,
+		enableColumnGroupA11y: false
+	},
+	render: function PlaygroundExample(args) {
+		const [selectedNode, setSelectedNode] = useState<number | undefined>();
+		const [collapsedNodes, setCollapsedNodes] = useState<Record<number, boolean>>({});
+
+		const rowEventHandlers: TreeTableRowEventHandlers = useCallback(
+			({ row }) => ({
+				onArrowClick() {
+					setCollapsedNodes((prev) => ({ ...prev, [row.id]: !prev[row.id] }));
+				},
+				onClick() {
+					setSelectedNode(row.id);
+				}
+			}),
+			[]
+		);
+
+		const rowStyling: TreeTableRowStyling = useCallback(
+			({ row }) => {
+				const node = getNodeById(row.id, ROOT);
+
+				return {
+					selected: row.id === selectedNode,
+					interactive: true,
+					collapsed: node?.children ? !!collapsedNodes[row.id] : undefined,
+					title: row.id === selectedNode ? "Selected" : "Selectable"
+				};
 			},
-			onClick() {
-				setSelectedNode(row.id);
+			[collapsedNodes, selectedNode]
+		);
+
+		return <TreeTable {...args} rowStyling={rowStyling} rowEventHandlers={rowEventHandlers} />;
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"A hierarchical table combining tree navigation with tabular columns. " +
+					"Click a row to select it; use the arrow button to expand or collapse a branch."
 			}
-		}),
-		[]
-	);
+		}
+	}
+};
 
-	const rowStyling: TreeTableRowStyling = useCallback(
-		({ row }) => {
-			const node = getNodeById(row.id, ROOT);
+export const DisabledRows: Story = {
+	render: function DisabledRowsExample() {
+		const [collapsedNodes, setCollapsedNodes] = useState<Record<number, boolean>>({});
 
-			return {
-				selected: row.id === selectedNode,
-				interactive: true,
-				collapsed: node?.children ? !!collapsedNodes[row.id] : undefined,
-				title: row.id === selectedNode ? "Selected" : "Selectable"
-			};
-		},
-		[collapsedNodes, selectedNode]
-	);
+		const rowEventHandlers: TreeTableRowEventHandlers = useCallback(
+			({ row }) => ({
+				onArrowClick() {
+					setCollapsedNodes((prev) => ({ ...prev, [row.id]: !prev[row.id] }));
+				}
+			}),
+			[]
+		);
 
-	return (
-		<TreeTable
-			id="basic-tree-table"
-			root={ROOT}
-			columns={COLUMNS}
-			rowStyling={rowStyling}
-			rowEventHandlers={rowEventHandlers}
-		/>
-	);
-}
+		const rowStyling: TreeTableRowStyling = useCallback(
+			({ row }) => {
+				const node = getNodeById(row.id, ROOT);
+				const isLeaf = !node?.children?.length;
 
-function DisabledRowsDemo() {
-	const [collapsedNodes, setCollapsedNodes] = useState<Record<number, boolean>>({});
+				return {
+					disabled: isLeaf,
+					interactive: !isLeaf,
+					collapsed: node?.children ? !!collapsedNodes[row.id] : undefined
+				};
+			},
+			[collapsedNodes]
+		);
 
-	const rowEventHandlers: TreeTableRowEventHandlers = useCallback(
-		({ row }) => ({
-			onArrowClick() {
-				setCollapsedNodes((prev) => ({ ...prev, [row.id]: !prev[row.id] }));
+		return (
+			<TreeTable
+				id="disabled-rows-tree-table"
+				root={ROOT}
+				columns={COLUMNS}
+				rowStyling={rowStyling}
+				rowEventHandlers={rowEventHandlers}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Return `disabled: true` from `rowStyling` to suppress interactions on specific rows — here leaf (file) nodes are disabled."
 			}
-		}),
-		[]
-	);
+		}
+	}
+};
 
-	const rowStyling: TreeTableRowStyling = useCallback(
-		({ row }) => {
-			const node = getNodeById(row.id, ROOT);
-			const isLeaf = !node?.children?.length;
+export const RowHighlighting: Story = {
+	render: function RowHighlightingExample() {
+		const [collapsedNodes, setCollapsedNodes] = useState<Record<number, boolean>>({});
 
-			return {
-				disabled: isLeaf,
-				interactive: !isLeaf,
-				collapsed: node?.children ? !!collapsedNodes[row.id] : undefined
-			};
-		},
-		[collapsedNodes]
-	);
+		const rowEventHandlers: TreeTableRowEventHandlers = useCallback(
+			({ row }) => ({
+				onArrowClick() {
+					setCollapsedNodes((prev) => ({ ...prev, [row.id]: !prev[row.id] }));
+				}
+			}),
+			[]
+		);
 
-	return (
-		<TreeTable
-			id="disabled-rows-tree-table"
-			root={ROOT}
-			columns={COLUMNS}
-			rowStyling={rowStyling}
-			rowEventHandlers={rowEventHandlers}
-		/>
-	);
-}
+		const rowStyling: TreeTableRowStyling = useCallback(
+			({ row }) => {
+				const node = getNodeById(row.id, ROOT);
 
-function RowHighlightingDemo() {
-	const [collapsedNodes, setCollapsedNodes] = useState<Record<number, boolean>>({});
+				return {
+					highlighted: !node?.children?.length,
+					highlightVariant: "success",
+					interactive: true,
+					collapsed: node?.children ? !!collapsedNodes[row.id] : undefined
+				};
+			},
+			[collapsedNodes]
+		);
 
-	const rowEventHandlers: TreeTableRowEventHandlers = useCallback(
-		({ row }) => ({
-			onArrowClick() {
-				setCollapsedNodes((prev) => ({ ...prev, [row.id]: !prev[row.id] }));
+		return (
+			<TreeTable
+				id="row-highlighting-tree-table"
+				root={ROOT}
+				columns={COLUMNS}
+				rowStyling={rowStyling}
+				rowEventHandlers={rowEventHandlers}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Return `highlighted: true` with a `highlightVariant` from `rowStyling` to visually accent specific rows — here leaf nodes get the success highlight."
 			}
-		}),
-		[]
-	);
+		}
+	}
+};
 
-	const rowStyling: TreeTableRowStyling = useCallback(
-		({ row }) => {
-			const node = getNodeById(row.id, ROOT);
+export const HideRoot: Story = {
+	render: function HideRootExample() {
+		const [selectedNode, setSelectedNode] = useState<number | undefined>();
+		const [collapsedNodes, setCollapsedNodes] = useState<Record<number, boolean>>({});
 
-			return {
-				highlighted: !node?.children?.length,
-				highlightVariant: "success",
-				interactive: true,
-				collapsed: node?.children ? !!collapsedNodes[row.id] : undefined
-			};
-		},
-		[collapsedNodes]
-	);
+		const rowEventHandlers: TreeTableRowEventHandlers = useCallback(
+			({ row }) => ({
+				onArrowClick() {
+					setCollapsedNodes((prev) => ({ ...prev, [row.id]: !prev[row.id] }));
+				},
+				onClick() {
+					setSelectedNode(row.id);
+				}
+			}),
+			[]
+		);
 
-	return (
-		<TreeTable
-			id="row-highlighting-tree-table"
-			root={ROOT}
-			columns={COLUMNS}
-			rowStyling={rowStyling}
-			rowEventHandlers={rowEventHandlers}
-		/>
-	);
-}
+		const rowStyling: TreeTableRowStyling = useCallback(
+			({ row }) => {
+				const node = getNodeById(row.id, ROOT);
+
+				return {
+					selected: row.id === selectedNode,
+					interactive: true,
+					collapsed: node?.children ? !!collapsedNodes[row.id] : undefined
+				};
+			},
+			[collapsedNodes, selectedNode]
+		);
+
+		return (
+			<TreeTable
+				id="hide-root-tree-table"
+				root={ROOT}
+				columns={COLUMNS}
+				hideRoot
+				rowStyling={rowStyling}
+				rowEventHandlers={rowEventHandlers}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Set `hideRoot` to suppress the root node and show its children as top-level rows — " +
+					"useful when the root is a conceptual container rather than a meaningful entry."
+			}
+		}
+	}
+};
+
+const COLUMNS_WITH_ACTIONS: BaseTreeTableColumnType[] = [
+	...COLUMNS,
+	{ label: "", horizontalAlignment: "center", actionColumn: true } as BaseTreeTableColumnType
+];
+
+export const WithActionColumn: Story = {
+	render: function WithActionColumnExample() {
+		const [selectedNode, setSelectedNode] = useState<number | undefined>();
+		const [collapsedNodes, setCollapsedNodes] = useState<Record<number, boolean>>({});
+
+		const rowEventHandlers: TreeTableRowEventHandlers = useCallback(
+			({ row }) => ({
+				onArrowClick() {
+					setCollapsedNodes((prev) => ({ ...prev, [row.id]: !prev[row.id] }));
+				},
+				onClick() {
+					setSelectedNode(row.id);
+				}
+			}),
+			[]
+		);
+
+		const rowStyling: TreeTableRowStyling = useCallback(
+			({ row }) => {
+				const node = getNodeById(row.id, ROOT);
+
+				return {
+					selected: row.id === selectedNode,
+					interactive: true,
+					collapsed: node?.children ? !!collapsedNodes[row.id] : undefined
+				};
+			},
+			[collapsedNodes, selectedNode]
+		);
+
+		const bodyContentRenderer = ({ column }: { column: BaseTreeTableColumnType; row: unknown }) => {
+			if (column.actionColumn) {
+				return <Button destructive icon={<Icon>delete</Icon>} onClick={(e) => e.stopPropagation()} />;
+			}
+
+			return undefined;
+		};
+
+		return (
+			<TreeTable
+				id="action-column-tree-table"
+				root={ROOT}
+				columns={COLUMNS_WITH_ACTIONS}
+				rowStyling={rowStyling}
+				rowEventHandlers={rowEventHandlers}
+				componentRenderers={{ bodyContentRenderer } as never}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Adds a pinned action column containing a per-row delete button. " +
+					"Use `componentRenderers.bodyContentRenderer` with `column.actionColumn` to inject custom cell content."
+			}
+		}
+	}
+};
 
 const SCROLL_COLUMNS: BaseTreeTableColumnType[] = [
 	{ label: "Name", hierarchical: true, horizontalAlignment: "left" },
@@ -186,65 +397,14 @@ const SCROLL_ROOT: BaseTreeTableNode<string[]> = {
 	]
 };
 
-const meta: Meta<typeof BasicTreeTableDemo> = {
-	title: "Data Display/TreeTable",
-	component: BasicTreeTableDemo,
-	parameters: { layout: "padded" },
-	tags: ["autodocs"]
-};
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
-	name: "Basic TreeTable",
-	render: () => <BasicTreeTableDemo />,
-	parameters: {
-		docs: {
-			description: {
-				story:
-					"A hierarchical table combining tree navigation with tabular columns. " +
-					"Click a row to select it; use the arrow button to expand or collapse a branch."
-			}
-		}
-	}
-};
-
-export const DisabledRows: Story = {
-	name: "Disabled Rows",
-	render: () => <DisabledRowsDemo />,
-	parameters: {
-		docs: {
-			description: {
-				story:
-					"Return `disabled: true` from `rowStyling` to suppress interactions on specific rows — here leaf (file) nodes are disabled."
-			}
-		}
-	}
-};
-
-export const RowHighlighting: Story = {
-	name: "Row Highlighting",
-	render: () => <RowHighlightingDemo />,
-	parameters: {
-		docs: {
-			description: {
-				story:
-					"Return `highlighted: true` with a `highlightVariant` from `rowStyling` to visually accent specific rows — here leaf nodes get the success highlight."
-			}
-		}
-	}
-};
-
 export const ScrollToNode: Story = {
-	name: "Scroll to Node",
-	render: () => {
+	render: function ScrollToNodeExample() {
 		const scrollHandlerRef = useRef<TreeTableScrollToNodeHandler | undefined>(undefined);
 
 		const scrollTo = (nodeId: number) => scrollHandlerRef.current?.(nodeId, { autoFocus: false });
 
 		return (
-			<div style={{ display: "flex", flexDirection: "column", gap: 12, width: 500 }}>
+			<div style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%", maxWidth: 500 }}>
 				<ButtonGroup>
 					<Button onClick={() => scrollTo(2)}>Scroll to Node 2</Button>
 					<Button onClick={() => scrollTo(8)}>Scroll to Node 8</Button>
@@ -413,7 +573,7 @@ const COLUMN_GROUP_ROOT: PersonNode = {
 
 export const ColumnGroupWithEnhancedAccessibility: Story = {
 	name: "Column Groups Accessibility",
-	render: () => {
+	render: function ColumnGroupExample() {
 		const [collapsedNodes, setCollapsedNodes] = useState<Record<number, boolean>>({});
 
 		const rowEventHandlers: TreeTableRowEventHandlers = useCallback(
@@ -455,6 +615,273 @@ export const ColumnGroupWithEnhancedAccessibility: Story = {
 				story:
 					'With `enableColumnGroupA11y`, column group headers use `scope="colgroup"` and the header grid ' +
 					"synchronizes its column widths to the rendered body cells for precise visual alignment."
+			}
+		}
+	}
+};
+
+// ---------------------------------------------------------------------------
+// Drag and drop
+//
+// TreeTable's DnD is built on react-dnd, so every story below has to be wrapped
+// in a DndProvider. Drop targets come in three flavours (TreeTableNodeDropPosition):
+// TOP / BOTTOM reorder next to the hovered row, AS_CHILD re-parents into it.
+// ---------------------------------------------------------------------------
+
+const withDndProvider: Decorator = (Story) => (
+	<DndProvider backend={DragAndDropUtils.DefaultDndBackend} options={DragAndDropUtils.DefaultDndBackendOptions}>
+		<Story />
+	</DndProvider>
+);
+
+function positionLabel(position: TreeTableNodeDropPosition): string {
+	switch (position) {
+		case TreeTableNodeDropPosition.TOP:
+			return "above";
+		case TreeTableNodeDropPosition.BOTTOM:
+			return "below";
+		default:
+			return "into";
+	}
+}
+
+/** Expand/collapse plus row styling shared by all drag-and-drop stories. */
+function useFileTreeRows(
+	root: FileNode,
+	disableLocked = false
+): { rowEventHandlers: TreeTableRowEventHandlers<FileNode>; rowStyling: TreeTableRowStyling<FileNode> } {
+	const [collapsedNodes, setCollapsedNodes] = useState<Record<string, boolean>>({});
+
+	const rowEventHandlers: TreeTableRowEventHandlers<FileNode> = useCallback(
+		({ row }) => ({
+			onArrowClick() {
+				setCollapsedNodes((prev) => ({ ...prev, [row.id]: !prev[row.id] }));
+			}
+		}),
+		[]
+	);
+
+	const rowStyling: TreeTableRowStyling<FileNode> = useCallback(
+		({ row }) => {
+			const node = findNode(row.id, root);
+			const locked = disableLocked && !!row.data.locked;
+
+			return {
+				collapsed: node?.children?.length ? !!collapsedNodes[row.id] : undefined,
+				interactive: !locked,
+				disabled: locked,
+				title: locked ? "Locked — cannot be dragged or dropped into" : undefined
+			};
+		},
+		[collapsedNodes, disableLocked, root]
+	);
+
+	return { rowEventHandlers, rowStyling };
+}
+
+const StyledDndDemo = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+`;
+
+/** Leaves empty space below the last row so the hidden root's drop zone can be reached. */
+const StyledTallTable = styled.div`
+	height: 480px;
+
+	& > * {
+		height: 100%;
+	}
+`;
+
+function DragAndDropDemo({
+	id,
+	hideRoot,
+	restricted
+}: {
+	id: string;
+	hideRoot?: boolean;
+	restricted?: boolean;
+}): ReactElement {
+	const [root, dragDropOptions, reset] = useDndTree(DND_ROOT, { restricted });
+	const { rowEventHandlers, rowStyling } = useFileTreeRows(root, restricted);
+
+	const table = (
+		<TreeTable<FileNode>
+			id={id}
+			root={root}
+			columns={DND_COLUMNS}
+			hideRoot={hideRoot}
+			dragDropOptions={dragDropOptions}
+			rowEventHandlers={rowEventHandlers}
+			rowStyling={rowStyling}
+		/>
+	);
+
+	return (
+		<StyledDndDemo>
+			<ButtonGroup>
+				<Button onClick={reset}>Reset tree</Button>
+			</ButtonGroup>
+			{hideRoot ? <StyledTallTable>{table}</StyledTallTable> : table}
+		</StyledDndDemo>
+	);
+}
+
+export const DragAndDrop: Story = {
+	name: "Drag and Drop",
+	decorators: [withDndProvider],
+	render: () => <DragAndDropDemo id="dnd-tree-table" />,
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Pass `dragDropOptions` to make rows draggable. Drop a row near another row's **top or bottom edge** to " +
+					"reorder it among that row's siblings, or onto the **middle of a folder/drive** to re-parent it. " +
+					"`onDrop` receives `{ dragItem, dropResult }` where `dropResult.position` is one of " +
+					"`TreeTableNodeDropPosition.TOP`, `BOTTOM` or `AS_CHILD`; the consumer applies the move to its own tree. " +
+					"`canDrop` here rejects self/descendant targets (which would create a cycle) and keeps drives at top level."
+			}
+		}
+	}
+};
+
+export const DragAndDropRestrictions: Story = {
+	name: "Drag and Drop — Restrictions",
+	decorators: [withDndProvider],
+	render: () => <DragAndDropDemo id="dnd-restricted-tree-table" restricted />,
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`canDrag` decides which rows can be picked up and `canDrop` which targets accept them — forbidden targets " +
+					'are marked while dragging. "Locked (read-only)" can neither be dragged nor receive a drop, files never ' +
+					"accept children, and drives can only be reordered next to other drives. Note that a row whose " +
+					"`rowStyling` returns `interactive: false` is not draggable either, independent of `canDrag`."
+			}
+		}
+	}
+};
+
+export const DragAndDropHiddenRoot: Story = {
+	name: "Drag and Drop — Hidden Root",
+	decorators: [withDndProvider],
+	render: () => <DragAndDropDemo id="dnd-hide-root-tree-table" hideRoot />,
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"With `hideRoot`, the table itself becomes a drop target for the (invisible) root node: drop a row onto the " +
+					"empty area below the last row to move it back to the top level. Everything else behaves as in the basic " +
+					"drag-and-drop story."
+			}
+		}
+	}
+};
+
+const StyledDndLog = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-height: 120px;
+	padding: 8px 12px;
+	border: 1px solid rgb(128 128 128 / 40%);
+	font-family: monospace;
+	font-size: 12px;
+`;
+
+function DragAndDropEventsDemo(): ReactElement {
+	const [log, setLog] = useState<string[]>([]);
+	const [hovered, setHovered] = useState<string | undefined>();
+	const hoveredRef = useRef<string | undefined>(undefined);
+
+	const append = useCallback((entry: string) => setLog((prev) => [entry, ...prev].slice(0, 8)), []);
+
+	const onNodeMoved = useCallback(
+		({
+			dragged,
+			target,
+			position
+		}: {
+			dragged: FlatFileNode;
+			target: FlatFileNode;
+			position: TreeTableNodeDropPosition;
+		}) => append(`onDrop: "${dragged.data.name}" ${positionLabel(position)} "${target.data.name}"`),
+		[append]
+	);
+
+	const [root, dragDropOptions, reset] = useDndTree(DND_ROOT, { onNodeMoved });
+	const { rowEventHandlers, rowStyling } = useFileTreeRows(root);
+
+	const updateHovered = useCallback((label: string | undefined) => {
+		if (label !== hoveredRef.current) {
+			hoveredRef.current = label;
+			setHovered(label);
+		}
+	}, []);
+
+	const optionsWithEvents: typeof dragDropOptions = useMemo(
+		() => ({
+			...dragDropOptions,
+			onBeginDrag({ dragItem }) {
+				append(`onBeginDrag: "${dragItem.row.data.name}"`);
+			},
+			onHover({ hoveredItem }) {
+				updateHovered(
+					hoveredItem ? `${positionLabel(hoveredItem.position)} "${hoveredItem.row.data.name}"` : undefined
+				);
+			},
+			onEndDrag({ dropResult }) {
+				updateHovered(undefined);
+				append(dropResult ? "onEndDrag: dropped" : "onEndDrag: cancelled");
+			}
+		}),
+		[append, dragDropOptions, updateHovered]
+	);
+
+	return (
+		<StyledDndDemo>
+			<ButtonGroup>
+				<Button
+					onClick={() => {
+						reset();
+						setLog([]);
+					}}
+				>
+					Reset tree
+				</Button>
+			</ButtonGroup>
+			<TreeTable<FileNode>
+				id="dnd-events-tree-table"
+				root={root}
+				columns={DND_COLUMNS}
+				dragDropOptions={optionsWithEvents}
+				rowEventHandlers={rowEventHandlers}
+				rowStyling={rowStyling}
+			/>
+			<StyledDndLog aria-live="polite">
+				<div>{hovered ? `hovering: ${hovered}` : "hovering: —"}</div>
+				{log.map((entry, index) => (
+					<div key={`${entry}-${index}`}>{entry}</div>
+				))}
+			</StyledDndLog>
+		</StyledDndDemo>
+	);
+}
+
+export const DragAndDropEvents: Story = {
+	name: "Drag and Drop — Events",
+	decorators: [withDndProvider],
+	render: () => <DragAndDropEventsDemo />,
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The full drag lifecycle: `onBeginDrag` when a row is picked up, `onHover` for every hovered drop target " +
+					"(row **and** position — useful for custom highlighting or auto-expanding), `onDrop` when a valid drop is " +
+					"applied, and `onEndDrag` when the gesture finishes, with `dropResult: null` if it was cancelled. " +
+					"`onHover` fires very frequently, so keep its handler cheap — here the hovered target is only written to " +
+					"state when it actually changes."
 			}
 		}
 	}

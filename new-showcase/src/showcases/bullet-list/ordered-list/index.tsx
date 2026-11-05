@@ -30,6 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import inlineCode from "!./inline.tsx?raw";
+import typesCode from "!./types.tsx?raw";
+
 import BulletListAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/bullet-list/main/bullet-list.api.json" with { type: "json" };
 
 import type { Showcase } from "../../../helpers/definitions.js";
@@ -37,10 +41,6 @@ import type { Showcase } from "../../../helpers/definitions.js";
 import { BasicOrderedList } from "./basic.js";
 import { InlineOrderedList } from "./inline.js";
 import { TypesOrderedList } from "./types.js";
-
-import basicCode from "!./basic.tsx?raw";
-import inlineCode from "!./inline.tsx?raw";
-import typesCode from "!./types.tsx?raw";
 
 const showcases: Showcase[] = [
 	{

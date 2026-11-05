@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState, useCallback, useRef } from "react";
 import { DndProvider } from "react-dnd";
-import type { Meta, StoryObj } from "@storybook/react-vite";
 import { styled } from "styled-components";
 
 import type {
@@ -268,7 +268,6 @@ function ScrollToNodeDemo() {
 const meta: Meta = {
 	title: "Data Display/Table/Table Advanced",
 	parameters: { layout: "padded" },
-	tags: ["autodocs"],
 	decorators: [
 		(Story) => (
 			<DndProvider backend={DragAndDropUtils.DefaultDndBackend} options={DragAndDropUtils.DefaultDndBackendOptions}>

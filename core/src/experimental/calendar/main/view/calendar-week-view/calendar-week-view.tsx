@@ -30,17 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { format, isSameDay, isSameMonth } from "date-fns";
 import type { ReactElement, ReactNode } from "react";
 import { Fragment, useContext, useRef } from "react";
-import { format, isSameDay, isSameMonth } from "date-fns";
 
-import type { CalendarDay, CalendarWeekViewProps } from "../../calendar.api.js";
-import { DateTimeContext } from "../../../../../common/main/date-time/date-time-context.js";
 import { DataRoles } from "../../../../../common/main/data-roles.js";
-
-import { getWeekDates } from "../utils.internal.js";
-import { useWeekViewNavigateByKey } from "../calendar-hook.internal.js";
+import { DateTimeContext } from "../../../../../common/main/date-time/date-time-context.js";
+import type { CalendarDay, CalendarWeekViewProps } from "../../calendar.api.js";
 import { CalendarDayCell } from "../calendar-day.js";
+import { useWeekViewNavigateByKey } from "../calendar-hook.internal.js";
+import { getWeekDates } from "../utils.internal.js";
 
 import {
 	StyledCalendarWeekViewContent,

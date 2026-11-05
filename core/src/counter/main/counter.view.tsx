@@ -35,14 +35,14 @@ import { useContext, useRef } from "react";
 import { styled, css, keyframes } from "styled-components";
 
 import type { A11yDefinition } from "../../common/main/a11y-localization/a11y-key-definition.api.js";
-import { joinClassNames, addPrefix, usePreviousProps } from "../../common/main/utils.js";
-import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
+import { DataRoles } from "../../common/main/data-roles.js";
+import { HiddenText } from "../../common/main/hidden-text/hidden-text.view.js";
+import { joinClassNames, addPrefix, usePreviousProps } from "../../common/main/utils.js";
 import { StyledIconWrapper } from "../../icon/main/icon.view.js";
+import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
 import { fadeIn } from "../../theme/base/mixins/_animation.js";
 import { active, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
-import { useInteractionHint } from "../../interaction-hint/main/use-interaction-hint.js";
-import { DataRoles } from "../../common/main/data-roles.js";
 
 import type { CounterProps } from "./counter.api.js";
 
@@ -91,60 +91,68 @@ export const StyledCounter = styled.span.withConfig({ displayName: "StyledCounte
 			flex-shrink: 0;
 		}
 
-		${(counterType === "destructive" || counterType === "constructive") &&
-		css`
-			background-color: ${counter.background[counterType]};
-			color: ${counter.variantColor};
-		`}
-
-		${interactive &&
-		css`
-			cursor: pointer;
-
-			&:focus {
-				background-color: ${counter.focus.backgroundColor};
-				color: ${counter.focus.color};
-				${darkFocus}
-			}
-
-			${active(css`
-				background-color: ${counter.active.backgroundColor};
-				color: ${counter.active.color};
-			`)}
-
-			${hover(css`
-				background-color: ${counter.hover.backgroundColor};
-				color: ${counter.hover.color};
-			`)}
-		`}
-
-		${secondary &&
-		css`
-			background: transparent;
-			color: inherit;
-			padding: 0;
-
-			${StyledIconWrapper} {
-				color: inherit;
-			}
-
-			${interactive &&
+		${
+			(counterType === "destructive" || counterType === "constructive") &&
 			css`
+				background-color: ${counter.background[counterType]};
+				color: ${counter.variantColor};
+			`
+		}
+
+		${
+			interactive &&
+			css`
+				cursor: pointer;
+
 				&:focus {
-					background-color: transparent;
-					color: ${counter.secondary.focusColor};
+					background-color: ${counter.focus.backgroundColor};
+					color: ${counter.focus.color};
+					${darkFocus}
 				}
 
 				${active(css`
-					background-color: transparent;
-					color: ${counter.secondary.activeColor};
+					background-color: ${counter.active.backgroundColor};
+					color: ${counter.active.color};
 				`)}
+
 				${hover(css`
-					background-color: transparent;
-					color: ${counter.secondary.hoverColor};
+					background-color: ${counter.hover.backgroundColor};
+					color: ${counter.hover.color};
 				`)}
-			`}
-		`}
+			`
+		}
+
+		${
+			secondary &&
+			css`
+				background: transparent;
+				color: inherit;
+				padding: 0;
+
+				${StyledIconWrapper} {
+					color: inherit;
+				}
+
+				${
+					interactive &&
+					css`
+						&:focus {
+							background-color: transparent;
+							color: ${counter.secondary.focusColor};
+						}
+
+						${active(css`
+							background-color: transparent;
+							color: ${counter.secondary.activeColor};
+						`)}
+						${hover(css`
+							background-color: transparent;
+							color: ${counter.secondary.hoverColor};
+						`)}
+					`
+				}
+			`
+		}
 	`;
 });
 
@@ -163,13 +171,15 @@ const StyledCounterAddon = styled.span.withConfig({ displayName: "StyledCounterA
 				color: inherit;
 			}
 
-			${addonAfter
-				? css`
-						margin-left: ${counter.iconMargin};
-					`
-				: css`
-						margin-right: ${counter.iconMargin};
-					`}
+			${
+				addonAfter
+					? css`
+							margin-left: ${counter.iconMargin};
+						`
+					: css`
+							margin-right: ${counter.iconMargin};
+						`
+			}
 		`;
 	}
 );

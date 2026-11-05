@@ -34,7 +34,6 @@ import { render } from "test-utils";
 import { describe, expect, test } from "vitest";
 
 import { Range } from "../../common/main/utils.js";
-
 import type { BaseColumnType } from "../main/column.api.js";
 import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
 import { TableTemplate } from "../main/template/index.js";

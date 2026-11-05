@@ -30,13 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { format, isSameDay } from "date-fns";
+import { getAllByDataRole, render } from "test-utils";
 import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
-import { getAllByDataRole, render } from "test-utils";
-import { format, isSameDay } from "date-fns";
 
 import { DataRoles } from "../../../common/main/data-roles.js";
-
 import { Calendar } from "../main/calendar.view.js";
 
 interface DayEvent {

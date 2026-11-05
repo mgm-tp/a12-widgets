@@ -30,19 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { waitFor } from "@testing-library/dom";
 import type { ReactNode } from "react";
 import { useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
+import { render, getByDataRole } from "test-utils";
 import { describe, test, expect } from "vitest";
 import { page } from "vitest/browser";
-import { waitFor } from "@testing-library/dom";
-import { render, getByDataRole } from "test-utils";
 
-import { DataRoles } from "../../common/main/data-roles.js";
 import { Button } from "../../button/main/button.view.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { ActionContentbox } from "../../contentbox/main/action-contentbox/action-contentbox.view.js";
 import { ContentBoxElements } from "../../contentbox/main/template/contentbox.tpl.view.js";
-
 import { AttachedPortal } from "../main/attached-portal.view.js";
 
 function AppInIframe(): ReactNode {

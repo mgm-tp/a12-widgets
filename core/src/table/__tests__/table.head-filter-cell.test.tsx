@@ -34,7 +34,6 @@ import { render } from "test-utils";
 import { describe, vi, expect, test } from "vitest";
 
 import { noop } from "../../common/main/utils.js";
-
 import type { BaseColumnType, Column } from "../main/column.api.js";
 import { TableInternalUtils } from "../main/table.utils.js";
 import { DefaultTableComponentRenderers, HeadFilterCell, TableContextProvider } from "../main/table.view.js";

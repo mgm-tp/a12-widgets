@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useRef, useState, useCallback, useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useRef, useState, useCallback, useEffect } from "react";
 
 import type {
 	MapTreeNode,
@@ -39,10 +39,47 @@ import type {
 	TreeNodeModel,
 	TreeNodeTemplateModel
 } from "@com.mgmtp.a12.widgets/widgets-core";
-import { Button, ButtonGroup, find, findById, walkTreeNode } from "@com.mgmtp.a12.widgets/widgets-core";
+import { Button, ButtonGroup, Icon, find, findById, walkTreeNode } from "@com.mgmtp.a12.widgets/widgets-core";
 
 import type { FileNode } from "./tree.data.js";
 import { FILE_SYSTEM, HIGHLIGHTED_FILE_SYSTEM, InteractiveTree, collectExpandedIds } from "./tree.data.js";
+
+/**
+ * Wires expansion tracking into the shared FILE_SYSTEM data and returns a selection
+ * handler that keeps the `selected` flags of the node models in sync.
+ */
+function useFileSystemSelection() {
+	const expandedNodeIds = useRef<Set<string>>(collectExpandedIds(FILE_SYSTEM));
+	const [selectedNode, setSelectedNode] = useState<string | undefined>(undefined);
+
+	useEffect(() => {
+		walkTreeNode(FILE_SYSTEM, (node) => {
+			const fileNode = node as FileNode;
+
+			if (fileNode.children) {
+				fileNode.onToggleExpansion = () => {
+					if (expandedNodeIds.current.has(String(fileNode.id))) {
+						expandedNodeIds.current.delete(String(fileNode.id));
+					} else {
+						expandedNodeIds.current.add(String(fileNode.id));
+					}
+				};
+			}
+		});
+	}, []);
+
+	return useCallback(
+		(node: TreeNodeModel): void => {
+			if (selectedNode && selectedNode !== node.id) {
+				(findById(FILE_SYSTEM, selectedNode) as SelectableTreeNodeModel).selected = false;
+			}
+
+			(findById(FILE_SYSTEM, node.id) as SelectableTreeNodeModel).selected = true;
+			setSelectedNode(node.id);
+		},
+		[selectedNode]
+	);
+}
 
 function BasicTreeDemo() {
 	const expandedNodeIds = useRef<Set<string>>(collectExpandedIds(FILE_SYSTEM));
@@ -127,6 +164,21 @@ function NodeHighlightingDemo() {
 	);
 }
 
+const actionButtonsTpl: MapTreeNode = (n, chained) => ({
+	...chained,
+	actionButtons: (
+		<Button
+			icon={<Icon>edit</Icon>}
+			title={`Edit ${typeof n.label === "string" ? n.label : "node"}`}
+			disabled={n.disabled}
+			onClick={(e) => {
+				e.stopPropagation();
+				alert(`Editing: ${n.label}`);
+			}}
+		/>
+	)
+});
+
 const SCROLL_TREE_ROOT = {
 	id: "1",
 	label: "Root",
@@ -148,15 +200,60 @@ const SCROLL_TREE_ROOT = {
 	]
 };
 
-const meta: Meta<typeof BasicTreeDemo> = {
+const meta: Meta<typeof InteractiveTree> = {
 	title: "Data Display/Tree",
-	component: BasicTreeDemo,
+	component: InteractiveTree,
 	parameters: { layout: "padded" },
-	tags: ["autodocs"]
+	argTypes: {
+		root: {
+			control: false,
+			description: "Root `TreeNodeModel` of the tree — defines the hierarchy of nodes"
+		},
+		tplTreeNode: {
+			control: false,
+			description: "Template mapping for each tree node, e.g. to add `actionButtons` or custom content"
+		},
+		onToggleSelection: {
+			control: false,
+			description: "Callback if a change in selection has been requested"
+		},
+		hideRoot: {
+			control: "boolean",
+			description: "Whether the top-level node should be hidden"
+		},
+		scrollSelectedNodeIntoView: {
+			control: "boolean",
+			description: "Whether the tree scrolls the selected node into view"
+		},
+		scrollToNode: {
+			control: false,
+			description: "Get a handler which scrolls the tree to a node's position by its id"
+		},
+		id: {
+			control: "text",
+			description: "Id of the tree element"
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const Playground: Story = {
+	args: {
+		id: "playground-tree",
+		root: FILE_SYSTEM,
+		tplTreeNode: (_n, chained) => ({ ...chained }),
+		onToggleSelection: () => {},
+		hideRoot: false,
+		scrollSelectedNodeIntoView: false
+	},
+	render: function PlaygroundExample(args) {
+		const updateSelectedNode = useFileSystemSelection();
+
+		return <InteractiveTree {...args} onToggleSelection={updateSelectedNode} />;
+	}
+};
 
 export const Default: Story = {
 	name: "Basic Tree",
@@ -185,9 +282,60 @@ export const NodeHighlighting: Story = {
 	}
 };
 
+export const WithActionButtons: Story = {
+	name: "With Action Buttons",
+	render: function WithActionButtonsExample() {
+		const updateSelectedNode = useFileSystemSelection();
+
+		return (
+			<InteractiveTree
+				id="tree-with-actions"
+				root={FILE_SYSTEM}
+				tplTreeNode={actionButtonsTpl}
+				onToggleSelection={updateSelectedNode}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Each node exposes an Edit action button via `tplTreeNode`. " +
+					"The button calls `e.stopPropagation()` so clicks do not also trigger node selection."
+			}
+		}
+	}
+};
+
+export const HideRoot: Story = {
+	name: "Hide Root Node",
+	render: function HideRootExample() {
+		const updateSelectedNode = useFileSystemSelection();
+
+		return (
+			<InteractiveTree
+				id="hide-root-tree"
+				root={FILE_SYSTEM}
+				tplTreeNode={(_n, chained) => ({ ...chained })}
+				onToggleSelection={updateSelectedNode}
+				hideRoot
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Setting `hideRoot` omits the top-level 'My Computer' node from the visual tree, " +
+					"so drives are rendered at the top level."
+			}
+		}
+	}
+};
+
 export const ScrollToNode: Story = {
 	name: "Scroll to Node",
-	render: () => {
+	render: function ScrollToNodeExample() {
 		const scrollHandlerRef = useRef<((nodeId: string | number) => void) | undefined>(undefined);
 
 		return (

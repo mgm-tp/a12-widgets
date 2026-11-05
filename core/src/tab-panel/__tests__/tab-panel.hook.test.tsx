@@ -30,21 +30,20 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { getAllByDataRole, getByDataRole, render, waitFor } from "test-utils";
-import { describe, expect, test } from "vitest";
-import { userEvent } from "vitest/browser";
 import type { CSSProperties, ReactNode } from "react";
 import { useCallback, useState } from "react";
 import { flushSync } from "react-dom";
+import { getAllByDataRole, getByDataRole, render, waitFor } from "test-utils";
+import { describe, expect, test } from "vitest";
+import { userEvent } from "vitest/browser";
 
-import { Icon } from "../../icon/main/icon.view.js";
 import { Badge } from "../../badge/main/badge.view.js";
 import { Button } from "../../button/main/button.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
+import { Icon } from "../../icon/main/icon.view.js";
+import type { TabPanelOrientation } from "../main/tab-panel.api.js";
 import { TabPanel } from "../main/tab-panel.view.js";
 import type { TabPanelTemplateProps } from "../main/template/tab-panel.tpl.api.js";
-import type { TabPanelOrientation } from "../main/tab-panel.api.js";
 
 // ---------------------------------------------------------------------------
 // Shared tab data

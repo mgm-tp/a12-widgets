@@ -45,6 +45,7 @@ export const BasicPaginationShowcase: FC = () => {
 		<ConfigurationView
 			configuration={
 				<Checkbox
+					id="pagination-basic-show-disabled-state"
 					fitToParent={false}
 					checked={disabled}
 					label="Show disabled state"

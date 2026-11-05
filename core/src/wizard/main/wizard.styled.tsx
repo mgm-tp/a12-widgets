@@ -32,8 +32,8 @@
 
 import { styled, css } from "styled-components";
 
-import { StyledIconWrapper } from "../../icon/main/icon.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { StyledIconWrapper } from "../../icon/main/icon.view.js";
 import { active, brightFocus, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
 import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
 
@@ -46,12 +46,14 @@ const interactiveWizardContentStyles = (state: "hover" | "focus" | "active") => 
 				background-color: ${step.selected[state].background};
 				color: ${step.selected[state].color};
 				text-decoration: underline;
-				${state === "focus" &&
-				css`
-					> ${StyledWizardContentContainerWrapper} ${StyledWizardContentContainer} {
-						${brightFocus}
-					}
-				`}
+				${
+					state === "focus" &&
+					css`
+						> ${StyledWizardContentContainerWrapper} ${StyledWizardContentContainer} {
+							${brightFocus}
+						}
+					`
+				}
 			}
 			${StyledWizardTip} {
 				background-image:
@@ -85,24 +87,28 @@ export const StyledWizardWrapper = styled.div.withConfig({ displayName: "StyledW
 		display: flex;
 		min-height: ${wizard.minHeight};
 		overflow: hidden;
-		${$truncateText &&
-		css`
-			${StyledWizardContent} {
-				overflow: hidden;
-			}
-			${StyledWizardText} {
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-			}
-		`}
-		${$responsive &&
-		!$truncateText &&
-		css`
-			${StyledWizardContent} {
-				flex: 1 0 auto;
-			}
-		`}
+		${
+			$truncateText &&
+			css`
+				${StyledWizardContent} {
+					overflow: hidden;
+				}
+				${StyledWizardText} {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			`
+		}
+		${
+			$responsive &&
+			!$truncateText &&
+			css`
+				${StyledWizardContent} {
+					flex: 1 0 auto;
+				}
+			`
+		}
 	`;
 });
 
@@ -133,18 +139,22 @@ export const StyledWizardNavigator = styled.button.withConfig({ displayName: "St
 			position: absolute;
 		}
 
-		${$navigationType === "next" &&
-		css`
-			border-left: ${step.border};
-		`}
-
-		${$navigationType === "previous" &&
-		css`
-			+ ${StyledWizardStep} ${StyledWizardContent} {
+		${
+			$navigationType === "next" &&
+			css`
 				border-left: ${step.border};
-			}
-		`}
-		
+			`
+		}
+
+		${
+			$navigationType === "previous" &&
+			css`
+				+ ${StyledWizardStep} ${StyledWizardContent} {
+					border-left: ${step.border};
+				}
+			`
+		}
+
 		${StyledIconWrapper} {
 			color: inherit;
 			font-size: ${navigator.fontSize};
@@ -165,8 +175,8 @@ export const StyledWizardNavigator = styled.button.withConfig({ displayName: "St
 				&:before {
 					border: ${navigator.hover.border};
 				}
-			`)} 
-			
+			`)}
+
 			&:focus {
 				color: ${navigator.focus.color};
 				outline: none;
@@ -176,16 +186,20 @@ export const StyledWizardNavigator = styled.button.withConfig({ displayName: "St
 				&:after {
 					border: ${navigator.focus.outline};
 				}
-				${$navigationType === "next" &&
-				css`
-					border-left-color: transparent;
-				`}
-				${$navigationType === "previous" &&
-				css`
-					+ ${StyledWizardStep} ${StyledWizardContent} {
+				${
+					$navigationType === "next" &&
+					css`
 						border-left-color: transparent;
-					}
-				`}
+					`
+				}
+				${
+					$navigationType === "previous" &&
+					css`
+						+ ${StyledWizardStep} ${StyledWizardContent} {
+							border-left-color: transparent;
+						}
+					`
+				}
 			}
 		}
 
@@ -205,15 +219,17 @@ export const StyledWizardContentContainerWrapper = styled.span.withConfig({
 		min-height: ${wizard.minHeight};
 		padding: ${$hasIcon ? `${wizard.content.wrapper.padding}` : `${wizard.content.wrapper.nonIconPadding}`};
 		position: relative;
-		${$selected &&
-		css`
-			${createPseudoElement(
-				":after",
-				css`
-					border-bottom: 4px solid transparent;
-				`
-			)};
-		`}
+		${
+			$selected &&
+			css`
+				${createPseudoElement(
+					":after",
+					css`
+						border-bottom: 4px solid transparent;
+					`
+				)};
+			`
+		}
 	`;
 });
 
@@ -242,61 +258,73 @@ export const StyledWizardContent = styled.button.withConfig({ displayName: "Styl
 
 		${StyledIconWrapper} {
 			font-size: ${content.iconFontSize};
-			${($selected || (!$warning && !$finished && !$error)) &&
-			css`
-				color: inherit;
-			`}
+			${
+				($selected || (!$warning && !$finished && !$error)) &&
+				css`
+					color: inherit;
+				`
+			}
 		}
 
-		${$leftOut &&
-		css`
-			background-color: ${step.leftOut.background};
-			flex: none;
-		`}
-
-		${$selected &&
-		!$leftOut &&
-		css`
-			background-color: ${$finished ? step.selected.finishedBG : step.selected.background};
-			color: ${step.selected.color};
-			&&& {
-				border-left: none;
-			}
-		`}
-		
-		${!$nonInteractive &&
-		!$disabled &&
-		css`
-			cursor: pointer;
-			${!$selected &&
+		${
+			$leftOut &&
 			css`
-				${active(css`
-					color: ${step.activeColor};
-					text-decoration: underline;
-				`)}
-				${hover(css`
-					color: ${step.hover.color};
-					text-decoration: underline;
-				`)}
-				&:focus {
-					color: ${step.focusColor};
-					text-decoration: underline;
-					${StyledWizardContentContainer} {
-						${darkFocus}
-					}
+				background-color: ${step.leftOut.background};
+				flex: none;
+			`
+		}
+
+		${
+			$selected &&
+			!$leftOut &&
+			css`
+				background-color: ${$finished ? step.selected.finishedBG : step.selected.background};
+				color: ${step.selected.color};
+				&&& {
+					border-left: none;
 				}
-			`}
-		`}
-		
-		${$disabled &&
-		!$leftOut &&
-		!$nonInteractive &&
-		css`
-			color: ${step.disabledColor};
-			${StyledIconWrapper} {
-				color: inherit;
-			}
-		`}
+			`
+		}
+
+		${
+			!$nonInteractive &&
+			!$disabled &&
+			css`
+				cursor: pointer;
+				${
+					!$selected &&
+					css`
+						${active(css`
+							color: ${step.activeColor};
+							text-decoration: underline;
+						`)}
+						${hover(css`
+							color: ${step.hover.color};
+							text-decoration: underline;
+						`)}
+						&:focus {
+							color: ${step.focusColor};
+							text-decoration: underline;
+							${StyledWizardContentContainer} {
+								${darkFocus}
+							}
+						}
+					`
+				}
+			`
+		}
+
+		${
+			$disabled &&
+			!$leftOut &&
+			!$nonInteractive &&
+			css`
+				color: ${step.disabledColor};
+				${StyledIconWrapper} {
+					color: inherit;
+				}
+			`
+		}
 	`;
 });
 
@@ -349,49 +377,55 @@ export const StyledWizardTip = styled.div.withConfig({ displayName: "StyledWizar
 			),
 			linear-gradient(to right, transparent 0, transparent 90%, ${tip.color} 93%, ${tip.color} 100%);
 
-		${$selected &&
-		css`
-			${!$leftOut &&
-			!$finished &&
+		${
+			$selected &&
 			css`
-				background-image:
-					linear-gradient(
-						to top right,
-						transparent 0,
-						transparent 48%,
-						${step.selected.background} 52%,
-						${step.selected.background} 100%
-					),
-					linear-gradient(
-						to bottom right,
-						transparent 0,
-						transparent 48%,
-						${step.selected.background} 52%,
-						${step.selected.background} 100%
-					),
-					linear-gradient(to right, transparent 0, transparent 100%);
-			`}
+				${
+					!$leftOut &&
+					!$finished &&
+					css`
+						background-image:
+							linear-gradient(
+								to top right,
+								transparent 0,
+								transparent 48%,
+								${step.selected.background} 52%,
+								${step.selected.background} 100%
+							),
+							linear-gradient(
+								to bottom right,
+								transparent 0,
+								transparent 48%,
+								${step.selected.background} 52%,
+								${step.selected.background} 100%
+							),
+							linear-gradient(to right, transparent 0, transparent 100%);
+					`
+				}
 
-			${$finished &&
-			css`
-				background-image:
-					linear-gradient(
-						to top right,
-						transparent 0,
-						transparent 48%,
-						${step.selected.finishedBG} 52%,
-						${step.selected.finishedBG} 100%
-					),
-					linear-gradient(
-						to bottom right,
-						transparent 0,
-						transparent 48%,
-						${step.selected.finishedBG} 52%,
-						${step.selected.finishedBG} 100%
-					),
-					linear-gradient(to right, transparent 0, transparent 100%);
-			`}
-		`}
+				${
+					$finished &&
+					css`
+						background-image:
+							linear-gradient(
+								to top right,
+								transparent 0,
+								transparent 48%,
+								${step.selected.finishedBG} 52%,
+								${step.selected.finishedBG} 100%
+							),
+							linear-gradient(
+								to bottom right,
+								transparent 0,
+								transparent 48%,
+								${step.selected.finishedBG} 52%,
+								${step.selected.finishedBG} 100%
+							),
+							linear-gradient(to right, transparent 0, transparent 100%);
+					`
+				}
+			`
+		}
 	`;
 });
 
@@ -412,11 +446,13 @@ export const StyledWizardStep = styled.div.withConfig({ displayName: "StyledWiza
 		min-width: ${step.minWidth};
 		padding: 0;
 
-		${$leftOut &&
-		css`
-			min-width: 0;
-			flex: none;
-		`}
+		${
+			$leftOut &&
+			css`
+				min-width: 0;
+				flex: none;
+			`
+		}
 		+ [data-role="${DataRoles.Wizard.Step}"] ${StyledWizardTip} {
 			background-position:
 				0 0,
@@ -431,44 +467,50 @@ export const StyledWizardStep = styled.div.withConfig({ displayName: "StyledWiza
 			width: ${tip.width};
 		}
 
-		${$selected &&
-		!$leftOut &&
-		css`
-			+ [data-role="${DataRoles.Wizard.NavigateButton}"] {
-				border-color: ${navigator.background};
-			}
-			+ [data-role="${DataRoles.Wizard.Step}"] ${StyledWizardTip} {
-				background-image:
-					linear-gradient(
-						to top right,
-						transparent 0,
-						transparent 48%,
-						${content.background} 52%,
-						${content.background} 100%
-					),
-					linear-gradient(
-						to bottom right,
-						transparent 0,
-						transparent 48%,
-						${content.background} 52%,
-						${content.background} 100%
-					),
-					linear-gradient(to right, transparent 0, transparent 100%);
-			}
-
-			${!$nonInteractive &&
+		${
+			$selected &&
+			!$leftOut &&
 			css`
-				${active(css`
-					${interactiveWizardContentStyles("active")}
-				`)}
-				${hover(css`
-					${interactiveWizardContentStyles("hover")}
-				`)}
-				${$focused &&
-				css`
-					${interactiveWizardContentStyles("focus")}
-				`}
-			`}
-		`}
+				+ [data-role="${DataRoles.Wizard.NavigateButton}"] {
+					border-color: ${navigator.background};
+				}
+				+ [data-role="${DataRoles.Wizard.Step}"] ${StyledWizardTip} {
+					background-image:
+						linear-gradient(
+							to top right,
+							transparent 0,
+							transparent 48%,
+							${content.background} 52%,
+							${content.background} 100%
+						),
+						linear-gradient(
+							to bottom right,
+							transparent 0,
+							transparent 48%,
+							${content.background} 52%,
+							${content.background} 100%
+						),
+						linear-gradient(to right, transparent 0, transparent 100%);
+				}
+
+				${
+					!$nonInteractive &&
+					css`
+						${active(css`
+							${interactiveWizardContentStyles("active")}
+						`)}
+						${hover(css`
+							${interactiveWizardContentStyles("hover")}
+						`)}
+						${
+							$focused &&
+							css`
+								${interactiveWizardContentStyles("focus")}
+							`
+						}
+					`
+				}
+			`
+		}
 	`;
 });

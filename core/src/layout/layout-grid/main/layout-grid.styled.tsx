@@ -30,12 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useContext } from "react";
 import { styled, css } from "styled-components";
 
 import type { SizeDetectorProps } from "../../size-detector/main/size-detector.api.js";
 
-import { GridContext } from "./layout-grid-context.js";
 import type { LayoutGridProps } from "./layout-grid.api.js";
 
 type VerticalAlignmentType = "top" | "middle" | "bottom" | undefined;
@@ -80,9 +78,9 @@ const modifyColumnWidth = (props: {
 
 			return css`
 				flex-basis: ${maxWidthWithoutGap}%;
-				max-width: ${gap
-					? `calc(${maxWidthWithoutGap}% - (${gap} - ${gap} / ${maxColumns / col}))`
-					: `${maxWidthWithoutGap}%`};
+				max-width: ${
+					gap ? `calc(${maxWidthWithoutGap}% - (${gap} - ${gap} / ${maxColumns / col}))` : `${maxWidthWithoutGap}%`
+				};
 			`;
 		}
 	}
@@ -121,159 +119,219 @@ export const StyledGridRow = styled.div.withConfig({ displayName: "StyledGridRow
 	Pick<LayoutGridProps.RowProps, "verticalAlignment" | "fitToContent" | "layoutConfig"> & {
 		customHeight?: string | number;
 		rowCount?: number;
+		$fitToParent?: boolean;
+		$currentBreakPoint?: LayoutGridProps.GridContextType["currentBreakPoint"];
+		$gridVerticalAlignment?: LayoutGridProps.RowProps["verticalAlignment"];
+		$noGutter?: boolean;
 	}
->(({ theme, verticalAlignment, fitToContent, layoutConfig, customHeight, rowCount }) => {
-	const { row, fit } = theme.components.layoutGrid;
-	const {
-		fitToParent,
-		currentBreakPoint,
-		verticalAlignment: gridVerticalAlignment,
-		noGutter
-	} = useContext(GridContext);
+>(
+	({
+		theme,
+		verticalAlignment,
+		fitToContent,
+		layoutConfig,
+		customHeight,
+		rowCount,
+		$fitToParent: fitToParent,
+		$currentBreakPoint: currentBreakPoint,
+		$gridVerticalAlignment: gridVerticalAlignment,
+		$noGutter: noGutter
+	}) => {
+		const { row, fit } = theme.components.layoutGrid;
 
-	return css`
-		display: flex;
-		flex-wrap: wrap;
-		margin-bottom: ${row.marginBottom};
-		gap: ${row.gap};
+		return css`
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom: ${row.marginBottom};
+			gap: ${row.gap};
 
-		${layoutConfig &&
-		css`
-			gap: 0;
-			margin: ${row.spanOffsetMargin};
-		`}
+			${
+				layoutConfig &&
+				css`
+					gap: 0;
+					margin: ${row.spanOffsetMargin};
+				`
+			}
 
-		${(gridVerticalAlignment || verticalAlignment) &&
-		css`
-			align-items: ${getVerticalAlignment(gridVerticalAlignment || verticalAlignment)};
-		`}
+			${
+				(gridVerticalAlignment || verticalAlignment) &&
+				css`
+					align-items: ${getVerticalAlignment(gridVerticalAlignment || verticalAlignment)};
+				`
+			}
 
-		${fitToParent &&
-		css`
-			align-items: stretch;
-			flex: ${fitToContent ? "none" : "1 0 30px"};
-			gap: ${fit.rowGap};
-			margin: 0;
-			min-height: 30px;
+			${
+				fitToParent &&
+				css`
+					align-items: stretch;
+					flex: ${fitToContent ? "none" : "1 0 30px"};
+					gap: ${fit.rowGap};
+					margin: 0;
+					min-height: 30px;
 
-			${currentBreakPoint === "xs" &&
-			css`
-				flex-basis: auto;
-				gap: 0;
-			`}
-		`}
+					${
+						currentBreakPoint === "xs" &&
+						css`
+							flex-basis: auto;
+							gap: 0;
+						`
+					}
+				`
+			}
 
-        ${noGutter &&
-		`
+			${
+				noGutter &&
+				`
 			${noGutterStyles}
-		`}
-
-        ${customHeight &&
-		css`
-			${StyledGrid} && {
-				${customRowHeightStyles({ customHeight, rowCount, gap: fit.gap })};
-				${customRowHeightStyles({ customHeight, rowCount, gap: fit.gap })};
+		`
 			}
 
-			${StyledGridColumn} && {
-				${customRowHeightStyles({ customHeight, rowCount, gap: fit.columnGap })};
-				${customRowHeightStyles({ customHeight, rowCount, gap: fit.columnGap })};
+			${
+				customHeight &&
+				css`
+					${StyledGrid} && {
+						${customRowHeightStyles({ customHeight, rowCount, gap: fit.gap })};
+						${customRowHeightStyles({ customHeight, rowCount, gap: fit.gap })};
+					}
+
+					${StyledGridColumn} && {
+						${customRowHeightStyles({ customHeight, rowCount, gap: fit.columnGap })};
+						${customRowHeightStyles({ customHeight, rowCount, gap: fit.columnGap })};
+					}
+				`
 			}
-		`}
-	`;
-});
+		`;
+	}
+);
 
 export const StyledGridColumn = styled.div.withConfig({ displayName: "StyledGridColumn-sc-" })<
 	Pick<LayoutGridProps.ColumnProps, "verticalAlignment" | "size" | "spacerColumn"> & {
 		maxColumns: number;
 		isUsingSpanOffset?: boolean;
 		customHeight?: LayoutGridProps.ColumnHeight;
+		$fitToParent?: boolean;
+		$cellBorder?: boolean;
+		$currentBreakPoint?: LayoutGridProps.GridContextType["currentBreakPoint"];
+		$noGutter?: boolean;
 	}
->(({ theme, verticalAlignment, maxColumns, size, spacerColumn, isUsingSpanOffset, customHeight }) => {
-	const { fit, cell, column, row } = theme.components.layoutGrid;
-	const { fitToParent, cellBorder, currentBreakPoint, noGutter } = useContext(GridContext);
+>(
+	({
+		theme,
+		verticalAlignment,
+		maxColumns,
+		size,
+		spacerColumn,
+		isUsingSpanOffset,
+		customHeight,
+		$fitToParent: fitToParent,
+		$cellBorder: cellBorder,
+		$currentBreakPoint: currentBreakPoint = null,
+		$noGutter: noGutter
+	}) => {
+		const { fit, cell, column, row } = theme.components.layoutGrid;
 
-	return css`
-		${!spacerColumn &&
-		css`
-			display: block;
+		return css`
+			${
+				!spacerColumn &&
+				css`
+					display: block;
 
-			${verticalAlignment &&
-			css`
-				align-self: ${getVerticalAlignment(verticalAlignment)};
-			`}
+					${
+						verticalAlignment &&
+						css`
+							align-self: ${getVerticalAlignment(verticalAlignment)};
+						`
+					}
 
-			${fitToParent &&
-			css`
-				display: flex;
-				flex-direction: column;
-				gap: ${currentBreakPoint === "xs" ? 0 : fit.columnGap};
-				max-height: 100%;
-				overflow: auto;
-				padding: 0;
+					${
+						fitToParent &&
+						css`
+							display: flex;
+							flex-direction: column;
+							gap: ${currentBreakPoint === "xs" ? 0 : fit.columnGap};
+							max-height: 100%;
+							overflow: auto;
+							padding: 0;
 
-				// Creating a gap for elements that are used inside layoutGrid--fit
-				& > *:not([data-role*="layout-grid"]) {
-					box-shadow: none;
-					display: flex;
-					overflow: auto;
-					margin: ${currentBreakPoint === "xs" && fit.mobileColumnChildMargin};
-					margin-bottom: ${currentBreakPoint !== "xs" && fit.columnChildMarginBottom};
-				}
-			`}
-		
-			${cellBorder &&
-			css`
-				& > *:not([data-role*="layout-grid"]) {
-					border: ${cell.border};
-				}
-			`}
-		`}
+							// Creating a gap for elements that are used inside layoutGrid--fit
+							& > *:not([data-role*="layout-grid"]) {
+								box-shadow: none;
+								display: flex;
+								overflow: auto;
+								margin: ${currentBreakPoint === "xs" && fit.mobileColumnChildMargin};
+								margin-bottom: ${currentBreakPoint !== "xs" && fit.columnChildMarginBottom};
+							}
+						`
+					}
 
-		${isUsingSpanOffset &&
-		css`
-			margin-bottom: ${column.marginBottom};
-			padding: ${column.padding};
-		`}
+					${
+						cellBorder &&
+						css`
+							& > *:not([data-role*="layout-grid"]) {
+								border: ${cell.border};
+							}
+						`
+					}
+				`
+			}
 
-		${size &&
-		css`
-			${modifyColumnWidth({
-				currentBreakPoint,
-				size,
-				maxColumns,
-				gap:
-					currentBreakPoint === "xs"
-						? undefined
-						: fitToParent
-							? `${fit.rowGap}`.split(" ").pop()
-							: !noGutter && !isUsingSpanOffset && !spacerColumn
-								? `${row.gap}`.split(" ").pop()
-								: undefined
-			})}
-		`}
+			${
+				isUsingSpanOffset &&
+				css`
+					margin-bottom: ${column.marginBottom};
+					padding: ${column.padding};
+				`
+			}
 
-		${noGutter &&
-		css`
-			${noGutterStyles}
-			${fitToParent &&
-			css`
-				& > *:not([data-role*="layout-grid"]) {
-					margin: 0;
-				}
-			`}
-		`}
-	  
-	  	${customHeight &&
-		currentBreakPoint &&
-		css`
-			height: ${typeof customHeight[currentBreakPoint] === "number"
-				? `${customHeight[currentBreakPoint]}px`
-				: customHeight[currentBreakPoint]};
-			max-height: none;
-		`}
-	`;
-});
+			${
+				size &&
+				css`
+					${modifyColumnWidth({
+						currentBreakPoint,
+						size,
+						maxColumns,
+						gap:
+							currentBreakPoint === "xs"
+								? undefined
+								: fitToParent
+									? `${fit.rowGap}`.split(" ").pop()
+									: !noGutter && !isUsingSpanOffset && !spacerColumn
+										? `${row.gap}`.split(" ").pop()
+										: undefined
+					})}
+				`
+			}
+
+			${
+				noGutter &&
+				css`
+					${noGutterStyles}
+					${
+						fitToParent &&
+						css`
+							& > *:not([data-role*="layout-grid"]) {
+								margin: 0;
+							}
+						`
+					}
+				`
+			}
+
+			${
+				customHeight &&
+				currentBreakPoint &&
+				css`
+					height: ${
+						typeof customHeight[currentBreakPoint] === "number"
+							? `${customHeight[currentBreakPoint]}px`
+							: customHeight[currentBreakPoint]
+					};
+					max-height: none;
+				`
+			}
+		`;
+	}
+);
 
 export const StyledGrid = styled.div.withConfig({ displayName: "StyledGrid-sc-" })<
 	Pick<LayoutGridProps.LayoutGridTemplateProps, "fitToParent" | "noGutter" | "size" | "cellBorder">
@@ -283,36 +341,44 @@ export const StyledGrid = styled.div.withConfig({ displayName: "StyledGrid-sc-" 
 	return css`
 		width: 100%;
 
-		${fitToParent &&
-		css`
-			display: flex;
-			flex-direction: column;
-			height: 100%;
-			gap: ${fit.gap};
-			overflow: auto;
-
-			${size === "xs" &&
+		${
+			fitToParent &&
 			css`
-				height: auto;
-				gap: 0;
-				width: 100%;
-			`}
-		`}
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				gap: ${fit.gap};
+				overflow: auto;
 
-		${noGutter &&
-		css`
-			gap: 0;
-			padding: 0;
-		`};
+				${
+					size === "xs" &&
+					css`
+						height: auto;
+						gap: 0;
+						width: 100%;
+					`
+				}
+			`
+		}
+
+		${
+			noGutter &&
+			css`
+				gap: 0;
+				padding: 0;
+			`
+		};
 
 		// Remove the bottom spacing of the last row on Dashboard
-		${cellBorder &&
-		fitToParent &&
-		size !== "xs" &&
-		css`
-			margin-bottom: -${fit.columnChildMarginBottom};
-			height: calc(100% + ${fit.columnChildMarginBottom});
-		`}
+		${
+			cellBorder &&
+			fitToParent &&
+			size !== "xs" &&
+			css`
+				margin-bottom: -${fit.columnChildMarginBottom};
+				height: calc(100% + ${fit.columnChildMarginBottom});
+			`
+		}
 	`;
 });
 
@@ -324,11 +390,13 @@ export const StyledGridContainer = styled.div.withConfig({ displayName: "StyledG
 		overflow: auto;
 		padding: ${size === "xs" ? 0 : theme.components.layoutGrid.container.padding};
 
-		${fitToParent &&
-		css`
-			${StyledGrid} {
-				overflow: visible;
-			}
-		`}
+		${
+			fitToParent &&
+			css`
+				${StyledGrid} {
+					overflow: visible;
+				}
+			`
+		}
 	`;
 });

@@ -32,9 +32,9 @@
 
 import { styled, css } from "styled-components";
 
-import { basePortalArrow } from "../../theme/base/mixins/_portal-arrow.js";
-import { breakWord } from "../../theme/base/mixins/_break-word.js";
 import type { Orientation } from "../../common/main/alignment.js";
+import { breakWord } from "../../theme/base/mixins/_break-word.js";
+import { basePortalArrow } from "../../theme/base/mixins/_portal-arrow.js";
 
 import type { InteractionHintPosition } from "./interaction-hint.api.js";
 
@@ -106,46 +106,52 @@ export const StyledInteractionHintContainer = styled.div.withConfig({
 			max-width: ${containerMaxWidth};
 			margin: ${$followCursor ? "0" : margin};
 
-			${$position &&
-			css`
-				margin-left: 0;
-				margin-right: 0;
-			`}
+			${
+				$position &&
+				css`
+					margin-left: 0;
+					margin-right: 0;
+				`
+			}
 
 			position: relative;
 			outline: none;
 
-			${$followCursor &&
-			css`
-				pointer-events: none;
+			${
+				$followCursor &&
+				css`
+					pointer-events: none;
 
-				${StyledInteractionHintContent} {
-					pointer-events: auto;
-				}
-			`}
+					${StyledInteractionHintContent} {
+						pointer-events: auto;
+					}
+				`
+			}
 
 			+ span {
 				outline: none;
 			}
 			// Arrow of portal
-			${$showArrow &&
-			$orientation &&
-			basePortalArrow({
-				orientation: $orientation,
-				arrow: {
-					...arrow,
-					styles: {
-						...(["top", "bottom", "top-start", "top-end", "bottom-start", "bottom-end"].includes($orientation) && {
-							left: $position && !arrowPositionLeft ? `${arrow.size / 2}px` : `${arrowPositionLeft}px`
-						})
+			${
+				$showArrow &&
+				$orientation &&
+				basePortalArrow({
+					orientation: $orientation,
+					arrow: {
+						...arrow,
+						styles: {
+							...(["top", "bottom", "top-start", "top-end", "bottom-start", "bottom-end"].includes($orientation) && {
+								left: $position && !arrowPositionLeft ? `${arrow.size / 2}px` : `${arrowPositionLeft}px`
+							})
+						}
 					}
-				}
-			})}
+				})
+			}
 
 			${$variant === "error" && getInteractionHintState(error.color, error.color, error.background)}
-		${$variant === "warning" && getInteractionHintState(warning.color, warning.contentColor, warning.background)}
-		${$variant === "hint" && getInteractionHintState(hint.color, hint.contentColor, hint.background)}
-		${$variant === "success" && getInteractionHintState(success.color, success.contentColor, success.background)}
+			${$variant === "warning" && getInteractionHintState(warning.color, warning.contentColor, warning.background)}
+			${$variant === "hint" && getInteractionHintState(hint.color, hint.contentColor, hint.background)}
+			${$variant === "success" && getInteractionHintState(success.color, success.contentColor, success.background)}
 		`;
 	}
 );

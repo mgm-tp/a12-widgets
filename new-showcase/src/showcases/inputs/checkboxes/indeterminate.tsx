@@ -66,6 +66,7 @@ export const IndeterminateCheckboxShowcase: FC = () => {
 	return (
 		<div className="-u-width-full">
 			<Checkbox.Indeterminate
+				id="indeterminate-select-all"
 				checked={checkAll}
 				label={<strong>De/Select all</strong>}
 				onChange={handleCheckAllChange}

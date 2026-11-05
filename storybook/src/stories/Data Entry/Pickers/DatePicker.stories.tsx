@@ -31,9 +31,9 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
 import type { FocusEvent } from "react";
 import { useState, useCallback } from "react";
+import { fn } from "storybook/test";
 
 import { DatePicker } from "@com.mgmtp.a12.widgets/widgets-core";
 import type { DateRange } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -46,7 +46,6 @@ const meta: Meta<typeof DatePicker> = {
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		yearSelectorVariant: {
 			control: "select",
@@ -56,6 +55,10 @@ const meta: Meta<typeof DatePicker> = {
 		yearRange: {
 			control: "object",
 			description: "Override the year selection range shown in the calendar header."
+		},
+		timezone: {
+			control: "text",
+			description: "Timezone database name, e.g. `America/New_York`."
 		}
 	},
 	args: {
@@ -73,8 +76,29 @@ const meta: Meta<typeof DatePicker> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: (args) => {
+export const Playground: Story = {
+	args: {
+		yearSelectorVariant: "select"
+	},
+	render: function PlaygroundExample(args) {
+		const [value, setValue] = useState<Date | undefined>(new Date());
+
+		return (
+			<DatePicker
+				{...args}
+				value={value}
+				onChange={(date) => {
+					setValue(date);
+					args.onChange?.(date);
+				}}
+			/>
+		);
+	}
+};
+
+export const YearSelectorTextbox: Story = {
+	name: "Year selector as textbox",
+	render: function YearSelectorTextboxExample(args) {
 		const [value, setValue] = useState<Date | undefined>(new Date());
 		const [yearErrorMessage, setYearErrorMessage] = useState<string | undefined>();
 
@@ -92,38 +116,53 @@ export const Default: Story = {
 				yearErrorMessage={yearErrorMessage}
 			/>
 		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'`yearSelectorVariant="textbox"` renders the year as a free-text input. Combine `onYearSelectorBlur` with `yearErrorMessage` to validate the typed year and show an inline error.'
+			}
+		}
 	}
 };
 
-export const WithYearSelectorSelect: Story = {
-	name: "With year selector as select",
-	render: (args) => {
-		const [value, setValue] = useState<Date | undefined>(new Date());
+export const YearSelectorVariants: Story = {
+	name: "Year selector as select and autocomplete",
+	render: function YearSelectorVariantsExample() {
+		const [selectValue, setSelectValue] = useState<Date | undefined>(new Date());
+		const [autocompleteValue, setAutocompleteValue] = useState<Date | undefined>(new Date());
 
-		return <DatePicker {...args} value={value} onChange={setValue} />;
+		return (
+			<div style={{ display: "flex", gap: "32px", flexWrap: "wrap" }}>
+				<DatePicker
+					value={selectValue}
+					onChange={setSelectValue}
+					yearSelectorVariant="select"
+					yearRange={{ start: 2015, end: 2035 }}
+				/>
+				<DatePicker
+					value={autocompleteValue}
+					onChange={setAutocompleteValue}
+					yearSelectorVariant="autocomplete"
+					yearRange={{ start: 2015, end: 2035 }}
+				/>
+			</div>
+		);
 	},
-	args: {
-		yearSelectorVariant: "select",
-		yearRange: { start: 2015, end: 2035 }
-	}
-};
-
-export const WithYearSelectorAutocomplete: Story = {
-	name: "With year selector as autocomplete",
-	render: (args) => {
-		const [value, setValue] = useState<Date | undefined>(new Date());
-
-		return <DatePicker {...args} value={value} onChange={setValue} />;
-	},
-	args: {
-		yearSelectorVariant: "autocomplete",
-		yearRange: { start: 2015, end: 2035 }
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `select` variant (left) renders a native dropdown, the `autocomplete` variant (right) a filterable combobox. `yearRange` limits the selectable years."
+			}
+		}
 	}
 };
 
 export const DateRangePicker: Story = {
 	name: "Date range picker",
-	render: (args) => {
+	render: function DateRangePickerExample(args) {
 		const [range, setRange] = useState<DateRange | undefined>();
 
 		return (
@@ -139,14 +178,30 @@ export const DateRangePicker: Story = {
 				}}
 			/>
 		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Provide `selected` with a `{from, to}` range and `onDateRangeChange` to select a date range. The `footer` prop renders accept/clear buttons for confirming or resetting the range."
+			}
+		}
 	}
 };
 
 export const WithDisabledDates: Story = {
 	name: "With disabled dates (weekends)",
-	render: (args) => {
+	render: function WithDisabledDatesExample(args) {
 		const [value, setValue] = useState<Date | undefined>(new Date());
 
 		return <DatePicker {...args} value={value} onChange={setValue} disabled={{ dayOfWeek: [0, 6] }} />;
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"The `disabled` prop accepts react-day-picker `Matcher`s — here `{ dayOfWeek: [0, 6] }` disables all weekends."
+			}
+		}
 	}
 };

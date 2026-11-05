@@ -30,10 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { ReactElement } from "react";
 // start code removal
 import { useState, useMemo, useCallback } from "react";
-import { loremIpsum } from "lorem-ipsum";
 // end code removal
 
 // start code removal
@@ -99,11 +99,17 @@ export function OptionalBreakpointsShowcase(): ReactElement {
 		<ConfigurationView
 			configuration={
 				<div>
-					<CheckboxGroup label="Optional Breakpoint" inline onValueChanged={onCheckboxChange}>
+					<CheckboxGroup
+						id="layout-grid-optional-breakpoints-optional-breakpoint"
+						label="Optional Breakpoint"
+						inline
+						onValueChanged={onCheckboxChange}
+					>
 						<CheckboxGroup.Item label="Enable SM Breakpoint" value="sm" selected={enableSm} />
 						<CheckboxGroup.Item label="Enable MD Breakpoint" value="md" selected={enableMd} />
 					</CheckboxGroup>
 					<Radio
+						id="layout-grid-optional-breakpoints-width-of-container"
 						className="-u-margin-t-sm"
 						label="Width of Container"
 						onValueChanged={setContainerWidth}

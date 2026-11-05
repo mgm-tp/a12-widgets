@@ -34,17 +34,16 @@ import type { ReactElement } from "react";
 import { memo, useMemo } from "react";
 import { styled, css } from "styled-components";
 
+import { DataRoles } from "../../../common/index.js";
 import { joinClassNames } from "../../../common/main/utils.js";
 import { StyledBaseInput } from "../../../input/base-input-styled/base.styled.js";
 import { StyledTimePickerWrapper } from "../../../time-picker/main/time-picker.styled.js";
-import { DataRoles } from "../../../common/index.js";
-
 import { useTableContext } from "../table.context.js";
 import { BASE_TABLE_CLASSNAME } from "../table.internal.js";
 
-import type { TableTemplateProps } from "./table.tpl.api.js";
-import { StyledBaseTable } from "./table.styled.js";
 import { useStyledTableContext } from "./table.context.styled.js";
+import { StyledBaseTable } from "./table.styled.js";
+import type { TableTemplateProps } from "./table.tpl.api.js";
 
 export const StyledTableHeadRowSegment = styled(StyledBaseTable.Segment).withConfig({
 	displayName: "StyledTableHeadRowSegment-sc-"
@@ -64,67 +63,78 @@ export const StyledTableHeadRowSegment = styled(StyledBaseTable.Segment).withCon
 		const { headRow, header } = theme.components.table;
 
 		return css`
-			${enableColumnGroupA11y &&
-			css`
-				grid-row: ${gridRow} / span ${gridRowSpan};
-				grid-column: ${gridColumn} / span ${gridColumnSpan};
-				display: grid;
-
-				/* Create a subgrid to maintain cell positioning */
-				grid-template-columns: subgrid;
-				grid-template-rows: subgrid;
-
-				${isHidden &&
+			${
+				enableColumnGroupA11y &&
 				css`
-					position: absolute;
-					width: 1px;
-					height: 1px;
-					padding: 0;
-					margin: -1px;
-					overflow: hidden;
-					clip-path: inset(0);
-					white-space: nowrap;
-					border: 0;
-				`}
+					grid-row: ${gridRow} / span ${gridRowSpan};
+					grid-column: ${gridColumn} / span ${gridColumnSpan};
+					display: grid;
 
-				/* Apply pinning styles for wrapper segments */
-			${rowSegmentType === "left" &&
-				!isHidden &&
+					/* Create a subgrid to maintain cell positioning */
+					grid-template-columns: subgrid;
+					grid-template-rows: subgrid;
+
+					${
+						isHidden &&
+						css`
+							position: absolute;
+							width: 1px;
+							height: 1px;
+							padding: 0;
+							margin: -1px;
+							overflow: hidden;
+							clip-path: inset(0);
+							white-space: nowrap;
+							border: 0;
+						`
+					}
+
+					/* Apply pinning styles for wrapper segments */
+					${
+						rowSegmentType === "left" &&
+						!isHidden &&
+						css`
+							position: sticky;
+							left: ${leftOffset !== undefined ? `${leftOffset}px` : "0"};
+							z-index: 2;
+							background: ${header.background};
+							isolation: isolate;
+						`
+					}
+
+					${
+						rowSegmentType === "right" &&
+						!isHidden &&
+						css`
+							position: sticky;
+							right: ${rightOffset !== undefined ? `${rightOffset}px` : "0"};
+							z-index: 1;
+							background: ${header.background};
+							isolation: isolate;
+						`
+					}
+
+					${
+						rowSegmentType === "scroll" &&
+						css`
+							min-width: 0;
+						`
+					}
+				`
+			}
+
+			${
+				filterRow &&
 				css`
-					position: sticky;
-					left: ${leftOffset !== undefined ? `${leftOffset}px` : "0"};
-					z-index: 2;
-					background: ${header.background};
-					isolation: isolate;
-				`}
-
-			${rowSegmentType === "right" &&
-				!isHidden &&
-				css`
-					position: sticky;
-					right: ${rightOffset !== undefined ? `${rightOffset}px` : "0"};
-					z-index: 1;
-					background: ${header.background};
-					isolation: isolate;
-				`}
-
-			${rowSegmentType === "scroll" &&
-				css`
-					min-width: 0;
-				`}
-			`}
-
-			${filterRow &&
-			css`
-				align-items: flex-start;
-				${StyledBaseInput.StyledFieldWrapper}:not(:last-child),
-				${StyledTimePickerWrapper}:not(:last-child) {
-					margin-bottom: ${headRow.filter.fieldInputMarginBottom};
-				}
-				${StyledBaseInput.StyledFieldInput}:read-only {
-					background-color: ${headRow.filter.fieldInputReadonlyBG};
-				}
-			`}
+					align-items: flex-start;
+					:is(${StyledBaseInput.StyledFieldWrapper}):not(:last-child), ${StyledTimePickerWrapper}:not(:last-child) {
+						margin-bottom: ${headRow.filter.fieldInputMarginBottom};
+					}
+					${StyledBaseInput.StyledFieldInput}:read-only {
+						background-color: ${headRow.filter.fieldInputReadonlyBG};
+					}
+				`
+			}
 		`;
 	}
 );

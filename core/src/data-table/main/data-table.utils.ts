@@ -32,10 +32,10 @@
 
 import type { HTMLAttributes as ReactHTMLAttributes, Key, ReactNode } from "react";
 
+import type { DataTableSortOrder } from "./data-table.sort.js";
 import type { BaseColumnType } from "./foundation/column.api.js";
 import type { RowKeyGetter } from "./foundation/table.api.js";
 import { getDataByKey } from "./foundation/utils.js";
-import type { DataTableSortOrder } from "./data-table.sort.js";
 
 /**
  * Multiplier applied to `column.width` for fixed-width columns to convert it to pixels.
@@ -49,6 +49,29 @@ export const FIXED_WIDTH_BASE_PX = 150;
  * buttons, so no flex intent), or a `fixedWidth` column declared without a `width`.
  */
 const FALLBACK_COLUMN_WIDTH_PX = 150;
+
+/**
+ * Extra px added to a measured action-column width, on top of the cell's inherited
+ * `table.actionCell.padding` (the clone already carries the real padding). A small
+ * guard against residual `…` clipping.
+ *
+ * @internal
+ */
+export const ACTION_COLUMN_AUTOSIZE_PADDING = 8;
+
+/**
+ * Whether a column is a width-less, non-fixed `actionColumn` that should be measured
+ * to fit its content (buttons + header) instead of taking the flat `150px` fallback
+ * track. Explicit `width` / `fixedWidth` always wins (no measurement).
+ *
+ * Written column-agnostically apart from the `actionColumn` gate so a general
+ * per-column autosize can reuse the measurement path later.
+ *
+ * @internal
+ */
+export function isAutoSizeActionColumn<RowType>(column: BaseColumnType<RowType>, autoSizeEnabled: boolean): boolean {
+	return autoSizeEnabled && !!column.actionColumn && !hasUsableWidth(column) && !column.fixedWidth;
+}
 
 /**
  * Whether a column carries a usable positive `width`. These are the columns
@@ -71,18 +94,26 @@ function isFlexFallback<RowType>(column: BaseColumnType<RowType>): boolean {
 	return !hasUsableWidth(column) && !column.fixedWidth && !column.actionColumn;
 }
 
-/**
- * Render a flexible column's proportional share as a `<col>` width. With absolute
- * columns present the share is `calc((100% - <fixedPx>px) * ratio)` (collapsing to
- * `calc(100% - <fixedPx>px)` for a sole flex column); otherwise a plain percentage.
- */
-function flexShare(ratio: number, totalFixedPx: number): string {
-	if (totalFixedPx > 0) {
-		// Omit the `* 1` factor for a sole flex column — browsers normalize
-		// `calc((100% - Npx) * 1)` to `calc(100% - Npx)` anyway.
-		return ratio === 1 ? `calc(100% - ${totalFixedPx}px)` : `calc((100% - ${totalFixedPx}px) * ${ratio})`;
-	}
+function autoSizeIndices<RowType>(
+	columns: readonly BaseColumnType<RowType>[],
+	autoSizeEnabled: boolean
+): readonly number[] {
+	const indices: number[] = [];
 
+	columns.forEach((column, index) => {
+		if (isAutoSizeActionColumn(column, autoSizeEnabled)) {
+			indices.push(index);
+		}
+	});
+
+	return indices;
+}
+
+/**
+ * A flexible column's share of the flex total, as a percentage. Must not be wrapped in a
+ * `calc()` — `table-layout: fixed` ignores a `<col>` width whose `calc()` has a percentage.
+ */
+function flexShare(ratio: number): string {
 	return `${ratio * 100}%`;
 }
 
@@ -110,10 +141,9 @@ function sumFlexUnits<RowType>(columns: readonly BaseColumnType<RowType>[]): num
  * Total the pixel width of every absolute-width column: `fixedWidth` columns
  * (`width * 150`) plus width-less columns that take a px fallback rather than
  * flexing — `actionColumn`s. Flex-fallback columns ({@link isFlexFallback}) are
- * excluded; they reserve a proportional share instead. Flexible columns reserve
- * `100% - this` and split it by ratio, so absolute and proportional columns coexist
- * without the percentages over-constraining the table (which collapses the last
- * column to 0).
+ * excluded; they reserve a proportional share of whatever these columns leave behind.
+ *
+ * Counts an auto-sizing `actionColumn` as the flat `FALLBACK_COLUMN_WIDTH_PX`.
  */
 function sumFixedPx<RowType>(columns: readonly BaseColumnType<RowType>[]): number {
 	let total = 0;
@@ -136,26 +166,20 @@ function sumFixedPx<RowType>(columns: readonly BaseColumnType<RowType>[]): numbe
  * `table-layout: fixed` algorithm.
  *
  * - `fixedWidth`, `width:N` → `${N * 150}px` (absolute)
- * - flexible `width:N`      → proportional share of the space left after the absolute
- *   columns: `calc((100% - <totalFixedPx>px) * ratio)` (or plain `${ratio * 100}%` when
- *   there are no absolute columns). Preserves the former `fr` ratio intent without the
- *   percentages summing past 100% and starving the last column.
+ * - flexible `width:N`      → its share of the flex total as a percentage
+ *   ({@link flexShare}), resolved against the space the absolute columns leave behind.
  * - width-less flex-fallback column ({@link isFlexFallback}) → the same proportional
  *   share with the documented default `width: 1`.
  * - other width-less columns (`actionColumn`, or a `fixedWidth` column without a
  *   `width`) → a `150px` fallback. Under `fixed` layout there is no `max-content`
  *   auto-size for such a column mixed with proportional columns.
  */
-export function getColumnWidth<RowType>(
-	column: BaseColumnType<RowType>,
-	totalFlexUnits: number,
-	totalFixedPx: number
-): string {
+export function getColumnWidth<RowType>(column: BaseColumnType<RowType>, totalFlexUnits: number): string {
 	if (!hasUsableWidth(column)) {
 		if (isFlexFallback(column)) {
 			const ratio = totalFlexUnits > 0 ? 1 / totalFlexUnits : 1;
 
-			return flexShare(ratio, totalFixedPx);
+			return flexShare(ratio);
 		}
 
 		return `${FALLBACK_COLUMN_WIDTH_PX}px`;
@@ -169,7 +193,7 @@ export function getColumnWidth<RowType>(
 
 	const ratio = totalFlexUnits > 0 ? width / totalFlexUnits : 1;
 
-	return flexShare(ratio, totalFixedPx);
+	return flexShare(ratio);
 }
 
 /**
@@ -183,15 +207,24 @@ export function getColumnWidth<RowType>(
  * columns (flex-fallback, `actionColumn`) are wrapped too — every leaf column is
  * resizable — so their computed fallback acts as the var default and a drag can
  * still pin them to px.
+ *
+ * Width-less auto-sizing `actionColumn`s (see {@link isAutoSizeActionColumn}) are
+ * wrapped the same way even when resize is off: the measurement hook writes their
+ * fitted width into the same `--a12-col-N-width` channel, with the computed `150px`
+ * fallback acting as the `var()` default so the pre-measurement render is unchanged
+ * (no 0-width flicker).
  */
-export function getColumnWidths<RowType>(columns: readonly BaseColumnType<RowType>[], resizable: boolean): string[] {
+export function getColumnWidths<RowType>(
+	columns: readonly BaseColumnType<RowType>[],
+	resizable: boolean,
+	autoSizeEnabled = true
+): string[] {
 	const totalFlexUnits = sumFlexUnits(columns);
-	const totalFixedPx = sumFixedPx(columns);
 
 	return columns.map((column, index) => {
-		const computed = getColumnWidth(column, totalFlexUnits, totalFixedPx);
+		const computed = getColumnWidth(column, totalFlexUnits);
 
-		if (resizable) {
+		if (resizable || isAutoSizeActionColumn(column, autoSizeEnabled)) {
 			return `var(--a12-col-${index}-width, ${computed})`;
 		}
 
@@ -219,9 +252,34 @@ export function getColumnWidths<RowType>(columns: readonly BaseColumnType<RowTyp
  * px-fallback columns contribute their absolute px ({@link sumFixedPx}); flexible
  * columns — including flex-fallback columns at their default `width: 1` — contribute
  * `width × 150` ({@link sumFlexUnits} × base).
+ *
+ * The table applies {@link getMinTableWidthExpression}, which builds on this.
  */
 export function getMinTableWidth<RowType>(columns: readonly BaseColumnType<RowType>[]): number {
 	return sumFixedPx(columns) + sumFlexUnits(columns) * FIXED_WIDTH_BASE_PX;
+}
+
+/**
+ * {@link getMinTableWidth} as a CSS length, with each auto-sizing `actionColumn` floored at its
+ * measured width instead of the flat 150px. Its flat contribution becomes
+ * `var(--a12-col-N-width, 150px)`, the channel the auto-size hook writes.
+ *
+ * @internal
+ */
+export function getMinTableWidthExpression<RowType>(
+	columns: readonly BaseColumnType<RowType>[],
+	autoSizeEnabled: boolean
+): string {
+	const autoIndices = autoSizeIndices(columns, autoSizeEnabled);
+	const staticPx = getMinTableWidth(columns) - FALLBACK_COLUMN_WIDTH_PX * autoIndices.length;
+
+	if (autoIndices.length === 0) {
+		return `${staticPx}px`;
+	}
+
+	const vars = autoIndices.map((index) => `var(--a12-col-${index}-width, ${FALLBACK_COLUMN_WIDTH_PX}px)`).join(" + ");
+
+	return `calc(${staticPx}px + ${vars})`;
 }
 
 /**

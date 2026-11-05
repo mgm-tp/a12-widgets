@@ -33,7 +33,6 @@
 import type { KeyboardEvent, SyntheticEvent } from "react";
 
 import type { Ref, Container, Identifiable, Styleable } from "../../../common/main/base-props.js";
-
 import type { MenuGroup, MenuItem } from "../menu.api.js";
 
 export interface MenuContainerProps extends Styleable, Identifiable, Container, Ref {

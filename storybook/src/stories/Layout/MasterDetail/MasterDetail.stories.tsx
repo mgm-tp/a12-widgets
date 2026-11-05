@@ -31,9 +31,10 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useState, useMemo, useCallback } from "react";
 
 import type { VisibleView, ViewWidth } from "@com.mgmtp.a12.widgets/widgets-core";
-import { MasterDetail, Typography, BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
+import { MasterDetail, Button, Icon, Typography, BulletList, List } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const meta: Meta<typeof MasterDetail> = {
 	title: "Layout/MasterDetail",
@@ -41,7 +42,6 @@ const meta: Meta<typeof MasterDetail> = {
 	parameters: {
 		layout: "fullscreen"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		title: {
 			control: "text",
@@ -50,6 +50,19 @@ const meta: Meta<typeof MasterDetail> = {
 		listenToWindowSize: {
 			control: "boolean",
 			description: "Listen to window size changes instead of the parent element size"
+		},
+		visibleViews: {
+			control: false,
+			description:
+				"List of views to render as panes. Each view provides a `key`, an `element` and an optional `width` (1-12 grid columns)"
+		},
+		animation: {
+			control: false,
+			description: "Config for pane transition animations (enabled by default)"
+		},
+		firstViewResizableOptions: {
+			control: false,
+			description: "Resizing options applied only to the first view, overriding its `resizableOptions`"
 		}
 	}
 };
@@ -66,78 +79,44 @@ const paneStyle = (color: string) => ({
 	gap: "16px"
 });
 
-export const Default: Story = {
-	render: () => {
-		const visibleViews: VisibleView[] = [
-			{
-				key: "master",
-				element: (
-					<div style={paneStyle("#f5f5f5")}>
-						<Typography.Headline level={3} style={{ margin: 0 }}>
-							Master Pane
-						</Typography.Headline>
-						<BulletList.Unordered>
-							{["Item A", "Item B", "Item C"].map((item) => (
-								<BulletList.Item key={item}>{item}</BulletList.Item>
-							))}
-						</BulletList.Unordered>
-					</div>
-				),
-				width: 4 as ViewWidth
-			},
-			{
-				key: "detail",
-				element: (
-					<div style={paneStyle("#ffffff")}>
-						<Typography.Headline level={3} style={{ margin: 0 }}>
-							Detail Pane
-						</Typography.Headline>
-						<Typography.Body>Select an item from the master pane to see its details here.</Typography.Body>
-					</div>
-				),
-				width: 8 as ViewWidth
-			}
-		];
-
-		return <MasterDetail title="Two-Pane Layout" visibleViews={visibleViews} style={{ height: "400px" }} />;
+const twoPaneViews: VisibleView[] = [
+	{
+		key: "master",
+		element: (
+			<div style={paneStyle("#f5f5f5")}>
+				<Typography.Headline level={3} style={{ margin: 0 }}>
+					Master Pane
+				</Typography.Headline>
+				<BulletList.Unordered>
+					{["Item A", "Item B", "Item C"].map((item) => (
+						<BulletList.Item key={item}>{item}</BulletList.Item>
+					))}
+				</BulletList.Unordered>
+			</div>
+		),
+		width: 4 as ViewWidth
+	},
+	{
+		key: "detail",
+		element: (
+			<div style={paneStyle("#ffffff")}>
+				<Typography.Headline level={3} style={{ margin: 0 }}>
+					Detail Pane
+				</Typography.Headline>
+				<Typography.Body>Select an item from the master pane to see its details here.</Typography.Body>
+			</div>
+		),
+		width: 8 as ViewWidth
 	}
-};
+];
 
-export const TwoPane: Story = {
-	render: () => {
-		const visibleViews: VisibleView[] = [
-			{
-				key: "master",
-				element: (
-					<div style={paneStyle("#f5f5f5")}>
-						<Typography.Headline level={3} style={{ margin: 0 }}>
-							Master Pane
-						</Typography.Headline>
-						<BulletList.Unordered>
-							{["Item A", "Item B", "Item C", "Item D"].map((item) => (
-								<BulletList.Item key={item}>{item}</BulletList.Item>
-							))}
-						</BulletList.Unordered>
-					</div>
-				),
-				width: 4 as ViewWidth
-			},
-			{
-				key: "detail",
-				element: (
-					<div style={paneStyle("#ffffff")}>
-						<Typography.Headline level={3} style={{ margin: 0 }}>
-							Detail Pane
-						</Typography.Headline>
-						<Typography.Body>Select an item from the master pane to see its details here.</Typography.Body>
-					</div>
-				),
-				width: 8 as ViewWidth
-			}
-		];
-
-		return <MasterDetail title="Two-Pane Layout" visibleViews={visibleViews} style={{ height: "400px" }} />;
-	}
+export const Playground: Story = {
+	args: {
+		title: "Two-Pane Layout",
+		listenToWindowSize: true,
+		visibleViews: twoPaneViews
+	},
+	render: (args) => <MasterDetail {...args} style={{ height: "400px" }} />
 };
 
 export const ThreePane: Story = {
@@ -188,6 +167,14 @@ export const ThreePane: Story = {
 		];
 
 		return <MasterDetail title="Three-Pane Layout" visibleViews={visibleViews} style={{ height: "400px" }} />;
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`visibleViews` accepts any number of panes — here three panes share the 12-column grid via their `width` values (3 + 5 + 4)."
+			}
+		}
 	}
 };
 
@@ -210,5 +197,143 @@ export const SinglePane: Story = {
 		];
 
 		return <MasterDetail title="Single Pane (Mobile View)" visibleViews={visibleViews} style={{ height: "400px" }} />;
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"With a single entry in `visibleViews` (and no `width`), the layout renders one full-width pane — the typical smartphone presentation."
+			}
+		}
+	}
+};
+
+const items = ["Item A", "Item B", "Item C", "Item D", "Item E"];
+
+export const NavigationBetweenPanes: Story = {
+	render: function NavigationBetweenPanesExample() {
+		const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+		const visibleViews = useMemo<VisibleView[]>(
+			() => [
+				{
+					key: "master",
+					element: (
+						<div style={paneStyle("#f5f5f5")}>
+							<Typography.Headline level={3} style={{ margin: 0 }}>
+								Select an Item
+							</Typography.Headline>
+							<List>
+								{items.map((item) => (
+									<List.Item
+										key={item}
+										text={item}
+										selected={selectedItem === item}
+										onClick={() => setSelectedItem(item)}
+									/>
+								))}
+							</List>
+						</div>
+					),
+					width: 4 as ViewWidth
+				},
+				{
+					key: "detail",
+					element: (
+						<div style={paneStyle("#ffffff")}>
+							{selectedItem ? (
+								<>
+									<Typography.Headline level={3} style={{ margin: 0 }}>
+										{selectedItem}
+									</Typography.Headline>
+									<Typography.Body>Details for {selectedItem}.</Typography.Body>
+								</>
+							) : (
+								<Typography.Body>Select an item from the master pane to see its details here.</Typography.Body>
+							)}
+						</div>
+					),
+					width: 8 as ViewWidth
+				}
+			],
+			[selectedItem]
+		);
+
+		return <MasterDetail title="Navigation Between Panes" visibleViews={visibleViews} style={{ height: "400px" }} />;
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"A realistic master/detail composition: clicking a `List.Item` in the master pane updates the `element` of the detail view in `visibleViews`."
+			}
+		}
+	}
+};
+
+export const WithAnimation: Story = {
+	render: function WithAnimationExample() {
+		const [currentView, setCurrentView] = useState<"master" | "detail">("master");
+		const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+		const handleSelectItem = useCallback((item: string) => {
+			setSelectedItem(item);
+			setCurrentView("detail");
+		}, []);
+
+		const handleBack = useCallback(() => {
+			setCurrentView("master");
+		}, []);
+
+		const visibleViews = useMemo<VisibleView[]>(() => {
+			if (currentView === "detail" && selectedItem) {
+				return [
+					{
+						key: "detail",
+						element: (
+							<div style={paneStyle("#ffffff")}>
+								<Button icon={<Icon>arrow_back</Icon>} onClick={handleBack}>
+									Back
+								</Button>
+								<Typography.Headline level={3} style={{ margin: 0 }}>
+									{selectedItem}
+								</Typography.Headline>
+								<Typography.Body>Details for {selectedItem}. Navigate back to see all items.</Typography.Body>
+							</div>
+						),
+						width: 12 as ViewWidth
+					}
+				];
+			}
+
+			return [
+				{
+					key: "master",
+					element: (
+						<div style={paneStyle("#f5f5f5")}>
+							<Typography.Headline level={3} style={{ margin: 0 }}>
+								All Items
+							</Typography.Headline>
+							<List>
+								{items.map((item) => (
+									<List.Item key={item} text={item} onClick={() => handleSelectItem(item)} />
+								))}
+							</List>
+						</div>
+					),
+					width: 12 as ViewWidth
+				}
+			];
+		}, [currentView, selectedItem, handleSelectItem, handleBack]);
+
+		return <MasterDetail title="With Animation" visibleViews={visibleViews} style={{ height: "380px" }} />;
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Swapping the entries of `visibleViews` (different `key`s) triggers the built-in pane transition animation — select an item and navigate back to see it. Use the `animation` prop to disable it or to hook into `onAnimationStart`/`onAnimationEnd`."
+			}
+		}
 	}
 };

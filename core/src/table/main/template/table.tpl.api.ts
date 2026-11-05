@@ -49,7 +49,6 @@ import type {
 	Ref,
 	Styleable
 } from "../../../common/main/base-props.js";
-
 import type { BaseColumnType, Column, SortOrder } from "../column.api.js";
 
 export namespace TableTemplateProps {

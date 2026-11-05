@@ -30,18 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { fireEvent, render, getAllByDataRole, getByDataRole } from "test-utils";
 import { DndProvider } from "react-dnd";
+import { fireEvent, render, getAllByDataRole, getByDataRole } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
-import { Range } from "../../common/main/utils.js";
-import { DragAndDropUtils } from "../../common/main/drag-and-drop-utils.js";
 import { Button } from "../../button/main/button.view.js";
-import { Icon } from "../../icon/main/icon.view.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
-import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
+import { DragAndDropUtils } from "../../common/main/drag-and-drop-utils.js";
+import { Range } from "../../common/main/utils.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { Body } from "../main/table.body.view.js";
+import { DefaultTableComponentRenderers, TableContextProvider } from "../main/table.view.js";
 
 describe("com.mgmtp.a12.widgets.table.body", () => {
 	const COLUMN_COUNT = 4;

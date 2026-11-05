@@ -1,0 +1,71 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas, Description } from "@storybook/addon-docs/blocks";
+
+import * as AccordionStories from "./Accordion.stories";
+import * as AccordionInteractionsStories from "./AccordionInteractions.stories";
+
+<Meta of={AccordionStories} />
+
+<Title />
+
+The `Accordion` widget creates vertically stacked sections that can be expanded and collapsed to
+show or hide their content. It is composed from `Accordion.Container`, `Accordion.Section`,
+`Accordion.Summary` (the clickable header) and `Accordion.Details` (the collapsible body).
+
+- Sections manage their own expanded state by default; use `expanded` on a section to open it initially.
+- Set `controlled` on the container to drive each section's `expanded` state yourself via the section `onClick` handler.
+- Customize the expand/collapse icons per container or per section, add a `graphic` icon to a summary, or use a summary `variant` (`open`, `info`, `error`, `warning`, `done`, `inProgress`) to display a status icon.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={AccordionStories.Playground} />
+
+## Examples
+
+### Expanded section
+
+<Canvas of={AccordionStories.ExpandedSection} />
+
+### Custom icons
+
+<Canvas of={AccordionStories.CustomIcons} />
+
+### Selected section
+
+<Canvas of={AccordionStories.SelectedSection} />
+
+### Variants
+
+<Canvas of={AccordionStories.Variants} />
+
+### Controlled
+
+<Canvas of={AccordionStories.Controlled} />
+
+### With graphic
+
+<Canvas of={AccordionStories.WithGraphic} />
+
+## Interaction hints
+
+The accordion integrates with `InteractionHintConfigProvider`, which shows a hover hint on the
+section headers. The `Interactions` sidebar entry covers hint positioning (`left`/`right`),
+`followCursor` and `hideArrow`. One representative example:
+
+<Canvas of={AccordionInteractionsStories.WithInteractionHint} />

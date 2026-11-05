@@ -38,10 +38,10 @@ import { Key } from "ts-key-enum";
 import type { Container } from "@com.mgmtp.a12.widgets/widgets-core";
 import { List, LayoutGrid, Icon } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import type { SearchItem } from "./search-component.js";
-import { SearchComponent } from "./search-component.js";
 import type { GlobalSearchContextProps } from "./global-search-context.js";
 import { GlobalSearchContext } from "./global-search-context.js";
+import type { SearchItem } from "./search-component.js";
+import { SearchComponent } from "./search-component.js";
 
 const StyledListShowcase = styled(List)`
 	width: fit-content;

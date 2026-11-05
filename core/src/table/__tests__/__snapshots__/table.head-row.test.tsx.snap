@@ -7,7 +7,7 @@ exports[`com.mgmtp.a12.widgets.table.head-row > cardView 1`] = `
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 2px;
   box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
 }

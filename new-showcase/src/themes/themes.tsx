@@ -38,8 +38,8 @@ import {
 	getBaseTheme
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import type { ShowcaseThemeType } from "./themes.api.js";
 import { baseFlatOverrides } from "./base-flat.js";
+import type { ShowcaseThemeType } from "./themes.api.js";
 
 const DefaultThemes: ShowcaseThemeType[] = [
 	{

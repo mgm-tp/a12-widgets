@@ -671,6 +671,10 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with error
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c8.c8 {
   color: rgb(201, 29, 29);
 }
@@ -723,11 +727,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with error
 }
 
 .c0 .c2 {
-  display: block;
-  width: fit-content;
-}
-
-.c17 .c2 {
   display: block;
   width: fit-content;
 }
@@ -905,6 +904,8 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with error
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           
         </span>
@@ -942,6 +943,7 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with error
           <input
             aria-checked="false"
             aria-describedby="test checkbox-group-label test checkbox-group-error"
+            aria-invalid="true"
             class="c15 c16 field__check field__check--error"
             data-role="checkbox-input"
             id="item-1"
@@ -980,6 +982,7 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with error
           <input
             aria-checked="false"
             aria-describedby="test checkbox-group-label test checkbox-group-error"
+            aria-invalid="true"
             class="c15 c16 field__check field__check--error"
             data-role="checkbox-input"
             id="item-2"
@@ -1018,6 +1021,7 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with error
           <input
             aria-checked="false"
             aria-describedby="test checkbox-group-label test checkbox-group-error"
+            aria-invalid="true"
             class="c15 c16 field__check field__check--error"
             data-role="checkbox-input"
             id="item-3"
@@ -1086,11 +1090,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with helpe
   width: fit-content;
 }
 
-.c15 .c2 {
-  display: block;
-  width: fit-content;
-}
-
 .c9 {
   margin: 0px;
   opacity: 0;
@@ -1134,10 +1133,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with helpe
 }
 
 .c4 .c13 {
-  margin: 0px;
-}
-
-.c16 .c13 {
   margin: 0px;
 }
 
@@ -1390,22 +1385,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with helpe
 `;
 
 exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with hidden label 1`] = `
-.c10 {
-  color: rgb(77, 77, 77);
-  display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.45;
-  text-transform: none;
-  margin: 0px 0px 4px;
-  align-self: center;
-}
-
-.c10:empty {
-  display: none;
-}
-
 .c3 {
   color: rgb(77, 77, 77);
   display: inline-block;
@@ -1435,6 +1414,22 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with hidde
 .c3 * {
   width: 1px;
   height: 1px;
+}
+
+.c10 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  margin: 0px 0px 4px;
+  align-self: center;
+}
+
+.c10:empty {
+  display: none;
 }
 
 .c0 {
@@ -1771,6 +1766,10 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with info 
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c8.c8 {
   color: rgb(5, 104, 174);
 }
@@ -1823,11 +1822,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with info 
 }
 
 .c0 .c2 {
-  display: block;
-  width: fit-content;
-}
-
-.c17 .c2 {
   display: block;
   width: fit-content;
 }
@@ -2005,6 +1999,8 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with info 
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           info
         </span>
@@ -2192,6 +2188,10 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with warni
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c7 {
+  color: inherit;
+}
+
 .c8.c8 {
   color: rgb(175, 121, 2);
 }
@@ -2244,11 +2244,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with warni
 }
 
 .c0 .c2 {
-  display: block;
-  width: fit-content;
-}
-
-.c17 .c2 {
   display: block;
   width: fit-content;
 }
@@ -2426,6 +2421,8 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render checkbox-group with warni
       >
         <span
           aria-hidden="true"
+          class="notranslate"
+          translate="no"
         >
           warning
         </span>
@@ -2589,11 +2586,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render disabled checkbox-group 1
 }
 
 .c0 .c2 {
-  display: block;
-  width: fit-content;
-}
-
-.c10 .c2 {
   display: block;
   width: fit-content;
 }
@@ -2884,11 +2876,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render error checkbox-group 1`] 
   width: fit-content;
 }
 
-.c10 .c2 {
-  display: block;
-  width: fit-content;
-}
-
 .c8 {
   margin: 0px;
   opacity: 0;
@@ -3066,6 +3053,7 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render error checkbox-group 1`] 
           <input
             aria-checked="false"
             aria-describedby="test checkbox-group-label"
+            aria-invalid="true"
             class="c8 c9 field__check field__check--error"
             data-role="checkbox-input"
             id="item-1"
@@ -3104,6 +3092,7 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render error checkbox-group 1`] 
           <input
             aria-checked="false"
             aria-describedby="test checkbox-group-label"
+            aria-invalid="true"
             class="c8 c9 field__check field__check--error"
             data-role="checkbox-input"
             id="item-2"
@@ -3142,6 +3131,7 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render error checkbox-group 1`] 
           <input
             aria-checked="false"
             aria-describedby="test checkbox-group-label"
+            aria-invalid="true"
             class="c8 c9 field__check field__check--error"
             data-role="checkbox-input"
             id="item-3"
@@ -3192,11 +3182,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render info checkbox-group 1`] =
 }
 
 .c0 .c2 {
-  display: block;
-  width: fit-content;
-}
-
-.c10 .c2 {
   display: block;
   width: fit-content;
 }
@@ -3574,10 +3559,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render inline checkbox-group wit
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c16 .c14 {
-  margin: 0px;
-}
-
 .c4 {
   display: flex;
   flex-wrap: wrap;
@@ -3865,11 +3846,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render readonly checkbox-group 1
   width: fit-content;
 }
 
-.c10 .c2 {
-  display: block;
-  width: fit-content;
-}
-
 .c8 {
   margin: 0px;
   opacity: 0;
@@ -4130,11 +4106,6 @@ exports[`com.mgmtp.a12.widgets.checkbox-group > render warning checkbox-group 1`
 }
 
 .c0 .c2 {
-  display: block;
-  width: fit-content;
-}
-
-.c10 .c2 {
   display: block;
   width: fit-content;
 }

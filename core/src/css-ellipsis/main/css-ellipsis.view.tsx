@@ -34,10 +34,10 @@ import type { MouseEvent, ReactElement } from "react";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { styled, css } from "styled-components";
 
-import { TooltipPortal } from "../../tooltip/main/tooltip-portal.view.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { addPrefix, getParentElement, joinClassNames } from "../../common/main/utils.js";
 import { ellipsis } from "../../theme/base/mixins/_ellipsis.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { TooltipPortal } from "../../tooltip/main/tooltip-portal.view.js";
 
 import type { CssEllipsisProps } from "./css-ellipsis.api.js";
 
@@ -51,10 +51,12 @@ const StyledCssEllipsis = styled.div.withConfig({ displayName: "StyledCssEllipsi
 				margin: 0 !important;
 				padding: 0 !important;
 			}
-			${maxLine === 1 &&
-			css`
-				word-break: break-all;
-			`}
+			${
+				maxLine === 1 &&
+				css`
+					word-break: break-all;
+				`
+			}
 		`;
 	}
 );

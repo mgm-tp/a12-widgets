@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import merge from "deepmerge";
 import type { ReactNode } from "react";
 import { createContext, useContext, useMemo } from "react";
-import merge from "deepmerge";
 
 import type { Container } from "../../common/main/base-props.js";
 

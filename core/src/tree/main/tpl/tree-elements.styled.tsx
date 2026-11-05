@@ -30,21 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { useContext } from "react";
 import { styled, css } from "styled-components";
 
-import { active, activeAndHover, hover } from "../../../theme/base/mixins/_interaction.js";
+import { ButtonGroup } from "../../../button-group/main/button-group.view.js";
 import { Button } from "../../../button/main/button.view.js";
+import { DataRoles } from "../../../common/main/data-roles.js";
+import { StyledCounter } from "../../../counter/main/counter.view.js";
 import { Icon, StyledIconWrapper } from "../../../icon/main/icon.view.js";
 import { breakWord } from "../../../theme/base/mixins/_break-word.js";
-import { StyledCounter } from "../../../counter/main/counter.view.js";
+import { active, activeAndHover, hover } from "../../../theme/base/mixins/_interaction.js";
 import { StyledTooltipTriggerWrapper } from "../../../tooltip/main/tooltip.styled.js";
-import { ButtonGroup } from "../../../button-group/main/button-group.view.js";
-import { DataRoles } from "../../../common/main/data-roles.js";
-
 import type { InsertableTreeProps } from "../insertable/insertable-tree.api.js";
 
-import { StyledTreeContext } from "./tree.tpl.api.js";
+import type { TreeHighlightVariant } from "./tree.tpl.api.js";
 
 export const StyledTreeContainer = styled.div.withConfig({ displayName: "StyledTreeContainer-sc-" })<{
 	$fit?: boolean;
@@ -71,32 +69,33 @@ export const StyledTreeNodesContainer = styled.div.withConfig({ displayName: "St
 	`;
 });
 
-export const StyledTreeNodeContainer = styled.div.withConfig({ displayName: "StyledTreeNodeContainer-sc-" })(
-	({ theme }) => {
-		const { tree } = theme.components;
-		const { dragging } = useContext(StyledTreeContext);
+export const StyledTreeNodeContainer = styled.div.withConfig({ displayName: "StyledTreeNodeContainer-sc-" })<{
+	$dragging?: boolean;
+}>(({ theme, $dragging: dragging }) => {
+	const { tree } = theme.components;
 
-		return css`
-			position: relative;
-			& > .dnd-dropTarget {
-				bottom: 0;
-				height: ${tree.hintHeight};
-				position: absolute;
-				width: 100%;
-				& + .dnd-dropTarget {
-					bottom: auto;
-					top: 0;
-				}
+	return css`
+		position: relative;
+		& > .dnd-dropTarget {
+			bottom: 0;
+			height: ${tree.hintHeight};
+			position: absolute;
+			width: 100%;
+			& + .dnd-dropTarget {
+				bottom: auto;
+				top: 0;
 			}
-			${dragging &&
+		}
+		${
+			dragging &&
 			css`
 				${StyledTreeNodeTitle} {
 					opacity: 0.15;
 				}
-			`}
-		`;
-	}
-);
+			`
+		}
+	`;
+});
 
 export const StyledTreeNodeContent = styled.div.withConfig({ displayName: "StyledTreeNodeContent-sc-" })<{
 	$level?: number;
@@ -104,166 +103,224 @@ export const StyledTreeNodeContent = styled.div.withConfig({ displayName: "Style
 	$disabled?: boolean;
 	$interactive?: boolean;
 	$selected?: boolean;
-}>(({ theme, $disabled, $interactive, $selected, $noEffect, $level = 0 }) => {
-	const { highlighted, highlightVariant, focusNoBorder, draggable, dragging, dragOver, dropForbidden } =
-		useContext(StyledTreeContext);
-	const { nodeContent, node } = theme.components.tree;
-	const { contentBoxHorizontalPadding } = theme.components.contentBox;
+	$highlighted?: boolean;
+	$highlightVariant?: TreeHighlightVariant;
+	$focusNoBorder?: boolean;
+	$draggable?: boolean;
+	$dragging?: boolean;
+	$dragOver?: boolean;
+	$dropForbidden?: boolean;
+}>(
+	({
+		theme,
+		$disabled,
+		$interactive,
+		$selected,
+		$noEffect,
+		$level = 0,
+		$highlighted: highlighted,
+		$highlightVariant: highlightVariant,
+		$focusNoBorder: focusNoBorder,
+		$draggable: draggable,
+		$dragging: dragging,
+		$dragOver: dragOver,
+		$dropForbidden: dropForbidden
+	}) => {
+		const { nodeContent, node } = theme.components.tree;
+		const { contentBoxHorizontalPadding } = theme.components.contentBox;
 
-	return css`
-		cursor: ${$interactive && "pointer"};
-		min-height: ${nodeContent.minHeight};
-		min-width: 300px;
-		outline: none;
-		padding-left: ${`calc(${contentBoxHorizontalPadding} + ${node.indentPaddingLeft * (1 + $level)}px + ${
-			node.titleSpacingLeft
-		} )`};
-		position: relative;
+		return css`
+			cursor: ${$interactive && "pointer"};
+			min-height: ${nodeContent.minHeight};
+			min-width: 300px;
+			outline: none;
+			padding-left: ${`calc(${contentBoxHorizontalPadding} + ${node.indentPaddingLeft * (1 + $level)}px + ${
+				node.titleSpacingLeft
+			} )`};
+			position: relative;
 
-		&:before {
-			border-bottom: ${nodeContent.borderBottom};
-			bottom: 0;
-			content: "";
-			display: block;
-			left: 0;
-			position: absolute;
-			right: 0;
-			top: 0;
-			pointer-events: none;
-		}
-
-		[data-role="${DataRoles.Table.Body.Cell}"] > ${StyledTreeNodeContainer} > && {
-			padding-left: ${`calc(${node.indentPaddingLeft * (1 + $level)}px + ${node.titleSpacingLeft} )`};
-		}
-
-		${activeAndHover(css`
-			${StyledInsertableTreeActionButtonGroup} {
-				opacity: 1;
+			&:before {
+				border-bottom: ${nodeContent.borderBottom};
+				bottom: 0;
+				content: "";
+				display: block;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				pointer-events: none;
 			}
-		`)}
 
-		${!$disabled &&
-		!$noEffect &&
-		css`
-			${active(css`
-				${focusNoBorder &&
+			[data-role="${DataRoles.Table.Body.Cell}"] > ${StyledTreeNodeContainer} > && {
+				padding-left: ${`calc(${node.indentPaddingLeft * (1 + $level)}px + ${node.titleSpacingLeft} )`};
+			}
+
+			${activeAndHover(css`
+				${StyledInsertableTreeActionButtonGroup} {
+					opacity: 1;
+				}
+			`)}
+
+			${
+				!$disabled &&
+				!$noEffect &&
 				css`
-					background-color: ${!$interactive && nodeContent.active.background};
-					${$interactive &&
-					css`
-						&:before {
-							border: ${nodeContent.active.border};
-							border-left: ${$selected && nodeContent.selected.activeBorderLeft};
+					${active(css`
+						${
+							focusNoBorder &&
+							css`
+								background-color: ${!$interactive && nodeContent.active.background};
+								${
+									$interactive &&
+									css`
+										&:before {
+											border: ${nodeContent.active.border};
+											border-left: ${$selected && nodeContent.selected.activeBorderLeft};
+										}
+									`
+								}
+							`
 						}
-					`}
-				`}
-			`)}
+					`)}
 
-			${!($selected && !highlighted) &&
-			hover(css`
-				background-color: ${!$interactive && nodeContent.hover.background};
-				${$interactive &&
-				css`
-					&:before {
-						border: ${nodeContent.hover.border};
-						border-left: ${$selected && nodeContent.selected.hoverBorderLeft};
+					${
+						!($selected && !highlighted) &&
+						hover(css`
+							background-color: ${!$interactive && nodeContent.hover.background};
+							${
+								$interactive &&
+								css`
+									&:before {
+										border: ${nodeContent.hover.border};
+										border-left: ${$selected && nodeContent.selected.hoverBorderLeft};
+									}
+								`
+							}
+						`)
 					}
-				`}
-			`)}
-		`}
-		
-		${!focusNoBorder &&
-		!($selected && !highlighted) &&
-		css`
-			&:focus {
-				${!$interactive &&
+				`
+			}
+
+			${
+				!focusNoBorder &&
+				!($selected && !highlighted) &&
+				css`
+					&:focus {
+						${
+							!$interactive &&
+							css`
+								background-color: ${nodeContent.focus.background};
+								outline: none;
+							`
+						}
+						${
+							$interactive &&
+							css`
+								&:before {
+									border: ${nodeContent.focus.border};
+									border-left: ${$selected && nodeContent.selected.focusBorderLeft};
+									margin: 1px;
+									outline: ${nodeContent.focus.outline};
+								}
+							`
+						}
+					}
+				`
+			}
+
+			${
+				highlighted &&
 				css`
 					background-color: ${nodeContent.focus.background};
 					outline: none;
-				`}
-				${$interactive &&
-				css`
-					&:before {
-						border: ${nodeContent.focus.border};
-						border-left: ${$selected && nodeContent.selected.focusBorderLeft};
-						margin: 1px;
-						outline: ${nodeContent.focus.outline};
+					${StyledInsertableTreeActionButtonGroup} {
+						opacity: 1;
 					}
-				`}
+				`
 			}
-		`}
-		
-		${highlighted &&
-		css`
-			background-color: ${nodeContent.focus.background};
-			outline: none;
-			${StyledInsertableTreeActionButtonGroup} {
-				opacity: 1;
+
+			${
+				highlightVariant === "success" &&
+				css`
+					background-color: ${nodeContent.successBG};
+				`
 			}
-		`}
-		
-		${highlightVariant === "success" &&
-		css`
-			background-color: ${nodeContent.successBG};
-		`}
-		
-		${$selected &&
-		css`
-			background-color: ${nodeContent.selected.background};
-			&:before {
-				border-left: ${nodeContent.selected.borderLeft};
+
+			${
+				$selected &&
+				css`
+					background-color: ${nodeContent.selected.background};
+					&:before {
+						border-left: ${nodeContent.selected.borderLeft};
+					}
+					${
+						!highlighted &&
+						css`
+							cursor: default;
+						`
+					}
+				`
 			}
-			${!highlighted &&
-			css`
-				cursor: default;
-			`}
-		`}
-		
-		${$disabled &&
-		css`
-			background-color: ${nodeContent.disabled.background};
-			color: ${nodeContent.disabled.color};
-			font-weight: ${nodeContent.disabled.fontWeight};
-			${StyledTreeNodeIcon} ${StyledIconWrapper} {
-				color: inherit;
+
+			${
+				$disabled &&
+				css`
+					background-color: ${nodeContent.disabled.background};
+					color: ${nodeContent.disabled.color};
+					font-weight: ${nodeContent.disabled.fontWeight};
+					${StyledTreeNodeIcon} ${StyledIconWrapper} {
+						color: inherit;
+					}
+				`
 			}
-		`}
-		
-		${draggable &&
-		css`
-			cursor: move;
-		`}
-		
-		${dragging &&
-		css`
-			${active(css`
-				background-color: ${nodeContent.dragging.activeBG};
-			`)}
-			${hover(css`
-				background-color: ${nodeContent.dragging.hoverBG};
-			`)}
-		`}
-		
-		${dragOver &&
-		css`
-			background-color: ${nodeContent.dragOver.background};
-			&:before {
-				border-left: ${nodeContent.dragOver.borderLeft};
+
+			${
+				draggable &&
+				css`
+					cursor: grab;
+					&:active {
+						cursor: grabbing;
+					}
+				`
 			}
-		`}
-		
-		${dropForbidden &&
-		css`
-			&& {
-				background-color: ${nodeContent.dropForbidden.background};
+
+			${
+				dragging &&
+				css`
+					${active(css`
+						background-color: ${nodeContent.dragging.activeBG};
+					`)}
+					${hover(css`
+						background-color: ${nodeContent.dragging.hoverBG};
+					`)}
+				`
 			}
-			opacity: 1;
-			&:before {
-				border-left: ${nodeContent.dropForbidden.borderLeft};
+
+			${
+				dragOver &&
+				css`
+					background-color: ${nodeContent.dragOver.background};
+					&:before {
+						border-left: ${nodeContent.dragOver.borderLeft};
+					}
+				`
 			}
-		`}
-	`;
-});
+
+			${
+				dropForbidden &&
+				css`
+					&& {
+						background-color: ${nodeContent.dropForbidden.background};
+					}
+					opacity: 1;
+					&:before {
+						border-left: ${nodeContent.dropForbidden.borderLeft};
+					}
+				`
+			}
+		`;
+	}
+);
 
 export const StyledTreeNodeArrow = styled.div.withConfig({ displayName: "StyledTreeNodeArrow-sc-" })(({ theme }) => {
 	const { tree } = theme.components;
@@ -417,19 +474,25 @@ export const StyledTreeDropHint = styled.div.withConfig({ displayName: "StyledTr
 		position: absolute;
 		top: ${$position === "top" && 0};
 		width: 100%;
-		${$available &&
-		css`
-			display: flex;
-			z-index: 1;
-			${$opened &&
+		${
+			$available &&
 			css`
-				border: ${dropHint.openedBorder};
-			`}
-			${$dropForbidden &&
-			css`
-				border: ${dropHint.forbidden.border};
-			`}
-		`}
+				display: flex;
+				z-index: 1;
+				${
+					$opened &&
+					css`
+						border: ${dropHint.openedBorder};
+					`
+				}
+				${
+					$dropForbidden &&
+					css`
+						border: ${dropHint.forbidden.border};
+					`
+				}
+			`
+		}
 	`;
 });
 
@@ -440,22 +503,28 @@ export const StyledTreeDropTarget = styled.div.withConfig({ displayName: "Styled
 	const { dropHint, hintHeight } = theme.components.tree;
 
 	return css`
-		${$opened &&
-		css`
-			background-color: ${dropHint.background};
-		`}
-		${$dropForbidden &&
-		css`
-			background-color: ${dropHint.forbidden.background};
-		`}
-			${($opened || $dropForbidden) &&
-		css`
-			align-self: center;
-			background-clip: content-box;
-			height: ${hintHeight};
-			width: 100%;
-			opacity: 1;
-		`}
+		${
+			$opened &&
+			css`
+				background-color: ${dropHint.background};
+			`
+		}
+		${
+			$dropForbidden &&
+			css`
+				background-color: ${dropHint.forbidden.background};
+			`
+		}
+		${
+			($opened || $dropForbidden) &&
+			css`
+				align-self: center;
+				background-clip: content-box;
+				height: ${hintHeight};
+				width: 100%;
+				opacity: 1;
+			`
+		}
 	`;
 });
 
@@ -508,30 +577,38 @@ export const StyledInsertableTreeHint = styled.div.withConfig({ displayName: "St
 		left: 0;
 		position: absolute;
 		width: 100%;
-		${$position === "top" &&
-		css`
-			top: -${hintHeight};
-		`}
-		${$position === "bottom" &&
-		css`
-			bottom: calc(1px - ${hintHeight});
-		`}
-		${$position === "asChild" &&
-		css`
-			bottom: -${hintHeight};
-			${StyledTreeNodeContainer} > ${StyledTreeNodeContent} > && {
-				background: linear-gradient(
-					to right,
-					transparent ${asChildPaddingLeftValue},
-					${$focused ? insertHint.focus.background : insertHint.background} ${asChildPaddingLeftValue}
-				);
-			}
-		`}
-		${$available &&
-		css`
-			border: ${$focused ? insertHint.focus.border : insertHint.border};
-			display: block;
-			z-index: 1;
-		`}
+		${
+			$position === "top" &&
+			css`
+				top: -${hintHeight};
+			`
+		}
+		${
+			$position === "bottom" &&
+			css`
+				bottom: calc(1px - ${hintHeight});
+			`
+		}
+		${
+			$position === "asChild" &&
+			css`
+				bottom: -${hintHeight};
+				${StyledTreeNodeContainer} > ${StyledTreeNodeContent} > && {
+					background: linear-gradient(
+						to right,
+						transparent ${asChildPaddingLeftValue},
+						${$focused ? insertHint.focus.background : insertHint.background} ${asChildPaddingLeftValue}
+					);
+				}
+			`
+		}
+		${
+			$available &&
+			css`
+				border: ${$focused ? insertHint.focus.border : insertHint.border};
+				display: block;
+				z-index: 1;
+			`
+		}
 	`;
 });

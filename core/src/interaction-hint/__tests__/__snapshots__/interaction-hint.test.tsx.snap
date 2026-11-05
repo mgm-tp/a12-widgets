@@ -18,71 +18,11 @@ exports[`com.mgmtp.a12.widgets.interaction-hint > render error interaction hint 
 
 .c3 .c1,
 .c3::before {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c3 .c1 {
-  color: rgb(77, 77, 77);
-}
-
-.c4 .c1,
-.c4::before {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c4 .c1 {
-  color: rgb(77, 77, 77);
-}
-
-.c5 .c1,
-.c5::before {
-  border-color: rgb(41, 122, 36);
-  background-color: rgb(255, 255, 255);
-}
-
-.c5 .c1 {
-  color: rgb(77, 77, 77);
-}
-
-.c6 .c1,
-.c6::before {
-  border-color: rgb(41, 122, 36);
-  background-color: rgb(255, 255, 255);
-}
-
-.c6 .c1 {
-  color: rgb(77, 77, 77);
-}
-
-.c7 .c1,
-.c7::before {
-  border-color: rgb(249, 191, 48);
-  background-color: rgb(254, 242, 218);
-}
-
-.c7 .c1 {
-  color: rgb(22, 25, 29);
-}
-
-.c8 .c1,
-.c8::before {
-  border-color: rgb(249, 191, 48);
-  background-color: rgb(254, 242, 218);
-}
-
-.c8 .c1 {
-  color: rgb(22, 25, 29);
-}
-
-.c9 .c1,
-.c9::before {
   border-color: rgb(201, 29, 29);
   background-color: rgb(252, 233, 233);
 }
 
-.c9 .c1 {
+.c3 .c1 {
   color: rgb(201, 29, 29);
 }
 
@@ -102,7 +42,7 @@ exports[`com.mgmtp.a12.widgets.interaction-hint > render error interaction hint 
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(181, 76, 23) currentcolor currentcolor rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -179,7 +119,7 @@ exports[`com.mgmtp.a12.widgets.interaction-hint > render info interaction hint w
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(181, 76, 23) currentcolor currentcolor rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -246,7 +186,7 @@ exports[`com.mgmtp.a12.widgets.interaction-hint > render interaction hint with t
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(181, 76, 23) currentcolor currentcolor rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -289,31 +229,11 @@ exports[`com.mgmtp.a12.widgets.interaction-hint > render success interaction hin
 
 .c3 .c1,
 .c3::before {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c3 .c1 {
-  color: rgb(77, 77, 77);
-}
-
-.c4 .c1,
-.c4::before {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c4 .c1 {
-  color: rgb(77, 77, 77);
-}
-
-.c5 .c1,
-.c5::before {
   border-color: rgb(41, 122, 36);
   background-color: rgb(255, 255, 255);
 }
 
-.c5 .c1 {
+.c3 .c1 {
   color: rgb(77, 77, 77);
 }
 
@@ -333,7 +253,7 @@ exports[`com.mgmtp.a12.widgets.interaction-hint > render success interaction hin
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(181, 76, 23) currentcolor currentcolor rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;
@@ -386,51 +306,11 @@ exports[`com.mgmtp.a12.widgets.interaction-hint > render warning interaction hin
 
 .c3 .c1,
 .c3::before {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c3 .c1 {
-  color: rgb(77, 77, 77);
-}
-
-.c4 .c1,
-.c4::before {
-  border-color: rgb(5, 104, 174);
-  background-color: rgb(255, 255, 255);
-}
-
-.c4 .c1 {
-  color: rgb(77, 77, 77);
-}
-
-.c5 .c1,
-.c5::before {
-  border-color: rgb(41, 122, 36);
-  background-color: rgb(255, 255, 255);
-}
-
-.c5 .c1 {
-  color: rgb(77, 77, 77);
-}
-
-.c6 .c1,
-.c6::before {
-  border-color: rgb(41, 122, 36);
-  background-color: rgb(255, 255, 255);
-}
-
-.c6 .c1 {
-  color: rgb(77, 77, 77);
-}
-
-.c7 .c1,
-.c7::before {
   border-color: rgb(249, 191, 48);
   background-color: rgb(254, 242, 218);
 }
 
-.c7 .c1 {
+.c3 .c1 {
   color: rgb(22, 25, 29);
 }
 
@@ -450,7 +330,7 @@ exports[`com.mgmtp.a12.widgets.interaction-hint > render warning interaction hin
   border-width: 1px medium medium 1px;
   border-style: solid none none solid;
   border-color: rgb(181, 76, 23) currentcolor currentcolor rgb(181, 76, 23);
-  border-image: initial;
+  border-image: none;
   content: "";
   height: 12px;
   pointer-events: none;

@@ -1,0 +1,57 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas, Description } from "@storybook/addon-docs/blocks";
+
+import * as CalloutStories from "./Callout.stories";
+
+<Meta of={CalloutStories} />
+
+<Title />
+
+The `Callout` widget is a floating container anchored to a `referenceElement`, used to surface
+contextual content without leaving the current screen — helping you use screen space effectively
+and reduce clutter.
+
+- Renders next to its anchor and repositions according to the `orientationList`.
+- Closes on outside click, Escape or clicking the reference element again — each behavior can be
+  disabled via `closeOnOutsideClick`, `closeOnEsc` and `closeOnClickReferenceElement`.
+- Supports an optional `header` (with `prefix`, `title` and `suffix`), a `footer` for actions, a
+  pointer arrow (`isPointerVisible`) and configurable content `padding`.
+- Can be made resizable and draggable via `resizeAndDragOptions`.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={CalloutStories.Playground} />
+
+## Examples
+
+### With pointer
+
+<Canvas of={CalloutStories.WithPointer} />
+
+### With header
+
+<Canvas of={CalloutStories.WithHeader} />
+
+### With footer
+
+<Canvas of={CalloutStories.WithFooter} />
+
+### Without padding
+
+<Canvas of={CalloutStories.NoPadding} />

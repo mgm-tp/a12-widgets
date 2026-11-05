@@ -42,7 +42,6 @@ const meta: Meta<typeof GlobalMessageBox> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		variant: {
 			control: "select",
@@ -66,6 +65,14 @@ const meta: Meta<typeof GlobalMessageBox> = {
 		},
 		actions: {
 			description: "Action elements rendered on the right side (e.g. buttons)"
+		},
+		role: {
+			control: "text",
+			description: "Value of the content wrapper's `role` attribute; set to `false` to omit it"
+		},
+		ariaLevel: {
+			control: { type: "number", min: 1 },
+			description: "Value of the content wrapper's `aria-level` attribute (ignored when `role` is false)"
 		}
 	}
 };
@@ -73,7 +80,7 @@ const meta: Meta<typeof GlobalMessageBox> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
 		variant: "info",
 		content: "System maintenance is scheduled for tonight between 22:00 and 23:00.",
@@ -82,71 +89,42 @@ export const Default: Story = {
 	}
 };
 
-export const Info: Story = {
-	args: {
-		variant: "info",
-		content: "System maintenance is scheduled for tonight between 22:00 and 23:00.",
-		actions: <Button invert icon={<Icon>close</Icon>} title="Dismiss" onClick={fn()} />,
-		focusOnMount: false
-	}
-};
-
-export const Success: Story = {
-	args: {
-		variant: "success",
-		content: "Your account has been verified successfully.",
-		actions: <Button invert icon={<Icon>close</Icon>} title="Dismiss" onClick={fn()} />,
-		focusOnMount: false
-	}
-};
-
-export const Warning: Story = {
-	args: {
-		variant: "warning",
-		content: "Your session will expire in 10 minutes. Please save your work.",
-		actions: <Button invert icon={<Icon>close</Icon>} title="Dismiss" onClick={fn()} />,
-		focusOnMount: false
-	}
-};
-
-export const Error: Story = {
-	args: {
-		variant: "error",
-		content: "A critical error occurred. Please contact your system administrator.",
-		actions: <Button invert icon={<Icon>close</Icon>} title="Dismiss" onClick={fn()} />,
-		focusOnMount: false
-	}
-};
-
-export const AllVariants: Story = {
+export const Variants: Story = {
 	render: () => (
 		<div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
 			<GlobalMessageBox
 				variant="info"
-				content="This is an informational message."
+				content="System maintenance is scheduled for tonight between 22:00 and 23:00."
 				actions={<Button invert icon={<Icon>close</Icon>} title="Dismiss" />}
 				focusOnMount={false}
 			/>
 			<GlobalMessageBox
 				variant="success"
-				content="This is a success message."
+				content="Your account has been verified successfully."
 				actions={<Button invert icon={<Icon>close</Icon>} title="Dismiss" />}
 				focusOnMount={false}
 			/>
 			<GlobalMessageBox
 				variant="warning"
-				content="This is a warning message."
+				content="Your session will expire in 10 minutes. Please save your work."
 				actions={<Button invert icon={<Icon>close</Icon>} title="Dismiss" />}
 				focusOnMount={false}
 			/>
 			<GlobalMessageBox
 				variant="error"
-				content="This is an error message."
+				content="A critical error occurred. Please contact your system administrator."
 				actions={<Button invert icon={<Icon>close</Icon>} title="Dismiss" />}
 				focusOnMount={false}
 			/>
 		</div>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "The `variant` prop selects the color scheme and default icon: `info`, `success`, `warning` or `error`."
+			}
+		}
+	}
 };
 
 export const WithActions: Story = {
@@ -160,6 +138,14 @@ export const WithActions: Story = {
 			</div>
 		),
 		focusOnMount: false
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`actions` renders arbitrary elements on the right side — typically inverted `Button`s for primary and dismiss actions."
+			}
+		}
 	}
 };
 
@@ -170,6 +156,13 @@ export const WithCustomIcon: Story = {
 		content: "New features are available. Check the release notes for details.",
 		actions: <Button invert icon={<Icon>close</Icon>} title="Dismiss" onClick={fn()} />,
 		focusOnMount: false
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`icon` replaces the variant's default icon on the left side of the box."
+			}
+		}
 	}
 };
 
@@ -181,56 +174,71 @@ export const EllipsisContent: Story = {
 			"This is a very long message that will be truncated to a single line when the ellipsis option is enabled. Users can toggle this to show the full content when needed.",
 		actions: <Button invert icon={<Icon>close</Icon>} title="Dismiss" onClick={fn()} />,
 		focusOnMount: false
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`ellipsis` truncates long content to a single line. Resize the canvas to see the truncation."
+			}
+		}
 	}
 };
 
 export const DismissableMessage: Story = {
-	render: () => {
-		const DismissableDemo = () => {
-			const [visible, setVisible] = useState(true);
+	render: function DismissableMessageExample() {
+		const [visible, setVisible] = useState(true);
 
-			if (!visible) {
-				return <Button label="Show message" primary onClick={() => setVisible(true)} />;
+		if (!visible) {
+			return <Button label="Show message" primary onClick={() => setVisible(true)} />;
+		}
+
+		return (
+			<GlobalMessageBox
+				variant="info"
+				content="Click the dismiss button to hide this message."
+				actions={<Button invert icon={<Icon>close</Icon>} title="Dismiss" onClick={() => setVisible(false)} />}
+				focusOnMount={false}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Dismissal is controlled by the consumer: render a close `Button` in `actions` and unmount the box on click."
 			}
-
-			return (
-				<GlobalMessageBox
-					variant="info"
-					content="Click the dismiss button to hide this message."
-					actions={<Button invert icon={<Icon>close</Icon>} title="Dismiss" onClick={() => setVisible(false)} />}
-					focusOnMount={false}
-				/>
-			);
-		};
-
-		return <DismissableDemo />;
+		}
 	}
 };
 
 export const ToggleEllipsis: Story = {
-	render: () => {
-		const ToggleEllipsisDemo = () => {
-			const [ellipsis, setEllipsis] = useState(true);
+	render: function ToggleEllipsisExample() {
+		const [ellipsis, setEllipsis] = useState(true);
 
-			return (
-				<GlobalMessageBox
-					variant="info"
-					icon={<Icon>speaker_notes</Icon>}
-					content="This is a detailed notification with a lot of content. When ellipsis is enabled the text is truncated to a single line. Click the expand button to show the full message. Click collapse to hide it again."
-					ellipsis={ellipsis}
-					actions={
-						<Button
-							invert
-							icon={<Icon>{ellipsis ? "unfold_more" : "unfold_less"}</Icon>}
-							title={ellipsis ? "Expand" : "Collapse"}
-							onClick={() => setEllipsis((prev) => !prev)}
-						/>
-					}
-					focusOnMount={false}
-				/>
-			);
-		};
-
-		return <ToggleEllipsisDemo />;
+		return (
+			<GlobalMessageBox
+				variant="info"
+				icon={<Icon>speaker_notes</Icon>}
+				content="This is a detailed notification with a lot of content. When ellipsis is enabled the text is truncated to a single line. Click the expand button to show the full message. Click collapse to hide it again."
+				ellipsis={ellipsis}
+				actions={
+					<Button
+						invert
+						icon={<Icon>{ellipsis ? "unfold_more" : "unfold_less"}</Icon>}
+						title={ellipsis ? "Expand" : "Collapse"}
+						onClick={() => setEllipsis((prev) => !prev)}
+					/>
+				}
+				focusOnMount={false}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Switching `ellipsis` at runtime lets users expand a truncated message to its full content and collapse it again."
+			}
+		}
 	}
 };

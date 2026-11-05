@@ -31,216 +31,305 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ReactElement } from "react";
+import { fn } from "storybook/test";
+import { styled } from "styled-components";
 
-import { Card, Button, Icon, Typography } from "@com.mgmtp.a12.widgets/widgets-core";
+import type { CardProps } from "@com.mgmtp.a12.widgets/widgets-core";
+import { Button, ButtonGroup, Card, Icon, LayoutGrid, Tag, Typography } from "@com.mgmtp.a12.widgets/widgets-core";
 
-const meta: Meta<typeof Card> = {
+const { Grid, Row, Column } = LayoutGrid;
+
+/*
+ * These stories are assembled from widgets and the library's own utility classes (`-u-*`, shipped
+ * with `basic.css`) rather than from bespoke CSS. Only the two surfaces below need theme tokens
+ * that no utility class exposes, so they are the only styled components in this file.
+ */
+
+/**
+ * `Card` deliberately ships without a surface of its own, so the application can place it on any
+ * background. Every story paints one from theme tokens — which is what a real integration does.
+ *
+ * No `overflow: hidden`: the card reserves a hairline of padding for the `Card.ActionArea` focus
+ * outline, and clipping the root would cut that ring off.
+ */
+const StyledCard = styled(Card)`
+	background-color: ${({ theme }) => theme.colors.background.primaryBackground};
+	border: 1px solid ${({ theme }) => theme.colors.divider.color};
+	border-radius: 0.5rem;
+	box-shadow: ${({ theme }) => theme.applicationStyles.boxShadow};
+`;
+
+/**
+ * Detaches a footer of actions from the copy above it. `divisionLineStyles` is not used here:
+ * the Base theme deliberately switches those lines off, so the footer reuses the divider color
+ * that draws the card border.
+ */
+const StyledCardFooter = styled.div`
+	border-top: 1px solid ${({ theme }) => theme.colors.divider.color};
+`;
+
+/** Card width used across the stories; `-u-width-64` is 16rem. */
+const CARD_WIDTH = "-u-width-64";
+
+/**
+ * `Card.Content` has no padding of its own, so the stories inset it horizontally. The vertical
+ * rhythm is left to the `Typography` widgets' own margins rather than stacked on top of them.
+ */
+const CARD_CONTENT_PADDING = "-u-padding-x-sm";
+
+/**
+ * Stand-in for a real image. `Card.Media` centers its child, so the child has to claim the full
+ * width itself — otherwise it collapses to the width of its own content, which is the classic way
+ * to end up with a thin stripe instead of a media area.
+ */
+function MediaPlaceholder(props: { glyph: string; height?: string }): ReactElement {
+	return (
+		<Card.Media className="-u-padding-0 -u-rounded-t-lg -u-overflow-hidden">
+			<div
+				className={`-u-width-full ${props.height ?? "-u-height-32"} -u-flex -u-items-center -u-justify-center -u-background-grey-light`}
+			>
+				<Icon className="-u-text-4xl -u-text-grey-dark">{props.glyph}</Icon>
+			</div>
+		</Card.Media>
+	);
+}
+
+/**
+ * Stories that demo an action take their handler from this extra arg, so clicks land in the
+ * Actions panel instead of a browser `alert()`.
+ */
+type CardStoryArgs = CardProps & { onAction: () => void };
+
+const meta: Meta<CardStoryArgs> = {
 	title: "Data Display/Card",
 	component: Card,
+	args: { onAction: fn() },
 	parameters: {
-		layout: "centered"
+		layout: "centered",
+		docs: {
+			description: {
+				component:
+					"`Card` groups the content and actions of a single subject. It is a layout shell only — it draws no " +
+					"background, border or elevation of its own, so the surrounding application owns the surface. These stories " +
+					"paint that surface from theme tokens and compose everything inside it from widgets plus the library's " +
+					"`-u-*` utility classes, so they stay correct in every theme."
+			}
+		}
 	},
-	tags: ["autodocs"]
+	argTypes: {
+		children: {
+			control: false,
+			description: "Card sections — compose with `Card.Media`, `Card.Content` and `Card.ActionArea`"
+		},
+		id: {
+			control: "text",
+			description: "HTML id attribute of the card root element"
+		},
+		className: {
+			control: "text",
+			description: "Additional CSS class for the card root element"
+		},
+		style: {
+			control: "object",
+			description: "Inline styles for the card root element"
+		},
+		onAction: {
+			control: false,
+			description: "Story-only handler wired to the card's action(s); not a `Card` prop"
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => (
-		<Card style={{ width: "300px" }}>
-			<Card.Content>
-				<Typography.Headline level={3} style={{ margin: "0 0 8px 0" }}>
-					Card Title
-				</Typography.Headline>
-				<Typography.Body color="#666" style={{ margin: 0 }}>
-					This is a basic card with some content. Cards can contain text, images, and actions.
+export const Playground: Story = {
+	args: {
+		className: CARD_WIDTH,
+		children: (
+			<Card.Content className={CARD_CONTENT_PADDING}>
+				<Typography.Headline level={3}>Quarterly report</Typography.Headline>
+				<Typography.Body>
+					A card holds everything about one subject: a heading, supporting copy, and the actions that belong to it.
 				</Typography.Body>
 			</Card.Content>
-		</Card>
-	)
+		)
+	},
+	render: ({ onAction, ...args }) => <StyledCard {...args} />
 };
 
 export const WithMedia: Story = {
 	render: () => (
-		<Card style={{ width: "300px" }}>
-			<Card.Media>
-				<div
-					style={{
-						height: "140px",
-						backgroundColor: "#1976d2",
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-						color: "white"
-					}}
-				>
-					<Icon size="big">image</Icon>
-				</div>
-			</Card.Media>
-			<Card.Content>
-				<Typography.Headline level={3} style={{ margin: "0 0 8px 0" }}>
-					Card with Media
-				</Typography.Headline>
-				<Typography.Body color="#666" style={{ margin: 0 }}>
-					This card includes a media section at the top for images or videos.
+		<StyledCard className={CARD_WIDTH}>
+			<MediaPlaceholder glyph="insert_chart" />
+			<Card.Content className={CARD_CONTENT_PADDING}>
+				<Typography.Headline level={3}>Adoption is up 18%</Typography.Headline>
+				<Typography.Body>
+					A media area anchors the card visually and gives the eye somewhere to land before it reaches the copy.
 				</Typography.Body>
 			</Card.Content>
-		</Card>
-	)
+		</StyledCard>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`Card.Media` renders a dedicated section for images or videos above `Card.Content`. It centers its child " +
+					"and applies a themed inset by default; `-u-padding-0` gives the edge-to-edge look shown here."
+			}
+		}
+	}
 };
 
 export const WithActionArea: Story = {
-	args: {},
-	render: () => (
-		<Card style={{ width: "300px" }}>
-			<Card.ActionArea onClick={() => alert("Card clicked!")}>
-				<Card.Media>
-					<div
-						style={{
-							height: "140px",
-							backgroundColor: "#4caf50",
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center",
-							color: "white"
-						}}
-					>
-						<Icon size="big">touch_app</Icon>
-					</div>
-				</Card.Media>
-				<Card.Content>
-					<Typography.Headline level={3} style={{ margin: "0 0 8px 0" }}>
-						Clickable Card
-					</Typography.Headline>
-					<Typography.Body color="#666" style={{ margin: 0 }}>
-						Click anywhere on this card to trigger an action.
-					</Typography.Body>
+	render: ({ onAction }) => (
+		<StyledCard className={CARD_WIDTH}>
+			<Card.ActionArea onClick={onAction}>
+				<MediaPlaceholder glyph="folder_open" />
+				<Card.Content className={CARD_CONTENT_PADDING}>
+					<Typography.Headline level={3}>Design system</Typography.Headline>
+					<Typography.Body>Tab to this card and press Enter — the whole surface is one control.</Typography.Body>
 				</Card.Content>
 			</Card.ActionArea>
-		</Card>
-	)
+		</StyledCard>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`Card.ActionArea` turns the whole card into a single control: it is keyboard focusable, fires `onClick` on " +
+					"Enter, and shows hover, active and focus borders from the theme."
+			}
+		}
+	}
 };
 
 export const WithButtons: Story = {
-	render: () => (
-		<Card style={{ width: "300px" }}>
-			<Card.Content>
-				<Typography.Headline level={3} style={{ margin: "0 0 8px 0" }}>
-					Card with Actions
-				</Typography.Headline>
-				<Typography.Body color="#666" style={{ margin: "0 0 16px 0" }}>
-					This card has action buttons at the bottom.
+	render: ({ onAction }) => (
+		<StyledCard className={CARD_WIDTH}>
+			<Card.Content className={CARD_CONTENT_PADDING}>
+				<Typography.Headline level={3}>Invite your team</Typography.Headline>
+				<Typography.Body>
+					When a card offers several distinct actions, place them in a footer instead of making the surface clickable.
 				</Typography.Body>
-				<div style={{ display: "flex", gap: "8px" }}>
-					<Button label="Learn More" primary />
-					<Button label="Share" />
-				</div>
+				<StyledCardFooter className="-u-margin-t-sm -u-padding-t-sm -u-margin-b-sm">
+					<ButtonGroup>
+						<Button label="Send invites" primary onClick={onAction} />
+						<Button label="Copy link" secondary onClick={onAction} />
+					</ButtonGroup>
+				</StyledCardFooter>
 			</Card.Content>
-		</Card>
-	)
+		</StyledCard>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Individual actions live inside `Card.Content`, grouped with `ButtonGroup`. Use this instead of " +
+					"`Card.ActionArea` whenever the card has more than one meaningful action — nesting controls inside a " +
+					"clickable surface makes the click target ambiguous."
+			}
+		}
+	}
 };
 
 export const ProductCard: Story = {
-	render: () => (
-		<Card style={{ width: "280px" }}>
-			<Card.Media>
-				<div
-					style={{
-						height: "180px",
-						backgroundColor: "#f5f5f5",
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center"
-					}}
-				>
-					<Icon size="big">devices</Icon>
-				</div>
-			</Card.Media>
-			<Card.Content>
-				<div style={{ display: "flex", justifyContent: "space-between", alignItems: "start" }}>
-					<div>
-						<Typography.Headline level={3} style={{ margin: "0 0 4px 0" }}>
-							Laptop Pro
-						</Typography.Headline>
-						<Typography.Body color="#666" style={{ margin: 0, fontSize: "14px" }}>
-							High performance laptop
-						</Typography.Body>
-					</div>
-					<span style={{ fontWeight: "bold", color: "#1976d2" }}>$1,299</span>
-				</div>
-				<div style={{ marginTop: "16px", display: "flex", gap: "8px" }}>
-					<Button label="Add to Cart" primary block />
-					<Button icon={<Icon>favorite_border</Icon>} title="Add to wishlist" />
-				</div>
+	render: ({ onAction }) => (
+		<StyledCard className={CARD_WIDTH}>
+			<MediaPlaceholder glyph="laptop" />
+			<Card.Content className={CARD_CONTENT_PADDING}>
+				<Typography.Headline level={3} addons={<span className="-u-font-bold -u-text-lg">&euro;1,299</span>}>
+					Laptop Pro 14&#8221;
+				</Typography.Headline>
+				<Typography.Body>32 GB memory &middot; 1 TB SSD &middot; 3-year warranty</Typography.Body>
+				<Tag>In stock</Tag>
+				<StyledCardFooter className="-u-margin-t-sm -u-padding-t-sm -u-margin-b-sm">
+					<ButtonGroup>
+						<Button label="Add to cart" primary onClick={onAction} />
+						<Button icon={<Icon>favorite_border</Icon>} title="Add to wishlist" secondary onClick={onAction} />
+					</ButtonGroup>
+				</StyledCardFooter>
 			</Card.Content>
-		</Card>
-	)
+		</StyledCard>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"A realistic composition: media, a `Typography.Headline` whose `addons` slot carries the price, the specs as " +
+					"body copy, a `Tag` for availability, and a footer of actions."
+			}
+		}
+	}
 };
 
 export const ProfileCard: Story = {
-	render: () => (
-		<Card style={{ width: "300px", textAlign: "center" }}>
-			<Card.Content>
-				<div
-					style={{
-						width: "80px",
-						height: "80px",
-						borderRadius: "50%",
-						backgroundColor: "#1976d2",
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-						margin: "0 auto 16px",
-						color: "white"
-					}}
-				>
-					<Icon size="big">person</Icon>
+	render: ({ onAction }) => (
+		<StyledCard className={CARD_WIDTH}>
+			<Card.Content className={`${CARD_CONTENT_PADDING} -u-flex -u-flex-col -u-items-center -u-text-center`}>
+				<div className="-u-margin-t-sm -u-width-16 -u-height-16 -u-rounded-full -u-flex -u-items-center -u-justify-center -u-background-grey-light">
+					<Icon className="-u-text-4xl -u-text-grey-dark">person</Icon>
 				</div>
-				<Typography.Headline level={3} style={{ margin: "0 0 4px 0" }}>
-					John Doe
-				</Typography.Headline>
-				<Typography.Body color="#666" style={{ margin: "0 0 16px 0" }}>
-					Software Engineer
-				</Typography.Body>
-				<div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
-					<Button icon={<Icon>mail</Icon>} title="Email" />
-					<Button icon={<Icon>phone</Icon>} title="Call" />
-					<Button icon={<Icon>chat</Icon>} title="Message" />
-				</div>
+				<Typography.Headline level={3}>Jamie Rivera</Typography.Headline>
+				<Typography.Body>Senior Software Engineer</Typography.Body>
+				<ButtonGroup className="-u-margin-t-sm -u-margin-b-sm">
+					<Button icon={<Icon>mail</Icon>} title="Send an email" secondary onClick={onAction} />
+					<Button icon={<Icon>phone</Icon>} title="Start a call" secondary onClick={onAction} />
+					<Button icon={<Icon>chat</Icon>} title="Send a message" secondary onClick={onAction} />
+				</ButtonGroup>
 			</Card.Content>
-		</Card>
-	)
+		</StyledCard>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"A centered profile built from `Card.Content` alone, using flex utility classes for the layout. Each " +
+					"icon-only `Button` carries a `title`, which the widget turns into its accessible name."
+			}
+		}
+	}
 };
 
+const GRID_ITEMS = [
+	{ label: "Contracts", meta: "128 documents", glyph: "description" },
+	{ label: "Invoices", meta: "412 documents", glyph: "receipt_long" },
+	{ label: "Claims", meta: "37 documents", glyph: "assignment" },
+	{ label: "Policies", meta: "64 documents", glyph: "policy" },
+	{ label: "Archive", meta: "1,204 documents", glyph: "inventory_2" },
+	{ label: "Flagged", meta: "9 documents", glyph: "flag" }
+];
+
 export const CardGrid: Story = {
-	render: () => (
-		<div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px", width: "700px" }}>
-			{[1, 2, 3, 4, 5, 6].map((num) => (
-				<Card key={num}>
-					<Card.ActionArea onClick={() => alert(`Card ${num} clicked`)}>
-						<Card.Media>
-							<div
-								style={{
-									height: "100px",
-									backgroundColor: `hsl(${num * 50}, 70%, 60%)`,
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "center",
-									color: "white"
-								}}
-							>
-								<Icon>folder</Icon>
-							</div>
-						</Card.Media>
-						<Card.Content>
-							<Typography.Headline level={4} style={{ margin: 0 }}>
-								Card {num}
-							</Typography.Headline>
-						</Card.Content>
-					</Card.ActionArea>
-				</Card>
-			))}
-		</div>
-	)
+	render: ({ onAction }) => (
+		<Grid>
+			<Row>
+				{GRID_ITEMS.map((item) => (
+					<Column key={item.label} size={{ sm: 12, md: 6, lg: 4 }}>
+						<StyledCard>
+							<Card.ActionArea onClick={onAction}>
+								<MediaPlaceholder glyph={item.glyph} height="-u-height-24" />
+								<Card.Content className={CARD_CONTENT_PADDING}>
+									<Typography.Headline level={3}>{item.label}</Typography.Headline>
+									<Typography.Body>{item.meta}</Typography.Body>
+								</Card.Content>
+							</Card.ActionArea>
+						</StyledCard>
+					</Column>
+				))}
+			</Row>
+		</Grid>
+	),
+	parameters: {
+		layout: "padded",
+		docs: {
+			description: {
+				story:
+					"`LayoutGrid` places the cards on the library's responsive 12-column grid — three per row on a desktop, two " +
+					"on a tablet, one on a phone. Cards stretch to the full height of their column, so rows line up even when " +
+					"the copy differs in length."
+			}
+		}
+	}
 };

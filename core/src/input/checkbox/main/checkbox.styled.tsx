@@ -32,12 +32,12 @@
 
 import { styled, css } from "styled-components";
 
-import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
-import { StyledFieldLabel, StyledFieldLabelWrapper } from "../../base/template/base.tpl.view.js";
+import { StyledListItemWrapper } from "../../../list/main/list.styled.js";
 import { active, hover } from "../../../theme/base/mixins/_interaction.js";
 import { checkboxStates } from "../../../theme/base/mixins/components/_input.js";
 import { StyledBaseBoolean } from "../../base-input-styled/base-boolean.styled.js";
-import { StyledListItemWrapper } from "../../../list/main/list.styled.js";
+import { StyledBaseInput } from "../../base-input-styled/base.styled.js";
+import { StyledFieldLabel, StyledFieldLabelWrapper } from "../../base/template/base.tpl.view.js";
 
 export namespace StyledCheckbox {
 	export const StyledControl = styled(StyledBaseBoolean.StyledFieldControl).withConfig({
@@ -131,72 +131,82 @@ export namespace StyledCheckbox {
 				$checked ? "none" : baseInput.boolean.border
 			)}
 
-			${$checked &&
-			css`
-				& + label > span:after {
-					box-sizing: border-box;
-					border: ${checkbox.checked.border};
-					border-top: none;
-					border-right: none;
-					content: "";
-					display: block;
-					margin: ${checkbox.checked.margin};
-					height: ${baseInput.boolean.size / 2}px;
-					transform: rotate(-55deg);
-					width: ${Math.ceil((baseInput.boolean.size * Math.sqrt(2)) / 2)}px;
-				}
+			${
+				$checked &&
+				css`
+					& + label > span:after {
+						box-sizing: border-box;
+						border: ${checkbox.checked.border};
+						border-top: none;
+						border-right: none;
+						content: "";
+						display: block;
+						margin: ${checkbox.checked.margin};
+						height: ${baseInput.boolean.size / 2}px;
+						transform: rotate(-55deg);
+						width: ${Math.ceil((baseInput.boolean.size * Math.sqrt(2)) / 2)}px;
+					}
 
-				& + label > span:before {
-					border: 1px solid transparent;
-				}
-			`}
-			
-			${!$disabled &&
-			!$readonly &&
-			css`
-				${$info && checkboxStates($checked ? checkbox.info.checkedBG : undefined, checkbox.info.border)}
-				${$warning && checkboxStates($checked ? checkbox.warning.checkedBG : undefined, checkbox.warning.border)}
-				${$error && checkboxStates($checked ? checkbox.error.checkedBG : undefined, checkbox.error.border)}
-            	&:focus,
-            	&:focus-within {
-					${checkboxStates($checked ? checkbox.focus.checkedBG : undefined, checkbox.focus.border)}
-				}
+					& + label > span:before {
+						border: 1px solid transparent;
+					}
+				`
+			}
 
-				${active(checkboxStates($checked ? checkbox.active.checkedBG : undefined, checkbox.active.border))};
+			${
+				!$disabled &&
+				!$readonly &&
+				css`
+					${$info && checkboxStates($checked ? checkbox.info.checkedBG : undefined, checkbox.info.border)}
+					${$warning && checkboxStates($checked ? checkbox.warning.checkedBG : undefined, checkbox.warning.border)}
+					${$error && checkboxStates($checked ? checkbox.error.checkedBG : undefined, checkbox.error.border)}
+					&:focus,
+					&:focus-within {
+						${checkboxStates($checked ? checkbox.focus.checkedBG : undefined, checkbox.focus.border)}
+					}
 
-				${hover(checkboxStates($checked ? checkbox.hover.checkedBG : undefined, checkbox.hover.border))};
-				& + label {
-					${hover(css`
-						& > span {
-							&:after {
-								background-color: ${checkbox.hover.checkedBG};
+					${active(checkboxStates($checked ? checkbox.active.checkedBG : undefined, checkbox.active.border))};
+
+					${hover(checkboxStates($checked ? checkbox.hover.checkedBG : undefined, checkbox.hover.border))};
+					& + label {
+						${hover(css`
+							& > span {
+								&:after {
+									background-color: ${checkbox.hover.checkedBG};
+								}
+								&:before {
+									border: ${checkbox.hover.border};
+								}
+
+								${
+									$checked &&
+									css`
+										background-color: ${checkbox.hover.checkedBG};
+									`
+								}
 							}
-							&:before {
-								border: ${checkbox.hover.border};
-							}
+						`)}
+					}
+				`
+			}
 
-							${$checked &&
-							css`
-								background-color: ${checkbox.hover.checkedBG};
-							`}
-						}
-					`)}
-				}
-			`}
-			
-			${$readonly &&
-			checkboxStates(
-				$checked ? checkbox.readOnly.checkedBG : checkbox.readOnly.background,
-				checkbox.readOnly.border,
-				$checked ? checkbox.readOnly.checkedBorderColor : undefined
-			)}
-			
-			${$disabled &&
-			checkboxStates(
-				$checked ? checkbox.disabled.checkedBG : checkbox.disabled.background,
-				checkbox.disabled.border,
-				$checked ? checkbox.disabled.checkedBorderColor : undefined
-			)}
+			${
+				$readonly &&
+				checkboxStates(
+					$checked ? checkbox.readOnly.checkedBG : checkbox.readOnly.background,
+					checkbox.readOnly.border,
+					$checked ? checkbox.readOnly.checkedBorderColor : undefined
+				)
+			}
+
+			${
+				$disabled &&
+				checkboxStates(
+					$checked ? checkbox.disabled.checkedBG : checkbox.disabled.background,
+					checkbox.disabled.border,
+					$checked ? checkbox.disabled.checkedBorderColor : undefined
+				)
+			}
 		`;
 	});
 
@@ -215,97 +225,107 @@ export namespace StyledCheckbox {
 				width: 100%;
 			}
 
-			${$mixed &&
-			css`
-				& + label > span {
-					&:after {
-						background-color: ${checkbox.indeterminateBackground};
-						content: " ";
-						height: ${baseInput.boolean.size / 2 - 1}px;
-						left: 50%;
-						position: absolute;
-						top: 50%;
-						transform: translate(-50%, -50%);
-						width: ${baseInput.boolean.size / 2 - 1}px;
-						border: 3px solid transparent;
-					}
-				}
-			`}
-
-			${interactive &&
-			$hovered &&
-			css`
-				${checkboxStates($checked ? checkbox.hover.checkedBG : undefined, checkbox.hover.border)}
-				&:focus,
-				&:focus-within {
-					${checkboxStates($checked ? checkbox.hover.checkedBG : undefined, checkbox.hover.border)}
-				}
-				&& + label > span {
-					&:after {
-						background-color: ${checkbox.hover.checkedBG};
-					}
-
-					&:before {
-						inset: -1px;
-					}
-				}
-				//make focus styles same as hover styles when hovering in label/checkbox
-				&:focus,
-				&:focus-within {
-					${checkboxStates($checked ? checkbox.hover.checkedBG : undefined, checkbox.hover.border)}
-					&& + label > span:after {
-						background-color: ${checkbox.hover.checkedBG};
-					}
-				}
-			`}
-
-			${interactive &&
-			$mixed &&
-			css`
-				&:focus,
-				&:focus-within {
+			${
+				$mixed &&
+				css`
 					& + label > span {
 						&:after {
-							background-color: ${$hovered ? checkbox.hover.checkedBG : checkbox.focus.checkedBG};
+							background-color: ${checkbox.indeterminateBackground};
+							content: " ";
+							height: ${baseInput.boolean.size / 2 - 1}px;
+							left: 50%;
+							position: absolute;
+							top: 50%;
+							transform: translate(-50%, -50%);
+							width: ${baseInput.boolean.size / 2 - 1}px;
+							border: 3px solid transparent;
 						}
 					}
-				}
+				`
+			}
 
-				${active(css`
-					& + label > span {
-						&:after {
-							background-color: ${checkbox.active.checkedBG};
-						}
+			${
+				interactive &&
+				$hovered &&
+				css`
+					${checkboxStates($checked ? checkbox.hover.checkedBG : undefined, checkbox.hover.border)}
+					&:focus,
+					&:focus-within {
+						${checkboxStates($checked ? checkbox.hover.checkedBG : undefined, checkbox.hover.border)}
 					}
-				`)}
-				${hover(css`
-					& + label > span {
+					&& + label > span {
 						&:after {
 							background-color: ${checkbox.hover.checkedBG};
 						}
+
+						&:before {
+							inset: -1px;
+						}
 					}
-				`)}
-			`}
-			
-			${$readonly &&
-			$mixed &&
-			css`
-				& + label > span {
-					&:after {
-						background-color: ${checkbox.readOnly.checkedBG};
+					//make focus styles same as hover styles when hovering in label/checkbox
+					&:focus,
+					&:focus-within {
+						${checkboxStates($checked ? checkbox.hover.checkedBG : undefined, checkbox.hover.border)}
+						&& + label > span:after {
+							background-color: ${checkbox.hover.checkedBG};
+						}
 					}
-				}
-			`}
-			
-			${$disabled &&
-			$mixed &&
-			css`
-				& + label > span {
-					&:after {
-						background-color: ${checkbox.disabled.checkedBG};
+				`
+			}
+
+			${
+				interactive &&
+				$mixed &&
+				css`
+					&:focus,
+					&:focus-within {
+						& + label > span {
+							&:after {
+								background-color: ${$hovered ? checkbox.hover.checkedBG : checkbox.focus.checkedBG};
+							}
+						}
 					}
-				}
-			`}
+
+					${active(css`
+						& + label > span {
+							&:after {
+								background-color: ${checkbox.active.checkedBG};
+							}
+						}
+					`)}
+					${hover(css`
+						& + label > span {
+							&:after {
+								background-color: ${checkbox.hover.checkedBG};
+							}
+						}
+					`)}
+				`
+			}
+
+			${
+				$readonly &&
+				$mixed &&
+				css`
+					& + label > span {
+						&:after {
+							background-color: ${checkbox.readOnly.checkedBG};
+						}
+					}
+				`
+			}
+
+			${
+				$disabled &&
+				$mixed &&
+				css`
+					& + label > span {
+						&:after {
+							background-color: ${checkbox.disabled.checkedBG};
+						}
+					}
+				`
+			}
 		`;
 	});
 }

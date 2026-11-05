@@ -30,21 +30,21 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import basicCode from "!./basic.tsx?raw";
+import dataCode from "!./data.tsx?raw";
+import errorCode from "!./error-message.tsx?raw";
+import GraphicLabelCode from "!./graphic-label.tsx?raw";
+import readonlyAndDisabledCode from "!./readonly-disabled.tsx?raw";
+
 import { BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 import SliderAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/experimental/input/slider/main/slider.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
 import { Basic } from "./basic.js";
-import { ReadonlyAndDisabledSlider } from "./readonly-disabled.js";
-import { GraphicLabelShowcase } from "./graphic-label.js";
 import { SliderError } from "./error-message.js";
-
-import basicCode from "!./basic.tsx?raw";
-import dataCode from "!./data.tsx?raw";
-import readonlyAndDisabledCode from "!./readonly-disabled.tsx?raw";
-import GraphicLabelCode from "!./graphic-label.tsx?raw";
-import errorCode from "!./error-message.tsx?raw";
+import { GraphicLabelShowcase } from "./graphic-label.js";
+import { ReadonlyAndDisabledSlider } from "./readonly-disabled.js";
 
 const { Unordered, Item } = BulletList;
 

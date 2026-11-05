@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { isAfter } from "date-fns";
 import type { ReactElement } from "react";
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { isAfter } from "date-fns";
 
 import type { DateRange } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DateInput, DateTimeUtils } from "@com.mgmtp.a12.widgets/widgets-core";

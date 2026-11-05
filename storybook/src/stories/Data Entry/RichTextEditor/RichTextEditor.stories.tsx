@@ -30,6 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+// Import the required CSS theme for the rich text editor
+import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
+
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 
@@ -41,11 +44,9 @@ import {
 	BulletListButton,
 	NumberListButton,
 	Separator,
-	AlignButtonGroup
+	AlignButtonGroup,
+	HintTooltip
 } from "@com.mgmtp.a12.widgets/widgets-core";
-
-// Import the required CSS theme for the rich text editor
-import "@com.mgmtp.a12.widgets/widgets-core/styles/rich-text-editor.css";
 
 const BASIC_TOOLBAR = [BoldButton, ItalicButton, UnderlineButton, Separator, BulletListButton, NumberListButton];
 
@@ -66,7 +67,6 @@ const meta: Meta<typeof DefaultRichTextEditor> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
 		placeholder: {
 			control: "text",
@@ -78,7 +78,7 @@ const meta: Meta<typeof DefaultRichTextEditor> = {
 		},
 		minHeight: {
 			control: "text",
-			description: "Minimum and initial height of the editor (any CSS unit)"
+			description: "Minimum and initial height of the editor (any CSS unit, default 100px)"
 		},
 		maxHeight: {
 			control: "text",
@@ -86,7 +86,7 @@ const meta: Meta<typeof DefaultRichTextEditor> = {
 		},
 		singleLine: {
 			control: "boolean",
-			description: "Renders the editor in single-line mode"
+			description: "Renders the editor in single-line mode (minHeight, maxHeight and autoExpand are ignored)"
 		},
 		disabled: {
 			control: "boolean",
@@ -99,6 +99,26 @@ const meta: Meta<typeof DefaultRichTextEditor> = {
 		spellCheck: {
 			control: "boolean",
 			description: "Whether the browser spell checker is enabled"
+		},
+		staticToolbarButtons: {
+			control: false,
+			description: "Toolbar items (buttons, separators, button groups) displayed above the editor's input"
+		},
+		onChange: {
+			control: false,
+			description: "Triggers whenever the editor state changes, receiving the Lexical EditorState and editor"
+		},
+		messagePosition: {
+			control: "select",
+			options: ["above", "below"],
+			description:
+				'Where the error, warning and info message boxes render: `"above"` (default) between the label and the control, `"below"` directly under the control'
+		},
+		breakTooltipsToNewLine: {
+			control: "select",
+			options: [false, true, "above", "below"],
+			description:
+				'Where tooltips render: `true` / `"above"` (default for this widget) on a new line above the control, `false` inline beside the control, `"below"` on a new line below'
 		}
 	},
 	args: {
@@ -109,33 +129,32 @@ const meta: Meta<typeof DefaultRichTextEditor> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Playground: Story = {
 	args: {
-		id: "default-rich-text-editor",
+		id: "playground-rich-text-editor",
 		label: "Rich Text Editor",
 		placeholder: "Type something...",
-		initialConfig: { namespace: "DefaultEditor" }
+		initialConfig: { namespace: "PlaygroundEditor" },
+		staticToolbarButtons: BASIC_TOOLBAR
 	}
 };
 
-export const WithToolbar: Story = {
-	args: {
-		id: "toolbar-rich-text-editor",
-		label: "Rich Text Editor with Toolbar",
-		placeholder: "Type and format your text...",
-		initialConfig: { namespace: "ToolbarEditor" },
-		staticToolbarButtons: BASIC_TOOLBAR,
-		helperText: "Use the toolbar to apply bold, italic, underline, and list formatting."
-	}
-};
-
-export const WithFullToolbar: Story = {
+export const Toolbar: Story = {
 	args: {
 		id: "full-toolbar-rich-text-editor",
 		label: "Rich Text Editor with Full Toolbar",
 		placeholder: "Type and format your text...",
 		initialConfig: { namespace: "FullToolbarEditor" },
-		staticToolbarButtons: FULL_TOOLBAR
+		staticToolbarButtons: FULL_TOOLBAR,
+		helperText: "Use the toolbar to apply bold, italic, underline, list and alignment formatting."
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`staticToolbarButtons` composes the formatting toolbar from items such as `BoldButton`, `ItalicButton`, `UnderlineButton`, `BulletListButton`, `NumberListButton`, `AlignButtonGroup` and `Separator`."
+			}
+		}
 	}
 };
 
@@ -149,6 +168,14 @@ export const AutoExpand: Story = {
 		minHeight: 80,
 		maxHeight: 300,
 		staticToolbarButtons: BASIC_TOOLBAR
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"With `autoExpand` the editor grows with its content, starting at `minHeight` and scrolling once `maxHeight` is reached."
+			}
+		}
 	}
 };
 
@@ -159,6 +186,14 @@ export const SingleLine: Story = {
 		placeholder: "Enter a short formatted note...",
 		initialConfig: { namespace: "SingleLineEditor" },
 		singleLine: true
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`singleLine` renders a compact one-line editor; `minHeight`, `maxHeight` and `autoExpand` have no effect in this mode."
+			}
+		}
 	}
 };
 
@@ -170,17 +205,13 @@ export const Disabled: Story = {
 		initialConfig: { namespace: "DisabledEditor" },
 		staticToolbarButtons: BASIC_TOOLBAR,
 		disabled: true
-	}
-};
-
-export const Readonly: Story = {
-	args: {
-		id: "readonly-rich-text-editor",
-		label: "Readonly Rich Text Editor",
-		placeholder: "This editor is read-only.",
-		initialConfig: { namespace: "ReadonlyEditor" },
-		staticToolbarButtons: BASIC_TOOLBAR,
-		readonly: true
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: "`disabled` greys out the editor and toolbar and prevents any interaction or input."
+			}
+		}
 	}
 };
 
@@ -227,13 +258,21 @@ const INITIAL_EDITOR_STATE = JSON.stringify({
 	}
 });
 
-export const ReadonlyWithContent: Story = {
+export const Readonly: Story = {
 	args: {
-		id: "readonly-with-content-rich-text-editor",
-		label: "Readonly Rich Text Editor with Content",
-		initialConfig: { namespace: "ReadonlyWithContentEditor", editorState: INITIAL_EDITOR_STATE },
+		id: "readonly-rich-text-editor",
+		label: "Readonly Rich Text Editor",
+		initialConfig: { namespace: "ReadonlyEditor", editorState: INITIAL_EDITOR_STATE },
 		staticToolbarButtons: BASIC_TOOLBAR,
 		readonly: true
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`readonly` displays formatted content without allowing edits. Initial content is provided as a serialized Lexical editor state via `initialConfig.editorState`."
+			}
+		}
 	}
 };
 
@@ -245,5 +284,57 @@ export const WithHelperAndError: Story = {
 		initialConfig: { namespace: "ValidationEditor" },
 		errorMessage: "This field is required.",
 		helperText: "Provide a description of at least 20 characters."
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`helperText` renders guidance below the editor and `errorMessage` switches the field into its error state."
+			}
+		}
+	}
+};
+
+export const MessagePosition: Story = {
+	args: {
+		id: "rich-text-editor-message-position",
+		label: "Rich Text Editor",
+		placeholder: "Type something...",
+		initialConfig: { namespace: "MessagePositionEditor" },
+		staticToolbarButtons: BASIC_TOOLBAR,
+		helperText: "Helper text explaining the field",
+		errorMessage: "This field is required.",
+		messagePosition: "below"
+	},
+	parameters: {
+		controls: { include: ["messagePosition"] },
+		docs: {
+			description: {
+				story:
+					'`messagePosition` places the message box relative to the control. This story starts at `"below"`, which renders it directly under the control — switch the control to `"above"` for the default placement between the label and the control.'
+			}
+		}
+	}
+};
+
+export const TooltipPosition: Story = {
+	args: {
+		id: "rich-text-editor-tooltip-position",
+		label: "Rich Text Editor",
+		placeholder: "Type something...",
+		initialConfig: { namespace: "TooltipPositionEditor" },
+		staticToolbarButtons: BASIC_TOOLBAR,
+		helperText: "Helper text explaining the field",
+		tooltips: <HintTooltip text="This is a hint" id="rich-text-editor-tooltip-position-hint" />,
+		breakTooltipsToNewLine: "below"
+	},
+	parameters: {
+		controls: { include: ["breakTooltipsToNewLine"] },
+		docs: {
+			description: {
+				story:
+					'`breakTooltipsToNewLine` places the tooltips relative to the control. This story starts at `"below"`, which puts them on their own line under the control — switch the control to `false` to place them inline beside it, or to `"above"` / `true` for a line above, which is the default for this widget.'
+			}
+		}
 	}
 };

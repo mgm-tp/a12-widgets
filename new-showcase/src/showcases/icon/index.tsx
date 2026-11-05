@@ -30,26 +30,26 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import accessibilityCode from "!./accessibility.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import bigCode from "!./big-icon.tsx?raw";
+import customIconsCode from "!./custom-icons.tsx?raw";
+import mappingContextCode from "!./mapping-context.tsx?raw";
+import themeCode from "!./theme.tsx?raw";
+import variantCode from "!./variant.tsx?raw";
+
 import { ExternalLink, BulletList } from "@com.mgmtp.a12.widgets/widgets-core";
 import IconAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/icon/main/icon.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
+import { AccessibilityIconShowcase } from "./accessibility.js";
 import { BasicIconShowcase } from "./basic.js";
 import { BigIconShowcase } from "./big-icon.js";
-import { IconWithVariant } from "./variant.js";
-import { IconWithTheme } from "./theme.js";
 import { CustomIcons } from "./custom-icons.js";
 import { IconWithMappingContext } from "./mapping-context.js";
-import { AccessibilityIconShowcase } from "./accessibility.js";
-
-import basicCode from "!./basic.tsx?raw";
-import bigCode from "!./big-icon.tsx?raw";
-import variantCode from "!./variant.tsx?raw";
-import themeCode from "!./theme.tsx?raw";
-import customIconsCode from "!./custom-icons.tsx?raw";
-import mappingContextCode from "!./mapping-context.tsx?raw";
-import accessibilityCode from "!./accessibility.tsx?raw";
+import { IconWithTheme } from "./theme.js";
+import { IconWithVariant } from "./variant.js";
 
 const showcases: Showcase[] = [
 	{

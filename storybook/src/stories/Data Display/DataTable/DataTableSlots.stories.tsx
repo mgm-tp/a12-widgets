@@ -30,76 +30,66 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
-import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ReactElement, ReactNode } from "react";
 
-import type {
-	DataTableColumn,
-	DataTableSlotProps,
-	DataTableSortState
-} from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { Status } from "@com.mgmtp.a12.widgets/widgets-core";
+import type {
+	DataTableProps,
+	DataTableSlotProps,
+	DataTableSlots
+} from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
-import type { Employee } from "../Table/table.data.js";
-import { BASIC_COLUMNS, EMPLOYEES } from "../Table/table.data.js";
+import type { Employee } from "./data-table.data.js";
+import { EMPLOYEE_COLUMNS, EMPLOYEES } from "./data-table.data.js";
 
 /**
- * Column-level render hooks: `renderCell` / `renderHeader` own the
- * presentation of one column, while `dataKey` keeps resolving the value.
+ * Slot components are declared at module scope so their identity stays stable
+ * across renders — inlining them into the `slots` object literal would remount
+ * the subtree on every render.
  */
-const RENDER_COLUMNS: DataTableColumn<Employee>[] = [
-	{ label: "ID", dataKey: "id", width: 0.4, fixedWidth: true },
-	{
-		label: "Name",
-		dataGetter: ({ row }) => `${row.firstName} ${row.lastName}`,
-		width: 1.5,
-		sortable: true,
-		renderHeader: ({ label, sortOrder }) => (
-			<span style={{ textTransform: "uppercase", letterSpacing: "0.05em" }}>
-				{label}
-				{sortOrder ? ` (${sortOrder})` : ""}
-			</span>
-		)
-	},
-	{ label: "Department", dataKey: "department", width: 1.5 },
-	{
-		label: "Status",
-		dataKey: "status",
-		width: 1,
-		renderCell: ({ row }) => {
-			const variant = row.status === "Active" ? "success" : row.status === "On Leave" ? "warning" : "error";
+function UppercaseHeadContent({ defaultContent }: DataTableSlotProps.HeadContent<Employee>): ReactElement {
+	return <span style={{ textTransform: "uppercase", letterSpacing: "0.05em" }}>{defaultContent}</span>;
+}
 
-			return <Status variant={variant}>{row.status}</Status>;
-		},
-		renderFooter: () => <em>3 employees</em>
+const HEAD_CONTENT_SLOTS: DataTableSlots<Employee> = { headContent: UppercaseHeadContent };
+
+function StatusCellContent({ column, row, defaultContent }: DataTableSlotProps.CellContent<Employee>): ReactNode {
+	if (column.dataKey === "status") {
+		const variant = row.status === "Active" ? "success" : row.status === "On Leave" ? "warning" : "error";
+
+		return <Status variant={variant}>{row.status}</Status>;
 	}
-];
 
-function ColumnRenderHooksDemo(): ReactElement {
-	const [sortState, setSortState] = useState<DataTableSortState>([]);
+	return defaultContent;
+}
 
+const CELL_CONTENT_SLOTS: DataTableSlots<Employee> = { cellContent: StatusCellContent };
+
+function DashedCell({ column, children }: DataTableSlotProps.Cell<Employee>): ReactElement {
 	return (
-		<DataTable<Employee>
-			ariaLabel="Column render hooks"
-			data={EMPLOYEES}
-			columns={RENDER_COLUMNS}
-			rowKey="id"
-			sortOptions={{ sortState, onSort: (next) => setSortState(next) }}
-		/>
+		<td
+			style={{
+				padding: "8px 12px",
+				borderBottom: "1px dashed var(--plasma-color-stroke-secondary, #ccc)",
+				fontStyle: column.dataKey === "id" ? "italic" : "normal"
+			}}
+		>
+			{children}
+		</td>
 	);
 }
 
+const CELL_SLOTS: DataTableSlots<Employee> = { cell: DashedCell };
+
 /**
- * A component slot: declared at module scope (stable identity), free to use
- * hooks, and composing the self-wiring `DataTable.Row` primitive — sorting,
- * selection, keyboard navigation and context menus stay intact.
+ * A structural slot composing the self-wiring `DataTable.Row` primitive — sorting,
+ * selection, keyboard navigation and context menus stay intact; only zebra striping
+ * is layered on top.
  */
 function ZebraRow(props: DataTableSlotProps.Row<Employee>): ReactElement {
-	// Slots are mounted components, so hooks are available.
-	const [zebra] = useState(true);
-	const shaded = zebra && props.rowIndex % 2 === 1;
+	const shaded = props.rowIndex % 2 === 1;
 
 	return (
 		<DataTable.Row
@@ -112,39 +102,17 @@ function ZebraRow(props: DataTableSlotProps.Row<Employee>): ReactElement {
 	);
 }
 
-function RowSlotDemo(): ReactElement {
-	return (
-		<DataTable<Employee>
-			ariaLabel="Zebra rows via row slot"
-			data={EMPLOYEES}
-			columns={BASIC_COLUMNS}
-			rowKey="id"
-			slots={{ row: ZebraRow }}
-		/>
-	);
-}
+const ROW_SLOTS: DataTableSlots<Employee> = { row: ZebraRow };
 
-function HiddenHeaderDemo(): ReactElement {
-	return (
-		<DataTable<Employee>
-			ariaLabel="Header-less table"
-			data={EMPLOYEES}
-			columns={BASIC_COLUMNS}
-			rowKey="id"
-			hideHeader
-		/>
-	);
-}
-
-const meta: Meta<typeof ColumnRenderHooksDemo> = {
-	title: "Data Display/DataTable/Customization/Render Hooks",
-	component: ColumnRenderHooksDemo,
+const meta: Meta<typeof DataTable<Employee>> = {
+	title: "Data Display/DataTable/Customization/Slots",
+	component: DataTable,
 	parameters: {
 		layout: "padded",
 		docs: {
 			description: {
 				component:
-					"Column-level render hooks own the presentation of a single column while the value keeps resolving through `dataKey`/`dataGetter` — so sorting, footers and filtering still work. For transforming *every* column from one place, see **Content Slots** instead."
+					"`slots` swap in your own components table-wide. **Content slots** (`headContent`, `cellContent`) transform the label or value of *every* column from one place and fall back to `defaultContent`. **Structural slots** (`row`, `cell`, `contextMenu`, `rowGroupHeader`, …) replace an element outright; compose the self-wiring `DataTable.*` primitives inside them so sorting, selection, keyboard navigation and context menus keep working. Slot components must have stable identity — declare them at module scope or memoize. For a single column, prefer a **Render Hook**."
 			}
 		}
 	},
@@ -154,37 +122,124 @@ const meta: Meta<typeof ColumnRenderHooksDemo> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ColumnRenderHooks: Story = {
-	render: () => <ColumnRenderHooksDemo />,
+const BASE_ARGS: DataTableProps<Employee> = {
+	ariaLabel: "Employees",
+	data: EMPLOYEES,
+	columns: EMPLOYEE_COLUMNS,
+	rowKey: "id"
+};
+
+export const HeadContentSlot: Story = {
+	name: "Head Content",
+	args: { ...BASE_ARGS, ariaLabel: "Custom head content slot", slots: HEAD_CONTENT_SLOTS },
 	parameters: {
 		docs: {
+			source: {
+				language: "tsx",
+				code: `function UppercaseHeadContent({ defaultContent }: DataTableSlotProps.HeadContent<Employee>) {
+	return <span style={{ textTransform: "uppercase", letterSpacing: "0.05em" }}>{defaultContent}</span>;
+}
+
+// Declare slots at module scope so their identity stays stable across renders.
+const SLOTS: DataTableSlots<Employee> = { headContent: UppercaseHeadContent };
+
+<DataTable<Employee> ariaLabel="Custom head content slot" data={employees} columns={columns} rowKey="id" slots={SLOTS} />`
+			},
+			description: { story: "The `headContent` slot wraps or transforms every column label." }
+		}
+	}
+};
+
+export const CellContentSlot: Story = {
+	name: "Cell Content",
+	args: { ...BASE_ARGS, ariaLabel: "Custom cell content slot", slots: CELL_CONTENT_SLOTS },
+	parameters: {
+		docs: {
+			source: {
+				language: "tsx",
+				code: `function StatusCellContent({ column, row, defaultContent }: DataTableSlotProps.CellContent<Employee>) {
+	if (column.dataKey === "status") {
+		return <Status variant={row.status === "Active" ? "success" : "warning"}>{row.status}</Status>;
+	}
+
+	return defaultContent;
+}
+
+const SLOTS: DataTableSlots<Employee> = { cellContent: StatusCellContent };
+
+<DataTable<Employee> ariaLabel="Custom cell content slot" data={employees} columns={columns} rowKey="id" slots={SLOTS} />`
+			},
 			description: {
 				story:
-					"`renderCell` and `renderHeader` take over one column's markup (here a `Status` pill and an uppercased, sort-aware header) while `dataKey`/`dataGetter` still resolves the value — so the column stays sortable and its `renderFooter` summary keeps working. Prefer these over slots for single-column tweaks."
+					"The `cellContent` slot renders rich content per column — e.g., a `Status` pill for the status column. Return `defaultContent` to fall back to the resolved cell value."
+			}
+		}
+	}
+};
+
+export const CellSlot: Story = {
+	name: "Body Cell",
+	args: { ...BASE_ARGS, ariaLabel: "Custom cell slot", slots: CELL_SLOTS },
+	parameters: {
+		docs: {
+			source: {
+				language: "tsx",
+				code: `function DashedCell({ column, children }: DataTableSlotProps.Cell<Employee>) {
+	return (
+		<td
+			style={{
+				padding: "8px 12px",
+				borderBottom: "1px dashed var(--plasma-color-stroke-secondary, #ccc)",
+				fontStyle: column.dataKey === "id" ? "italic" : "normal"
+			}}
+		>
+			{children}
+		</td>
+	);
+}
+
+const SLOTS: DataTableSlots<Employee> = { cell: DashedCell };
+
+<DataTable<Employee> ariaLabel="Custom cell slot" data={employees} columns={columns} rowKey="id" slots={SLOTS} />`
+			},
+			description: {
+				story:
+					"The structural `cell` slot gives full control over the `<td>` element — useful for per-column styles or wrappers. The pre-built cell content arrives as `children`."
 			}
 		}
 	}
 };
 
 export const RowSlot: Story = {
-	render: () => <RowSlotDemo />,
+	name: "Row",
+	args: { ...BASE_ARGS, ariaLabel: "Zebra rows via row slot", slots: ROW_SLOTS },
 	parameters: {
 		docs: {
-			description: {
-				story:
-					"The `row` slot is a full component (stable identity required — declare at module scope or memoize) and may use hooks. Composing the self-wiring `DataTable.Row` primitive keeps sorting, selection, keyboard navigation and context menus intact; here it only adds zebra striping on top."
-			}
-		}
-	}
-};
+			source: {
+				language: "tsx",
+				code: `// Compose the self-wiring DataTable.Row so sorting, selection, keyboard navigation
+// and context menus stay intact; only zebra striping is layered on top.
+function ZebraRow(props: DataTableSlotProps.Row<Employee>) {
+	const shaded = props.rowIndex % 2 === 1;
 
-export const HiddenHeader: Story = {
-	render: () => <HiddenHeaderDemo />,
-	parameters: {
-		docs: {
+	return (
+		<DataTable.Row
+			{...props}
+			styles={{
+				...props.styles,
+				style: { ...props.styles?.style, background: shaded ? "rgba(0, 0, 0, 0.04)" : undefined }
+			}}
+		/>
+	);
+}
+
+const SLOTS: DataTableSlots<Employee> = { row: ZebraRow };
+
+<DataTable<Employee> ariaLabel="Zebra rows via row slot" data={employees} columns={columns} rowKey="id" slots={SLOTS} />`
+			},
 			description: {
 				story:
-					"`hideHeader` removes the `<thead>` (header rows and filter row) entirely. ARIA row numbering excludes the hidden header, and header-dependent features like `cellHighlighting` are inactive."
+					"The structural `row` slot is a full component and may use hooks. Composing `DataTable.Row` keeps sorting, selection, keyboard navigation and context menus intact; here it only adds zebra striping on top."
 			}
 		}
 	}

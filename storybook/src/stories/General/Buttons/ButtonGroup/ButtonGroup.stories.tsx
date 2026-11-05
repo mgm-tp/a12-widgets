@@ -32,20 +32,33 @@
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { ButtonGroup, Button, InteractionHintConfigProvider } from "@com.mgmtp.a12.widgets/widgets-core";
+import { ButtonGroup, Button, Clearfix, InteractionHintConfigProvider } from "@com.mgmtp.a12.widgets/widgets-core";
 
 const meta: Meta<typeof ButtonGroup> = {
 	title: "General/Buttons/ButtonGroup",
 	component: ButtonGroup,
-	tags: ["autodocs"]
+	argTypes: {
+		alignment: {
+			control: "select",
+			options: ["left", "right"],
+			description: "Specify the alignment for the ButtonGroup"
+		},
+		vertical: {
+			control: "boolean",
+			description: "Specify whether the buttons are displayed vertically"
+		}
+	}
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => (
-		<ButtonGroup>
+export const Playground: Story = {
+	args: {
+		vertical: false
+	},
+	render: (args) => (
+		<ButtonGroup {...args}>
 			<Button label="One" />
 			<Button label="Two" />
 			<Button label="Three" />
@@ -53,48 +66,75 @@ export const Default: Story = {
 	)
 };
 
+export const Alignment: Story = {
+	render: () => (
+		<Clearfix>
+			<ButtonGroup alignment="left">
+				<Button label="Back" secondary />
+			</ButtonGroup>
+			<ButtonGroup alignment="right">
+				<Button label="Cancel" secondary />
+				<Button label="Save" primary />
+			</ButtonGroup>
+		</Clearfix>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"`alignment` positions a group on the `left` or `right` edge of the surrounding `Clearfix`. Place right-aligned groups after left-aligned ones in the DOM so the tab order matches the visual order."
+			}
+		}
+	}
+};
+
+export const Vertical: Story = {
+	render: () => (
+		<ButtonGroup vertical style={{ maxWidth: "200px" }}>
+			<Button label="One" />
+			<Button label="Two" />
+			<Button label="Three" />
+		</ButtonGroup>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`vertical` stacks the buttons in a column and stretches them to equal width."
+			}
+		}
+	}
+};
+
 export const WithInteractionHint: Story = {
 	render: () => (
-		<InteractionHintConfigProvider componentConfigs={{ button: { enabled: true } }}>
-			<ButtonGroup>
-				<Button label="One" />
-				<Button label="Two" />
-				<Button label="Three" />
-			</ButtonGroup>
-		</InteractionHintConfigProvider>
-	)
-};
-
-export const WithInteractionHintFollowCursor: Story = {
-	decorators: [
-		(Story) => (
+		<div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+			<InteractionHintConfigProvider componentConfigs={{ button: { enabled: true } }}>
+				<ButtonGroup>
+					<Button title="One" label="One" />
+					<Button title="Two" label="Two" />
+					<Button title="Three" label="Three" />
+				</ButtonGroup>
+			</InteractionHintConfigProvider>
 			<InteractionHintConfigProvider componentConfigs={{ button: { enabled: true, followCursor: true } }}>
-				<Story />
+				<ButtonGroup>
+					<Button title="Follows cursor" label="Follow cursor" />
+					<Button title="Follows cursor" label="Follow cursor" />
+				</ButtonGroup>
 			</InteractionHintConfigProvider>
-		)
-	],
-	render: () => (
-		<ButtonGroup>
-			<Button title="One" label="One" />
-			<Button title="Two" label="Two" />
-			<Button title="Three" label="Three" />
-		</ButtonGroup>
-	)
-};
-
-export const WithInteractionHintNoArrow: Story = {
-	decorators: [
-		(Story) => (
 			<InteractionHintConfigProvider componentConfigs={{ button: { enabled: true, hideArrow: true } }}>
-				<Story />
+				<ButtonGroup>
+					<Button title="No arrow" label="No arrow" />
+					<Button title="No arrow" label="No arrow" />
+				</ButtonGroup>
 			</InteractionHintConfigProvider>
-		)
-	],
-	render: () => (
-		<ButtonGroup>
-			<Button title="One" label="One" />
-			<Button title="Two" label="Two" />
-			<Button title="Three" label="Three" />
-		</ButtonGroup>
-	)
+		</div>
+	),
+	parameters: {
+		docs: {
+			description: {
+				story:
+					"Buttons inside a group can show interaction hints on hover via `InteractionHintConfigProvider`. The rows demonstrate the default hint, `followCursor` and `hideArrow` configurations."
+			}
+		}
+	}
 };

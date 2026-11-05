@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, expect, test } from "vitest";
-import { enUS } from "date-fns/locale";
 import { format } from "date-fns";
+import { enUS } from "date-fns/locale";
+import { describe, expect, test } from "vitest";
 
 import { getWeekDates, getWeekdays } from "../main/view/utils.internal.js";
 

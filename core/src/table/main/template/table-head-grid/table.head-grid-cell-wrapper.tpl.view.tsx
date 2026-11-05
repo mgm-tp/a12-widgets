@@ -47,71 +47,79 @@ export const StyledTableHeadGridCellWrapper = styled.div.withConfig({
 
 	return css`
 		/* Visually hide while keeping in accessibility tree */
-		${$isHidden &&
-		css`
-			position: absolute;
-			width: 1px;
-			height: 1px;
-			padding: 0;
-			margin: -1px;
-			overflow: hidden;
-			clip-path: inset(0);
-			white-space: nowrap;
-			border: 0;
-		`}
+		${
+			$isHidden &&
+			css`
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				overflow: hidden;
+				clip-path: inset(0);
+				white-space: nowrap;
+				border: 0;
+			`
+		}
 
 		/* Enhanced grid layout styles */
-		${$gridRow &&
-		$gridColumn &&
-		$gridRowSpan &&
-		$gridColumnSpan &&
-		css`
-			/* Grid positioning - respects rowspan and colspan */
-			grid-row: ${$gridRow} / span ${$gridRowSpan};
-			grid-column: ${$gridColumn} / span ${$gridColumnSpan};
+		${
+			$gridRow &&
+			$gridColumn &&
+			$gridRowSpan &&
+			$gridColumnSpan &&
+			css`
+				/* Grid positioning - respects rowspan and colspan */
+				grid-row: ${$gridRow} / span ${$gridRowSpan};
+				grid-column: ${$gridColumn} / span ${$gridColumnSpan};
 
-			/* Use flex display to allow child to fill the entire grid area */
-			display: flex;
-			flex-direction: column;
-			position: relative;
-			min-height: 0; /* Prevent grid blowout */
-
-			/* Ensure the child cell component takes full height and width */
-			> * {
-				flex: 1;
+				/* Use flex display to allow child to fill the entire grid area */
 				display: flex;
-				width: 100%;
-				height: 100%;
-			}
+				flex-direction: column;
+				position: relative;
+				min-height: 0; /* Prevent grid blowout */
 
-			/* Add top border for sub-column cells */
-			${$isSubColumn &&
-			css`
-				:before {
-					border-top: ${headCellGroup.gapForSingle};
-					content: "";
-					display: block;
-					left: 0;
-					position: absolute;
-					right: 0;
-					top: 0;
+				/* Ensure the child cell component takes full height and width */
+				> * {
+					flex: 1;
+					display: flex;
+					width: 100%;
+					height: 100%;
 				}
-			`}
 
-			/* Add right border for parent cells and last cells in subcolumn groups */
-			${$isLastInGroup &&
-			css`
-				:after {
-					content: "";
-					top: 0;
-					right: 0;
-					bottom: 0;
-					position: absolute;
-					display: block;
-					left: unset;
-					border-right: ${headCellGroup.gapForGroup};
+				/* Add top border for sub-column cells */
+				${
+					$isSubColumn &&
+					css`
+						:before {
+							border-top: ${headCellGroup.gapForSingle};
+							content: "";
+							display: block;
+							left: 0;
+							position: absolute;
+							right: 0;
+							top: 0;
+						}
+					`
 				}
-			`}
-		`}
+
+				/* Add right border for parent cells and last cells in subcolumn groups */
+				${
+					$isLastInGroup &&
+					css`
+						:after {
+							content: "";
+							top: 0;
+							right: 0;
+							bottom: 0;
+							position: absolute;
+							display: block;
+							left: unset;
+							border-right: ${headCellGroup.gapForGroup};
+						}
+					`
+				}
+			`
+		}
 	`;
 });

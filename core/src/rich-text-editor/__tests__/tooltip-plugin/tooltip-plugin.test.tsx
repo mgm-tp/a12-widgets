@@ -30,14 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, expect, test } from "vitest";
 import { findByDataRole, render } from "test-utils";
+import { describe, expect, test } from "vitest";
 
-import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
-import type { TooltipPluginConfig } from "../../main/plugins/index.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
+import type { TooltipPluginConfig } from "../../main/plugins/index.js";
 import { prepopulatedRichText } from "../../main/utils/common.js";
-
+import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
 import { tooltipWordsSampleText } from "../data.js";
 
 describe("com.mgmtp.a12.widgets.rich-text-editor.tooltip-plugin", () => {

@@ -30,14 +30,50 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { expect, afterEach } from "vitest";
-// @ts-expect-error jest-styled-components is not typed
-import styleSheetSerializer from "jest-styled-components/src/styleSheetSerializer";
-import { cleanup } from "@testing-library/react";
 import "../../theme/basic.css";
 import "./test.css";
 
+import { cleanup } from "@testing-library/react";
+// @ts-expect-error jest-styled-components is not typed
+import styleSheetSerializer from "jest-styled-components/src/styleSheetSerializer";
+// @ts-expect-error jest-styled-components is not typed
+import toHaveStyleRule from "jest-styled-components/src/toHaveStyleRule";
+// @ts-expect-error jest-styled-components is not typed
+import { resetStyleSheet } from "jest-styled-components/src/utils";
+import { expect, beforeEach, afterEach } from "vitest";
+
+// Node-style `global` alias for browser-only code paths that still reference it: the
+// jest-styled-components serializer (`global.Element`) and react-dnd. Vitest 5 injects
+// Vite `define` entries into the browser as JSON values, so `define: { global: "window" }`
+// now yields the string "window" instead of the window object.
+(globalThis as unknown as { global: unknown }).global = globalThis;
+
 expect.addSnapshotSerializer(styleSheetSerializer);
+
+/**
+ * Force every `@font-face` in `basic.css` to finish loading before the first test renders.
+ *
+ * A browser only fetches a web font once an element actually asks for it, so without this the first
+ * renders in a file lay out against the fallback face and reflow a few frames later, once the real font
+ * arrives. Any assertion that reads geometry - and any snapshot of a styled-component that interpolates
+ * a measured value - therefore records whichever face happened to be active, which varies with test
+ * order, machine speed and disk cache.
+ *
+ * The Material Symbols faces are the worst offenders: until the font is there, `<Icon>navigation</Icon>`
+ * renders its ligature as the literal word, so the element is roughly twice as wide as the 24px glyph it
+ * becomes.
+ *
+ * `document.fonts.ready` alone does not help - with nothing yet requested it resolves immediately - so
+ * each face is loaded explicitly. Iterating the font set rather than naming faces keeps this correct when
+ * `basic.css` gains or drops one. A face that fails to load is left to the fallback rather than failing
+ * the run; that is still deterministic, which is all this hook is for.
+ */
+await Promise.all([...document.fonts].map((fontFace) => fontFace.load().catch(() => undefined)));
+await document.fonts.ready;
+
+beforeEach(() => {
+	resetStyleSheet();
+});
 
 /**
  * Per-test teardown.
@@ -77,5 +113,8 @@ afterEach(() => {
 	document.body.removeAttribute("aria-hidden");
 	document.body.className = "";
 });
+
+expect.addSnapshotSerializer(styleSheetSerializer);
+expect.extend({ toHaveStyleRule });
 
 export {};

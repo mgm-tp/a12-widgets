@@ -35,14 +35,13 @@ import { render, queryHelpers, getByDataRole, queryByDataRole, waitFor, findByDa
 import { describe, vi, test, expect, afterEach } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { Icon } from "../../icon/main/icon.view.js";
 import { A11YLanguageContext, getA11yResource } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { Icon } from "../../icon/main/icon.view.js";
 import { InteractionHintConfigProvider } from "../../interaction-hint/main/interaction-hint-context.js";
 import type { InteractionHintPosition } from "../../interaction-hint/main/interaction-hint.api.js";
-
-import { Accordion } from "../main/accordion.view.js";
 import type { AccordionProps, AccordionVariant } from "../main/accordion.api.js";
+import { Accordion } from "../main/accordion.view.js";
 
 const { Container, Section, Summary, Details } = Accordion;
 

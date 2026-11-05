@@ -41,16 +41,23 @@ const meta: Meta<typeof Pagination> = {
 	parameters: {
 		layout: "padded"
 	},
-	tags: ["autodocs"],
 	argTypes: {
+		currentPage: {
+			control: { type: "number", min: 1, max: 100 },
+			description: "Current page number (1-based, must not exceed `pageCount`)"
+		},
 		pageCount: {
 			control: { type: "number", min: 1, max: 100 },
 			description: "Total number of pages"
 		},
+		pageLabelTemplate: {
+			control: "text",
+			description: 'Label template for the page dropdown, e.g. `"Page {page} of {total}"`'
+		},
 		type: {
 			control: "select",
 			options: ["default", "simple"],
-			description: "Pagination style: default shows page numbers, simple shows prev/next only"
+			description: "Pagination style: default shows first/last and a page dropdown, simple shows prev/next only"
 		},
 		alignment: {
 			control: "select",
@@ -60,6 +67,9 @@ const meta: Meta<typeof Pagination> = {
 		disabled: {
 			control: "boolean",
 			description: "Disable all pagination controls"
+		},
+		onPageChanged: {
+			description: "Handler called with the new page number when the page changes"
 		}
 	}
 };
@@ -67,62 +77,66 @@ const meta: Meta<typeof Pagination> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-	render: () => {
-		const PaginationExample = () => {
-			const [page, setPage] = useState(1);
+export const Playground: Story = {
+	args: {
+		currentPage: 1,
+		pageCount: 10,
+		pageLabelTemplate: "Page {page} of {total}",
+		type: "default",
+		alignment: "left",
+		disabled: false
+	},
+	render: function PlaygroundExample(args) {
+		const [page, setPage] = useState<number>();
 
-			return (
-				<Pagination
-					currentPage={page}
-					pageCount={10}
-					pageLabelTemplate="Page {page} of {total}"
-					onPageChanged={setPage}
-				/>
-			);
-		};
-
-		return <PaginationExample />;
+		return <Pagination {...args} currentPage={page ?? args.currentPage} onPageChanged={setPage} />;
 	}
 };
 
 export const Simple: Story = {
-	render: () => {
-		const SimplePaginationExample = () => {
-			const [page, setPage] = useState(1);
+	render: function SimpleExample() {
+		const [page, setPage] = useState(1);
 
-			return (
-				<Pagination
-					currentPage={page}
-					pageCount={10}
-					pageLabelTemplate="Page {page} of {total}"
-					type="simple"
-					onPageChanged={setPage}
-				/>
-			);
-		};
-
-		return <SimplePaginationExample />;
+		return (
+			<Pagination
+				currentPage={page}
+				pageCount={10}
+				pageLabelTemplate="Page {page} of {total}"
+				type="simple"
+				onPageChanged={setPage}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'`type="simple"` reduces the control to previous/next buttons and the page label — no first/last buttons or page dropdown.'
+			}
+		}
 	}
 };
 
 export const RightAligned: Story = {
-	render: () => {
-		const RightPaginationExample = () => {
-			const [page, setPage] = useState(3);
+	render: function RightAlignedExample() {
+		const [page, setPage] = useState(3);
 
-			return (
-				<Pagination
-					currentPage={page}
-					pageCount={20}
-					pageLabelTemplate="Page {page} of {total}"
-					alignment="right"
-					onPageChanged={setPage}
-				/>
-			);
-		};
-
-		return <RightPaginationExample />;
+		return (
+			<Pagination
+				currentPage={page}
+				pageCount={20}
+				pageLabelTemplate="Page {page} of {total}"
+				alignment="right"
+				onPageChanged={setPage}
+			/>
+		);
+	},
+	parameters: {
+		docs: {
+			description: {
+				story: '`alignment="right"` aligns the pagination controls to the right edge of their container.'
+			}
+		}
 	}
 };
 
@@ -135,5 +149,12 @@ export const Disabled: Story = {
 			disabled
 			onPageChanged={() => {}}
 		/>
-	)
+	),
+	parameters: {
+		docs: {
+			description: {
+				story: "`disabled` disables all pagination controls; `onPageChanged` is not called."
+			}
+		}
+	}
 };

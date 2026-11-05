@@ -32,11 +32,10 @@
 
 import { rgba } from "polished";
 
-import type { BaseThemeSpacingType } from "../../../schema/spacing.api.js";
-import type { BaseThemeColorsType } from "../../../schema/base-colors.api.js";
-import type { BaseThemeTypographyType } from "../../../schema/typography.api.js";
 import type { ApplicationStyle } from "../../../schema/application-styles.api.js";
-
+import type { BaseThemeColorsType } from "../../../schema/base-colors.api.js";
+import type { BaseThemeSpacingType } from "../../../schema/spacing.api.js";
+import type { BaseThemeTypographyType } from "../../../schema/typography.api.js";
 import { ResponsiveConfig } from "../base/responsive.config.js";
 
 export const ApplicationStyles = (params: {

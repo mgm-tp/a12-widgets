@@ -31,7 +31,6 @@
  */
 
 import { Icon } from "../../icon/main/icon.view.js";
-
 import type { MenuItem, MenuItemType } from "../main/menu.api.js";
 
 export const itemsWithChildren: MenuItem[] = [

@@ -30,8 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FlatThemeType } from "../../../schema.js";
 import { contentBoxConfig as defaultContentBoxConfig } from "../../../default/config/components/contentbox.config.js";
+import type { FlatThemeType } from "../../../schema.js";
 
 import { contentBoxFlatCompactConfig } from "./contentbox.config.js";
 

@@ -37,6 +37,7 @@ import type {
 	MouseEventHandler as ReactMouseEventHandler,
 	ReactElement,
 	ReactNode,
+	TdHTMLAttributes,
 	ThHTMLAttributes
 } from "react";
 import { useContext } from "react";
@@ -44,15 +45,14 @@ import { useContext } from "react";
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
 
-import type { BaseColumnType } from "./foundation/column.api.js";
-import { safeHtmlAttributes } from "./data-table.utils.js";
-import { getColumnId, getColumnSortOrder } from "./data-table.sort.js";
 import type { DataTableRenderPropsType } from "./data-table-renderer.api.js";
 import type { ResolvedDataTableSlots } from "./data-table-slots.api.js";
 import { useDataTableContext } from "./data-table.context.js";
-import { DataTableDnDBodyRow, DataTableDnDDragPreview } from "./data-table.dnd.js";
 import { DataTableInfiniteScrollBody } from "./data-table.infinite-scroll-body.view.js";
+import { safeHtmlAttributes } from "./data-table.utils.js";
 import { DataTableVirtualizedBody } from "./data-table.virtualized-body.view.js";
+import { DataTableDnDBodyRow, DataTableDnDDragPreview } from "./dnd/index.js";
+import type { BaseColumnType } from "./foundation/column.api.js";
 import { DataTableBodyCellTpl } from "./template/data-table.body-cell.tpl.view.js";
 import { DataTableBodyRowTpl, StyledDataTableRowOverlayCell } from "./template/data-table.body-row.tpl.view.js";
 import { DataTableBodyTpl } from "./template/data-table.body.tpl.view.js";
@@ -84,7 +84,7 @@ export function DataTableHead({ children }: DataTableRenderPropsType.HeadProps):
  * @experimental
  */
 export function DataTableHeadRow({ children }: DataTableRenderPropsType.HeadRowProps): ReactElement {
-	const isVirtualizedMode = useDataTableContext((ctx) => ctx.isVirtualizedMode);
+	const isVirtualizedMode = useDataTableContext().isVirtualizedMode;
 
 	// Explicit row numbering is only needed when the body is windowed; a
 	// fully-rendered table lets native semantics convey the header's position.
@@ -104,29 +104,23 @@ function useHeadCellInteraction<RowType, ColumnType extends BaseColumnType<RowTy
 	isLeaf: boolean
 ): {
 	sortable: boolean;
-	columnActive: boolean;
 	onSort?: ReactMouseEventHandler;
 	onSortKeyDown?: ReactKeyboardEventHandler;
 	onContextMenu?: ReactMouseEventHandler;
-	hasResizeHandleRight: boolean;
 	rightDivider?: "group" | "single";
 } {
-	const disabled = useDataTableContext((ctx) => ctx.disabled);
-	const onSortCtx = useDataTableContext<RowType, ColumnType>((ctx) => ctx.onSort);
-	const sortState = useDataTableContext<RowType, ColumnType>((ctx) => ctx.sortState);
-	const isResizable = useDataTableContext((ctx) => ctx.isResizable);
-	const openHeadContextMenu = useDataTableContext<RowType, ColumnType>((ctx) => ctx.openHeadContextMenu);
-	const groupRightBoundaries = useDataTableContext((ctx) => ctx.groupRightBoundaries);
-	const leavesInGroup = useDataTableContext((ctx) => ctx.leavesInGroup);
-	const headContextMenuSlot = useDataTableContext((ctx) => ctx.slots?.headContextMenu);
+	const disabled = useDataTableContext().disabled;
+	const onSortCtx = useDataTableContext<RowType, ColumnType>().onSort;
+	const openHeadContextMenu = useDataTableContext<RowType, ColumnType>().openHeadContextMenu;
+	const groupRightBoundaries = useDataTableContext().groupRightBoundaries;
+	const leafColumnCount = useDataTableContext().leafColumnCount;
+	const headContextMenuSlot = useDataTableContext().slots?.headContextMenu;
 
 	const sortable = !!column.sortable && isLeaf;
-	const columnActive = isLeaf && getColumnSortOrder(getColumnId(column), sortState) !== undefined;
 	const hasHeadContextMenu = !disabled && !!headContextMenuSlot;
 
 	return {
 		sortable,
-		columnActive,
 		onSort:
 			sortable && onSortCtx
 				? (event: ReactMouseEvent<HTMLTableCellElement>): void => onSortCtx(column, event)
@@ -151,14 +145,17 @@ function useHeadCellInteraction<RowType, ColumnType extends BaseColumnType<RowTy
 						});
 					}
 				: undefined,
-		hasResizeHandleRight: isResizable?.(leafTo) ?? false,
-		rightDivider: isLeaf
-			? groupRightBoundaries?.has(leafTo)
-				? "group"
-				: leavesInGroup?.has(leafTo)
-					? "single"
-					: undefined
-			: undefined
+		// Every leaf column carries a vertical divider on its right edge for
+		// readability — a thin "single" rule by default, upgraded to the heavier
+		// "group" rule at a column group's right boundary. The last leaf is skipped
+		// (its right edge is the table edge); the styled cell suppresses it at pinned
+		// edges (the freeze line already draws that separator).
+		rightDivider:
+			isLeaf && !(leafColumnCount !== undefined && leafTo === leafColumnCount - 1)
+				? groupRightBoundaries?.has(leafTo)
+					? "group"
+					: "single"
+				: undefined
 	};
 }
 
@@ -173,6 +170,7 @@ export function DataTableHeadCell<RowType, ColumnType extends BaseColumnType<Row
 	id,
 	column,
 	columnIndex,
+	sortOrder,
 	ariaSort,
 	colSpan,
 	rowSpan,
@@ -185,6 +183,10 @@ export function DataTableHeadCell<RowType, ColumnType extends BaseColumnType<Row
 }: DataTableRenderPropsType.HeadCellProps<RowType, ColumnType>): ReactElement {
 	const leafTo = columnIndex;
 	const interaction = useHeadCellInteraction<RowType, ColumnType>(column, columnIndex, leafTo, !!isLeaf);
+	// Active-sort marker comes from the `sortOrder` prop (fed by the orchestrator),
+	// so head cells no longer subscribe to the shared `sortState` — a sort re-renders
+	// only the header, not every body cell.
+	const columnActive = !!isLeaf && sortOrder !== undefined;
 	const htmlAttributes = safeHtmlAttributes<HTMLTableCellElement>(
 		column.htmlAttributes as ThHTMLAttributes<HTMLTableCellElement> | undefined
 	);
@@ -198,7 +200,7 @@ export function DataTableHeadCell<RowType, ColumnType extends BaseColumnType<Row
 			horizontalAlignment={horizontalAlignment}
 			verticalAlignment={verticalAlignment}
 			sortable={interaction.sortable}
-			columnActive={interaction.columnActive}
+			columnActive={columnActive}
 			subInfo={!!column.subInfo}
 			actionColumn={!!column.actionColumn}
 			ariaSort={ariaSort}
@@ -206,15 +208,13 @@ export function DataTableHeadCell<RowType, ColumnType extends BaseColumnType<Row
 			rowSpan={rowSpan}
 			leafFrom={columnIndex}
 			leafTo={leafTo}
-			ariaLabel={column.hiddenText ? column.hiddenText : undefined}
-			hasLabel={!!column.label}
+			hiddenText={column.hiddenText ?? column.title}
 			title={htmlAttributes.title}
 			style={style}
 			htmlAttributes={htmlAttributes}
 			onSort={interaction.onSort}
 			onSortKeyDown={interaction.onSortKeyDown}
 			onContextMenu={interaction.onContextMenu}
-			hasResizeHandleRight={interaction.hasResizeHandleRight}
 			rightDivider={interaction.rightDivider}
 		>
 			{children}
@@ -248,6 +248,24 @@ export function DataTableHeadCellGroup<RowType, ColumnType extends BaseColumnTyp
 		column.htmlAttributes as ThHTMLAttributes<HTMLTableCellElement> | undefined
 	);
 
+	// A resizable table lets the group be resized as a whole: dragging its right
+	// edge scales every leaf in `[columnIndex, leafTo]` proportionally. Only the
+	// outermost group ending on this boundary draws the handle.
+	const isResizable = useDataTableContext().isResizable;
+	const leafColumnCount = useDataTableContext().leafColumnCount;
+	const resizeEdgeOwner = useDataTableContext<RowType, ColumnType>().resizeEdgeOwner;
+	const getGroupResizeHandleProps = useDataTableContext<RowType, ColumnType>().groupResizeHandleProps;
+	const ownerColumn = resizeEdgeOwner?.[leafTo];
+	const ownsResizeEdge = ownerColumn === undefined || ownerColumn === column;
+	const groupLabel =
+		(typeof column.label === "string" && column.label) ||
+		column.hiddenText ||
+		`Columns ${columnIndex + 1}–${leafTo + 1}`;
+	const groupResizeHandleProps =
+		ownsResizeEdge && isResizable?.(leafTo) && getGroupResizeHandleProps
+			? getGroupResizeHandleProps(columnIndex, leafTo, column, groupLabel)
+			: undefined;
+
 	return (
 		<DataTableHeadCellTpl
 			id={id}
@@ -264,13 +282,13 @@ export function DataTableHeadCellGroup<RowType, ColumnType extends BaseColumnTyp
 			rowSpan={rowSpan}
 			leafFrom={columnIndex}
 			leafTo={leafTo}
-			ariaLabel={column.hiddenText ? column.hiddenText : undefined}
-			hasLabel={!!column.label}
+			hiddenText={column.hiddenText ?? column.title}
 			title={htmlAttributes.title}
 			style={style}
 			htmlAttributes={htmlAttributes}
 			onContextMenu={interaction.onContextMenu}
-			hasResizeHandleRight={interaction.hasResizeHandleRight}
+			groupResizeHandleProps={groupResizeHandleProps}
+			groupResizeIsLastLeaf={leafColumnCount !== undefined && leafTo === leafColumnCount - 1}
 		>
 			{children}
 		</DataTableHeadCellTpl>
@@ -292,8 +310,8 @@ export function DataTableHeadContent({ defaultContent }: DataTableRenderPropsTyp
  * @experimental
  */
 export function DataTableFilterRow({ children }: DataTableRenderPropsType.HeadFilterRowProps): ReactElement {
-	const headerDepth = useDataTableContext((ctx) => ctx.headerDepth);
-	const isVirtualizedMode = useDataTableContext((ctx) => ctx.isVirtualizedMode);
+	const headerDepth = useDataTableContext().headerDepth;
+	const isVirtualizedMode = useDataTableContext().isVirtualizedMode;
 
 	// Only windowed bodies need the explicit index that places the filter row
 	// after the header rows; a fully-rendered table relies on native semantics.
@@ -310,12 +328,23 @@ export function DataTableFilterRow({ children }: DataTableRenderPropsType.HeadFi
  * @experimental
  */
 export function DataTableFilterCell<RowType, ColumnType extends BaseColumnType<RowType>>({
+	column,
 	columnIndex,
 	pinning,
 	children
 }: DataTableRenderPropsType.HeadFilterCellProps<RowType, ColumnType>): ReactElement {
+	const htmlAttributes = safeHtmlAttributes<HTMLTableCellElement>(
+		column.htmlAttributes as ThHTMLAttributes<HTMLTableCellElement> | undefined
+	);
+
 	return (
-		<DataTableHeadFilterCellTpl columnIndex={columnIndex} pinning={pinning}>
+		<DataTableHeadFilterCellTpl
+			columnIndex={columnIndex}
+			pinning={pinning}
+			htmlAttributes={htmlAttributes}
+			hiddenText={column.title}
+			actionColumn={!!column.actionColumn}
+		>
 			{children}
 		</DataTableHeadFilterCellTpl>
 	);
@@ -364,7 +393,6 @@ export function DataTableRow<RowType, ColumnType extends BaseColumnType<RowType>
 	virtualStyle,
 	onClick,
 	onContextMenu,
-	onMouseOver,
 	forwardedRef,
 	children
 }: DataTableRenderPropsType.BodyRowProps<RowType, ColumnType>): ReactElement {
@@ -372,7 +400,7 @@ export function DataTableRow<RowType, ColumnType extends BaseColumnType<RowType>
 	// the slot, so non-overlay tables pay only one stable context read and no extra
 	// DOM. The overlay cell is out of table flow (see `StyledDataTableRowOverlayCell`),
 	// so it never disturbs column alignment.
-	const RowOverlaySlot = useDataTableContext<RowType, ColumnType>((ctx) => ctx.slots?.rowOverlay);
+	const RowOverlaySlot = useDataTableContext<RowType, ColumnType>().slots?.rowOverlay;
 	// Slot component identities are stable per `<DataTable>` instance (see the DataTableSlots contract),
 	// so rendering the context-sourced slot here does not remount it between renders.
 	// eslint-disable-next-line react-hooks/static-components -- stable slot identity per the slots contract
@@ -393,7 +421,6 @@ export function DataTableRow<RowType, ColumnType extends BaseColumnType<RowType>
 			virtualStyle={virtualStyle}
 			onClick={onClick}
 			onContextMenu={onContextMenu}
-			onMouseOver={onMouseOver}
 			forwardedRef={forwardedRef}
 		>
 			{children}
@@ -426,13 +453,12 @@ export function DataTableCell<RowType, ColumnType extends BaseColumnType<RowType
 	rowHighlightVariant,
 	children
 }: DataTableRenderPropsType.BodyCellProps<RowType, ColumnType>): ReactElement {
-	const disabled = useDataTableContext((ctx) => ctx.disabled);
+	const disabled = useDataTableContext().disabled;
 
 	// The orchestrator resolves `rowStyling` once per row and passes the
 	// row-level flags down — re-invoking the consumer getter here would cost
 	// O(rows × columns) calls per render.
 	const rowDisabled = disabled || !!rowDisabledProp;
-	const cellLabel = column.label;
 	const htmlAttributes = safeHtmlAttributes<HTMLTableCellElement>(
 		column.htmlAttributes as ThHTMLAttributes<HTMLTableCellElement> | undefined
 	);
@@ -445,7 +471,6 @@ export function DataTableCell<RowType, ColumnType extends BaseColumnType<RowType
 				colSpan={colSpan}
 				horizontalAlignment={horizontalAlignment}
 				verticalAlignment={verticalAlignment}
-				cellLabel={cellLabel}
 				cellStyles={cellStyles}
 				htmlAttributes={htmlAttributes}
 			>
@@ -467,7 +492,6 @@ export function DataTableCell<RowType, ColumnType extends BaseColumnType<RowType
 			firstCell={columnIndex === 0}
 			rowDisabled={rowDisabled}
 			rowHighlightVariant={rowHighlightVariant}
-			cellLabel={cellLabel}
 			cellStyles={cellStyles}
 			htmlAttributes={htmlAttributes}
 		>
@@ -509,7 +533,7 @@ export function DataTablePlaceholderCell<RowType, ColumnType extends BaseColumnT
 	columnIndex,
 	children
 }: DataTableRenderPropsType.PlaceHolderBodyCellProps<RowType, ColumnType>): ReactElement {
-	const leafPinning = useDataTableContext((ctx) => ctx.leafPinning);
+	const leafPinning = useDataTableContext().leafPinning;
 
 	return (
 		<DataTablePlaceholderCellTpl columnIndex={columnIndex} pinning={leafPinning[columnIndex]}>
@@ -548,7 +572,7 @@ export function DataTableFoot({ children }: DataTableRenderPropsType.FootProps):
  * @experimental
  */
 export function DataTableFootRow({ children }: DataTableRenderPropsType.FootRowProps): ReactElement {
-	const footerAriaRowIndex = useDataTableContext((ctx) => ctx.footerAriaRowIndex);
+	const footerAriaRowIndex = useDataTableContext().footerAriaRowIndex;
 
 	// `footerAriaRowIndex` is only populated in windowed modes; otherwise the
 	// footer relies on native `<table>` semantics like every other row.
@@ -566,6 +590,11 @@ export function DataTableFootCell<RowType, ColumnType extends BaseColumnType<Row
 	pinning,
 	children
 }: DataTableRenderPropsType.FootCellProps<RowType, ColumnType>): ReactElement {
+	// `<td>`-typed on purpose: the foot cell template renders a `<td>` (the filter cell's is a `<th>`).
+	const htmlAttributes = safeHtmlAttributes<HTMLTableCellElement>(
+		column.htmlAttributes as TdHTMLAttributes<HTMLTableCellElement> | undefined
+	);
+
 	return (
 		<DataTableFootCellTpl
 			columnIndex={columnIndex}
@@ -573,6 +602,7 @@ export function DataTableFootCell<RowType, ColumnType extends BaseColumnType<Row
 			horizontalAlignment={column.specificHorizontalAlignment?.body ?? column.horizontalAlignment}
 			verticalAlignment={column.specificVerticalAlignment?.body ?? column.verticalAlignment}
 			actionColumn={!!column.actionColumn}
+			htmlAttributes={htmlAttributes}
 		>
 			{children}
 		</DataTableFootCellTpl>

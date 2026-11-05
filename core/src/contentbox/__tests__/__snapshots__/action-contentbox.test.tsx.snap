@@ -14,7 +14,7 @@ exports[`com.mgmtp.a12.widgets.contentbox.action-contentbox > rendering-action-c
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   min-height: 0px;
   padding: 24px 0px 4px;
 }
@@ -159,6 +159,24 @@ exports[`com.mgmtp.a12.widgets.contentbox.action-contentbox > rendering-heading-
   min-height: 0px;
 }
 
+.c8 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  order: -1;
+}
+
+.c10 {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  order: 1;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
 .c2 {
   align-items: center;
   background-color: rgb(78, 89, 101);
@@ -226,24 +244,6 @@ exports[`com.mgmtp.a12.widgets.contentbox.action-contentbox > rendering-heading-
 
 [data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c11.c11 {
   padding: 16px;
-}
-
-.c8 {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  order: -1;
-}
-
-.c10 {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  order: 1;
-  flex-grow: 1;
-  justify-content: flex-end;
 }
 
 .c7 {
@@ -863,52 +863,8 @@ exports[`com.mgmtp.a12.widgets.contentbox.action-contentbox.template > mobile > 
   max-width: unset;
 }
 
-.c21 {
-  align-items: center;
-  cursor: pointer;
-  display: inline-flex;
-  justify-content: center;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  gap: 4px;
-  outline: none;
-  text-transform: uppercase;
-  min-height: 32px;
-  vertical-align: middle;
-  border: 2px solid transparent;
-  border-radius: 0px;
-  padding: 0px 8px;
-  position: relative;
-  background: transparent;
-  color: rgb(5, 104, 174);
-}
-
-.c21 .c10 {
-  user-select: none;
-}
-
-.c21 .c10 {
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c11 {
   color: inherit;
-}
-
-.c21:not(:disabled):focus {
-  outline: rgb(51, 51, 51) dotted 1px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: none;
-  color: rgb(213, 0, 117);
-  text-decoration: none;
-  border: 2px solid rgb(213, 0, 117);
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 {
-  display: block;
-  height: auto;
-  min-height: 0px;
-}
-
-.h_inlineBlock.h_middleAlign .c21.c21 > .c10 {
-  display: block;
 }
 
 .c8 {
@@ -955,6 +911,10 @@ exports[`com.mgmtp.a12.widgets.contentbox.action-contentbox.template > mobile > 
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c8:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c8.c8 {
   display: block;
   height: auto;
@@ -962,6 +922,54 @@ exports[`com.mgmtp.a12.widgets.contentbox.action-contentbox.template > mobile > 
 }
 
 .h_inlineBlock.h_middleAlign .c8.c8 > .c10 {
+  display: block;
+}
+
+.c21 {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  gap: 4px;
+  outline: none;
+  text-transform: uppercase;
+  min-height: 32px;
+  vertical-align: middle;
+  border: 2px solid transparent;
+  border-radius: 0px;
+  padding: 0px 8px;
+  position: relative;
+  background: transparent;
+  color: rgb(5, 104, 174);
+}
+
+.c21 .c10 {
+  user-select: none;
+}
+
+.c21 .c10 {
+  color: inherit;
+}
+
+.c21:not(:disabled):focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: none;
+  color: rgb(213, 0, 117);
+  text-decoration: none;
+  border: 2px solid rgb(213, 0, 117);
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 {
+  display: block;
+  height: auto;
+  min-height: 0px;
+}
+
+.h_inlineBlock.h_middleAlign .c21.c21 > .c10 {
   display: block;
 }
 
@@ -1195,6 +1203,31 @@ exports[`com.mgmtp.a12.widgets.contentbox.action-contentbox.template > mobile > 
 }
 
 @media (pointer: coarse) {
+  .c8:not(:disabled):active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8:not(:disabled):hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: rgb(213, 0, 117);
+    border: 2px solid rgb(213, 0, 117);
+  }
+}
+
+@media (pointer: fine) {
+  .c8:hover {
+    outline: transparent solid 1px;
+  }
+}
+
+@media (pointer: coarse) {
   .c21:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: rgb(255, 255, 255);
@@ -1217,31 +1250,6 @@ exports[`com.mgmtp.a12.widgets.contentbox.action-contentbox.template > mobile > 
 
 @media (pointer: fine) {
   .c21:hover {
-    outline: transparent solid 1px;
-  }
-}
-
-@media (pointer: coarse) {
-  .c8:not(:disabled):active {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: transparent;
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c8:not(:disabled):hover {
-    background-color: transparent;
-    box-shadow: none;
-    color: rgb(213, 0, 117);
-    border: 2px solid rgb(213, 0, 117);
-  }
-}
-
-@media (pointer: fine) {
-  .c8:hover {
     outline: transparent solid 1px;
   }
 }
@@ -1374,6 +1382,8 @@ exports[`com.mgmtp.a12.widgets.contentbox.action-contentbox.template > mobile > 
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 more_vert
               </span>
@@ -1434,6 +1444,8 @@ exports[`com.mgmtp.a12.widgets.contentbox.action-contentbox.template > mobile > 
                   >
                     <span
                       aria-hidden="true"
+                      class="notranslate"
+                      translate="no"
                     >
                       close
                     </span>

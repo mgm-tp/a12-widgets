@@ -1,0 +1,79 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as PopupMenuStories from "./PopupMenu.stories";
+import * as PopupMenuKeyboardNavigationStories from "./PopupMenuKeyboardNavigation.stories";
+
+<Meta of={PopupMenuStories} />
+
+<Title />
+
+The `PopUpMenu` widget displays a trigger button (a three-dot icon by default) that opens a floating
+menu when clicked. Use it for repeated row/card actions or as a collapsed menu when space is limited,
+typically with a `List` of items as content.
+
+- The trigger can be customized via `icon` or fully replaced via `triggerElement`.
+- The popup positions itself relative to the trigger; `orientation` sets the preferred placement.
+- Escape and outside clicks close the menu (`closeOnEsc`, `closeOnOutsideClick`), and focus is
+  managed for you: `focusOnOpen` moves focus into the popup, `focusOnTriggerElementAfterClose`
+  returns it to the trigger.
+- `triggerButtonTitle` / `triggerButtonCloseTitle` provide a localized accessible name for the
+  default trigger button.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={PopupMenuStories.Playground} />
+
+## Examples
+
+### Custom icon
+
+<Canvas of={PopupMenuStories.CustomIcon} />
+
+### Custom trigger element
+
+<Canvas of={PopupMenuStories.CustomTriggerElement} />
+
+### Grouped list
+
+<Canvas of={PopupMenuStories.GroupedList} />
+
+### Disabled
+
+<Canvas of={PopupMenuStories.Disabled} />
+
+### Custom trigger title
+
+<Canvas of={PopupMenuStories.CustomTriggerTitle} />
+
+### Opening a fitToParent modal
+
+<Canvas of={PopupMenuStories.WithFitToParentModal} />
+
+### Opening a portal-based modal
+
+<Canvas of={PopupMenuStories.WithNormalModal} />
+
+## Keyboard navigation
+
+The `KeyboardNavigation` sidebar entry demonstrates the two keyboard navigation modes: the default
+mode (Tab moves through the open menu, arrow keys move between items) and the `arrow-only` mode
+configured via `KeyboardNavigationConfigProvider`, where Tab skips over the open menu entirely.
+
+<Canvas of={PopupMenuKeyboardNavigationStories.DefaultMode} />

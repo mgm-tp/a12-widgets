@@ -1,0 +1,83 @@
+{/*
+SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+
+Copyright (c) 2012-2026 mgm technology partners GmbH
+
+Dual License: This source file is part of the mgm A12 Platform and available
+under a choice of two different licenses: the EUPL v1.2 open-source license
+(see https://eupl.eu/) or a commercial license from mgm technology partners
+GmbH (contact a12-license@mgm-tp.com). You must select and comply with exactly
+one of the above license options. THIS SOFTWARE IS PROVIDED "AS IS" AND
+WITHOUT WARRANTY OF ANY KIND.
+*/}
+
+import { Meta, Title, Primary, Controls, Canvas } from "@storybook/addon-docs/blocks";
+
+import * as FileUploadStories from "./FileUpload.stories";
+import * as FileUploadInteractionsStories from "./FileUploadInteractions.stories";
+import * as FileUploadKeyboardNavigationStories from "./FileUploadKeyboardNavigation.stories";
+
+<Meta of={FileUploadStories} />
+
+<Title />
+
+The `FileUpload` widget lets users upload files either by opening the native file picker or by
+dragging and dropping files onto the upload area. `DefaultFileUpload` is the styled default
+implementation with preview icons, loading state and a file link display.
+
+- Use `onChange` to receive the chosen `FileList`; it also tells you whether the file was dropped.
+- After an upload, pass `fileOptions` to display the chosen file as a link with an optional icon.
+- `loading` together with `loadingLabel` and `onCancel` covers the in-progress upload state.
+- `compact` renders a single-line variant for dense forms; `multiple` and `accept` map to the
+  native file input attributes.
+
+## Playground
+
+Use the controls below to explore all props interactively.
+
+<Primary />
+
+<Controls of={FileUploadStories.Playground} />
+
+## Examples
+
+### Multiple files
+
+<Canvas of={FileUploadStories.Multiple} />
+
+### Disabled
+
+<Canvas of={FileUploadStories.Disabled} />
+
+### With an uploaded file
+
+<Canvas of={FileUploadStories.WithFile} />
+
+### Loading
+
+<Canvas of={FileUploadStories.Loading} />
+
+### Compact
+
+<Canvas of={FileUploadStories.Compact} />
+
+### With interaction hint
+
+<Canvas of={FileUploadStories.WithInteractionHint} />
+
+## Interaction hints
+
+The stories under `FileUpload/Interactions` demonstrate `InteractionHintConfigProvider`
+configurations — follow-cursor hints, hidden arrows and a compact upload with a delete action.
+Hover the upload area to see the hint.
+
+<Canvas of={FileUploadInteractionsStories.FileUploadWithHint} />
+
+## Keyboard navigation
+
+The stories under `FileUpload/KeyboardNavigation` cover focus behavior: by default **Tab** focuses
+the upload area and **Enter** / **Space** opens the file picker; with
+`KeyboardNavigationConfigProvider` set to `arrow-only`, **Tab** skips the widget and arrow keys
+navigate within it.
+
+<Canvas of={FileUploadKeyboardNavigationStories.DefaultMode} />

@@ -30,14 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { describe, expect, test } from "vitest";
-import { getAllByDataRole, getByDataRole, render, waitFor } from "test-utils";
 import { $createLineBreakNode, $createParagraphNode, $createTextNode, $getRoot } from "lexical";
+import { getAllByDataRole, getByDataRole, render, waitFor } from "test-utils";
+import { describe, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
 
-import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-import { editorThemeClasses } from "../../main/themes/themes.js";
+import { Icon } from "../../../icon/main/icon.view.js";
 import type { ButtonType, InlineButtonProps } from "../../main/plugins/index.js";
 import {
 	AlignButtonGroup,
@@ -48,9 +47,37 @@ import {
 	UnderlineButton
 } from "../../main/plugins/index.js";
 import { RichTextEditor } from "../../main/rich-text-editor.view.js";
-import { Icon } from "../../../icon/main/icon.view.js";
+import { editorThemeClasses } from "../../main/themes/themes.js";
+import { DefaultRichTextEditor } from "../../main/wrapper/default-rich-text-editor.view.js";
 
 import { BUTTONS } from "./toolbar-button.js";
+
+// Selects a substring of a single text node by walking to the DOM text node and
+// applying a native range, mirroring how the multi-line/paragraph tests drive
+// selection. Lexical syncs this range on `selectionchange`.
+const selectSubstring = (input: HTMLElement, text: string, start: number, end: number): void => {
+	const walker = document.createTreeWalker(input, NodeFilter.SHOW_TEXT);
+	let textNode: Text | null = null;
+
+	while (walker.nextNode()) {
+		if (walker.currentNode.textContent === text) {
+			textNode = walker.currentNode as Text;
+			break;
+		}
+	}
+
+	if (!textNode) {
+		throw new Error(`Could not find a text node containing "${text}"`);
+	}
+
+	const range = document.createRange();
+	range.setStart(textNode, start);
+	range.setEnd(textNode, end);
+
+	const selection = window.getSelection()!;
+	selection.removeAllRanges();
+	selection.addRange(range);
+};
 
 describe("com.mgmtp.a12.widgets.rich-text-editor.toolbar-plugin", () => {
 	const renderEditor = (config: { editorState: () => void; namespace: string }) => {
@@ -672,5 +699,87 @@ describe("Rich Text Editor Toolbar Plugin", () => {
 		await new Promise((r) => setTimeout(r, 300));
 
 		expect(editor).not.toHaveFocus();
+	});
+
+	test("Selecting the whole line reads inactive when only the end word is bold, then bolds everything", async () => {
+		const boldClassName = editorThemeClasses.text!.bold!;
+		const { container } = render(
+			<DefaultRichTextEditor staticToolbarButtons={[BoldButton]} initialConfig={{ namespace: "bold-end-word" }} />
+		);
+
+		const input = getByDataRole(container, DataRoles.RichTextEditor.Input);
+		const boldButton = getAllByDataRole(container, DataRoles.RichTextEditor.ToolbarItem)[0].querySelector(
+			'[role="button"]'
+		)!;
+
+		await userEvent.click(input);
+		await userEvent.keyboard("hello world");
+
+		// Bold only "world" (the trailing word).
+		selectSubstring(input, "hello world", 6, 11);
+		await userEvent.click(boldButton);
+
+		await waitFor(() => {
+			expect(boldButton).toHaveAttribute("aria-pressed", "true");
+			expect(input.querySelector(`.${boldClassName}`)?.textContent).toBe("world");
+			expect(input.textContent).toBe("hello world");
+		});
+
+		// Selecting the whole line is a mixed selection, so the button must read
+		// inactive rather than pressed.
+		await userEvent.keyboard("{ControlOrMeta>}a{/ControlOrMeta}");
+
+		await waitFor(() => {
+			expect(boldButton).toHaveAttribute("aria-pressed", "false");
+		});
+
+		// Clicking bold on the mixed selection applies bold to the entire line.
+		await userEvent.click(boldButton);
+
+		await waitFor(() => {
+			expect(boldButton).toHaveAttribute("aria-pressed", "true");
+			expect(input.querySelector(`.${boldClassName}`)?.textContent).toBe("hello world");
+		});
+	});
+
+	test("Selecting the whole line reads inactive when only the start word is bold, then bolds everything", async () => {
+		const boldClassName = editorThemeClasses.text!.bold!;
+		const { container } = render(
+			<DefaultRichTextEditor staticToolbarButtons={[BoldButton]} initialConfig={{ namespace: "bold-start-word" }} />
+		);
+
+		const input = getByDataRole(container, DataRoles.RichTextEditor.Input);
+		const boldButton = getAllByDataRole(container, DataRoles.RichTextEditor.ToolbarItem)[0].querySelector(
+			'[role="button"]'
+		)!;
+
+		await userEvent.click(input);
+		await userEvent.keyboard("hello world");
+
+		// Bold only "hello" (the leading word).
+		selectSubstring(input, "hello world", 0, 5);
+		await userEvent.click(boldButton);
+
+		await waitFor(() => {
+			expect(boldButton).toHaveAttribute("aria-pressed", "true");
+			expect(input.querySelector(`.${boldClassName}`)?.textContent).toBe("hello");
+			expect(input.textContent).toBe("hello world");
+		});
+
+		// Selecting the whole line is a mixed selection, so the button must read
+		// inactive rather than pressed.
+		await userEvent.keyboard("{ControlOrMeta>}a{/ControlOrMeta}");
+
+		await waitFor(() => {
+			expect(boldButton).toHaveAttribute("aria-pressed", "false");
+		});
+
+		// Clicking bold on the mixed selection applies bold to the entire line.
+		await userEvent.click(boldButton);
+
+		await waitFor(() => {
+			expect(boldButton).toHaveAttribute("aria-pressed", "true");
+			expect(input.querySelector(`.${boldClassName}`)?.textContent).toBe("hello world");
+		});
 	});
 });

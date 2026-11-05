@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import changePasswordCode from "!./change-password.tsx?raw";
+import resetPasswordCode from "!./reset-password.tsx?raw";
+
 import type { Showcase } from "../../../helpers/definitions.js";
 
-import { ResetPasswordShowcase } from "./reset-password.js";
 import { ChangePasswordShowcase } from "./change-password.js";
-
-import resetPasswordCode from "!./reset-password.tsx?raw";
-import changePasswordCode from "!./change-password.tsx?raw";
+import { ResetPasswordShowcase } from "./reset-password.js";
 
 const showcases: Showcase[] = [
 	{

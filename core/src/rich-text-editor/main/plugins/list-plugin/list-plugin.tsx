@@ -30,8 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FC } from "react";
-import { useEffect } from "react";
+import { $isListNode, INSERT_ORDERED_LIST_COMMAND, ListItemNode, ListNode } from "@lexical/list";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { ListPlugin as LexicalListPlugin } from "@lexical/react/LexicalListPlugin";
+import { $getNearestNodeOfType, mergeRegister } from "@lexical/utils";
 import type { LexicalCommand, LexicalNode, BaseSelection } from "lexical";
 import {
 	$getSelection,
@@ -44,16 +46,14 @@ import {
 	KEY_TAB_COMMAND,
 	OUTDENT_CONTENT_COMMAND
 } from "lexical";
-import { $isListNode, INSERT_ORDERED_LIST_COMMAND, ListItemNode, ListNode } from "@lexical/list";
-import { $getNearestNodeOfType, mergeRegister } from "@lexical/utils";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { ListPlugin as LexicalListPlugin } from "@lexical/react/LexicalListPlugin";
+import type { FC } from "react";
+import { useEffect } from "react";
 
-import { $isInlineStyleTextNode } from "../../nodes/inline-style-text-node.js";
-import { $getFirstLevelSelectedBlockNode } from "../../utils/selection.js";
-import { AUTO_LIST_ITEM_REGEX } from "../../utils/constants.js";
-import { $isListItemNode } from "../../nodes/list-item-node.js";
 import { DataRoles } from "../../../../common/main/data-roles.js";
+import { $isInlineStyleTextNode } from "../../nodes/inline-style-text-node.js";
+import { $isListItemNode } from "../../nodes/list-item-node.js";
+import { AUTO_LIST_ITEM_REGEX } from "../../utils/constants.js";
+import { $getFirstLevelSelectedBlockNode } from "../../utils/selection.js";
 
 export const $stopIndentCommand = (selection: BaseSelection | null): boolean => {
 	if (!$isRangeSelection(selection)) {

@@ -30,12 +30,16 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { ReactElement } from "react";
+import { useState } from "react";
+import { ThemeProvider } from "styled-components";
 import { render, fireEvent, queryByDataRole, getByDataRole } from "test-utils";
 import { describe, test, expect, vi } from "vitest";
 
 import { A11YLanguageContext } from "../../common/main/a11y-localization/language-context.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
+import { getDefaultTheme } from "../../theme/default/default-theme.js";
+import { getFlatTheme } from "../../theme/flat/flat-theme.js";
 import { ContentBox, ContentBoxElements } from "../main/template/contentbox.tpl.view.js";
 
 describe("com.mgmtp.a12.widgets.contentbox", () => {
@@ -285,6 +289,38 @@ describe("com.mgmtp.a12.widgets.contentboxTpl", () => {
 		expect(titleElement.textContent).toBe("Title with HTML attributes");
 		expect(titleElement).toHaveAttribute("data-testid", "custom-title");
 		expect(titleElement).toHaveAttribute("aria-label", "Custom Aria Label");
+	});
+
+	test("Nested (level 2) ActionBarGroup follows the active theme when switching back and forth", () => {
+		const flatTheme = getFlatTheme();
+		const defaultTheme = getDefaultTheme();
+
+		function ThemeSwitcher(): ReactElement {
+			const [flat, setFlat] = useState(true);
+
+			return (
+				<ThemeProvider theme={flat ? flatTheme : defaultTheme}>
+					<button type="button" data-testid="switch-theme" onClick={() => setFlat((current) => !current)}>
+						switch
+					</button>
+					<ContentBoxElements.ActionBarGroup>
+						<ContentBoxElements.ActionBarGroup data-testid="nested-group">nested</ContentBoxElements.ActionBarGroup>
+					</ContentBoxElements.ActionBarGroup>
+				</ThemeProvider>
+			);
+		}
+
+		const { getByTestId } = render(<ThemeSwitcher />);
+		const backgroundColor = (): string => getComputedStyle(getByTestId("nested-group")).backgroundColor;
+
+		const flatBackground = backgroundColor();
+
+		fireEvent.click(getByTestId("switch-theme"));
+		const defaultBackground = backgroundColor();
+		expect(defaultBackground).not.toBe(flatBackground);
+
+		fireEvent.click(getByTestId("switch-theme"));
+		expect(backgroundColor()).toBe(flatBackground);
 	});
 
 	test("rendering-contentbox-with-sidepanel", () => {

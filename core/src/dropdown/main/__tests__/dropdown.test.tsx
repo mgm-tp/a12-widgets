@@ -30,19 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import type { ReactNode } from "react";
 import { render, getByDataRole, getAllByDataRole, fireEvent } from "test-utils";
 import { Key } from "ts-key-enum";
 import { describe, vi, expect, test } from "vitest";
 import { userEvent } from "vitest/browser";
-import type { ReactNode } from "react";
 
-import { Icon } from "../../../icon/main/icon.view.js";
-import { Link } from "../../../link/main/link/link.view.js";
 import { Button } from "../../../button/main/button.view.js";
 import { DataRoles } from "../../../common/main/data-roles.js";
-
-import { DropDown } from "../template/dropdown.tpl.view.js";
+import { Icon } from "../../../icon/main/icon.view.js";
+import { Link } from "../../../link/main/link/link.view.js";
 import type { DropDownItem } from "../template/dropdown.tpl.api.js";
+import { DropDown } from "../template/dropdown.tpl.view.js";
 
 const items: DropDownItem[] = [
 	{
@@ -128,14 +127,19 @@ describe("com.mgmtp.a12.widgets.dropdown", () => {
 
 		fireEvent.mouseDown(dropdownItems[0]);
 		expect(onMouseDownSpy).toHaveBeenCalledTimes(1);
+		expect(onMouseDownSpy.mock.calls[0][0]).toMatchObject({ id: "1", label: "Armchair" });
 
 		fireEvent.click(dropdownItems[3]);
 		expect(onSelectedItemChangeSpy).toHaveBeenCalledTimes(1);
+		expect(onSelectedItemChangeSpy.mock.calls[0][0]).toMatchObject({ id: "4", label: "Rocking chair" });
 
 		onSelectedItemChangeSpy.mockClear();
 
 		fireEvent.keyDown(dropdownItems[0], { key: Key.Enter });
 		expect(onSelectedItemChangeSpy).toHaveBeenCalledTimes(1);
+		// The key event reaches the list from the option it landed on, so that option is the one
+		// reported — not whichever option happens to be active.
+		expect(onSelectedItemChangeSpy.mock.calls[0][0]).toMatchObject({ id: "1", label: "Armchair" });
 	});
 
 	test("Should trigger event on custom elements inside `graphic` and `secondaryText` when clicking on them", async () => {
@@ -214,5 +218,25 @@ describe("com.mgmtp.a12.widgets.dropdown", () => {
 		expect(container.querySelector(".label-text")).toBeTruthy();
 		expect(container.querySelector(".label-available")).toBeTruthy();
 		expect(container.querySelector(".label-unavailable")).toBeTruthy();
+	});
+
+	test("`labelRenderer` is handed the option with its selection resolved", () => {
+		// The selection is told to the list through `selectedItem`, so the caller's own option objects
+		// carry no `selected` flag. A label that renders from the flag still has to see it.
+		const plainItems: DropDownItem[] = [
+			{ id: "1", label: "Armchair" },
+			{ id: "2", label: "Chair" }
+		];
+
+		const { getAllByDataRole } = render(
+			<DropDown
+				items={plainItems}
+				selectedItem={plainItems[1]}
+				labelRenderer={(item): ReactNode => `${item.label}:${String(item.selected)}`}
+			/>
+		);
+		const texts = getAllByDataRole(DataRoles.Dropdown.Text).map((text) => text.textContent);
+
+		expect(texts).toEqual(["Armchair:false", "Chair:true"]);
 	});
 });

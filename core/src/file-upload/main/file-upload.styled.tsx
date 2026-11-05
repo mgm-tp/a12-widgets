@@ -30,11 +30,12 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { linearGradient, rgba, setLightness } from "polished";
 import type { RuleSet } from "styled-components";
 import { styled, css } from "styled-components";
-import { linearGradient, rgba, setLightness } from "polished";
 
 import { StyledButton } from "../../button/main/button.styled.js";
+import { DataRoles } from "../../common/main/data-roles.js";
 import { Icon, StyledIconWrapper } from "../../icon/main/icon.view.js";
 import { StyledBaseInput } from "../../input/base-input-styled/base.styled.js";
 import { Link, StyledLink } from "../../link/main/link/link.view.js";
@@ -44,13 +45,12 @@ import {
 	StyledLoadingLabel
 } from "../../progress-indicator/main/progress-indicator.styled.js";
 import { StyledTextOutputText } from "../../text-output/main/text-output.view.js";
+import { createBorder } from "../../theme/base/mixins/_borderEffects.js";
 import { active, activeAndHover, hover, inputDarkFocus } from "../../theme/base/mixins/_interaction.js";
 import { createPseudoElement } from "../../theme/base/mixins/_pseudo.js";
 import { unseenButRead } from "../../theme/base/mixins/_unseenButRead.js";
-import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
 import type { DefaultThemeType } from "../../theme/schema.js";
-import { createBorder } from "../../theme/base/mixins/_borderEffects.js";
-import { DataRoles } from "../../common/main/data-roles.js";
+import { StyledTooltipTriggerWrapper } from "../../tooltip/main/tooltip.styled.js";
 
 const uploadState = (params: {
 	color: string;
@@ -68,16 +68,18 @@ const uploadState = (params: {
 			color: ${iconColor || color};
 		}
 
-		${inactive &&
-		css`
-			background-color: ${background};
-			border-style: solid;
-			cursor: ${shouldUsePointerCursor ? "pointer" : "default"};
+		${
+			inactive &&
+			css`
+				background-color: ${background};
+				border-style: solid;
+				cursor: ${shouldUsePointerCursor ? "pointer" : "default"};
 
-			> ${StyledFileUpload.StyledUploadDescriptionText} {
-				color: ${color};
-			}
-		`}
+				> ${StyledFileUpload.StyledUploadDescriptionText} {
+					color: ${color};
+				}
+			`
+		}
 	`;
 };
 
@@ -163,37 +165,45 @@ export namespace StyledFileUpload {
 			width: 100%;
 			height: 100%;
 
-			${$compact &&
-			css`
-				align-items: center;
-				flex: 1;
-				min-height: ${input.height};
-
-				${!$textOnlyDisplay &&
+			${
+				$compact &&
 				css`
-					height: ${input.height};
-				`}
+					align-items: center;
+					flex: 1;
+					min-height: ${input.height};
 
-				${$hasActionItem &&
-				css`
-					${StyledPopup} {
-						display: block;
+					${
+						!$textOnlyDisplay &&
+						css`
+							height: ${input.height};
+						`
 					}
 
-					${StyledButton} {
-						height: ${input.height};
-						width: ${input.height};
-					}
-				`}
-			`}
+					${
+						$hasActionItem &&
+						css`
+							${StyledPopup} {
+								display: block;
+							}
 
-			${$uploadAreaSize &&
-			css`
-				height: ${typeof height === "number" ? height + "px" : height};
-				max-height: ${typeof maxHeight === "number" ? maxHeight + "px" : maxHeight};
-				max-width: ${typeof maxWidth === "number" ? maxWidth + "px" : maxWidth};
-				width: ${typeof width === "number" ? width + "px" : width};
-			`}
+							${StyledButton} {
+								height: ${input.height};
+								width: ${input.height};
+							}
+						`
+					}
+				`
+			}
+
+			${
+				$uploadAreaSize &&
+				css`
+					height: ${typeof height === "number" ? height + "px" : height};
+					max-height: ${typeof maxHeight === "number" ? maxHeight + "px" : maxHeight};
+					max-width: ${typeof maxWidth === "number" ? maxWidth + "px" : maxWidth};
+					width: ${typeof width === "number" ? width + "px" : width};
+				`
+			}
 		`;
 	});
 
@@ -238,12 +248,14 @@ export namespace StyledFileUpload {
 		return css`
 			max-height: inherit; // To ensure the icon is not larger than the upload area
 			fill: ${preview && theme.components.fileUpload.placeholder.previewColor};
-			${$disabled &&
-			css`
-				fill: ${preview
-					? theme.components.fileUpload.disabled.color
-					: theme.components.fileUpload.placeholder.disabledColor};
-			`}
+			${
+				$disabled &&
+				css`
+					fill: ${
+						preview ? theme.components.fileUpload.disabled.color : theme.components.fileUpload.placeholder.disabledColor
+					};
+				`
+			}
 		`;
 	});
 
@@ -256,14 +268,16 @@ export namespace StyledFileUpload {
 		return css`
 			color: ${icon.color};
 			font-size: ${$compact ? fileNamePreview.uploadIcon.fontSize : icon.fontSize};
-			${$withPlaceholder &&
-			css`
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				pointer-events: none;
-			`}
+			${
+				$withPlaceholder &&
+				css`
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					pointer-events: none;
+				`
+			}
 		`;
 	});
 
@@ -275,41 +289,49 @@ export namespace StyledFileUpload {
 		const { actionsMargin, content } = theme.components.fileUpload;
 
 		return css`
-			${!$fileNamePreview &&
-			css`
-				bottom: 0;
-				margin: ${actionsMargin};
-				position: absolute;
-				right: 0;
-			`}
-
-			${$fileNamePreview &&
-			css`
-				${StyledButton} {
-					border-radius: 0;
-					border-top-right-radius: ${content.borderRadius};
-					border-bottom-right-radius: ${content.borderRadius};
-
-					${StyledIconWrapper} {
-						font-size: inherit;
-					}
-				}
-			`}
-
-			${$cancelable &&
-			!$fileNamePreview &&
-			css`
-				${StyledButton} {
-					border-width: 1px;
-				}
-
-				${!$unavailable &&
+			${
+				!$fileNamePreview &&
 				css`
-					${StyledButton}:focus {
-						outline: none !important; // Fix bug in A12W-7287
+					bottom: 0;
+					margin: ${actionsMargin};
+					position: absolute;
+					right: 0;
+				`
+			}
+
+			${
+				$fileNamePreview &&
+				css`
+					${StyledButton} {
+						border-radius: 0;
+						border-top-right-radius: ${content.borderRadius};
+						border-bottom-right-radius: ${content.borderRadius};
+
+						${StyledIconWrapper} {
+							font-size: inherit;
+						}
 					}
-				`}
-			`}
+				`
+			}
+
+			${
+				$cancelable &&
+				!$fileNamePreview &&
+				css`
+					${StyledButton} {
+						border-width: 1px;
+					}
+
+					${
+						!$unavailable &&
+						css`
+							${StyledButton}:focus {
+								outline: none !important; // Fix bug in A12W-7287
+							}
+						`
+					}
+				`
+			}
 		`;
 	});
 
@@ -332,12 +354,14 @@ export namespace StyledFileUpload {
 			return css`
 				${borderStyle}
 
-				${!interactiveReadonly &&
-				css`
-					${StyledUploadIcon}, ${StyledUploadText} {
-						color: ${theme.components.fileUpload[state].color};
-					}
-				`}
+				${
+					!interactiveReadonly &&
+					css`
+						${StyledUploadIcon}, ${StyledUploadText} {
+							color: ${theme.components.fileUpload[state].color};
+						}
+					`
+				}
 			`;
 		}}
 	`;
@@ -431,265 +455,305 @@ export namespace StyledFileUpload {
 					pointer-events: none;
 				}
 
-				${$compact &&
-				css`
-					min-height: ${input.height};
-					padding: ${fileUpload.fileNamePreview.content.padding};
-					width: ${$fileNameDisplay && contentWidth};
-
-					& {
-						justify-content: flex-start;
-					}
-
-					${!$disabled &&
+				${
+					$compact &&
 					css`
-						${hover(css`
-							${StyledFieldUploadFileNameLink} {
-								background-position: left bottom;
-								transition: background-position ${link.transitionTiming};
-								background-image: ${linearGradient({
-									colorStops: [link.color, link.color]
-								})};
-								color: ${link.color};
-							}
-						`)}
-					`}
+						min-height: ${input.height};
+						padding: ${fileUpload.fileNamePreview.content.padding};
+						width: ${$fileNameDisplay && contentWidth};
 
-					${$hasActionItem &&
-					css`
-						background-color: ${fileUpload.fileNamePreview.content.backgroundColor};
-						border: ${fileUpload.fileNamePreview.content.border};
-						border-bottom-right-radius: 0;
-						border-top-right-radius: 0;
-					`}
-
-					${$hasLoadingLabel &&
-					css`
-						${StyledLoadingInnerOverlay} {
-							left: calc(
-								${progressIndicator.circle.size.small} + ${innerLeftPadding} + ${simplifiedContentLeftPadding}
-							);
+						& {
+							justify-content: flex-start;
 						}
 
-						${StyledLoadingLabel} {
-							cursor: pointer;
+						${
+							!$disabled &&
+							css`
+								${hover(css`
+									${StyledFieldUploadFileNameLink} {
+										background-position: left bottom;
+										transition: background-position ${link.transitionTiming};
+										background-image: ${linearGradient({
+											colorStops: [link.color, link.color]
+										})};
+										color: ${link.color};
+									}
+								`)}
+							`
 						}
-					`}
 
-          			${$textOnlyDisplay &&
+						${
+							$hasActionItem &&
+							css`
+								background-color: ${fileUpload.fileNamePreview.content.backgroundColor};
+								border: ${fileUpload.fileNamePreview.content.border};
+								border-bottom-right-radius: 0;
+								border-top-right-radius: 0;
+							`
+						}
+
+						${
+							$hasLoadingLabel &&
+							css`
+								${StyledLoadingInnerOverlay} {
+									left: calc(
+										${progressIndicator.circle.size.small} + ${innerLeftPadding} + ${simplifiedContentLeftPadding}
+									);
+								}
+
+								${StyledLoadingLabel} {
+									cursor: pointer;
+								}
+							`
+						}
+
+						${
+							$textOnlyDisplay &&
+							css`
+								background-color: transparent;
+								padding-left: 0;
+								padding-right: 0;
+
+								${StyledTextOutputText} {
+									overflow: inherit;
+								}
+							`
+						}
+					`
+				}
+
+				${
+					$loading &&
+					!$compact &&
 					css`
 						background-color: transparent;
-						padding-left: 0;
-						padding-right: 0;
+						border: ${fileUpload.content.loadingBorder};
 
-						${StyledTextOutputText} {
-							overflow: inherit;
+						> div ${StyledUploadIcon} {
+							${loader(fileUpload.icon.loading.color)}
+							animation: loader 1.1s infinite ease;
+							border-radius: 50%;
+							font-size: ${fileUpload.icon.fontSize};
+							height: ${fileUpload.icon.loading.size};
+							text-indent: -9999px;
+							transform: translateZ(0);
+							width: ${fileUpload.icon.loading.size};
 						}
-					`}
-				`}
+					`
+				}
 
-				${$loading &&
-				!$compact &&
-				css`
-					background-color: transparent;
-					border: ${fileUpload.content.loadingBorder};
+				${
+					$loading &&
+					$compact &&
+					css`
+						cursor: default;
+					`
+				}
 
-					> div ${StyledUploadIcon} {
-						${loader(fileUpload.icon.loading.color)}
-						animation: loader 1.1s infinite ease;
-						border-radius: 50%;
-						font-size: ${fileUpload.icon.fontSize};
-						height: ${fileUpload.icon.loading.size};
-						text-indent: -9999px;
-						transform: translateZ(0);
-						width: ${fileUpload.icon.loading.size};
-					}
-				`}
-				
-        	${$loading &&
-				$compact &&
-				css`
-					cursor: default;
-				`}
+				${
+					$hasChild &&
+					css`
+						background-color: transparent;
+						border: ${fileUpload.content.childBorder};
+						border-radius: 0;
+						overflow: hidden;
+						padding: 0;
+					`
+				}
 
-				${$hasChild &&
-				css`
-					background-color: transparent;
-					border: ${fileUpload.content.childBorder};
-					border-radius: 0;
-					overflow: hidden;
-					padding: 0;
-				`}
-
-       	 	${$withPlaceholder &&
-				css`
-					background-color: ${fileUpload.placeholder.contentBG};
-				`}
+				${
+					$withPlaceholder &&
+					css`
+						background-color: ${fileUpload.placeholder.contentBG};
+					`
+				}
 
 				${$info && uploadVariantState({ variant: "info", uploaded: $uploaded, theme })}
 				${$warning && uploadVariantState({ variant: "warning", uploaded: $uploaded, theme })}
 				${$error && uploadVariantState({ variant: "error", uploaded: $uploaded, theme })}
 
-       		 ${$dragOver &&
-				css`
-					${uploadState({ color: fileUpload.hover.color })}
-					background-color: ${setLightness(0.95, theme.colors.interaction.draggable.color)};
-					border-color: transparent;
-				`}
-				
-				${$readonly &&
-				css`
-					${uploadState({
-						color: $withPlaceholder ? "transparent" : fileUpload.readonly.color,
-						background: fileUpload.readonly.background,
-						inactive: true,
-						shouldUsePointerCursor: $shouldBeInteractiveInReadonly
-					})}
-					border-color: transparent;
-					& svg {
-						fill: ${fileUpload.placeholder.readonlyColor};
-					}
-
-					${$compact &&
+				${
+					$dragOver &&
 					css`
-						background-color: ${$textOnlyDisplay ? "transparent" : fileUpload.fileNamePreview.content.backgroundColor};
-						cursor: ${$interactiveFileName ? "pointer" : "default"};
-					`}
-				`}
-				
-        	${$disabled &&
-				css`
-					${uploadState({
-						color: fileUpload.disabled.color,
-						background: fileUpload.disabled.background,
-						inactive: true
-					})}
-
-					${$compact &&
-					css`
-						background-color: ${fileUpload.fileNamePreview.content.backgroundColor};
+						${uploadState({ color: fileUpload.hover.color })}
+						background-color: ${setLightness(0.95, theme.colors.interaction.draggable.color)};
 						border-color: transparent;
-						${StyledLink} {
-							color: ${fileUpload.disabled.color};
-							cursor: default;
-							pointer-events: none;
-						}
-					`}
-				`}
-				
-				${!$disabled &&
-				(!$readonly || $interactiveReadonly) &&
-				css`
-					${$dragOver &&
-					!$loading &&
+					`
+				}
+
+				${
+					$readonly &&
 					css`
-						+ ${StyledUploadActions} ${StyledButton} {
-							color: ${fileUpload.hover.color};
+						${uploadState({
+							color: $withPlaceholder ? "transparent" : fileUpload.readonly.color,
+							background: fileUpload.readonly.background,
+							inactive: true,
+							shouldUsePointerCursor: $shouldBeInteractiveInReadonly
+						})}
+						border-color: transparent;
+						& svg {
+							fill: ${fileUpload.placeholder.readonlyColor};
 						}
 
-						img,
-						${StyledUploadSvgIcon}[data-role="${DataRoles.FileUpload.PreviewIcon}"] {
-							opacity: 0.3;
-						}
-
-						${StyledLink} {
-							pointer-events: none;
-						}
-					`}
-					svg {
-						pointer-events: none; // prevent drag events being called for upload icon and preview icon
-					}
-
-					${(!$compact || ($compact && !$hasActionItem)) &&
-					css`
-						${activeAndHover(
-							createPseudoElement(
-								":before",
-								css`
-									border-radius: inherit;
-									width: 100%;
-								`
-							)
-						)}
-
-						&:focus {
-							${createPseudoElement(
-								":before",
-								css`
-									${inputDarkFocus};
-									border-radius: inherit;
-								`
-							)};
-
-							${commonFileUploadInteractiveStyles("focus", $interactiveReadonly)}
-						}
-					`}
-
-					${active(css`
-						${commonFileUploadInteractiveStyles("active", $interactiveReadonly)}
-					`)}
-					
-					${hover(css`
-						${commonFileUploadInteractiveStyles("hover", $interactiveReadonly)}
-					`)}
-					
-					${$dragOver &&
-					css`
-						${createPseudoElement(
-							":before",
+						${
+							$compact &&
 							css`
-								border: ${fileUpload.hover.border};
-								border-radius: inherit;
-								width: ${$fileNameDisplay && !$loading ? contentWidth : "100%"};
+								background-color: ${$textOnlyDisplay ? "transparent" : fileUpload.fileNamePreview.content.backgroundColor};
+								cursor: ${$interactiveFileName ? "pointer" : "default"};
+							`
+						}
+					`
+				}
 
-								${StyledUploadIcon}, ${StyledUploadText}, ${StyledLink} {
-									color: ${fileUpload.hover.color};
+				${
+					$disabled &&
+					css`
+						${uploadState({
+							color: fileUpload.disabled.color,
+							background: fileUpload.disabled.background,
+							inactive: true
+						})}
+
+						${
+							$compact &&
+							css`
+								background-color: ${fileUpload.fileNamePreview.content.backgroundColor};
+								border-color: transparent;
+								${StyledLink} {
+									color: ${fileUpload.disabled.color};
+									cursor: default;
+									pointer-events: none;
 								}
 							`
-						)}
-					`}
-	
-					${$cancelable &&
-					css`
-						${active(css`
-							+ ${StyledUploadActions} ${StyledButton} {
-								border: ${fileUpload.active.border};
-								color: ${fileUpload.active.color};
-							}
-						`)}
-						${hover(css`
-							&:before {
-								border: ${fileUpload.hover.border};
-							}
-
-							+ ${StyledUploadActions} ${StyledButton} {
-								border: ${fileUpload.hover.border};
-								color: ${fileUpload.hover.color};
-							}
-						`)}
-					  	${$dragOver &&
-						css`
-							&:before {
-								border: ${fileUpload.hover.border};
-							}
-
-							& + ${StyledUploadActions} ${StyledButton} {
-								border: ${fileUpload.hover.border};
-								color: ${fileUpload.hover.color};
-							}
-						`}
-						&:focus {
-							&:before {
-								border: ${fileUpload.focus.border};
-							}
-
-							+ ${StyledUploadActions} ${StyledButton} {
-								border: ${fileUpload.focus.border};
-								color: ${fileUpload.focus.color};
-							}
 						}
-					`}
-				`}
+					`
+				}
+
+				${
+					!$disabled &&
+					(!$readonly || $interactiveReadonly) &&
+					css`
+						${
+							$dragOver &&
+							!$loading &&
+							css`
+								+ ${StyledUploadActions} ${StyledButton} {
+									color: ${fileUpload.hover.color};
+								}
+
+								img,
+								${StyledUploadSvgIcon}[data-role="${DataRoles.FileUpload.PreviewIcon}"] {
+									opacity: 0.3;
+								}
+
+								${StyledLink} {
+									pointer-events: none;
+								}
+							`
+						}
+						svg {
+							pointer-events: none; // prevent drag events being called for upload icon and preview icon
+						}
+
+						${
+							(!$compact || ($compact && !$hasActionItem)) &&
+							css`
+								${activeAndHover(
+									createPseudoElement(
+										":before",
+										css`
+											border-radius: inherit;
+											width: 100%;
+										`
+									)
+								)}
+
+								&:focus {
+									${createPseudoElement(
+										":before",
+										css`
+											${inputDarkFocus};
+											border-radius: inherit;
+										`
+									)};
+
+									${commonFileUploadInteractiveStyles("focus", $interactiveReadonly)}
+								}
+							`
+						}
+
+						${active(css`
+							${commonFileUploadInteractiveStyles("active", $interactiveReadonly)}
+						`)}
+
+						${hover(css`
+							${commonFileUploadInteractiveStyles("hover", $interactiveReadonly)}
+						`)}
+
+						${
+							$dragOver &&
+							css`
+								${createPseudoElement(
+									":before",
+									css`
+										border: ${fileUpload.hover.border};
+										border-radius: inherit;
+										width: ${$fileNameDisplay && !$loading ? contentWidth : "100%"};
+
+										${StyledUploadIcon}, ${StyledUploadText}, ${StyledLink} {
+											color: ${fileUpload.hover.color};
+										}
+									`
+								)}
+							`
+						}
+
+						${
+							$cancelable &&
+							css`
+								${active(css`
+									+ ${StyledUploadActions} ${StyledButton} {
+										border: ${fileUpload.active.border};
+										color: ${fileUpload.active.color};
+									}
+								`)}
+								${hover(css`
+									&:before {
+										border: ${fileUpload.hover.border};
+									}
+
+									+ ${StyledUploadActions} ${StyledButton} {
+										border: ${fileUpload.hover.border};
+										color: ${fileUpload.hover.color};
+									}
+								`)}
+								${
+									$dragOver &&
+									css`
+										&:before {
+											border: ${fileUpload.hover.border};
+										}
+
+										& + ${StyledUploadActions} ${StyledButton} {
+											border: ${fileUpload.hover.border};
+											color: ${fileUpload.hover.color};
+										}
+									`
+								}
+								&:focus {
+									&:before {
+										border: ${fileUpload.focus.border};
+									}
+
+									+ ${StyledUploadActions} ${StyledButton} {
+										border: ${fileUpload.focus.border};
+										color: ${fileUpload.focus.color};
+									}
+								}
+							`
+						}
+					`
+				}
 			`;
 		}
 	);
@@ -703,36 +767,55 @@ export namespace StyledFileUpload {
 
 		/** @deprecated since 39.0.0. No longer in used. */
 		$fileUploadSize?: { width: string; height: string };
-	}>(({ theme, $horizFit, $vertFit, $compact, $fileUploadSize }) => {
+	}>(({ theme, $horizFit, $vertFit, $compact, $fileUploadSize, $tooltipPosition }) => {
 		return css`
-			${($horizFit || $vertFit) &&
-			css`
-				display: flex;
-				flex-direction: column;
+			${
+				($horizFit || $vertFit) &&
+				css`
+					display: flex;
+					flex-direction: column;
 
-				> ${StyledUploadWrapper} {
-					flex: ${!$compact ? 1 : 0};
-				}
-			`}
+					> ${StyledUploadWrapper} {
+						flex: ${!$compact ? 1 : 0};
+					}
+				`
+			}
 
-			${$vertFit &&
-			css`
-				height: 100%;
-			`}
-			
-			${$horizFit &&
-			css`
-				width: 100%;
-			`}
+			${
+				$vertFit &&
+				css`
+					height: 100%;
+				`
+			}
 
-			${$fileUploadSize &&
-			css`
-				width: ${$fileUploadSize.width};
-				height: ${$fileUploadSize.height};
-			`}
-			
+			${
+				$horizFit &&
+				css`
+					width: 100%;
+				`
+			}
+
+			${
+				$fileUploadSize &&
+				css`
+					width: ${$fileUploadSize.width};
+					height: ${$fileUploadSize.height};
+				`
+			}
+
 			${StyledTooltipTriggerWrapper} {
 				margin: ${theme.components.baseInput.input.tooltipInNewLineMargin};
+			}
+
+			${
+				$tooltipPosition === "below" &&
+				css`
+					// Only the tooltip rendered below the control is a direct child here; the ones above the
+					// control and the inline ones are nested deeper and keep the spacing set above.
+					> ${StyledTooltipTriggerWrapper} {
+						margin: ${theme.components.baseInput.input.tooltipInNewLineMarginBelow};
+					}
+				`
 			}
 		`;
 	});

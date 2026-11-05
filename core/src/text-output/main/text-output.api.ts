@@ -33,6 +33,8 @@
 import type { ReactNode } from "react";
 
 import type { Identifiable, Styleable, Container } from "../../common/main/base-props.js";
+import type { MessagePosition } from "../../input/base/template/base.tpl.api.js";
+import type { TooltipPosition } from "../../input/field-default-config/main/field-default-config.api.js";
 
 export interface TextOutputProps extends Container, Styleable, Identifiable {
 	/**
@@ -64,6 +66,23 @@ export interface TextOutputProps extends Container, Styleable, Identifiable {
 	 * Additional tooltips.
 	 */
 	tooltips?: ReactNode;
+
+	/**
+	 * Where the error, warning and info message boxes are rendered.
+	 * - `"above"` (default): between the label and the content
+	 * - `"below"`: under the content
+	 * @default "above"
+	 */
+	messagePosition?: MessagePosition;
+
+	/**
+	 * Where the {@link tooltips} are rendered.
+	 * - `"beside"` (default): beside the label
+	 * - `"above"`: on their own line, between the label and the content
+	 * - `"below"`: on their own line, under the content
+	 * @default "beside"
+	 */
+	tooltipPosition?: TooltipPosition;
 
 	/**
 	 * If true, the content will have a different look. Recommended to use in case there is no data.

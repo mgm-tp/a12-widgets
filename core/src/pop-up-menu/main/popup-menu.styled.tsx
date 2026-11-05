@@ -32,11 +32,11 @@
 
 import { styled, css } from "styled-components";
 
-import { active, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
-import { StyledIconWrapper } from "../../icon/main/icon.view.js";
 import { StyledButton } from "../../button/main/button.styled.js";
-import { slideIn, slideOut } from "../../theme/base/mixins/_animation.js";
 import { DataRoles } from "../../common/main/data-roles.js";
+import { StyledIconWrapper } from "../../icon/main/icon.view.js";
+import { slideIn, slideOut } from "../../theme/base/mixins/_animation.js";
+import { active, darkFocus, hover } from "../../theme/base/mixins/_interaction.js";
 
 export const StyledPopup = styled.div.withConfig({ displayName: "StyledPopup-sc-" })`
 	display: inline-block;
@@ -114,51 +114,57 @@ export const StyledPopupMenu = styled.div.withConfig({ displayName: "StyledPopup
 
 		[data-role="${DataRoles.TabPanel.SubTabList}"] && {
 			min-width: ${theme.components.tabPanel.tabs.minWidth};
-			${$hasVerticalScrollbar &&
-			css`
-				// To prevent the scrollbar on Firefox from affecting the tab list's width.
-				overflow-y: scroll;
-			`}
+			${
+				$hasVerticalScrollbar &&
+				css`
+					// To prevent the scrollbar on Firefox from affecting the tab list's width.
+					overflow-y: scroll;
+				`
+			}
 		}
 
-		${$isMobileOrTablet
-			? css`
-					animation-duration: ${transitionTime};
-					border-radius: ${menu.borderRadius};
-					bottom: 0;
-					max-height: 90%;
-					position: fixed;
-					width: ${$isMobile ? "100%" : menu.width};
-					-webkit-animation-duration: ${transitionTime};
+		${
+			$isMobileOrTablet
+				? css`
+						animation-duration: ${transitionTime};
+						border-radius: ${menu.borderRadius};
+						bottom: 0;
+						max-height: 90%;
+						position: fixed;
+						width: ${$isMobile ? "100%" : menu.width};
+						-webkit-animation-duration: ${transitionTime};
 
-					&.${$baseClassName}-enter {
-						opacity: 0;
-					}
+						&.${$baseClassName}-enter {
+							opacity: 0;
+						}
 
-					&.${$baseClassName}-enter-active {
-						animation-name: ${slideIn()};
-						opacity: 1;
-						-webkit-animation-name: ${slideIn()};
-					}
+						&.${$baseClassName}-enter-active {
+							animation-name: ${slideIn()};
+							opacity: 1;
+							-webkit-animation-name: ${slideIn()};
+						}
 
-					&.${$baseClassName}-exit {
-						opacity: 1;
-					}
+						&.${$baseClassName}-exit {
+							opacity: 1;
+						}
 
-					&.${$baseClassName}-exit-active {
-						animation-name: ${slideOut()};
-						opacity: 0;
-						-webkit-animation-name: ${slideOut()};
-					}
+						&.${$baseClassName}-exit-active {
+							animation-name: ${slideOut()};
+							opacity: 0;
+							-webkit-animation-name: ${slideOut()};
+						}
 
-					${!$hasHeader &&
-					css`
-						box-shadow: ${menu.boxShadowModal};
-					`}
-				`
-			: css`
-					box-shadow: ${menu.boxShadow};
-				`}
+						${
+							!$hasHeader &&
+							css`
+								box-shadow: ${menu.boxShadowModal};
+							`
+						}
+					`
+				: css`
+						box-shadow: ${menu.boxShadow};
+					`
+		}
 	`;
 });
 
@@ -198,11 +204,13 @@ export const StyledPopupMenuItem = styled.li.withConfig({ displayName: "StyledPo
 			background: ${item.hover.background};
 			box-shadow: ${item.hover.boxShadow};
 		`)}
-			${hasLoadingButton &&
-		css`
-			pointer-events: none;
-		`}
-			${StyledButton} {
+		${
+			hasLoadingButton &&
+			css`
+				pointer-events: none;
+			`
+		}
+		${StyledButton} {
 			background: transparent;
 			border-radius: 0;
 			box-shadow: none;
@@ -215,15 +223,19 @@ export const StyledPopupMenuItem = styled.li.withConfig({ displayName: "StyledPo
 			width: 100%;
 			justify-content: flex-start;
 			padding: ${button.padding};
-			${$withPadding &&
-			css`
-				padding-left: ${item.paddingLeft};
-			`}
+			${
+				$withPadding &&
+				css`
+					padding-left: ${item.paddingLeft};
+				`
+			}
 
-			${!$isInResponsiveGroupButton &&
-			css`
-				text-transform: none;
-			`}
+			${
+				!$isInResponsiveGroupButton &&
+				css`
+					text-transform: none;
+				`
+			}
 
 			${StyledIconWrapper} {
 				font-size: ${button.icon.fontSize};

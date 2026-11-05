@@ -31,9 +31,8 @@
  */
 
 import { Icon } from "../../../../icon/main/icon.view.js";
-
-import { createButtonGroup } from "../static-toolbar-plugin/group-button/group-button.view.js";
 import { createBlockButton } from "../static-toolbar-plugin/block-button/block-button.view.js";
+import { createButtonGroup } from "../static-toolbar-plugin/group-button/group-button.view.js";
 
 export const AlignLeftButton = createBlockButton({
 	icon: <Icon>format_align_left</Icon>,

@@ -1,3 +1,192 @@
+## 39.1.0
+
+### New Features
+
+- **Markdown Editor (experimental):** New `MarkdownEditor`, a WYSIWYG editor for Markdown: text can be written as rich text with the toolbar or typed as Markdown, and the value is Markdown either way. Three modes: rich text, the raw Markdown with syntax highlighting, and a read-only preview. The toolbar covers the usual formatting and can be swapped for a custom one, built from the controls that ship with it plus host-written ones. Custom Markdown is supported as well: an extension can claim a directive, so a `:::spoiler` block survives the trip out to Markdown and back.
+- **Dropdown:**
+  - `virtualize` renders only the options currently in view, so a long list now opens and filters in roughly constant time. Sections are windowed along with their options, and `estimatedSectionHeight` says how tall their headers are until they get measured. The whole list is still rendered for `horizontal` lists, and when `useFocusStyle` puts focus on the options.
+  - `selectionMode="multiple"` turns the list into a multi-select listbox: the checkboxes, their mixed state, the options' ARIA attributes, and the toggle keys all now come from the list itself, with the resulting selection reported through `onSelectionChange`. If you built this by hand before, you can hand it over to the component.
+  - `data` on an option carries the value it stands for, and every callback that reports an option hands it back untouched, so options no longer need to be matched back onto the caller's own model.
+  - `getItemKey` identifies an option, letting the list tell two options with the same label apart.
+  - `useDropdownNavigation` holds the active option outside the list and is handed to it as `navigation`, replacing the need to call into the rendered component directly.
+  - `buildNavigationModel` is now exported, along with the `NavigationModel` and `NavigationEntry` types it returns.
+- **Autocomplete:**
+  - Long match lists are now windowed automatically once they reach 150 matches. The new `virtualize` property lets you force this on or off.
+  - `mobileModal` pins how the options are presented, either as a fullscreen dialog or an attached dropdown, regardless of the device.
+- **Column Visibility Panel:** New widget that lets the end user decide which columns a table shows: a dialog listing the columns as checkboxes, with a "Reset to default" action, an optional search field (`searchable`) and show-all action (`showAll`), and a modal presentation on small screens. It takes a plain list of items rather than a column model, so it serves `Table`, `TreeTable` and `DataTable` alike; the trigger and the visibility state stay with the consumer.
+- **DataTable, DataTreeTable, TreeView (experimental):**
+  - Keyboard drag and drop, opt in with `dragDropOptions` on the tables and `dragDrop` on `TreeView`: the focused row is picked up with Space, moved with the arrow keys and dropped with Space; Escape cancels. In the trees the arrows also re-parent the row, and Enter drops it as well. Every step is announced to screen readers. `keyboardGrabKey: false` switches that pick-up off, for a consumer that binds Space to something of its own and brings its own keyboard path to the move.
+  - A width-less `actionColumn` auto-sizes to its buttons and header, as on the production `Table`, instead of taking a flat `150px` track. An explicit `width` / `fixedWidth` or `actionColumnAutoSize={false}` opts out.
+  - `rowHeight` fixes every body row to one height, so a wrapping cell no longer makes its row taller than the rest.
+  - `horizontalScrollRef` hands out an imperative handle that scrolls a column, or a pixel offset, into view clear of the pinned columns.
+  - A header cell or resize handle that receives keyboard focus scrolls into view clear of the pinned columns. An action-column header named through `hiddenText` renders screen-reader text instead of an `aria-label`.
+  - `onVisibleRowsChange` on `DataTreeTable` reports the currently visible rows with their index, level and parent, including the synthetic "load more" rows, for anything that has to line up with rendered rows.
+  - A paginated parent is expandable while `getPagination(key).hasMore` is true, even with none of its children loaded — a chevron on an unfetched first page no longer needs placeholder child rows, and it disappears on its own once the pages are drained.
+  - Dropping a dragged row on the empty area below the last row moves it to the top level (`onDropToRoot`, gated by `canDropToRoot`, on `DataTreeTable` and `TreeView`), the counterpart of the legacy `TreeTable`'s hidden-root drop onto the body.
+  - `TreeView`'s drag-and-drop insertion band is indented to the level it inserts at, like `DataTreeTable`'s, instead of spanning the full width of the tree.
+- **FlyoutMenu, Accordion:** The "In Progress" variant icon is updated from `pending` to `contrast`.
+- **Global Message Box:** Make `BulletList` inherit the color and font-weight from message box's text element.
+- **Interaction Hint:** New `showDelay` option controls how long the hint waits before appearing on hover (default `500` ms). It can be set per instance on `InteractionHint`, application-wide on `InteractionHintConfigProvider`, or per component type via `componentConfigs`.
+- **Tooltip:** New `showDelay` and `hideDelay` options control how long a tooltip waits before appearing on hover and before disappearing once the pointer leaves (defaults unchanged: `200` ms for `Tooltip`, `500` ms for `TooltipPortal`). They can be set on a single tooltip — including the `hint`, `success`, `warning` and `error` variants — or for a whole subtree with the new `TooltipConfigProvider`.
+- **Master-Detail:**
+  - Improved detail-pane animation: transitions are now direction-aware — `"rtl"` enters from the right (forward navigation) and `"ltr"` enters from the left (backward navigation), whereas previously the pane always expanded from the left. The animation layer was migrated from `react-transition-group` to Motion (`scaleX` + `flexGrow`), producing a smoother squash/stretch effect.
+  - Introduce the `pane.content` theme configuration with `background` and `borderRadius` keys to customize the background color and corner radius of each pane's content area.
+- **useResizeObserver:** New public hook that observes an element with a native `ResizeObserver` and reports dimension changes (`ref`/`targetRef`, `onResize`, `width`/`height`, `handleWidth`/`handleHeight`, `skipOnMount`, `refreshRate`). It replaces the `react-resize-detector` package throughout the library; `WidgetsResizeDetector` is now a thin wrapper over it and keeps working unchanged. The `ResizePayload` and `OnResizeCallback` types are exported from the package root instead of `react-resize-detector`.
+- **Browser Translation Crash Guard:**
+  - `WidgetsRoot` now installs a crash guard that prevents **NotFoundError** crashes caused by in-browser translation tools (e.g. Google Translate) rewriting DOM text nodes that React still holds references to.
+  - `Icon` content is also marked with `translate="no"` and `class="notranslate"` to prevent ligature-based icon characters from being rewritten. See the [FAQ > Preventing Crash When Using Translation Tool](#/faq/preventing-crash-when-using-translation-tool) for supported behavior and known limitations.
+- Support accessibility:
+  - **Toast:** Update the layout to display the `message` and action button in a same container when `header` is not provided.
+- **Data Entry Widgets:**
+  - New `messagePosition` property (`"above"` | `"below"`, default `"above"`) to render the error, warning and info message boxes below the input control instead of between the label and the control. Supported by Autocomplete, Checkbox, Checkbox Group, Date Input, Date/Time Picker Input, File Upload, Icon Picker, Multiselect, Radio, Rich Text Editor, Select, Switch, Tag Input, Text Area, Text Field, Time Picker and Year-Month Selector.
+  - `breakTooltipsToNewLine` now accepts `"above"` and `"below"` in addition to `boolean`, so tooltips can be placed on a new line below the input control. The property is newly available on Text Field, Text Area, Icon Picker, Date Input, Date/Time Picker Input, Time Picker, Switch, Tag Input and Rich Text Editor. Its default is the layout the widget used before the property became configurable and therefore differs per widget: `"above"` for Text Field, Text Area, Icon Picker, Date Input, Time Picker, Year Selector, Switch, Tag Input and Rich Text Editor, and inline for Autocomplete, Select, Multiselect, Checkbox, Checkbox Group, Radio, File Upload, Year-Month Selector and Date/Time Picker Input. Set `FieldDefaultConfigProvider` or the property explicitly for a uniform layout.
+  - New `FieldDefaultConfigProvider` sets `messagePosition` and `tooltipPosition` for every data entry widget and every Text Output in a subtree at once. A property on a single widget still wins, and nested providers merge. `tooltipPosition` takes `"beside"`, `"above"` or `"below"`, where `"beside"` is `breakTooltipsToNewLine`'s `false`.
+  - [A11Y] The input control now sets `aria-invalid` when the widget is in error state.
+- **Text Output:** New `messagePosition` (`"above"` | `"below"`) and `tooltipPosition` (`"beside"` | `"above"` | `"below"`) place the message box and the tooltips relative to the content, or take them from `FieldDefaultConfigProvider`.
+- **File Upload, Multiselect:** New `error`, `warning` and `info` properties to style the control in the respective state without rendering a message box.
+- **Theming:** New `baseInput.input.messageMarginBelow` and `yearMonthSelector.messageMarginBelow` configurations for the spacing of message boxes rendered below the control, and `baseInput.input.tooltipInNewLineMarginBelow` for the spacing of tooltips rendered on a new line below the control. The latter places the gap above the tooltip, so that it separates the tooltip from the control rather than from the helper text.
+
+### Deprecated
+
+All of these keep working. The migration notes say what to move to.
+
+- **Dropdown:**
+  - `flattenItems` is deprecated in favor of `buildNavigationModel(items).entries`.
+  - The imperative methods on the component instance (`handleForwardedKeyboardEvent`, `setPreselectedIndex`, `setPreselectedPosition`, and `resetPreselectedPosition`) are deprecated in favor of the `useDropdownNavigation` handle, which needs no reference to the rendered list. Note that the two should not be used to drive the same list at the same time.
+  - `setPreselectedPosition({ row, index })` is deprecated in favor of `setPreselectedIndex(index)`, which takes the option's position in the flattened item list.
+- **Autocomplete:**
+  - `mobileTriggerElement` is deprecated. The dialog's trigger is now the field itself, so this property no longer has any effect.
+  - `DefaultAutocomplete` and `MobileAutocomplete` are deprecated in favor of `Autocomplete`. Each is now a wrapper that pins `mobileModal` to the presentation it used to hardcode. Both are functions rather than classes now, which affects an instance `ref` or subclassing.
+- **Master-Detail:** The animation-layer migration to Motion deprecates several internal styled components. They remain exported and functional for backward compatibility.
+  - `StyledMasterDetailPlaceholder` — no longer used internally; use `StyledMasterDetailLayoutBody` directly.
+  - `StyledMasterDetailLayoutBodyWithoutAnimation` — the body no longer wraps a `TransitionGroup`, so there is no separate "without animation" variant; it now aliases `StyledMasterDetailLayoutBody`.
+  - `StyledMasterDetailLayoutBody`: `$animation` and `$isAnimateRtl` properties are deprecated and ignored (the body no longer animates). A new optional `$isSingleView` property controls overflow during single-pane animations.
+  - `StyledMasterDetailLayoutPane`: `$smallView`, `$isRtl`, `$numOfColumns`, `$columnsCount`, and `$maxWidth` properties are deprecated and ignored. A new optional `$flexGrow` property was added.
+    **Note:** The component now wraps Motion's `motion.div` instead of a plain `div`; consumers that spread raw `react-transition-group` `CSSTransition` properties onto it must remove them.
+  - `ManagedMasterDetailState` — used internally only; no replacement.
+- **WidgetsResizeDetector:** the `refreshMode` and `refreshOptions` properties are deprecated and ignored. Resize notifications are always coalesced onto a macrotask and debounced by `refreshRate` milliseconds (default `0`); `"throttle"` mode is no longer available.
+- **generateUid:** Deprecated. The id it returns comes from `Math.random()`, so it is neither collision-free nor stable — called in a render body it produces a new value on every render, it cannot survive SSR hydration, and where `Math.random()` is deterministic (some headless test browsers) sibling calls return the same value and emit duplicate DOM ids. It remains exported and functional. Use React's `useId()` for a stable element id inside a component; for a value that must differ on every call (a React `key` that forces a remount, a request correlation id) use a counter or `crypto.randomUUID()`.
+- **AndroidScrollInputIntoViewIfNeeded:** Deprecated, and it no longer installs anything — see the entry under Fixed. It remains exported as an already-resolved promise, so importing or awaiting it keeps working; drop it from your code.
+- **Tag Input:** `StyledTagInputTag`'s `$hover` property is deprecated since clicking a tag by itself doesn't do anything (only its remove button does). For the same reason, the theme config properties `tagInput.tag.hoverBorderColor` and `tagInput.tag.activeBorderColor` are also deprecated.
+- **`widgets-utils` package:** `@com.mgmtp.a12.widgets/widgets-utils` is deprecated as a whole and will be removed in a future major version. It is still published and every export keeps working, but each now carries a `@deprecated` note naming its replacement: conditional rendering or an animation library for `AnimationWrapper`, `react-syntax-highlighter` for `CodeExample` and `SourceCodeSection`, and `LayoutGrid` + `CssEllipsis` + `ResponsiveImageContainer` for `NewsBox`. Its components were written to assemble the showcase rather than as product widgets, and were never covered by the breaking change management of `widgets-core`. The migration notes say what to move to.
+
+### Fixed
+
+- **Text Field, Text Area, Switch, Text Output:** A `tooltips` value that is not a React element (a string, a number, a fragment) was silently dropped.
+- **Table, Resize and Drag Container:**
+  - `react-draggable` is held at an exact `4.5.0`, tree-wide via a pnpm override, so `react-rnd` resolves the same single copy instead of pulling a second one in beside it. Release `4.7.1` types both the `import` and `require` conditions of its `exports` map with the CommonJS declaration, which leaves `Draggable` unusable as a JSX component under `moduleResolution: NodeNext`. The hold lifts once upstream types each condition separately. The drag event types are unchanged.
+  - Text selection stayed suppressed application-wide if the container unmounted while a drag or resize was still in flight. The `-u-user-select-none` class was added to `document.body` on drag/resize start and only removed by the matching stop handler, which never runs when the container is removed mid-interaction (a drop that unmounts it, a parent closing during the drag, a pointer released outside the window). The class is now also cleared on unmount, tracked per instance so unmounting one container cannot lift the suppression while another is mid-drag.
+- **Interaction Hint:**
+  - Moving the pointer between child elements of the reference element could hide the hint, because `mouseout` fires on such transitions and only the `followCursor` branch checked whether the pointer was still inside the reference element. The hint now stays open while the pointer remains anywhere within it.
+  - A nested `InteractionHintConfigProvider` reset every option it did not set back to its default instead of inheriting it from the surrounding provider, so wrapping a subtree to change one key silently dropped the other options configured further up. Nested providers now merge on top of the inherited configuration, as the documentation already described.
+  - A hint could stay on screen after its reference element lost the focus, ending up next to the hint of the element that has the focus now. It happened when the focus left the document while the hint was still being mounted.
+- **Dropdown:**
+  - Keyboard navigation in long lists was slow. One arrow keypress in a 10,000-option list used to block the main thread for about 450 ms; it now takes about 28 ms. Opening and re-filtering such a list are both about twice as fast.
+  - Options that share a label and value no longer all appear active at once, and Enter now selects the option that was actually navigated to.
+  - The `data-preselect` attribute an option carries could hold a stale value after the active option was cleared. It is now derived on every render, so if your tests read it after clearing a selection, they may now see `"true"` where they previously saw `"false"`.
+  - Arrowing into a list whose first or last option was disabled used to activate that option. Both ends now skip disabled options.
+  - The arrow keys used to scroll the whole page when they reached the first or last option, pushing that option to the top or bottom of the window. The page now stays put.
+  - A selection made from outside an open single-select list (the caller passing in a different `selectedItem`) used to leave the highlight where it was and never scroll the newly selected option into view. The active option now follows the selection again, which is what scrolls it into view. A multi-select list keeps its active option as is, since every toggle already changes the selection there.
+- **Autocomplete:**
+  - [A11Y] Rebuilt on the WAI-ARIA APG "combobox with listbox popup" pattern, with standards-compliant attributes and a polite live region for result counts, replacing the previous per-operating-system and per-screen-reader workarounds.
+  - An async search that had not yet produced any options showed no progress indicator, so the field looked unresponsive for the whole request.
+  - The `items` array handed to the widget was deep-frozen in place, so a caller that went on to mutate its own array would hit a `TypeError` from inside the widget. This also removes `immer` from the package's dependencies.
+  - A grouped list described itself as "4 of 2 options shown": the hint's `{count}` counted the options, while `{total}` counted the groups holding them. Both now count the options.
+  - An option in a grouped or repeated list could not be recognized as the committed value once the field reopened, unless it was the first option or carried a `value`, so it appeared unselected. Such an option is now matched by its label.
+  - [Mobile] The fullscreen dialog used to leave the page scrolled somewhere other than where the user had it, since the on-screen keyboard scrolls the document to keep the dialog's field in the shrunken viewport, and nothing put it back afterward. The page is now returned to where it stood when the dialog opened, including on Android, where the keyboard hiding resizes the visual viewport rather than firing a `window` resize.
+  - [Mobile] Returning to the page from another app, the home screen, or the tab switcher used to reopen the dialog on its own, because the browser restores focus to the field that had it. That restored focus no longer counts as the user reaching for the field.
+  - [Mobile][A11Y] With `mobileModal={false}`, a screen reader could not reach the attached option list in any sensible order: the list used to be rendered in a portal at the end of the document, so swiping on (TalkBack, VoiceOver) or arrowing past the field in browse mode (NVDA) left for the rest of the page, and the options came only at the very end. The field now owns its list, which puts the options right behind the input and its clear button. Scrolling that list on a touch device also closes the on-screen keyboard now, as it already did in the dialog.
+  - [Mobile] Tapping the dialog's clear button used to make the dialog jump, since the on-screen keyboard closed as the field lost focus and reopened as focus came back. The field now keeps its focus, so the keyboard stays put.
+- **Rich Text Editor:**
+  - `onChange` had no effect on `RichTextEditor`. The prop was declared and documented, but only `DefaultRichTextEditor` ever wired it up, so consumers of the base component never received editor state updates.
+  - The tooltip plugin registered its `scroll` listener in the capture phase but removed it in the bubble phase, so the listener was never detached and leaked on every unmount.
+  - The mention suggestion menu could be anchored to the left edge of the block instead of the caret, because the first entry of `Range.getClientRects()` was used unfiltered. WebKit emits an extra block-wide rect there.
+  - Importing HTML that contains a task list produced a check list whose items were all unchecked. The checkbox state was read through `getChecked()`, which only reports it once the item sits inside a check list — during node replacement the item is still detached, so every item came back unchecked.
+  - A readonly editor with content could stay excluded from the tab order (`tabindex="-1"`) when its initial content was applied after the first render. Content presence is now tracked through the editor's update listener.
+- **DataTable, DataTreeTable, TreeView (experimental):**
+  - The drag & drop engine failed to resolve under Node ESM (`ERR_MODULE_NOT_FOUND` on `@atlaskit/pragmatic-drag-and-drop` subpath imports, e.g. in SSR or Vitest node mode). The upstream packages are now consumed as `@com.mgmtp.a12.widgets/pragmatic-drag-and-drop*` — repackaged builds with a proper `exports` field (see `tools/atlaskit-repack`).
+  - `DataTable`, `DataTreeTable`: a header cell's accessible name included the label of its resize handle ("Col A Resize Col A"). The cell is now named from its own label only.
+  - `DataTable`, `DataTreeTable`: clicking a control rendered inside a header cell (a menu button, a select-all checkbox) could do nothing when the cell was partly scrolled out of view: focusing it scrolled the header, moving the control away from the pointer before the click landed. Pointer-driven focus no longer scrolls the header; keyboard focus still does.
+  - `DataTable`: a pinned column's sticky offset was only re-measured once a column resize ended, so the borders inside a pinned column group drifted apart while the drag was in flight. The offsets now follow every width the resize writes and are restored on Escape.
+- **Attached Portal:** While a portal was open, every table in the document was demoted to `role="presentation"`, which strips the row and cell semantics of a native `<table>` (such as the `DataTable`), and on close every one of them was forced to `role="table"`, overwriting an explicit `grid` or `treegrid`. This was a workaround for JAWS announcing an unrelated table when arrowing up out of a dropdown (A12W-10732); the workaround is removed and the tables are left untouched.
+- **Icon:** Firefox logged a `downloadable font: glyf: Glyph bbox was incorrect; adjusting` warning into the console of every application that loaded the `custom-icons` font. The `edit_outline` glyph of the IcoMoon-generated font carried a stored bounding box narrower than its actual outline, which Firefox repairs at load time and reports. All glyph bounding boxes are recomputed now; the outlines, code points and metrics are unchanged, so icons render exactly as before.
+- **Tooltip, Button:** Consumer-defined icon button colors inside a `Tooltip` could not override the default tooltip variant color. To resolve this, the tooltip trigger color rules now use `:where()` to reduce CSS specificity.
+- **ContentBox:** A nested `ActionBarGroup` kept the previous theme's styles after switching themes back and forth.
+- **Tag Input:**
+  - The remove button on tags cannot be focused using keyboard navigation. To address this, a new `focusableRemoveButtons` property has been introduced, allowing users to enable keyboard focus on the remove buttons.
+  - Screen readers announce the remove button's label twice.
+- **Every widget with a text field:** [Android] Focusing a text field scrolled the page so that the field sat flush against the top of the viewport, where a fixed or sticky page header covers it. A polyfill scrolled the focused field into view on every `resize` — which on Android is every time the on-screen keyboard opens or closes — and it aligned the field to the top of the viewport, undoing the scroll position the page had. It also overrode what widgets set deliberately, so the Autocomplete's fullscreen dialog could not put the page back where it stood when it closed. The polyfill is gone; Android Chrome scrolls a focused field above the keyboard by itself.
+
+### Changed
+
+- **DataTable (experimental):**
+  - `cardView` is a card layout of its own: a `role="list"` of cards whose fields carry their column label, with no `<table>` DOM. Selection, row events, expansion, the context menu, virtualization, infinite scroll and drag and drop carry over; the header, footer, pinning and column resizing do not apply. The theme gains `table.cardView` tokens for the list, card and field spacing.
+  - Dragging a row previews the drop by shifting the neighbouring rows apart; the dragged row leaves a dashed slot behind. The drop-indicator bands between rows are gone with their `DnDHint` data-role: drop by releasing over a row, top half before it, bottom half after. `dragDropOptions` and its payloads are unchanged.
+  - A custom `dragPreview` slot receives the in-progress drag as its `activeDrag` prop. The DataTable context no longer carries it, holds no per-interaction state, and `useDataTableContext()` no longer takes a selector.
+  - The `body` slot is not honoured while drag and drop is enabled; customize rows through `row` / `dndRow` instead.
+- **Dropdown:**
+  - Every option now states its selection through `aria-selected`, which is what a listbox's options are required to carry. Nothing is taken away: an option that already carried `aria-checked` (as `Multiselect`'s options do) keeps it, so existing selectors in consuming projects keep matching. The one exception is a `Multiselect` option on macOS: it keeps `role="checkbox"` instead of `role="option"` and has no `aria-selected`, so that VoiceOver announces it correctly.
+  - Moving the active option through a `useDropdownNavigation` handle now also scrolls it into view, focuses it where `useFocusStyle` applies, and reports it, matching the effects the imperative methods it replaces already had.
+  - `getDropDownItemsLength` moved to `dropdown/main/template/dropdown.utils.ts`, alongside the other `DropDownItem` helpers. It is unchanged at the package root, which is where it is imported from anyway.
+- **Autocomplete:**
+  - Reimplemented as a single function component built on an explicit state machine, replacing the two parallel class components. `AutocompleteProps` is preserved, apart from the deprecations noted below.
+  - [Mobile][A11Y] The fullscreen dialog on phones is kept, but rebuilt on the WAI-ARIA APG "combobox with a dialog popup" pattern, so only one combobox is reachable at a time. Previously, two comboboxes existed and one was hidden from assistive technology while still staying focusable. Both presentations now share one state machine and one option list.
+- **Multiselect:**
+  - Built on the Dropdown's own multi-select model. The checkboxes, their mixed state for "select all", the options' ARIA state and which keys toggle an option all come from the list now, and each option carries the item it stands for as `data` instead of being matched back by label and id. Two consequences for callers:
+    - `onItemCheck` now fires for every way of toggling an option — clicking the option, clicking its checkbox, and pressing Space — where before only a click that landed on the checkbox itself was reported. Its `event` parameter is accordingly whichever event did it, and is optional.
+    - `onSelectAllCheck` on `MultiselectTemplate` fires for every way of toggling the "select all" option too, and its `event` parameter is likewise whichever event did it, and optional. A template given the new `onItemToggle` — which reports the options and the "select all" one alike — is not called through either of the two older callbacks.
+    - Options in the dropdown state their selection through `aria-selected`, which is the attribute to read. They keep carrying `aria-checked` alongside it, so selectors and styles that rely on it keep working; that mirror is deprecated and goes away with the next major version. The checkbox inside an option carries `aria-checked` as before.
+- **IconPicker:** Reimplemented as a function component. Rendering, behavior and the public `IconPickerProps` API are unchanged — the class exposed no methods beyond React's lifecycle, so only an instance `ref` (which could not do anything with them) or subclassing is affected. Holding the option list's active option in `useDropdownNavigation` is what motivated it: a class cannot run a hook, so the previous step needed a wrapper component around the list purely to hold one, which is now gone.
+- **Rich Text Editor:**
+  - Auto-linking follows `linkify-it` v6, which no longer recognises e-mail addresses whose local part is quoted (`test."foo".bar@gmail.co.uk`). Such addresses are left as plain text. Unquoted addresses, including dotted local parts (`test.foo.bar@gmail.co.uk`), are unaffected.
+  - Text formatting (bold, italic, underline, …) over a non-collapsed selection is handled by Lexical itself again. The editor previously intercepted `FORMAT_TEXT_COMMAND` at a higher priority and reimplemented the toggle, which duplicated what Lexical already does and prevented upstream formatting fixes from taking effect. Formatting behaviour is unchanged.
+  - Lexical is updated to `0.51`. Two details of the rendered editor DOM follow from it: line breaks the editor manages itself carry a `data-lexical-managed-linebreak="true"` attribute, and a zero-size `img[data-lexical-decorator-boundary]` sits beside a block-level decorator node that is the first or last child of its parent (Lexical uses it to keep the select-all highlight visible). The HTML produced by `outputConfig.onChange` is unchanged, so stored content is not affected; only DOM snapshots or selectors that match on `br` elements or count an element's children need adjusting.
+  - `APPLY_TEXT_FORMAT_COMMAND` is typed as `LexicalCommand<ApplyTextFormatPayload>` instead of `LexicalCommand<unknown>`. Lexical makes command payload types invariant since 0.49, so an untyped command can no longer be dispatched or registered. The payload shape is unchanged; the new `ApplyTextFormatPayload` interface just names it.
+- **Checkbox, Checkbox Group, Date Input, Flyout Menu, Radio, Toggle Button, Tree, TreeView (experimental):** The fallback `id` these widgets generate when no `id` is passed now comes from React's `useId()` instead of `generateUid()`. The old fallback ran in the render body, so the id changed on every render, could not survive SSR hydration, and — because `Math.random()` is deterministic in some environments — could repeat across sibling instances, producing duplicate DOM ids. Generated ids are now stable across re-renders, hydration-safe and unique. Nothing else changes: an `id` you pass is still used as-is, and one is still generated when you do not. The generated value is an opaque React id such as `_r_3_`, so pass your own `id` where you need a predictable selector. `FlyoutMenu` kept its generated ids in a ref, so they did not change between renders, but they were still hydration-unsafe and could collide; its main-menu and condensed-item ids are now derived from one `useId()` value with the same `_mainmenu` and `_condensed-item` suffixes it already used when an `id` is passed.
+
+### Dependencies Update
+
+| Name                                                       | Old version | New version |
+| ---------------------------------------------------------- | ----------- | ----------- |
+| linkify-it                                                 | ^5.0.0      | ^6.1.0      |
+| immer                                                      | 11.1.10     |             |
+| react-resize-detector                                      | ^12.3.0     |             |
+| @atlaskit/pragmatic-drag-and-drop                          | ^1.8.1      |             |
+| @atlaskit/pragmatic-drag-and-drop-auto-scroll              | ^1.4.0      |             |
+| @atlaskit/pragmatic-drag-and-drop-hitbox                   | ^1.0.3      |             |
+| @com.mgmtp.a12.widgets/pragmatic-drag-and-drop             |             | ^2.0.1      |
+| @com.mgmtp.a12.widgets/pragmatic-drag-and-drop-auto-scroll |             | ^3.0.0      |
+| @com.mgmtp.a12.widgets/pragmatic-drag-and-drop-hitbox      |             | ^2.0.0      |
+| lexical                                                    | ^0.44.0     | ^0.51.0     |
+| @lexical/html                                              | ^0.44.0     | ^0.51.0     |
+| @lexical/link                                              | ^0.44.0     | ^0.51.0     |
+| @lexical/list                                              | ^0.44.0     | ^0.51.0     |
+| @lexical/plain-text                                        | ^0.44.0     | ^0.51.0     |
+| @lexical/react                                             | ^0.44.0     | ^0.51.0     |
+| @lexical/rich-text                                         | ^0.44.0     | ^0.51.0     |
+| @lexical/selection                                         | ^0.44.0     | ^0.51.0     |
+| @lexical/utils                                             | ^0.44.0     | ^0.51.0     |
+| @lexical/code-core                                         |             | ^0.51.0     |
+| @lexical/code-shiki                                        |             | ^0.51.0     |
+| @lexical/extension                                         |             | ^0.51.0     |
+| @lexical/history                                           |             | ^0.51.0     |
+| @lexical/mdast                                             |             | ^0.51.0     |
+| @lexical/table                                             |             | ^0.51.0     |
+| motion                                                     | ^12.42.2    | ^13.2.0     |
+| react-day-picker                                           | ^9.14.0     | ^10.0.1     |
+| react-draggable                                            | ^4.5.0      | ^4.7.2      |
+| date-fns                                                   | ^4.2.1      | ^4.4.0      |
+| @date-fns/tz                                               | ^1.4.1      | ^1.5.0      |
+| dompurify                                                  | ^3.4.12     |             |
+| @tanstack/react-virtual                                    | ^3.13.24    | ^3.14.10    |
+| @types/lodash                                              | ^4.17.24    | ^4.17.25    |
+
+## 39.0.4
+
+### Fixed
+
+- **ContentBox, LayoutGrid, Tree, TreeView, Master-Detail:** A "change in the order of Hooks" React warning (and potential "Rendered fewer hooks than expected" crash), caused by reading context with `useContext` inside styled-components style callbacks, which aren't invoked on every render. Context values are now read in the rendering components and passed down as transient properties.
+
 ## 39.0.3
 
 ### Fixed
@@ -165,7 +354,7 @@
   - "One or more transforms are endlessly triggering" error when deleting the space between a misspelled word and an adjacently styled word.
   - `addSelectedStyleName` does not work because the styled node merges with another node and loses the className.
 - **Table:** Fix the issue with latest version of styled-components.
-- **Table, Tree Table:** The internal context-selector implementation (`createContext` / `useContextSelector`) has been rewritten on top of React's `useSyncExternalStore`. This removes the dependency on the unsupported `scheduler` package APIs, makes context reads tear-free under concurrent rendering, and fixes selectors returning stale results when a consumer re-renders due to its own props before the next context update. The public API is unchanged.
+- **Table, Tree Table:** The internal context-selector implementation (`createContext` / `useContextSelector`) has been rewritten on top of React's `useSyncExternalStore`. This removes the dependency on the unsupported `scheduler` package APIs, makes context reads tear-free under concurrent rendering, and fixes selectors returning stale results when a consumer re-renders due to its own properties before the next context update. The public API is unchanged.
 - **Sliding Menu:** [Mobile] A rapid double-tap on a menu item containing a submenu causes the menu to disappear.
 - **Text Area:** The suffix area overlaps the input when there is a scrollbar in the input.
 - **Comment:** `combinedActionButton` element losing its right-alignment when reply comments are nested more than one level deep.

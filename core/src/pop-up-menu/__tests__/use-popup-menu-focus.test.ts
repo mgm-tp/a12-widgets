@@ -30,12 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { renderHook, act } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 
-import { provider } from "../../common/main/device-detector.js";
 import { DataRoles } from "../../common/main/data-roles.js";
-
+import { provider } from "../../common/main/device-detector.js";
 import { usePopupMenuFocus } from "../main/use-popup-menu-focus.js";
 
 vi.mock("../../common/main/utils.js", async (importOriginal) => {

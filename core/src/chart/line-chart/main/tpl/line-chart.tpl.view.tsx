@@ -35,8 +35,8 @@ import { Component, isValidElement, cloneElement } from "react";
 import type { DotProps } from "recharts";
 
 import { AttachedPortal } from "../../../../attached-portal/main/attached-portal.view.js";
-import { bindMethods, addPrefix, joinClassNames } from "../../../../common/main/utils.js";
 import { DataRoles } from "../../../../common/main/data-roles.js";
+import { bindMethods, addPrefix, joinClassNames } from "../../../../common/main/utils.js";
 import {
 	StyledRechartsLegend,
 	StyledRechartsLegendItem,

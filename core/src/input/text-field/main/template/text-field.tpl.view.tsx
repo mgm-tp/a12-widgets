@@ -34,12 +34,14 @@ import type { MouseEvent, TouchEvent, FocusEvent, ReactNode, ReactElement } from
 import { useRef, useState, useCallback, useMemo, Children, isValidElement, cloneElement } from "react";
 import { styled } from "styled-components";
 
-import type { Identifiable, Styleable } from "../../../../common/main/base-props.js";
-import { HiddenText } from "../../../../common/main/hidden-text/hidden-text.view.js";
-import { addPrefix, getAllFocusableElements, joinClassNames } from "../../../../common/main/utils.js";
-import { InputElements } from "../../../base/template/base.tpl.view.js";
-import { StyledBaseInput } from "../../../base-input-styled/base.styled.js";
+import type { Identifiable } from "../../../../common/main/base-props.js";
 import { DataRoles } from "../../../../common/main/data-roles.js";
+import { HiddenText } from "../../../../common/main/hidden-text/hidden-text.view.js";
+import { renderTooltips } from "../../../../common/main/tooltip-utils.js";
+import { addPrefix, getAllFocusableElements, joinClassNames } from "../../../../common/main/utils.js";
+import { StyledBaseInput } from "../../../base-input-styled/base.styled.js";
+import { InputElements } from "../../../base/template/base.tpl.view.js";
+import { useFieldDefaultsConfig } from "../../../field-default-config/main/field-default-config.utils.js";
 
 import type { TextAffixProps, TextFieldProps } from "./text-field.tpl.api.js";
 
@@ -118,6 +120,7 @@ export function TextField(
 		customInputWrapperProps,
 		inputWrapperRef: inputWrapperRefProps
 	} = props;
+	const { breakTooltipsToNewLine, messagePosition } = useFieldDefaultsConfig(props, "above");
 	const [isFocused, setFocused] = useState(autoFocus);
 	const [isNoEffect, setNoEffect] = useState(false);
 	const inputType = inputProps?.type || "text";
@@ -236,6 +239,7 @@ export function TextField(
 								(ariaDescribedby && (tooltips || addonAfter || addonBefore)))
 					}
 				)}
+				aria-invalid={error || errorMessage ? true : undefined}
 				virtualkeyboardpolicy={customInputProps?.virtualKeyboardPolicy}
 				{...inputPropsRest}
 			/>
@@ -248,6 +252,7 @@ export function TextField(
 		addonAfter,
 		customInputProps?.virtualKeyboardPolicy,
 		disabled,
+		error,
 		errorMessage,
 		fieldClasses,
 		id,
@@ -397,19 +402,41 @@ export function TextField(
 		);
 	}, [disabled, hideLabel, id, label, labelGraphic, labelRef, placeholder, showHiddenText]);
 
-	const tooltipElement = useMemo(
-		() =>
-			tooltips &&
-			Children.map(
-				tooltips,
-				(element, index) =>
-					isValidElement<Styleable>(element) &&
-					cloneElement(element, {
-						key: "element-" + index,
-						className: joinClassNames(element.props.className, `${baseFieldClassName}__tooltip`)
-					})
-			),
-		[tooltips]
+	const tooltipElement = useMemo(() => renderTooltips(tooltips, `${baseFieldClassName}__tooltip`), [tooltips]);
+
+	const messagesElement = useMemo(
+		(): ReactNode => (
+			<>
+				{errorMessage && (
+					<InputElements.Error
+						className={`${baseFieldClassName}__message`}
+						id={id}
+						dataRole={DataRoles.TextField.ErrorMessage}
+						errorMessage={errorMessage}
+						position={messagePosition}
+					/>
+				)}
+				{warningMessage && (
+					<InputElements.Warning
+						className={`${baseFieldClassName}__message`}
+						id={id}
+						dataRole={DataRoles.TextField.WarningMessage}
+						warningMessage={warningMessage}
+						position={messagePosition}
+					/>
+				)}
+				{infoMessage && (
+					<InputElements.Info
+						className={`${baseFieldClassName}__message`}
+						id={id}
+						dataRole={DataRoles.TextField.InfoMessage}
+						infoMessage={infoMessage}
+						position={messagePosition}
+					/>
+				)}
+			</>
+		),
+		[errorMessage, id, infoMessage, messagePosition, warningMessage]
 	);
 
 	const handleFieldInputRef = useCallback(
@@ -425,6 +452,7 @@ export function TextField(
 			$block={fitToParent}
 			$phone={isPhone}
 			$disabled={disabled}
+			$tooltipPosition={breakTooltipsToNewLine}
 			data-role={DataRoles.TextField}
 			className={joinClassNames(
 				`${baseFieldClassName}-wrapper`,
@@ -443,31 +471,8 @@ export function TextField(
 					role={role}
 				>
 					{labelElement}
-					{tooltipElement}
-					{errorMessage && (
-						<InputElements.Error
-							className={`${baseFieldClassName}__message`}
-							id={id}
-							dataRole={DataRoles.TextField.ErrorMessage}
-							errorMessage={errorMessage}
-						/>
-					)}
-					{warningMessage && (
-						<InputElements.Warning
-							className={`${baseFieldClassName}__message`}
-							id={id}
-							dataRole={DataRoles.TextField.WarningMessage}
-							warningMessage={warningMessage}
-						/>
-					)}
-					{infoMessage && (
-						<InputElements.Info
-							className={`${baseFieldClassName}__message`}
-							id={id}
-							dataRole={DataRoles.TextField.InfoMessage}
-							infoMessage={infoMessage}
-						/>
-					)}
+					{(breakTooltipsToNewLine === true || breakTooltipsToNewLine === "above") && tooltipElement}
+					{messagePosition !== "below" && messagesElement}
 					<StyledBaseInput.StyledFieldInput
 						$disabled={disabled}
 						$readonly={readonly}
@@ -504,9 +509,16 @@ export function TextField(
 						<StyledFieldTextUnseenSpan className={addPrefix("supported-unseen-span")} />
 						{suffixesElement}
 					</StyledBaseInput.StyledFieldInput>
+					{messagePosition === "below" && messagesElement}
 				</StyledBaseInput.StyledField>
 				{renderAddonAfter()}
+				{!breakTooltipsToNewLine && tooltipElement && (
+					<StyledBaseInput.StyledFieldAddon $position="after" data-role={DataRoles.TextField.TooltipAddon}>
+						{tooltipElement}
+					</StyledBaseInput.StyledFieldAddon>
+				)}
 			</StyledBaseInput.StyledFieldMain>
+			{breakTooltipsToNewLine === "below" && tooltipElement}
 			{helperText && (
 				<StyledBaseInput.StyledFieldHelperWrapper className={`${baseFieldClassName}__helper`} ref={helperTextRef}>
 					{renderAddonBefore(false)}

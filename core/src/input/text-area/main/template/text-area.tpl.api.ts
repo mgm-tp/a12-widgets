@@ -50,10 +50,7 @@ import type {
 import type { BaseInputEventHandler, BaseInputProps, InputDOMProps } from "../../../base/template/base.tpl.api.js";
 
 export interface TextAreaStatelessProps
-	extends
-		Omit<BaseInputProps, "breakTooltipsToNewLine">,
-		BaseInputEventHandler<HTMLTextAreaElement>,
-		InputDOMProps<HTMLTextAreaElement> {
+	extends BaseInputProps, BaseInputEventHandler<HTMLTextAreaElement>, InputDOMProps<HTMLTextAreaElement> {
 	/**
 	 * Value of the input.
 	 */

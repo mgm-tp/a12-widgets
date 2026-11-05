@@ -30,18 +30,18 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import multilingualCode from "!../pop-up-menu/multilingual?raw";
+import addonsPositionCode from "!./addons-position.tsx?raw";
+import basicCode from "!./basic.tsx?raw";
+import customCode from "!./custom.tsx?raw";
+
 import TypographyAPI from "@com.mgmtp.a12.widgets/widgets-json-api/core/src/typography/main/typography.api.json" with { type: "json" };
 
 import type { Showcase } from "../../helpers/definitions.js";
 
-import { CustomTypographyShowcase } from "./custom.js";
-import { BasicTypographyShowcase } from "./basic.js";
 import { CustomAddonPosition } from "./addons-position.js";
-
-import multilingualCode from "!../pop-up-menu/multilingual?raw";
-import customCode from "!./custom.tsx?raw";
-import basicCode from "!./basic.tsx?raw";
-import addonsPositionCode from "!./addons-position.tsx?raw";
+import { BasicTypographyShowcase } from "./basic.js";
+import { CustomTypographyShowcase } from "./custom.js";
 
 const showcases: Showcase[] = [
 	{

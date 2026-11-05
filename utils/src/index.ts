@@ -30,6 +30,17 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+/**
+ * `@com.mgmtp.a12.widgets/widgets-utils` - utility components written for the Widgets showcase.
+ *
+ * @deprecated since 39.1.0. The package is deprecated as a whole and will be removed in a future major version. Its
+ * components were built to assemble the showcase, not as product widgets: they are outside the breaking change
+ * management of `widgets-core` and have no theme configuration, tests or documentation of their own. Each export names
+ * its replacement; where there is none, copy the source - shipped in the package's `src` folder - into your project.
+ *
+ * @packageDocumentation
+ */
+
 export * from "./code-example/index.js";
 export * from "./animation-wrapper/index.js";
 export * from "./news-box/index.js";

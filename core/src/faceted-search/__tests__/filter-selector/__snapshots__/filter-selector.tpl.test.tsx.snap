@@ -78,7 +78,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-action-item 1`] = `
 `;
 
 exports[`com.mgmtp.a12.widgets.filter-selector > rendering-content 1`] = `
-.c5 {
+.c3 {
   align-items: center;
   background-color: rgb(78, 89, 101);
   box-sizing: border-box;
@@ -94,206 +94,11 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-content 1`] = `
   gap: 8px;
 }
 
-.StyledMasterDetailLayoutView-fvsTKU .c5.c5 {
+.StyledMasterDetailLayoutView-fvsTKU .c3.c3 {
   padding: 0px 24px;
 }
 
-.c3 {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  flex: 1 0 auto;
-}
-
-.c0 {
-  background-color: rgb(255, 255, 255);
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  display: flex;
-  font-size: 0.75rem;
-  font-family: "Open Sans", sans-serif;
-  flex-direction: column;
-  flex: 1 1 100%;
-  height: 100%;
-  line-height: 1.45;
-  max-width: 100%;
-  min-height: 0px;
-  outline: transparent solid 1px;
-  padding: 0px;
-  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
-}
-
-.c11 {
-  box-sizing: border-box;
-  border-radius: 0px;
-  color: rgb(77, 77, 77);
-  font-size: 0.75rem;
-  flex: 1 1 100%;
-  min-height: 64px;
-  overflow: hidden auto;
-  background-color: rgb(255, 255, 255);
-  padding: 0px 24px 24px;
-}
-
-.c11:focus {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-[data-role="modal-overlay-content"] .c11.c11 {
-  padding: 0px 24px 24px;
-}
-
-[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c11.c11 {
-  padding: 16px;
-}
-
-.c9 {
-  display: flex;
-  flex-direction: column;
-}
-
-.c9 > :not(:empty):not(.sc-hKgHXU) {
-  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
-  border-top: 1px solid transparent;
-}
-
-.c6 {
-  align-items: center;
-  display: flex;
-  gap: 8px;
-}
-
-.c7 {
-  flex: 1 1 0%;
-  flex-direction: column;
-  padding: 8px 0px;
-}
-
-.StyledMasterDetailLayoutPane-bIaFkb .c7.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-bIaFkb .c7.masterDetailLayoutPane--exit {
-  flex: 1 0 auto;
-}
-
-.c12 .c8 > :not(:empty) {
-  display: flex;
-  flex-direction: column;
-  padding: 0px;
-}
-
-.c12 .c8 > :not(:empty):not(.sc-hKgHXU) {
-  border-bottom-width: medium;
-  border-bottom-style: none;
-  border-bottom-color: currentcolor;
-  border-top-width: medium;
-  border-top-style: none;
-  border-top-color: currentcolor;
-}
-
-.c12 .c4 {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  padding: 8px 16px;
-}
-
-.c12 .c10 {
-  border-radius: 0px;
-  display: flex;
-  flex-direction: column;
-}
-
-.c2 .c10 {
-  padding: 0px;
-}
-
-.c13 .c1 {
-  box-shadow: none;
-  outline: 0px;
-}
-
-.c14 .c4 {
-  border-right: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.c15:not(:first-child) .c4,
-.c15:not(:first-child) .c8,
-.c15:not(:first-child) .c10 {
-  border-left: 1px solid rgba(22, 25, 29, 0.22);
-}
-
-.c15 .c10 {
-  min-height: 48px;
-}
-
-<div
-  class="c0 contentbox c1 c2 filter-selector__container testClass"
-  data-role="contentbox"
-  id="testId"
-  style="background-color: red;"
-  tabindex="-1"
->
-  <div
-    class="c3 contentbox__header"
-    data-role="contentbox-header"
-  >
-    <div
-      class="c4 c5 contentbox__heading"
-      data-role="contentbox-heading"
-      id="testId--heading"
-    >
-      <div
-        class="c6 contentbox__addon-prefix"
-        data-role="contentbox-addon-prefix"
-      >
-        headingPrefixes
-      </div>
-      <div
-        class="c7"
-      >
-        headingElements
-      </div>
-    </div>
-    <div
-      class="c8 c9 contentbox__subheading"
-      data-role="contentbox-subheading"
-      id="testId--subheading"
-    >
-      subActionBar
-    </div>
-  </div>
-  <div
-    class="c10 c11 contentbox__content contentbox__content--initial-padding"
-    data-role="contentbox-content"
-  >
-    Sample Child
-  </div>
-</div>
-`;
-
-exports[`com.mgmtp.a12.widgets.filter-selector > rendering-content-with-header 1`] = `
-.c5 {
-  align-items: center;
-  background-color: rgb(78, 89, 101);
-  box-sizing: border-box;
-  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
-  border-top: 1px solid rgba(255, 255, 255, 0.32);
-  display: flex;
-  font-size: 1rem;
-  line-height: 1.45;
-  min-height: 48px;
-  padding: 0px 24px;
-  position: relative;
-  border-radius: 0px;
-  gap: 8px;
-}
-
-.StyledMasterDetailLayoutView-fvsTKU .c5.c5 {
-  padding: 0px 24px;
-}
-
-.c3 {
+.c2 {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -342,78 +147,196 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-content-with-header 1
   padding: 16px;
 }
 
-.c6 {
+.c4 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.c5 {
   flex: 1 1 0%;
   flex-direction: column;
   padding: 8px 0px;
 }
 
-.StyledMasterDetailLayoutPane-bIaFkb .c6.masterDetailLayoutPane--enter,
-.StyledMasterDetailLayoutPane-bIaFkb .c6.masterDetailLayoutPane--exit {
+.StyledMasterDetailLayoutPane-bIaFkb .c5.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c5.masterDetailLayoutPane--exit {
   flex: 1 0 auto;
 }
 
-.c9 .c4 {
-  border-width: medium;
-  border-style: none;
-  border-color: currentcolor;
-  border-image: initial;
-  border-radius: 0px;
-  padding: 8px 16px;
-}
-
-.c9 .c7 {
-  border-radius: 0px;
+.c6 {
   display: flex;
   flex-direction: column;
 }
 
-.c2 .c7 {
+.c6 > :not(:empty):not(.sc-iBPUmU) {
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid transparent;
+}
+
+.c1 .c7 {
   padding: 0px;
 }
 
-.c10 .c1 {
-  box-shadow: none;
-  outline: 0px;
-}
+<div
+  class="c0 contentbox c1 filter-selector__container testClass"
+  data-role="contentbox"
+  id="testId"
+  style="background-color: red;"
+  tabindex="-1"
+>
+  <div
+    class="c2 contentbox__header"
+    data-role="contentbox-header"
+  >
+    <div
+      class="c3 contentbox__heading"
+      data-role="contentbox-heading"
+      id="testId--heading"
+    >
+      <div
+        class="c4 contentbox__addon-prefix"
+        data-role="contentbox-addon-prefix"
+      >
+        headingPrefixes
+      </div>
+      <div
+        class="c5"
+      >
+        headingElements
+      </div>
+    </div>
+    <div
+      class="c6 contentbox__subheading"
+      data-role="contentbox-subheading"
+      id="testId--subheading"
+    >
+      subActionBar
+    </div>
+  </div>
+  <div
+    class="c7 c8 contentbox__content contentbox__content--initial-padding"
+    data-role="contentbox-content"
+  >
+    Sample Child
+  </div>
+</div>
+`;
 
-.c11 .c4 {
-  border-right: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.c12 .c7 {
+exports[`com.mgmtp.a12.widgets.filter-selector > rendering-content-with-header 1`] = `
+.c3 {
+  align-items: center;
+  background-color: rgb(78, 89, 101);
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(22, 25, 29, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  display: flex;
+  font-size: 1rem;
+  line-height: 1.45;
   min-height: 48px;
+  padding: 0px 24px;
+  position: relative;
+  border-radius: 0px;
+  gap: 8px;
+}
+
+.StyledMasterDetailLayoutView-fvsTKU .c3.c3 {
+  padding: 0px 24px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.c0 {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  font-size: 0.75rem;
+  font-family: "Open Sans", sans-serif;
+  flex-direction: column;
+  flex: 1 1 100%;
+  height: 100%;
+  line-height: 1.45;
+  max-width: 100%;
+  min-height: 0px;
+  outline: transparent solid 1px;
+  padding: 0px;
+  box-shadow: rgba(22, 25, 29, 0.4) 0px 1px 2px 0px;
+}
+
+.c6 {
+  box-sizing: border-box;
+  border-radius: 0px;
+  color: rgb(77, 77, 77);
+  font-size: 0.75rem;
+  flex: 1 1 100%;
+  min-height: 64px;
+  overflow: hidden auto;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 24px 24px;
+}
+
+.c6:focus {
+  outline: rgb(51, 51, 51) dotted 1px;
+}
+
+[data-role="modal-overlay-content"] .c6.c6 {
+  padding: 0px 24px 24px;
+}
+
+[data-role="modal-overlay-content"] [data-role="filter-selector-content-secondary"] .c6.c6 {
+  padding: 16px;
+}
+
+.c4 {
+  flex: 1 1 0%;
+  flex-direction: column;
+  padding: 8px 0px;
+}
+
+.StyledMasterDetailLayoutPane-bIaFkb .c4.masterDetailLayoutPane--enter,
+.StyledMasterDetailLayoutPane-bIaFkb .c4.masterDetailLayoutPane--exit {
+  flex: 1 0 auto;
+}
+
+.c1 .c5 {
+  padding: 0px;
 }
 
 <div
-  class="c0 contentbox c1 c2 filter-selector__container"
+  class="c0 contentbox c1 filter-selector__container"
   data-role="contentbox"
   tabindex="-1"
 >
   <div
-    class="c3 contentbox__header"
+    class="c2 contentbox__header"
     data-role="contentbox-header"
   >
     <div
-      class="c4 c5 contentbox__heading"
+      class="c3 contentbox__heading"
       data-role="contentbox-heading"
     >
       <div
-        class="c6"
+        class="c4"
       >
         sample header
       </div>
     </div>
   </div>
   <div
-    class="c7 c8 contentbox__content contentbox__content--initial-padding"
+    class="c5 c6 contentbox__content contentbox__content--initial-padding"
     data-role="contentbox-content"
   />
 </div>
 `;
 
 exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-item 1`] = `
-.c1 {
+.c0 {
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
   color: rgb(77, 77, 77);
@@ -425,7 +348,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-item 
   border-bottom: 1px solid rgb(226, 230, 233);
 }
 
-.c4 {
+.c3 {
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -437,20 +360,20 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-item 
   padding: 8px 16px;
 }
 
-.c4::before {
+.c3::before {
   content: "";
   inset: 0px;
   position: absolute;
   display: block;
 }
 
-.c4:focus::before {
+.c3:focus::before {
   border: 2px solid rgb(213, 0, 117);
   margin: 1px;
   outline: rgb(51, 51, 51) dotted 1px;
 }
 
-.c6 {
+.c4 {
   color: inherit;
   display: flex;
   flex: 1 1 auto;
@@ -460,93 +383,47 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-item 
   position: relative;
 }
 
-.c7 .c3 {
-  padding: 8px 16px 8px calc(56px);
-}
-
-.c8 .c0 {
-  background: rgb(255, 255, 255);
-}
-
-.c8 .c0 .c3 {
-  padding: 0px 16px;
-}
-
-.c9 .c0 {
-  flex: 0 0 auto;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.c9 .c0:focus::before {
-  outline: rgb(51, 51, 51) dotted 1px;
-}
-
-.c9 .c0::before,
-.c9 .c0 .c3::before {
-  bottom: 0px;
-  content: "";
-  display: block;
-  left: 0px;
-  position: absolute;
-  right: 0px;
-}
-
-.c9 .c0 .c3::before {
-  background-color: transparent;
-  top: 0px;
-}
-
-.c9 .c3 {
-  min-height: 48px;
-}
-
-.c9 .c5 {
-  font-size: 0.75rem;
-  line-height: normal;
-  overflow: hidden;
-}
-
-.c2 {
+.c1 {
   background: linear-gradient(to right, rgb(241, 242, 244) 48px, rgb(255, 255, 255) 48px);
 }
 
-.c2 .c3 {
+.c1 .c2 {
   background: transparent;
 }
 
 @media (pointer: coarse) {
-  .c4:active {
+  .c3:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c4:active::before {
+  .c3:active::before {
     border: 2px solid rgb(213, 0, 117);
   }
 }
 
 @media (pointer: fine) {
-  .c4:hover::before {
+  .c3:hover::before {
     border: 2px solid rgb(213, 0, 117);
   }
 
-  .c4:hover > :not([data-role="list-item-graphic"]) {
+  .c3:hover > :not([data-role="list-item-graphic"]) {
     text-decoration: none;
   }
 }
 
 <li
-  class="c0 c1 list-item c2"
+  class="c0 list-item c1"
   data-role="filter-selector-list-item"
 >
   <div
     aria-disabled="false"
-    class="c3 c4 list-item__content"
+    class="c2 c3 list-item__content"
     data-role="list-item-content"
     role="button"
     tabindex="0"
   >
     <div
-      class="c5 c6 list-item__text"
+      class="c4 list-item__text"
       data-role="list-item-text"
     >
       content
@@ -630,6 +507,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c15 {
+  color: inherit;
+}
+
 .c17 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -658,35 +539,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
   max-width: unset;
 }
 
-.c6 {
-  color: rgb(77, 77, 77);
-  display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.45;
-  text-transform: none;
-  align-self: center;
-  border: 0px;
-  clip: rect(0px, 0px, 0px, 0px);
-  clip-path: inset(100%);
-  height: 1px;
-  min-height: 1px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  width: 1px;
-  margin: -1px !important;
-}
-
-.c6:empty {
-  display: none;
-}
-
-.c6 * {
-  width: 1px;
-  height: 1px;
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c17 {
+  color: inherit;
 }
 
 .c13 {
@@ -733,6 +587,10 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
   border: 2px solid rgb(213, 0, 117);
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c13:where(:not(:active):not(:hover):not(:focus)) {
+  color: inherit;
+}
+
 .h_inlineBlock.h_middleAlign .c13.c13 {
   display: block;
   height: auto;
@@ -741,6 +599,37 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
 
 .h_inlineBlock.h_middleAlign .c13.c13 > .c14 {
   display: block;
+}
+
+.c6 {
+  color: rgb(77, 77, 77);
+  display: inline-block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  text-transform: none;
+  align-self: center;
+  border: 0px;
+  clip: rect(0px, 0px, 0px, 0px);
+  clip-path: inset(100%);
+  height: 1px;
+  min-height: 1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1px;
+  margin: -1px !important;
+}
+
+.c6:empty {
+  display: none;
+}
+
+.c6 * {
+  width: 1px;
+  height: 1px;
 }
 
 .c11 {
@@ -777,7 +666,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -806,7 +695,7 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -868,10 +757,6 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
   padding: 0px;
   position: absolute;
   width: 0px;
-}
-
-.c18 .c14 {
-  user-select: none;
 }
 
 @media (pointer: coarse) {
@@ -972,6 +857,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 clear
               </span>
@@ -988,6 +875,8 @@ exports[`com.mgmtp.a12.widgets.filter-selector > rendering-filter-selector-searc
           >
             <span
               aria-hidden="true"
+              class="notranslate"
+              translate="no"
             >
               search
             </span>

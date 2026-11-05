@@ -33,7 +33,6 @@
 import { Button } from "../../../button/main/button.view.js";
 import { Icon } from "../../../icon/main/icon.view.js";
 import { HintTooltip } from "../../../tooltip/hint/main/hint.view.js";
-
 import type { AutocompleteProps } from "../main/autocomplete.api.js";
 
 export const cityItems = [

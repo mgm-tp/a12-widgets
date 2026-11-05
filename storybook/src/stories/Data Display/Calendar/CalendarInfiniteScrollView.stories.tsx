@@ -31,10 +31,10 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import type { ReactNode } from "react";
-import { useCallback, useMemo, useRef, useState } from "react";
 import { addDays, format, isSameDay, parseISO } from "date-fns";
 import { cloneDeep } from "lodash-es";
+import type { ReactElement, ReactNode } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
 
 import { Button, ButtonGroup, Calendar, Message } from "@com.mgmtp.a12.widgets/widgets-core";
@@ -109,6 +109,7 @@ interface CalendarInfiniteScrollViewArgs {
 	highlightedPublicHolidays: boolean;
 	displayWeeksCount: number;
 	threshold: number;
+	weekScrollSnapType: "none" | "mandatory";
 	date: string;
 	publicHolidays: string[];
 	disabledDays: string[];
@@ -116,18 +117,145 @@ interface CalendarInfiniteScrollViewArgs {
 	maxDate: string;
 }
 
+function InfiniteScrollExample(args: CalendarInfiniteScrollViewArgs): ReactElement {
+	const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+	const [selectedItem, setSelectedItem] = useState<SelectedItem<DayEvent> | undefined>(undefined);
+	const [displayDateRange, setDisplayDateRange] = useState<{ startDate: Date; endDate: Date } | undefined>(undefined);
+	const [calendarData, setCalendarData] = useState<CalendarDayData[]>([]);
+	const [dateStatusMap, setDateStatusMap] = useState<Record<string, DateLoadingStatus>>({});
+
+	const scrollToDateRef = useRef<((date: Date, shouldFocus: boolean) => void) | null>(null);
+
+	const minDate = useMemo(() => new Date(args.minDate), [args.minDate]);
+	const maxDate = useMemo(() => new Date(args.maxDate), [args.maxDate]);
+	const date = useMemo(() => new Date(args.date), [args.date]);
+	const holidays = useMemo(() => args.publicHolidays.map((holiday) => parseISO(holiday)), [args.publicHolidays]);
+	const disabled = useMemo(() => args.disabledDays.map((day) => parseISO(day)), [args.disabledDays]);
+
+	const dayItemContentRenderer = useCallback((_date: Date, event?: DayEvent): ReactNode => {
+		return <StyledCalendarItem>{event?.title}</StyledCalendarItem>;
+	}, []);
+
+	const dateFormatter = useCallback((date: Date) => format(date, "dd-MM-yyyy"), []);
+
+	const isDisabledDay = useCallback((date: Date) => !!disabled.find((d) => isSameDay(d, date)), [disabled]);
+
+	const onVisibleRangeChange = useCallback((startDate: Date, endDate: Date) => {
+		setDisplayDateRange({ startDate, endDate });
+	}, []);
+
+	const handleDateStatusMapUpdate = useCallback((startDate: Date, endDate: Date, status: DateLoadingStatus) => {
+		setDateStatusMap((map) => {
+			const newMap = { ...map };
+			let currentDate = new Date(startDate);
+
+			while (currentDate <= endDate) {
+				const dateKey = format(currentDate, "yyyy-MM-dd");
+				newMap[dateKey] = status;
+				currentDate = addDays(currentDate, 1);
+			}
+
+			return newMap;
+		});
+	}, []);
+
+	const loadData = useCallback(
+		(startDate: Date, endDate: Date) => {
+			handleDateStatusMapUpdate(startDate, endDate, "loading");
+
+			setTimeout(
+				() => {
+					setCalendarData((data) => [...cloneDeep(data), ...generateDummyData(startDate, endDate)]);
+					handleDateStatusMapUpdate(startDate, endDate, "loaded");
+				},
+				500 + Math.random() * 1000
+			);
+		},
+		[handleDateStatusMapUpdate]
+	);
+
+	const dateLoadingStatus = useCallback(
+		(date: Date): DateLoadingStatus => {
+			const dateKey = format(date, "yyyy-MM-dd");
+
+			return dateStatusMap[dateKey];
+		},
+		[dateStatusMap]
+	);
+
+	const getScrollToDateHandler = useCallback((handler: (date: Date, shouldFocus: boolean) => void) => {
+		scrollToDateRef.current = handler;
+	}, []);
+
+	const goToDate = useCallback((date: Date) => {
+		if (scrollToDateRef.current) {
+			scrollToDateRef.current(date, true);
+		}
+	}, []);
+
+	return (
+		<div className="-u-width-full -u-overflow-x-auto">
+			{displayDateRange && (
+				<Message>
+					{`Displaying dates from ${format(displayDateRange.startDate, "dd-MM-yyyy")} to ${format(displayDateRange.endDate, "dd-MM-yyyy")}`}
+				</Message>
+			)}
+			<div className="-u-flex -u-items-center -u-margin-b-base">
+				<span className="-u-margin-r-base">Quick Navigation:</span>
+				<ButtonGroup>
+					<Button onClick={() => goToDate(minDate)}>Min Date</Button>
+					<Button onClick={() => goToDate(new Date())}>Today</Button>
+					<Button onClick={() => goToDate(maxDate)}>Max Date</Button>
+				</ButtonGroup>
+			</div>
+			<div style={{ width: "min(900px, calc(100vw - 32px))", overflowX: "auto", height: 1000 }}>
+				<Calendar
+					view="month"
+					infiniteScrollOptions={{
+						displayWeeksCount: args.displayWeeksCount,
+						threshold: args.threshold,
+						minDate,
+						maxDate,
+						dateLoadingStatus,
+						loadData,
+						scrollToDate: getScrollToDateHandler,
+						onVisibleRangeChange,
+						weekScrollSnapType: args.weekScrollSnapType,
+						visibleThreshold: "10px"
+					}}
+					dateFormatter={dateFormatter}
+					weekStartsOn={args.weekStartsOn}
+					highlightedWeekends={args.highlightedWeekends}
+					highlightedPublicHolidays={args.highlightedPublicHolidays}
+					date={date}
+					publicHolidays={holidays}
+					calendarDateItems={calendarData}
+					selectedDate={selectedDate}
+					onDayClick={setSelectedDate}
+					selectedItem={selectedItem}
+					onItemClick={setSelectedItem}
+					componentRenderers={{
+						dayItemContentRenderer
+					}}
+					isDisabledDay={isDisabledDay}
+				/>
+			</div>
+		</div>
+	);
+}
+
 const meta: Meta<CalendarInfiniteScrollViewArgs> = {
 	title: "Data Display/Calendar/Infinite Scroll View",
 	parameters: {
 		layout: "centered"
 	},
-	tags: ["autodocs"],
 	args: {
 		weekStartsOn: 0,
 		highlightedWeekends: true,
 		highlightedPublicHolidays: true,
 		displayWeeksCount: 5,
 		threshold: 10,
+		weekScrollSnapType: "none",
 		date: new Date(2026, 0, 6).toISOString(),
 		publicHolidays: ["2026-01-01", "2026-01-06", "2026-05-01"],
 		disabledDays: ["2026-01-14", "2026-01-17"],
@@ -156,6 +284,11 @@ const meta: Meta<CalendarInfiniteScrollViewArgs> = {
 			control: { type: "number", min: 1, max: 5 },
 			description: "The number of extra weeks outside the visible range to load"
 		},
+		weekScrollSnapType: {
+			control: "select",
+			options: ["none", "mandatory"],
+			description: "Scroll snap behavior: 'mandatory' snaps the scroll position to the start of the nearest week"
+		},
 		date: {
 			control: "date",
 			description: "The date to be displayed in the calendar (anchor date)"
@@ -182,142 +315,21 @@ const meta: Meta<CalendarInfiniteScrollViewArgs> = {
 export default meta;
 type Story = StoryObj<CalendarInfiniteScrollViewArgs>;
 
-export const Default: Story = {
+export const Playground: Story = {
+	render: InfiniteScrollExample
+};
+
+export const ScrollSnap: Story = {
 	args: {
-		weekStartsOn: 0,
-		highlightedWeekends: true,
-		highlightedPublicHolidays: true,
-		displayWeeksCount: 5,
-		threshold: 10,
-		date: new Date(2026, 0, 6).toISOString(),
-		publicHolidays: ["2026-01-01", "2026-01-06", "2026-05-01"],
-		disabledDays: ["2026-01-14", "2026-01-17"],
-		minDate: new Date(2025, 0, 1).toISOString(),
-		maxDate: new Date(2027, 11, 31).toISOString()
+		weekScrollSnapType: "mandatory"
 	},
-	render: (args) => {
-		const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
-		const [selectedItem, setSelectedItem] = useState<SelectedItem<DayEvent> | undefined>(undefined);
-		const [displayDateRange, setDisplayDateRange] = useState<{ startDate: Date; endDate: Date } | undefined>(undefined);
-		const [calendarData, setCalendarData] = useState<CalendarDayData[]>([]);
-		const [dateStatusMap, setDateStatusMap] = useState<Record<string, DateLoadingStatus>>({});
-
-		const scrollToDateRef = useRef<((date: Date, shouldFocus: boolean) => void) | null>(null);
-
-		const minDate = useMemo(() => new Date(args.minDate), [args.minDate]);
-		const maxDate = useMemo(() => new Date(args.maxDate), [args.maxDate]);
-		const date = useMemo(() => new Date(args.date), [args.date]);
-		const holidays = useMemo(() => args.publicHolidays.map((holiday) => parseISO(holiday)), [args.publicHolidays]);
-		const disabled = useMemo(() => args.disabledDays.map((day) => parseISO(day)), [args.disabledDays]);
-
-		const dayItemContentRenderer = useCallback((_date: Date, event?: DayEvent): ReactNode => {
-			return <StyledCalendarItem>{event?.title}</StyledCalendarItem>;
-		}, []);
-
-		const dateFormatter = useCallback((date: Date) => format(date, "dd-MM-yyyy"), []);
-
-		const isDisabledDay = useCallback((date: Date) => !!disabled.find((d) => isSameDay(d, date)), [disabled]);
-
-		const onVisibleRangeChange = useCallback((startDate: Date, endDate: Date) => {
-			setDisplayDateRange({ startDate, endDate });
-		}, []);
-
-		const handleDateStatusMapUpdate = useCallback((startDate: Date, endDate: Date, status: DateLoadingStatus) => {
-			setDateStatusMap((map) => {
-				const newMap = { ...map };
-				let currentDate = new Date(startDate);
-
-				while (currentDate <= endDate) {
-					const dateKey = format(currentDate, "yyyy-MM-dd");
-					newMap[dateKey] = status;
-					currentDate = addDays(currentDate, 1);
-				}
-
-				return newMap;
-			});
-		}, []);
-
-		const loadData = useCallback(
-			(startDate: Date, endDate: Date) => {
-				handleDateStatusMapUpdate(startDate, endDate, "loading");
-
-				setTimeout(
-					() => {
-						setCalendarData((data) => [...cloneDeep(data), ...generateDummyData(startDate, endDate)]);
-						handleDateStatusMapUpdate(startDate, endDate, "loaded");
-					},
-					500 + Math.random() * 1000
-				);
-			},
-			[handleDateStatusMapUpdate]
-		);
-
-		const dateLoadingStatus = useCallback(
-			(date: Date): DateLoadingStatus => {
-				const dateKey = format(date, "yyyy-MM-dd");
-
-				return dateStatusMap[dateKey];
-			},
-			[dateStatusMap]
-		);
-
-		const getScrollToDateHandler = useCallback((handler: (date: Date, shouldFocus: boolean) => void) => {
-			scrollToDateRef.current = handler;
-		}, []);
-
-		const goToDate = useCallback((date: Date) => {
-			if (scrollToDateRef.current) {
-				scrollToDateRef.current(date, true);
+	render: InfiniteScrollExample,
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'`infiniteScrollOptions.weekScrollSnapType: "mandatory"` snaps the scroll position to the start of the nearest week after each scroll action.'
 			}
-		}, []);
-
-		return (
-			<div className="-u-width-full -u-overflow-x-auto">
-				{displayDateRange && (
-					<Message>
-						{`Displaying dates from ${format(displayDateRange.startDate, "dd-MM-yyyy")} to ${format(displayDateRange.endDate, "dd-MM-yyyy")}`}
-					</Message>
-				)}
-				<div className="-u-flex -u-items-center -u-margin-b-base">
-					<span className="-u-margin-r-base">Quick Navigation:</span>
-					<ButtonGroup>
-						<Button onClick={() => goToDate(minDate)}>Min Date</Button>
-						<Button onClick={() => goToDate(new Date())}>Today</Button>
-						<Button onClick={() => goToDate(maxDate)}>Max Date</Button>
-					</ButtonGroup>
-				</div>
-				<div style={{ minWidth: 800, height: 1000 }}>
-					<Calendar
-						view="month"
-						infiniteScrollOptions={{
-							displayWeeksCount: args.displayWeeksCount,
-							threshold: args.threshold,
-							minDate,
-							maxDate,
-							dateLoadingStatus,
-							loadData,
-							scrollToDate: getScrollToDateHandler,
-							onVisibleRangeChange,
-							visibleThreshold: "10px"
-						}}
-						dateFormatter={dateFormatter}
-						weekStartsOn={args.weekStartsOn}
-						highlightedWeekends={args.highlightedWeekends}
-						highlightedPublicHolidays={args.highlightedPublicHolidays}
-						date={date}
-						publicHolidays={holidays}
-						calendarDateItems={calendarData}
-						selectedDate={selectedDate}
-						onDayClick={setSelectedDate}
-						selectedItem={selectedItem}
-						onItemClick={setSelectedItem}
-						componentRenderers={{
-							dayItemContentRenderer
-						}}
-						isDisabledDay={isDisabledDay}
-					/>
-				</div>
-			</div>
-		);
+		}
 	}
 };

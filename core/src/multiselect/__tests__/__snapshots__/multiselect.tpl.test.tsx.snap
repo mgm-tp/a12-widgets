@@ -75,6 +75,10 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c19 {
+  color: inherit;
+}
+
 .c11 {
   align-items: center;
   background-color: rgb(183, 192, 199);
@@ -205,7 +209,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -234,7 +238,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -427,7 +431,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   inset: 0px;
   display: block;
   pointer-events: none;
@@ -696,6 +700,8 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
               >
                 <span
                   aria-hidden="true"
+                  class="notranslate"
+                  translate="no"
                 >
                   expand_more
                 </span>
@@ -732,6 +738,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
       >
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -793,6 +800,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -854,6 +862,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -915,6 +924,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -976,6 +986,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1037,6 +1048,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1098,6 +1110,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1159,6 +1172,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1220,6 +1234,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1281,6 +1296,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1342,6 +1358,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1403,6 +1420,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1464,6 +1482,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1525,6 +1544,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1586,6 +1606,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1647,6 +1668,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1708,6 +1730,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render default multiselect
         </div>
         <div
           aria-checked="false"
+          aria-selected="false"
           class="c28 dropdown__item"
           data-preselect="false"
           data-role="dropdown-item"
@@ -1817,7 +1840,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   height: 1px;
 }
 
-.c21 {
+.c20 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -1837,12 +1860,16 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   font-feature-settings: "liga";
 }
 
-.c21 > span {
+.c20 > span {
   display: inline-block;
 }
 
-.c21.c21 {
+.c20.c20 {
   max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c20 {
+  color: inherit;
 }
 
 .c13 {
@@ -1888,13 +1915,13 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   display: none;
 }
 
-.c22 {
+.c21 {
   user-select: none;
   color: inherit;
   cursor: default;
 }
 
-.c26 {
+.c23 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -1904,7 +1931,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   width: fit-content;
 }
 
-.c24 {
+.c22 {
   display: flex;
 }
 
@@ -1944,7 +1971,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -1972,7 +1999,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   display: flex;
   font-family: "Open Sans", sans-serif;
@@ -1983,11 +2010,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   background-color: rgb(226, 230, 233);
   box-shadow: rgb(169, 179, 188) 0px 1px 0px 0px;
   color: rgb(169, 179, 188);
-}
-
-.c29 .c2 {
-  display: flex;
-  width: 100%;
 }
 
 .c1 {
@@ -2036,14 +2058,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   max-width: 100%;
 }
 
-.c31 > .c23 > .c25 {
-  margin: 0px;
-}
-
-.c30 .c20 {
-  color: inherit;
-}
-
 .c16 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
@@ -2053,22 +2067,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
   padding: 0px;
   position: absolute;
   width: 0px;
-}
-
-.c27 .c17 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.c28 .c17 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.c28 .c12 {
-  color: rgb(241, 242, 244);
 }
 
 .c0 {
@@ -2190,11 +2188,13 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
           >
             <i
               aria-hidden="true"
-              class="c20 c21 plasma-icon plasma-icon--big c22"
+              class="c20 plasma-icon plasma-icon--big c21"
               data-role="selection-suffix"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 expand_more
               </span>
@@ -2204,10 +2204,10 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render disabled multiselec
       </div>
     </div>
     <div
-      class="c23 c24 field__helper"
+      class="c22 field__helper"
     >
       <label
-        class="c25 c26 field__helper-text"
+        class="c23 field__helper-text"
         data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
@@ -2258,34 +2258,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   height: 1px;
 }
 
-.c26 {
-  box-sizing: border-box;
-  color: rgb(127, 140, 155);
-  display: inline-block;
-  direction: ltr;
-  font-family: "Material Symbols Outlined";
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1;
-  text-transform: none;
-  white-space: nowrap;
-  overflow-wrap: normal;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
-  font-feature-settings: "liga";
-}
-
-.c26 > span {
-  display: inline-block;
-}
-
-.c26.c26 {
-  max-width: unset;
-}
-
 .c12 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
@@ -2314,11 +2286,47 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c12 {
+  color: inherit;
+}
+
+.c24 {
+  box-sizing: border-box;
+  color: rgb(127, 140, 155);
+  display: inline-block;
+  direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  font-feature-settings: "liga";
+}
+
+.c24 > span {
+  display: inline-block;
+}
+
+.c24.c24 {
+  max-width: unset;
+}
+
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c24 {
+  color: inherit;
+}
+
 .c13.c13 {
   color: rgb(201, 29, 29);
 }
 
-.c20 {
+.c18 {
   align-items: center;
   background-color: rgb(183, 192, 199);
   border-radius: 8px;
@@ -2333,11 +2341,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   vertical-align: middle;
 }
 
-.c20 > * {
+.c18 > * {
   flex-shrink: 0;
 }
 
-.c21 {
+.c19 {
   height: auto;
   line-height: 1rem;
   margin: 0px;
@@ -2386,13 +2394,13 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c27 {
+.c25 {
   color: rgb(127, 140, 155);
   user-select: none;
   cursor: pointer;
 }
 
-.c31 {
+.c27 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -2402,11 +2410,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: fit-content;
 }
 
-.c29 {
+.c26 {
   display: flex;
 }
 
-.c18 {
+.c17 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -2417,12 +2425,12 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   position: relative;
 }
 
-.c18:first-child {
+.c17:first-child {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
 }
 
-.c25 {
+.c23 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -2432,17 +2440,17 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   margin-left: -12px;
 }
 
-.c25:last-child {
+.c23:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c24 {
+.c22 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -2460,18 +2468,18 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: 100%;
 }
 
-.c24::placeholder {
+.c22::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c17 {
+.c16 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -2500,20 +2508,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: 100%;
 }
 
-.c34 .c2 {
-  display: flex;
-  width: 100%;
-}
-
-.c34[class*="h_"] .c16 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c34[class*="h_"] .c6 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c5 {
   box-sizing: border-box;
   flex-grow: 1;
@@ -2534,15 +2528,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: 100%;
 }
 
-.c36 > .c28 > .c30 {
-  margin: 0px;
-}
-
-.c35 .c11 {
-  color: inherit;
-}
-
-.c22 {
+.c20 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -2557,54 +2543,34 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: 100%;
 }
 
-.c0 .c23 {
+.c0 .c21 {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-.c32 .c23 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.c32 .c19 {
-  color: rgb(241, 242, 244);
-}
-
-.c33 .c23 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.c33 .c19 {
-  color: rgb(226, 230, 233);
 }
 
 @media (pointer: coarse) {
-  .c17:active {
+  .c16:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c17:hover {
+  .c16:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c17.c17:active {
+  .c16.c16:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(201, 29, 29) 0px 1px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c17.c17:hover {
+  .c16.c16:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -2674,6 +2640,8 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 
               </span>
@@ -2693,15 +2661,15 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
           </div>
         </div>
         <div
-          class="c16 c17 field__input field__input--error"
+          class="c16 field__input field__input--error"
           data-role="text-field-input-wrapper"
         >
           <div
-            class="c18 field__prefix field__prefix--last"
+            class="c17 field__prefix field__prefix--last"
             data-role="text-field-prefix-0"
           >
             <span
-              class="c19 c20 counter multiselect__counter"
+              class="c18 counter multiselect__counter"
               data-role="counter"
               id="test-id-counter"
             >
@@ -2716,7 +2684,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
                 role="presentation"
               >
                 <span
-                  class="c21 counter__item"
+                  class="c19 counter__item"
                 >
                   0
                 </span>
@@ -2724,14 +2692,15 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             </span>
           </div>
           <span
-            class="c22 supported-unseen-span"
+            class="c20 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
             aria-describedby="test-id-multiselect__input-error test-id-counter test-id-multiselect__input-label"
             aria-expanded="false"
             aria-haspopup="listbox"
-            class="c23 c24 field__text"
+            aria-invalid="true"
+            class="c21 c22 field__text"
             data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
@@ -2740,19 +2709,21 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             value=""
           />
           <span
-            class="c22 supported-unseen-span"
+            class="c20 supported-unseen-span"
           />
           <div
-            class="c25 field__suffix field__suffix--first"
+            class="c23 field__suffix field__suffix--first"
             data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
-              class="c11 c26 plasma-icon plasma-icon--big c27"
+              class="c11 c24 plasma-icon plasma-icon--big c25"
               data-role="selection-suffix"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 expand_more
               </span>
@@ -2762,10 +2733,10 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
       </div>
     </div>
     <div
-      class="c28 c29 field__helper"
+      class="c26 field__helper"
     >
       <label
-        class="c30 c31 field__helper-text"
+        class="c27 field__helper-text"
         data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
@@ -2797,7 +2768,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   height: 1px;
 }
 
-.c14 {
+.c12 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -2811,19 +2782,19 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   margin: -1px !important;
 }
 
-.c14 * {
+.c12 * {
   width: 1px;
   height: 1px;
 }
 
-.c27 {
+.c25 {
   display: inline-block;
   font-size: 0px;
   vertical-align: middle;
   color: rgb(5, 104, 174);
 }
 
-.c21 {
+.c19 {
   box-sizing: border-box;
   color: rgb(127, 140, 155);
   display: inline-block;
@@ -2843,28 +2814,24 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   font-feature-settings: "liga";
 }
 
-.c21 > span {
+.c19 > span {
   display: inline-block;
 }
 
-.c21.c21 {
+.c19.c19 {
   max-width: unset;
 }
 
-.c26 .c21 {
+:where(.c24) .c19 {
   color: inherit;
 }
 
-.c26 .c41 {
-  color: inherit;
-}
-
-.c22.c22.c22,
-.c26 .c22.c22.c22 {
+.c20.c20.c20,
+.c24 .c20.c20.c20 {
   font-size: 1.5rem;
 }
 
-.c29 {
+.c27 {
   align-items: center;
   border: 2px solid transparent;
   cursor: pointer;
@@ -2888,19 +2855,19 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   color: rgb(5, 104, 174);
 }
 
-.c29 .c20 {
+.c27 .c18 {
   user-select: none;
 }
 
-.c29 .c20 {
+.c27 .c18 {
   color: inherit;
 }
 
-.c29 .c20 {
+.c27 .c18 {
   font-size: inherit;
 }
 
-.c29:not(:disabled):focus {
+.c27:not(:disabled):focus {
   outline: rgb(51, 51, 51) dotted 1px;
   background-color: transparent;
   box-shadow: none;
@@ -2908,7 +2875,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   border: 2px solid rgb(213, 0, 117);
 }
 
-.c26 .c29.c29 {
+.c24 .c27.c27 {
   font-size: 1.25rem;
   height: fit-content;
   min-height: 0px;
@@ -2916,29 +2883,25 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: fit-content;
 }
 
-.c26 .c29.c29:not(:active):not(:hover):not(:focus) {
+.c24 .c27.c27:focus .c18 {
   color: inherit;
 }
 
-.c26 .c29.c29:not(:active):not(:hover):not(:focus) .c20:not(.c45) {
+:where(.c24) .c27:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
-.c26 .c29.c29:focus .c20 {
-  color: inherit;
-}
-
-.h_inlineBlock.h_middleAlign .c29.c29 {
+.h_inlineBlock.h_middleAlign .c27.c27 {
   display: block;
   height: auto;
   min-height: 0px;
 }
 
-.h_inlineBlock.h_middleAlign .c29.c29 > .c20 {
+.h_inlineBlock.h_middleAlign .c27.c27 > .c18 {
   display: block;
 }
 
-.c13 {
+.c11 {
   align-items: center;
   background-color: rgb(183, 192, 199);
   border-radius: 8px;
@@ -2953,11 +2916,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   vertical-align: middle;
 }
 
-.c13 > * {
+.c11 > * {
   flex-shrink: 0;
 }
 
-.c15 {
+.c13 {
   height: auto;
   line-height: 1rem;
   margin: 0px;
@@ -2981,17 +2944,13 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   display: none;
 }
 
-.c44 .c20 {
-  font-size: 1.25rem;
-}
-
-.c23 {
+.c21 {
   color: rgb(127, 140, 155);
   user-select: none;
   cursor: pointer;
 }
 
-.c25 {
+.c23 {
   align-items: center;
   align-self: flex-end;
   display: flex;
@@ -3001,7 +2960,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   justify-content: center;
 }
 
-.c33 {
+.c29 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -3011,16 +2970,16 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: fit-content;
 }
 
-.c31 {
+.c28 {
   display: flex;
 }
 
-.c31 .c24 {
+.c28 .c22 {
   height: auto;
   visibility: hidden;
 }
 
-.c11 {
+.c10 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -3031,12 +2990,12 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   position: relative;
 }
 
-.c11:first-child {
+.c10:first-child {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
 }
 
-.c19 {
+.c17 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -3046,17 +3005,17 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   margin-left: -12px;
 }
 
-.c19:last-child {
+.c17:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c18 {
+.c16 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -3074,18 +3033,18 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: 100%;
 }
 
-.c18::placeholder {
+.c16::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c10 {
+.c9 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -3097,23 +3056,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   height: 32px;
 }
 
-.c10 .c28 {
-  border-radius: 0px;
-}
-
-.c37 .c28 {
-  border-radius: 0px;
-}
-
-.c38 .c28 {
-  border-radius: 0px;
-}
-
-.c39 .c28 {
-  border-radius: 0px;
-}
-
-.c40 .c28 {
+.c9 .c26 {
   border-radius: 0px;
 }
 
@@ -3134,27 +3077,13 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: 100%;
 }
 
-.c36 .c2 {
-  display: flex;
-  width: 100%;
-}
-
-.c36[class*="h_"] .c9 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c36[class*="h_"] .c6 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c5 {
   box-sizing: border-box;
   flex-grow: 1;
   width: 100%;
 }
 
-.c5 > .c26 {
+.c5 > .c24 {
   margin: 0px 4px 4px 0px;
 }
 
@@ -3172,15 +3101,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: 100%;
 }
 
-.c43 > .c30 > .c32 {
-  margin: 0px;
-}
-
-.c42 .c20 {
-  color: inherit;
-}
-
-.c16 {
+.c14 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -3195,34 +3116,14 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: 100%;
 }
 
-.c0 .c17 {
+.c0 .c15 {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-.c34 .c17 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.c34 .c12 {
-  color: rgb(241, 242, 244);
-}
-
-.c35 .c17 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.c35 .c12 {
-  color: rgb(226, 230, 233);
 }
 
 @media (pointer: coarse) {
-  .c29:not(:disabled):active {
+  .c27:not(:disabled):active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     box-shadow: none;
@@ -3232,7 +3133,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
 }
 
 @media (pointer: fine) {
-  .c29:not(:disabled):hover {
+  .c27:not(:disabled):hover {
     background-color: transparent;
     box-shadow: none;
     color: rgb(213, 0, 117);
@@ -3241,36 +3142,36 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
 }
 
 @media (pointer: fine) {
-  .c29:hover {
+  .c27:hover {
     outline: transparent solid 1px;
   }
 }
 
 @media (pointer: coarse) {
-  .c26 .c29.c29:active {
+  .c24 .c27.c27:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  .c26 .c29.c29:active .c20 {
+  .c24 .c27.c27:active .c18 {
     color: inherit;
   }
 }
 
 @media (pointer: fine) {
-  .c26 .c29.c29:hover .c20 {
+  .c24 .c27.c27:hover .c18 {
     color: inherit;
   }
 }
 
 @media (pointer: coarse) {
-  .c10:active {
+  .c9:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c10:hover {
+  .c9:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -3326,20 +3227,20 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
           </span>
         </label>
         <div
-          class="c9 c10 field__input"
+          class="c9 field__input"
           data-role="text-field-input-wrapper"
         >
           <div
-            class="c11 field__prefix field__prefix--last"
+            class="c10 field__prefix field__prefix--last"
             data-role="text-field-prefix-0"
           >
             <span
-              class="c12 c13 counter multiselect__counter"
+              class="c11 counter multiselect__counter"
               data-role="counter"
               id="test-id-counter"
             >
               <span
-                class="c14 -u-unseenButRead"
+                class="c12 -u-unseenButRead"
                 data-role="hidden-text"
               >
                 0 Entries
@@ -3349,7 +3250,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
                 role="presentation"
               >
                 <span
-                  class="c15 counter__item"
+                  class="c13 counter__item"
                 >
                   0
                 </span>
@@ -3357,14 +3258,14 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             </span>
           </div>
           <span
-            class="c16 supported-unseen-span"
+            class="c14 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
             aria-describedby="test-id-counter test-id-multiselect__input-label"
             aria-expanded="false"
             aria-haspopup="listbox"
-            class="c17 c18 field__text"
+            class="c15 c16 field__text"
             data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
@@ -3373,19 +3274,21 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             value=""
           />
           <span
-            class="c16 supported-unseen-span"
+            class="c14 supported-unseen-span"
           />
           <div
-            class="c19 field__suffix field__suffix--first"
+            class="c17 field__suffix field__suffix--first"
             data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
-              class="c20 c21 c22 plasma-icon plasma-icon--big c23"
+              class="c18 c19 c20 plasma-icon plasma-icon--big c21"
               data-role="selection-suffix"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 expand_more
               </span>
@@ -3394,33 +3297,35 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
         </div>
       </div>
       <div
-        class="c24 c25 field-addon field-addon--after"
+        class="c22 c23 field-addon field-addon--after"
         data-role="text-field--addon-after-0"
       >
         <span
-          class="c26 c27 tooltip tooltip--hint"
+          class="c24 c25 tooltip tooltip--hint"
           data-role="tooltip-hint"
           role="tooltip"
           title=""
         >
           <button
-            class="c28 c29 button button--icon"
+            class="c26 c27 button button--icon"
             data-role="button"
             data-type="icon"
             title=""
             type="button"
           >
             <i
-              class="c20 c21 plasma-icon"
+              class="c18 c19 plasma-icon"
               data-role="plasma-icon"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 info
               </span>
               <span
-                class="c14 -u-unseenButRead"
+                class="c12 -u-unseenButRead"
                 data-role="hidden-text"
               >
                 Hint: Tooltip
@@ -3431,42 +3336,44 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
       </div>
     </div>
     <div
-      class="c30 c31 field__helper"
+      class="c28 field__helper"
     >
       <label
-        class="c32 c33 field__helper-text"
+        class="c29 field__helper-text"
         data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
         Helper text
       </label>
       <div
-        class="c24 c25 field-addon field-addon--after"
+        class="c22 c23 field-addon field-addon--after"
       >
         <span
-          class="c26 c27 tooltip tooltip--hint"
+          class="c24 c25 tooltip tooltip--hint"
           data-role="tooltip-hint"
           role="tooltip"
           title=""
         >
           <button
-            class="c28 c29 button button--icon"
+            class="c26 c27 button button--icon"
             data-role="button"
             data-type="icon"
             title=""
             type="button"
           >
             <i
-              class="c20 c21 plasma-icon"
+              class="c18 c19 plasma-icon"
               data-role="plasma-icon"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 info
               </span>
               <span
-                class="c14 -u-unseenButRead"
+                class="c12 -u-unseenButRead"
                 data-role="hidden-text"
               >
                 Hint: Tooltip
@@ -3555,16 +3462,12 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: unset;
 }
 
-.c9 .c14 {
+:where(.c9) .c14 {
   color: inherit;
 }
 
-.c9 .c39 {
-  color: inherit;
-}
-
-.c26.c26.c26,
-.c9 .c26.c26.c26 {
+.c24.c24.c24,
+.c9 .c24.c24.c24 {
   font-size: 1.5rem;
 }
 
@@ -3620,15 +3523,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: fit-content;
 }
 
-.c9 .c12.c12:not(:active):not(:hover):not(:focus) {
-  color: inherit;
-}
-
-.c9 .c12.c12:not(:active):not(:hover):not(:focus) .c13:not(.c43) {
-  color: inherit;
-}
-
 .c9 .c12.c12:focus .c13 {
+  color: inherit;
+}
+
+:where(.c9) .c12:where(:not(:active):not(:hover):not(:focus)) {
   color: inherit;
 }
 
@@ -3642,7 +3541,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   display: block;
 }
 
-.c20 {
+.c18 {
   align-items: center;
   background-color: rgb(183, 192, 199);
   border-radius: 8px;
@@ -3657,11 +3556,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   vertical-align: middle;
 }
 
-.c20 > * {
+.c18 > * {
   flex-shrink: 0;
 }
 
-.c21 {
+.c19 {
   height: auto;
   line-height: 1rem;
   margin: 0px;
@@ -3685,17 +3584,13 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   display: none;
 }
 
-.c42 .c13 {
-  font-size: 1.25rem;
-}
-
-.c27 {
+.c25 {
   color: rgb(127, 140, 155);
   user-select: none;
   cursor: pointer;
 }
 
-.c31 {
+.c27 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -3705,11 +3600,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: fit-content;
 }
 
-.c29 {
+.c26 {
   display: flex;
 }
 
-.c18 {
+.c17 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -3720,12 +3615,12 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   position: relative;
 }
 
-.c18:first-child {
+.c17:first-child {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
 }
 
-.c25 {
+.c23 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -3735,17 +3630,17 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   margin-left: -12px;
 }
 
-.c25:last-child {
+.c23:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c24 {
+.c22 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -3763,18 +3658,18 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: 100%;
 }
 
-.c24::placeholder {
+.c22::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c17 {
+.c16 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   box-shadow: rgb(89, 102, 115) 0px 1px 0px 0px;
   color: rgb(77, 77, 77);
@@ -3786,23 +3681,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   height: 32px;
 }
 
-.c17 .c11 {
-  border-radius: 0px;
-}
-
-.c35 .c11 {
-  border-radius: 0px;
-}
-
-.c36 .c11 {
-  border-radius: 0px;
-}
-
-.c37 .c11 {
-  border-radius: 0px;
-}
-
-.c38 .c11 {
+.c16 .c11 {
   border-radius: 0px;
 }
 
@@ -3821,20 +3700,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
 
 .c1 * {
   max-width: 100%;
-}
-
-.c34 .c2 {
-  display: flex;
-  width: 100%;
-}
-
-.c34[class*="h_"] .c16 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c34[class*="h_"] .c6 {
-  color: rgb(169, 179, 188) !important;
 }
 
 .c5 {
@@ -3861,15 +3726,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: 100%;
 }
 
-.c41 > .c28 > .c30 {
-  margin: 0px;
-}
-
-.c40 .c13 {
-  color: inherit;
-}
-
-.c22 {
+.c20 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -3884,30 +3741,10 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: 100%;
 }
 
-.c0 .c23 {
+.c0 .c21 {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-.c32 .c23 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.c32 .c19 {
-  color: rgb(241, 242, 244);
-}
-
-.c33 .c23 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.c33 .c19 {
-  color: rgb(226, 230, 233);
 }
 
 @media (pointer: coarse) {
@@ -3952,14 +3789,14 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
 }
 
 @media (pointer: coarse) {
-  .c17:active {
+  .c16:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c17:hover {
+  .c16:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -4033,6 +3870,8 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 info
               </span>
@@ -4046,15 +3885,15 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
           </button>
         </span>
         <div
-          class="c16 c17 field__input"
+          class="c16 field__input"
           data-role="text-field-input-wrapper"
         >
           <div
-            class="c18 field__prefix field__prefix--last"
+            class="c17 field__prefix field__prefix--last"
             data-role="text-field-prefix-0"
           >
             <span
-              class="c19 c20 counter multiselect__counter"
+              class="c18 counter multiselect__counter"
               data-role="counter"
               id="test-id-counter"
             >
@@ -4069,7 +3908,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
                 role="presentation"
               >
                 <span
-                  class="c21 counter__item"
+                  class="c19 counter__item"
                 >
                   0
                 </span>
@@ -4077,14 +3916,14 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             </span>
           </div>
           <span
-            class="c22 supported-unseen-span"
+            class="c20 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
             aria-describedby="test-id-counter test-id-multiselect__input-label"
             aria-expanded="false"
             aria-haspopup="listbox"
-            class="c23 c24 field__text"
+            class="c21 c22 field__text"
             data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
@@ -4093,19 +3932,21 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             value=""
           />
           <span
-            class="c22 supported-unseen-span"
+            class="c20 supported-unseen-span"
           />
           <div
-            class="c25 field__suffix field__suffix--first"
+            class="c23 field__suffix field__suffix--first"
             data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
-              class="c13 c14 c26 plasma-icon plasma-icon--big c27"
+              class="c13 c14 c24 plasma-icon plasma-icon--big c25"
               data-role="selection-suffix"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 expand_more
               </span>
@@ -4115,10 +3956,10 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
       </div>
     </div>
     <div
-      class="c28 c29 field__helper"
+      class="c26 field__helper"
     >
       <label
-        class="c30 c31 field__helper-text"
+        class="c27 field__helper-text"
         data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
@@ -4197,11 +4038,15 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: unset;
 }
 
+:where(.StyledTooltipTriggerWrapper-sc-cBsekp) .c12 {
+  color: inherit;
+}
+
 .c13.c13 {
   color: rgb(175, 121, 2);
 }
 
-.c20 {
+.c18 {
   align-items: center;
   background-color: rgb(183, 192, 199);
   border-radius: 8px;
@@ -4216,11 +4061,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   vertical-align: middle;
 }
 
-.c20 > * {
+.c18 > * {
   flex-shrink: 0;
 }
 
-.c21 {
+.c19 {
   height: auto;
   line-height: 1rem;
   margin: 0px;
@@ -4269,13 +4114,13 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: calc(100% - 4px - 1.25rem);
 }
 
-.c26 {
+.c24 {
   color: rgb(127, 140, 155);
   user-select: none;
   cursor: pointer;
 }
 
-.c30 {
+.c26 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -4285,11 +4130,11 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: fit-content;
 }
 
-.c28 {
+.c25 {
   display: flex;
 }
 
-.c18 {
+.c17 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -4300,12 +4145,12 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   position: relative;
 }
 
-.c18:first-child {
+.c17:first-child {
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
 }
 
-.c25 {
+.c23 {
   align-items: center;
   background-color: transparent;
   display: flex;
@@ -4315,17 +4160,17 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   margin-left: -12px;
 }
 
-.c25:last-child {
+.c23:last-child {
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.c24 {
+.c22 {
   background-color: transparent;
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -4343,18 +4188,18 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: 100%;
 }
 
-.c24::placeholder {
+.c22::placeholder {
   font-style: italic;
   color: rgb(89, 102, 115);
   opacity: 1;
 }
 
-.c17 {
+.c16 {
   background-color: rgb(241, 242, 244);
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -4383,20 +4228,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: 100%;
 }
 
-.c33 .c2 {
-  display: flex;
-  width: 100%;
-}
-
-.c33[class*="h_"] .c16 {
-  background-color: rgb(226, 230, 233) !important;
-  color: rgb(169, 179, 188) !important;
-}
-
-.c33[class*="h_"] .c6 {
-  color: rgb(169, 179, 188) !important;
-}
-
 .c5 {
   box-sizing: border-box;
   flex-grow: 1;
@@ -4417,15 +4248,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   max-width: 100%;
 }
 
-.c35 > .c27 > .c29 {
-  margin: 0px;
-}
-
-.c34 .c11 {
-  color: inherit;
-}
-
-.c22 {
+.c20 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
   clip-path: inset(100%);
@@ -4440,54 +4263,34 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
   width: 100%;
 }
 
-.c0 .c23 {
+.c0 .c21 {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-.c31 .c23 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.c31 .c19 {
-  color: rgb(241, 242, 244);
-}
-
-.c32 .c23 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.c32 .c19 {
-  color: rgb(226, 230, 233);
 }
 
 @media (pointer: coarse) {
-  .c17:active {
+  .c16:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c17:hover {
+  .c16:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: coarse) {
-  .c17.c17:active {
+  .c16.c16:active {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
 
 @media (pointer: fine) {
-  .c17.c17:hover {
+  .c16.c16:hover {
     box-shadow: rgb(213, 0, 117) 0px 2px 0px 0px;
   }
 }
@@ -4557,6 +4360,8 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 warning
               </span>
@@ -4576,15 +4381,15 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
           </div>
         </div>
         <div
-          class="c16 c17 field__input field__input--warning"
+          class="c16 field__input field__input--warning"
           data-role="text-field-input-wrapper"
         >
           <div
-            class="c18 field__prefix field__prefix--last"
+            class="c17 field__prefix field__prefix--last"
             data-role="text-field-prefix-0"
           >
             <span
-              class="c19 c20 counter multiselect__counter"
+              class="c18 counter multiselect__counter"
               data-role="counter"
               id="test-id-counter"
             >
@@ -4599,7 +4404,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
                 role="presentation"
               >
                 <span
-                  class="c21 counter__item"
+                  class="c19 counter__item"
                 >
                   0
                 </span>
@@ -4607,14 +4412,14 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             </span>
           </div>
           <span
-            class="c22 supported-unseen-span"
+            class="c20 supported-unseen-span"
           />
           <input
             aria-autocomplete="list"
             aria-describedby="test-id-multiselect__input-warning test-id-counter test-id-multiselect__input-label"
             aria-expanded="false"
             aria-haspopup="listbox"
-            class="c23 c24 field__text"
+            class="c21 c22 field__text"
             data-role="text-field-input"
             id="test-id-multiselect__input"
             placeholder="Test Placeholder"
@@ -4623,19 +4428,21 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
             value=""
           />
           <span
-            class="c22 supported-unseen-span"
+            class="c20 supported-unseen-span"
           />
           <div
-            class="c25 field__suffix field__suffix--first"
+            class="c23 field__suffix field__suffix--first"
             data-role="text-field-suffix-0"
           >
             <i
               aria-hidden="true"
-              class="c11 c12 plasma-icon plasma-icon--big c26"
+              class="c11 c12 plasma-icon plasma-icon--big c24"
               data-role="selection-suffix"
             >
               <span
                 aria-hidden="true"
+                class="notranslate"
+                translate="no"
               >
                 expand_more
               </span>
@@ -4645,10 +4452,10 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render multiselect templat
       </div>
     </div>
     <div
-      class="c27 c28 field__helper"
+      class="c25 field__helper"
     >
       <label
-        class="c29 c30 field__helper-text"
+        class="c26 field__helper-text"
         data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >
@@ -4742,7 +4549,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
   display: none;
 }
 
-.c21 {
+.c19 {
   color: rgb(97, 111, 124);
   display: block;
   font-family: "Open Sans", sans-serif;
@@ -4752,7 +4559,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
   width: fit-content;
 }
 
-.c19 {
+.c18 {
   display: flex;
 }
 
@@ -4777,7 +4584,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   box-sizing: border-box;
   color: inherit;
   flex-grow: 1;
@@ -4805,7 +4612,7 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
   border-width: medium;
   border-style: none;
   border-color: currentcolor;
-  border-image: initial;
+  border-image: none;
   border-radius: 0px;
   color: rgb(77, 77, 77);
   display: flex;
@@ -4855,10 +4662,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
   max-width: 100%;
 }
 
-.c23 > .c18 > .c20 {
-  margin: 0px;
-}
-
 .c15 {
   border: 0px;
   clip: rect(0px, 0px, 0px, 0px);
@@ -4868,12 +4671,6 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
   padding: 0px;
   position: absolute;
   width: 0px;
-}
-
-.c22 .c16 {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 .c0 {
@@ -4992,10 +4789,10 @@ exports[`com.mgmtp.a12.widgets.multiselect.template > render readonly multiselec
       </div>
     </div>
     <div
-      class="c18 c19 field__helper"
+      class="c18 field__helper"
     >
       <label
-        class="c20 c21 field__helper-text"
+        class="c19 field__helper-text"
         data-role="text-field-helper-text"
         for="test-id-multiselect__input"
       >

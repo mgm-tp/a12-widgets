@@ -35,7 +35,6 @@ import type { AreaProps, LineProps } from "recharts";
 
 import type { Styleable, Identifiable } from "../../../../common/main/base-props.js";
 import type { ChartProps } from "../../../main/chart.api.js";
-
 import type { LineChartProps } from "../line-chart.api.js";
 
 /**

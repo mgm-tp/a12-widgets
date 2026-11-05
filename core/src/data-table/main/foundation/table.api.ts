@@ -30,148 +30,19 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { FocusEvent, Key, MouseEvent, RefCallback, SetStateAction, Dispatch } from "react";
-import type { DraggableData, DraggableEvent } from "react-draggable";
-import type { ListProps as ReactVirtualizedProps, List as ReactVirtualizedList } from "react-virtualized";
+/*
+ * Deliberate fork of `core/src/table/main/table.api.ts` — see `./README.md`.
+ * Subset + additions: the value-level row/cell/DnD contracts only. Every legacy
+ * component-prop type is dropped (DataTable declares its own in
+ * `../data-table.api.ts`); the two `ColumnResize*` types are new here.
+ */
 
-import type { Styleable, Ref } from "../../../common/main/base-props.js";
+import type { Key, MouseEvent, TouchEvent } from "react";
 
-import type { TableTemplateProps } from "./table-template.api.js";
-import type { BaseColumnType, Column, SortOrder } from "./column.api.js";
-import type { TableRenderPropsType, TableComponentRenderers, TableScrollToNodeHandler } from "./table-renderer.api.js";
-import type { InfiniteScrollOptions } from "./infinite-scroll.api.js";
+import type { Styleable } from "../../../common/main/base-props.js";
 
-export type TableProps<RowType = unknown, ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>> =
-	| BaseTableProps<RowType, ColumnType>
-	| InfiniteScrollTableProps<RowType, ColumnType>;
-
-export interface InfiniteScrollTableProps<
-	RowType = unknown,
-	ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-> extends Omit<BaseTableProps<RowType, ColumnType>, "data" | "virtualScrollOptions"> {
-	/**
-	 * Data to display.
-	 */
-	data?: (RowType | undefined)[];
-
-	/**
-	 * Use this props to enable infinite scroll feature. See {@link InfiniteScrollOptions} for details.
-	 */
-	infiniteScrollOptions: InfiniteScrollOptions;
-}
-
-export interface BaseTableProps<RowType = unknown, ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>>
-	extends TableTemplateProps.BaseProps, Ref<HTMLDivElement> {
-	/**
-	 * Define columns of table.
-	 */
-	columns: ColumnType[];
-
-	/**
-	 * Data to display. By default, if no dataKey or dataGetter is defined in {@link BaseColumnType}, then data will be parsed using index order from columns definition.
-	 */
-	data?: RowType[];
-
-	/**
-	 * Display table as cards.
-	 * @default false
-	 */
-	cardView?: boolean;
-
-	/**
-	 * If true, all event handler are suppressed, as well as making table looks disabled.
-	 */
-	disabled?: boolean;
-
-	/**
-	 * Either a string or number pointing to the field in the {@link RowType} object, or a function returning the key of the row.
-	 * See {@link RowKeyGetter}.
-	 */
-	rowKey?: string | number | RowKeyGetter<RowType>;
-
-	/**
-	 * Define sort order and event handler for column click.
-	 *
-	 * *Note:* If columns are resizable, the column in {@link SortOptions.sortState} should be updated after resizing to avoid an incorrect state of the sortable header cell.
-	 */
-	sortOptions?: SortOptions<ColumnType>;
-
-	/**
-	 * Enable or supply an option object to override default virtualized behavior, or use additional props that is supported by react-virtualized.
-	 */
-	virtualScrollOptions?: true | VirtualScrollOptions;
-
-	/**
-	 * A handler to scroll to a specific node (row).
-	 */
-	scrollToNode?(handler: TableScrollToNodeHandler): void;
-
-	/**
-	 * Event handlers for DnD behavior.
-	 */
-	dragDropOptions?: TableDragDropOptions<RowType>;
-
-	/**
-	 * Event handlers for resizing columns behavior.
-	 */
-	columnResizingOptions?: ColumnResizingOptions<ColumnType>;
-
-	/**
-	 * Use this prop to override rendering of table. See {@link TableComponentRenderers} for details.
-	 */
-	componentRenderers?: Partial<TableComponentRenderers<RowType, ColumnType>>;
-
-	/**
-	 * Used to specify whether aria-attributes (such as aria-label) will be added to the table footer.
-	 */
-	hasFootContent?: boolean;
-
-	/**
-	 * When enabled, restructures the table header from nested column groups into separate rows using CSS Grid layout.
-	 * This improves screen reader accessibility while maintaining the same visual appearance.
-	 * Each header level becomes a separate row, with cells spanning appropriately based on aria-colspan and aria-rowspan values.
-	 * @default false
-	 */
-	enableColumnGroupA11y?: boolean;
-
-	/**
-	 * Define event handlers for rows. It receives a RowType object as argument, and return a list of handler functions.
-	 * See {@link RowEventHandlerGetter}.
-	 *
-	 * *Note:* The event handlers returned by rowEventHandlers can be overridden by the same event handlers in {@link TableRenderPropsType.BodyRowProps}.
-	 */
-	rowEventHandlers?: RowEventHandlerGetter<RowType>;
-
-	/**
-	 * Define styling for row. It's a function receiving RowType object and its index as argument, and return a {@link RowStyles} object.
-	 *
-	 * *Note:* The properties returned by rowStyling can be overridden by the same properties in {@link TableRenderPropsType.BodyRowProps}.
-	 */
-	rowStyling?: RowStyleGetter<RowType>;
-
-	/**
-	 * Similar to {@link rowStyling}, but return style of cell as key, and return an {@link CellStyles} object.
-	 *
-	 * *Note:* The properties returned by cellStyling can be overridden by the same properties in {@link TableRenderPropsType.BodyCellProps}.
-	 */
-	cellStyling?: CellStyleGetter<RowType, ColumnType>;
-
-	/**
-	 * Whether the body cell and corresponding header cell(s) will be highlighted when mousing over on body cell.
-	 */
-	cellHighlighting?: boolean;
-
-	/**
-	 * If true, the arrow navigation keyboard handlers are suppressed.
-	 */
-	disableArrowNavigation?: boolean;
-
-	/**
-	 * This is useful for validation of Table's data when leaving the table.
-	 * @param event – the FocusEvent, useful to check if the newly focused element (e.g. relatedTarget) is inside Table or not.
-	 */
-	onBlur?(event: FocusEvent<HTMLDivElement>): void;
-}
+import type { BaseColumnType, Column } from "./column.api.js";
+import type { TableRenderPropsType } from "./table-renderer.api.js";
 
 /**
  * Options for DnD handling in table
@@ -211,6 +82,13 @@ export interface TableDragDropOptions<
 	 * Defines the kinds of dragItems this dropTarget accepts.
 	 */
 	acceptType?: string;
+
+	/**
+	 * Whether Space picks the focused row up for `DataTable`'s keyboard row reordering. Defaults to
+	 * `"Space"`; `false` frees Space for the consumer's own row shortcut, at the cost of the keyboard path
+	 * to reordering. Ignored by the legacy `Table`, which has no keyboard reordering.
+	 */
+	keyboardGrabKey?: "Space" | false;
 }
 
 /**
@@ -236,68 +114,6 @@ export type RowEventHandlers = {
  * triggered on the row.
  */
 export type RowEventHandlerGetter<RowType> = (params: { row: RowType; rowIndex: number }) => RowEventHandlers;
-
-/**
- * Specify sort options: which column is active, sort order, and callback function for handling of sort event
- */
-export interface SortOptions<ColumnType> {
-	/**
-	 * Values relevant to the current sorting state including: the column being sorted and the order/direction its sorted in.
-	 */
-	sortState?: SortState<ColumnType>;
-
-	/**
-	 * Handler function for sort event.
-	 */
-	onSort?(params: { column: ColumnType; order: SortOrder }): void;
-}
-
-/**
- * This interface is to couple a column with its sort order
- */
-export interface SortState<ColumnType> {
-	/**
-	 * The column being sorted.
-	 */
-	column?: ColumnType;
-
-	/**
-	 * The direction the column is being sorted in.
-	 */
-	order?: SortOrder;
-}
-
-/**
- * This interface is to override default react-virtualized props/behaviors
- */
-export interface VirtualScrollOptions extends Partial<ReactVirtualizedProps> {
-	/**
-	 * The reference of the react-virtualized list instance.
-	 */
-	listRef?: RefCallback<ReactVirtualizedList>;
-}
-
-/**
- * The Table display its columns in three parts: left, middle-scrollable, and right area.
- * However, columns definition is just an array, and therefore we gather columns in each area by identifying
- * its pinning property and group them into those parts for easier rendering
- */
-export interface RowSegments<ColumnType> {
-	/**
-	 * Left segment's column array of Table.
-	 */
-	left: ColumnType[];
-
-	/**
-	 * Middle-scrollable segment's column array of Table.
-	 */
-	scroll: ColumnType[];
-
-	/**
-	 * Right segment's column array of Table.
-	 */
-	right: ColumnType[];
-}
 
 /**
  * Collections of style values for the row
@@ -326,7 +142,7 @@ export interface RowStyles extends Styleable {
 	/**
 	 * Highlight row bases on different variables.
 	 */
-	highlightVariant?: TableTemplateProps.TableHighlightVariant;
+	highlightVariant?: "success" | "info";
 
 	/**
 	 * Whether the row is highlighted.
@@ -373,59 +189,38 @@ export type CellStyleGetter<RowType, ColumnType extends BaseColumnType<RowType>>
 }) => CellStyles;
 
 /**
- * Hold common static prop values that are shared through all table components.
+ * Event that initiated a column-resize step: a pointer gesture (`PointerEvent`,
+ * a `MouseEvent` subtype) or a keyboard step (`KeyboardEvent`). Structurally
+ * matches react-draggable's `DraggableEvent`, so handlers written against the
+ * production Table's resize callbacks remain assignable — without depending on
+ * the react-draggable types.
  */
-export interface TableContextType<
-	RowType = unknown,
-	ColumnType extends BaseColumnType<RowType> = BaseColumnType<RowType>
-> {
-	rowKey?: string | number | RowKeyGetter<RowType>;
-	columns: ColumnType[];
-	flattenColumns?: ColumnType[];
-	sortOptions?: SortOptions<ColumnType>;
-	disabled?: boolean;
-	cardView?: boolean;
-	hasFootContent?: boolean;
-	dragDropOptions?: TableDragDropOptions<RowType>;
-	virtualScrollOptions?: true | Partial<ReactVirtualizedProps>;
-	infiniteScrollOptions?: InfiniteScrollOptions;
-	columnResizingOptions?: ColumnResizingOptions<ColumnType>;
-	rowStyling?: RowStyleGetter<RowType>;
-	cellStyling?: CellStyleGetter<RowType, ColumnType>;
-	rowEventHandlers?: RowEventHandlerGetter<RowType>;
-	componentRenderers: TableComponentRenderers<RowType, ColumnType>;
-	resizable?: boolean;
-	hasColumnGroup?: boolean;
-	enableColumnGroupA11y?: boolean;
-	crossTabulation?: boolean;
-	cellHighlighting?: boolean;
-	isInteractiveTable?: boolean;
-	setIsInteractiveTable?: Dispatch<SetStateAction<boolean>>;
-	isDragging?: boolean;
-	setIsDragging?: Dispatch<SetStateAction<boolean>>;
-	hasScrollToNode?: boolean;
+export type ColumnResizeDragEvent =
+	| MouseEvent<HTMLElement | SVGElement>
+	| TouchEvent<HTMLElement | SVGElement>
+	| globalThis.MouseEvent
+	| globalThis.TouchEvent;
+
+/**
+ * Pointer-position snapshot for a column-resize step. `x`/`y` are the cursor's
+ * client coordinates, `lastX`/`lastY` the previous callback's, `deltaX`/`deltaY`
+ * the difference, `node` the resize-handle element. Keyboard steps report the
+ * step delta in `deltaX` with the coordinates zeroed. Structurally matches
+ * react-draggable's `DraggableData`.
+ */
+export interface ColumnResizeDragData {
+	node: HTMLElement;
+	x: number;
+	y: number;
+	deltaX: number;
+	deltaY: number;
+	lastX: number;
+	lastY: number;
 }
 
 export type ColumnResizeEventHandler<ColumnType> = (params: {
 	resizedColumn: ColumnType;
 	resizedWidthsGetter?: (column: ColumnType) => Column.Width | undefined;
-	event: DraggableEvent;
-	data: DraggableData;
+	event: ColumnResizeDragEvent;
+	data: ColumnResizeDragData;
 }) => void;
-
-export interface ColumnResizingOptions<ColumnType> {
-	/**
-	 * Handle event when the user starts to resize a column.
-	 */
-	onBeginResize?: ColumnResizeEventHandler<ColumnType>;
-
-	/**
-	 * Handle event when a column is being resized.
-	 */
-	onResize?: ColumnResizeEventHandler<ColumnType>;
-
-	/**
-	 * Handle event when the user has finished resizing a column.
-	 */
-	onEndResize?: ColumnResizeEventHandler<ColumnType>;
-}

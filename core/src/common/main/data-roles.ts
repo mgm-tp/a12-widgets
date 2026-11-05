@@ -59,7 +59,16 @@ const DATA_ROLES_TREE = {
 		Content: ""
 	},
 	CollapsiblePanelAddons: "collapsiblePanel__add-ons",
-	Autocomplete: "",
+	ColumnVisibilityPanel: {
+		Search: { ClearButton: "" },
+		NoResults: "",
+		ShowAllButton: "",
+		ResetButton: "",
+		CloseButton: ""
+	},
+	Autocomplete: {
+		LiveRegion: ""
+	},
 	AttachedPortal: "",
 	Button: {
 		Label: ""
@@ -231,7 +240,8 @@ const DATA_ROLES_TREE = {
 		Links: "",
 		SecondaryText: "",
 		SectionItem: "",
-		Text: ""
+		Text: "",
+		VirtualSpacer: ""
 	},
 	Message: "",
 	Modal: {
@@ -321,7 +331,10 @@ const DATA_ROLES_TREE = {
 		Layout: {
 			View: "",
 			Title: "",
-			Pane: "",
+			Pane: {
+				Content: "",
+				ContentWrapper: ""
+			},
 			Body: ""
 		},
 		Header: ""
@@ -388,6 +401,54 @@ const DATA_ROLES_TREE = {
 	},
 	ResizeAndDragContainer: "resize-and-drag-content",
 	SupportingPanesLayoutResizeHandler: "resize-handle",
+	MarkdownEditor: {
+		Wrapper: "",
+		Input: {
+			Field: "",
+			Wrapper: ""
+		},
+		Toolbar: "",
+		ToolbarItem: "",
+		ToolbarList: "",
+		ToolbarListItem: "",
+		TablePicker: {
+			Wrapper: "",
+			Cell: "",
+			Label: ""
+		},
+		ContextMenu: {
+			List: "",
+			ListItem: ""
+		},
+		Surface: {
+			Edit: "",
+			Source: "",
+			View: ""
+		},
+		ModeSwitcher: {
+			Wrapper: "",
+			Trigger: "",
+			Edit: "",
+			Source: "",
+			View: ""
+		},
+		Dialog: {
+			Wrapper: "",
+			Title: "",
+			Field: "",
+			Error: "",
+			Footer: "",
+			Action: ""
+		},
+		Label: "",
+		ErrorMessage: "",
+		WarningMessage: "",
+		InfoMessage: "",
+		Placeholder: "",
+		HelperText: {
+			Wrapper: ""
+		}
+	},
 	RichTextEditor: {
 		Toolbar: "",
 		ToolbarItem: "",
@@ -405,6 +466,7 @@ const DATA_ROLES_TREE = {
 			Item: ""
 		},
 		AfterAddon: "",
+		TooltipAddon: "",
 		ColorDecoration: "",
 		ErrorMessage: "",
 		WarningMessage: "",
@@ -472,12 +534,22 @@ const DATA_ROLES_TREE = {
 			ScrollerCell: ""
 		},
 		Expandable: { Row: { Body: "", Footer: "" }, Wrapper: "" },
+
+		/**
+		 * Card-view layout. Cards themselves reuse the body roles (`Body.Row`,
+		 * `Body.Cell`, `Body.Cell.CardLabel`) so selectors written against a table
+		 * keep working when the same `DataTable` switches to `cardView`; only the
+		 * list container is card-specific.
+		 */
+		Card: { List: "" },
 		Infinite: { Row: { Group: "" } },
 		Column: { ResizeHandler: "", RightResizeHandler: "", LeftResizeHandler: "" },
-		DnDHint: "",
 		RowOverlay: "",
 		ContextMenu: "",
-		A11yLiveRegion: ""
+		A11yLiveRegion: "",
+
+		/** Floating overlay following the cursor while a row is being dragged. */
+		DragPreview: ""
 	},
 	TreeTable: {
 		Dnd: { Target: "" },
@@ -489,7 +561,13 @@ const DATA_ROLES_TREE = {
 		Icon: "",
 
 		/** The synthetic "load more" row trailing a paginated parent's loaded children. */
-		LoadMore: ""
+		LoadMore: "",
+
+		/** Visually-hidden text naming the row's parent, announced after the tree column's label. */
+		ParentLabel: "",
+
+		/** Visually-hidden polite live region for keyboard drag-and-drop move announcements. */
+		A11yLiveRegion: ""
 	},
 	Tree: {
 		Dropdown: {
@@ -504,9 +582,11 @@ const DATA_ROLES_TREE = {
 			Expander: "",
 			Title: "",
 			Icon: "",
-			Name: ""
+			Name: "",
+			ParentLabel: ""
 		},
-		Subnodes: ""
+		Subnodes: "",
+		A11yLiveRegion: ""
 	},
 	TabSandbox: {
 		Supporter: ""
@@ -521,7 +601,8 @@ const DATA_ROLES_TREE = {
 		TextAffix: "",
 		Prefix: "",
 		Suffix: "",
-		Label: ""
+		Label: "",
+		TooltipAddon: ""
 	},
 	Textarea: {
 		Control: "",
@@ -530,7 +611,8 @@ const DATA_ROLES_TREE = {
 		HelperText: "",
 		ErrorMessage: "",
 		WarningMessage: "",
-		InfoMessage: ""
+		InfoMessage: "",
+		TooltipAddon: ""
 	},
 	TextOutput: {
 		Content: "",
@@ -606,6 +688,7 @@ const DATA_ROLES_TREE = {
 		Left: "",
 		Right: "",
 		Header: "",
+		Body: { Content: "" },
 		Group: {
 			Toolbar: {
 				Title: "",
@@ -626,7 +709,8 @@ const DATA_ROLES_TREE = {
 		UncheckedOption: "",
 		CheckedOption: "",
 		ThumbIcon: "",
-		InlineWrapper: ""
+		InlineWrapper: "",
+		TooltipAddon: ""
 	},
 	Calendar: {
 		WeekView: {
@@ -762,7 +846,8 @@ const DATA_ROLES_TREE = {
 		Label: "",
 		ErrorMessage: "",
 		WarningMessage: "",
-		InfoMessage: ""
+		InfoMessage: "",
+		TooltipAddon: ""
 	},
 	OrderedBulletList: {},
 	UnorderedBulletList: {},

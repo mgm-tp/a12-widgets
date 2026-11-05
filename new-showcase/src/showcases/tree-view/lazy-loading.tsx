@@ -30,7 +30,8 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import type { ReactElement } from "react";
+import type { Key, ReactElement } from "react";
+import { useState } from "react";
 
 import { TreeView } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
@@ -64,8 +65,11 @@ function fetchChildren(node: FileNode): Promise<FileNode[]> {
  * never expand, so files render without an arrow and are never asked to load.
  */
 export function LazyLoadingTreeView(): ReactElement {
+	const [selected, setSelected] = useState<ReadonlySet<Key>>(new Set());
+
 	return (
 		<TreeView<FileNode>
+			id="lazy-loading-tree-view"
 			tree={ROOTS}
 			rowKey="id"
 			getChildren={(node) => node.children}
@@ -73,6 +77,9 @@ export function LazyLoadingTreeView(): ReactElement {
 			getIcon={fileIcon}
 			loadChildren={fetchChildren}
 			isLeaf={(node) => node.kind === "file"}
+			selectionMode="single"
+			selectedKeys={selected}
+			onSelectionChange={setSelected}
 		/>
 	);
 }

@@ -50,9 +50,9 @@ import {
 	Message
 } from "@com.mgmtp.a12.widgets/widgets-core";
 
-import { DateInput } from "./date-input.js";
-import type { Data, FilterOption, ListOperationType } from "./data.js";
 import * as FacetedSearchUtils from "./common.js";
+import type { Data, FilterOption, ListOperationType } from "./data.js";
+import { DateInput } from "./date-input.js";
 import { isValid, mapFilterOptions } from "./utils.js";
 
 const { Grid, Row, Column } = LayoutGrid;
@@ -228,7 +228,7 @@ export namespace FilterView {
 				<Grid>
 					<Row>
 						<Column size={{ sm: 6, md: 6, lg: 6 }}>
-							<DateInput defaultValue={startDate} onSelectedDayChange={getDate} />
+							<DateInput id="filter-trip-start-date" defaultValue={startDate} onSelectedDayChange={getDate} />
 						</Column>
 						<Column size={{ sm: 6, md: 6, lg: 6 }}>
 							<TimePicker
@@ -245,7 +245,11 @@ export namespace FilterView {
 				<Grid>
 					<Row>
 						<Column size={{ sm: 6, md: 6, lg: 6 }}>
-							<DateInput defaultValue={endDate} onSelectedDayChange={(date) => getDate(date, true)} />
+							<DateInput
+								id="filter-trip-end-date"
+								defaultValue={endDate}
+								onSelectedDayChange={(date) => getDate(date, true)}
+							/>
 						</Column>
 						<Column size={{ sm: 6, md: 6, lg: 6 }}>
 							<TimePicker
@@ -492,7 +496,7 @@ export namespace FilterView {
 		);
 
 		return (
-			<Radio name="radiogroup" onValueChanged={onValueChanged} value={value}>
+			<Radio id="filter-selector-filter-view-radio" name="radiogroup" onValueChanged={onValueChanged} value={value}>
 				<Radio.Item label="Billable" value="1" />
 				<Radio.Item label="Not-billable" value="0" />
 			</Radio>

@@ -32,9 +32,9 @@
 
 import { css, styled } from "styled-components";
 
-import { List } from "../../../list/main/list.view.js";
 import { StyledButtonGroup } from "../../../button-group/main/button-group.view.js";
 import { StyledButton } from "../../../button/main/button.styled.js";
+import { List } from "../../../list/main/list.view.js";
 
 export const StyledButtonGroupContainer = styled.div.withConfig({ displayName: "StyledButtonGroupContainer-sc-" })`
 	display: flex;

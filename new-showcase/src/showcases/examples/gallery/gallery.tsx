@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { loremIpsum } from "lorem-ipsum";
 import type { FC, ChangeEvent, ReactNode } from "react";
 import { useState, useCallback, useMemo } from "react";
-import { loremIpsum } from "lorem-ipsum";
 import { styled, css } from "styled-components";
 
 import type { LayoutGridProps, SizeDetectorProps } from "@com.mgmtp.a12.widgets/widgets-core";

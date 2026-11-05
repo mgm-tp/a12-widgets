@@ -34,12 +34,12 @@ import type { ReactElement } from "react";
 import { useState, useCallback, useRef } from "react";
 import { styled } from "styled-components";
 
+import { Button, ButtonGroup } from "@com.mgmtp.a12.widgets/widgets-core";
 import type {
 	DataTableColumn,
 	DataTableScrollToNodeHandler,
 	DataTableRowStyles
 } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
-import { Button, ButtonGroup } from "@com.mgmtp.a12.widgets/widgets-core";
 import { DataTable } from "@com.mgmtp.a12.widgets/widgets-core/experimental";
 
 const StyledScrollContainer = styled.div`
