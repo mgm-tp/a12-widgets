@@ -28,7 +28,7 @@
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-notice": "^1.0.0",
 		"eslint-plugin-react-refresh": "^0.4.26",
-		"eslint-plugin-storybook": "^10.3.5",
+		"eslint-plugin-storybook": "^10.6.2",
 		"globals": "^16.5.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.4.0",
@@ -43,7 +43,7 @@
 			"eslint --fix"
 		]
 	},
-	"version": "38.3.6",
-	"a12Version": "2025.06-ext7",
+	"version": "38.3.7",
+	"a12Version": "2025.06-ext8",
 	"type": "module"
 }

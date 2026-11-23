@@ -1,6 +1,6 @@
 {
 	"name": "@com.mgmtp.a12.widgets/widgets-showcase-redesign",
-	"version": "38.3.6",
+	"version": "38.3.7",
 	"description": "Showcase of Widgets - Redesigned",
 	"author": "mgm technology partners",
 	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
@@ -25,7 +25,7 @@
 		"@com.mgmtp.a12.widgets/widgets-json-api": "workspace:^",
 		"@com.mgmtp.a12.widgets/widgets-utils": "workspace:^",
 		"@date-fns/tz": "^1.4.1",
-		"@faker-js/faker": "^10.4.0",
+		"@faker-js/faker": "^10.6.0",
 		"@lexical/link": "^0.31.2",
 		"@lexical/list": "^0.31.2",
 		"@lexical/react": "^0.31.2",
@@ -47,7 +47,7 @@
 		"@types/react-virtualized": "^9.22.3",
 		"date-fns": "^4.1.0",
 		"deepmerge": "^4.3.1",
-		"dompurify": "^3.4.11",
+		"dompurify": "^3.4.17",
 		"fuzzysort": "^3.1.0",
 		"immer": "^11.1.4",
 		"lexical": "^0.31.2",
@@ -73,7 +73,7 @@
 		"styled-components": "6.1.19",
 		"ts-key-enum": "^2.0.13",
 		"type-fest": "^5.5.0",
-		"typedoc": "^0.28.19",
+		"typedoc": "^0.28.20",
 		"typescript": "5.8.2"
 	},
 	"files": [

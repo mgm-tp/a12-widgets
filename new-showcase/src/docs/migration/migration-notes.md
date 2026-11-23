@@ -1,3 +1,7 @@
+## 38.3.7
+
+No breaking changes in 38.3.7.
+
 ## 38.3.6
 
 No breaking changes in 38.3.6.

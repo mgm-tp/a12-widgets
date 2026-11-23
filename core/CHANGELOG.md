@@ -1,3 +1,16 @@
+## 38.3.7
+
+### Security
+
+- Raised the minimum versions of `dompurify` and `linkify-it` to releases that fix known vulnerabilities (GHSA-cg2g-xh64-v4q7, GHSA-mrv2-3pqr-j5jr, GHSA-22p9-wv53-3rq4, GHSA-v245-v573-v5vm).
+
+### Dependencies Update
+
+| Name       | Old version | New version |
+| ---------- | ----------- | ----------- |
+| dompurify  | ^3.4.11     | ^3.4.17     |
+| linkify-it | ^5.0.0      | ^5.0.2      |
+
 ## 38.3.6
 
 ### Fixed
